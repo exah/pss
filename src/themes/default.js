@@ -21,7 +21,7 @@ export const DEFAULT_THEME = {
     mq: DEFAULT_KEY
   },
   mqs: {
-    default: null,
+    [DEFAULT_KEY]: null,
     [MEDIA_MOBILE.key]: MEDIA_MOBILE.query,
     [MEDIA_TABLET.key]: MEDIA_TABLET.query,
     [MEDIA_DESKTOP.key]: MEDIA_DESKTOP.query
