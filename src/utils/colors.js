@@ -30,14 +30,14 @@ const parseRgb = (rgb) => {
   return { r, g, b, a }
 }
 
-export const isColor = (str) => isHex(str) || isRgb(str) || isHsl(str)
+const isColor = (str) => isHex(str) || isRgb(str) || isHsl(str)
 
-export const parseColor = (str) =>
+const parseColor = (str) =>
   isHex(str) ? parseHexColor(str) : isRgb(str) ? parseRgb(str) : null
 
-export const toHexColor = ({ r, g, b }) => '#' + toHex(r) + toHex(g) + toHex(b)
+const toHexColor = ({ r, g, b }) => '#' + toHex(r) + toHex(g) + toHex(b)
 
-export const toRgb = (color, alpha) => {
+const toRgb = (color, alpha) => {
   const parsed = parseColor(color)
   if (parsed == null) return color
 
@@ -47,6 +47,14 @@ export const toRgb = (color, alpha) => {
   return alpha ? `rgba(${joinedColors}, ${alpha})` : `rgb(${joinedColors})`
 }
 
-export const randomHexColor = () => '#' + (
+const randomHexColor = () => '#' + (
   Math.floor(Math.random() * (1 << 24)).toString(16)
 )
+
+export {
+  isColor,
+  parseColor,
+  toHexColor,
+  toRgb,
+  randomHexColor
+}

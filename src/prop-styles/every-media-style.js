@@ -3,10 +3,15 @@ import { wrapIfMedia, themeMedia } from '../utils'
 
 const everyMedia = (props, fn) => toPairs(themeMedia(props)).map(fn)
 
-export const getEveryMediaStyle = (props, getStyle = F) => everyMedia(
+const everyMediaStyle = (props, getStyle = F) => everyMedia(
   props,
   ([ mediaKey, mediaQuery ]) => {
-    const style = getStyle(mediaKey, props)
-    return style ? wrapIfMedia(mediaQuery, style, props) : {}
+    const style = getStyle(mediaKey)
+    return style ? wrapIfMedia(mediaQuery, style) : {}
   }
 )
+
+export {
+  everyMedia,
+  everyMediaStyle
+}

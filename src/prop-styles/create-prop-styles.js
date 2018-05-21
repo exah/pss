@@ -1,7 +1,7 @@
 import { keys, toPairs, once } from 'ramda'
 import { wrapIfMedia, getStyles, themeMedia } from '../utils'
 
-export const getStylesFromProps = (stylesMap) => (props) =>
+const propStyles = (stylesMap) => (props) =>
   toPairs(props).map(([ key, val ]) =>
     getStyles(stylesMap[key], val, props)
   )
@@ -10,7 +10,7 @@ const buildMediaRegEx = once((media) =>
   new RegExp('(' + keys(media).join('|') + ')?$')
 )
 
-export const getStylesFromPropsWithMedia = (stylesMap, label) => (props) => {
+const propStylesWithMedia = (stylesMap, label) => (props) => {
   const media = themeMedia(props)
   const mediaRegEx = buildMediaRegEx(media)
   const result = toPairs(props)
@@ -26,4 +26,9 @@ export const getStylesFromPropsWithMedia = (stylesMap, label) => (props) => {
     ))
 
   return label ? [ { label }, ...result ] : result
+}
+
+export {
+  propStyles,
+  propStylesWithMedia
 }

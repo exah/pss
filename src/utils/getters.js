@@ -6,16 +6,16 @@ import { DEFAULT_KEY } from '../constants'
 // TODO: getColor
 // TODO: remove getTheme in every getter
 
-export const themeDefaultMediaKey = pathOr(null, [ 'defaults', 'mq' ])
-export const themeDefaultPaletteName = pathOr(DEFAULT_KEY, [ 'defaults', 'palette' ])
-export const themeSpaces = pathOr({}, [ 'sizes', 'space' ])
+const themeDefaultMediaKey = pathOr(null, [ 'defaults', 'mq' ])
+const themeDefaultPaletteName = pathOr(DEFAULT_KEY, [ 'defaults', 'palette' ])
+const themeSpaces = pathOr({}, [ 'sizes', 'space' ])
 
-export const getTheme = (data = {}) => data.theme || data
+const getTheme = (data = {}) => data.theme || data
 
-export const themeMedia = (props) =>
+const themeMedia = (props) =>
   pathOr({}, [ 'mqs' ], getTheme(props))
 
-export const themePalette = curryN(2, (props, paletteName) => {
+const themePalette = curryN(2, (props, paletteName) => {
   const theme = getTheme(props)
 
   return (
@@ -26,7 +26,7 @@ export const themePalette = curryN(2, (props, paletteName) => {
   )
 })
 
-export const themeColors = curryN(2, (props, paletteName) => {
+const themeColors = curryN(2, (props, paletteName) => {
   const theme = getTheme(props)
   const palette = themePalette(theme, paletteName)
 
@@ -36,7 +36,7 @@ export const themeColors = curryN(2, (props, paletteName) => {
   }
 })
 
-export const getSize = curryN(2, (props, key) => {
+const getSize = curryN(2, (props, key) => {
   if (!key) return 0
   if (isStr(key)) {
     const theme = getTheme(props)
@@ -45,7 +45,7 @@ export const getSize = curryN(2, (props, key) => {
   return null
 })
 
-export const getSpace = curryN(3, (props, step, mediaKey, exact = false) => {
+const getSpace = curryN(3, (props, step, mediaKey, exact = false) => {
   const theme = getTheme(props)
   const size = getSize(props, step)
 
@@ -59,3 +59,15 @@ export const getSpace = curryN(3, (props, step, mediaKey, exact = false) => {
 
   return getSpaceValue(spaceSizes, step)
 })
+
+export {
+  themeDefaultMediaKey,
+  themeDefaultPaletteName,
+  themeSpaces,
+  getTheme,
+  themeMedia,
+  themePalette,
+  themeColors,
+  getSize,
+  getSpace
+}

@@ -1,11 +1,21 @@
 import { is } from 'ramda'
 
-export const isFn = is(Function)
-export const isBool = is(Boolean)
-export const isNum = is(Number)
-export const isStr = is(String)
-export const isArr = is(Array)
-export const isObj = is(Object)
-export const isPlainObj = (val) => (
+const isFn = is(Function)
+const isBool = is(Boolean)
+const isNum = is(Number)
+const isStr = is(String)
+const isArr = is(Array)
+const isObj = is(Object)
+const isPlainObj = (val) => (
   isObj(val) && Object.getPrototypeOf(Object.getPrototypeOf(val)) == null
 )
+
+export {
+  isFn,
+  isBool,
+  isNum,
+  isStr,
+  isArr,
+  isObj,
+  isPlainObj
+}
