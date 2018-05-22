@@ -1,8 +1,6 @@
 import { curryN } from 'ramda'
 import { isFn, isNum, isArr } from './is'
 
-const ensureStyle = (style) => style == null ? {} : style
-
 const toArr = (val) => isArr(val) ? val : val != null ? [ val ] : []
 
 const toObj = (arr, fn) => toArr(arr).reduce((acc, ...payload) => {
@@ -11,14 +9,16 @@ const toObj = (arr, fn) => toArr(arr).reduce((acc, ...payload) => {
   return { ...acc, ...result }
 }, {})
 
-const getStyles = (style, val, ...args) => ensureStyle(
+const ensureStyleObj = (style) => style == null ? {} : style
+
+const getStyles = (style, val, ...args) => ensureStyleObj(
   isFn(style)
     ? style(val, ...args)
     : val !== false && val != null ? style : null
 )
 
-const wrapSelector = curryN(2, (selector, style) => (props) => ({
-  [selector]: ensureStyle(isFn(style) ? style(props) : style)
+const wrapSelector = curryN(2, (selector, style) => (props, mediaKey) => ({
+  [selector]: ensureStyleObj(isFn(style) ? style(props, mediaKey) : style)
 }))
 
 const wrapIfMedia = (query, style) => {
@@ -26,17 +26,17 @@ const wrapIfMedia = (query, style) => {
   return query ? { [`@media ${query}`]: style } : style
 }
 
-const getSizeValue = (val, trueVal = '100%', falseVal = 0) => (isNum(val)
+const sizeValue = (val, trueVal = '100%', falseVal = 0) => (isNum(val)
   ? (val > 1 ? val : `${val * 100}%`)
   : val === true ? trueVal : val === false ? falseVal : val
 )
 
-const getSpaceValue = (spaces = [], step) => {
+const spaceValue = (spaces = [], step) => {
   const size = spaces[Math.abs(step)]
   return size != null ? size * ((step < 0) ? -1 : 1) : step
 }
 
-const skipValue = (...styles) => (value, props) => (
+const skipPropValue = (...styles) => (value, props) => (
   styles.map((s) => s(props))
 )
 
@@ -46,7 +46,7 @@ export {
   getStyles,
   wrapSelector,
   wrapIfMedia,
-  getSizeValue,
-  getSpaceValue,
-  skipValue
+  sizeValue,
+  spaceValue,
+  skipPropValue
 }

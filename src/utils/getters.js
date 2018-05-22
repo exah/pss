@@ -1,7 +1,7 @@
-import { pathOr, curryN } from 'ramda'
+import { pathOr } from 'ramda'
 import { DEFAULT_KEY } from '../constants'
 import { isStr, isArr, isNum } from './is'
-import { getSpaceValue, getSizeValue } from './helpers'
+import { spaceValue, sizeValue } from './helpers'
 
 const themeDefaultMediaKey = pathOr(null, [ 'defaults', 'mq' ])
 const themeDefaultPaletteName = pathOr(DEFAULT_KEY, [ 'defaults', 'palette' ])
@@ -11,7 +11,7 @@ const themeMedia = pathOr({}, [ 'mqs' ])
 const themePalettes = pathOr({}, [ 'palettes' ])
 const themeColors = pathOr({}, [ 'colors' ])
 
-const getPalette = curryN(2, (theme, name) => {
+const getPalette = (theme, name) => {
   const palettes = themePalettes(theme)
 
   return (
@@ -20,9 +20,9 @@ const getPalette = curryN(2, (theme, name) => {
     palettes[DEFAULT_KEY] ||
     {}
   )
-})
+}
 
-const getColors = curryN(2, (theme, paletteName) => {
+const getColors = (theme, paletteName) => {
   const colors = themeColors(theme)
   const palette = getPalette(theme, paletteName)
 
@@ -30,38 +30,40 @@ const getColors = curryN(2, (theme, paletteName) => {
     ...palette,
     ...colors
   }
-})
+}
 
-const getColor = curryN(2, (theme, key, colorName) => {
-  const colors = getColors(theme, null)
+const getColor = (theme, key, colorName) => {
+  const colors = getColors(theme)
   const palette = getPalette(theme, colorName)
   const fallback = palette[key] ? palette : colors
 
   return isStr(colorName) ? colors[colorName] || fallback[key] : colors[key]
-})
+}
 
-const getSize = curryN(2, (theme, val, trueVal, falseVal) => {
+const getSize = (theme, val, trueVal, falseVal) => {
   const themeSizeVal = themeSizes(theme)[val]
   const size = themeSizeVal == null
-    ? getSizeValue(val, trueVal, falseVal)
+    ? sizeValue(val, trueVal, falseVal)
     : themeSizeVal
 
   return size == null ? val : size
-})
+}
 
-const getSpace = curryN(3, (theme, step, mediaKey, exact = false) => {
-  const size = isNum(step) ? null : getSize(theme, step, null, null)
+const getSpace = (theme, step) => {
+  const size = isNum(step) ? null : getSize(theme, step)
 
-  if (size != null) return size
+  return (mediaKey, exact = false) => {
+    if (size != null) return size
 
-  const spaces = themeSpaces(theme)
-  const defaultMediaKey = exact || themeDefaultMediaKey(theme)
-  const spaceSizes = isArr(spaces) ? spaces : spaces[mediaKey] || spaces[defaultMediaKey]
+    const spaces = themeSpaces(theme)
+    const defaultMediaKey = exact || themeDefaultMediaKey(theme)
+    const spaceSizes = isArr(spaces) ? spaces : spaces[mediaKey] || spaces[defaultMediaKey]
 
-  if (!spaceSizes) return
+    if (!spaceSizes) return
 
-  return getSpaceValue(spaceSizes, step)
-})
+    return spaceValue(spaceSizes, step)
+  }
+}
 
 export {
   themeDefaultMediaKey,
