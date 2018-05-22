@@ -1,4 +1,4 @@
-# Snapshot report for `src/prop-styles/__tests__/index.js`
+# Snapshot report for `src/core/__tests__/index.js`
 
 The actual snapshot is saved in `index.js.snap`.
 

@@ -1,9 +1,8 @@
 import { pathOr, curryN } from 'ramda'
+import { DEFAULT_KEY } from '../constants'
 import { isStr, isArr } from './is'
 import { getSpaceValue } from './helpers'
-import { DEFAULT_KEY } from '../constants'
 
-// TODO: getColor
 // TODO: remove getTheme in every getter
 
 const themeDefaultMediaKey = pathOr(null, [ 'defaults', 'mq' ])
@@ -15,25 +14,33 @@ const getTheme = (data = {}) => data.theme || data
 const themeMedia = (props) =>
   pathOr({}, [ 'mqs' ], getTheme(props))
 
-const themePalette = curryN(2, (props, paletteName) => {
+const themePalette = curryN(2, (props, name) => {
   const theme = getTheme(props)
 
   return (
-    theme.palette[paletteName] ||
-    theme.palette[themeDefaultPaletteName(theme)] ||
-    theme.palette[DEFAULT_KEY] ||
+    theme.palettes[name] ||
+    theme.palettes[themeDefaultPaletteName(theme)] ||
+    theme.palettes[DEFAULT_KEY] ||
     {}
   )
 })
 
 const themeColors = curryN(2, (props, paletteName) => {
   const theme = getTheme(props)
-  const palette = themePalette(theme, paletteName)
+  const palette = themePalette(props, paletteName)
 
   return {
-    ...theme.colors,
-    ...palette
+    ...palette,
+    ...theme.colors
   }
+})
+
+const themeColor = curryN(2, (props, key, colorName) => {
+  const colors = themeColors(props, null)
+  const palette = themePalette(props, colorName)
+  const fallback = palette[key] ? palette : colors
+
+  return isStr(colorName) ? colors[colorName] || fallback[key] : colors[key]
 })
 
 const getSize = curryN(2, (props, key) => {
@@ -61,13 +68,14 @@ const getSpace = curryN(3, (props, step, mediaKey, exact = false) => {
 })
 
 export {
+  getTheme,
   themeDefaultMediaKey,
   themeDefaultPaletteName,
   themeSpaces,
-  getTheme,
   themeMedia,
   themePalette,
   themeColors,
+  themeColor,
   getSize,
   getSpace
 }
