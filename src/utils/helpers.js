@@ -26,21 +26,14 @@ const wrapIfMedia = (query, style) => {
   return query ? { [`@media ${query}`]: style } : style
 }
 
-const sizeValue = (val, trueVal = '100%') => (isNum(val)
+const getSizeValue = (val, trueVal = '100%', falseVal = 0) => (isNum(val)
   ? (val > 1 ? val : `${val * 100}%`)
-  : val === true ? trueVal : val
+  : val === true ? trueVal : val === false ? falseVal : val
 )
 
 const getSpaceValue = (spaces = [], step) => {
   const size = spaces[Math.abs(step)]
   return size != null ? size * ((step < 0) ? -1 : 1) : step
-}
-
-const sizeRule = (rule, trueVal) => (val, { theme }) => {
-  const themeSize = val === true ? theme.sizes[trueVal] : theme.sizes[val]
-  return {
-    [rule]: themeSize || sizeValue(val, trueVal)
-  }
 }
 
 const ruleValue = (rule, trueVal, falseVal) => (val) => ({
@@ -57,9 +50,8 @@ export {
   getStyles,
   wrapSelector,
   wrapIfMedia,
-  sizeValue,
+  getSizeValue,
   getSpaceValue,
-  sizeRule,
   ruleValue,
   skipValue
 }

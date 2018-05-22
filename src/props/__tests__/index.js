@@ -3,6 +3,7 @@ import { flatten, mergeDeepRight } from 'ramda'
 import { DEFAULT_THEME as theme } from '../../themes/default'
 import { marginProps, paddingProps } from '../space'
 import { themeProps } from '../theme'
+import { sizesProps } from '../sizes'
 
 test('set one step margin for every media', (t) => {
   const result = marginProps({ theme, mg: 1 })
@@ -56,4 +57,18 @@ test('set default inverted palette foreground color', (t) => {
 test('set custom foreground color', (t) => {
   const result = themeProps({ theme, fg: 'rgba(255, 0, 255, 0.3)' })
   t.snapshot(flatten(result))
+})
+
+test('sizes props', (t) => {
+  const result = sizesProps({
+    theme,
+    ht: true,
+    wd: 1,
+    minWd: 0,
+    maxWd: false,
+    minHt: (3 / 4),
+    maxHt: 'nudge'
+  })
+
+  t.snapshot(result)
 })

@@ -1,10 +1,11 @@
 import { pathOr, curryN } from 'ramda'
 import { DEFAULT_KEY } from '../constants'
-import { isStr, isArr } from './is'
-import { getSpaceValue } from './helpers'
+import { isStr, isArr, isNum } from './is'
+import { getSpaceValue, getSizeValue } from './helpers'
 
 const themeDefaultMediaKey = pathOr(null, [ 'defaults', 'mq' ])
 const themeDefaultPaletteName = pathOr(DEFAULT_KEY, [ 'defaults', 'palette' ])
+const themeSizes = pathOr({}, [ 'sizes' ])
 const themeSpaces = pathOr({}, [ 'sizes', 'space' ])
 const themeMedia = pathOr({}, [ 'mqs' ])
 const themePalettes = pathOr({}, [ 'palettes' ])
@@ -39,15 +40,17 @@ const getColor = curryN(2, (theme, key, colorName) => {
   return isStr(colorName) ? colors[colorName] || fallback[key] : colors[key]
 })
 
-const getSize = curryN(2, ({ theme }, key) => {
-  if (!key) return 0
-  if (!isStr(key)) return null
+const getSize = curryN(2, (theme, val, trueVal, falseVal) => {
+  const themeSizeVal = themeSizes(theme)[val]
+  const size = themeSizeVal == null
+    ? getSizeValue(val, trueVal, falseVal)
+    : themeSizeVal
 
-  return theme.sizes[key] || key
+  return size == null ? val : size
 })
 
 const getSpace = curryN(3, (theme, step, mediaKey, exact = false) => {
-  const size = getSize(theme, step)
+  const size = isNum(step) ? null : getSize(theme, step, null, null)
 
   if (size != null) return size
 
