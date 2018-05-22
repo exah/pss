@@ -4,6 +4,7 @@ import { DEFAULT_THEME as theme } from '../../themes/default'
 import { marginProps, paddingProps } from '../space'
 import { themeProps } from '../theme'
 import { sizesProps } from '../sizes'
+import { positionProps } from '../position'
 
 test('set one step margin for every media', (t) => {
   const result = marginProps({ theme, mg: 1 })
@@ -71,4 +72,28 @@ test('sizes props', (t) => {
   })
 
   t.snapshot(result)
+})
+
+test('position props', (t) => {
+  const result = positionProps({
+    theme,
+    prl: true,
+    pstM: true,
+    pabT: false,
+    t: true,
+    b: false,
+    l: 1 / 2,
+    x: 1,
+    y: true,
+    r: 0,
+    z: 100,
+    zM: 100
+  })
+
+  const zIndexFalse = positionProps({ theme, z: false })
+  const zIndexTrue = positionProps({ theme, z: true })
+
+  t.snapshot(result)
+  t.snapshot(zIndexFalse)
+  t.snapshot(zIndexTrue)
 })
