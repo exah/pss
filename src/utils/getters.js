@@ -12,13 +12,18 @@ import {
 import { isStr, isArr, isNum } from './is'
 import { spaceValue, sizeValue } from './helpers'
 
-const themeDefaultMediaKey = pathOr(null, [ DEFAULT_KEY, MEDIA_KEY ])
-const themeDefaultPaletteName = pathOr(DEFAULT_KEY, [ DEFAULT_KEY, PALETTE_KEY ])
-const themeSizes = pathOr({}, [ SIZES_KEY ])
-const themeSpaces = pathOr({}, [ SPACE_KEY ])
-const themeMedia = pathOr({}, [ MEDIA_KEY ])
-const themePalettes = pathOr({}, [ PALETTE_KEY ])
-const themeColors = pathOr({}, [ COLORS_KEY ])
+const themePath = (path, fallback) =>
+  pathOr(fallback, (isStr(path) ? path.split('.') : path || []))
+
+const themeDefaultMediaKey = themePath([ DEFAULT_KEY, MEDIA_KEY ], null)
+const themeDefaultPaletteName = themePath([ DEFAULT_KEY, PALETTE_KEY ], DEFAULT_KEY)
+const themeSizes = themePath(SIZES_KEY, {})
+const themeSpaces = themePath(SPACE_KEY, {})
+const themeMedia = themePath(MEDIA_KEY, {})
+const themePalettes = themePath(PALETTE_KEY, {})
+const themeColors = themePath(COLORS_KEY, {})
+
+const fromTheme = (...args) => (props) => themePath(...args)(props.theme)
 
 const getPalette = (theme, name) => {
   const palettes = themePalettes(theme)
@@ -58,20 +63,17 @@ const getSize = (theme, val, trueVal, falseVal) => {
   return size == null ? val : size
 }
 
-const getSpace = (theme, step) => {
+const getSpace = (theme, step) => (mediaKey, exact = false) => {
   const size = isNum(step) ? null : getSize(theme, step)
+  if (size != null) return size
 
-  return (mediaKey, exact = false) => {
-    if (size != null) return size
+  const spaces = themeSpaces(theme)
+  const defaultMediaKey = exact || themeDefaultMediaKey(theme)
+  const spaceSizes = isArr(spaces) ? spaces : spaces[mediaKey] || spaces[defaultMediaKey]
 
-    const spaces = themeSpaces(theme)
-    const defaultMediaKey = exact || themeDefaultMediaKey(theme)
-    const spaceSizes = isArr(spaces) ? spaces : spaces[mediaKey] || spaces[defaultMediaKey]
+  if (!spaceSizes) return
 
-    if (!spaceSizes) return
-
-    return spaceValue(spaceSizes, step)
-  }
+  return spaceValue(spaceSizes, step)
 }
 
 export {
@@ -81,6 +83,7 @@ export {
   themeMedia,
   themePalettes,
   themeColors,
+  fromTheme,
   getPalette,
   getColors,
   getColor,
