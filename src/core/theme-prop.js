@@ -2,7 +2,7 @@ import { curryN } from 'ramda'
 import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
 import { getColors, getColor, isColor } from '../utils'
 
-const createThemeProp = (bgKey, fgKey) => curryN(2, (value, { theme }) => {
+const themeProp = (bgKey, fgKey) => curryN(2, (value, { theme }) => {
   if (value == null) return {}
   if (value === false) {
     return {
@@ -19,7 +19,7 @@ const createThemeProp = (bgKey, fgKey) => curryN(2, (value, { theme }) => {
   }
 })
 
-const createColorProp = (cssProp, colorKey) => curryN(2, (value, { theme }) => {
+const colorProp = (cssProp, colorKey) => curryN(2, (value, { theme }) => {
   if (value == null) return {}
 
   const color = value === false
@@ -32,6 +32,6 @@ const createColorProp = (cssProp, colorKey) => curryN(2, (value, { theme }) => {
 })
 
 export {
-  createColorProp,
-  createThemeProp
+  colorProp,
+  themeProp
 }

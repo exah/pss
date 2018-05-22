@@ -1,12 +1,12 @@
-import { createSizeProp, mediaPropStyles } from '../core'
+import { sizeProp, mediaPropStyles } from '../core'
 
 const sizesProps = mediaPropStyles({
-  ht: createSizeProp('height'),
-  wd: createSizeProp('width'),
-  maxWd: createSizeProp('maxWidth'),
-  maxHt: createSizeProp('maxHeight'),
-  minHt: createSizeProp('minHeight'),
-  minWd: createSizeProp('minWidth')
+  ht: sizeProp('height'),
+  wd: sizeProp('width'),
+  maxWd: sizeProp('maxWidth'),
+  maxHt: sizeProp('maxHeight'),
+  minHt: sizeProp('minHeight'),
+  minWd: sizeProp('minWidth')
 }, 'sizes')
 
 export { sizesProps }

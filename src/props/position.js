@@ -1,6 +1,6 @@
-import { mediaPropStyles, createRuleProp, createSizeProp } from '../core'
+import { mediaPropStyles, ruleProp, sizeProp } from '../core'
 
-const direction = (dir) => createSizeProp(dir, 0, 'auto')
+const direction = (dir) => sizeProp(dir, 0, 'auto')
 
 const positionProps = mediaPropStyles({
   pst: { position: 'static' },
@@ -14,7 +14,7 @@ const positionProps = mediaPropStyles({
   b: direction('bottom'),
   x: [ direction('left'), direction('right') ],
   y: [ direction('top'), direction('bottom') ],
-  z: createRuleProp('zIndex', 1, 'auto')
+  z: ruleProp('zIndex', 1, 'auto')
 }, 'position')
 
 export { positionProps }

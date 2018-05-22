@@ -1,7 +1,7 @@
-import { mediaPropStyles, createSpaceProps } from '../core'
+import { mediaPropStyles, spaceProps } from '../core'
 
-const marginProps = mediaPropStyles(createSpaceProps('margin', 'mg'), 'margin')
-const paddingProps = mediaPropStyles(createSpaceProps('padding', 'pd'), 'padding')
+const marginProps = mediaPropStyles(spaceProps('margin', 'mg'), 'margin')
+const paddingProps = mediaPropStyles(spaceProps('padding', 'pd'), 'padding')
 
 export {
   marginProps,

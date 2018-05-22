@@ -9,6 +9,10 @@ const toObj = (arr, fn) => toArr(arr).reduce((acc, ...payload) => {
   return { ...acc, ...result }
 }, {})
 
+const toCssRule = (cssProps, val) => val != null
+  ? toObj(cssProps, (name) => ({ [name]: val }))
+  : null
+
 const ensureStyleObj = (style) => style == null ? {} : style
 
 const getStyles = (style, val, ...args) => ensureStyleObj(
@@ -43,6 +47,7 @@ const skipPropValue = (...styles) => (value, props) => (
 export {
   toArr,
   toObj,
+  toCssRule,
   getStyles,
   wrapSelector,
   wrapIfMedia,

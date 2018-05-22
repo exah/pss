@@ -1,8 +1,8 @@
-import { mediaPropStyles, createThemeProp, createColorProp } from '../core'
+import { mediaPropStyles, themeProp, colorProp } from '../core'
 
 export const themeProps = mediaPropStyles({
-  tm: createThemeProp('background', 'foreground'),
-  fg: createColorProp('color', 'foreground'),
-  bg: createColorProp('backgroundColor', 'background'),
-  bc: createColorProp('borderColor', 'border')
+  tm: themeProp('background', 'foreground'),
+  fg: colorProp('color', 'foreground'),
+  bg: colorProp('backgroundColor', 'background'),
+  bc: colorProp('borderColor', 'border')
 }, 'theme')
