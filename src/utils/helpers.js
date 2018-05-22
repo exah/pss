@@ -1,5 +1,5 @@
 import { curryN } from 'ramda'
-import { isFn, isNum, isArr, isBool } from './is'
+import { isFn, isNum, isArr } from './is'
 
 const ensureStyle = (style) => style == null ? {} : style
 
@@ -36,10 +36,6 @@ const getSpaceValue = (spaces = [], step) => {
   return size != null ? size * ((step < 0) ? -1 : 1) : step
 }
 
-const ruleValue = (rule, trueVal, falseVal) => (val) => ({
-  [rule]: isBool(val) ? (val === true ? trueVal : falseVal) : val
-})
-
 const skipValue = (...styles) => (value, props) => (
   styles.map((s) => s(props))
 )
@@ -52,6 +48,5 @@ export {
   wrapIfMedia,
   getSizeValue,
   getSpaceValue,
-  ruleValue,
   skipValue
 }
