@@ -1,15 +1,24 @@
 import { pathOr } from 'ramda'
-import { DEFAULT_KEY } from '../constants'
+
+import {
+  DEFAULT_KEY,
+  COLORS_KEY,
+  MEDIA_KEY,
+  PALETTE_KEY,
+  SIZES_KEY,
+  SPACE_KEY
+} from '../constants'
+
 import { isStr, isArr, isNum } from './is'
 import { spaceValue, sizeValue } from './helpers'
 
-const themeDefaultMediaKey = pathOr(null, [ 'defaults', 'mq' ])
-const themeDefaultPaletteName = pathOr(DEFAULT_KEY, [ 'defaults', 'palette' ])
-const themeSizes = pathOr({}, [ 'sizes' ])
-const themeSpaces = pathOr({}, [ 'sizes', 'space' ])
-const themeMedia = pathOr({}, [ 'mqs' ])
-const themePalettes = pathOr({}, [ 'palettes' ])
-const themeColors = pathOr({}, [ 'colors' ])
+const themeDefaultMediaKey = pathOr(null, [ DEFAULT_KEY, MEDIA_KEY ])
+const themeDefaultPaletteName = pathOr(DEFAULT_KEY, [ DEFAULT_KEY, PALETTE_KEY ])
+const themeSizes = pathOr({}, [ SIZES_KEY ])
+const themeSpaces = pathOr({}, [ SPACE_KEY ])
+const themeMedia = pathOr({}, [ MEDIA_KEY ])
+const themePalettes = pathOr({}, [ PALETTE_KEY ])
+const themeColors = pathOr({}, [ COLORS_KEY ])
 
 const getPalette = (theme, name) => {
   const palettes = themePalettes(theme)

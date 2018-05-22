@@ -1,5 +1,6 @@
 import test from 'ava'
 import { flatten, mergeDeepRight } from 'ramda'
+import { DEFAULT_KEY, PALETTE_KEY } from '../../constants'
 import { DEFAULT_THEME as theme } from '../../themes/default'
 import { marginProps, paddingProps } from '../space'
 import { themeProps } from '../theme'
@@ -30,7 +31,7 @@ test('set theme colors', (t) => {
 })
 
 test('override default palette key', (t) => {
-  const overrideTheme = mergeDeepRight(theme, { defaults: { palette: 'inverted' } })
+  const overrideTheme = mergeDeepRight(theme, { [DEFAULT_KEY]: { [PALETTE_KEY]: 'inverted' } })
   const result = themeProps({ theme: overrideTheme, tm: true })
   t.pass(result)
 })
