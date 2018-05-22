@@ -1,10 +1,10 @@
-import { propStylesWithMedia, createSpaceProps } from '../prop-styles'
+import { mediaPropStyles, createSpaceProps } from '../prop-styles'
 
 const marginProps = createSpaceProps('margin', 'mg')
 const paddingProps = createSpaceProps('padding', 'pd')
 
-const margin = propStylesWithMedia(marginProps, 'margin')
-const padding = propStylesWithMedia(paddingProps, 'padding')
+const margin = mediaPropStyles(marginProps, 'margin')
+const padding = mediaPropStyles(paddingProps, 'padding')
 
 export {
   margin,

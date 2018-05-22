@@ -10,7 +10,7 @@ const buildMediaRegEx = once((media) =>
   new RegExp('(' + keys(media).join('|') + ')?$')
 )
 
-const propStylesWithMedia = (stylesMap, label) => (props) => {
+const mediaPropStyles = (stylesMap, label) => (props) => {
   const media = themeMedia(props)
   const mediaRegEx = buildMediaRegEx(media)
   const result = toPairs(props)
@@ -30,5 +30,5 @@ const propStylesWithMedia = (stylesMap, label) => (props) => {
 
 export {
   propStyles,
-  propStylesWithMedia
+  mediaPropStyles
 }
