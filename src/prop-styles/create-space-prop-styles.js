@@ -1,12 +1,11 @@
 import { toPairs } from 'ramda'
 import { SHORT_DIRECTIONS } from '../constants'
-import { getSpace, toArr } from '../utils'
+import { getSpace, toArr, toObj } from '../utils'
 import { everyMediaStyle } from './every-media-style'
 
-const toCssRule = (props, val) => val == null ? null : toArr(props).reduce(
-  (acc, name) => ({ ...acc, [name]: val }),
-  {}
-)
+const toCssRule = (props, val) => val != null
+  ? toObj(props, (name) => ({ [name]: val }))
+  : null
 
 const buildModifiers = (cssPropBaseName, baseModifier = '') => [
   ...toPairs(SHORT_DIRECTIONS).map(([ shortDir, longDir ]) => [
@@ -35,26 +34,21 @@ const createSpaceStyle = (cssPropBaseName) => {
 
   return Object.assign(
     baseStyle,
-    modifiers.reduce((acc, [ modName, cssProp ]) => !modName ? acc : ({
-      ...acc,
+    toObj(modifiers, ([ modName, cssProp ]) => !modName ? null : ({
       [modName]: getCssRuleStyle(cssProp)
-    }),
-    {})
+    }))
   )
 }
 
 const createSpaceProps = (cssPropBaseName, compPropBaseName) => {
   const modifiers = buildModifiers(cssPropBaseName, compPropBaseName)
 
-  return modifiers.reduce(
-    (acc, [ modName, cssProp ]) => {
-      const style = getCssRuleStyle(cssProp)
-      return {
-        ...acc,
-        [modName]: (value, compProps, mediaKey) => style(value)(compProps, mediaKey)
-      }
-    }, {}
-  )
+  return toObj(modifiers, ([ modName, cssProp ]) => {
+    const style = getCssRuleStyle(cssProp)
+    return {
+      [modName]: (value, compProps, mediaKey) => style(value)(compProps, mediaKey)
+    }
+  })
 }
 
 export {

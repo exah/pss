@@ -1,5 +1,5 @@
 import { themeColors, isStr } from '../utils'
-import { propStylesWithMedia } from '../prop-styles'
+import { mediaPropStyles } from '../prop-styles'
 
 const getColor = (theme, key, value) => {
   if (value == null) return null
@@ -49,7 +49,7 @@ const themeShadow = (value, { theme }) => {
   return { boxShadow: `0 0 ${theme.sizes.shadow}px 0 ${color}` }
 }
 
-export const theme = propStylesWithMedia({
+export const theme = mediaPropStyles({
   tm: themeStyle,
   fg: themeProp('color', 'foreground'),
   bg: themeProp('backgroundColor', 'background'),

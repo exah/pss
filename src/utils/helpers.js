@@ -5,6 +5,12 @@ const ensureStyle = (style) => style == null ? {} : style
 
 const toArr = (val) => isArr(val) ? val : val != null ? [ val ] : []
 
+const toObj = (arr, fn) => toArr(arr).reduce((acc, ...payload) => {
+  const result = fn(...payload)
+  if (result == null) return acc
+  return { ...acc, ...result }
+}, {})
+
 const getStyles = (style, val, ...args) => ensureStyle(
   isFn(style)
     ? style(val, ...args)
@@ -47,6 +53,7 @@ const skipValue = (...styles) => (value, props) => (
 
 export {
   toArr,
+  toObj,
   getStyles,
   wrapSelector,
   wrapIfMedia,
