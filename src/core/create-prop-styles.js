@@ -1,11 +1,14 @@
 import { keys, toPairs, once } from 'ramda'
-import { wrapIfMedia, getStyles, themeMedia } from '../utils'
+import { wrapIfMedia, getStyles, themeMedia, toArr } from '../utils'
+
+const reduceStyles = (fn) => (acc, [ styles, ...rest ]) => styles != null
+  ? acc.concat(toArr(styles).map((style) => fn(style, ...rest)))
+  : acc
 
 const propStyles = (stylesMap) => (props) =>
   toPairs(props)
-    .map(([ key, val ]) => [ stylesMap[key], val, props ])
-    .filter(([ style ]) => style != null)
-    .map((args) => getStyles(...args))
+    .map(([ key, val ]) => [ stylesMap[key], val ])
+    .reduce(reduceStyles((style, val) => getStyles(style, val, props)), [])
 
 const buildMediaRegEx = once((media) =>
   new RegExp('(' + keys(media).join('|') + ')?$')
@@ -22,11 +25,10 @@ const mediaPropStyles = (stylesMap, label) => (props) => {
       const [ styleKey, mediaKey ] = key.split(mediaRegEx)
       return [ stylesMap[styleKey], val, mediaKey ]
     })
-    .filter(([ style ]) => style != null)
-    .map(([ style, val, mediaKey ]) => wrapIfMedia(
+    .reduce(reduceStyles((style, val, mediaKey) => wrapIfMedia(
       media[mediaKey],
       getStyles(style, val, props, mediaKey)
-    ))
+    )), [])
 
   return label ? [ { label }, ...result ] : result
 }
