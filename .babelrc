@@ -1,8 +1,16 @@
 {
+  "env": {
+    "modules": {
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    }
+  },
   "presets": [
-    "env"
+    [ "env", { "modules": false } ]
   ],
   "plugins": [
+    [ "transform-runtime", { "helpers": true, "polyfill": false } ],
     [ "transform-object-rest-spread", { "useBuiltIns": true } ]
   ]
 }
