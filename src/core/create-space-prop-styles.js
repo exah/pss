@@ -15,15 +15,15 @@ const buildModifiers = (cssPropBaseName, baseModifier = '') => [
   [ baseModifier, [ cssPropBaseName ] ]
 ]
 
-const getCssRuleStyle = (cssProp) => (value) => (compProps, mainMediaKey) => {
-  const spaceValue = getSpace(compProps, value)
+const getCssRuleStyle = (cssProp) => (value) => ({ theme }, mainMediaKey) => {
+  const spaceValue = getSpace(theme, value)
 
   if (mainMediaKey != null) {
     return toCssRule(cssProp, spaceValue(mainMediaKey))
   }
 
   return everyMediaStyle(
-    compProps,
+    { theme },
     (mediaKey) => toCssRule(cssProp, spaceValue(mediaKey, true))
   )
 }

@@ -3,60 +3,53 @@ import { DEFAULT_KEY } from '../constants'
 import { isStr, isArr } from './is'
 import { getSpaceValue } from './helpers'
 
-// TODO: remove getTheme in every getter
-
 const themeDefaultMediaKey = pathOr(null, [ 'defaults', 'mq' ])
 const themeDefaultPaletteName = pathOr(DEFAULT_KEY, [ 'defaults', 'palette' ])
 const themeSpaces = pathOr({}, [ 'sizes', 'space' ])
+const themeMedia = pathOr({}, [ 'mqs' ])
+const themePalettes = pathOr({}, [ 'palettes' ])
+const themeColors = pathOr({}, [ 'colors' ])
 
-const getTheme = (data = {}) => data.theme || data
-
-const themeMedia = (props) =>
-  pathOr({}, [ 'mqs' ], getTheme(props))
-
-const themePalette = curryN(2, (props, name) => {
-  const theme = getTheme(props)
+const getPalette = curryN(2, (theme, name) => {
+  const palettes = themePalettes(theme)
 
   return (
-    theme.palettes[name] ||
-    theme.palettes[themeDefaultPaletteName(theme)] ||
-    theme.palettes[DEFAULT_KEY] ||
+    palettes[name] ||
+    palettes[themeDefaultPaletteName(theme)] ||
+    palettes[DEFAULT_KEY] ||
     {}
   )
 })
 
-const themeColors = curryN(2, (props, paletteName) => {
-  const theme = getTheme(props)
-  const palette = themePalette(props, paletteName)
+const getColors = curryN(2, (theme, paletteName) => {
+  const colors = themeColors(theme)
+  const palette = getPalette(theme, paletteName)
 
   return {
     ...palette,
-    ...theme.colors
+    ...colors
   }
 })
 
-const themeColor = curryN(2, (props, key, colorName) => {
-  const colors = themeColors(props, null)
-  const palette = themePalette(props, colorName)
+const getColor = curryN(2, (theme, key, colorName) => {
+  const colors = getColors(theme, null)
+  const palette = getPalette(theme, colorName)
   const fallback = palette[key] ? palette : colors
 
   return isStr(colorName) ? colors[colorName] || fallback[key] : colors[key]
 })
 
-const getSize = curryN(2, (props, key) => {
+const getSize = curryN(2, ({ theme }, key) => {
   if (!key) return 0
-  if (isStr(key)) {
-    const theme = getTheme(props)
-    return theme.sizes[key] || key
-  }
-  return null
+  if (!isStr(key)) return null
+
+  return theme.sizes[key] || key
 })
 
-const getSpace = curryN(3, (props, step, mediaKey, exact = false) => {
-  const theme = getTheme(props)
-  const size = getSize(props, step)
+const getSpace = curryN(3, (theme, step, mediaKey, exact = false) => {
+  const size = getSize(theme, step)
 
-  if (size) return size
+  if (size != null) return size
 
   const spaces = themeSpaces(theme)
   const defaultMediaKey = exact || themeDefaultMediaKey(theme)
@@ -68,14 +61,15 @@ const getSpace = curryN(3, (props, step, mediaKey, exact = false) => {
 })
 
 export {
-  getTheme,
   themeDefaultMediaKey,
   themeDefaultPaletteName,
   themeSpaces,
   themeMedia,
-  themePalette,
+  themePalettes,
   themeColors,
-  themeColor,
+  getPalette,
+  getColors,
+  getColor,
   getSize,
   getSpace
 }
