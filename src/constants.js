@@ -13,3 +13,10 @@ export const SHORT_DIRECTIONS = {
   x: [ DIRECTION_LEFT, DIRECTION_RIGHT ],
   y: [ DIRECTION_TOP, DIRECTION_BOTTOM ]
 }
+
+export const CSS_DEFAULT_VALUE = 'unset'
+export const CSS_PROPS_DEFAULTS = {
+  color: 'inherit',
+  borderColor: 'currentColor',
+  backgroundColor: 'transparent'
+}

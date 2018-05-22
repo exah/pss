@@ -1,12 +1,13 @@
 import { curryN } from 'ramda'
+import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
 import { getColors, getColor, isColor } from '../utils'
 
 const createThemeProp = (bgKey, fgKey) => curryN(2, (value, { theme }) => {
   if (value == null) return {}
   if (value === false) {
     return {
-      backgroundColor: 'transparent',
-      color: 'transparent'
+      backgroundColor: CSS_PROPS_DEFAULTS['backgroundColor'],
+      color: CSS_PROPS_DEFAULTS['color']
     }
   }
 
@@ -20,9 +21,10 @@ const createThemeProp = (bgKey, fgKey) => curryN(2, (value, { theme }) => {
 
 const createColorProp = (cssProp, colorKey) => curryN(2, (value, { theme }) => {
   if (value == null) return {}
-  if (value === false) return 'transparent'
 
-  const color = isColor(value) ? value : getColor(theme, colorKey, value)
+  const color = value === false
+    ? CSS_PROPS_DEFAULTS[cssProp] || CSS_DEFAULT_VALUE
+    : isColor(value) ? value : getColor(theme, colorKey, value)
 
   return !color ? {} : {
     [cssProp]: color
