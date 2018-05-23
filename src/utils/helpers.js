@@ -13,16 +13,13 @@ const toCssRule = (cssProps, val) => val != null
   ? toObj(cssProps, (name) => ({ [name]: val }))
   : null
 
-const ensureStyleObj = (style) => style == null ? {} : style
-
-const getStyles = (style, val, ...args) => ensureStyleObj(
+const getStyles = (style, val, ...args) =>
   isFn(style)
     ? style(val, ...args)
     : val !== false && val != null ? style : null
-)
 
 const wrapSelector = curryN(2, (selector, style) => (props, mediaKey) => ({
-  [selector]: ensureStyleObj(isFn(style) ? style(props, mediaKey) : style)
+  [selector]: isFn(style) ? style(props, mediaKey) : style
 }))
 
 const wrapIfMedia = (query, style) => {
