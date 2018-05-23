@@ -4,11 +4,27 @@ export const PALETTE_KEY = 'palette'
 export const MEDIA_KEY = 'media'
 export const SIZES_KEY = 'size'
 export const SPACE_KEY = 'space'
+export const TEXT_STYLE_KEY = 'textStyle'
 
 export const DIRECTION_LEFT = 'Left'
 export const DIRECTION_RIGHT = 'Right'
 export const DIRECTION_TOP = 'Top'
 export const DIRECTION_BOTTOM = 'Bottom'
+
+export const FONTS_SYSTEM_UI = [
+  'system-ui',
+  '-apple-system',
+  'BlinkMacSystemFont',
+  'Segoe UI',
+  'Roboto',
+  'Oxygen',
+  'Ubuntu',
+  'Cantarell',
+  'Fira Sans',
+  'Droid Sans',
+  'Helvetica Neue',
+  'sans-serif'
+]
 
 export const SHORT_DIRECTIONS = {
   l: DIRECTION_LEFT,

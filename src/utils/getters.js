@@ -6,7 +6,8 @@ import {
   MEDIA_KEY,
   PALETTE_KEY,
   SIZES_KEY,
-  SPACE_KEY
+  SPACE_KEY,
+  TEXT_STYLE_KEY
 } from '../constants'
 
 import { isStr, isArr, isNum } from './is'
@@ -22,6 +23,7 @@ const themeSpaces = themePath(SPACE_KEY, {})
 const themeMedia = themePath(MEDIA_KEY, {})
 const themePalettes = themePath(PALETTE_KEY, {})
 const themeColors = themePath(COLORS_KEY, {})
+const themeTextStyles = themePath(TEXT_STYLE_KEY, {})
 
 const fromTheme = (...args) => (props) => themePath(...args)(props.theme)
 
@@ -76,6 +78,17 @@ const getSpace = (theme, step) => (mediaKey, exact = false) => {
   return spaceValue(spaceSizes, step)
 }
 
+const getTextStyle = (theme, name) => (mediaKey) => {
+  mediaKey = mediaKey === true ? themeDefaultMediaKey(theme) : mediaKey
+  const textStyles = themeTextStyles(theme)
+  const style = textStyles[name]
+
+  if (style && style[mediaKey]) {
+    return style[mediaKey]
+  }
+  return style
+}
+
 export {
   themeDefaultMediaKey,
   themeDefaultPaletteName,
@@ -83,10 +96,12 @@ export {
   themeMedia,
   themePalettes,
   themeColors,
+  themeTextStyles,
   fromTheme,
   getPalette,
   getColors,
   getColor,
   getSize,
-  getSpace
+  getSpace,
+  getTextStyle
 }

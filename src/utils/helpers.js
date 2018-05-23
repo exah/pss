@@ -40,8 +40,8 @@ const spaceValue = (spaces = [], step) => {
   return size != null ? size * ((step < 0) ? -1 : 1) : step
 }
 
-const skipPropValue = (...styles) => (value, props) => (
-  styles.map((s) => s(props))
+const skipPropValue = (...styles) => (value, ...rest) => (
+  styles.map((s) => s(...rest))
 )
 
 export {

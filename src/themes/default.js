@@ -6,7 +6,9 @@ import {
   MEDIA_KEY,
   PALETTE_KEY,
   SIZES_KEY,
-  SPACE_KEY
+  SPACE_KEY,
+  TEXT_STYLE_KEY,
+  FONTS_SYSTEM_UI
 } from '../constants'
 
 const MEDIA_DESKTOP = {
@@ -33,7 +35,8 @@ const COLOR_BLACK_FADED = toRgb(COLOR_BLACK, 0.4)
 export const DEFAULT_THEME = {
   [DEFAULT_KEY]: {
     [PALETTE_KEY]: DEFAULT_KEY,
-    [MEDIA_KEY]: DEFAULT_KEY
+    [MEDIA_KEY]: DEFAULT_KEY,
+    [TEXT_STYLE_KEY]: DEFAULT_KEY
   },
   [MEDIA_KEY]: {
     [DEFAULT_KEY]: null,
@@ -44,6 +47,15 @@ export const DEFAULT_THEME = {
   [SPACE_KEY]: {
     [DEFAULT_KEY]: [ 0, 10, 20, 40 ],
     [MEDIA_MOBILE.key]: [ 0, 8, 16, 32 ]
+  },
+  [TEXT_STYLE_KEY]: {
+    [DEFAULT_KEY]: {
+      fontFamily: FONTS_SYSTEM_UI,
+      fontWeight: 'normal',
+      fontSize: 18,
+      letterSpacing: 0.2,
+      lineHeight: (22 / 18)
+    }
   },
   [SIZES_KEY]: {
     nudge: 2,
