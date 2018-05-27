@@ -1,4 +1,5 @@
 import { toRgb } from '../utils'
+import { createTheme } from '../core'
 
 import {
   DEFAULT_KEY,
@@ -32,7 +33,7 @@ const COLOR_YELLOW = '#fff000'
 const COLOR_WHITE_FADED = toRgb(COLOR_WHITE, 0.4)
 const COLOR_BLACK_FADED = toRgb(COLOR_BLACK, 0.4)
 
-export const DEFAULT_THEME = {
+const DEFAULT_THEME = createTheme({
   [DEFAULT_KEY]: {
     [PALETTE_KEY]: DEFAULT_KEY,
     [MEDIA_KEY]: DEFAULT_KEY,
@@ -91,4 +92,6 @@ export const DEFAULT_THEME = {
       border: COLOR_WHITE_FADED
     }
   }
-}
+})
+
+export { DEFAULT_THEME }
