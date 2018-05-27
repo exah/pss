@@ -11,21 +11,6 @@ export const DIRECTION_RIGHT = 'Right'
 export const DIRECTION_TOP = 'Top'
 export const DIRECTION_BOTTOM = 'Bottom'
 
-export const FONTS_SYSTEM_UI = [
-  'system-ui',
-  '-apple-system',
-  'BlinkMacSystemFont',
-  'Segoe UI',
-  'Roboto',
-  'Oxygen',
-  'Ubuntu',
-  'Cantarell',
-  'Fira Sans',
-  'Droid Sans',
-  'Helvetica Neue',
-  'sans-serif'
-]
-
 export const SHORT_DIRECTIONS = {
   l: DIRECTION_LEFT,
   r: DIRECTION_RIGHT,
