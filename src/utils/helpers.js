@@ -18,14 +18,14 @@ const getStyles = (style, val, ...args) =>
     ? style(val, ...args)
     : val !== false && val != null ? style : null
 
-const wrapSelector = curryN(2, (name, style) => {
-  const wrapper = (obj) => obj ? (name ? { [name]: obj } : obj) : {}
+const wrap = curryN(2, (name, style) => {
+  const wrapper = (obj) => obj != null ? (name ? { [name]: obj } : obj) : {}
   return isFn(style)
     ? (...args) => wrapper(style(...args))
     : wrapper(style)
 })
 
-const wrapIfMedia = (query, style) => wrapSelector(
+const wrapIfMedia = (query, style) => wrap(
   query ? `@media ${query}` : null,
   style
 )
@@ -49,7 +49,7 @@ export {
   toObj,
   toCssRule,
   getStyles,
-  wrapSelector,
+  wrap,
   wrapIfMedia,
   sizeValue,
   spaceValue,

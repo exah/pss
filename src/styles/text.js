@@ -1,19 +1,18 @@
 import { curryN } from 'ramda'
-import { getTextStyle } from '../utils'
+import { getTextStyle, isFn } from '../utils'
 import { everyMedia } from './every-media'
 
 const textStyle = curryN(2, (name, { theme }, propMediaKey) => {
-  const style = getTextStyle(theme, name)
-  const defaultMediaStyle = style()
+  const themeStyle = getTextStyle(theme, name)
 
-  if (defaultMediaStyle) {
-    return everyMedia(
-      (mediaKey) => style(mediaKey) || defaultMediaStyle,
-      { theme }
-    )
+  if (isFn(themeStyle)) {
+    if (propMediaKey === null) {
+      return everyMedia((mediaKey) => themeStyle(mediaKey), { theme })
+    }
+    return themeStyle(propMediaKey)
   }
 
-  return style(propMediaKey)
+  return themeStyle
 })
 
 export { textStyle }

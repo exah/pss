@@ -10,20 +10,18 @@ import {
   TEXT_STYLE_KEY
 } from '../constants'
 
-import { isStr, isArr, isNum } from './is'
-import { spaceValue, sizeValue } from './helpers'
+import { isStr, isArr, isNum, isObj } from './is'
+import { spaceValue } from './helpers'
 
 const themePath = (path, fallback) =>
   pathOr(fallback, (isStr(path) ? path.split('.') : path || []))
 
 const themeDefaultMediaKey = themePath([ DEFAULT_KEY, MEDIA_KEY ], null)
 const themeDefaultPaletteName = themePath([ DEFAULT_KEY, PALETTE_KEY ], DEFAULT_KEY)
-const themeSizes = themePath(SIZES_KEY, {})
 const themeSpaces = themePath(SPACE_KEY, {})
 const themeMedia = themePath(MEDIA_KEY, {})
 const themePalettes = themePath(PALETTE_KEY, {})
 const themeColors = themePath(COLORS_KEY, {})
-const themeTextStyles = themePath(TEXT_STYLE_KEY, {})
 
 const fromTheme = (...args) => (props) => themePath(...args)(props.theme)
 
@@ -56,18 +54,40 @@ const getColor = (theme, key, colorName) => {
   return isStr(colorName) ? colors[colorName] || fallback[key] : colors[key]
 }
 
-const getSize = (theme, val, trueVal, falseVal) => {
-  const themeSizeVal = themeSizes(theme)[val]
-  const size = themeSizeVal == null
-    ? sizeValue(val, trueVal, falseVal)
-    : themeSizeVal
+const getThemeMediaValue = (key) => (theme, value) => {
+  const defaultMediaKey = themeDefaultMediaKey(theme)
+  const themeName = value === true
+    ? themePath([ DEFAULT_KEY, ...key.split('.') ], DEFAULT_KEY)(theme)
+    : value
+  const themeValue = themePath(key, {})(theme)[themeName]
 
-  return size == null ? val : size
+  if (isObj(themeValue) && themeValue.hasOwnProperty(defaultMediaKey)) {
+    return (mediaKey, exact = false) => {
+      const mediaValue = themeValue[mediaKey]
+
+      if (mediaValue != null) {
+        return mediaValue
+      }
+
+      const defaultMediaValue = themeValue[defaultMediaKey]
+
+      if (defaultMediaValue != null) {
+        return exact === true ? null : defaultMediaValue
+      }
+    }
+  }
+
+  return themeValue
 }
 
+const getSize = getThemeMediaValue(SIZES_KEY)
+const getTextStyle = getThemeMediaValue(TEXT_STYLE_KEY)
+
 const getSpace = (theme, step) => (mediaKey, exact = false) => {
-  const size = isNum(step) ? null : getSize(theme, step)
-  if (size != null) return size
+  if (!isNum(step)) {
+    const size = getSize(theme, step)(mediaKey, exact)
+    if (size !== step) return size
+  }
 
   const spaces = themeSpaces(theme)
   const defaultMediaKey = exact || themeDefaultMediaKey(theme)
@@ -78,17 +98,6 @@ const getSpace = (theme, step) => (mediaKey, exact = false) => {
   return spaceValue(spaceSizes, step)
 }
 
-const getTextStyle = (theme, name) => (mediaKey) => {
-  mediaKey = mediaKey === true ? themeDefaultMediaKey(theme) : mediaKey
-  const textStyles = themeTextStyles(theme)
-  const style = textStyles[name]
-
-  if (style && style[mediaKey]) {
-    return style[mediaKey]
-  }
-  return style
-}
-
 export {
   themeDefaultMediaKey,
   themeDefaultPaletteName,
@@ -96,7 +105,6 @@ export {
   themeMedia,
   themePalettes,
   themeColors,
-  themeTextStyles,
   fromTheme,
   getPalette,
   getColors,

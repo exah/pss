@@ -61,15 +61,27 @@ test('set custom foreground color', (t) => {
   t.snapshot(flatten(result))
 })
 
-test('sizes props', (t) => {
+test('sizes props basic value', (t) => {
   const result = sizesProps({
     theme,
     ht: true,
     wd: 1,
     minWd: 0,
     maxWd: false,
-    minHt: (3 / 4),
-    maxHt: 'nudge'
+    minHt: (3 / 4)
+  })
+
+  t.snapshot(result)
+})
+
+test('sizes props advanced values', (t) => {
+  const result = sizesProps({
+    theme,
+    ht: '100px',
+    wdM: '20px',
+    minWd: 'nudge',
+    maxWdM: 'l',
+    minHtM: false
   })
 
   t.snapshot(result)

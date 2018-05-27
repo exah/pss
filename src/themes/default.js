@@ -58,7 +58,10 @@ export const DEFAULT_THEME = {
     }
   },
   [SIZES_KEY]: {
-    nudge: 2,
+    nudge: {
+      [DEFAULT_KEY]: 2,
+      [MEDIA_MOBILE.key]: 1
+    },
     s: 10,
     m: 20,
     l: 30
