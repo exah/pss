@@ -9,9 +9,10 @@ const toObj = (arr, fn) => toArr(arr).reduce((acc, ...payload) => {
   return { ...acc, ...result }
 }, {})
 
-const toCssRule = (cssProps, val) => val != null
+const toCssRule = curryN(2, (cssProps, val) => val != null
   ? toObj(cssProps, (name) => ({ [name]: val }))
   : null
+)
 
 const getStyles = (style, val, ...args) =>
   isFn(style)
@@ -19,7 +20,7 @@ const getStyles = (style, val, ...args) =>
     : val !== false && val != null ? style : null
 
 const wrap = curryN(2, (name, style) => {
-  const wrapper = (obj) => obj != null ? (name ? { [name]: obj } : obj) : {}
+  const wrapper = (obj) => obj != null ? (name ? { [name]: obj } : obj) : null
   return isFn(style)
     ? (...args) => wrapper(style(...args))
     : wrapper(style)

@@ -1,9 +1,11 @@
 import { keys, toPairs, once } from 'ramda'
 import { wrapIfMedia, getStyles, themeMedia, toArr } from '../utils'
 
-const reduceStyles = (fn) => (acc, [ styles, ...rest ]) => styles != null
-  ? acc.concat(toArr(styles).map((style) => fn(style, ...rest)))
-  : acc
+const reduceStyles = (fn) => (acc, [ styles, ...rest ]) => acc.concat(
+  toArr(styles)
+    .map((style) => fn(style, ...rest))
+    .filter((style) => style != null)
+)
 
 const propStyles = (stylesMap) => (props) =>
   toPairs(props)

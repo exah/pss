@@ -1,10 +1,10 @@
 import { curryN } from 'ramda'
-import { getSize, sizeValue, wrap, isFn } from '../utils'
+import { getSize, sizeValue, toCssRule, isFn } from '../utils'
 import { everyMedia } from './every-media'
 
 const sizeProp = (cssProp, ...sizeValueArgs) => curryN(2,
   (propValue, { theme }, propMediaKey) => {
-    const cssRule = wrap(cssProp)
+    const cssRule = toCssRule(cssProp)
     const size = sizeValue(propValue, ...sizeValueArgs)
 
     if (size !== propValue) {
