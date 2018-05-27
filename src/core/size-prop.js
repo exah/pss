@@ -33,8 +33,7 @@ const sizeProp = (cssProp, ...sizeValueArgs) => curryN(2,
   }
 )
 
-const sizeStyle = curryN(3, (cssProp, val = true, ...args) =>
-  sizeProp(cssProp)(val, ...args)
-)
+const sizeStyle = (cssProp, ...sizeValueArgs) => (val = true, ...args) =>
+  sizeProp(cssProp, ...sizeValueArgs)(val, ...args)
 
 export { sizeStyle, sizeProp }

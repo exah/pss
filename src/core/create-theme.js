@@ -26,7 +26,8 @@ const createTheme = (theme = {}) => ({
   },
   [TEXT_STYLE_KEY]: {
     [DEFAULT_KEY]: {
-      fontFamily: 'system-ui'
+      fontFamily: 'system-ui',
+      fontSize: '100%'
     },
     ...theme[TEXT_STYLE_KEY]
   },

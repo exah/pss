@@ -1,9 +1,9 @@
-import { curryN } from 'ramda'
+import { curryN, identity } from 'ramda'
 import { isFn, isNum, isArr } from './is'
 
 const toArr = (val) => isArr(val) ? val : val != null ? [ val ] : []
 
-const toObj = (arr, fn) => toArr(arr).reduce((acc, ...payload) => {
+const toObj = (arr, fn = identity) => toArr(arr).reduce((acc, ...payload) => {
   const result = fn(...payload)
   if (result == null) return acc
   return { ...acc, ...result }

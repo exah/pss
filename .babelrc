@@ -1,5 +1,4 @@
 {
-  "ignore": [ "__tests__" ],
   "env": {
     "modules": {
       "plugins": [

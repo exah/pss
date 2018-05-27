@@ -11,15 +11,16 @@ const buildDirectionModifiers = (cssPropName, shortName = '') => [
   [ shortName, [ cssPropName ] ]
 ]
 
-const cssRuleSpaceStyle = (cssProp) => (value) => ({ theme }, mainMediaKey) => {
+const cssRuleSpaceStyle = (cssProp) => (value) => ({ theme }, propMediaKey) => {
+  const cssRule = toCssRule(cssProp)
   const spaceValue = getSpace(theme, value)
 
-  if (mainMediaKey != null) {
-    return toCssRule(cssProp, spaceValue(mainMediaKey))
+  if (propMediaKey != null) {
+    return cssRule(spaceValue(propMediaKey))
   }
 
   return everyMedia(
-    (mediaKey) => toCssRule(cssProp, spaceValue(mediaKey, true)),
+    (mediaKey) => cssRule(spaceValue(mediaKey, true)),
     { theme }
   )
 }

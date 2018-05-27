@@ -28,7 +28,7 @@
     "watch:esm": "cross-env NODE_ENV=production babel src -w -d esm",
     "watch:cjs": "cross-env NODE_ENV=production BABEL_ENV=modules babel src -w -d cjs",
     "prewatch": "npm run cleanup",
-    "test": "cross-env BABEL_ENV=modules ava src/**/__tests__/**/*.js",
+    "test": "cross-env BABEL_ENV=modules ava test",
     "lint": "eslint src",
     "deploy": "np",
     "cleanup": "rimraf cjs esm",
