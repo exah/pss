@@ -1,6 +1,7 @@
 import test from 'ava'
 import { MEDIA_KEY } from '../src/constants'
 import { createTheme, everyMedia } from '../src'
+import { toStyles } from './_helpers'
 
 const theme = createTheme({
   [MEDIA_KEY]: {
@@ -25,5 +26,10 @@ test('get styles for every media in theme', (t) => {
     }
   }, { theme })
 
-  t.snapshot(result)
+  t.deepEqual(toStyles(result), {
+    backgroundColor: 'red',
+    '@media (max-width: 600px)': {
+      backgroundColor: 'yellow'
+    }
+  })
 })
