@@ -18,14 +18,17 @@ const getStyles = (style, val, ...args) =>
     ? style(val, ...args)
     : val !== false && val != null ? style : null
 
-const wrapSelector = curryN(2, (selector, style) => (props, mediaKey) => ({
-  [selector]: isFn(style) ? style(props, mediaKey) : style
-}))
+const wrapSelector = curryN(2, (name, style) => {
+  const wrapper = (obj) => obj ? (name ? { [name]: obj } : obj) : {}
+  return isFn(style)
+    ? (...args) => wrapper(style(...args))
+    : wrapper(style)
+})
 
-const wrapIfMedia = (query, style) => {
-  if (style == null) return {}
-  return query ? { [`@media ${query}`]: style } : style
-}
+const wrapIfMedia = (query, style) => wrapSelector(
+  query ? `@media ${query}` : null,
+  style
+)
 
 const sizeValue = (val, trueVal = '100%', falseVal = 0) => (isNum(val)
   ? (val > 1 ? val : `${val * 100}%`)
