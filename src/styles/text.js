@@ -4,7 +4,7 @@ import { everyMedia } from './every-media'
 
 const textStyle = curryN(2, (name, { theme }, propMediaKey) => {
   const style = getTextStyle(theme, name)
-  const defaultMediaStyle = style(true)
+  const defaultMediaStyle = style()
 
   if (defaultMediaStyle) {
     return everyMedia(
