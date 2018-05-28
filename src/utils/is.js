@@ -6,9 +6,6 @@ const isNum = is(Number)
 const isStr = is(String)
 const isArr = is(Array)
 const isObj = is(Object)
-const isPlainObj = (val) => (
-  isObj(val) && Object.getPrototypeOf(Object.getPrototypeOf(val)) == null
-)
 
 export {
   isFn,
@@ -16,6 +13,5 @@ export {
   isNum,
   isStr,
   isArr,
-  isObj,
-  isPlainObj
+  isObj
 }
