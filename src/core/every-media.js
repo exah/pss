@@ -5,7 +5,7 @@ const everyMedia = curryN(2, (getStyle, props) =>
   toPairs(themeMedia(props.theme))
     .map(([ mediaKey, mediaQuery ]) => wrapIfMedia(
       mediaQuery,
-      getStyle(mediaKey)
+      getStyle(mediaKey, props)
     ))
     .filter((style) => style != null)
 )
