@@ -1,6 +1,6 @@
 {
-  "name": "pss",
-  "version": "0.0.1",
+  "name": "@exah/prop-styles-system",
+  "version": "0.0.0",
   "description": "Prop styles system for styled components",
   "author": "John Grishin <hi@johngrish.in>",
   "license": "MIT",
@@ -30,10 +30,14 @@
     "prewatch": "npm run cleanup",
     "test": "cross-env BABEL_ENV=modules ava test",
     "lint": "eslint src",
-    "deploy": "np",
+    "deploy": "np --no-cleanup",
     "cleanup": "rimraf cjs esm",
     "preversion": "npm run build",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "prepush": "npm test"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "lint-staged": {
     "*.js": "eslint"
