@@ -41,6 +41,19 @@ test('props -> set one step space for every media', (t) => {
   })
 })
 
+test('props -> set bool space value', (t) => {
+  const result = toStyles(marginProps({ theme, mg: true, mgxM: false }))
+
+  t.deepEqual(result, {
+    margin: 10,
+    '@media (max-width: 600px)': {
+      margin: 5,
+      marginLeft: 0,
+      marginRight: 0
+    }
+  })
+})
+
 test('props -> override one step space on mobile and tablet', (t) => {
   const result = toStyles(marginProps({ theme, mg: 1, mglM: 3, mgxT: 0 }))
 

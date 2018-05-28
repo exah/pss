@@ -10,7 +10,7 @@ import {
   TEXT_STYLE_KEY
 } from '../constants'
 
-import { isStr, isArr, isNum, isObj, isFn } from './is'
+import { isStr, isArr, isNum, isObj, isFn, isBool } from './is'
 import { spaceValue } from './helpers'
 
 const themePath = (path, fallback) =>
@@ -87,7 +87,7 @@ const getTextStyle = getThemeMediaValue(TEXT_STYLE_KEY)
 const getSpace = (theme, step) => (mediaKey, exact = false) => {
   const defaultMediaKey = themeDefaultMediaKey(theme)
 
-  if (!isNum(step)) {
+  if (!isNum(step) && !isBool(step)) {
     const themeSize = getSize(theme, step)
 
     if (isFn(themeSize)) {
