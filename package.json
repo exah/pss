@@ -4,7 +4,7 @@
   "description": "Prop styles system for styled components",
   "author": "John Grishin <hi@johngrish.in>",
   "license": "MIT",
-  "repository": "exah/pss",
+  "repository": "exah/prop-styles-system",
   "sideEffects": false,
   "main": "cjs/index.js",
   "module": "esm/index.js",
