@@ -24,6 +24,6 @@ export const CSS_DEFAULT_VALUE = 'unset'
 
 export const CSS_PROPS_DEFAULTS = {
   color: 'inherit',
-  borderColor: 'currentColor',
+  borderColor: 'transparent',
   backgroundColor: 'transparent'
 }
