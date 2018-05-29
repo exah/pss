@@ -29,7 +29,7 @@
     "watch:cjs": "cross-env NODE_ENV=production BABEL_ENV=modules babel src -w -d cjs",
     "prewatch": "npm run cleanup",
     "test": "cross-env BABEL_ENV=modules ava test",
-    "lint": "eslint src",
+    "lint": "eslint src test",
     "deploy": "np --no-cleanup",
     "cleanup": "rimraf cjs esm",
     "preversion": "npm run build",
@@ -40,10 +40,12 @@
     "access": "public"
   },
   "lint-staged": {
-    "*.js": "eslint"
+    "./src/**/*.js": "eslint",
+    "./test/**/*.js": "eslint"
   },
   "eslintConfig": {
     "extends": "standard",
+    "parser": "babel-eslint",
     "rules": {
       "no-shadow": 2
     }
@@ -58,9 +60,11 @@
     "ava": "^0.25.0",
     "babel-cli": "^6.26.0",
     "babel-core": "6.26.3",
+    "babel-eslint": "^8.2.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
+    "babel-preset-flow": "^6.23.0",
     "babel-register": "^6.26.0",
     "cross-env": "5.1.5",
     "eslint": "^4.19.1",
@@ -69,6 +73,7 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-standard": "^3.1.0",
+    "flow-bin": "^0.73.0",
     "husky": "^0.14.3",
     "lint-staged": "^7.1.1",
     "np": "2.20.1",

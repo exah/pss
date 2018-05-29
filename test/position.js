@@ -1,7 +1,7 @@
 import test from 'ava'
 import { MEDIA_KEY } from '../src/constants'
 import { createTheme, positionProps } from '../src'
-import { toStyles } from './_helpers.js'
+import { toStyles } from './_helpers'
 
 const theme = createTheme({
   [MEDIA_KEY]: {

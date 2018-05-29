@@ -1,8 +1,9 @@
+// @flow
 import { curryN } from 'ramda'
 import { getSize, sizeValue, toCssRule, isFn } from '../utils'
 import { everyMedia } from './every-media'
 
-const sizeProp = (cssProp, ...sizeValueArgs) => curryN(2,
+const sizeProp = (cssProp: string, ...sizeValueArgs: Array<string | number>) => curryN(2,
   (propValue, { theme }, propMediaKey) => {
     const cssRule = toCssRule(cssProp)
     const size = sizeValue(propValue, ...sizeValueArgs)

@@ -1,3 +1,4 @@
+// @flow
 import {
   DEFAULT_KEY,
   COLORS_KEY,
@@ -8,7 +9,7 @@ import {
   TEXT_STYLE_KEY
 } from '../constants'
 
-const createTheme = (theme = {}) => ({
+const createTheme = (theme: Object = {}): Object => ({
   ...theme,
   [DEFAULT_KEY]: {
     [PALETTE_KEY]: DEFAULT_KEY,
