@@ -6,7 +6,7 @@ import type {
   CompProps,
   Styles,
   PropStyle,
-  PropStyles
+  PropStylesMap
 } from '../types'
 
 const reduceStyles = (
@@ -23,24 +23,21 @@ const reduceStyles = (
  * @example
  *
  * // Define style as props + styles pairs
- *
  * const Box = styled.div(propStyles({ hide: { display: 'none' } }))
  *
- *
  * // Use in component
- *
- * <Box hide />
- *
+ * render(
+ *   <Box hide />
+ * )
  *
  * // CSS-in-JS output
- *
- * element {
+ * {
  *  display: 'none'
  * }
  */
 
 const propStyles = (
-  stylesMap: PropStyles
+  stylesMap: PropStylesMap
 ) => (props: CompProps): Styles =>
   toPairs(props)
     .map(([ key, val ]) => [ stylesMap[key], val ])
@@ -56,34 +53,31 @@ const buildMediaRegEx = once((media: Object) =>
  * @example
  *
  * // Define style as props + styles pairs
- *
  * const Box = styled.div(mediaPropStyles({ hide: { display: 'none' } }))
  *
- *
- * // Use in component with theme prop (use top level ThemeProvider)
- *
+ * // Use in component with theme prop (or ThemeProvider)
  * const theme = createTheme({
  *  media: {
  *    M: '(max-width: 600px)'
  *  }
  * })
  *
- * <ThemeProvider theme={theme}>
- *   <Box hideM />
- * </ThemeProvider>
- *
+ * render(
+ *  <ThemeProvider theme={theme}>
+ *    <Box hideM />
+ *  </ThemeProvider>
+ * )
  *
  * // CSS-in-JS output
- *
- * element {
- *  @media (max-width: 600px) {
- *    display: 'none'
+ * {
+ *  '@media (max-width: 600px)': {
+ *    display: 'none';
  *  }
  * }
  */
 
 const mediaPropStyles = (
-  stylesMap: PropStyles,
+  stylesMap: PropStylesMap,
   label: string
 ) => (props: CompProps): Styles => {
   const { theme, ...rest } = props

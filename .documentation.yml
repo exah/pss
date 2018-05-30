@@ -1,0 +1,8 @@
+hljs:
+  highlightAuto: true
+toc:
+  - name: Core
+  - propStyles
+  - mediaPropStyles
+  - name: Types
+  - PropStylesMap

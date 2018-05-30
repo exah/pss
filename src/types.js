@@ -14,7 +14,23 @@ type CompProps = {|
 type PropCSSValue = string | number | boolean | null
 type StyleFn = (value: PropCSSValue) => (props: CompProps, mediaKey: string) => Style
 type PropStyle = (value: PropCSSValue, props?: CompProps, mediaKey?: string) => Style
-type PropStyles = { [CompPropName]: PropStyle }
+
+/**
+ * Object with keys represents component prop name
+ * and value as style object or function that returns style
+ *
+ * @type {Object}
+ *
+ * @example
+ *
+ * {
+ *   hide: { display: 'none' },
+ *   width: (value, props, mediaKey) => ({
+ *     width: mediaKey === 'M' ? 50 : value
+ *   })
+ * }
+ */
+type PropStylesMap = { [CompPropName]: PropStyle }
 
 type ThemeKey = string
 
@@ -27,6 +43,6 @@ export {
   ThemeKey,
   CompPropName,
   PropStyle,
-  PropStyles,
+  PropStylesMap,
   PropCSSValue
 }
