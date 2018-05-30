@@ -1,9 +1,11 @@
 [ignore]
+.*/node_modules/.*
+.*/cjs/.*
+.*/esm/.*
 
 [include]
 
 [libs]
-"./flow-typed/npm/*"
 
 [lints]
 

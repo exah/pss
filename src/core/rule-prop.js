@@ -1,12 +1,19 @@
 // @flow
 import { isBool } from '../utils'
 
-type name = string
-type value = string | number
+import type {
+  CSSProp,
+  CSSValue,
+  PropStyle,
+  Style
+} from '../types'
 
-const ruleProp = (cssProp: name, trueVal: value, falseVal: value): Function =>
-  (val: value): { [name]: value } => ({
-    [cssProp]: isBool(val) ? (val === true ? trueVal : falseVal) : val
-  })
+const ruleProp = (
+  cssProp: CSSProp,
+  trueVal: CSSValue,
+  falseVal: CSSValue
+): PropStyle => (val: CSSValue): Style => ({
+  [cssProp]: isBool(val) ? (val === true ? trueVal : falseVal) : val
+})
 
 export { ruleProp }
