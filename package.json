@@ -30,7 +30,7 @@
     "watch:cjs": "cross-env NODE_ENV=production BABEL_ENV=modules babel src -w -d cjs",
     "watch:docs": "npm run docs -- -w",
     "prewatch": "npm run cleanup",
-    "docs": "documentation build -c ./.documentation.yml src/** -f html -o docs",
+    "docs": "documentation build -c ./.documentation.yml src/** -f md -o docs/api.md",
     "test": "cross-env BABEL_ENV=modules ava test",
     "lint": "eslint src test",
     "deploy": "np --no-cleanup",

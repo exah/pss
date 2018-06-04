@@ -1,8 +1,13 @@
 hljs:
   highlightAuto: true
 toc:
-  - name: Core
   - propStyles
   - mediaPropStyles
+  - createTheme
+  # - spaceProps
+  # - ruleProp
+  # - sizeProp
+  # - colorProp
+  # - themeProp
   - name: Types
   - PropStylesMap
