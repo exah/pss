@@ -1,0 +1,13 @@
+hljs:
+  highlightAuto: true
+toc:
+  - propStyles
+  - mediaPropStyles
+  - createTheme
+  # - spaceProps
+  # - ruleProp
+  # - sizeProp
+  # - colorProp
+  # - themeProp
+  - name: Types
+  - PropStylesMap
