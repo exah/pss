@@ -5,6 +5,7 @@ import { wrapIfMedia, getStyles, themeMedia, toArr } from '../utils'
 import type {
   CompProps,
   Styles,
+  StyleFn,
   PropStyle,
   PropStylesMap
 } from '../types'
@@ -21,24 +22,27 @@ const reduceStyles = (
  * Creates basic prop-styles
  *
  * @example
+ * import { propStyles } from '@exah/prop-styles-system'
  *
- * // Define style as props + styles pairs
- * const Box = styled.div(propStyles({ hide: { display: 'none' } }))
+ * @example
+ * // Create prop-styles as { prop: style } pairs
+ * const myPropStyles = propStyles({ red: { backgroundColor: 'red' } })
  *
- * // Use in component
- * render(
- *   <Box hide />
- * )
+ * // Add to styled-component
+ * const Box = styled.div(myPropStyles)
  *
- * // CSS-in-JS output
- * {
- *  display: 'none'
+ * // Use
+ * <Box red />
+ *
+ * @example
+ * element {
+ *   background-color: red;
  * }
  */
 
 const propStyles = (
-  stylesMap: PropStylesMap
-) => (props: CompProps): Styles =>
+  stylesMap: PropStylesMap = {}
+): StyleFn => (props: CompProps): Styles =>
   toPairs(props)
     .map(([ key, val ]) => [ stylesMap[key], val ])
     .reduce(reduceStyles((style, val) => getStyles(style, val, props)), [])
@@ -51,35 +55,48 @@ const buildMediaRegEx = once((media: Object) =>
  * Creates media prop-styles
  *
  * @example
+ * import { mediaPropStyles } from '@exah/prop-styles-system'
  *
- * // Define style as props + styles pairs
- * const Box = styled.div(mediaPropStyles({ hide: { display: 'none' } }))
- *
- * // Use in component with theme prop (or ThemeProvider)
+ * @example
+ * // Create theme with defined media queries
  * const theme = createTheme({
- *  media: {
- *    M: '(max-width: 600px)'
- *  }
+ *   media: {
+ *     M: '(max-width: 600px)'
+ *   }
  * })
  *
- * render(
- *  <ThemeProvider theme={theme}>
- *    <Box hideM />
- *  </ThemeProvider>
- * )
+ * // Create media aware props style
+ * const myPropStyle = mediaPropStyles({
+ *   hide: { display: 'none' },
+ *   bg: (val, props, mediaKey) => ({
+ *     backgroundColor: val === true ? mediaKey === 'M' ? 'red' : 'blue' : val
+ *   })
+ * })
  *
- * // CSS-in-JS output
- * {
- *  '@media (max-width: 600px)': {
- *    display: 'none';
- *  }
+ * // Add to styled-component
+ * const Box = styled.div(myPropStyle)
+ *
+ * // Use in component with ThemeProvider (or theme prop)
+ * <ThemeProvider theme={theme}>
+ *   <Box bg='#000' bgM hideM />
+ * </ThemeProvider>
+ *
+ * @example
+ *
+ * element {
+ *   backgroundColor: #000;
+ *
+ *   \@media (max-width: 600px) {
+ *     backgroundColor: red;
+ *     display: none;
+ *   }
  * }
  */
 
 const mediaPropStyles = (
-  stylesMap: PropStylesMap,
+  stylesMap: PropStylesMap = {},
   label: string
-) => (props: CompProps): Styles => {
+): StyleFn => (props: CompProps): Styles => {
   const { theme, ...rest } = props
 
   const media = themeMedia(theme)

@@ -12,7 +12,7 @@ type CompProps = {|
 |}
 
 type PropCSSValue = string | number | boolean | null
-type StyleFn = (value: PropCSSValue) => (props: CompProps, mediaKey: string) => Style
+type StyleFn = (props: CompProps, mediaKey?: string) => Style
 type PropStyle = (value: PropCSSValue, props?: CompProps, mediaKey?: string) => Style
 
 /**

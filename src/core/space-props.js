@@ -26,7 +26,7 @@ const buildDirectionModifiers = (
 
 const cssRuleSpaceStyle = (
   styleProp: CSSProp
-): StyleFn => (value) => ({ theme }, propMediaKey) => {
+): Function => (value): StyleFn => ({ theme }, propMediaKey) => {
   const cssRule = toCssRule(styleProp)
   const spaceValue = getSpace(theme, value)
 

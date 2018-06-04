@@ -9,6 +9,73 @@ import {
   TEXT_STYLE_KEY
 } from '../constants'
 
+/**
+ * Helper that creates theme with required defaults
+ *
+ * @example
+ * const theme = createTheme({
+ *   media: {
+ *     M: '(max-width: 600px)'
+ *   },
+ *   space: {
+ *     default: [ 0, 10, 20, 30, 60 ],
+ *     M: [ 0, 10, 15, 30, 30 ]
+ *   },
+ *   size: {
+ *     s: 10,
+ *     m: 25,
+ *     l: 50
+ *   },
+ *   color: {
+ *     red: '#ff0000'
+ *   },
+ *   palette: {
+ *     default: {
+ *       bg: '#ffffff',
+ *       fg: '#000000'
+ *     }
+ *     inverted: {
+ *       bg: '#000000'
+ *       fg: '#ffffff',
+ *     }
+ *   }
+ * })
+ *
+ * @example
+ * {
+ *   default: {
+ *     media: 'default',
+ *     palette: 'default'
+ *   },
+ *   media: {
+ *     default: null,
+ *     M: '(max-width: 600px)'
+ *   },
+ *   space: {
+ *     default: [ 0, 10, 20, 30, 60 ],
+ *     M: [ 0, 10, 15, 30, 30 ]
+ *   },
+ *   size: {
+ *     s: 10,
+ *     m: 25,
+ *     l: 50
+ *   },
+ *   color: {
+ *     red: '#ff0000'
+ *   },
+ *   palette: {
+ *     default: {
+ *       bg: '#ffffff',
+ *       fg: '#000000'
+ *     }
+ *     inverted: {
+ *       bg: '#000000'
+ *       fg: '#ffffff',
+ *     }
+ *   }
+ * }
+ */
+
 const createTheme = (theme: Object = {}): Object => ({
   ...theme,
   [DEFAULT_KEY]: {
