@@ -6,7 +6,7 @@ import { everyMedia } from './every-media'
 
 import type {
   CSSProp,
-  StyleFn,
+  DynamicStyle,
   CompPropName,
   PropStyles
 } from '../types'
@@ -26,7 +26,7 @@ const buildDirectionModifiers = (
 
 const cssRuleSpaceStyle = (
   styleProp: CSSProp
-): Function => (value): StyleFn => ({ theme }, propMediaKey) => {
+): Function => (value): DynamicStyle => ({ theme }, propMediaKey) => {
   const cssRule = toCssRule(styleProp)
   const spaceValue = getSpace(theme, value)
 
@@ -40,7 +40,7 @@ const cssRuleSpaceStyle = (
   )
 }
 
-const spaceStyle = (stylePropPrefix: CSSProp): StyleFn => {
+const spaceStyle = (stylePropPrefix: CSSProp): DynamicStyle => {
   const baseStyle = cssRuleSpaceStyle(stylePropPrefix)
   const modifiers = buildDirectionModifiers(stylePropPrefix)
 

@@ -39,7 +39,7 @@ element {
 }
 ```
 
-Returns **StyleFn** 
+Returns **DynamicStyle** 
 
 ## mediaPropStyles
 
@@ -92,7 +92,7 @@ element {
 }
 ```
 
-Returns **StyleFn** 
+Returns **DynamicStyle** 
 
 ## createTheme
 

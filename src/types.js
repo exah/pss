@@ -11,9 +11,9 @@ type CompProps = {|
   [CompPropName]: mixed
 |}
 
-type PropCSSValue = string | number | boolean | null
-type StyleFn = (props: CompProps, mediaKey?: string) => Style
-type PropStyle = (value: PropCSSValue, props?: CompProps, mediaKey?: string) => Style
+type PropStyleValue = string | number | boolean | null
+type DynamicStyle = (props: CompProps, mediaKey?: string) => Style | Styles
+type PropStyle = (value: PropStyleValue, props?: CompProps, mediaKey?: string) => Style
 
 /**
  * Object with keys represents component prop name
@@ -38,11 +38,11 @@ export {
   CSSProp,
   CSSValue,
   Style,
-  StyleFn,
+  DynamicStyle,
   Styles,
   ThemeKey,
   CompPropName,
   PropStyle,
   PropStylesMap,
-  PropCSSValue
+  PropStyleValue
 }

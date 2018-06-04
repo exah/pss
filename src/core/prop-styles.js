@@ -5,7 +5,7 @@ import { wrapIfMedia, getStyles, themeMedia, toArr } from '../utils'
 import type {
   CompProps,
   Styles,
-  StyleFn,
+  DynamicStyle,
   PropStyle,
   PropStylesMap
 } from '../types'
@@ -42,7 +42,7 @@ const reduceStyles = (
 
 const propStyles = (
   stylesMap: PropStylesMap = {}
-): StyleFn => (props: CompProps): Styles =>
+): DynamicStyle => (props: CompProps): Styles =>
   toPairs(props)
     .map(([ key, val ]) => [ stylesMap[key], val ])
     .reduce(reduceStyles((style, val) => getStyles(style, val, props)), [])
@@ -96,7 +96,7 @@ const buildMediaRegEx = once((media: Object) =>
 const mediaPropStyles = (
   stylesMap: PropStylesMap = {},
   label: string
-): StyleFn => (props: CompProps): Styles => {
+): DynamicStyle => (props: CompProps): Styles => {
   const { theme, ...rest } = props
 
   const media = themeMedia(theme)
