@@ -1,7 +1,7 @@
 // @flow
 import { once } from 'ramda'
 import { DEFAULT_KEY } from '../constants'
-import { wrapIfMedia, getStyles, themeMedia, toArr } from '../utils'
+import { wrapIfMedia, isFn, themeMedia, toArr } from '../utils'
 
 import type {
   Styles,
@@ -88,12 +88,15 @@ const propStylesSystem = (
         const matched = stylesWithMedia[key]
 
         if (matched !== undefined) {
-          const [ style, mediaKey, mediaQuery ] = matched
+          const [ propStyle, mediaKey, mediaQuery ] = matched
+          const value = props[key]
 
           return acc.concat(
-            toArr(style).map((_style) => wrapIfMedia(
+            toArr(propStyle).map((style) => wrapIfMedia(
               mediaQuery,
-              getStyles(_style, props[key], props, mediaKey)
+              isFn(style)
+                ? style(value, props, mediaKey)
+                : value === true ? style : null
             ) || [])
           )
         }

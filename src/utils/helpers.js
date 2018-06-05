@@ -14,11 +14,6 @@ const toCssRule = curryN(2, (cssProps, val) => val != null
   : null
 )
 
-const getStyles = (style, val, ...args) =>
-  isFn(style)
-    ? style(val, ...args)
-    : val === true ? style : null
-
 const wrap = curryN(2, (name, style) => {
   const wrapper = (obj) => obj != null ? (name ? { [name]: obj } : obj) : null
   return isFn(style)
@@ -49,7 +44,6 @@ export {
   toArr,
   toObj,
   toCssRule,
-  getStyles,
   wrap,
   wrapIfMedia,
   sizeValue,
