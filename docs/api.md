@@ -9,7 +9,7 @@
 
 ## propStylesSystem
 
-Creates media prop-styles
+Create prop-styles
 
 **Parameters**
 
@@ -18,11 +18,11 @@ Creates media prop-styles
 
 **Examples**
 
-```nginx
+```js
 import { propStylesSystem } from '@exah/prop-styles-system'
 ```
 
-```javascript
+```js
 // Create theme with defined media queries
 const theme = createTheme({
   media: {
@@ -47,12 +47,14 @@ const Box = styled.div(myPropStyle)
 </ThemeProvider>
 ```
 
-```scss
-element {
-  backgroundColor: #000;
+```css
+.element {
+  background-color: #000;
+}
 
-  @media (max-width: 600px) {
-    backgroundColor: red;
+@media (max-width: 600px) {
+  .element {
+    background-color: red;
     display: none;
   }
 }
@@ -70,7 +72,7 @@ Helper that creates theme with required defaults
 
 **Examples**
 
-```yaml
+```js
 const theme = createTheme({
   media: {
     M: '(max-width: 600px)'
@@ -151,7 +153,7 @@ Type: [Object][7]
 
 **Examples**
 
-```clojure
+```js
 {
   hide: { display: 'none' },
   width: (value, props, mediaKey) => ({

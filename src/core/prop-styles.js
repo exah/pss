@@ -30,7 +30,7 @@ const buildStylesWithMedia = (styles: PropStyles) => (theme: Object): PropStyles
 }
 
 /**
- * Creates media prop-styles
+ * Create prop-styles
  *
  * @example
  * import { propStylesSystem } from '@exah/prop-styles-system'
@@ -59,13 +59,16 @@ const buildStylesWithMedia = (styles: PropStyles) => (theme: Object): PropStyles
  *   <Box bg='#000' bgM hideM />
  * </ThemeProvider>
  *
+ *
  * @example
  *
- * element {
- *   backgroundColor: #000;
+ * .element {
+ *   background-color: #000;
+ * }
  *
- *   \@media (max-width: 600px) {
- *     backgroundColor: red;
+ * \@media (max-width: 600px) {
+ *   .element {
+ *     background-color: red;
  *     display: none;
  *   }
  * }
