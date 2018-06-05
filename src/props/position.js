@@ -1,8 +1,8 @@
-import { mediaPropStyles, ruleProp, sizeProp } from '../core'
+import { propStylesSystem, ruleProp, sizeProp } from '../core'
 
 const direction = (dir) => sizeProp(dir, 0, 'auto')
 
-const positionProps = mediaPropStyles({
+const positionProps = propStylesSystem({
   pst: { position: 'static' },
   prl: { position: 'relative' },
   pab: { position: 'absolute' },

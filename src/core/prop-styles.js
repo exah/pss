@@ -1,61 +1,39 @@
 // @flow
-import { keys, toPairs, once } from 'ramda'
+import { once } from 'ramda'
+import { DEFAULT_KEY } from '../constants'
 import { wrapIfMedia, getStyles, themeMedia, toArr } from '../utils'
 
 import type {
-  CompProps,
   Styles,
+  CompProps,
   DynamicStyle,
-  PropStyle,
-  PropStylesMap
+  PropStyles
 } from '../types'
 
-const reduceStyles = (
-  fn: PropStyle
-) => (acc, [ styles, ...rest ]): Styles => acc.concat(
-  toArr(styles)
-    .map((style) => fn(style, ...rest))
-    .filter((style) => style != null)
-)
+const buildStylesWithMedia = (styles: PropStyles) => (theme: Object): PropStyles => {
+  const media = themeMedia(theme)
+  const mediaKeys = Object.keys(media).map((mediaKey) =>
+    mediaKey === DEFAULT_KEY ? '' : mediaKey
+  )
 
-/**
- * Creates basic prop-styles
- *
- * @example
- * import { propStyles } from '@exah/prop-styles-system'
- *
- * @example
- * // Create prop-styles as { prop: style } pairs
- * const myPropStyles = propStyles({ red: { backgroundColor: 'red' } })
- *
- * // Add to styled-component
- * const Box = styled.div(myPropStyles)
- *
- * // Use
- * <Box red />
- *
- * @example
- * element {
- *   background-color: red;
- * }
- */
-
-const propStyles = (
-  stylesMap: PropStylesMap = {}
-): DynamicStyle => (props: CompProps): Styles =>
-  toPairs(props)
-    .map(([ key, val ]) => [ stylesMap[key], val ])
-    .reduce(reduceStyles((style, val) => getStyles(style, val, props)), [])
-
-const buildMediaRegEx = once((media: Object) =>
-  new RegExp('(' + keys(media).join('|') + ')?$')
-)
+  return Object.keys(styles).reduce((propsAcc, propName) => ({
+    ...propsAcc,
+    ...mediaKeys.reduce((mediaAcc, mediaKey) => ({
+      ...mediaAcc,
+      [propName + mediaKey]: [
+        styles[propName],
+        mediaKey || null,
+        media[mediaKey]
+      ]
+    }), {})
+  }), {})
+}
 
 /**
  * Creates media prop-styles
  *
  * @example
- * import { mediaPropStyles } from '@exah/prop-styles-system'
+ * import { propStylesSystem } from '@exah/prop-styles-system'
  *
  * @example
  * // Create theme with defined media queries
@@ -66,7 +44,7 @@ const buildMediaRegEx = once((media: Object) =>
  * })
  *
  * // Create media aware props style
- * const myPropStyle = mediaPropStyles({
+ * const myPropStyle = propStylesSystem({
  *   hide: { display: 'none' },
  *   bg: (val, props, mediaKey) => ({
  *     backgroundColor: val === true ? mediaKey === 'M' ? 'red' : 'blue' : val
@@ -93,31 +71,37 @@ const buildMediaRegEx = once((media: Object) =>
  * }
  */
 
-const mediaPropStyles = (
-  stylesMap: PropStylesMap = {},
+const propStylesSystem = (
+  styles: PropStyles = {},
   label: string
-): DynamicStyle => (props: CompProps): Styles => {
-  const { theme, ...rest } = props
+): DynamicStyle => {
+  const buildStylesWithMediaOnce = once(buildStylesWithMedia(styles))
 
-  const media = themeMedia(theme)
-  const mediaRegEx = buildMediaRegEx(media)
+  return (props: CompProps): Styles => {
+    const stylesWithMedia = buildStylesWithMediaOnce(props.theme)
 
-  const result = toPairs(rest)
-    .map(([ key, val ]) => {
-      if (stylesMap[key]) return [ stylesMap[key], val ]
+    const result = Object.keys(props)
+      .reduce((acc, key) => {
+        const matched = stylesWithMedia[key]
 
-      const [ styleKey, mediaKey ] = key.split(mediaRegEx)
-      return [ stylesMap[styleKey], val, mediaKey ]
-    })
-    .reduce(reduceStyles((style, val, mediaKey) => wrapIfMedia(
-      media[mediaKey],
-      getStyles(style, val, props, mediaKey)
-    )), [])
+        if (matched !== undefined) {
+          const [ style, mediaKey, mediaQuery ] = matched
 
-  return label ? [ { label }, ...result ] : result
+          return acc.concat(
+            toArr(style).map((_style) => wrapIfMedia(
+              mediaQuery,
+              getStyles(_style, props[key], props, mediaKey)
+            ) || [])
+          )
+        }
+
+        return acc
+      }, [])
+
+    return label ? [ { label }, ...result ] : result
+  }
 }
 
 export {
-  propStyles,
-  mediaPropStyles
+  propStylesSystem
 }

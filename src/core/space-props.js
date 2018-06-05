@@ -11,12 +11,12 @@ import type {
   PropStyles
 } from '../types'
 
-type SpacePropsMap = Array<Array<CompPropName|Array<CSSProp>>>
+type SpaceProps = Array<Array<CompPropName|Array<CSSProp>>>
 
 const buildDirectionModifiers = (
   styleProp: CSSProp,
   compProp: CompPropName = ''
-): SpacePropsMap => [
+): SpaceProps => [
   ...toPairs(SHORT_DIRECTIONS).map(([ shortDir, longDir ]) => [
     compProp + shortDir,
     toArr(longDir).map((dir) => styleProp + dir)

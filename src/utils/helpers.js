@@ -17,7 +17,7 @@ const toCssRule = curryN(2, (cssProps, val) => val != null
 const getStyles = (style, val, ...args) =>
   isFn(style)
     ? style(val, ...args)
-    : val !== false && val != null ? style : null
+    : val === true ? style : null
 
 const wrap = curryN(2, (name, style) => {
   const wrapper = (obj) => obj != null ? (name ? { [name]: obj } : obj) : null

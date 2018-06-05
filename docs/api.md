@@ -2,58 +2,24 @@
 
 ### Table of Contents
 
--   [propStyles][1]
--   [mediaPropStyles][2]
--   [createTheme][3]
--   [Types][4]
--   [PropStylesMap][5]
+-   [propStylesSystem][1]
+-   [createTheme][2]
+-   [Types][3]
+-   [PropStyles][4]
 
-## propStyles
-
-Creates basic prop-styles
-
-**Parameters**
-
--   `stylesMap` **[PropStylesMap][6]**  (optional, default `{}`)
-
-**Examples**
-
-```nginx
-import { propStyles } from '@exah/prop-styles-system'
-```
-
-```processing
-// Create prop-styles as { prop: style } pairs
-const myPropStyles = propStyles({ red: { backgroundColor: 'red' } })
-
-// Add to styled-component
-const Box = styled.div(myPropStyles)
-
-// Use
-<Box red />
-```
-
-```css
-element {
-  background-color: red;
-}
-```
-
-Returns **DynamicStyle** 
-
-## mediaPropStyles
+## propStylesSystem
 
 Creates media prop-styles
 
 **Parameters**
 
--   `stylesMap` **[PropStylesMap][6]**  (optional, default `{}`)
--   `label` **[string][7]** 
+-   `styles` **[PropStyles][5]**  (optional, default `{}`)
+-   `label` **[string][6]** 
 
 **Examples**
 
 ```nginx
-import { mediaPropStyles } from '@exah/prop-styles-system'
+import { propStylesSystem } from '@exah/prop-styles-system'
 ```
 
 ```javascript
@@ -65,7 +31,7 @@ const theme = createTheme({
 })
 
 // Create media aware props style
-const myPropStyle = mediaPropStyles({
+const myPropStyle = propStylesSystem({
   hide: { display: 'none' },
   bg: (val, props, mediaKey) => ({
     backgroundColor: val === true ? mediaKey === 'M' ? 'red' : 'blue' : val
@@ -100,7 +66,7 @@ Helper that creates theme with required defaults
 
 **Parameters**
 
--   `theme` **[Object][8]**  (optional, default `{}`)
+-   `theme` **[Object][7]**  (optional, default `{}`)
 
 **Examples**
 
@@ -169,19 +135,19 @@ const theme = createTheme({
 }
 ```
 
-Returns **[Object][8]** 
+Returns **[Object][7]** 
 
 ## Types
 
 
 
 
-## PropStylesMap
+## PropStyles
 
 Object with keys represents component prop name
 and value as style object or function that returns style
 
-Type: [Object][8]
+Type: [Object][7]
 
 **Examples**
 
@@ -194,18 +160,16 @@ Type: [Object][8]
 }
 ```
 
-[1]: #propstyles
+[1]: #propstylessystem
 
-[2]: #mediapropstyles
+[2]: #createtheme
 
-[3]: #createtheme
+[3]: #types
 
-[4]: #types
+[4]: #propstyles
 
-[5]: #propstylesmap
+[5]: #propstyles
 
-[6]: #propstylesmap
+[6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
-[8]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object

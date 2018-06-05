@@ -10,7 +10,7 @@ import {
 
 import {
   createTheme,
-  mediaPropStyles,
+  propStylesSystem,
   themeProp,
   colorProp
 } from '../src'
@@ -51,7 +51,7 @@ const themeInvertedDefault = mergeDeepRight(theme, {
   [DEFAULT_KEY]: { [PALETTE_KEY]: 'inverted' }
 })
 
-const themeProps = mediaPropStyles({
+const themeProps = propStylesSystem({
   tm: themeProp('background', 'foreground'),
   fg: colorProp('color', 'foreground'),
   bg: colorProp('backgroundColor', 'background'),

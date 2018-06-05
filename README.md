@@ -13,9 +13,9 @@ $ yarn add @exah/prop-styles-system
 1. Create prop styles
 
   ```js
-  import { mediaPropStyles, sizeProp } from '@exah/prop-styles-system' 
+  import { propStylesSystem, sizeProp } from '@exah/prop-styles-system' 
 
-  const helperProps = mediaPropStyles({
+  const helperProps = propStylesSystem({
     ht: sizeProp('height'),
     wd: sizeProp('width'),
     hide: { display: 'none' }

@@ -30,7 +30,7 @@ type PropStyle = (value: PropStyleValue, props?: CompProps, mediaKey?: string) =
  *   })
  * }
  */
-type PropStylesMap = { [CompPropName]: PropStyle }
+type PropStyles = { [CompPropName]: PropStyle }
 
 type ThemeKey = string
 
@@ -43,6 +43,6 @@ export {
   ThemeKey,
   CompPropName,
   PropStyle,
-  PropStylesMap,
+  PropStyles,
   PropStyleValue
 }

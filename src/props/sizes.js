@@ -1,6 +1,6 @@
-import { sizeProp, mediaPropStyles } from '../core'
+import { sizeProp, propStylesSystem } from '../core'
 
-const sizesProps = mediaPropStyles({
+const sizesProps = propStylesSystem({
   ht: sizeProp('height'),
   wd: sizeProp('width'),
   maxWd: sizeProp('maxWidth'),
