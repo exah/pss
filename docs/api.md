@@ -3,20 +3,25 @@
 ### Table of Contents
 
 -   [propStylesSystem][1]
--   [createTheme][2]
--   [Types][3]
--   [PropStyles][4]
+    -   [Parameters][2]
+    -   [Examples][3]
+-   [createTheme][4]
+    -   [Parameters][5]
+    -   [Examples][6]
+-   [Types][7]
+    -   [PropStyles][8]
+        -   [Examples][9]
 
 ## propStylesSystem
 
 Create prop-styles
 
-**Parameters**
+### Parameters
 
--   `styles` **[PropStyles][5]**  (optional, default `{}`)
--   `label` **[string][6]** 
+-   `styles` **[PropStyles][10]**  (optional, default `{}`)
+-   `label` **[string][11]** 
 
-**Examples**
+### Examples
 
 ```js
 import { propStylesSystem } from '@exah/prop-styles-system'
@@ -66,11 +71,11 @@ Returns **DynamicStyle**
 
 Helper that creates theme with required defaults
 
-**Parameters**
+### Parameters
 
--   `theme` **[Object][7]**  (optional, default `{}`)
+-   `theme` **[Object][12]**  (optional, default `{}`)
 
-**Examples**
+### Examples
 
 ```js
 const theme = createTheme({
@@ -137,21 +142,21 @@ const theme = createTheme({
 }
 ```
 
-Returns **[Object][7]** 
+Returns **[Object][12]** 
 
 ## Types
 
 
 
 
-## PropStyles
+### PropStyles
 
 Object with keys represents component prop name
 and value as style object or function that returns style
 
-Type: [Object][7]
+Type: [Object][12]
 
-**Examples**
+#### Examples
 
 ```js
 {
@@ -164,14 +169,24 @@ Type: [Object][7]
 
 [1]: #propstylessystem
 
-[2]: #createtheme
+[2]: #parameters
 
-[3]: #types
+[3]: #examples
 
-[4]: #propstyles
+[4]: #createtheme
 
-[5]: #propstyles
+[5]: #parameters-1
 
-[6]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[6]: #examples-1
 
-[7]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[7]: #types
+
+[8]: #propstyles
+
+[9]: #examples-2
+
+[10]: #propstyles
+
+[11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[12]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object

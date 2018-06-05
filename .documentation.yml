@@ -12,4 +12,5 @@ toc:
   # - colorProp
   # - themeProp
   - name: Types
-  - PropStyles
+    children:
+      - PropStyles
