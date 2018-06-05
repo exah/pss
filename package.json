@@ -28,6 +28,7 @@
     "watch": "run-p watch:*",
     "watch:esm": "cross-env NODE_ENV=production babel src -w -d esm",
     "watch:cjs": "cross-env NODE_ENV=production BABEL_ENV=modules babel src -w -d cjs",
+    "watch:test": "npm test -- -w",
     "watch:docs": "npm run docs -- -w",
     "prewatch": "npm run cleanup",
     "docs": "documentation build -c ./.documentation.yml src/** -f md -o docs/api.md",
