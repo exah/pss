@@ -28,7 +28,6 @@ test('props: position', (t) => {
   })
 
   t.deepEqual(toStyles(result), {
-    label: 'position',
     position: 'relative',
     top: 0,
     bottom: 'auto',
@@ -51,12 +50,10 @@ test('props: z-index', (t) => {
   const zIndexTrue = positionProps({ theme, z: true })
 
   t.deepEqual(toStyles(zIndexFalse), {
-    label: 'position',
     zIndex: 'auto'
   })
 
   t.deepEqual(toStyles(zIndexTrue), {
-    label: 'position',
     zIndex: 1
   })
 })

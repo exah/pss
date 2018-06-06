@@ -7,6 +7,6 @@ const sizesProps = propStylesSystem({
   maxHt: sizeProp('maxHeight'),
   minHt: sizeProp('minHeight'),
   minWd: sizeProp('minWidth')
-}, 'sizes')
+})
 
 export { sizesProps }

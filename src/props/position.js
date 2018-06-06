@@ -15,6 +15,6 @@ const positionProps = propStylesSystem({
   x: [ direction('left'), direction('right') ],
   y: [ direction('top'), direction('bottom') ],
   z: ruleProp('zIndex', 1, 'auto')
-}, 'position')
+})
 
 export { positionProps }

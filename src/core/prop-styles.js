@@ -74,10 +74,7 @@ const buildStylesWithMedia = (styles: PropStyles) => (theme: Object): PropStyles
  * }
  */
 
-const propStylesSystem = (
-  styles: PropStyles = {},
-  label: string
-): DynamicStyle => {
+const propStylesSystem = (styles: PropStyles = {}): DynamicStyle => {
   const buildStylesWithMediaOnce = once(buildStylesWithMedia(styles))
 
   return (props: CompProps): Styles => {
@@ -103,7 +100,7 @@ const propStylesSystem = (
       return acc
     }, [])
 
-    return label ? [ { label }, ...result ] : result
+    return result
   }
 }
 

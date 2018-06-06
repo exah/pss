@@ -19,7 +19,6 @@ Create prop-styles
 ### Parameters
 
 -   `styles` **[PropStyles][10]**  (optional, default `{}`)
--   `label` **[string][11]** 
 
 ### Examples
 
@@ -73,7 +72,7 @@ Helper that creates theme with required defaults
 
 ### Parameters
 
--   `theme` **[Object][12]**  (optional, default `{}`)
+-   `theme` **[Object][11]**  (optional, default `{}`)
 
 ### Examples
 
@@ -142,7 +141,7 @@ const theme = createTheme({
 }
 ```
 
-Returns **[Object][12]** 
+Returns **[Object][11]** 
 
 ## Types
 
@@ -154,7 +153,7 @@ Returns **[Object][12]**
 Object with keys represents component prop name
 and value as style object or function that returns style
 
-Type: [Object][12]
+Type: [Object][11]
 
 #### Examples
 
@@ -187,6 +186,4 @@ Type: [Object][12]
 
 [10]: #propstyles
 
-[11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
-[12]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object

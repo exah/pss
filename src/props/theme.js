@@ -5,4 +5,4 @@ export const themeProps = propStylesSystem({
   fg: colorProp('color', 'foreground'),
   bg: colorProp('backgroundColor', 'background'),
   bc: colorProp('borderColor', 'border')
-}, 'theme')
+})
