@@ -9,11 +9,10 @@ import type {
 
 const everyMedia = curryN(2, (getStyle: Function, props: CompProps): Styles =>
   toPairs(themeMedia(props.theme))
-    .map(([ mediaKey, mediaQuery ]) => wrapIfMedia(
+    .reduce((acc, [ mediaKey, mediaQuery ]) => acc.concat(wrapIfMedia(
       mediaQuery,
       getStyle(mediaKey, props)
-    ))
-    .filter((style) => style != null)
+    ) || []), [])
 )
 
 export { everyMedia }

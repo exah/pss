@@ -83,26 +83,25 @@ const propStylesSystem = (
   return (props: CompProps): Styles => {
     const stylesWithMedia = buildStylesWithMediaOnce(props.theme)
 
-    const result = Object.keys(props)
-      .reduce((acc, key) => {
-        const matched = stylesWithMedia[key]
+    const result = Object.keys(props).reduce((acc, key) => {
+      const matched = stylesWithMedia[key]
 
-        if (matched !== undefined) {
-          const [ propStyle, mediaKey, mediaQuery ] = matched
-          const value = props[key]
+      if (matched !== undefined) {
+        const [ propStyle, mediaKey, mediaQuery ] = matched
+        const value = props[key]
 
-          return acc.concat(
-            toArr(propStyle).map((style) => wrapIfMedia(
-              mediaQuery,
-              isFn(style)
-                ? style(value, props, mediaKey)
-                : value === true ? style : null
-            ) || [])
-          )
-        }
+        return acc.concat(
+          toArr(propStyle).map((style) => wrapIfMedia(
+            mediaQuery,
+            isFn(style)
+              ? style(value, props, mediaKey)
+              : value === true ? style : null
+          ) || [])
+        )
+      }
 
-        return acc
-      }, [])
+      return acc
+    }, [])
 
     return label ? [ { label }, ...result ] : result
   }
