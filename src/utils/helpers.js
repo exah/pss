@@ -21,6 +21,20 @@ const wrap = curryN(2, (name, style) => {
     : wrapper(style)
 })
 
+const handlePropStyle = (style, value, ...args) => isFn(style)
+  ? style(value, ...args)
+  : value === true ? style : null
+
+const propSelector = curryN(2, (name, value) => (style, ...args) => ({
+  [name]: handlePropStyle(style, value, ...args)
+}))
+
+const combineSelectors = (...selectors) => (style, ...args) => selectors.map(
+  (selectorOrValue) => isFn(selectorOrValue)
+    ? selectorOrValue(style, ...args)
+    : handlePropStyle(style, selectorOrValue, ...args)
+)
+
 const wrapIfMedia = (query, style) => wrap(
   query ? `@media ${query}` : null,
   style
@@ -46,6 +60,9 @@ export {
   toCssRule,
   wrap,
   wrapIfMedia,
+  propSelector,
+  combineSelectors,
+  handlePropStyle,
   sizeValue,
   spaceValue,
   skipPropValue

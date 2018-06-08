@@ -5,6 +5,9 @@ export * from './props'
 export {
   wrap,
   wrapIfMedia,
+  propSelector,
+  propSelector as ps,
+  combineSelectors as cs,
   sizeValue,
   spaceValue,
   skipPropValue

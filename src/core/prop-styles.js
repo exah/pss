@@ -1,7 +1,14 @@
 // @flow
 import { once } from 'ramda'
 import { DEFAULT_KEY } from '../constants'
-import { wrapIfMedia, isFn, themeMedia, toArr } from '../utils'
+
+import {
+  isFn,
+  toArr,
+  wrapIfMedia,
+  handlePropStyle,
+  themeMedia
+} from '../utils'
 
 import type {
   Styles,
@@ -90,9 +97,9 @@ const propStylesSystem = (styles: PropStyles = {}): DynamicStyle => {
         return acc.concat(
           toArr(propStyle).map((style) => wrapIfMedia(
             mediaQuery,
-            isFn(style)
-              ? style(value, props, mediaKey)
-              : value === true ? style : null
+            isFn(value)
+              ? value(style, props, mediaKey)
+              : handlePropStyle(style, value, props, mediaKey)
           ) || [])
         )
       }

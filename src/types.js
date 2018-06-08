@@ -11,7 +11,7 @@ type CompProps = {|
   [CompPropName]: mixed
 |}
 
-type PropStyleValue = string | number | boolean | null
+type PropStyleValue = string | number | boolean | Function | null
 type DynamicStyle = (props: CompProps, mediaKey?: string) => Style | Styles
 type PropStyle = (value: PropStyleValue, props?: CompProps, mediaKey?: string) => Style
 
