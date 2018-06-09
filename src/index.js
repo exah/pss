@@ -21,3 +21,7 @@ export {
   getSpace,
   fromTheme
 } from './utils/getters'
+
+export {
+  propStylesSystem as default
+} from './core/prop-styles'
