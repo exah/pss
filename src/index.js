@@ -8,6 +8,7 @@ export {
   propSelector,
   propSelector as ps,
   combineSelectors as cs,
+  themeSelector as ts,
   sizeValue,
   spaceValue,
   skipPropValue

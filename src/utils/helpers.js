@@ -25,14 +25,21 @@ const handlePropStyle = (style, value, ...args) => isFn(style)
   ? style(value, ...args)
   : value === true ? style : null
 
-const propSelector = curryN(2, (name, value) => (style, ...args) => ({
-  [name]: handlePropStyle(style, value, ...args)
+const propSelector = curryN(2, (name, value) => (style, props, mediaKey) => ({
+  [name]: handlePropStyle(style, value, props, mediaKey)
 }))
 
-const combineSelectors = (...selectors) => (style, ...args) => selectors.map(
+const themeSelector = (fn) => (style = identity, props, mediaKey) => handlePropStyle(
+  style,
+  fn(props.theme),
+  props,
+  mediaKey
+)
+
+const combineSelectors = (...selectors) => (style, props, mediaKey) => selectors.map(
   (selectorOrValue) => isFn(selectorOrValue)
-    ? selectorOrValue(style, ...args)
-    : handlePropStyle(style, selectorOrValue, ...args)
+    ? selectorOrValue(style, props, mediaKey)
+    : handlePropStyle(style, selectorOrValue, props, mediaKey)
 )
 
 const wrapIfMedia = (query, style) => wrap(
@@ -64,6 +71,7 @@ export {
   combineSelectors,
   handlePropStyle,
   sizeValue,
+  themeSelector,
   spaceValue,
   skipPropValue
 }
