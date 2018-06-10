@@ -1,5 +1,5 @@
-import { curryN, identity } from 'ramda'
-import { isFn, isNum, isArr } from './is'
+import { isFn, isNum, isStr, isArr } from './is'
+import { curryN, identity } from './fns'
 
 const toArr = (val) => isArr(val) ? val : val != null ? [ val ] : []
 
@@ -61,11 +61,28 @@ const skipPropValue = (...styles) => (value, ...rest) => (
   styles.map((s) => s(...rest))
 )
 
+const path = curryN(3, (pathsOpt, fallback, obj) => {
+  const paths = isStr(pathsOpt) ? pathsOpt.split('.') : pathsOpt
+  let val = obj
+  let idx = 0
+
+  while (idx < paths.length) {
+    if (val == null) {
+      return fallback
+    }
+    val = val[paths[idx]]
+    idx += 1
+  }
+
+  return val
+})
+
 export {
   toArr,
   toObj,
   toCssRule,
   wrap,
+  path,
   wrapIfMedia,
   propSelector,
   combineSelectors,

@@ -1,7 +1,6 @@
 // @flow
-import { curryN, identity } from 'ramda'
 import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
-import { getColors, getColor, isColor } from '../utils'
+import { getColors, getColor, isColor, identity, curryN } from '../utils'
 
 import type {
   PropStyle,

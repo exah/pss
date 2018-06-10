@@ -1,10 +1,10 @@
 // @flow
-import { once } from 'ramda'
 import { DEFAULT_KEY } from '../constants'
 
 import {
   isFn,
   toArr,
+  once,
   wrapIfMedia,
   handlePropStyle,
   themeMedia

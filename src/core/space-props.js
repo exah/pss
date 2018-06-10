@@ -1,5 +1,4 @@
 // @flow
-import { toPairs } from 'ramda'
 import { SHORT_DIRECTIONS } from '../constants'
 import { getSpace, toArr, toObj, toCssRule } from '../utils'
 import { everyMedia } from './every-media'
@@ -17,7 +16,7 @@ const buildDirectionModifiers = (
   styleProp: CSSProp,
   compProp: CompPropName = ''
 ): SpaceProps => [
-  ...toPairs(SHORT_DIRECTIONS).map(([ shortDir, longDir ]) => [
+  ...Object.entries(SHORT_DIRECTIONS).map(([ shortDir, longDir ]) => [
     compProp + shortDir,
     toArr(longDir).map((dir) => styleProp + dir)
   ]),

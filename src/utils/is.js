@@ -1,11 +1,9 @@
-import { is } from 'ramda'
-
-const isFn = is(Function)
-const isBool = is(Boolean)
-const isNum = is(Number)
-const isStr = is(String)
-const isArr = is(Array)
-const isObj = is(Object)
+const isFn = (val) => typeof val === 'function'
+const isBool = (val) => typeof val === 'boolean'
+const isNum = (val) => typeof val === 'number'
+const isStr = (val) => typeof val === 'string'
+const isArr = (val) => Array.isArray(val)
+const isObj = (val) => typeof val === 'object' && !isArr(val)
 
 const isHex = (str) => /^#/.test(str || '')
 const isRgb = (str) => /^rgba?/.test(str || '')

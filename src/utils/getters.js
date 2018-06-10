@@ -1,5 +1,3 @@
-import { pathOr } from 'ramda'
-
 import {
   DEFAULT_KEY,
   COLORS_KEY,
@@ -11,19 +9,17 @@ import {
 } from '../constants'
 
 import { isStr, isArr, isNum, isObj, isFn, isBool } from './is'
-import { spaceValue } from './helpers'
+import { spaceValue, path } from './helpers'
 
-const themePath = (path, fallback) =>
-  pathOr(fallback, (isStr(path) ? path.split('.') : path || []))
+const themeDefaultMediaKey = path([ DEFAULT_KEY, MEDIA_KEY ], null)
+const themeDefaultPaletteName = path([ DEFAULT_KEY, PALETTE_KEY ], DEFAULT_KEY)
+const themeSpaces = path(SPACE_KEY, {})
+const themeMedia = path(MEDIA_KEY, {})
+const themePalettes = path(PALETTE_KEY, {})
+const themeColors = path(COLORS_KEY, {})
 
-const themeDefaultMediaKey = themePath([ DEFAULT_KEY, MEDIA_KEY ], null)
-const themeDefaultPaletteName = themePath([ DEFAULT_KEY, PALETTE_KEY ], DEFAULT_KEY)
-const themeSpaces = themePath(SPACE_KEY, {})
-const themeMedia = themePath(MEDIA_KEY, {})
-const themePalettes = themePath(PALETTE_KEY, {})
-const themeColors = themePath(COLORS_KEY, {})
-
-const fromTheme = (...args) => (props) => themePath(...args)(props.theme)
+const fromTheme = (paths, fallback) =>
+  (props) => path(paths, fallback, props.theme)
 
 const getPalette = (theme, name) => {
   const palettes = themePalettes(theme)
@@ -57,9 +53,9 @@ const getColor = (theme, key, colorName) => {
 const getThemeMediaValue = (key) => (theme, value) => {
   const defaultMediaKey = themeDefaultMediaKey(theme)
   const themeName = value === true
-    ? themePath([ DEFAULT_KEY, ...key.split('.') ], DEFAULT_KEY)(theme)
+    ? path([ DEFAULT_KEY, ...key.split('.') ], DEFAULT_KEY)(theme)
     : value
-  const themeValue = themePath(key, {})(theme)[themeName]
+  const themeValue = path(key, {})(theme)[themeName]
 
   if (isObj(themeValue) && themeValue.hasOwnProperty(defaultMediaKey)) {
     return (mediaKey, exact = false) => {

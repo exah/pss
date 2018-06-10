@@ -1,6 +1,5 @@
 // @flow
-import { curryN } from 'ramda'
-import { getSize, sizeValue, toCssRule, isFn } from '../utils'
+import { getSize, sizeValue, toCssRule, isFn, curryN } from '../utils'
 import { everyMedia } from './every-media'
 
 import type {
