@@ -11,15 +11,14 @@ import {
 import { isStr, isArr, isNum, isObj, isFn, isBool } from './is'
 import { spaceValue, path } from './helpers'
 
-const themeDefaultMediaKey = path([ DEFAULT_KEY, MEDIA_KEY ], null)
 const themeDefaultPaletteName = path([ DEFAULT_KEY, PALETTE_KEY ], DEFAULT_KEY)
 const themeSpaces = path(SPACE_KEY, {})
 const themeMedia = path(MEDIA_KEY, {})
 const themePalettes = path(PALETTE_KEY, {})
 const themeColors = path(COLORS_KEY, {})
 
-const fromTheme = (paths, fallback) =>
-  (props) => path(paths, fallback, props.theme)
+const fromTheme = (key, fallback) =>
+  (src) => path(key, fallback, src.theme || src)
 
 const getPalette = (theme, name) => {
   const palettes = themePalettes(theme)
@@ -51,13 +50,12 @@ const getColor = (theme, key, colorName) => {
 }
 
 const getThemeMediaValue = (key) => (theme, value) => {
-  const defaultMediaKey = themeDefaultMediaKey(theme)
   const themeName = value === true
     ? path([ DEFAULT_KEY, ...key.split('.') ], DEFAULT_KEY)(theme)
     : value
   const themeValue = path(key, {})(theme)[themeName]
 
-  if (isObj(themeValue) && themeValue.hasOwnProperty(defaultMediaKey)) {
+  if (isObj(themeValue) && themeValue.hasOwnProperty(DEFAULT_KEY)) {
     return (mediaKey, exact = false) => {
       const mediaValue = themeValue[mediaKey]
 
@@ -65,7 +63,7 @@ const getThemeMediaValue = (key) => (theme, value) => {
         return mediaValue
       }
 
-      const defaultMediaValue = themeValue[defaultMediaKey]
+      const defaultMediaValue = themeValue[DEFAULT_KEY]
 
       if (defaultMediaValue != null) {
         return exact === true ? null : defaultMediaValue
@@ -81,8 +79,6 @@ const getSize = getThemeMediaValue(SIZES_KEY)
 const getTextStyle = getThemeMediaValue(TEXT_STYLE_KEY)
 
 const getSpace = (theme, step) => (mediaKey, exact = false) => {
-  const defaultMediaKey = themeDefaultMediaKey(theme)
-
   if (!isNum(step) && !isBool(step)) {
     const themeSize = getSize(theme, step)
 
@@ -91,7 +87,7 @@ const getSpace = (theme, step) => (mediaKey, exact = false) => {
       if (size !== step) {
         return size
       }
-    } else if ((exact === true && mediaKey === defaultMediaKey) || !exact) {
+    } else if ((exact === true && mediaKey === DEFAULT_KEY) || !exact) {
       return themeSize == null ? step : themeSize
     }
     return null
@@ -100,7 +96,7 @@ const getSpace = (theme, step) => (mediaKey, exact = false) => {
   const spaces = themeSpaces(theme)
   const spaceSizes = isArr(spaces)
     ? spaces
-    : spaces[mediaKey] || spaces[exact || defaultMediaKey]
+    : spaces[mediaKey] || spaces[exact || DEFAULT_KEY]
 
   if (!spaceSizes) return null
 
@@ -108,7 +104,6 @@ const getSpace = (theme, step) => (mediaKey, exact = false) => {
 }
 
 export {
-  themeDefaultMediaKey,
   themeDefaultPaletteName,
   themeSpaces,
   themeMedia,
