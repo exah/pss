@@ -24,6 +24,7 @@
     "build:esm": "cross-env NODE_ENV=production babel src -d esm",
     "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=modules babel src -d cjs",
     "build:docs": "documentation build -c ./.documentation.yml src/** -f md -o docs/api.md",
+    "build:changelog": "auto-changelog",
     "prebuild": "npm run cleanup",
     "watch": "run-p \"build:* -- -w\" \"test:unit -- -w\"",
     "prewatch": "npm run cleanup",
@@ -34,6 +35,7 @@
     "cleanup": "rimraf cjs esm",
     "preversion": "npm run build",
     "precommit": "lint-staged",
+    "postcommit": "npm tun build:changelog",
     "prepush": "npm test"
   },
   "publishConfig": {
@@ -50,6 +52,11 @@
       "no-shadow": 2
     }
   },
+  "auto-changelog": {
+    "unreleased": true,
+    "commitLimit": 10,
+    "template": ".changelog.hbs"
+  },
   "ava": {
     "verbose": true,
     "require": [
@@ -57,6 +64,7 @@
     ]
   },
   "devDependencies": {
+    "auto-changelog": "^1.7.1",
     "ava": "^0.25.0",
     "babel-cli": "^6.26.0",
     "babel-core": "6.26.3",
