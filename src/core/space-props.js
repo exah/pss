@@ -1,6 +1,6 @@
 // @flow
 import { SHORT_DIRECTIONS } from '../constants'
-import { getSpace, toArr, toObj, toCssRule } from '../utils'
+import { getSpace, toObj, toCssRule } from '../utils'
 import { everyMedia } from './every-media'
 
 import type {
@@ -18,7 +18,7 @@ const buildDirectionModifiers = (
 ): SpaceProps => [
   ...Object.entries(SHORT_DIRECTIONS).map(([ shortDir, longDir ]) => [
     compProp + shortDir,
-    toArr(longDir).map((dir) => styleProp + dir)
+    longDir.map((dir) => styleProp + dir)
   ]),
   [ compProp, [ styleProp ] ]
 ]
