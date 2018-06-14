@@ -9,6 +9,14 @@ const toObj = (arr, fn = identity) => toArr(arr).reduce((acc, ...payload) => {
   return { ...acc, ...result }
 }, {})
 
+const mapObj = (obj, fn) => Object.keys(obj).reduce((acc, key) => {
+  const [ nextKey, nextVal ] = fn(key, obj[key], obj)
+  return {
+    ...acc,
+    [nextKey]: nextVal
+  }
+}, {})
+
 const toCssRule = curryN(2, (cssProps, val) => val != null
   ? toObj(cssProps, (name) => ({ [name]: val }))
   : null
@@ -80,6 +88,7 @@ const path = curryN(3, (pathsOpt, fallback, obj) => {
 export {
   toArr,
   toObj,
+  mapObj,
   toCssRule,
   wrap,
   path,

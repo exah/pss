@@ -1,4 +1,5 @@
 export * from './space'
 export * from './sizes'
+export * from './borders'
 export * from './position'
 export * from './theme'
