@@ -24,7 +24,6 @@
     "build:esm": "cross-env NODE_ENV=production babel src -d esm",
     "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=modules babel src -d cjs",
     "build:docs": "documentation build -c ./.documentation.yml src/** -f md -o docs/api.md",
-    "build:changelog": "auto-changelog",
     "prebuild": "npm run cleanup",
     "watch": "run-p \"build:* -- -w\" \"test:unit -- -w\"",
     "prewatch": "npm run cleanup",
