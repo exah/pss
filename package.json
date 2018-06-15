@@ -33,9 +33,9 @@
     "test:unit": "cross-env BABEL_ENV=modules ava test",
     "deploy": "np --no-cleanup",
     "cleanup": "rimraf cjs esm",
+    "version": "auto-changelog -p && git add CHANGELOG.md",
     "preversion": "npm run build",
     "precommit": "lint-staged",
-    "postcommit": "npm tun build:changelog",
     "prepush": "npm test"
   },
   "publishConfig": {
