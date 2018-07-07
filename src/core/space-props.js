@@ -5,18 +5,18 @@ import { everyMedia } from './every-media'
 
 import type {
   CSSProp,
-  DynamicStyle,
   CompPropName,
+  DynamicStyleFn,
   PropStyles
 } from '../types'
 
-type SpaceProps = Array<Array<CompPropName|Array<CSSProp>>>
+type SpaceProps = Array<Array<CompPropName | Array<CSSProp>>>
 
 const buildDirectionModifiers = (
   styleProp: CSSProp,
   compProp: CompPropName = ''
 ): SpaceProps => [
-  ...Object.entries(SHORT_DIRECTIONS).map(([ shortDir, longDir ]) => [
+  ...Object.entries(SHORT_DIRECTIONS).map(([ shortDir, longDir ]: any) => [
     compProp + shortDir,
     longDir.map((dir) => styleProp + dir)
   ]),
@@ -25,7 +25,7 @@ const buildDirectionModifiers = (
 
 const cssRuleSpaceStyle = (
   styleProp: CSSProp
-): Function => (value): DynamicStyle => ({ theme }, propMediaKey) => {
+): Function => (value): DynamicStyleFn => ({ theme }, propMediaKey) => {
   const cssRule = toCssRule(styleProp)
   const spaceValue = getSpace(theme, value)
 
@@ -39,7 +39,7 @@ const cssRuleSpaceStyle = (
   )
 }
 
-const spaceStyle = (stylePropPrefix: CSSProp): DynamicStyle => {
+const spaceStyle = (stylePropPrefix: CSSProp): DynamicStyleFn => {
   const baseStyle = cssRuleSpaceStyle(stylePropPrefix)
   const modifiers = buildDirectionModifiers(stylePropPrefix)
 

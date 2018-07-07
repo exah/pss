@@ -1,4 +1,12 @@
 // @flow
+
+import type {
+  Styles,
+  Props,
+  DynamicStyleFn,
+  PropStyles
+} from '../types'
+
 import { DEFAULT_KEY } from '../constants'
 
 import {
@@ -9,13 +17,6 @@ import {
   handlePropStyle,
   themeMedia
 } from '../utils'
-
-import type {
-  Styles,
-  CompProps,
-  DynamicStyle,
-  PropStyles
-} from '../types'
 
 const buildStylesWithMedia = (styles: PropStyles) => (theme: Object): PropStyles => {
   const media = themeMedia(theme)
@@ -81,10 +82,10 @@ const buildStylesWithMedia = (styles: PropStyles) => (theme: Object): PropStyles
  * }
  */
 
-const propStylesSystem = (styles: PropStyles = {}): DynamicStyle => {
+const propStylesSystem = (styles: PropStyles = {}): DynamicStyleFn => {
   const buildStylesWithMediaOnce = once(buildStylesWithMedia(styles))
 
-  return (props: CompProps): Styles => {
+  return (props: Props): Styles => {
     const stylesWithMedia = buildStylesWithMediaOnce(props.theme)
 
     const result = Object.keys(props).reduce((acc, key) => {
@@ -98,6 +99,7 @@ const propStylesSystem = (styles: PropStyles = {}): DynamicStyle => {
           toArr(propStyle).map((style) => wrapIfMedia(
             mediaQuery,
             isFn(value)
+              // $FlowFixMe - Shitty FlowType don't recognize imported `isFn`
               ? value(style, props, mediaKey)
               : handlePropStyle(style, value, props, mediaKey)
           ) || [])

@@ -3,7 +3,7 @@ import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
 import { getColors, getColor, isColor, identity, curryN } from '../utils'
 
 import type {
-  PropStyle,
+  PropStyleFn,
   CSSProp,
   ThemeKey
 } from '../types'
@@ -11,7 +11,7 @@ import type {
 const themeProp = (
   bgKey: ThemeKey,
   fgKey: ThemeKey
-): PropStyle => curryN(2, (value, { theme }) => {
+): PropStyleFn => curryN(2, (value, { theme }) => {
   if (value == null) {
     return {}
   }
@@ -35,7 +35,7 @@ const colorProp = (
   cssProp: CSSProp,
   colorKey: ThemeKey,
   getCssValue?: Function = identity
-): PropStyle => curryN(2, (value, props) => {
+): PropStyleFn => curryN(2, (value, props) => {
   if (value == null) {
     return {}
   }
