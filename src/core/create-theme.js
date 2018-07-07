@@ -1,4 +1,9 @@
 // @flow
+
+import type {
+  ThemeObj
+} from '../types'
+
 import {
   DEFAULT_KEY,
   COLORS_KEY,
@@ -76,7 +81,7 @@ import {
  * }
  */
 
-const createTheme = (theme: Object = {}): Object => ({
+const createTheme = (theme: ThemeObj = {}): ThemeObj => ({
   ...theme,
   [DEFAULT_KEY]: {
     [PALETTE_KEY]: DEFAULT_KEY,
@@ -92,13 +97,6 @@ const createTheme = (theme: Object = {}): Object => ({
     [DEFAULT_KEY]: [ 0 ],
     ...theme[SPACE_KEY]
   },
-  [TEXT_STYLE_KEY]: {
-    [DEFAULT_KEY]: {
-      fontFamily: 'system-ui',
-      fontSize: '100%'
-    },
-    ...theme[TEXT_STYLE_KEY]
-  },
   [SIZES_KEY]: {
     ...theme[SIZES_KEY]
   },
@@ -108,6 +106,13 @@ const createTheme = (theme: Object = {}): Object => ({
   [PALETTE_KEY]: {
     [DEFAULT_KEY]: {},
     ...theme[PALETTE_KEY]
+  },
+  [TEXT_STYLE_KEY]: {
+    [DEFAULT_KEY]: {
+      fontFamily: 'system-ui',
+      fontSize: '100%'
+    },
+    ...theme[TEXT_STYLE_KEY]
   }
 })
 

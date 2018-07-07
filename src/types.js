@@ -1,19 +1,23 @@
-type CSSProp = string
-type CSSValue = string | number
+// @flow
 
-type Style = { [CSSProp]: CSSValue }
-type Styles = Array<Style>
+//
+// Styles
+//
+
+type CSSProp = string
+type CSSVal = string | number
+type StyleObj = { [CSSProp]: CSSVal }
+type Styles = Array<StyleObj>
+
+//
+// Prop Styles
+//
 
 type CompPropName = string
-
-type CompProps = {|
-  [theme: CompPropName]: Object,
-  [CompPropName]: mixed
-|}
-
-type PropStyleValue = string | number | boolean | Function | null
-type DynamicStyle = (props: CompProps, mediaKey?: string) => Style | Styles
-type PropStyle = (value: PropStyleValue, props?: CompProps, mediaKey?: string) => Style
+type PropStyleVal = string | number | boolean | Function | null
+type Props = { [theme: CompPropName]: PropStyleVal }
+type DynamicStyleFn = (props: Props, mediaKey?: string) => StyleObj | Styles
+type PropStyleFn = (value: PropStyleVal, props?: Props, mediaKey?: string) => StyleObj
 
 /**
  * Object with keys represents component prop name
@@ -30,19 +34,36 @@ type PropStyle = (value: PropStyleValue, props?: CompProps, mediaKey?: string) =
  *   })
  * }
  */
-type PropStyles = { [CompPropName]: PropStyle }
+type PropStyles = { [CompPropName]: PropStyleFn }
 
-type ThemeKey = string
+//
+// Themes
+//
 
-export {
-  CSSProp,
-  CSSValue,
-  Style,
-  DynamicStyle,
-  Styles,
+type ThemeDefaultKey = 'default'
+type ThemeKey = 'media' | 'space' | 'size' | 'color' | 'palette' | 'textStyle'
+
+type ThemeObj = $Shape<{
+  default: {| [ThemeKey]: string | ThemeDefaultKey |},
+  media: {| [ThemeDefaultKey | string]: string | null |},
+  space: {| [ThemeDefaultKey | string]: Array<number> |},
+  size: {| [string]: string | number |},
+  color: {| [string]: string |},
+  palette: {| [ThemeDefaultKey | string]: {} |},
+  textStyle: {| [ThemeDefaultKey | string]: {} |}
+}>
+
+export type {
   ThemeKey,
+  ThemeObj,
   CompPropName,
-  PropStyle,
+  Props,
+  CSSProp,
+  CSSVal,
+  StyleObj,
+  Styles,
+  DynamicStyleFn,
   PropStyles,
-  PropStyleValue
+  PropStyleFn,
+  PropStyleVal
 }

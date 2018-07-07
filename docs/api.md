@@ -64,7 +64,7 @@ const Box = styled.div(myPropStyle)
 }
 ```
 
-Returns **DynamicStyle** 
+Returns **DynamicStyleFn** 
 
 ## createTheme
 
@@ -72,7 +72,7 @@ Helper that creates theme with required defaults
 
 ### Parameters
 
--   `theme` **[Object][11]**  (optional, default `{}`)
+-   `theme` **ThemeObj**  (optional, default `{}`)
 
 ### Examples
 
@@ -141,7 +141,7 @@ const theme = createTheme({
 }
 ```
 
-Returns **[Object][11]** 
+Returns **ThemeObj** 
 
 ## Types
 
