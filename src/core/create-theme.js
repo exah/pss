@@ -15,25 +15,30 @@ import {
 } from '../constants'
 
 /**
- * Helper that creates theme with required defaults
+ * Function for creating `theme` with your design system values.
  *
  * @example
  * const theme = createTheme({
+ *   // Used as prop suffixes, i.e. <Box heightM='50px' />
  *   media: {
  *     M: '(max-width: 600px)'
  *   },
+ *   // createSpaceProps, marginPropStyle, paddingPropStyle
  *   space: {
  *     default: [ 0, 10, 20, 30, 60 ],
  *     M: [ 0, 10, 15, 30, 30 ]
  *   },
+ *   // sizesPropStyles, sizeProp
  *   size: {
  *     s: 10,
  *     m: 25,
  *     l: 50
  *   },
+ *   // themePropStyles, colorProp
  *   color: {
  *     red: '#ff0000'
  *   },
+ *   // themePropStyles, themeProp
  *   palette: {
  *     default: {
  *       bg: '#ffffff',

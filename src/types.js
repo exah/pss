@@ -20,18 +20,21 @@ type DynamicStyleFn = (props: Props, mediaKey?: string) => StyleObj | Styles
 type PropStyleFn = (value: PropStyleVal, props?: Props, mediaKey?: string) => StyleObj
 
 /**
- * Object with keys represents component prop and value is a style object
- * or function that returns style (see {@link PropStyleFn})
+ * Object with keys that represents component `prop` and
+ * the value is a `style` that will be applied (can be functions, see {@link PropStyleFn}).
  *
  * @type {Object}
  *
  * @example
- *
  * {
  *   hide: { display: 'none' },
- *   width: (value, props, mediaKey) => ({
- *     width: mediaKey === 'M' ? 50 : value
- *   })
+ *   width: (value) => ({ width: value })
+ * }
+ *
+ * @example
+ * {
+ *   size: (value, props) => ({ height: props.theme.size[value] }),
+ *   color: (value, props) => ({ color: props.theme.color[value] })
  * }
  */
 type PropStylesObj = { [CompPropName]: PropStyleFn }
