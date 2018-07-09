@@ -2,27 +2,83 @@
 
 ### Table of Contents
 
--   [Creating Theme and Prop Styles][1]
-    -   [createTheme][2]
+-   [Creating Prop Styles and Theme][1]
+    -   [createPropStyles][2]
         -   [Parameters][3]
         -   [Examples][4]
-    -   [createPropStyles][5]
+    -   [createTheme][5]
         -   [Parameters][6]
         -   [Examples][7]
     -   [Types][8]
         -   [PropStylesObj][9]
             -   [Examples][10]
 
-## Creating Theme and Prop Styles
+## Creating Prop Styles and Theme
 
-> Basic intro to design system goes here
-> [createTheme][2]
-> [createPropStyles][5]
+> Intro for creating design system goes here
 
+
+### createPropStyles
+
+Function that accepts Object (see [PropStylesObj][9]) with keys that
+represents component `prop` and the value is a `style` that will be applied.
+
+Returns Function (see [DynamicStyleFn][11]) that you add to
+components created with CSS-in-JS libraries.
+
+When `theme` with `media` provided to components,
+styles can be changed on defined media queries.
+
+#### Parameters
+
+-   `propStyles` **[PropStylesObj][12]**  (optional, default `{}`)
+
+#### Examples
+
+```js
+import styled from 'react-emotion'
+import { createPropStyles } from '@exah/prop-styles-system'
+
+// Create prop styles
+const myPropStyle = createPropStyles({
+  display: (value) => ({ display: value }),
+  flex: { display: 'flex' },
+  inline: { display: 'inline-block' },
+  hide: { display: 'none' }
+})
+
+// Add to component
+const Block = styled.div(myPropStyle)
+
+// Use in component
+<Block flex /> // { .css { display: 'flex' }
+<Block inline /> // { .css { display: inline-block }
+<Block display='inline-flex' /> // { .css { display: inline-flex }
+```
+
+```js
+import { createTheme } from '@exah/prop-styles-system'
+
+// Create theme with media queries
+const theme = createTheme({
+  media: {
+    M: '(max-width: 600px)'
+  }
+})
+
+// Add theme to ThemeProvider
+<ThemeProvider theme={theme}>
+  <Block hideM />
+</ThemeProvider>
+
+// @media (max-width: 600px) { .css { display: none; } }
+```
+
+Returns **DynamicStyleFn** 
 
 ### createTheme
 
-Helper that creates theme with required defaults
+Function for creating `theme` with your design system values.
 
 #### Parameters
 
@@ -32,21 +88,26 @@ Helper that creates theme with required defaults
 
 ```js
 const theme = createTheme({
+  // Used as prop suffixes, i.e. <Box heightM='50px' />
   media: {
     M: '(max-width: 600px)'
   },
+  // createSpaceProps, marginPropStyle, paddingPropStyle
   space: {
     default: [ 0, 10, 20, 30, 60 ],
     M: [ 0, 10, 15, 30, 30 ]
   },
+  // sizesPropStyles, sizeProp
   size: {
     s: 10,
     m: 25,
     l: 50
   },
+  // themePropStyles, colorProp
   color: {
     red: '#ff0000'
   },
+  // themePropStyles, themeProp
   palette: {
     default: {
       bg: '#ffffff',
@@ -97,58 +158,6 @@ const theme = createTheme({
 
 Returns **ThemeObj** 
 
-### createPropStyles
-
-Function that accepts [PropStylesObj][9] and returns [DynamicStyleFn][11]
-that will be used when creating components with CSS-in-JS libraries.
-
-#### Parameters
-
--   `propStyles` **[PropStylesObj][12]**  (optional, default `{}`)
-
-#### Examples
-
-```js
-import { createPropStyles } from '@exah/prop-styles-system'
-```
-
-```js
-// Create theme with defined media queries
-const theme = createTheme({
-  media: {
-    M: '(max-width: 600px)'
-  }
-})
-
-// Create media aware props style
-const myPropStyle = createPropStyles({
-  hide: { display: 'none' }
-})
-
-// Add to styled-component
-const Box = styled.div(myPropStyle)
-
-// Use in component with ThemeProvider (or theme prop)
-<ThemeProvider theme={theme}>
-  <Box bg='#000' bgM hideM />
-</ThemeProvider>
-```
-
-```css
-.element {
-  background-color: #000;
-}
-
-@media (max-width: 600px) {
-  .element {
-    background-color: red;
-    display: none;
-  }
-}
-```
-
-Returns **DynamicStyleFn** 
-
 ### Types
 
 
@@ -156,8 +165,8 @@ Returns **DynamicStyleFn**
 
 #### PropStylesObj
 
-Object with keys represents component prop and value is a style object
-or function that returns style (see [PropStyleFn][13])
+Object with keys that represents component `prop` and
+the value is a `style` that will be applied (can be functions, see [PropStyleFn][13]).
 
 Type: [Object][14]
 
@@ -166,21 +175,26 @@ Type: [Object][14]
 ```js
 {
   hide: { display: 'none' },
-  width: (value, props, mediaKey) => ({
-    width: mediaKey === 'M' ? 50 : value
-  })
+  width: (value) => ({ width: value })
 }
 ```
 
-[1]: #creating-theme-and-prop-styles
+```js
+{
+  size: (value, props) => ({ height: props.theme.size[value] }),
+  color: (value, props) => ({ color: props.theme.color[value] })
+}
+```
 
-[2]: #createtheme
+[1]: #creating-prop-styles-and-theme
+
+[2]: #createpropstyles
 
 [3]: #parameters
 
 [4]: #examples
 
-[5]: #createpropstyles
+[5]: #createtheme
 
 [6]: #parameters-1
 

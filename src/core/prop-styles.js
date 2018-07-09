@@ -38,46 +38,52 @@ const buildStylesWithMedia = (styles: PropStylesObj) => (theme: Object): PropSty
 }
 
 /**
- * Function that accepts {@link PropStylesObj} and returns {@link DynamicStyleFn}
- * that will be used when creating components with CSS-in-JS libraries.
+ * Function that accepts Object (see {@link PropStylesObj}) with keys that
+ * represents component `prop` and the value is a `style` that will be applied.
+ *
+ * Returns Function (see {@link DynamicStyleFn}) that you add to
+ * components created with CSS-in-JS libraries.
+ *
+ * When `theme` with `media` provided to components,
+ * styles can be changed on defined media queries.
  *
  * @example
+ * import styled from 'react-emotion'
  * import { createPropStyles } from '@exah/prop-styles-system'
  *
+ * // Create prop styles
+ * const myPropStyle = createPropStyles({
+ *   display: (value) => ({ display: value }),
+ *   flex: { display: 'flex' },
+ *   inline: { display: 'inline-block' },
+ *   hide: { display: 'none' }
+ * })
+ *
+ * // Add to component
+ * const Block = styled.div(myPropStyle)
+ *
+ * // Use in component
+ * <Block flex /> // { .css { display: 'flex' }
+ * <Block inline /> // { .css { display: inline-block }
+ * <Block display='inline-flex' /> // { .css { display: inline-flex }
+ *
+ *
  * @example
- * // Create theme with defined media queries
+ * import { createTheme } from '@exah/prop-styles-system'
+ *
+ * // Create theme with media queries
  * const theme = createTheme({
  *   media: {
  *     M: '(max-width: 600px)'
  *   }
  * })
  *
- * // Create media aware props style
- * const myPropStyle = createPropStyles({
- *   hide: { display: 'none' }
- * })
- *
- * // Add to styled-component
- * const Box = styled.div(myPropStyle)
- *
- * // Use in component with ThemeProvider (or theme prop)
+ * // Add theme to ThemeProvider
  * <ThemeProvider theme={theme}>
- *   <Box bg='#000' bgM hideM />
+ *   <Block hideM />
  * </ThemeProvider>
  *
- *
- * @example
- *
- * .element {
- *   background-color: #000;
- * }
- *
- * \@media (max-width: 600px) {
- *   .element {
- *     background-color: red;
- *     display: none;
- *   }
- * }
+ * // @media (max-width: 600px) { .css { display: none; } }
  */
 
 const createPropStyles = (propStyles: PropStylesObj = {}): DynamicStyleFn => {
