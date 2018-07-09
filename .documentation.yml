@@ -4,13 +4,14 @@ hljs:
     - css
     - js
 toc:
-  - propStylesSystem
-  - createTheme
-  # - spaceProps
-  # - ruleProp
-  # - sizeProp
-  # - colorProp
-  # - themeProp
-  - name: Types
+  - name: Creating Theme and Prop Styles
+    description: |
+      > Basic intro to design system goes here
+      {@link createTheme}
+      {@link createPropStyles}
     children:
-      - PropStyles
+      - createTheme
+      - createPropStyles
+      - name: Types
+        children:
+          - PropStylesObj

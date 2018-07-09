@@ -24,5 +24,5 @@ export {
 } from './utils/getters'
 
 export {
-  propStylesSystem as default
+  createPropStyles as default
 } from './core/prop-styles'

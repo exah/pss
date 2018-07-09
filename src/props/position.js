@@ -1,8 +1,8 @@
-import { propStylesSystem, ruleProp, sizeProp } from '../core'
+import { createPropStyles, ruleProp, sizeProp } from '../core'
 
 const direction = (dir) => sizeProp(dir, 0, 'auto')
 
-const positionProps = propStylesSystem({
+const positionProps = createPropStyles({
   pst: { position: 'static' },
   prl: { position: 'relative' },
   pab: { position: 'absolute' },

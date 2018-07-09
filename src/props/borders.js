@@ -1,4 +1,4 @@
-import { propStylesSystem, colorProp } from '../core'
+import { createPropStyles, colorProp } from '../core'
 import { SHORT_DIRECTIONS } from '../constants'
 import { getSize, mapObj } from '../utils'
 
@@ -14,7 +14,7 @@ const borderStyle = (dir = '') => (val, { theme }, mediaKey) => {
   })
 }
 
-const borderProps = propStylesSystem({
+const borderProps = createPropStyles({
   bd: borderStyle(),
   bdc: colorProp('borderColor', 'border'),
   ...mapObj(SHORT_DIRECTIONS, (shortDir, longDir) => [

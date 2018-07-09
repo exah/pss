@@ -3,7 +3,7 @@ import { MEDIA_KEY, SPACE_KEY, SIZES_KEY } from '../src/constants'
 
 import {
   createTheme,
-  propStylesSystem,
+  createPropStyles,
   spaceProps,
   spaceStyle,
   onMedia
@@ -30,7 +30,7 @@ const theme = createTheme({
   }
 })
 
-const marginProps = propStylesSystem(spaceProps('margin', 'mg'))
+const marginProps = createPropStyles(spaceProps('margin', 'mg'))
 
 test('props -> set one step space for every media', (t) => {
   const result = toStyles(marginProps({ theme, mg: 1 }))

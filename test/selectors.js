@@ -3,7 +3,7 @@ import { MEDIA_KEY, SPACE_KEY } from '../src/constants'
 
 import {
   createTheme,
-  propStylesSystem,
+  createPropStyles,
   spaceProps,
   positionProps,
   ps,
@@ -24,7 +24,7 @@ const theme = createTheme({
   }
 })
 
-const marginProps = propStylesSystem(spaceProps('margin', 'mg'))
+const marginProps = createPropStyles(spaceProps('margin', 'mg'))
 
 test('add margin-top to &:first-child', (t) => {
   const result = toStyles(marginProps({

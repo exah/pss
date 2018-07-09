@@ -2,79 +2,33 @@
 
 ### Table of Contents
 
--   [propStylesSystem][1]
-    -   [Parameters][2]
-    -   [Examples][3]
--   [createTheme][4]
-    -   [Parameters][5]
-    -   [Examples][6]
--   [Types][7]
-    -   [PropStyles][8]
-        -   [Examples][9]
+-   [Creating Theme and Prop Styles][1]
+    -   [createTheme][2]
+        -   [Parameters][3]
+        -   [Examples][4]
+    -   [createPropStyles][5]
+        -   [Parameters][6]
+        -   [Examples][7]
+    -   [Types][8]
+        -   [PropStylesObj][9]
+            -   [Examples][10]
 
-## propStylesSystem
+## Creating Theme and Prop Styles
 
-Create prop-styles
+> Basic intro to design system goes here
+> [createTheme][2]
+> [createPropStyles][5]
 
-### Parameters
 
--   `styles` **[PropStyles][10]**  (optional, default `{}`)
-
-### Examples
-
-```js
-import { propStylesSystem } from '@exah/prop-styles-system'
-```
-
-```js
-// Create theme with defined media queries
-const theme = createTheme({
-  media: {
-    M: '(max-width: 600px)'
-  }
-})
-
-// Create media aware props style
-const myPropStyle = propStylesSystem({
-  hide: { display: 'none' },
-  bg: (val, props, mediaKey) => ({
-    backgroundColor: val === true ? mediaKey === 'M' ? 'red' : 'blue' : val
-  })
-})
-
-// Add to styled-component
-const Box = styled.div(myPropStyle)
-
-// Use in component with ThemeProvider (or theme prop)
-<ThemeProvider theme={theme}>
-  <Box bg='#000' bgM hideM />
-</ThemeProvider>
-```
-
-```css
-.element {
-  background-color: #000;
-}
-
-@media (max-width: 600px) {
-  .element {
-    background-color: red;
-    display: none;
-  }
-}
-```
-
-Returns **DynamicStyleFn** 
-
-## createTheme
+### createTheme
 
 Helper that creates theme with required defaults
 
-### Parameters
+#### Parameters
 
 -   `theme` **ThemeObj**  (optional, default `{}`)
 
-### Examples
+#### Examples
 
 ```js
 const theme = createTheme({
@@ -143,19 +97,71 @@ const theme = createTheme({
 
 Returns **ThemeObj** 
 
-## Types
+### createPropStyles
 
+Function that accepts [PropStylesObj][9] and returns [DynamicStyleFn][11]
+that will be used when creating components with CSS-in-JS libraries.
 
+#### Parameters
 
-
-### PropStyles
-
-Object with keys represents component prop name
-and value as style object or function that returns style
-
-Type: [Object][11]
+-   `propStyles` **[PropStylesObj][12]**  (optional, default `{}`)
 
 #### Examples
+
+```js
+import { createPropStyles } from '@exah/prop-styles-system'
+```
+
+```js
+// Create theme with defined media queries
+const theme = createTheme({
+  media: {
+    M: '(max-width: 600px)'
+  }
+})
+
+// Create media aware props style
+const myPropStyle = createPropStyles({
+  hide: { display: 'none' }
+})
+
+// Add to styled-component
+const Box = styled.div(myPropStyle)
+
+// Use in component with ThemeProvider (or theme prop)
+<ThemeProvider theme={theme}>
+  <Box bg='#000' bgM hideM />
+</ThemeProvider>
+```
+
+```css
+.element {
+  background-color: #000;
+}
+
+@media (max-width: 600px) {
+  .element {
+    background-color: red;
+    display: none;
+  }
+}
+```
+
+Returns **DynamicStyleFn** 
+
+### Types
+
+
+
+
+#### PropStylesObj
+
+Object with keys represents component prop and value is a style object
+or function that returns style (see [PropStyleFn][13])
+
+Type: [Object][14]
+
+##### Examples
 
 ```js
 {
@@ -166,24 +172,30 @@ Type: [Object][11]
 }
 ```
 
-[1]: #propstylessystem
+[1]: #creating-theme-and-prop-styles
 
-[2]: #parameters
+[2]: #createtheme
 
-[3]: #examples
+[3]: #parameters
 
-[4]: #createtheme
+[4]: #examples
 
-[5]: #parameters-1
+[5]: #createpropstyles
 
-[6]: #examples-1
+[6]: #parameters-1
 
-[7]: #types
+[7]: #examples-1
 
-[8]: #propstyles
+[8]: #types
 
-[9]: #examples-2
+[9]: #propstylesobj
 
-[10]: #propstyles
+[10]: #examples-2
 
-[11]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[11]: DynamicStyleFn
+
+[12]: #propstylesobj
+
+[13]: PropStyleFn
+
+[14]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object

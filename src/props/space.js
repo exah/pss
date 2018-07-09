@@ -1,7 +1,7 @@
-import { propStylesSystem, spaceProps } from '../core'
+import { createPropStyles, spaceProps } from '../core'
 
-const marginProps = propStylesSystem(spaceProps('margin', 'mg'))
-const paddingProps = propStylesSystem(spaceProps('padding', 'pd'))
+const marginProps = createPropStyles(spaceProps('margin', 'mg'))
+const paddingProps = createPropStyles(spaceProps('padding', 'pd'))
 
 export {
   marginProps,
