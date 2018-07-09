@@ -71,15 +71,16 @@ const skipPropValue = (...styles) => (value, ...rest) => (
 
 const path = curryN(3, (pathsOpt, fallback, obj) => {
   const paths = isStr(pathsOpt) ? pathsOpt.split('.') : pathsOpt
-  let val = obj
+  let val = obj || {}
   let idx = 0
 
   while (idx < paths.length) {
+    val = val[paths[idx]]
+    idx += 1
+
     if (val == null) {
       return fallback
     }
-    val = val[paths[idx]]
-    idx += 1
   }
 
   return val
