@@ -1,6 +1,6 @@
-import { propStylesSystem, ruleProp } from '../core'
+import { createPropStyles, ruleProp } from '../core'
 
-const textProps = propStylesSystem({
+const textProps = createPropStyles({
   font: ruleProp('fontFamily'),
   size: ruleProp('fontSize'),
   weight: ruleProp('fontWeight'),

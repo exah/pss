@@ -1,6 +1,6 @@
-import { sizeProp, propStylesSystem } from '../core'
+import { sizeProp, createPropStyles } from '../core'
 
-const sizesProps = propStylesSystem({
+const sizesProps = createPropStyles({
   ht: sizeProp('height'),
   wd: sizeProp('width'),
   maxWd: sizeProp('maxWidth'),

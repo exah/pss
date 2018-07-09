@@ -3,7 +3,7 @@ import { MEDIA_KEY, SIZES_KEY } from '../src/constants'
 
 import {
   createTheme,
-  propStylesSystem,
+  createPropStyles,
   sizeProp,
   sizeStyle,
   onMedia
@@ -25,7 +25,7 @@ const theme = createTheme({
   }
 })
 
-const sizesProps = propStylesSystem({
+const sizesProps = createPropStyles({
   ht: sizeProp('height'),
   wd: sizeProp('width'),
   maxWd: sizeProp('maxWidth'),

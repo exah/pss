@@ -4,7 +4,7 @@ import type {
   Styles,
   Props,
   DynamicStyleFn,
-  PropStyles
+  PropStylesObj
 } from '../types'
 
 import { DEFAULT_KEY } from '../constants'
@@ -18,7 +18,7 @@ import {
   themeMedia
 } from '../utils'
 
-const buildStylesWithMedia = (styles: PropStyles) => (theme: Object): PropStyles => {
+const buildStylesWithMedia = (styles: PropStylesObj) => (theme: Object): PropStylesObj => {
   const media = themeMedia(theme)
   const mediaKeys = Object.keys(media).map((mediaKey) =>
     mediaKey === DEFAULT_KEY ? '' : mediaKey
@@ -38,10 +38,11 @@ const buildStylesWithMedia = (styles: PropStyles) => (theme: Object): PropStyles
 }
 
 /**
- * Create prop-styles
+ * Function that accepts {@link PropStylesObj} and returns {@link DynamicStyleFn}
+ * that will be used when creating components with CSS-in-JS libraries.
  *
  * @example
- * import { propStylesSystem } from '@exah/prop-styles-system'
+ * import { createPropStyles } from '@exah/prop-styles-system'
  *
  * @example
  * // Create theme with defined media queries
@@ -52,11 +53,8 @@ const buildStylesWithMedia = (styles: PropStyles) => (theme: Object): PropStyles
  * })
  *
  * // Create media aware props style
- * const myPropStyle = propStylesSystem({
- *   hide: { display: 'none' },
- *   bg: (val, props, mediaKey) => ({
- *     backgroundColor: val === true ? mediaKey === 'M' ? 'red' : 'blue' : val
- *   })
+ * const myPropStyle = createPropStyles({
+ *   hide: { display: 'none' }
  * })
  *
  * // Add to styled-component
@@ -82,8 +80,8 @@ const buildStylesWithMedia = (styles: PropStyles) => (theme: Object): PropStyles
  * }
  */
 
-const propStylesSystem = (styles: PropStyles = {}): DynamicStyleFn => {
-  const buildStylesWithMediaOnce = once(buildStylesWithMedia(styles))
+const createPropStyles = (propStyles: PropStylesObj = {}): DynamicStyleFn => {
+  const buildStylesWithMediaOnce = once(buildStylesWithMedia(propStyles))
 
   return (props: Props): Styles => {
     const stylesWithMedia = buildStylesWithMediaOnce(props.theme)
@@ -114,5 +112,6 @@ const propStylesSystem = (styles: PropStyles = {}): DynamicStyleFn => {
 }
 
 export {
-  propStylesSystem
+  createPropStyles,
+  createPropStyles as propStylesSystem // COMPAT
 }

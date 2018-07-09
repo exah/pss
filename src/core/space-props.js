@@ -7,7 +7,7 @@ import type {
   CSSProp,
   CompPropName,
   DynamicStyleFn,
-  PropStyles
+  PropStylesObj
 } from '../types'
 
 type SpaceProps = Array<Array<CompPropName | Array<CSSProp>>>
@@ -54,7 +54,7 @@ const spaceStyle = (stylePropPrefix: CSSProp): DynamicStyleFn => {
 const spaceProps = (
   stylePropPrefix: CSSProp,
   compPropPrefix: CompPropName
-): PropStyles => {
+): PropStylesObj => {
   const modifiers = buildDirectionModifiers(stylePropPrefix, compPropPrefix)
 
   return toObj(modifiers, ([ modName, styleProp ]) => {

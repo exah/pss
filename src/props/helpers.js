@@ -1,6 +1,6 @@
-import { propStylesSystem, ruleProp } from '../core'
+import { createPropStyles, ruleProp } from '../core'
 
-const helperProps = propStylesSystem({
+const helperProps = createPropStyles({
   // Display
   display: ruleProp('display'),
   order: ruleProp('order'),

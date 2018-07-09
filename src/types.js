@@ -20,8 +20,8 @@ type DynamicStyleFn = (props: Props, mediaKey?: string) => StyleObj | Styles
 type PropStyleFn = (value: PropStyleVal, props?: Props, mediaKey?: string) => StyleObj
 
 /**
- * Object with keys represents component prop name
- * and value as style object or function that returns style
+ * Object with keys represents component prop and value is a style object
+ * or function that returns style (see {@link PropStyleFn})
  *
  * @type {Object}
  *
@@ -34,7 +34,7 @@ type PropStyleFn = (value: PropStyleVal, props?: Props, mediaKey?: string) => St
  *   })
  * }
  */
-type PropStyles = { [CompPropName]: PropStyleFn }
+type PropStylesObj = { [CompPropName]: PropStyleFn }
 
 //
 // Themes
@@ -63,7 +63,7 @@ export type {
   StyleObj,
   Styles,
   DynamicStyleFn,
-  PropStyles,
+  PropStylesObj,
   PropStyleFn,
   PropStyleVal
 }
