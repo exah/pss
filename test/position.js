@@ -1,6 +1,6 @@
 import test from 'ava'
 import { MEDIA_KEY } from '../src/constants'
-import { createTheme, positionProps } from '../src'
+import { createTheme, positionPropStyles } from '../src'
 import { toStyles } from './_helpers'
 
 const theme = createTheme({
@@ -12,7 +12,7 @@ const theme = createTheme({
 })
 
 test('props: position', (t) => {
-  const result = positionProps({
+  const result = positionPropStyles({
     theme,
     prl: true,
     pstM: true,
@@ -46,8 +46,8 @@ test('props: position', (t) => {
 })
 
 test('props: z-index', (t) => {
-  const zIndexFalse = positionProps({ theme, z: false })
-  const zIndexTrue = positionProps({ theme, z: true })
+  const zIndexFalse = positionPropStyles({ theme, z: false })
+  const zIndexTrue = positionPropStyles({ theme, z: true })
 
   t.deepEqual(toStyles(zIndexFalse), {
     zIndex: 'auto'

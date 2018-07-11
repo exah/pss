@@ -27,9 +27,12 @@ const once = (fn) => {
   }
 }
 
+const combine = (...fns) => (...args) => fns.map((fn) => fn(...args))
+
 export {
   noop,
   identity,
+  combine,
   once,
   curry,
   curryN

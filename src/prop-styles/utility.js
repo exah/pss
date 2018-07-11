@@ -1,8 +1,8 @@
 import { createPropStyles, ruleProp } from '../core'
 
-const helperProps = createPropStyles({
+const utilityPropStyles = createPropStyles({
   // Display
-  display: ruleProp('display'),
+  display: ruleProp('display', 'initial', 'none'),
   order: ruleProp('order'),
   hide: { display: 'none' },
   // Floats
@@ -41,4 +41,4 @@ const helperProps = createPropStyles({
   _hz: { zIndex: 9999 }
 })
 
-export { helperProps }
+export { utilityPropStyles }

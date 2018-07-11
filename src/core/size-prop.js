@@ -44,4 +44,7 @@ const sizeProp = (
 const sizeStyle = (cssProp: CSSProp, ...sizeValueArgs?: [ CSSVal, CSSVal ]): PropStyleFn =>
   (val = true, ...args) => sizeProp(cssProp, ...sizeValueArgs)(val, ...args)
 
-export { sizeStyle, sizeProp }
+export {
+  sizeStyle,
+  sizeProp
+}

@@ -1,6 +1,6 @@
 import { createPropStyles, ruleProp } from '../core'
 
-const textProps = createPropStyles({
+const textPropStyles = createPropStyles({
   font: ruleProp('fontFamily'),
   size: ruleProp('fontSize'),
   weight: ruleProp('fontWeight'),
@@ -26,4 +26,4 @@ const textProps = createPropStyles({
   ellipsis: { whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }
 })
 
-export { textProps }
+export { textPropStyles }

@@ -14,7 +14,7 @@ const borderStyle = (dir = '') => (val, { theme }, mediaKey) => {
   })
 }
 
-const borderProps = createPropStyles({
+const borderPropStyles = createPropStyles({
   bd: borderStyle(),
   bdc: colorProp('borderColor', 'border'),
   ...mapObj(SHORT_DIRECTIONS, (shortDir, longDir) => [
@@ -24,5 +24,5 @@ const borderProps = createPropStyles({
 })
 
 export {
-  borderProps
+  borderPropStyles
 }

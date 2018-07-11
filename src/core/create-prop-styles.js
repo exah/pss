@@ -118,6 +118,5 @@ const createPropStyles = (propStyles: PropStylesObj = {}): DynamicStyleFn => {
 }
 
 export {
-  createPropStyles,
-  createPropStyles as propStylesSystem // COMPAT
+  createPropStyles
 }

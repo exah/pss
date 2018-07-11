@@ -1,12 +1,13 @@
 // @flow
-import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
-import { getColors, getColor, isColor, identity, curryN } from '../utils'
 
 import type {
   PropStyleFn,
   CSSProp,
   ThemeKey
 } from '../types'
+
+import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
+import { getColors, getColor, isColor, identity, curryN } from '../utils'
 
 const themeProp = (
   bgKey: ThemeKey,
