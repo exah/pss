@@ -2,7 +2,7 @@ import { createPropStyles, ruleProp, sizeProp } from '../core'
 
 const direction = (dir) => sizeProp(dir, 0, 'auto')
 
-const positionProps = createPropStyles({
+const positionPropStyles = createPropStyles({
   pst: { position: 'static' },
   prl: { position: 'relative' },
   pab: { position: 'absolute' },
@@ -17,4 +17,4 @@ const positionProps = createPropStyles({
   z: ruleProp('zIndex', 1, 'auto')
 })
 
-export { positionProps }
+export { positionPropStyles }

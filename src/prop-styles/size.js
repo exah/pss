@@ -1,6 +1,6 @@
 import { sizeProp, createPropStyles } from '../core'
 
-const sizesProps = createPropStyles({
+const sizePropsStyles = createPropStyles({
   ht: sizeProp('height'),
   wd: sizeProp('width'),
   maxWd: sizeProp('maxWidth'),
@@ -9,4 +9,4 @@ const sizesProps = createPropStyles({
   minWd: sizeProp('minWidth')
 })
 
-export { sizesProps }
+export { sizePropsStyles }

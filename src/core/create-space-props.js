@@ -1,7 +1,4 @@
 // @flow
-import { SHORT_DIRECTIONS } from '../constants'
-import { getSpace, toObj, toCssRule } from '../utils'
-import { everyMedia } from './every-media'
 
 import type {
   CSSProp,
@@ -9,6 +6,10 @@ import type {
   DynamicStyleFn,
   PropStylesObj
 } from '../types'
+
+import { SHORT_DIRECTIONS } from '../constants'
+import { getSpace, toObj, toCssRule } from '../utils'
+import { everyMedia } from './every-media'
 
 type SpaceProps = Array<Array<CompPropName | Array<CSSProp>>>
 
@@ -39,7 +40,7 @@ const cssRuleSpaceStyle = (
   )
 }
 
-const spaceStyle = (stylePropPrefix: CSSProp): DynamicStyleFn => {
+const createSpaceStyle = (stylePropPrefix: CSSProp): DynamicStyleFn => {
   const baseStyle = cssRuleSpaceStyle(stylePropPrefix)
   const modifiers = buildDirectionModifiers(stylePropPrefix)
 
@@ -51,7 +52,7 @@ const spaceStyle = (stylePropPrefix: CSSProp): DynamicStyleFn => {
   )
 }
 
-const spaceProps = (
+const createSpaceProps = (
   stylePropPrefix: CSSProp,
   compPropPrefix: CompPropName
 ): PropStylesObj => {
@@ -66,6 +67,6 @@ const spaceProps = (
 }
 
 export {
-  spaceStyle,
-  spaceProps
+  createSpaceStyle,
+  createSpaceProps
 }

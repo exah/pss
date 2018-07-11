@@ -4,8 +4,8 @@ import { MEDIA_KEY, SPACE_KEY } from '../src/constants'
 import {
   createTheme,
   createPropStyles,
-  spaceProps,
-  positionProps,
+  createSpaceProps,
+  positionPropStyles,
   ps,
   cs
 } from '../src'
@@ -24,10 +24,10 @@ const theme = createTheme({
   }
 })
 
-const marginProps = createPropStyles(spaceProps('margin', 'mg'))
+const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
 
 test('add margin-top to &:first-child', (t) => {
-  const result = toStyles(marginProps({
+  const result = toStyles(marginPropStyles({
     theme,
     mgt: ps('&:first-child', 1)
   }))
@@ -47,7 +47,7 @@ test('add margin-top to &:first-child', (t) => {
 })
 
 test('add margin to & + & element on mobile', (t) => {
-  const result = toStyles(marginProps({
+  const result = toStyles(marginPropStyles({
     theme,
     mgM: ps('& + &', 2)
   }))
@@ -62,7 +62,7 @@ test('add margin to & + & element on mobile', (t) => {
 })
 
 test('add different top value to &:last-child and &:first-child', (t) => {
-  const result = toStyles(positionProps({
+  const result = toStyles(positionPropStyles({
     theme,
     prl: true,
     t: cs(50, ps('&:last-child', 10), ps('&:first-child', 20))

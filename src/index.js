@@ -1,6 +1,16 @@
-export * from './core'
-export * from './styles'
-export * from './props'
+export {
+  createPropStyles,
+  createPropStyles as default,
+  createTheme,
+  createSpaceStyle,
+  createSpaceProps,
+  everyMedia,
+  ruleProp,
+  sizeStyle,
+  sizeProp,
+  colorProp,
+  themeProp
+} from './core'
 
 export {
   wrap,
@@ -24,5 +34,17 @@ export {
 } from './utils/getters'
 
 export {
-  createPropStyles as default
-} from './core/prop-styles'
+  borderPropStyles,
+  flexPropStyles,
+  flexItemPropStyles,
+  positionPropStyles,
+  sizePropsStyles,
+  marginPropStyles,
+  paddingPropStyles,
+  spacePropStyles,
+  textPropStyles,
+  themePropStyles,
+  utilityPropStyles
+} from './prop-styles'
+
+export * from './styles'

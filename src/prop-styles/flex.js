@@ -1,6 +1,6 @@
 import { createPropStyles, sizeProp, ruleProp } from '../core'
 
-const flexProps = createPropStyles({
+const flexPropStyles = createPropStyles({
   inline: { display: 'inline-flex' },
   wrap: ruleProp('flexWrap', 'wrap', 'nowrap'),
   nowrap: { flexWrap: 'nowrap' },
@@ -16,7 +16,7 @@ const flexProps = createPropStyles({
   alignContent: ruleProp('alignContent')
 })
 
-const flexItemProps = createPropStyles({
+const flexItemPropStyles = createPropStyles({
   flex: ruleProp('flex', '1 1 0', '0 1 auto'),
   grow: ruleProp('flexGrow', 1, 0),
   shrink: ruleProp('flexShrink', 1, 0),
@@ -26,6 +26,6 @@ const flexItemProps = createPropStyles({
 })
 
 export {
-  flexProps,
-  flexItemProps
+  flexPropStyles,
+  flexItemPropStyles
 }

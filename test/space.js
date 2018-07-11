@@ -4,8 +4,8 @@ import { MEDIA_KEY, SPACE_KEY, SIZES_KEY } from '../src/constants'
 import {
   createTheme,
   createPropStyles,
-  spaceProps,
-  spaceStyle,
+  createSpaceProps,
+  createSpaceStyle,
   onMedia
 } from '../src'
 
@@ -30,10 +30,10 @@ const theme = createTheme({
   }
 })
 
-const marginProps = createPropStyles(spaceProps('margin', 'mg'))
+const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
 
 test('props -> set one step space for every media', (t) => {
-  const result = toStyles(marginProps({ theme, mg: 1 }))
+  const result = toStyles(marginPropStyles({ theme, mg: 1 }))
 
   t.deepEqual(result, {
     margin: 10,
@@ -42,7 +42,7 @@ test('props -> set one step space for every media', (t) => {
 })
 
 test('props -> set bool space value', (t) => {
-  const result = toStyles(marginProps({ theme, mg: true, mgxM: false }))
+  const result = toStyles(marginPropStyles({ theme, mg: true, mgxM: false }))
 
   t.deepEqual(result, {
     margin: 10,
@@ -55,7 +55,7 @@ test('props -> set bool space value', (t) => {
 })
 
 test('props -> override one step space on mobile and tablet', (t) => {
-  const result = toStyles(marginProps({ theme, mg: 1, mglM: 3, mgxT: 0 }))
+  const result = toStyles(marginPropStyles({ theme, mg: 1, mglM: 3, mgxT: 0 }))
 
   t.deepEqual(result, {
     margin: 10,
@@ -68,7 +68,7 @@ test('props -> override one step space on mobile and tablet', (t) => {
 })
 
 test('props -> set margin to sizes responsive "nudge" value', (t) => {
-  const result = toStyles(marginProps({ theme, mg: 'nudge' }))
+  const result = toStyles(marginPropStyles({ theme, mg: 'nudge' }))
 
   t.deepEqual(result, {
     margin: 2,
@@ -77,7 +77,7 @@ test('props -> set margin to sizes responsive "nudge" value', (t) => {
 })
 
 test('props -> set margin to sizes "xl" value', (t) => {
-  const result = toStyles(marginProps({ theme, mg: 'xl' }))
+  const result = toStyles(marginPropStyles({ theme, mg: 'xl' }))
 
   t.deepEqual(result, {
     margin: 100
@@ -85,13 +85,13 @@ test('props -> set margin to sizes "xl" value', (t) => {
 })
 
 test('props -> set margin to "auto"', (t) => {
-  const result = toStyles(marginProps({ theme, mg: 'auto' }))
+  const result = toStyles(marginPropStyles({ theme, mg: 'auto' }))
 
   t.deepEqual(result, { margin: 'auto' })
 })
 
 test('props -> set margin to "30px" on mobile', (t) => {
-  const result = toStyles(marginProps({ theme, mg: '10px', mgM: '30px' }))
+  const result = toStyles(marginPropStyles({ theme, mg: '10px', mgM: '30px' }))
 
   t.deepEqual(result, {
     margin: '10px',
@@ -100,7 +100,7 @@ test('props -> set margin to "30px" on mobile', (t) => {
 })
 
 test('style -> padding', (t) => {
-  const padding = spaceStyle('padding')
+  const padding = createSpaceStyle('padding')
 
   const spaceStep3 = toStyles(padding(3)({ theme }))
   const spaceStep2Y = toStyles(padding.y(2)({ theme }))

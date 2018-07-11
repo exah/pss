@@ -25,7 +25,7 @@ const theme = createTheme({
   }
 })
 
-const sizesProps = createPropStyles({
+const sizesPropStyles = createPropStyles({
   ht: sizeProp('height'),
   wd: sizeProp('width'),
   maxWd: sizeProp('maxWidth'),
@@ -35,7 +35,7 @@ const sizesProps = createPropStyles({
 })
 
 test('props -> sizes relative value', (t) => {
-  const result = toStyles(sizesProps({
+  const result = toStyles(sizesPropStyles({
     theme,
     ht: true,
     wd: 1,
@@ -56,7 +56,7 @@ test('props -> sizes relative value', (t) => {
 })
 
 test('props -> sizes theme values', (t) => {
-  const result = toStyles(sizesProps({
+  const result = toStyles(sizesPropStyles({
     theme,
     minWd: 'nudge',
     maxWdM: 'xl'
@@ -72,7 +72,7 @@ test('props -> sizes theme values', (t) => {
 })
 
 test('props -> sizes custom values', (t) => {
-  const result = toStyles(sizesProps({
+  const result = toStyles(sizesPropStyles({
     theme,
     ht: '100px',
     wdM: '20px',
