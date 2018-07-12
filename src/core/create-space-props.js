@@ -40,9 +40,9 @@ const cssRuleSpaceStyle = (
   )
 }
 
-const createSpaceStyle = (stylePropPrefix: CSSProp): DynamicStyleFn => {
-  const baseStyle = cssRuleSpaceStyle(stylePropPrefix)
-  const modifiers = buildDirectionModifiers(stylePropPrefix)
+const createSpaceStyle = (cssPropPrefix: CSSProp): DynamicStyleFn => {
+  const baseStyle = cssRuleSpaceStyle(cssPropPrefix)
+  const modifiers = buildDirectionModifiers(cssPropPrefix)
 
   return Object.assign(
     baseStyle,
@@ -52,11 +52,18 @@ const createSpaceStyle = (stylePropPrefix: CSSProp): DynamicStyleFn => {
   )
 }
 
+/**
+ * Create space prop for `margin`, `padding` or any CSS prop that have similiar signature.
+ *
+ * @param cssPropPrefix — Usually is `margin` or `padding`
+ * @param compPropPrefix — Prop name that will be used for setting space value with CSS prop
+ */
+
 const createSpaceProps = (
-  stylePropPrefix: CSSProp,
+  cssPropPrefix: CSSProp,
   compPropPrefix: CompPropName
 ): PropStylesObj => {
-  const modifiers = buildDirectionModifiers(stylePropPrefix, compPropPrefix)
+  const modifiers = buildDirectionModifiers(cssPropPrefix, compPropPrefix)
 
   return toObj(modifiers, ([ modName, styleProp ]) => {
     const style = cssRuleSpaceStyle(styleProp)

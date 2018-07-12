@@ -10,6 +10,27 @@ toc:
     children:
       - createPropStyles
       - createTheme
+      - ruleProp
       - name: Types
         children:
           - PropStylesObj
+  - name: Space
+    description: |
+      Utils for creating space system for setting `margin` or `padding`.
+
+      - If value is a `number` it takes value from `theme.space` `array` by index
+      - Negative value for negative margins
+      - If value is a `string` it passed as raw CSS value (like `'10%'` or `'100vh'`)
+
+    children:
+      - createSpaceProps
+      - createSpaceStyle
+
+  - name: Sizes
+    children:
+      - sizeProp
+
+  - name: Colors
+    children:
+      - themeProp
+      - colorProp
