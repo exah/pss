@@ -12,6 +12,11 @@
     -   [Types][8]
         -   [PropStylesObj][9]
             -   [Examples][10]
+-   [Space][11]
+    -   [createSpaceProps][12]
+        -   [Parameters][13]
+-   [Sizes][14]
+-   [Colors][15]
 
 ## Creating Prop Styles and Theme
 
@@ -23,7 +28,7 @@
 Function that accepts Object (see [PropStylesObj][9]) with keys that
 represents component `prop` and the value is a `style` that will be applied.
 
-Returns Function (see [DynamicStyleFn][11]) that you add to
+Returns Function (see [DynamicStyleFn][16]) that you add to
 components created with CSS-in-JS libraries.
 
 When `theme` with `media` provided to components,
@@ -31,7 +36,7 @@ styles can be changed on defined media queries.
 
 #### Parameters
 
--   `propStyles` **[PropStylesObj][12]**  (optional, default `{}`)
+-   `propStyles` **[PropStylesObj][17]**  (optional, default `{}`)
 
 #### Examples
 
@@ -166,9 +171,9 @@ Returns **ThemeObj**
 #### PropStylesObj
 
 Object with keys that represents component `prop` and
-the value is a `style` that will be applied (can be functions, see [PropStyleFn][13]).
+the value is a `style` that will be applied (can be functions, see [PropStyleFn][18]).
 
-Type: [Object][14]
+Type: [Object][19]
 
 ##### Examples
 
@@ -185,6 +190,36 @@ Type: [Object][14]
   color: (value, props) => ({ color: props.theme.color[value] })
 }
 ```
+
+## Space
+
+Utils for creating space system for setting `margin` or `padding`.
+
+-   If value is a `number` it takes value from `theme.space` `array` by index
+-   Negative value for negative margins
+-   If value is a `string` it passed as raw CSS value (like `'10%'` or `'100vh'`)
+
+
+### createSpaceProps
+
+Create space prop for `margin`, `padding` or any CSS prop that have similiar signature.
+
+#### Parameters
+
+-   `cssPropPrefix` **CSSProp** — Usually is `margin` or `padding`
+-   `compPropPrefix` **CompPropName** — Prop name that will be used for setting space value with CSS prop
+
+Returns **[PropStylesObj][17]** 
+
+## Sizes
+
+
+
+
+## Colors
+
+
+
 
 [1]: #creating-prop-styles-and-theme
 
@@ -206,10 +241,20 @@ Type: [Object][14]
 
 [10]: #examples-2
 
-[11]: DynamicStyleFn
+[11]: #space
 
-[12]: #propstylesobj
+[12]: #createspaceprops
 
-[13]: PropStyleFn
+[13]: #parameters-2
 
-[14]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[14]: #sizes
+
+[15]: #colors
+
+[16]: DynamicStyleFn
+
+[17]: #propstylesobj
+
+[18]: PropStyleFn
+
+[19]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
