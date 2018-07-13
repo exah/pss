@@ -26,7 +26,8 @@ const buildDirectionModifiers = (
 
 const cssRuleSpaceStyle = (
   styleProp: CSSProp,
-  getSpaceValue: Function = getSpace
+  getSpaceValue: Function = getSpace,
+  toPx = true
 ): Function =>
   (value, fnMediaKey): DynamicStyleFn =>
     (props, propMediaKey = fnMediaKey) => {
@@ -34,11 +35,11 @@ const cssRuleSpaceStyle = (
       const spaceValue = getSpaceValue(props.theme, value)
 
       if (propMediaKey != null) {
-        return cssRule(spaceValue(propMediaKey))
+        return cssRule(spaceValue(propMediaKey), toPx)
       }
 
       return everyMedia(
-        (mediaKey) => cssRule(spaceValue(mediaKey, true)),
+        (mediaKey) => cssRule(spaceValue(mediaKey, true), toPx),
         props
       )
     }

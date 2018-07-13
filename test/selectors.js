@@ -35,11 +35,11 @@ test('add margin-top to &:first-child', (t) => {
   t.deepEqual(result, {
     '&:first-child': [
       {
-        marginTop: 10
+        marginTop: '10px'
       },
       {
         '@media (max-width: 600px)': {
-          marginTop: 5
+          marginTop: '5px'
         }
       }
     ]
@@ -55,7 +55,7 @@ test('add margin to & + & element on mobile', (t) => {
   t.deepEqual(result, {
     '@media (max-width: 600px)': {
       '& + &': {
-        margin: 10
+        margin: '10px'
       }
     }
   })
