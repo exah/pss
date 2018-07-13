@@ -21,6 +21,23 @@ toc:
       - If value is a `number` it takes value from `theme.space` `array` by index
       - Negative value for negative margins
       - If value is a `string` it passed as raw CSS value (like `'10%'` or `'100vh'`)
+      - `true` value is equal `1` index in space array
+      - `false` value is equal `0` index in space array
+
+      All examples assume that [`theme`](#createtheme) has:
+
+      ```js
+      {
+        media: {
+          default: null,
+          M: `(max-width: 600px)`
+        },
+        space: {
+          default: [ 0, 10, 20, 40, 80 ],
+          M: [ 0, 8, 16, 32, 64 ],
+        }
+      }
+      ```
 
     children:
       - createSpaceProps

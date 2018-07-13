@@ -9,4 +9,6 @@ const sizePropsStyles = createPropStyles({
   minWd: sizeProp('minWidth')
 })
 
-export { sizePropsStyles }
+export {
+  sizePropsStyles
+}

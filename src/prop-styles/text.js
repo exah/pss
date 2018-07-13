@@ -26,4 +26,6 @@ const textPropStyles = createPropStyles({
   ellipsis: { whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }
 })
 
-export { textPropStyles }
+export {
+  textPropStyles
+}

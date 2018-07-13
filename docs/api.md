@@ -15,8 +15,12 @@
 -   [Space][11]
     -   [createSpaceProps][12]
         -   [Parameters][13]
--   [Sizes][14]
--   [Colors][15]
+        -   [Examples][14]
+    -   [createSpaceStyle][15]
+        -   [Parameters][16]
+        -   [Examples][17]
+-   [Sizes][18]
+-   [Colors][19]
 
 ## Creating Prop Styles and Theme
 
@@ -28,7 +32,7 @@
 Function that accepts Object (see [PropStylesObj][9]) with keys that
 represents component `prop` and the value is a `style` that will be applied.
 
-Returns Function (see [DynamicStyleFn][16]) that you add to
+Returns Function (see [DynamicStyleFn][20]) that you add to
 components created with CSS-in-JS libraries.
 
 When `theme` with `media` provided to components,
@@ -36,7 +40,7 @@ styles can be changed on defined media queries.
 
 #### Parameters
 
--   `propStyles` **[PropStylesObj][17]**  (optional, default `{}`)
+-   `propStyles` **[PropStylesObj][21]**  (optional, default `{}`)
 
 #### Examples
 
@@ -56,9 +60,9 @@ const myPropStyle = createPropStyles({
 const Block = styled.div(myPropStyle)
 
 // Use in component
-<Block flex /> // { .css { display: 'flex' }
-<Block inline /> // { .css { display: inline-block }
-<Block display='inline-flex' /> // { .css { display: inline-flex }
+<Block flex /> // .css { display: 'flex' }
+<Block inline /> // .css { display: inline-block }
+<Block display='inline-flex' /> // .css { display: inline-flex }
 ```
 
 ```js
@@ -73,10 +77,8 @@ const theme = createTheme({
 
 // Add theme to ThemeProvider
 <ThemeProvider theme={theme}>
-  <Block hideM />
+  <Block hideM /> // @media (max-width: 600px) { .css { display: none } }
 </ThemeProvider>
-
-// @media (max-width: 600px) { .css { display: none; } }
 ```
 
 Returns **DynamicStyleFn** 
@@ -171,9 +173,9 @@ Returns **ThemeObj**
 #### PropStylesObj
 
 Object with keys that represents component `prop` and
-the value is a `style` that will be applied (can be functions, see [PropStyleFn][18]).
+the value is a `style` that will be applied (can be functions, see [PropStyleFn][22]).
 
-Type: [Object][19]
+Type: [Object][23]
 
 ##### Examples
 
@@ -198,18 +200,103 @@ Utils for creating space system for setting `margin` or `padding`.
 -   If value is a `number` it takes value from `theme.space` `array` by index
 -   Negative value for negative margins
 -   If value is a `string` it passed as raw CSS value (like `'10%'` or `'100vh'`)
+-   `true` value is equal `1` index in space array
+-   `false` value is equal `0` index in space array
+
+All examples assume that [`theme`][5] has:
+
+```js
+{
+  media: {
+    default: null,
+    M: `(max-width: 600px)`
+  },
+  space: {
+    default: [ 0, 10, 20, 40, 80 ],
+    M: [ 0, 8, 16, 32, 64 ],
+  }
+}
+```
 
 
 ### createSpaceProps
 
-Create space prop for `margin`, `padding` or any CSS prop that have similiar signature.
+Create space props for `margin`, `padding` or any CSS prop that have similiar signature.
+Result is props for [createPropStyles][2] with specified prop prefix.
+
+For example if `compPropPrefix` = `mg` and `cssProp` = `margin` result of prop styles are:
+
+-   `mg` — `margin`
+-   `mgl` — `margin-left`
+-   `mgr` — `margin-righ`
+-   `mgt` — `margin-top`
+-   `mgb` — `margin-bottom`
+-   `mgx` — `margin-left`, `margin-right`
+-   `mgy` — `margin-top`, `margin-bottom`
 
 #### Parameters
 
--   `cssPropPrefix` **CSSProp** — Usually is `margin` or `padding`
+-   `cssProp` **CSSProp** — Usually is `margin` or `padding`
 -   `compPropPrefix` **CompPropName** — Prop name that will be used for setting space value with CSS prop
+-   `getSpaceValue` **[Function][24]** — Custom getter from theme, default to get values from `theme.space`
 
-Returns **[PropStylesObj][17]** 
+#### Examples
+
+```js
+import styled from 'react-emotion'
+import { createSpaceProps, createPropStyles } from '@exah/prop-styles-system'
+
+// Create `margin` space prop styles with `mg` prefix
+const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
+
+// Add to component
+const Box = styled.div(marginPropStyles)
+
+// Result
+<Box mg /> // .css { margin: 10px } @media (max-width: 600px) { .css { margin: 8px } }
+<Box mgl /> // .css { margin-left: 10px } @media (max-width: 600px) { .css { margin-left: 8px } }
+<Box mgr /> // .css { margin-right: 10px }
+<Box mgt /> // .css { margin-top: 10px }
+<Box mgb /> // .css { margin-bottom: 10px }
+<Box mgx='auto' /> // .css { margin-left: auto; margin-right: auto }
+<Box mgy={2} /> // .css { margin-top: 20px; margin-bottom: 20px } @media (max-width: 600px) { .css { margin-top: 16px; margin-bottom: 16px } }
+<Box mg={-2} /> // .css { margin: -20px } @media (max-width: 600px) { .css { margin: -16px; } }
+<Box mg={0} /> // .css { margin: 0 }
+<Box mgrM={-1} /> // @media (max-width: 600px) { .css { margin-right: -8px } }
+<Box mgr={2} mgrM={-1} /> // .css { margin-right: 20px } @media (max-width: 600px) { .css { margin-right: -8px } }
+```
+
+Returns **[PropStylesObj][21]** 
+
+### createSpaceStyle
+
+Similar to [createSpaceProps][12], but creates style function instead of prop,
+that can be used inside CSS-in-JS components with `theme` prop.
+
+#### Parameters
+
+-   `cssProp` **CSSProp** 
+-   `getSpaceValue` **[Function][24]** 
+
+#### Examples
+
+```js
+import styled from 'react-emotion'
+import { createSpaceStyle, createPropStyles } from '@exah/prop-styles-system'
+
+// Create `margin` space style fn
+const margin = createSpaceStyle('margin')
+
+// Add to component
+const Box = styled.div({ display: 'flex' }, margin.x(2))
+const OtherBox = styled.div((props) => ({ display: 'flex', margin.l(1)(props) }))
+
+// Result
+<Box /> // .css { display: flex; margin-left: 20px; margin-right: 20px } @media (max-width: 600px) { .css { margin-left: 16px; margin-right: 16px } }
+<OtherBox /> // .css { display: flex; margin-left: 10px } @media (max-width: 600px) { .css { margin-left: 10px } }
+```
+
+Returns **DynamicStyleFn** 
 
 ## Sizes
 
@@ -247,14 +334,24 @@ Returns **[PropStylesObj][17]**
 
 [13]: #parameters-2
 
-[14]: #sizes
+[14]: #examples-3
 
-[15]: #colors
+[15]: #createspacestyle
 
-[16]: DynamicStyleFn
+[16]: #parameters-3
 
-[17]: #propstylesobj
+[17]: #examples-4
 
-[18]: PropStyleFn
+[18]: #sizes
 
-[19]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[19]: #colors
+
+[20]: DynamicStyleFn
+
+[21]: #propstylesobj
+
+[22]: PropStyleFn
+
+[23]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[24]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function

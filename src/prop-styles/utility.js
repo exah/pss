@@ -41,4 +41,6 @@ const utilityPropStyles = createPropStyles({
   _hz: { zIndex: 9999 }
 })
 
-export { utilityPropStyles }
+export {
+  utilityPropStyles
+}

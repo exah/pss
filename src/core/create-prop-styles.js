@@ -63,9 +63,9 @@ const buildStylesWithMedia = (styles: PropStylesObj) => (theme: Object): PropSty
  * const Block = styled.div(myPropStyle)
  *
  * // Use in component
- * <Block flex /> // { .css { display: 'flex' }
- * <Block inline /> // { .css { display: inline-block }
- * <Block display='inline-flex' /> // { .css { display: inline-flex }
+ * <Block flex /> // .css { display: 'flex' }
+ * <Block inline /> // .css { display: inline-block }
+ * <Block display='inline-flex' /> // .css { display: inline-flex }
  *
  *
  * @example
@@ -80,10 +80,8 @@ const buildStylesWithMedia = (styles: PropStylesObj) => (theme: Object): PropSty
  *
  * // Add theme to ThemeProvider
  * <ThemeProvider theme={theme}>
- *   <Block hideM />
+ *   <Block hideM /> // @media (max-width: 600px) { .css { display: none } }
  * </ThemeProvider>
- *
- * // @media (max-width: 600px) { .css { display: none; } }
  */
 
 const createPropStyles = (propStyles: PropStylesObj = {}): DynamicStyleFn => {
