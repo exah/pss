@@ -17,4 +17,6 @@ const positionPropStyles = createPropStyles({
   z: ruleProp('zIndex', 1, 'auto')
 })
 
-export { positionPropStyles }
+export {
+  positionPropStyles
+}
