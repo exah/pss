@@ -38,14 +38,18 @@ const buildStylesWithMedia = (styles: PropStylesObj) => (theme: Object): PropSty
 }
 
 /**
+ * ```js
+ * import { createPropStyles } from '@exah/prop-styles-system'
+ * ```
+ *
  * Function that accepts Object (see {@link PropStylesObj}) with keys that
  * represents component `prop` and the value is a `style` that will be applied.
  *
  * Returns Function (see {@link DynamicStyleFn}) that you add to
  * components created with CSS-in-JS libraries.
  *
- * When `theme` with `media` provided to components,
- * styles can be changed on defined media queries.
+ * When `theme` with `media` is provided to components, any styles can be changed
+ * in media query with media name suffix (key in `theme.media`).
  *
  * @example
  * import styled from 'react-emotion'
@@ -53,19 +57,19 @@ const buildStylesWithMedia = (styles: PropStylesObj) => (theme: Object): PropSty
  *
  * // Create prop styles
  * const myPropStyle = createPropStyles({
- *   display: (value) => ({ display: value }),
+ *   display: value => ({ display: value }),
  *   flex: { display: 'flex' },
  *   inline: { display: 'inline-block' },
  *   hide: { display: 'none' }
  * })
  *
  * // Add to component
- * const Block = styled.div(myPropStyle)
+ * const Box = styled.div(myPropStyle)
  *
  * // Use in component
- * <Block flex /> // .css { display: 'flex' }
- * <Block inline /> // .css { display: inline-block }
- * <Block display='inline-flex' /> // .css { display: inline-flex }
+ * <Box flex /> // .css { display: 'flex' }
+ * <Box inline /> // .css { display: inline-block }
+ * <Box display='inline-flex' /> // .css { display: inline-flex }
  *
  *
  * @example
@@ -80,7 +84,7 @@ const buildStylesWithMedia = (styles: PropStylesObj) => (theme: Object): PropSty
  *
  * // Add theme to ThemeProvider
  * <ThemeProvider theme={theme}>
- *   <Block hideM /> // @media (max-width: 600px) { .css { display: none } }
+ *   <Box hideM /> // @media (max-width: 600px) { .css { display: none } }
  * </ThemeProvider>
  */
 

@@ -15,7 +15,11 @@ import {
 } from '../constants'
 
 /**
- * Function for creating `theme` with your design system values.
+ * ```js
+ * import { createTheme } from '@exah/prop-styles-system'
+ * ```
+ *
+ * Function for creating `theme` with your design system settings.
  *
  * @example
  * const theme = createTheme({
@@ -23,7 +27,7 @@ import {
  *   media: {
  *     M: '(max-width: 600px)'
  *   },
- *   // createSpaceProps, marginPropStyle, paddingPropStyle
+ *   // createSpaceProps, spacePropStyles
  *   space: {
  *     default: [ 0, 10, 20, 30, 60 ],
  *     M: [ 0, 10, 15, 30, 30 ]
