@@ -22,6 +22,9 @@ const theme = createTheme({
       'M': 1
     },
     xl: 100
+  },
+  custom: {
+    'my-value': '1000px'
   }
 })
 
@@ -52,6 +55,17 @@ test('props -> sizes relative value', (t) => {
     maxWidth: 0,
     minHeight: '75%',
     maxHeight: 'auto'
+  })
+})
+
+test('props -> sizes path from theme', (t) => {
+  const result = toStyles(sizesPropStyles({
+    theme,
+    ht: 'custom.my-value'
+  }))
+
+  t.deepEqual(result, {
+    height: '1000px'
   })
 })
 

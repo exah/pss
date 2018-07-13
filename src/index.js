@@ -38,7 +38,7 @@ export {
   flexPropStyles,
   flexItemPropStyles,
   positionPropStyles,
-  sizePropsStyles,
+  sizePropsStyles as sizes,
   marginPropStyles,
   paddingPropStyles,
   spacePropStyles,
