@@ -5,7 +5,8 @@ const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
 const paddingPropStyles = createPropStyles(createSpaceProps('padding', 'pd'))
 
 /**
- * Alias **`space`**
+ * Alias **`space`**, also **`marginPropStyles`**, **`paddingPropStyles`**
+ *
  * ```js
  * import { space } from '@exah/prop-styles-system'
  * ```

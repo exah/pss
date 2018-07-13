@@ -24,8 +24,13 @@
         -   [Parameters][20]
         -   [Examples][21]
 -   [Sizes][22]
--   [Colors][23]
--   [Utilities][24]
+    -   [sizePropsStyles][23]
+        -   [Examples][24]
+    -   [sizeProp][25]
+        -   [Parameters][26]
+        -   [Examples][27]
+-   [Colors][28]
+-   [Utilities][29]
 
 ## Creating Prop Styles and Theme
 
@@ -41,7 +46,7 @@ import { createPropStyles } from '@exah/prop-styles-system'
 Function that accepts Object (see [PropStylesObj][9]) with keys that
 represents component `prop` and the value is a `style` that will be applied.
 
-Returns Function (see [DynamicStyleFn][25]) that you add to
+Returns Function (see [DynamicStyleFn][30]) that you add to
 components created with CSS-in-JS libraries.
 
 When `theme` with `media` is provided to components, any styles can be changed
@@ -49,7 +54,7 @@ in media query with media name suffix (key in `theme.media`).
 
 #### Parameters
 
--   `propStyles` **[PropStylesObj][26]**  (optional, default `{}`)
+-   `propStyles` **[PropStylesObj][31]**  (optional, default `{}`)
 
 #### Examples
 
@@ -188,7 +193,7 @@ Returns **ThemeObj**
 Object with keys that represents component `prop` and
 the value is a `style` that will be applied (or [PropStyleFn][11]).
 
-Type: [Object][27]
+Type: [Object][32]
 
 ##### Examples
 
@@ -208,9 +213,9 @@ Type: [Object][27]
 
 #### PropStyleFn
 
-[Function][28] that returns style that will be applied to component when prop is used.
+[Function][33] that returns style that will be applied to component when prop is used.
 
-Type: function (value: PropStyleVal, props: Props, mediaKey: ([string][29] | null)): StyleObj
+Type: function (value: PropStyleVal, props: Props, mediaKey: ([string][34] | null)): StyleObj
 
 ##### Parameters
 
@@ -220,7 +225,7 @@ Type: function (value: PropStyleVal, props: Props, mediaKey: ([string][29] | nul
 
 ## Space
 
-Utils for creating consistent space system for setting `margin` or `padding`.
+Utils for creating consistent `space` system for setting `margin` or `padding`.
 
 -   If value is a `Number` it takes value from `theme.space` `Array` by index
 -   Negative value for negative margins
@@ -245,7 +250,7 @@ const theme = createTheme({
 
 ### spacePropStyles
 
-Alias **`space`**
+Alias **`space`**, also **`marginPropStyles`**, **`paddingPropStyles`**
 
 ```js
 import { space } from '@exah/prop-styles-system'
@@ -309,7 +314,7 @@ Result is props for [createPropStyles][2] with specified prop prefix.
 
 -   `cssProp` **CSSProp** — Usually is `margin` or `padding`
 -   `compProp` **CompPropName** — Prop name that will be used in component
--   `getSpaceValue` **[Function][30]** — Custom getter from theme, default to get values from `theme.space`
+-   `getSpaceValue` **[Function][35]** — Custom getter from theme, default to get values from `theme.space`
 
 #### Examples
 
@@ -327,7 +332,7 @@ const Box = styled.div(marginPropStyles)
 <Box mg /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
 ```
 
-Returns **[PropStylesObj][26]** 
+Returns **[PropStylesObj][31]** 
 
 ### createSpaceStyle
 
@@ -338,7 +343,7 @@ import { createSpaceStyle } from '@exah/prop-styles-system'
 Similar to [createSpaceProps][16], but creates style function instead of prop styles,
 that can be used inside CSS-in-JS components with `theme` prop.
 
-For example if `cssProp` = `margin` result is [DynamicStyleFn][25] with API:
+For example if `cssProp` = `margin` result is [DynamicStyleFn][30] with API:
 
 -   `margin(step)` → `margin`
 -   `margin.l(step)` → `margin-left`
@@ -351,7 +356,7 @@ For example if `cssProp` = `margin` result is [DynamicStyleFn][25] with API:
 #### Parameters
 
 -   `cssProp` **CSSProp** — Usually is `margin` or `padding`
--   `getSpaceValue` **[Function][30]** — Custom getter from theme, default to get values from `theme.space`
+-   `getSpaceValue` **[Function][35]** — Custom getter from theme, default to get values from `theme.space`
 
 #### Examples
 
@@ -375,8 +380,110 @@ Returns **DynamicStyleFn**
 
 ## Sizes
 
+Utils for consistent `sizes` system for `width`, `height` and any other related props (even for position).
+
+**`String` values:**
+
+-   Get value by path in `theme.size` or in top level `theme` object
+-   If value in `theme.sizes` is an `Object` with media keys (like in `theme.media`) value is responsive
+-   Other `String` values is passed as raw CSS value (like `'10%'` or `'100vh'`).
+
+**`Number` values:**
+
+-   From 0-1 it is converted to percentage widths
+-   Greater than 1 are converted to pixel values.
+
+All examples use this [`theme`][5]:
+
+```js
+const theme = createTheme({
+  media: {
+    M: `(max-width: 600px)`
+  },
+  size: {
+    small: '10px',
+    medium: '20px',
+    block: {
+      default: '500px',
+      M: '300px'
+    }
+  },
+  site: {
+    width: '1300px'
+  }
+})
+```
 
 
+### sizePropsStyles
+
+Alias **`sizes`**
+
+```js
+import { sizes } from '@exah/prop-styles-system'
+```
+
+Ready to use size prop styles created with [sizeProp][25].
+
+-   `wd` → `width`
+-   `maxWd` → `max-width`
+-   `minWd` → `min-width`
+-   `ht` → `height`
+-   `maxHt` → `max-height`
+-   `minHt` → `min-height`
+
+Additionaly `true` prop value is `100%` and `false` is `0`.
+
+#### Examples
+
+```js
+import styled from 'react-emotion'
+import { sizes } from '@exah/prop-styles-system'
+
+const Box = styled.div(sizes)
+
+// Result
+<Box ht='small' /> // .css { height: 10px }
+<Box wd='card' /> // .css { width: 500px; @media (max-width: 600px) { margin-left: 300px } }
+<Box maxWd /> // .css { max-width: 100% }
+<Box ht={false} /> // .css { height: 0 }
+<Box maxWd='site.width' /> // .css { max-width: 1300px }
+```
+
+### sizeProp
+
+```js
+import { sizeProp } from '@exah/prop-styles-system'
+```
+
+#### Parameters
+
+-   `cssProp` **CSSProp** — CSS prop like `width`, `height`, `left`, ...
+-   `sizeValueArgs` **...\[CSSVal, CSSVal]** — For setting defaults for `true` (first) and `false` (second) value
+
+#### Examples
+
+```js
+import styled from 'react-emotion'
+import { sizeProp, createPropStyles } from '@exah/prop-styles-system'
+
+const sizes = createPropStyles({
+  w: sizeProp('width', '100%', 0),
+  h: sizeProp('height', '100%', 0),
+  l: sizeProp('left', 0, 'auto'),
+})
+
+// Add to component
+const Box = styled.dev(sizes)
+
+// Result
+<Box w /> // .css { width: 100% }
+<Box wM={(1 / 2)} /> // .css { @media (max-width: 600px) { width: 50% } }
+<Box h={(3 / 4)} /> // .css { height: 75% }
+<Box l lM='auto' /> // .css { left: 0; @media (max-width: 600px) { left: auto } }
+```
+
+Returns **[PropStyleFn][36]** 
 
 ## Colors
 
@@ -432,18 +539,30 @@ Returns **DynamicStyleFn**
 
 [22]: #sizes
 
-[23]: #colors
+[23]: #sizepropsstyles
 
-[24]: #utilities
+[24]: #examples-6
 
-[25]: DynamicStyleFn
+[25]: #sizeprop
 
-[26]: #propstylesobj
+[26]: #parameters-5
 
-[27]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[27]: #examples-7
 
-[28]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[28]: #colors
 
-[29]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[29]: #utilities
 
-[30]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[30]: DynamicStyleFn
+
+[31]: #propstylesobj
+
+[32]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[33]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+
+[34]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[35]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+
+[36]: #propstylefn
