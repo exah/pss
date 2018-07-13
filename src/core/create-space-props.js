@@ -45,6 +45,10 @@ const cssRuleSpaceStyle = (
     }
 
 /**
+ * ```js
+ * import { createSpaceStyle } from '@exah/prop-styles-system'
+ * ```
+ *
  * Similar to {@link createSpaceProps}, but creates style function instead of prop styles,
  * that can be used inside CSS-in-JS components with `theme` prop.
  *
@@ -90,21 +94,23 @@ const createSpaceStyle = (cssProp: CSSProp, getSpaceValue: Function): DynamicSty
 }
 
 /**
+ * ```js
+ * import { createSpaceProps } from '@exah/prop-styles-system'
+ * ```
+ *
  * Create space props for `margin`, `padding` or any CSS prop that have similiar signature.
  * Result is props for {@link createPropStyles} with specified prop prefix.
  *
- * For example if `compPropPrefix` = `mg` and `cssProp` = `margin` result of prop styles are:
- *
- * - `mg` → `margin`
- * - `mgl` → `margin-left`
- * - `mgr` → `margin-right`
- * - `mgt` → `margin-top`
- * - `mgb` → `margin-bottom`
- * - `mgx` → `margin-left`, `margin-right`
- * - `mgy` → `margin-top`, `margin-bottom`
+ * - `{compProp}` → `{cssProp}`
+ * - `{compProp}l` → `{cssProp}-left`
+ * - `{compProp}r` → `{cssProp}-right`
+ * - `{compProp}t` → `{cssProp}-top`
+ * - `{compProp}b` → `{cssProp}-bottom`
+ * - `{compProp}x` → `{cssProp}-left`, `{cssProp}-right`
+ * - `{compProp}y` → `{cssProp}-top`, `{cssProp}-bottom`
  *
  * @param cssProp — Usually is `margin` or `padding`
- * @param compPropPrefix — Prop name that will be used for setting space value with CSS prop
+ * @param compProp — Prop name that will be used in component
  * @param getSpaceValue — Custom getter from theme, default to get values from `theme.space`
  *
  * @example
@@ -119,24 +125,14 @@ const createSpaceStyle = (cssProp: CSSProp, getSpaceValue: Function): DynamicSty
  *
  * // Result
  * <Box mg /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
- * <Box mgl /> // .css { margin-left: 10px; @media (max-width: 600px) { margin-left: 8px } }
- * <Box mgr /> // .css { margin-right: 10px; @media (max-width: 600px) { margin-right: 8px } }
- * <Box mgt /> // .css { margin-top: 10px; @media (max-width: 600px) { margin-top: 8px } }
- * <Box mgb /> // .css { margin-bottom: 10px; @media (max-width: 600px) { margin-top: 8px } }
- * <Box mgx='auto' /> // .css { margin-left: auto; margin-right: auto }
- * <Box mgy={2} /> // .css { margin-top: 20px; margin-bottom: 20px; @media (max-width: 600px) { margin-top: 16px; margin-bottom: 16px } }
- * <Box mg={-2} /> // .css { margin: -20px; @media (max-width: 600px) { margin: -16px; } }
- * <Box mg={0} /> // .css { margin: 0 }
- * <Box mgrM={-1} /> // @media (max-width: 600px) { .css { margin-right: -8px } }
- * <Box mgr={2} mgrM={-1} /> // .css { margin-right: 20px; @media (max-width: 600px) { margin-right: -8px } }
  */
 
 const createSpaceProps = (
   cssProp: CSSProp,
-  compPropPrefix: CompPropName,
+  compProp: CompPropName,
   getSpaceValue: Function
 ): PropStylesObj => {
-  const modifiers = buildDirectionModifiers(cssProp, compPropPrefix)
+  const modifiers = buildDirectionModifiers(cssProp, compProp)
 
   return toObj(modifiers, ([ modName, styleProp ]) => {
     const style = cssRuleSpaceStyle(styleProp, getSpaceValue)

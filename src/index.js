@@ -42,6 +42,7 @@ export {
   marginPropStyles,
   paddingPropStyles,
   spacePropStyles,
+  spacePropStyles as space,
   textPropStyles,
   themePropStyles,
   utilityPropStyles
