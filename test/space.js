@@ -36,8 +36,8 @@ test('props -> set one step space for every media', (t) => {
   const result = toStyles(marginPropStyles({ theme, mg: 1 }))
 
   t.deepEqual(result, {
-    margin: 10,
-    '@media (max-width: 600px)': { margin: 5 }
+    margin: '10px',
+    '@media (max-width: 600px)': { margin: '5px' }
   })
 })
 
@@ -45,9 +45,9 @@ test('props -> set bool space value', (t) => {
   const result = toStyles(marginPropStyles({ theme, mg: true, mgxM: false }))
 
   t.deepEqual(result, {
-    margin: 10,
+    margin: '10px',
     '@media (max-width: 600px)': {
-      margin: 5,
+      margin: '5px',
       marginLeft: 0,
       marginRight: 0
     }
@@ -58,8 +58,8 @@ test('props -> override one step space on mobile and tablet', (t) => {
   const result = toStyles(marginPropStyles({ theme, mg: 1, mglM: 3, mgxT: 0 }))
 
   t.deepEqual(result, {
-    margin: 10,
-    '@media (max-width: 600px)': { margin: 5, marginLeft: 20 },
+    margin: '10px',
+    '@media (max-width: 600px)': { margin: '5px', marginLeft: '20px' },
     '@media (min-width: 601px) and (max-width: 1024px)': {
       marginLeft: 0,
       marginRight: 0
@@ -71,8 +71,8 @@ test('props -> set margin to sizes responsive "nudge" value', (t) => {
   const result = toStyles(marginPropStyles({ theme, mg: 'nudge' }))
 
   t.deepEqual(result, {
-    margin: 2,
-    '@media (max-width: 600px)': { margin: 1 }
+    margin: '2px',
+    '@media (max-width: 600px)': { margin: '1px' }
   })
 })
 
@@ -80,7 +80,7 @@ test('props -> set margin to sizes "xl" value', (t) => {
   const result = toStyles(marginPropStyles({ theme, mg: 'xl' }))
 
   t.deepEqual(result, {
-    margin: 100
+    margin: '100px'
   })
 })
 
@@ -107,16 +107,16 @@ test('style -> padding', (t) => {
   const spaceAutoXOnMobile = toStyles(onMedia('M', padding.x('auto'))({ theme }))
 
   t.deepEqual(spaceStep3, {
-    padding: 30,
-    '@media (max-width: 600px)': { padding: 20 }
+    padding: '30px',
+    '@media (max-width: 600px)': { padding: '20px' }
   })
 
   t.deepEqual(spaceStep2Y, {
-    paddingTop: 20,
-    paddingBottom: 20,
+    paddingTop: '20px',
+    paddingBottom: '20px',
     '@media (max-width: 600px)': {
-      paddingTop: 10,
-      paddingBottom: 10
+      paddingTop: '10px',
+      paddingBottom: '10px'
     }
   })
 
