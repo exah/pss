@@ -46,7 +46,7 @@ const getColor = (theme, key, colorName) => {
   const palette = getPalette(theme, colorName)
   const fallback = palette[key] ? palette : colors
 
-  return isStr(colorName) ? colors[colorName] || fallback[key] : colors[key]
+  return isStr(colorName) ? path(colorName, fallback[key])(colors) : colors[key]
 }
 
 const getThemeMediaValue = (key) => (theme, value) => {
