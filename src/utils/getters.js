@@ -4,8 +4,7 @@ import {
   MEDIA_KEY,
   PALETTE_KEY,
   SIZES_KEY,
-  SPACE_KEY,
-  TEXT_STYLE_KEY
+  SPACE_KEY
 } from '../constants'
 
 import { isStr, isArr, isNum, isObj, isFn, isBool } from './is'
@@ -77,8 +76,6 @@ const getThemeMediaValue = (key) => (theme, value) => {
 
 const getSize = getThemeMediaValue(SIZES_KEY)
 
-const getTextStyle = getThemeMediaValue(TEXT_STYLE_KEY)
-
 const getSpace = (theme, step) => (mediaKey, exact = false) => {
   if (!isNum(step) && !isBool(step)) {
     const themeSize = getSize(theme, step)
@@ -115,6 +112,5 @@ export {
   getColors,
   getColor,
   getSize,
-  getSpace,
-  getTextStyle
+  getSpace
 }

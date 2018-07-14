@@ -10,8 +10,7 @@ import {
   MEDIA_KEY,
   PALETTE_KEY,
   SIZES_KEY,
-  SPACE_KEY,
-  TEXT_STYLE_KEY
+  SPACE_KEY
 } from '../constants'
 
 /**
@@ -95,7 +94,6 @@ const createTheme = (theme: ThemeObj = {}): ThemeObj => ({
   [DEFAULT_KEY]: {
     [PALETTE_KEY]: DEFAULT_KEY,
     [MEDIA_KEY]: DEFAULT_KEY,
-    [TEXT_STYLE_KEY]: DEFAULT_KEY,
     ...theme[DEFAULT_KEY]
   },
   [MEDIA_KEY]: {
@@ -115,13 +113,6 @@ const createTheme = (theme: ThemeObj = {}): ThemeObj => ({
   [PALETTE_KEY]: {
     [DEFAULT_KEY]: {},
     ...theme[PALETTE_KEY]
-  },
-  [TEXT_STYLE_KEY]: {
-    [DEFAULT_KEY]: {
-      fontFamily: 'system-ui',
-      fontSize: '100%'
-    },
-    ...theme[TEXT_STYLE_KEY]
   }
 })
 
