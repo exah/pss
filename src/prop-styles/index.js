@@ -1,5 +1,6 @@
 export * from './borders'
 export * from './colors'
+export * from './css'
 export * from './flex'
 export * from './position'
 export * from './sizes'

@@ -46,7 +46,8 @@ export {
   textPropStyles,
   colorsPropStyles,
   colorsPropStyles as colors,
-  utilityPropStyles
+  utilityPropStyles,
+  cssProp
 } from './prop-styles'
 
 export * from './styles'

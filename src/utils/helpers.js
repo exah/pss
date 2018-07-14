@@ -37,20 +37,20 @@ const handlePropStyle = (style, value, ...args) => isFn(style)
   ? style(value, ...args)
   : value === true ? style : null
 
-const propSelector = curryN(2, (name, value) => (style, props, mediaKey) => ({
+const propSelector = curryN(2, (name, value) => (props, mediaKey, style) => ({
   [name]: handlePropStyle(style, value, props, mediaKey)
 }))
 
-const themeSelector = (fn) => (style = identity, props, mediaKey) => handlePropStyle(
+const themeSelector = (fn) => (props, mediaKey, style = identity) => handlePropStyle(
   style,
   fn(props.theme),
   props,
   mediaKey
 )
 
-const combineSelectors = (...selectors) => (style, props, mediaKey) => selectors.map(
+const combineSelectors = (...selectors) => (props, mediaKey, style) => selectors.map(
   (selectorOrValue) => isFn(selectorOrValue)
-    ? selectorOrValue(style, props, mediaKey)
+    ? selectorOrValue(props, mediaKey, style)
     : handlePropStyle(style, selectorOrValue, props, mediaKey)
 )
 

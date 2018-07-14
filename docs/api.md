@@ -41,6 +41,9 @@
         -   [themeProp][37]
             -   [Parameters][38]
             -   [Examples][39]
+-   [Misc][40]
+    -   [cssProp][41]
+        -   [Examples][42]
 
 ## Creating Prop Styles and Theme
 
@@ -56,7 +59,7 @@ import { createPropStyles } from '@exah/prop-styles-system'
 Function that accepts Object (see [PropStylesObj][9]) with keys that
 represents component `prop` and the value is a `style` that will be applied.
 
-Returns Function (see [DynamicStyleFn][40]) that you add to
+Returns Function (see [DynamicStyleFn][43]) that you add to
 components created with CSS-in-JS libraries.
 
 When `theme` with `media` is provided to components, any styles can be changed
@@ -64,7 +67,7 @@ in media query with media name suffix (key in `theme.media`).
 
 #### Parameters
 
--   `propStyles` **[PropStylesObj][41]**  (optional, default `{}`)
+-   `propStyles` **[PropStylesObj][44]**  (optional, default `{}`)
 
 #### Examples
 
@@ -204,7 +207,7 @@ Returns **ThemeObj**
 Object with keys that represents component `prop` and
 the value is a `style` that will be applied (or [PropStyleFn][11]).
 
-Type: [Object][42]
+Type: [Object][45]
 
 ##### Examples
 
@@ -224,9 +227,9 @@ Type: [Object][42]
 
 #### PropStyleFn
 
-[Function][43] that returns style that will be applied to component when prop is used.
+[Function][46] that returns style that will be applied to component when prop is used.
 
-Type: function (value: PropStyleVal, props: Props, mediaKey: ([string][44] | null)): StyleObj
+Type: function (value: PropStyleVal, props: Props, mediaKey: ([string][47] | null)): StyleObj
 
 ##### Parameters
 
@@ -331,7 +334,7 @@ Result is props for [createPropStyles][2] with specified prop prefix.
 
 -   `cssProp` **CSSProp** — Usually is `margin` or `padding`
 -   `compProp` **CompPropName** — Prop name that will be used in component
--   `getSpaceValue` **[Function][45]** — Custom getter from theme, default to get values from `theme.space`
+-   `getSpaceValue` **[Function][48]** — Custom getter from theme, default to get values from `theme.space`
 
 ##### Examples
 
@@ -349,7 +352,7 @@ const Box = styled.div(marginPropStyles)
 <Box mg /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
 ```
 
-Returns **[PropStylesObj][41]** 
+Returns **[PropStylesObj][44]** 
 
 #### createSpaceStyle
 
@@ -360,7 +363,7 @@ import { createSpaceStyle } from '@exah/prop-styles-system'
 Similar to [createSpaceProps][17], but creates style function instead of prop styles,
 that can be used inside CSS-in-JS components with `theme` prop.
 
-For example if `cssProp` = `margin` result is [DynamicStyleFn][40] with API:
+For example if `cssProp` = `margin` result is [DynamicStyleFn][43] with API:
 
 -   `fn(step)` → `margin`
 -   `fn.l(step)` → `margin-left`
@@ -373,7 +376,7 @@ For example if `cssProp` = `margin` result is [DynamicStyleFn][40] with API:
 ##### Parameters
 
 -   `cssProp` **CSSProp** — Usually is `margin` or `padding`
--   `getSpaceValue` **[Function][45]** — Custom getter from theme, default to get values from `theme.space`
+-   `getSpaceValue` **[Function][48]** — Custom getter from theme, default to get values from `theme.space`
 
 ##### Examples
 
@@ -503,7 +506,7 @@ import { sizeProp } from '@exah/prop-styles-system'
 -   `cssProp` **CSSProp** — Any CSS prop like `width`, `height`, `left`, ...
 -   `trueVal` **CSSVal**  (optional, default `'100%'`)
 -   `falseVal` **CSSVal**  (optional, default `0`)
--   `toPx` **[boolean][46]** — Add `px` unit to `number` result (optional, default `true`)
+-   `toPx` **[boolean][49]** — Add `px` unit to `number` result (optional, default `true`)
 
 ##### Examples
 
@@ -530,7 +533,7 @@ const Box = styled.div(mySizes)
 <Box l={20} r={10} /> // left: 20px; right: 10px
 ```
 
-Returns **[PropStyleFn][47]** 
+Returns **[PropStyleFn][50]** 
 
 ## Colors
 
@@ -627,7 +630,7 @@ Get color from theme and apply it to css prop.
 
 -   `cssProp` **CSSProp** — Any CSS prop like `backgroundColor`, `color`, `borderColor`, ...
 -   `colorKey` **ThemeKey** — Key in `theme.color` or in `theme.palette[theme.default.palette]`
--   `getCssValue` **function (color: [string][44], props: Props): CSSVal** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)
+-   `getCssValue` **function (color: [string][47], props: Props): CSSVal** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)
 
 ##### Examples
 
@@ -658,7 +661,7 @@ const Box = styled.div(myColors)
 <Box shadow /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
 ```
 
-Returns **[PropStyleFn][47]** 
+Returns **[PropStyleFn][50]** 
 
 #### themeProp
 
@@ -670,8 +673,8 @@ Set both `background-color` and `color` for selected `theme.palette`.
 
 ##### Parameters
 
--   `bgKey` **[string][44]** — is key in `theme.palette[val]` for CSS `background-color` prop (optional, default `'background'`)
--   `fgKey` **[string][44]** — is key in `theme.palette[val]` for CSS `color` prop (optional, default `'foreground'`)
+-   `bgKey` **[string][47]** — is key in `theme.palette[val]` for CSS `background-color` prop (optional, default `'background'`)
+-   `fgKey` **[string][47]** — is key in `theme.palette[val]` for CSS `color` prop (optional, default `'foreground'`)
 
 ##### Examples
 
@@ -694,7 +697,51 @@ const Box = styled.div(myColors)
 <Box tm='inverted' /> // background-color: #222222; color: #fffffff
 ```
 
-Returns **[PropStyleFn][47]** 
+Returns **[PropStyleFn][50]** 
+
+## Misc
+
+
+
+
+### cssProp
+
+```js
+import { cssProp } from '@exah/prop-styles-system'
+```
+
+Dynamic CSS prop like in [glamorous][51].
+You don't need it if yours CSS-in-JS library support it natively.
+
+Simple implementation:
+
+```js
+const cssProp = createPropStyles({
+  css: (val) => ({ ...val })
+})
+```
+
+#### Examples
+
+```js
+import styled from 'react-emotion'
+import { cssProp } from '@exah/prop-styles-system'
+
+const Box = styled.div(cssProp)
+```
+
+```js
+<Box
+  css={{ color: 'red', display: 'flex' }}
+  cssM={{ color: 'yellow' }}
+/>
+
+// color: red; display: flex
+// @media (max-width: 600px) { color: yellow }
+
+<Box css={(props) => ({ color: props.color.red })} />
+// color: #ff0000
+```
 
 [1]: #creating-prop-styles-and-theme
 
@@ -774,18 +821,26 @@ Returns **[PropStyleFn][47]**
 
 [39]: #examples-10
 
-[40]: DynamicStyleFn
+[40]: #misc
 
-[41]: #propstylesobj
+[41]: #cssprop
 
-[42]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[42]: #examples-11
 
-[43]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[43]: DynamicStyleFn
 
-[44]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[44]: #propstylesobj
 
-[45]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[45]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[46]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[46]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[47]: #propstylefn
+[47]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[48]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+
+[49]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+
+[50]: #propstylefn
+
+[51]: https://glamorous.rocks
