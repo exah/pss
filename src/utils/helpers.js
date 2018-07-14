@@ -37,6 +37,34 @@ const handlePropStyle = (style, value, ...args) => isFn(style)
   ? style(value, ...args)
   : value === true ? style : null
 
+/**
+ * Alias **`ps`**
+ *
+ * ```js
+ * import { ps } from '@exah/prop-styles-system'
+ * ```
+ *
+ * Wrap result of prop style in custom CSS selector.
+ *
+ * @param {string} [name] — CSS selector, like `&:first-child`, `& + &`
+ * @param {PropStyleVal} [value] — prop value
+ *
+ * @example
+ * import styled from 'react-emotion'
+ * import { space } from '@exah/prop-styles-system'
+ *
+ * const Box = styled.div(space)
+ *
+ * @example
+ * import { ps } from '@exah/prop-styles-system'
+ *
+ * <Box mgt={ps('& + &', 1)} />
+ *
+ * @example
+ * .css + .css { margin-top: 10px }
+ * @media (max-width: 600px) { .css + .css { margin-top: 8px } }
+ */
+
 const propSelector = curryN(2, (name, value) => (props, mediaKey, style) => ({
   [name]: handlePropStyle(style, value, props, mediaKey)
 }))
@@ -47,6 +75,37 @@ const themeSelector = (fn) => (props, mediaKey, style = identity) => handlePropS
   props,
   mediaKey
 )
+
+/**
+ * Alias **`cs`**
+ *
+ * ```js
+ * import { cs } from '@exah/prop-styles-system'
+ * ```
+ *
+ * Combine any number of {@link propSelector}s.
+ *
+ * @example
+ * import styled from 'react-emotion'
+ * import { space } from '@exah/prop-styles-system'
+ *
+ * const Box = styled.div(space)
+ *
+ * @example
+ * import { cs, ps } from '@exah/prop-styles-system'
+ *
+ * <Box mgt={cs(2, ps('& + &', 1), ps('&:nth-of-type(2)', 0))} />
+ *
+ * @example
+ * .css { margin-top: 20px }
+ * .css + .css { margin-top: 10px }
+ * .css:nth-of-type(2) { margin-top: 0 }
+ *
+ * \@media (max-width: 600px) {
+ *   .css { margin-top: 16px }
+ *   .css + .css { margin-top: 8px }
+ * }
+ */
 
 const combineSelectors = (...selectors) => (props, mediaKey, style) => selectors.map(
   (selectorOrValue) => isFn(selectorOrValue)
