@@ -459,7 +459,9 @@ import { sizeProp } from '@exah/prop-styles-system'
 #### Parameters
 
 -   `cssProp` **CSSProp** — CSS prop like `width`, `height`, `left`, ...
--   `sizeValueArgs` **...\[CSSVal, CSSVal]** — For setting defaults for `true` (first) and `false` (second) value
+-   `trueVal` **CSSVal** — Result for `true` prop value
+-   `falseVal` **CSSVal** — Result for `false` prop value
+-   `toPx` **[boolean][36]** — Add `px` unit to `number` result
 
 #### Examples
 
@@ -468,7 +470,7 @@ import styled from 'react-emotion'
 import { sizeProp, createPropStyles } from '@exah/prop-styles-system'
 
 const sizes = createPropStyles({
-  w: sizeProp('width', '100%', 0),
+  w: sizeProp('width'), // same as below
   h: sizeProp('height', '100%', 0),
   l: sizeProp('left', 0, 'auto'),
 })
@@ -479,11 +481,11 @@ const Box = styled.dev(sizes)
 // Result
 <Box w /> // .css { width: 100% }
 <Box wM={(1 / 2)} /> // .css { @media (max-width: 600px) { width: 50% } }
-<Box h={(3 / 4)} /> // .css { height: 75% }
+<Box h='300px' /> // .css { height: 300px }
 <Box l lM='auto' /> // .css { left: 0; @media (max-width: 600px) { left: auto } }
 ```
 
-Returns **[PropStyleFn][36]** 
+Returns **[PropStyleFn][37]** 
 
 ## Colors
 
@@ -565,4 +567,6 @@ Returns **[PropStyleFn][36]**
 
 [35]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[36]: #propstylefn
+[36]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+
+[37]: #propstylefn

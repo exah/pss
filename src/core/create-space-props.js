@@ -31,15 +31,15 @@ const cssRuleSpaceStyle = (
 ): Function =>
   (value, fnMediaKey): DynamicStyleFn =>
     (props, propMediaKey = fnMediaKey) => {
-      const cssRule = toCssRule(styleProp)
+      const cssRule = toCssRule(styleProp, toPx)
       const spaceValue = getSpaceValue(props.theme, value)
 
       if (propMediaKey != null) {
-        return cssRule(spaceValue(propMediaKey), toPx)
+        return cssRule(spaceValue(propMediaKey))
       }
 
       return everyMedia(
-        (mediaKey) => cssRule(spaceValue(mediaKey, true), toPx),
+        (mediaKey) => cssRule(spaceValue(mediaKey, true)),
         props
       )
     }

@@ -15,14 +15,16 @@ import { everyMedia } from './every-media'
  * ```
  *
  * @param cssProp — CSS prop like `width`, `height`, `left`, ...
- * @param sizeValueArgs — For setting defaults for `true` (first) and `false` (second) value
+ * @param trueVal — Result for `true` prop value
+ * @param falseVal — Result for `false` prop value
+ * @param toPx — Add `px` unit to `number` result
  *
  * @example
  * import styled from 'react-emotion'
  * import { sizeProp, createPropStyles } from '@exah/prop-styles-system'
  *
  * const sizes = createPropStyles({
- *   w: sizeProp('width', '100%', 0),
+ *   w: sizeProp('width'), // same as below
  *   h: sizeProp('height', '100%', 0),
  *   l: sizeProp('left', 0, 'auto'),
  * })
@@ -33,22 +35,24 @@ import { everyMedia } from './every-media'
  * // Result
  * <Box w /> // .css { width: 100% }
  * <Box wM={(1 / 2)} /> // .css { @media (max-width: 600px) { width: 50% } }
- * <Box h={(3 / 4)} /> // .css { height: 75% }
+ * <Box h='300px' /> // .css { height: 300px }
  * <Box l lM='auto' /> // .css { left: 0; @media (max-width: 600px) { left: auto } }
  */
 
 const sizeProp = (
   cssProp: CSSProp,
-  ...sizeValueArgs?: [ CSSVal, CSSVal ]
+  trueVal?: CSSVal = '100%',
+  falseVal?: CSSVal = 0,
+  toPx?: boolean
 ): PropStyleFn => curryN(2, (propValue, { theme }, propMediaKey) => {
-  const cssRule = toCssRule(cssProp)
+  const cssRule = toCssRule(cssProp, toPx)
 
   if (isStr(propValue)) {
     const customPathValue = fromTheme(propValue, null)(theme)
     if (customPathValue !== null) return cssRule(customPathValue)
   }
 
-  const size = sizeValue(propValue, ...sizeValueArgs)
+  const size = sizeValue(propValue, trueVal, falseVal)
 
   if (size !== propValue) {
     return cssRule(size)
