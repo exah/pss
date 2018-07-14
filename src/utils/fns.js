@@ -1,6 +1,9 @@
 const noop = () => null
 const identity = (val) => val
 
+const fallbackTo = (...args) =>
+  args.reduce((prev, val) => prev == null ? val : prev, null)
+
 const curry = (fn, ...args) => (
   args.length === fn.length
     ? fn(...args)
@@ -31,6 +34,7 @@ const combine = (...fns) => (...args) => fns.map((fn) => fn(...args))
 
 export {
   noop,
+  fallbackTo,
   identity,
   combine,
   once,
