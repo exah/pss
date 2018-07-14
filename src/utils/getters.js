@@ -10,6 +10,7 @@ import {
 
 import { isStr, isArr, isNum, isObj, isFn, isBool } from './is'
 import { spaceValue, path } from './helpers'
+import { fallbackTo } from './fns'
 
 const themeDefaultPaletteName = path([ DEFAULT_KEY, PALETTE_KEY ], DEFAULT_KEY)
 const themeSpaces = path(SPACE_KEY, {})
@@ -23,10 +24,10 @@ const fromTheme = (key, fallback) =>
 const getPalette = (theme, name) => {
   const palettes = themePalettes(theme)
 
-  return (
-    palettes[name] ||
-    palettes[themeDefaultPaletteName(theme)] ||
-    palettes[DEFAULT_KEY] ||
+  return fallbackTo(
+    palettes[name],
+    palettes[themeDefaultPaletteName(theme)],
+    palettes[DEFAULT_KEY],
     {}
   )
 }
@@ -88,7 +89,7 @@ const getSpace = (theme, step) => (mediaKey, exact = false) => {
         return size
       }
     } else if ((exact === true && mediaKey === DEFAULT_KEY) || !exact) {
-      return themeSize == null ? step : themeSize
+      return fallbackTo(themeSize, step)
     }
     return null
   }
@@ -96,7 +97,7 @@ const getSpace = (theme, step) => (mediaKey, exact = false) => {
   const spaces = themeSpaces(theme)
   const spaceSizes = isArr(spaces)
     ? spaces
-    : spaces[mediaKey] || spaces[exact || DEFAULT_KEY]
+    : fallbackTo(spaces[mediaKey], spaces[exact || DEFAULT_KEY])
 
   if (!spaceSizes) return null
 
