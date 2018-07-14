@@ -14,19 +14,18 @@ import { everyMedia } from './every-media'
  * import { sizeProp } from '@exah/prop-styles-system'
  * ```
  *
- * @param cssProp — CSS prop like `width`, `height`, `left`, ...
- * @param trueVal — Result for `true` prop value
- * @param falseVal — Result for `false` prop value
- * @param toPx — Add `px` unit to `number` result
+ * @param [cssProp] — Any CSS prop like `width`, `height`, `left`, ...
+ * @param [toPx = true] — Add `px` unit to `number` result
  *
  * @example
  * import styled from 'react-emotion'
  * import { sizeProp, createPropStyles } from '@exah/prop-styles-system'
  *
  * const sizes = createPropStyles({
- *   w: sizeProp('width'), // same as below
- *   h: sizeProp('height', '100%', 0),
+ *   w: sizeProp('width', '100%', 0, true), // this is default
+ *   h: sizeProp('height'), // same as above
  *   l: sizeProp('left', 0, 'auto'),
+ *   r: sizeProp('right', 0, 'auto')
  * })
  *
  * // Add to component
@@ -34,16 +33,18 @@ import { everyMedia } from './every-media'
  *
  * // Result
  * <Box w /> // .css { width: 100% }
+ * <Box w={false} /> // .css { width: 0 }
  * <Box wM={(1 / 2)} /> // .css { @media (max-width: 600px) { width: 50% } }
  * <Box h='300px' /> // .css { height: 300px }
  * <Box l lM='auto' /> // .css { left: 0; @media (max-width: 600px) { left: auto } }
+ * <Box l={20} r={10} /> // .css { left: 20px; right: 10px }
  */
 
 const sizeProp = (
   cssProp: CSSProp,
   trueVal?: CSSVal = '100%',
   falseVal?: CSSVal = 0,
-  toPx?: boolean
+  toPx?: boolean = true
 ): PropStyleFn => curryN(2, (propValue, { theme }, propMediaKey) => {
   const cssRule = toCssRule(cssProp, toPx)
 

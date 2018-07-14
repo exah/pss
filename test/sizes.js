@@ -77,10 +77,10 @@ test('props -> sizes theme values', (t) => {
   }))
 
   t.deepEqual(result, {
-    minWidth: 2,
+    minWidth: '2px',
     '@media (max-width: 600px)': {
-      minWidth: 1,
-      maxWidth: 100
+      minWidth: '1px',
+      maxWidth: '100px'
     }
   })
 })
@@ -90,14 +90,14 @@ test('props -> sizes custom values', (t) => {
     theme,
     ht: '100px',
     wdM: '20px',
-    minHtM: 300
+    minHtM: '300px'
   }))
 
   t.deepEqual(result, {
     height: '100px',
     '@media (max-width: 600px)': {
       width: '20px',
-      minHeight: 300
+      minHeight: '300px'
     }
   })
 })
@@ -113,9 +113,9 @@ test('style -> set height', (t) => {
   const nudge = toStyles(height('nudge')({ theme }))
 
   t.deepEqual(nudge, {
-    height: 2,
+    height: '2px',
     '@media (max-width: 600px)': {
-      height: 1
+      height: '1px'
     }
   })
 
@@ -123,7 +123,7 @@ test('style -> set height', (t) => {
 
   t.deepEqual(nudgeOnMobile, {
     '@media (max-width: 600px)': {
-      height: 1
+      height: '1px'
     }
   })
 })
