@@ -107,7 +107,7 @@ const createPropStyles = (propStyles: PropStylesObj = {}): DynamicStyleFn => {
             mediaQuery,
             isFn(value)
               // $FlowFixMe - Shitty FlowType don't recognize imported `isFn`
-              ? value(style, props, mediaKey)
+              ? value(props, mediaKey, style)
               : handlePropStyle(style, value, props, mediaKey)
           ) || [])
         )
