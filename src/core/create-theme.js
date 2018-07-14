@@ -116,4 +116,9 @@ const createTheme = (theme: ThemeObj = {}): ThemeObj => ({
   }
 })
 
-export { createTheme }
+const defaultTheme = createTheme()
+
+export {
+  createTheme,
+  defaultTheme
+}
