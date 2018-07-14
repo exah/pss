@@ -53,7 +53,7 @@
 
 ## Creating Prop Styles and Theme
 
-> Intro for creating design system goes here
+
 
 
 ### createPropStyles

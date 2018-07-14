@@ -3,11 +3,10 @@
 import type {
   Styles,
   Props,
+  ThemeObj,
   DynamicStyleFn,
   PropStylesObj
 } from '../types'
-
-import { DEFAULT_KEY } from '../constants'
 
 import {
   isFn,
@@ -18,7 +17,17 @@ import {
   themeMedia
 } from '../utils'
 
-const buildStylesWithMedia = (styles: PropStylesObj) => (theme: Object): PropStylesObj => {
+import {
+  DEFAULT_KEY
+} from '../constants'
+
+import {
+  defaultTheme
+} from './create-theme'
+
+const buildStylesWithMedia = (styles: PropStylesObj) => (
+  theme: ThemeObj = defaultTheme
+): PropStylesObj => {
   const media = themeMedia(theme)
   const mediaKeys = Object.keys(media).map((mediaKey) =>
     mediaKey === DEFAULT_KEY ? '' : mediaKey
