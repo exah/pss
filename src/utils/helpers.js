@@ -17,7 +17,7 @@ const mapObj = (obj, fn) => Object.keys(obj).reduce((acc, key) => {
   }
 }, {})
 
-const toCssRule = curryN(2, (cssProps, val, toPx) => val != null
+const toCssRule = (cssProps, toPx) => (val) => val != null
   ? toObj(cssProps, (name) => {
     const valWithUnit = toPx === true && val > 0 ? `${val}px` : val
     return {
@@ -25,7 +25,6 @@ const toCssRule = curryN(2, (cssProps, val, toPx) => val != null
     }
   })
   : null
-)
 
 const wrap = curryN(2, (name, style) => {
   const wrapper = (obj) => obj != null ? (name ? { [name]: obj } : obj) : null
