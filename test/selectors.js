@@ -6,6 +6,7 @@ import {
   createPropStyles,
   createSpaceProps,
   positionPropStyles,
+  ts,
   ps,
   cs
 } from '../src'
@@ -21,7 +22,8 @@ const theme = createTheme({
   [SPACE_KEY]: {
     default: [ 0, 10, 20, 30, 60 ],
     M: [ 0, 5, 10, 20, 20 ]
-  }
+  },
+  myValue: 100
 })
 
 const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
@@ -77,5 +79,16 @@ test('add different top value to &:last-child and &:first-child', (t) => {
     '&:last-child': {
       top: '10px'
     }
+  })
+})
+
+test('themeSelector', (t) => {
+  const result = toStyles(positionPropStyles({
+    theme,
+    t: ts((tm) => tm.myValue)
+  }))
+
+  t.deepEqual(result, {
+    top: '100px'
   })
 })
