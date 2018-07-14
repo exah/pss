@@ -127,3 +127,6 @@ toc:
   - name: Misc
     children:
       - cssProp
+      - propSelector
+      - combineSelectors
+      - themeSelector
