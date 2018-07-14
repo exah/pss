@@ -17,20 +17,30 @@
 -   [Space][13]
     -   [spacePropStyles][14]
         -   [Examples][15]
-    -   [createSpaceProps][16]
-        -   [Parameters][17]
-        -   [Examples][18]
-    -   [createSpaceStyle][19]
-        -   [Parameters][20]
-        -   [Examples][21]
--   [Sizes][22]
-    -   [sizePropsStyles][23]
-        -   [Examples][24]
-    -   [sizeProp][25]
-        -   [Parameters][26]
-        -   [Examples][27]
--   [Colors][28]
--   [Utilities][29]
+    -   [Utils][16]
+        -   [createSpaceProps][17]
+            -   [Parameters][18]
+            -   [Examples][19]
+        -   [createSpaceStyle][20]
+            -   [Parameters][21]
+            -   [Examples][22]
+-   [Sizes][23]
+    -   [sizePropsStyles][24]
+        -   [Examples][25]
+    -   [Utils][26]
+        -   [sizeProp][27]
+            -   [Parameters][28]
+            -   [Examples][29]
+-   [Colors][30]
+    -   [colorsPropStyles][31]
+        -   [Examples][32]
+    -   [Utils][33]
+        -   [colorProp][34]
+            -   [Parameters][35]
+            -   [Examples][36]
+        -   [themeProp][37]
+            -   [Parameters][38]
+            -   [Examples][39]
 
 ## Creating Prop Styles and Theme
 
@@ -46,7 +56,7 @@ import { createPropStyles } from '@exah/prop-styles-system'
 Function that accepts Object (see [PropStylesObj][9]) with keys that
 represents component `prop` and the value is a `style` that will be applied.
 
-Returns Function (see [DynamicStyleFn][30]) that you add to
+Returns Function (see [DynamicStyleFn][40]) that you add to
 components created with CSS-in-JS libraries.
 
 When `theme` with `media` is provided to components, any styles can be changed
@@ -54,7 +64,7 @@ in media query with media name suffix (key in `theme.media`).
 
 #### Parameters
 
--   `propStyles` **[PropStylesObj][31]**  (optional, default `{}`)
+-   `propStyles` **[PropStylesObj][41]**  (optional, default `{}`)
 
 #### Examples
 
@@ -80,6 +90,7 @@ const Box = styled.div(myPropStyle)
 ```
 
 ```js
+import { ThemeProvider } from 'emotion-theming'
 import { createTheme } from '@exah/prop-styles-system'
 
 // Create theme with media queries
@@ -91,7 +102,7 @@ const theme = createTheme({
 
 // Add theme to ThemeProvider
 <ThemeProvider theme={theme}>
-  <Box hideM /> // @media (max-width: 600px) { .css { display: none } }
+  <Box hideM /> // @media (max-width: 600px) { display: none }
 </ThemeProvider>
 ```
 
@@ -128,11 +139,11 @@ const theme = createTheme({
     m: 25,
     l: 50
   },
-  // themePropStyles, colorProp
+  // colorsPropStyles, colorProp
   color: {
     red: '#ff0000'
   },
-  // themePropStyles, themeProp
+  // colorsPropStyles, themeProp
   palette: {
     default: {
       bg: '#ffffff',
@@ -193,7 +204,7 @@ Returns **ThemeObj**
 Object with keys that represents component `prop` and
 the value is a `style` that will be applied (or [PropStyleFn][11]).
 
-Type: [Object][32]
+Type: [Object][42]
 
 ##### Examples
 
@@ -213,19 +224,19 @@ Type: [Object][32]
 
 #### PropStyleFn
 
-[Function][33] that returns style that will be applied to component when prop is used.
+[Function][43] that returns style that will be applied to component when prop is used.
 
-Type: function (value: PropStyleVal, props: Props, mediaKey: ([string][34] | null)): StyleObj
+Type: function (value: PropStyleVal, props: Props, mediaKey: ([string][44] | null)): StyleObj
 
 ##### Parameters
 
 -   `value`  — this prop value
--   `props`  other component props, including `theme`
+-   `props`  — other component props, including `theme`
 -   `mediaKey`  — is prop suffix, same as key in `theme.media`, resulted style is wrapped in matched media query
 
 ## Space
 
-Utils for creating consistent `space` system for setting `margin` or `padding`.
+Consistent `space` system for setting `margin` or `padding`.
 
 -   If value is a `Number` it takes value from `theme.space` `Array` by index
 -   Negative value for negative margins
@@ -256,7 +267,7 @@ Alias **`space`**, also **`marginPropStyles`**, **`paddingPropStyles`**
 import { space } from '@exah/prop-styles-system'
 ```
 
-Ready to use space prop styles created with [createSpaceProps][16] for setting both `margin` with `mg` prop and `padding` with `pd` prop.
+Ready to use space prop styles created with [createSpaceProps][17] for setting both `margin` with `mg` prop and `padding` with `pd` prop.
 
 -   `mg` → `margin`
 -   `mgl` → `margin-left`
@@ -280,8 +291,9 @@ import styled from 'react-emotion'
 import { space } from '@exah/prop-styles-system'
 
 const Box = styled.div(space)
+```
 
-// Result
+```js
 <Box mg /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
 <Box mgl /> // .css { margin-left: 10px; @media (max-width: 600px) { margin-left: 8px } }
 <Box mgt /> // .css { margin-top: 10px; @media (max-width: 600px) { margin-top: 8px } }
@@ -293,7 +305,12 @@ const Box = styled.div(space)
 <Box mgr={2} mgrM={-1} /> // .css { margin-right: 20px; @media (max-width: 600px) { margin-right: -8px } }
 ```
 
-### createSpaceProps
+### Utils
+
+
+
+
+#### createSpaceProps
 
 ```js
 import { createSpaceProps } from '@exah/prop-styles-system'
@@ -310,13 +327,13 @@ Result is props for [createPropStyles][2] with specified prop prefix.
 -   `{compProp}x` → `{cssProp}-left`, `{cssProp}-right`
 -   `{compProp}y` → `{cssProp}-top`, `{cssProp}-bottom`
 
-#### Parameters
+##### Parameters
 
 -   `cssProp` **CSSProp** — Usually is `margin` or `padding`
 -   `compProp` **CompPropName** — Prop name that will be used in component
--   `getSpaceValue` **[Function][35]** — Custom getter from theme, default to get values from `theme.space`
+-   `getSpaceValue` **[Function][45]** — Custom getter from theme, default to get values from `theme.space`
 
-#### Examples
+##### Examples
 
 ```js
 import styled from 'react-emotion'
@@ -332,55 +349,59 @@ const Box = styled.div(marginPropStyles)
 <Box mg /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
 ```
 
-Returns **[PropStylesObj][31]** 
+Returns **[PropStylesObj][41]** 
 
-### createSpaceStyle
+#### createSpaceStyle
 
 ```js
 import { createSpaceStyle } from '@exah/prop-styles-system'
 ```
 
-Similar to [createSpaceProps][16], but creates style function instead of prop styles,
+Similar to [createSpaceProps][17], but creates style function instead of prop styles,
 that can be used inside CSS-in-JS components with `theme` prop.
 
-For example if `cssProp` = `margin` result is [DynamicStyleFn][30] with API:
+For example if `cssProp` = `margin` result is [DynamicStyleFn][40] with API:
 
--   `margin(step)` → `margin`
--   `margin.l(step)` → `margin-left`
--   `margin.r(step)` → `margin-right`
--   `margin.t(step)` → `margin-top`
--   `margin.b(step)` → `margin-bottom`
--   `margin.x(step)` → `margin-left`, `margin-right`
--   `margin.y(step)` → `margin-top`, `margin-bottom`
+-   `fn(step)` → `margin`
+-   `fn.l(step)` → `margin-left`
+-   `fn.r(step)` → `margin-right`
+-   `fn.t(step)` → `margin-top`
+-   `fn.b(step)` → `margin-bottom`
+-   `fn.x(step)` → `margin-left`, `margin-right`
+-   `fn.y(step)` → `margin-top`, `margin-bottom`
 
-#### Parameters
+##### Parameters
 
 -   `cssProp` **CSSProp** — Usually is `margin` or `padding`
--   `getSpaceValue` **[Function][35]** — Custom getter from theme, default to get values from `theme.space`
+-   `getSpaceValue` **[Function][45]** — Custom getter from theme, default to get values from `theme.space`
 
-#### Examples
+##### Examples
 
 ```js
 import styled from 'react-emotion'
 import { createSpaceStyle, createPropStyles } from '@exah/prop-styles-system'
 
-// Create `margin` space style fn
-const margin = createSpaceStyle('margin')
+const marginFn = createSpaceStyle('margin')
 
-// Add to component
-const Box = styled.div({ display: 'flex' }, margin.x(2))
-const OtherBox = styled.div((props) => ({ display: 'flex', ...margin.l(1)(props) }))
+const Box = styled.div(marginFn.x(2))
+const OtherBox = styled.div({ display: 'flex' }, marginFn.l(1))
+```
 
-// Result
-<Box /> // .css { display: flex; margin-left: 20px; margin-right: 20px; @media (max-width: 600px) { margin-left: 16px; margin-right: 16px } }
-<OtherBox /> // .css { display: flex; margin-left: 10px; @media (max-width: 600px) { margin-left: 10px } }
+```js
+// margin-left: 20px; margin-right: 20px;
+// @media (max-width: 600px) { margin-left: 16px; margin-right: 16px }
+<Box />
+
+// display: flex; margin-left: 10px;
+// @media (max-width: 600px) { margin-left: 10px }
+<OtherBox />
 ```
 
 Returns **DynamicStyleFn** 
 
 ## Sizes
 
-Utils for consistent `sizes` system for `width`, `height` and any other related props (even for position).
+Consistent `sizes` system for `width`, `height` and any other related props (even for position).
 
 **`String` values:**
 
@@ -423,7 +444,7 @@ Alias **`sizes`**
 import { sizes } from '@exah/prop-styles-system'
 ```
 
-Ready to use size prop styles created with [sizeProp][25].
+Ready to use size prop styles created with [sizeProp][27].
 
 -   `wd` → `width`
 -   `maxWd` → `max-width`
@@ -441,64 +462,239 @@ import styled from 'react-emotion'
 import { sizes } from '@exah/prop-styles-system'
 
 const Box = styled.div(sizes)
-
-// Result
-<Box ht='small' /> // .css { height: 10px }
-<Box wd='card' /> // .css { width: 500px; @media (max-width: 600px) { margin-left: 300px } }
-<Box maxWd /> // .css { max-width: 100% }
-<Box ht={false} /> // .css { height: 0 }
-<Box maxWd='site.width' /> // .css { max-width: 1300px }
 ```
 
-### sizeProp
+```js
+// theme.size.small
+<Box ht='small' /> // height: 10px
+
+// `theme.size.card.default` and `theme.size.card.M`
+<Box wd='card' /> // width: 500px; @media (max-width: 600px) { margin-left: 300px }
+
+// only `theme.size.card.M`
+<Box wdM='card' /> // @media (max-width: 600px) { margin-left: 300px }
+
+// `theme.site.width`
+<Box maxWd='site.width' /> // max-width: 1300px
+
+// Smaller that or equal to `1` is percentage value
+<Box maxWd={(1 / 2)} /> // max-width: 50%
+
+// By default `false` is `0`
+<Box ht={false} /> // height: 0
+
+// Convert to px
+<Box minWd={500} /> // max-width: 500px
+```
+
+### Utils
+
+
+
+
+#### sizeProp
 
 ```js
 import { sizeProp } from '@exah/prop-styles-system'
 ```
 
-#### Parameters
+##### Parameters
 
 -   `cssProp` **CSSProp** — Any CSS prop like `width`, `height`, `left`, ...
 -   `trueVal` **CSSVal**  (optional, default `'100%'`)
 -   `falseVal` **CSSVal**  (optional, default `0`)
--   `toPx` **[boolean][36]** — Add `px` unit to `number` result (optional, default `true`)
+-   `toPx` **[boolean][46]** — Add `px` unit to `number` result (optional, default `true`)
 
-#### Examples
+##### Examples
 
 ```js
 import styled from 'react-emotion'
 import { sizeProp, createPropStyles } from '@exah/prop-styles-system'
 
-const sizes = createPropStyles({
+const mySizes = createPropStyles({
   w: sizeProp('width', '100%', 0, true), // this is default
   h: sizeProp('height'), // same as above
   l: sizeProp('left', 0, 'auto'),
   r: sizeProp('right', 0, 'auto')
 })
 
-// Add to component
-const Box = styled.dev(sizes)
-
-// Result
-<Box w /> // .css { width: 100% }
-<Box w={false} /> // .css { width: 0 }
-<Box wM={(1 / 2)} /> // .css { @media (max-width: 600px) { width: 50% } }
-<Box h='300px' /> // .css { height: 300px }
-<Box l lM='auto' /> // .css { left: 0; @media (max-width: 600px) { left: auto } }
-<Box l={20} r={10} /> // .css { left: 20px; right: 10px }
+const Box = styled.div(mySizes)
 ```
 
-Returns **[PropStyleFn][37]** 
+```js
+<Box w /> // width: 100%
+<Box w={false} /> // width: 0
+<Box wM={(1 / 2)} /> // @media (max-width: 600px) { width: 50% }
+<Box h='300px' /> // height: 300px
+<Box l lM='auto' /> // left: 0; @media (max-width: 600px) { left: auto }
+<Box l={20} r={10} /> // left: 20px; right: 10px
+```
+
+Returns **[PropStyleFn][47]** 
 
 ## Colors
 
+Prop styles for getting current `palette` or `color` value from `theme`.
+
+Result can be changed in nested components with setting other key in `theme.default.palette`.
+
+All examples use this [`theme`][5]:
+
+```js
+const theme = createTheme({
+  default: {
+    palette: 'default' // this can be changed
+  },
+  color: {
+    red: '#ff0000',
+    black: '#222222',
+    white: '#ffffff'
+  },
+  palette: {
+    default: { // currently active
+      bg: '#ffffff',
+      fg: '#222222',
+      accent: '#ff0000',
+      shadow: 'rgba(0, 0, 0, 0.2)'
+    },
+    inverted: {
+      bg: '#222222',
+      fg: '#ffffff',
+      accent: '#ff0000'
+    }
+  }
+})
+```
+
+
+### colorsPropStyles
+
+Alias **`colors`**
+
+```js
+import { colors } from '@exah/prop-styles-system'
+```
+
+Ready to use colors prop styles created with [colorProp][34] and [themeProp][37].
+
+-   `fg` → `color`
+-   `bg` → `background-color`
+-   `tm` → `color`, `background-color`
+
+#### Examples
+
+```js
+import styled from 'react-emotion'
+import { colors } from '@exah/prop-styles-system'
+
+const Box = styled.div(colors)
+```
+
+```js
+// theme.palette.default.bg
+<Box bg /> // background-color: #ffffff
+
+// theme.colors.black
+<Box fg='black' /> // color: #222222
+
+// theme.palette.default.accent
+<Box fg='accent' /> // color: #ff0000
+
+// theme.palette.default.bg, theme.palette.default.fg
+<Box tm /> // background-color: #ffffff; color: #222222
+
+// theme.palette.inverted.bg, theme.palette.inverted.fg
+<Box tm='inverted' /> // background-color: #222222; color: #fffffff
+
+// Raw color value
+<Box bg="#ffff00" /> // background-color: #ffff00
+```
+
+### Utils
 
 
 
-## Utilities
 
+#### colorProp
 
+```js
+import { colorProp } from '@exah/prop-styles-system'
+```
 
+Get color from theme and apply it to css prop.
+
+##### Parameters
+
+-   `cssProp` **CSSProp** — Any CSS prop like `backgroundColor`, `color`, `borderColor`, ...
+-   `colorKey` **ThemeKey** — Key in `theme.color` or in `theme.palette[theme.default.palette]`
+-   `getCssValue` **function (color: [string][44], props: Props): CSSVal** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)
+
+##### Examples
+
+```js
+import styled from 'react-emotion'
+import { colorProp, createPropStyles } from '@exah/prop-styles-system'
+
+const myColors = createPropStyles({
+  color: colorProp('color', 'fg'),
+  shadow: colorProp('boxShadow', 'shadow', (color) => `0 0 20px 0 ${color}`)
+})
+
+// Add to component
+const Box = styled.div(myColors)
+```
+
+```js
+// theme.palette.default.fg
+<Box color /> // background-color: #222222
+
+// theme.colors.black
+<Box color='black' /> // color: #222222
+
+// theme.palette.default.accent
+<Box color='accent' /> // color: #ff0000
+
+// theme.palette.default.shadow
+<Box shadow /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
+```
+
+Returns **[PropStyleFn][47]** 
+
+#### themeProp
+
+```js
+import { themeProp } from '@exah/prop-styles-system'
+```
+
+Set both `background-color` and `color` for selected `theme.palette`.
+
+##### Parameters
+
+-   `bgKey` **[string][44]** — is key in `theme.palette[val]` for CSS `background-color` prop (optional, default `'background'`)
+-   `fgKey` **[string][44]** — is key in `theme.palette[val]` for CSS `color` prop (optional, default `'foreground'`)
+
+##### Examples
+
+```js
+import styled from 'react-emotion'
+import { themeProp, createPropStyles } from '@exah/prop-styles-system'
+
+const myColors = createPropStyles({
+  tm: themeProp('bg', 'fg')
+})
+
+const Box = styled.div(myColors)
+```
+
+```js
+// theme.palette.default.bg, theme.palette.default.fg
+<Box tm /> // background-color: #ffffff; color: #222222
+
+// theme.palette.inverted.bg, theme.palette.inverted.fg
+<Box tm='inverted' /> // background-color: #222222; color: #fffffff
+```
+
+Returns **[PropStyleFn][47]** 
 
 [1]: #creating-prop-styles-and-theme
 
@@ -530,46 +726,66 @@ Returns **[PropStyleFn][37]**
 
 [15]: #examples-3
 
-[16]: #createspaceprops
+[16]: #utils
 
-[17]: #parameters-3
+[17]: #createspaceprops
 
-[18]: #examples-4
+[18]: #parameters-3
 
-[19]: #createspacestyle
+[19]: #examples-4
 
-[20]: #parameters-4
+[20]: #createspacestyle
 
-[21]: #examples-5
+[21]: #parameters-4
 
-[22]: #sizes
+[22]: #examples-5
 
-[23]: #sizepropsstyles
+[23]: #sizes
 
-[24]: #examples-6
+[24]: #sizepropsstyles
 
-[25]: #sizeprop
+[25]: #examples-6
 
-[26]: #parameters-5
+[26]: #utils-1
 
-[27]: #examples-7
+[27]: #sizeprop
 
-[28]: #colors
+[28]: #parameters-5
 
-[29]: #utilities
+[29]: #examples-7
 
-[30]: DynamicStyleFn
+[30]: #colors
 
-[31]: #propstylesobj
+[31]: #colorspropstyles
 
-[32]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[32]: #examples-8
 
-[33]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[33]: #utils-2
 
-[34]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[34]: #colorprop
 
-[35]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[35]: #parameters-6
 
-[36]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[36]: #examples-9
 
-[37]: #propstylefn
+[37]: #themeprop
+
+[38]: #parameters-7
+
+[39]: #examples-10
+
+[40]: DynamicStyleFn
+
+[41]: #propstylesobj
+
+[42]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[43]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+
+[44]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[45]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+
+[46]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+
+[47]: #propstylefn

@@ -34,7 +34,7 @@ const paddingPropStyles = createPropStyles(createSpaceProps('padding', 'pd'))
  *
  * const Box = styled.div(space)
  *
- * // Result
+ * @example
  * <Box mg /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
  * <Box mgl /> // .css { margin-left: 10px; @media (max-width: 600px) { margin-left: 8px } }
  * <Box mgt /> // .css { margin-top: 10px; @media (max-width: 600px) { margin-top: 8px } }

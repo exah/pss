@@ -54,13 +54,13 @@ const cssRuleSpaceStyle = (
  *
  * For example if `cssProp` = `margin` result is {@link DynamicStyleFn} with API:
  *
- * - `margin(step)` → `margin`
- * - `margin.l(step)` → `margin-left`
- * - `margin.r(step)` → `margin-right`
- * - `margin.t(step)` → `margin-top`
- * - `margin.b(step)` → `margin-bottom`
- * - `margin.x(step)` → `margin-left`, `margin-right`
- * - `margin.y(step)` → `margin-top`, `margin-bottom`
+ * - `fn(step)` → `margin`
+ * - `fn.l(step)` → `margin-left`
+ * - `fn.r(step)` → `margin-right`
+ * - `fn.t(step)` → `margin-top`
+ * - `fn.b(step)` → `margin-bottom`
+ * - `fn.x(step)` → `margin-left`, `margin-right`
+ * - `fn.y(step)` → `margin-top`, `margin-bottom`
  *
  * @param cssProp — Usually is `margin` or `padding`
  * @param getSpaceValue — Custom getter from theme, default to get values from `theme.space`
@@ -69,16 +69,19 @@ const cssRuleSpaceStyle = (
  * import styled from 'react-emotion'
  * import { createSpaceStyle, createPropStyles } from '@exah/prop-styles-system'
  *
- * // Create `margin` space style fn
- * const margin = createSpaceStyle('margin')
+ * const marginFn = createSpaceStyle('margin')
  *
- * // Add to component
- * const Box = styled.div({ display: 'flex' }, margin.x(2))
- * const OtherBox = styled.div((props) => ({ display: 'flex', ...margin.l(1)(props) }))
+ * const Box = styled.div(marginFn.x(2))
+ * const OtherBox = styled.div({ display: 'flex' }, marginFn.l(1))
  *
- * // Result
- * <Box /> // .css { display: flex; margin-left: 20px; margin-right: 20px; @media (max-width: 600px) { margin-left: 16px; margin-right: 16px } }
- * <OtherBox /> // .css { display: flex; margin-left: 10px; @media (max-width: 600px) { margin-left: 10px } }
+ * @example
+ * // margin-left: 20px; margin-right: 20px;
+ * // @media (max-width: 600px) { margin-left: 16px; margin-right: 16px }
+ * <Box />
+ *
+ * // display: flex; margin-left: 10px;
+ * // @media (max-width: 600px) { margin-left: 10px }
+ * <OtherBox />
  */
 
 const createSpaceStyle = (cssProp: CSSProp, getSpaceValue: Function): DynamicStyleFn => {

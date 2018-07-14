@@ -6,6 +6,7 @@ import { sizeProp, createPropStyles } from '../core'
  * ```js
  * import { sizes } from '@exah/prop-styles-system'
  * ```
+ *
  * Ready to use size prop styles created with {@link sizeProp}.
  *
  * - `wd` → `width`
@@ -23,12 +24,27 @@ import { sizeProp, createPropStyles } from '../core'
  *
  * const Box = styled.div(sizes)
  *
- * // Result
- * <Box ht='small' /> // .css { height: 10px }
- * <Box wd='card' /> // .css { width: 500px; @media (max-width: 600px) { margin-left: 300px } }
- * <Box maxWd /> // .css { max-width: 100% }
- * <Box ht={false} /> // .css { height: 0 }
- * <Box maxWd='site.width' /> // .css { max-width: 1300px }
+ * @example
+ * // theme.size.small
+ * <Box ht='small' /> // height: 10px
+ *
+ * // `theme.size.card.default` and `theme.size.card.M`
+ * <Box wd='card' /> // width: 500px; @media (max-width: 600px) { margin-left: 300px }
+ *
+ * // only `theme.size.card.M`
+ * <Box wdM='card' /> // @media (max-width: 600px) { margin-left: 300px }
+ *
+ * // `theme.site.width`
+ * <Box maxWd='site.width' /> // max-width: 1300px
+ *
+ * // Smaller that or equal to `1` is percentage value
+ * <Box maxWd={(1 / 2)} /> // max-width: 50%
+ *
+ * // By default `false` is `0`
+ * <Box ht={false} /> // height: 0
+ *
+ * // Convert to px
+ * <Box minWd={500} /> // max-width: 500px
  */
 
 const sizePropsStyles = createPropStyles({

@@ -22,7 +22,7 @@ type DynamicStyleFn = (props: Props, mediaKey?: string) => StyleObj | Styles
  * {@link Function} that returns style that will be applied to component when prop is used.
  *
  * @param value — this prop value
- * @param props - other component props, including `theme`
+ * @param props — other component props, including `theme`
  * @param mediaKey — is prop suffix, same as key in `theme.media`, resulted style is wrapped in matched media query
  */
 
