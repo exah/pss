@@ -70,12 +70,12 @@ test('add different top value to &:last-child and &:first-child', (t) => {
 
   t.deepEqual(result, {
     position: 'relative',
-    top: 50,
+    top: '50px',
     '&:first-child': {
-      top: 20
+      top: '20px'
     },
     '&:last-child': {
-      top: 10
+      top: '10px'
     }
   })
 })
