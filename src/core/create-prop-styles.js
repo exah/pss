@@ -73,6 +73,7 @@ const buildStylesWithMedia = (styles: PropStylesObj) => (theme: Object): PropSty
  *
  *
  * @example
+ * import { ThemeProvider } from 'emotion-theming'
  * import { createTheme } from '@exah/prop-styles-system'
  *
  * // Create theme with media queries
@@ -84,7 +85,7 @@ const buildStylesWithMedia = (styles: PropStylesObj) => (theme: Object): PropSty
  *
  * // Add theme to ThemeProvider
  * <ThemeProvider theme={theme}>
- *   <Box hideM /> // @media (max-width: 600px) { .css { display: none } }
+ *   <Box hideM /> // @media (max-width: 600px) { display: none }
  * </ThemeProvider>
  */
 

@@ -21,23 +21,22 @@ import { everyMedia } from './every-media'
  * import styled from 'react-emotion'
  * import { sizeProp, createPropStyles } from '@exah/prop-styles-system'
  *
- * const sizes = createPropStyles({
+ * const mySizes = createPropStyles({
  *   w: sizeProp('width', '100%', 0, true), // this is default
  *   h: sizeProp('height'), // same as above
  *   l: sizeProp('left', 0, 'auto'),
  *   r: sizeProp('right', 0, 'auto')
  * })
  *
- * // Add to component
- * const Box = styled.dev(sizes)
+ * const Box = styled.div(mySizes)
  *
- * // Result
- * <Box w /> // .css { width: 100% }
- * <Box w={false} /> // .css { width: 0 }
- * <Box wM={(1 / 2)} /> // .css { @media (max-width: 600px) { width: 50% } }
- * <Box h='300px' /> // .css { height: 300px }
- * <Box l lM='auto' /> // .css { left: 0; @media (max-width: 600px) { left: auto } }
- * <Box l={20} r={10} /> // .css { left: 20px; right: 10px }
+ * @example
+ * <Box w /> // width: 100%
+ * <Box w={false} /> // width: 0
+ * <Box wM={(1 / 2)} /> // @media (max-width: 600px) { width: 50% }
+ * <Box h='300px' /> // height: 300px
+ * <Box l lM='auto' /> // left: 0; @media (max-width: 600px) { left: auto }
+ * <Box l={20} r={10} /> // left: 20px; right: 10px
  */
 
 const sizeProp = (

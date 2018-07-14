@@ -38,11 +38,11 @@ import {
  *     m: 25,
  *     l: 50
  *   },
- *   // themePropStyles, colorProp
+ *   // colorsPropStyles, colorProp
  *   color: {
  *     red: '#ff0000'
  *   },
- *   // themePropStyles, themeProp
+ *   // colorsPropStyles, themeProp
  *   palette: {
  *     default: {
  *       bg: '#ffffff',

@@ -10,14 +10,13 @@ toc:
     children:
       - createPropStyles
       - createTheme
-      - ruleProp
       - name: Types
         children:
           - PropStylesObj
           - PropStyleFn
   - name: Space
     description: |
-      Utils for creating consistent `space` system for setting `margin` or `padding`.
+      Consistent `space` system for setting `margin` or `padding`.
 
       - If value is a `Number` it takes value from `theme.space` `Array` by index
       - Negative value for negative margins
@@ -41,12 +40,14 @@ toc:
 
     children:
       - spacePropStyles
-      - createSpaceProps
-      - createSpaceStyle
+      - name: Utils
+        children:
+          - createSpaceProps
+          - createSpaceStyle
 
   - name: Sizes
     description: |
-      Utils for consistent `sizes` system for `width`, `height` and any other related props (even for position).
+      Consistent `sizes` system for `width`, `height` and any other related props (even for position).
 
       **`String` values:**
 
@@ -81,15 +82,45 @@ toc:
       ```
     children:
       - sizePropsStyles
-      - sizeProp
+      - name: Utils
+        children:
+          - sizeProp
 
   - name: Colors
-    children:
-      - themeProp
-      - colorProp
+    description: |
+      Prop styles for getting current `palette` or `color` value from `theme`.
 
-  - name: Utilities
+      Result can be changed in nested components with setting other key in `theme.default.palette`.
+
+      All examples use this [`theme`](#createtheme):
+
+      ```js
+      const theme = createTheme({
+        default: {
+          palette: 'default' // this can be changed
+        },
+        color: {
+          red: '#ff0000',
+          black: '#222222',
+          white: '#ffffff'
+        },
+        palette: {
+          default: { // currently active
+            bg: '#ffffff',
+            fg: '#222222',
+            accent: '#ff0000',
+            shadow: 'rgba(0, 0, 0, 0.2)'
+          },
+          inverted: {
+            bg: '#222222',
+            fg: '#ffffff',
+            accent: '#ff0000'
+          }
+        }
+      })
     children:
-      - utilityPropStyles
-      - positionPropStyles
-      - borderPropStyles
+      - colorsPropStyles
+      - name: Utils
+        children:
+          - colorProp
+          - themeProp

@@ -51,7 +51,7 @@ const themeInvertedDefault = mergeDeepRight(theme, {
   [DEFAULT_KEY]: { [PALETTE_KEY]: 'inverted' }
 })
 
-const themePropStyles = createPropStyles({
+const colorsPropStyles = createPropStyles({
   tm: themeProp('background', 'foreground'),
   fg: colorProp('color', 'foreground'),
   bg: colorProp('backgroundColor', 'background'),
@@ -59,7 +59,7 @@ const themePropStyles = createPropStyles({
 })
 
 test('props -> set theme colors and override text color on mobile', (t) => {
-  const result = toStyles(themePropStyles({
+  const result = toStyles(colorsPropStyles({
     theme,
     tm: true,
     fgM: 'accent'
@@ -75,7 +75,7 @@ test('props -> set theme colors and override text color on mobile', (t) => {
 })
 
 test('props -> change default theme to "inverted"', (t) => {
-  const result = toStyles(themePropStyles({
+  const result = toStyles(colorsPropStyles({
     theme: themeInvertedDefault,
     tm: true
   }))
@@ -87,7 +87,7 @@ test('props -> change default theme to "inverted"', (t) => {
 })
 
 test('props -> reset theme colors on mobile', (t) => {
-  const result = toStyles(themePropStyles({
+  const result = toStyles(colorsPropStyles({
     theme: themeInvertedDefault,
     tm: true,
     tmM: false
@@ -104,7 +104,7 @@ test('props -> reset theme colors on mobile', (t) => {
 })
 
 test('props -> set default foreground color', (t) => {
-  const result = toStyles(themePropStyles({ theme, fg: true }))
+  const result = toStyles(colorsPropStyles({ theme, fg: true }))
 
   t.deepEqual(result, {
     color: COLOR_BLACK
@@ -112,7 +112,7 @@ test('props -> set default foreground color', (t) => {
 })
 
 test('props -> set default "inverted" theme foreground color', (t) => {
-  const result = toStyles(themePropStyles({ theme, fg: 'inverted' }))
+  const result = toStyles(colorsPropStyles({ theme, fg: 'inverted' }))
 
   t.deepEqual(result, {
     color: COLOR_WHITE
@@ -121,7 +121,7 @@ test('props -> set default "inverted" theme foreground color', (t) => {
 
 test('props -> set custom foreground color', (t) => {
   const customColor = 'rgba(255, 0, 255, 0.3)'
-  const result = toStyles(themePropStyles({ theme, fg: customColor }))
+  const result = toStyles(colorsPropStyles({ theme, fg: customColor }))
 
   t.deepEqual(result, {
     color: customColor

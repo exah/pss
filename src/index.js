@@ -44,7 +44,8 @@ export {
   spacePropStyles,
   spacePropStyles as space,
   textPropStyles,
-  themePropStyles,
+  colorsPropStyles,
+  colorsPropStyles as colors,
   utilityPropStyles
 } from './prop-styles'
 
