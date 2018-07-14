@@ -28,7 +28,6 @@ import { toObj } from '../utils'
  *   css={{ color: 'red', display: 'flex' }}
  *   cssM={{ color: 'yellow' }}
  * />
- *
  * // color: red; display: flex
  * // @media (max-width: 600px) { color: yellow }
  *
