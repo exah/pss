@@ -56,13 +56,12 @@ type ThemeDefaultKey = 'default'
 type ThemeKey = 'media' | 'space' | 'size' | 'color' | 'palette' | 'textStyle'
 
 type ThemeObj = $Shape<{
-  default: {| [ThemeKey]: string | ThemeDefaultKey |},
-  media: {| [ThemeDefaultKey | string]: string | null |},
-  space: {| [ThemeDefaultKey | string]: Array<number> |},
-  size: {| [string]: string | number |},
-  color: {| [string]: string |},
-  palette: {| [ThemeDefaultKey | string]: {} |},
-  textStyle: {| [ThemeDefaultKey | string]: {} |}
+  default: { [ThemeKey]: string | ThemeDefaultKey },
+  media: { [ThemeDefaultKey | string]: string | null },
+  space: { [ThemeDefaultKey | string]: Array<number> },
+  size: { [string]: string | number },
+  color: { [string]: string },
+  palette: { [ThemeDefaultKey | string]: {} }
 }>
 
 export type {

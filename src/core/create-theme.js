@@ -28,8 +28,8 @@ import {
  *   },
  *   // createSpaceProps, spacePropStyles
  *   space: {
- *     default: [ 0, 10, 20, 30, 60 ],
- *     M: [ 0, 10, 15, 30, 30 ]
+ *     default: [ 0, 16, 32, 64, 128 ],
+ *     M: [ 0, 8, 16, 32, 64 ]
  *   },
  *   // sizesPropStyles, sizeProp
  *   size: {
@@ -65,8 +65,8 @@ import {
  *     M: '(max-width: 600px)'
  *   },
  *   space: {
- *     default: [ 0, 10, 20, 30, 60 ],
- *     M: [ 0, 10, 15, 30, 30 ]
+ *     default: [ 0, 16, 32, 64, 128 ],
+ *     M: [ 0, 8, 16, 32, 64 ]
  *   },
  *   size: {
  *     s: 10,
@@ -116,7 +116,21 @@ const createTheme = (theme: ThemeObj = {}): ThemeObj => ({
   }
 })
 
-const defaultTheme = createTheme()
+const defaultTheme = createTheme({
+  space: {
+    default: [ 0, 8, 16, 32, 64 ]
+  },
+  palette: {
+    default: {
+      bg: '#ffffff',
+      fg: '#000000'
+    },
+    inverted: {
+      bg: '#000000',
+      fg: '#ffffff'
+    }
+  }
+})
 
 export {
   createTheme,
