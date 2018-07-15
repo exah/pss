@@ -139,8 +139,8 @@ const theme = createTheme({
   },
   // createSpaceProps, spacePropStyles
   space: {
-    default: [ 0, 10, 20, 30, 60 ],
-    M: [ 0, 10, 15, 30, 30 ]
+    default: [ 0, 16, 32, 64, 128 ],
+    M: [ 0, 8, 16, 32, 64 ]
   },
   // sizesPropStyles, sizeProp
   size: {
@@ -177,8 +177,8 @@ const theme = createTheme({
     M: '(max-width: 600px)'
   },
   space: {
-    default: [ 0, 10, 20, 30, 60 ],
-    M: [ 0, 10, 15, 30, 30 ]
+    default: [ 0, 16, 32, 64, 128 ],
+    M: [ 0, 8, 16, 32, 64 ]
   },
   size: {
     s: 10,
