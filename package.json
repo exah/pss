@@ -60,7 +60,7 @@
   },
   "auto-changelog": {
     "unreleased": true,
-    "commitLimit": 10,
+    "commitLimit": 20,
     "template": ".changelog.hbs"
   },
   "ava": {
