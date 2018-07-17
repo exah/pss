@@ -3,6 +3,11 @@
 > Design system utils for CSS-in-JS libraries
 
 
+- [x] Support [`emotion`](https://emotion.sh), [`styled-components`](https://www.styled-components.com) and [`glamorous`](https://glamorous.rocks)
+- [x] All styles are responsive by default
+- [x] Customizable
+
+
 ## 📦 Install
 
 ```
