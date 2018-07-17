@@ -21,13 +21,7 @@ import {
   DEFAULT_KEY
 } from '../constants'
 
-import {
-  defaultTheme
-} from './create-theme'
-
-const buildStylesWithMedia = (styles: PropStylesObj) => (
-  theme: ThemeObj = defaultTheme
-): PropStylesObj => {
+const buildStylesWithMedia = (styles: PropStylesObj) => (theme: ThemeObj): PropStylesObj => {
   const media = themeMedia(theme)
   const mediaKeys = Object.keys(media).map((mediaKey) =>
     mediaKey === DEFAULT_KEY ? '' : mediaKey

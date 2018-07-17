@@ -10,6 +10,18 @@ const isRgb = (str) => /^rgba?/.test(str || '')
 const isHsl = (str) => /^hsla?/.test(str || '')
 const isColor = (str) => isHex(str) || isRgb(str) || isHsl(str)
 
+const isEmpty = (val) => {
+  if (val != null) {
+    for (let key in val) {
+      if (val.hasOwnProperty(key)) {
+        return false
+      }
+    }
+  }
+
+  return true
+}
+
 export {
   isFn,
   isBool,
@@ -17,5 +29,6 @@ export {
   isStr,
   isArr,
   isObj,
-  isColor
+  isColor,
+  isEmpty
 }

@@ -6,7 +6,7 @@ import type {
   PropStyleFn
 } from '../types'
 
-import { getSize, fromTheme, sizeValue, toCssRule, isFn, isStr, curryN } from '../utils'
+import { getSize, themePath, sizeValue, toCssRule, isFn, isStr, curryN } from '../utils'
 import { everyMedia } from './every-media'
 
 /**
@@ -48,7 +48,7 @@ const sizeProp = (
   const cssRule = toCssRule(cssProp, toPx)
 
   if (isStr(propValue)) {
-    const customPathValue = fromTheme(propValue, null)(theme)
+    const customPathValue = themePath(propValue, null)(theme)
     if (customPathValue !== null) return cssRule(customPathValue)
   }
 

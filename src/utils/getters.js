@@ -7,18 +7,22 @@ import {
   SPACE_KEY
 } from '../constants'
 
-import { isStr, isArr, isNum, isObj, isFn, isBool } from './is'
+import { isStr, isArr, isNum, isObj, isFn, isBool, isEmpty } from './is'
 import { spaceValue, path } from './helpers'
 import { fallbackTo } from './fns'
+import { defaultTheme } from '../core/create-theme'
 
-const themeDefaultPaletteName = path([ DEFAULT_KEY, PALETTE_KEY ], DEFAULT_KEY)
-const themeSpaces = path(SPACE_KEY, {})
-const themeMedia = path(MEDIA_KEY, {})
-const themePalettes = path(PALETTE_KEY, {})
-const themeColors = path(COLORS_KEY, {})
+const themePath = (key, fallback) => (src) => path(
+  key,
+  fallback,
+  isEmpty(src) ? defaultTheme : src
+)
 
-const fromTheme = (key, fallback) =>
-  (src) => path(key, fallback, src.theme || src)
+const themeDefaultPaletteName = themePath([ DEFAULT_KEY, PALETTE_KEY ], DEFAULT_KEY)
+const themeSpaces = themePath(SPACE_KEY, {})
+const themeMedia = themePath(MEDIA_KEY, {})
+const themePalettes = themePath(PALETTE_KEY, {})
+const themeColors = themePath(COLORS_KEY, {})
 
 const getPalette = (theme, name) => {
   const palettes = themePalettes(theme)
@@ -107,7 +111,7 @@ export {
   themeMedia,
   themePalettes,
   themeColors,
-  fromTheme,
+  themePath,
   getPalette,
   getColors,
   getColor,

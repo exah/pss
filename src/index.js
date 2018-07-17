@@ -32,7 +32,8 @@ export {
   getColor,
   getSize,
   getSpace,
-  fromTheme
+  themePath,
+  themePath as fromTheme
 } from './utils/getters'
 
 export {
