@@ -19,7 +19,7 @@ const mapObj = (obj, fn) => Object.keys(obj).reduce((acc, key) => {
 
 const toCssRule = (cssProps, toPx) => (val) => val != null
   ? toObj(cssProps, (name) => {
-    const valWithUnit = toPx === true && val > 0 ? `${val}px` : val
+    const valWithUnit = toPx === true && (val > 0 || val < 0) ? `${val}px` : val
     return {
       [name]: valWithUnit
     }
