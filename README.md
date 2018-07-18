@@ -1,4 +1,4 @@
-# 💔 prop-styles-system
+# prop-styles-system
 
 > Design system utils for CSS-in-JS libraries
 
@@ -75,6 +75,8 @@ const Box = styled.div(myPropStyles)
 
 ### More Useful Example
 
+[![Edit prop-styles-system-demo-1](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/zlrwm3ymzx)
+
 Add ready to use
 
 - [`space`](./docs/api.md#space) — for setting `margin`, `padding`
@@ -120,34 +122,58 @@ const theme = createTheme({
   size: {
     card: '300px',
     site: '1300px'
+  },
+  palette: {
+    default: {
+      bg: '#ffffff',
+      fg: '#000000'
+    },
+    inverted: {
+      bg: '#000000',
+      fg: '#ffffff'
+    }
   }
 })
 
 <ThemeProvider theme={theme}>
-  <Box tm maxWd='site' mgx='auto' pdx> // .css-1
-    <Box minWd='card' wd={(1 / 4)}> // .css-2
-      <figure>
-        <img src="/pic.png" alt="" />
-        <figcaption>
-          <Box mgb> // .css-3
-            <h3>Title</h3>
-          </Box>
-          <Box mgt> // .css-4
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu libero libero, sit amet commodo sem. Proin a quam vulputate enim consequat sollicitudin.</p>
-          </Box>
-        </figcaption>
-      </figure>
+  <Box bg="inverted" ht> // css-0
+    <Box maxWd="site" mgx="auto" pdx> // css-1
+      <Box tm wd={1 / 4} minWd="card" minWdM> // css-2
+        <figure>
+          <img src="/pic.jpg" alt="" />
+          <figcaption>
+            <Box pdx pdy={2}> // css-3
+              <Box mgb> // css-4
+                <h3>
+                  Title
+                </h3>
+              </Box>
+              <Box mgt> // css-5
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Etiam eu libero libero, sit amet commodo sem. Proin a quam
+                  vulputate enim consequat sollicitudin.
+                </p>
+              </Box>
+            </Box>
+          </figcaption>
+        </figure>
+      </Box>
     </Box>
   </Box>
 </ThemeProvider>
+
 ```
 
 CSS-in-JS result:
 
 ```css
+
+.css-0 {
+  background-color: #000000;
+}
+
 .css-1 {
-  background-color: #ffffff;
-  color: #000000;
   max-width: 1300px; 
   margin-left: auto; 
   margin-right: auto; 
@@ -161,11 +187,31 @@ CSS-in-JS result:
 }
 
 .css-2 {
-  min-width: 300px; 
+  background-color: #ffffff;
+  color: #000000;
   width: 25%;
+  min-width: 300px;
+  
+  @media (max-width: 600px) { 
+    min-width: 100%;
+  }
 }
 
 .css-3 {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  
+  @media (max-width: 600px) {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+.css-4 {
   margin-bottom: 16px;
   
   @media (max-width: 600px) {
@@ -173,7 +219,7 @@ CSS-in-JS result:
   }
 }
 
-.css-4 {
+.css-5 {
   margin-top: 16px;
   
   @media (max-width: 600px) {
@@ -181,6 +227,22 @@ CSS-in-JS result:
   }
 }
 ```
+
+## 🔗 Links
+
+### Sites
+
+- [strelkamag.com](http://strelkamag.com) — 🌍 Real-world usage
+- [goremykina](https://github.com/exah/goremykina) — 👀 Code (WIP)
+
+
+### Packages
+
+- [`defaults.css`](https://github.com/exah/defaults.css) — CSS reset
+- [`styled-system`](https://github.com/jxnblk/styled-system) — "Design system utilities for styled-components and other css-in-js libraries." Similiar project and probably better.
+- [`prop-styles`](https://github.com/peterschussheim/prop-styles) — "Utility to create flexible React components which accept props to enable/disable certain styles."
+- [`polished`](https://github.com/styled-components/polished) — "A lightweight toolset for writing styles in JavaScript"
+
 
 ---
 
