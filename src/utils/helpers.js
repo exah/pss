@@ -3,19 +3,18 @@ import { curryN, identity } from './fns'
 
 const toArr = (val) => isArr(val) ? val : val != null ? [ val ] : []
 
-const toObj = (arr, fn = identity) => toArr(arr).reduce((acc, ...payload) => {
-  const result = fn(...payload)
-  if (result == null) return acc
-  return { ...acc, ...result }
-}, {})
+const toObj = (arr, fn = identity) => toArr(arr).reduce((acc, ...payload) => ({
+  ...acc,
+  ...fn(...payload)
+}), {})
 
-const mapObj = (obj, fn) => Object.keys(obj).reduce((acc, key) => {
-  const [ nextKey, nextVal ] = fn(key, obj[key], obj)
+const mapObj = curryN(2, (obj, fn) => Object.keys(obj).reduce((acc, key, index) => {
+  const [ nextKey, nextVal ] = fn([ key, obj[key] ], index, obj)
   return {
     ...acc,
     [nextKey]: nextVal
   }
-}, {})
+}, {}))
 
 const toCssRule = (cssProps, toPx) => (val) => val != null
   ? toObj(cssProps, (name) => {

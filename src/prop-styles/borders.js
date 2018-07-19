@@ -17,7 +17,7 @@ const borderStyle = (dir = '') => (val, { theme }, mediaKey) => {
 const borderPropStyles = createPropStyles({
   bd: borderStyle(),
   bdc: colorProp('borderColor', 'border'),
-  ...mapObj(SHORT_DIRECTIONS, (shortDir, longDir) => [
+  ...mapObj(SHORT_DIRECTIONS, ([ shortDir, longDir ]) => [
     'bd' + shortDir,
     longDir.map((dir) => borderStyle(dir))
   ])
