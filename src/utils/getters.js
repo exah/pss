@@ -23,6 +23,7 @@ const themeSpaces = themePath(SPACE_KEY, {})
 const themeMedia = themePath(MEDIA_KEY, {})
 const themePalettes = themePath(PALETTE_KEY, {})
 const themeColors = themePath(COLORS_KEY, {})
+const themeDefaultMedia = themePath([ DEFAULT_KEY, MEDIA_KEY ], DEFAULT_KEY)
 
 const getPalette = (theme, name) => {
   const palettes = themePalettes(theme)
@@ -107,6 +108,7 @@ const getSpace = (theme, step) => (mediaKey, exact = false) => {
 
 export {
   themeDefaultPaletteName,
+  themeDefaultMedia,
   themeSpaces,
   themeMedia,
   themePalettes,

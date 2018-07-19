@@ -74,6 +74,7 @@ in media query with media name suffix (key in `theme.media`).
 #### Parameters
 
 -   `propStyles` **[PropStylesObj][50]**  (optional, default `{}`)
+-   `options` **{isMediaProps: [boolean][51]}**  (optional, default `{isMediaProps:true}`)
 
 #### Examples
 
@@ -213,7 +214,7 @@ Returns **ThemeObj**
 Object with keys that represents component `prop` and
 the value is a `style` that will be applied (or [PropStyleFn][11]).
 
-Type: [Object][51]
+Type: [Object][52]
 
 ##### Examples
 
@@ -233,9 +234,9 @@ Type: [Object][51]
 
 #### PropStyleFn
 
-[Function][52] that returns style that will be applied to component when prop is used.
+[Function][53] that returns style that will be applied to component when prop is used.
 
-Type: function (value: PropStyleVal, props: Props, mediaKey: ([string][53] | null)): StyleObj
+Type: function (value: PropStyleVal, props: Props, mediaKey: ([string][54] | null)): StyleObj
 
 ##### Parameters
 
@@ -340,7 +341,7 @@ Result is props for [createPropStyles][2] with specified prop prefix.
 
 -   `cssProp` **CSSProp** — Usually is `margin` or `padding`
 -   `compProp` **CompPropName** — Prop name that will be used in component
--   `getSpaceValue` **[Function][54]** — Custom getter from theme, default to get values from `theme.space`
+-   `getSpaceValue` **[Function][55]** — Custom getter from theme, default to get values from `theme.space`
 
 ##### Examples
 
@@ -382,7 +383,7 @@ For example if `cssProp` = `margin` result is [DynamicStyleFn][49] with API:
 ##### Parameters
 
 -   `cssProp` **CSSProp** — Usually is `margin` or `padding`
--   `getSpaceValue` **[Function][54]** — Custom getter from theme, default to get values from `theme.space`
+-   `getSpaceValue` **[Function][55]** — Custom getter from theme, default to get values from `theme.space`
 
 ##### Examples
 
@@ -512,7 +513,7 @@ import { sizeProp } from '@exah/prop-styles-system'
 -   `cssProp` **CSSProp** — Any CSS prop like `width`, `height`, `left`, ...
 -   `trueVal` **CSSVal**  (optional, default `'100%'`)
 -   `falseVal` **CSSVal**  (optional, default `0`)
--   `toPx` **[boolean][55]** — Add `px` unit to `number` result (optional, default `true`)
+-   `toPx` **[boolean][51]** — Add `px` unit to `number` result (optional, default `true`)
 
 ##### Examples
 
@@ -636,7 +637,7 @@ Get color from theme and apply it to css prop.
 
 -   `cssProp` **CSSProp** — Any CSS prop like `backgroundColor`, `color`, `borderColor`, ...
 -   `colorKey` **ThemeKey** — Key in `theme.color` or in `theme.palette[theme.default.palette]`
--   `getCssValue` **function (color: [string][53], props: Props): CSSVal** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)
+-   `getCssValue` **function (color: [string][54], props: Props): CSSVal** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)
 
 ##### Examples
 
@@ -679,8 +680,8 @@ Set both `background-color` and `color` for selected `theme.palette`.
 
 ##### Parameters
 
--   `bgKey` **[string][53]** — is key in `theme.palette[val]` for CSS `background-color` prop (optional, default `'background'`)
--   `fgKey` **[string][53]** — is key in `theme.palette[val]` for CSS `color` prop (optional, default `'foreground'`)
+-   `bgKey` **[string][54]** — is key in `theme.palette[val]` for CSS `background-color` prop (optional, default `'background'`)
+-   `fgKey` **[string][54]** — is key in `theme.palette[val]` for CSS `color` prop (optional, default `'foreground'`)
 
 ##### Examples
 
@@ -760,7 +761,7 @@ Wrap result of prop style in custom CSS selector.
 
 #### Parameters
 
--   `name` **[string][53]?** — CSS selector, like `&:first-child`, `& + &`
+-   `name` **[string][54]?** — CSS selector, like `&:first-child`, `& + &`
 -   `value` **PropStyleVal?** — prop value
 
 #### Examples
@@ -922,15 +923,15 @@ import { cs, ps } from '@exah/prop-styles-system'
 
 [50]: #propstylesobj
 
-[51]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[51]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 
-[52]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[52]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[53]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[53]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[54]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[54]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[55]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[55]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
 [56]: #propstylefn
 

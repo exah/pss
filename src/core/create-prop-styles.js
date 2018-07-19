@@ -14,12 +14,17 @@ import {
   once,
   wrapIfMedia,
   handlePropStyle,
-  themeMedia
+  themeMedia,
+  themeDefaultMedia
 } from '../utils'
 
 import {
   DEFAULT_KEY
 } from '../constants'
+
+const DEFAULT_OPTIONS = {
+  isMediaProps: true
+}
 
 const buildStylesWithMedia = (styles: PropStylesObj) => (theme: ThemeObj): PropStylesObj => {
   const media = themeMedia(theme)
@@ -53,6 +58,8 @@ const buildStylesWithMedia = (styles: PropStylesObj) => (theme: ThemeObj): PropS
  *
  * When `theme` with `media` is provided to components, any styles can be changed
  * in media query with media name suffix (key in `theme.media`).
+ *
+ * @param [options = { isMediaProps: true }]
  *
  * @example
  * import styled from 'react-emotion'
@@ -92,17 +99,22 @@ const buildStylesWithMedia = (styles: PropStylesObj) => (theme: ThemeObj): PropS
  * </ThemeProvider>
  */
 
-const createPropStyles = (propStyles: PropStylesObj = {}): DynamicStyleFn => {
+const createPropStyles = (
+  propStyles: PropStylesObj = {},
+  options: { isMediaProps: boolean }
+): DynamicStyleFn => {
+  const opts = { ...DEFAULT_OPTIONS, ...options }
   const buildStylesWithMediaOnce = once(buildStylesWithMedia(propStyles))
 
   return (props: Props): Styles => {
-    const stylesWithMedia = buildStylesWithMediaOnce(props.theme)
+    const isMedia = opts.isMediaProps && themeDefaultMedia(props.theme) !== false
+    const stylesMap = isMedia ? buildStylesWithMediaOnce(props.theme) : propStyles
 
     const result = Object.keys(props).reduce((acc, key) => {
-      const matched = stylesWithMedia[key]
+      const matched = stylesMap[key]
 
       if (matched !== undefined) {
-        const [ propStyle, mediaKey, mediaQuery ] = matched
+        const [ propStyle, mediaKey, mediaQuery ] = isMedia ? matched : [ matched ]
         const value = props[key]
 
         return acc.concat(
