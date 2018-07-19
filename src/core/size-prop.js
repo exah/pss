@@ -6,8 +6,8 @@ import type {
   PropStyleFn
 } from '../types'
 
-import { getSize, themePath, sizeValue, toCssRule, isFn, isStr, curryN } from '../utils'
-import { everyMedia } from './every-media'
+import { getSize, themePath, sizeValue, toCssRule, isStr, curryN } from '../utils'
+import { everyMediaValue } from './every-media'
 
 /**
  * ```js
@@ -44,7 +44,7 @@ const sizeProp = (
   trueVal?: CSSVal = '100%',
   falseVal?: CSSVal = 0,
   toPx?: boolean = true
-): PropStyleFn => curryN(2, (propValue, { theme }, propMediaKey) => {
+): PropStyleFn => curryN(2, (propValue, { theme }, mediaKey) => {
   const cssRule = toCssRule(cssProp, toPx)
 
   if (isStr(propValue)) {
@@ -64,19 +64,12 @@ const sizeProp = (
     return cssRule(propValue)
   }
 
-  if (isFn(themeSize)) {
-    if (propMediaKey == null) {
-      return everyMedia(
-        (mediaKey) => cssRule(themeSize(mediaKey, true)),
-        { theme }
-      )
-    }
-
-    const mediaSize = themeSize(propMediaKey)
-    return cssRule(mediaSize !== propValue ? mediaSize : propValue)
-  }
-
-  return cssRule(themeSize)
+  return everyMediaValue(
+    theme,
+    mediaKey,
+    themeSize,
+    cssRule
+  )
 })
 
 const sizeStyle = (cssProp: CSSProp, ...sizeValueArgs?: [ CSSVal, CSSVal ]): PropStyleFn =>

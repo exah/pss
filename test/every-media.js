@@ -14,7 +14,7 @@ test('run callback for every media in theme', (t) => {
   let i = 0
   everyMedia((mediaKey) => {
     if (theme[MEDIA_KEY].hasOwnProperty(mediaKey)) i++
-  }, { theme })
+  }, theme)
 
   t.is(i, Object.keys(theme[MEDIA_KEY]).length)
 })
@@ -24,7 +24,7 @@ test('get styles for every media in theme', (t) => {
     return mediaKey === 'D' ? null : {
       backgroundColor: mediaKey === 'default' ? 'red' : 'yellow'
     }
-  }, { theme })
+  }, theme)
 
   t.deepEqual(toStyles(result), {
     backgroundColor: 'red',

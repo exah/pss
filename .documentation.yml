@@ -122,6 +122,11 @@ toc:
         children:
           - colorProp
           - themeProp
+
+  - name: Styles in Theme
+    children:
+      - createThemeStyles
+
   - name: Misc
     children:
       - cssProp

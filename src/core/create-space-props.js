@@ -9,7 +9,7 @@ import type {
 
 import { SHORT_DIRECTIONS } from '../constants'
 import { getSpace, toObj, toCssRule } from '../utils'
-import { everyMedia } from './every-media'
+import { everyMediaValue } from './every-media'
 
 type SpaceProps = Array<Array<CompPropName | Array<CSSProp>>>
 
@@ -29,20 +29,13 @@ const cssRuleSpaceStyle = (
   getSpaceValue: Function = getSpace,
   toPx = true
 ): Function =>
-  (value, fnMediaKey): DynamicStyleFn =>
-    (props, propMediaKey = fnMediaKey) => {
-      const cssRule = toCssRule(styleProp, toPx)
-      const spaceValue = getSpaceValue(props.theme, value)
-
-      if (propMediaKey != null) {
-        return cssRule(spaceValue(propMediaKey))
-      }
-
-      return everyMedia(
-        (mediaKey) => cssRule(spaceValue(mediaKey, true)),
-        props
-      )
-    }
+  (value, defaultMediaKey): DynamicStyleFn =>
+    ({ theme }, mediaKey = defaultMediaKey) => everyMediaValue(
+      theme,
+      mediaKey,
+      getSpaceValue(theme, value),
+      toCssRule(styleProp, toPx)
+    )
 
 /**
  * ```js

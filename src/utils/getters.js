@@ -7,7 +7,7 @@ import {
   SPACE_KEY
 } from '../constants'
 
-import { isStr, isArr, isNum, isObj, isFn, isBool, isEmpty } from './is'
+import { isStr, isFn, isEmpty } from './is'
 import { spaceValue, path } from './helpers'
 import { fallbackTo } from './fns'
 import { defaultTheme } from '../core/create-theme'
@@ -19,11 +19,11 @@ const themePath = (key, fallback) => (src) => path(
 )
 
 const themeDefaultPaletteName = themePath([ DEFAULT_KEY, PALETTE_KEY ], DEFAULT_KEY)
+const themeDefaultMedia = themePath([ DEFAULT_KEY, MEDIA_KEY ], DEFAULT_KEY)
 const themeSpaces = themePath(SPACE_KEY, {})
 const themeMedia = themePath(MEDIA_KEY, {})
 const themePalettes = themePath(PALETTE_KEY, {})
 const themeColors = themePath(COLORS_KEY, {})
-const themeDefaultMedia = themePath([ DEFAULT_KEY, MEDIA_KEY ], DEFAULT_KEY)
 
 const getPalette = (theme, name) => {
   const palettes = themePalettes(theme)
@@ -54,35 +54,29 @@ const getColor = (theme, key, colorName) => {
   return isStr(colorName) ? path(colorName, fallback[key])(colors) : colors[key]
 }
 
-const getThemeMediaValue = (key) => (theme, value) => {
-  const themeName = value === true
-    ? path([ DEFAULT_KEY, ...key.split('.') ], DEFAULT_KEY)(theme)
-    : value
-  const themeValue = path(key, {})(theme)[themeName]
+const getThemeMediaValue = (themeParentKey) => (theme, value) => {
+  const key = value === true
+    ? themePath([ DEFAULT_KEY, themeParentKey ], DEFAULT_KEY)(theme)
+    : isStr(value) ? value : null
+  const src = themePath(themeParentKey, null)(theme)
+  const result = path(key, null, src)
 
-  if (isObj(themeValue) && themeValue.hasOwnProperty(DEFAULT_KEY)) {
+  if (result !== null && result.hasOwnProperty(DEFAULT_KEY)) {
     return (mediaKey, exact = false) => {
-      const mediaValue = themeValue[mediaKey]
-
-      if (mediaValue != null) {
-        return mediaValue
-      }
-
-      const defaultMediaValue = themeValue[DEFAULT_KEY]
-
-      if (defaultMediaValue != null) {
-        return exact === true ? null : defaultMediaValue
-      }
+      return fallbackTo(
+        result[mediaKey],
+        exact ? null : result[DEFAULT_KEY]
+      )
     }
   }
 
-  return themeValue
+  return result
 }
 
 const getSize = getThemeMediaValue(SIZES_KEY)
 
 const getSpace = (theme, step) => (mediaKey, exact = false) => {
-  if (!isNum(step) && !isBool(step)) {
+  if (isStr(step)) {
     const themeSize = getSize(theme, step)
 
     if (isFn(themeSize)) {
@@ -97,16 +91,16 @@ const getSpace = (theme, step) => (mediaKey, exact = false) => {
   }
 
   const spaces = themeSpaces(theme)
-  const spaceSizes = isArr(spaces)
-    ? spaces
-    : fallbackTo(spaces[mediaKey], spaces[exact || DEFAULT_KEY])
 
-  if (!spaceSizes) return null
-
-  return spaceValue(spaceSizes, step)
+  return spaceValue(step, fallbackTo(
+    spaces[mediaKey],
+    exact ? [] : spaces[DEFAULT_KEY],
+    []
+  ))
 }
 
 export {
+  getThemeMediaValue,
   themeDefaultPaletteName,
   themeDefaultMedia,
   themeSpaces,

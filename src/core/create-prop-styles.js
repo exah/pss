@@ -101,7 +101,7 @@ const buildStylesWithMedia = (styles: PropStylesObj) => (theme: ThemeObj): PropS
 
 const createPropStyles = (
   propStyles: PropStylesObj = {},
-  options: { isMediaProps: boolean }
+  options?: { isMediaProps: boolean }
 ): DynamicStyleFn => {
   const opts = { ...DEFAULT_OPTIONS, ...options }
   const buildStylesWithMediaOnce = once(buildStylesWithMedia(propStyles))

@@ -53,7 +53,7 @@ type PropStylesObj = { [CompPropName]: PropStyleFn }
 //
 
 type ThemeDefaultKey = 'default'
-type ThemeKey = 'media' | 'space' | 'size' | 'color' | 'palette' | 'textStyle'
+type ThemeKey = 'media' | 'space' | 'size' | 'color' | 'palette'
 
 type ThemeObj = $Shape<{
   default: { [ThemeKey]: string | ThemeDefaultKey },

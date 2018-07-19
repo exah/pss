@@ -1,17 +1,40 @@
-// @flow
-import { wrapIfMedia, themeMedia, curryN } from '../utils'
+import {
+  wrapIfMedia,
+  themeMedia,
+  identity,
+  curryN,
+  isFn
+} from '../utils'
 
-import type {
-  Styles,
-  Props
-} from '../types'
-
-const everyMedia = curryN(2, (getStyle: Function, props: Props): Styles =>
-  Object.entries(themeMedia(props.theme))
+const everyMedia = curryN(2, (getStyle, theme) =>
+  Object.entries(themeMedia(theme))
     .reduce((acc, [ mediaKey, mediaQuery ]) => acc.concat(wrapIfMedia(
       mediaQuery,
-      getStyle(mediaKey, props)
+      getStyle(mediaKey)
     ) || []), [])
 )
 
-export { everyMedia }
+const everyMediaValue = (
+  theme,
+  mediaKey,
+  themeValue,
+  wrapper = identity
+) => {
+  if (isFn(themeValue)) {
+    if (mediaKey != null) {
+      return wrapper(themeValue(mediaKey))
+    }
+
+    return everyMedia(
+      (_mediaKey) => wrapper(themeValue(_mediaKey, true)),
+      theme
+    )
+  }
+
+  return wrapper(themeValue)
+}
+
+export {
+  everyMedia,
+  everyMediaValue
+}

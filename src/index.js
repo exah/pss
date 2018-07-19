@@ -2,6 +2,7 @@ export {
   createPropStyles,
   createPropStyles as default,
   createTheme,
+  propStylesInTheme,
   createSpaceStyle,
   createSpaceProps,
   everyMedia,

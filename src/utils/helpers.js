@@ -122,18 +122,23 @@ const sizeValue = (val, trueVal = '100%', falseVal = 0) => (isNum(val)
   : val === true ? trueVal : val === false ? falseVal : val
 )
 
-const spaceValue = (spaces = [], step) => {
-  const size = spaces[Math.abs(step)]
-  return size != null ? size * ((step < 0) ? -1 : 1) : step
+const spaceValue = (val, spaces) => {
+  const size = spaces[Math.abs(val)]
+
+  if (size === undefined) {
+    return null
+  }
+
+  return size * ((val < 0) ? -1 : 1)
 }
 
 const skipPropValue = (...styles) => (value, ...rest) => (
   styles.map((s) => s(...rest))
 )
 
-const path = curryN(3, (pathsOpt, fallback, obj) => {
-  const paths = isStr(pathsOpt) ? pathsOpt.split('.') : pathsOpt
-  let val = obj || {}
+const path = curryN(3, (pathsOpt, fallback, src) => {
+  const paths = isStr(pathsOpt) ? pathsOpt.split('.') : toArr(pathsOpt)
+  let val = src
   let idx = 0
 
   while (idx < paths.length) {
@@ -145,7 +150,7 @@ const path = curryN(3, (pathsOpt, fallback, obj) => {
     }
   }
 
-  return val
+  return val === src ? fallback : val
 })
 
 export {

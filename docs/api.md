@@ -41,15 +41,18 @@
         -   [themeProp][37]
             -   [Parameters][38]
             -   [Examples][39]
--   [Misc][40]
-    -   [cssProp][41]
-        -   [Examples][42]
-    -   [propSelector][43]
-        -   [Parameters][44]
+-   [Styles in Theme][40]
+    -   [createThemeStyles][41]
+        -   [Parameters][42]
+-   [Misc][43]
+    -   [cssProp][44]
         -   [Examples][45]
-    -   [combineSelectors][46]
+    -   [propSelector][46]
         -   [Parameters][47]
         -   [Examples][48]
+    -   [combineSelectors][49]
+        -   [Parameters][50]
+        -   [Examples][51]
 
 ## Creating Prop Styles and Theme
 
@@ -65,7 +68,7 @@ import { createPropStyles } from '@exah/prop-styles-system'
 Function that accepts Object (see [PropStylesObj][9]) with keys that
 represents component `prop` and the value is a `style` that will be applied.
 
-Returns Function (see [DynamicStyleFn][49]) that you add to
+Returns Function (see [DynamicStyleFn][52]) that you add to
 components created with CSS-in-JS libraries.
 
 When `theme` with `media` is provided to components, any styles can be changed
@@ -73,8 +76,8 @@ in media query with media name suffix (key in `theme.media`).
 
 #### Parameters
 
--   `propStyles` **[PropStylesObj][50]**  (optional, default `{}`)
--   `options` **{isMediaProps: [boolean][51]}**  (optional, default `{isMediaProps:true}`)
+-   `propStyles` **[PropStylesObj][53]**  (optional, default `{}`)
+-   `options` **{isMediaProps: [boolean][54]}**  (optional, default `{isMediaProps:true}`)
 
 #### Examples
 
@@ -214,7 +217,7 @@ Returns **ThemeObj**
 Object with keys that represents component `prop` and
 the value is a `style` that will be applied (or [PropStyleFn][11]).
 
-Type: [Object][52]
+Type: [Object][55]
 
 ##### Examples
 
@@ -234,9 +237,9 @@ Type: [Object][52]
 
 #### PropStyleFn
 
-[Function][53] that returns style that will be applied to component when prop is used.
+[Function][56] that returns style that will be applied to component when prop is used.
 
-Type: function (value: PropStyleVal, props: Props, mediaKey: ([string][54] | null)): StyleObj
+Type: function (value: PropStyleVal, props: Props, mediaKey: ([string][57] | null)): StyleObj
 
 ##### Parameters
 
@@ -341,7 +344,7 @@ Result is props for [createPropStyles][2] with specified prop prefix.
 
 -   `cssProp` **CSSProp** — Usually is `margin` or `padding`
 -   `compProp` **CompPropName** — Prop name that will be used in component
--   `getSpaceValue` **[Function][55]** — Custom getter from theme, default to get values from `theme.space`
+-   `getSpaceValue` **[Function][58]** — Custom getter from theme, default to get values from `theme.space`
 
 ##### Examples
 
@@ -359,7 +362,7 @@ const Box = styled.div(marginPropStyles)
 <Box mg /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
 ```
 
-Returns **[PropStylesObj][50]** 
+Returns **[PropStylesObj][53]** 
 
 #### createSpaceStyle
 
@@ -370,7 +373,7 @@ import { createSpaceStyle } from '@exah/prop-styles-system'
 Similar to [createSpaceProps][17], but creates style function instead of prop styles,
 that can be used inside CSS-in-JS components with `theme` prop.
 
-For example if `cssProp` = `margin` result is [DynamicStyleFn][49] with API:
+For example if `cssProp` = `margin` result is [DynamicStyleFn][52] with API:
 
 -   `fn(step)` → `margin`
 -   `fn.l(step)` → `margin-left`
@@ -383,7 +386,7 @@ For example if `cssProp` = `margin` result is [DynamicStyleFn][49] with API:
 ##### Parameters
 
 -   `cssProp` **CSSProp** — Usually is `margin` or `padding`
--   `getSpaceValue` **[Function][55]** — Custom getter from theme, default to get values from `theme.space`
+-   `getSpaceValue` **[Function][58]** — Custom getter from theme, default to get values from `theme.space`
 
 ##### Examples
 
@@ -513,7 +516,7 @@ import { sizeProp } from '@exah/prop-styles-system'
 -   `cssProp` **CSSProp** — Any CSS prop like `width`, `height`, `left`, ...
 -   `trueVal` **CSSVal**  (optional, default `'100%'`)
 -   `falseVal` **CSSVal**  (optional, default `0`)
--   `toPx` **[boolean][51]** — Add `px` unit to `number` result (optional, default `true`)
+-   `toPx` **[boolean][54]** — Add `px` unit to `number` result (optional, default `true`)
 
 ##### Examples
 
@@ -540,7 +543,7 @@ const Box = styled.div(mySizes)
 <Box l={20} r={10} /> // left: 20px; right: 10px
 ```
 
-Returns **[PropStyleFn][56]** 
+Returns **[PropStyleFn][59]** 
 
 ## Colors
 
@@ -637,7 +640,7 @@ Get color from theme and apply it to css prop.
 
 -   `cssProp` **CSSProp** — Any CSS prop like `backgroundColor`, `color`, `borderColor`, ...
 -   `colorKey` **ThemeKey** — Key in `theme.color` or in `theme.palette[theme.default.palette]`
--   `getCssValue` **function (color: [string][54], props: Props): CSSVal** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)
+-   `getCssValue` **function (color: [string][57], props: Props): CSSVal** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)
 
 ##### Examples
 
@@ -668,7 +671,7 @@ const Box = styled.div(myColors)
 <Box shadow /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
 ```
 
-Returns **[PropStyleFn][56]** 
+Returns **[PropStyleFn][59]** 
 
 #### themeProp
 
@@ -680,8 +683,8 @@ Set both `background-color` and `color` for selected `theme.palette`.
 
 ##### Parameters
 
--   `bgKey` **[string][54]** — is key in `theme.palette[val]` for CSS `background-color` prop (optional, default `'background'`)
--   `fgKey` **[string][54]** — is key in `theme.palette[val]` for CSS `color` prop (optional, default `'foreground'`)
+-   `bgKey` **[string][57]** — is key in `theme.palette[val]` for CSS `background-color` prop (optional, default `'background'`)
+-   `fgKey` **[string][57]** — is key in `theme.palette[val]` for CSS `color` prop (optional, default `'foreground'`)
 
 ##### Examples
 
@@ -704,7 +707,28 @@ const Box = styled.div(myColors)
 <Box tm='inverted' /> // background-color: #222222; color: #fffffff
 ```
 
-Returns **[PropStyleFn][56]** 
+Returns **[PropStyleFn][59]** 
+
+## Styles in Theme
+
+
+
+
+### createThemeStyles
+
+```js
+import { createThemeStyles } from '@exah/prop-styles-system'
+```
+
+Create custom styles inside `theme`, than enable them is with props.
+
+#### Parameters
+
+-   `themeKey` **ThemeKey** 
+-   `propName` **CompPropName?** 
+-   `getStyle` **[Function][58]?** 
+
+Returns **DynamicStyleFn** 
 
 ## Misc
 
@@ -717,7 +741,7 @@ Returns **[PropStyleFn][56]**
 import { cssProp } from '@exah/prop-styles-system'
 ```
 
-Dynamic CSS prop like in [glamorous][57].
+Dynamic CSS prop like in [glamorous][60].
 You don't need it if yours CSS-in-JS library support it natively.
 
 Simple implementation:
@@ -761,7 +785,7 @@ Wrap result of prop style in custom CSS selector.
 
 #### Parameters
 
--   `name` **[string][54]?** — CSS selector, like `&:first-child`, `& + &`
+-   `name` **[string][57]?** — CSS selector, like `&:first-child`, `& + &`
 -   `value` **PropStyleVal?** — prop value
 
 #### Examples
@@ -791,7 +815,7 @@ Alias **`cs`**
 import { cs } from '@exah/prop-styles-system'
 ```
 
-Combine any number of [propSelector][43]s.
+Combine any number of [propSelector][46]s.
 
 #### Parameters
 
@@ -901,38 +925,44 @@ import { cs, ps } from '@exah/prop-styles-system'
 
 [39]: #examples-10
 
-[40]: #misc
+[40]: #styles-in-theme
 
-[41]: #cssprop
+[41]: #createthemestyles
 
-[42]: #examples-11
+[42]: #parameters-8
 
-[43]: #propselector
+[43]: #misc
 
-[44]: #parameters-8
+[44]: #cssprop
 
-[45]: #examples-12
+[45]: #examples-11
 
-[46]: #combineselectors
+[46]: #propselector
 
 [47]: #parameters-9
 
-[48]: #examples-13
+[48]: #examples-12
 
-[49]: DynamicStyleFn
+[49]: #combineselectors
 
-[50]: #propstylesobj
+[50]: #parameters-10
 
-[51]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[51]: #examples-13
 
-[52]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[52]: DynamicStyleFn
 
-[53]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[53]: #propstylesobj
 
-[54]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[54]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 
-[55]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[55]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[56]: #propstylefn
+[56]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[57]: https://glamorous.rocks
+[57]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[58]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+
+[59]: #propstylefn
+
+[60]: https://glamorous.rocks
