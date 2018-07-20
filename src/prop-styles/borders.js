@@ -1,6 +1,7 @@
 import { createPropStyles, colorProp } from '../core'
 import { SHORT_DIRECTIONS } from '../constants'
-import { getSize, mapObj } from '../utils'
+import { getSize } from '../utils/getters'
+import { mapObj } from '../utils/helpers'
 
 const borderStyle = (dir = '') => (val, { theme }, mediaKey) => {
   const [ widthValue, style = 'solid' ] = String(val || '').split(' ')

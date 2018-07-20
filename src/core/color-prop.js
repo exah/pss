@@ -9,7 +9,9 @@ import type {
 } from '../types'
 
 import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
-import { getColors, getColor, isColor, identity, curryN } from '../utils'
+import { isColor } from '../utils/is'
+import { identity, curryN } from '../utils/fns'
+import { getColors, getColor } from '../utils/getters'
 
 /**
  * ```js

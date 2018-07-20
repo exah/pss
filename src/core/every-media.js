@@ -1,10 +1,7 @@
-import {
-  wrapIfMedia,
-  themeMedia,
-  identity,
-  curryN,
-  isFn
-} from '../utils'
+import { isFn } from '../utils/is'
+import { curryN, identity } from '../utils/fns'
+import { themeMedia } from '../utils/getters'
+import { wrapIfMedia } from '../utils/helpers'
 
 const everyMedia = curryN(2, (getStyle, theme) =>
   Object.entries(themeMedia(theme))

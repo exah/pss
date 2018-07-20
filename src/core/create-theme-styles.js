@@ -6,9 +6,11 @@ import type {
   ThemeKey
 } from '../types'
 
-import { isStr, mapObj, getThemeMediaValue, themePath } from '../utils'
-import { everyMediaValue } from './every-media'
+import { isStr } from '../utils/is'
+import { mapObj } from '../utils/helpers'
+import { getThemeMediaValue, themePath } from '../utils/getters'
 import { createPropStyles } from './create-prop-styles'
+import { everyMediaValue } from './every-media'
 
 /**
  * ```js
@@ -68,8 +70,8 @@ import { createPropStyles } from './create-prop-styles'
 
 const propStylesInTheme = (
   themeKey: ThemeKey,
-  propName: CompPropName,
-  getStyle?: Function
+  propName: ? CompPropName,
+  getStyle: ? Function
 ): DynamicStyleFn => {
   const getter = getStyle || getThemeMediaValue(themeKey)
 

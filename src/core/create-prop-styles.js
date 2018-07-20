@@ -8,15 +8,19 @@ import type {
   PropStylesObj
 } from '../types'
 
+import { isFn } from '../utils/is'
+import { once } from '../utils/fns'
+
 import {
-  isFn,
   toArr,
-  once,
   wrapIfMedia,
-  handlePropStyle,
+  handlePropStyle
+} from '../utils/helpers'
+
+import {
   themeMedia,
   themeDefaultMedia
-} from '../utils'
+} from '../utils/getters'
 
 import {
   DEFAULT_KEY
@@ -121,7 +125,6 @@ const createPropStyles = (
           toArr(propStyle).map((style) => wrapIfMedia(
             mediaQuery,
             isFn(value)
-              // $FlowFixMe - Shitty FlowType don't recognize imported `isFn`
               ? value(props, mediaKey, style)
               : handlePropStyle(style, value, props, mediaKey)
           ) || [])

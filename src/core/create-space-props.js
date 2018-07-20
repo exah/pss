@@ -8,7 +8,8 @@ import type {
 } from '../types'
 
 import { SHORT_DIRECTIONS } from '../constants'
-import { getSpace, toObj, toCssRule } from '../utils'
+import { getSpace } from '../utils/getters'
+import { toObj, toCssRule } from '../utils/helpers'
 import { everyMediaValue } from './every-media'
 
 type SpaceProps = Array<Array<CompPropName | Array<CSSProp>>>

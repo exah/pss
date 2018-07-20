@@ -1,16 +1,17 @@
-const isFn = (val) => typeof val === 'function'
-const isBool = (val) => typeof val === 'boolean'
-const isNum = (val) => typeof val === 'number'
-const isStr = (val) => typeof val === 'string'
-const isArr = (val) => Array.isArray(val)
-const isObj = (val) => typeof val === 'object' && !isArr(val)
+// @flow
 
-const isHex = (str) => /^#/.test(str || '')
-const isRgb = (str) => /^rgba?/.test(str || '')
-const isHsl = (str) => /^hsla?/.test(str || '')
-const isColor = (str) => isHex(str) || isRgb(str) || isHsl(str)
+const isFn = (val: any): %checks => typeof val === 'function'
+const isBool = (val: any): %checks => typeof val === 'boolean'
+const isNum = (val: any): %checks => typeof val === 'number'
+const isStr = (val: any): %checks => typeof val === 'string'
+const isArr = (val: any): %checks => Array.isArray(val)
 
-const isEmpty = (val) => {
+const isHex = (str: string): boolean => /^#/.test(str || '')
+const isRgb = (str: string): boolean => /^rgba?/.test(str || '')
+const isHsl = (str: string): boolean => /^hsla?/.test(str || '')
+const isColor = (str: string): boolean => isHex(str) || isRgb(str) || isHsl(str)
+
+const isEmpty = (val: {}): boolean => {
   if (val != null) {
     for (let key in val) {
       if (val.hasOwnProperty(key)) {
@@ -28,7 +29,6 @@ export {
   isNum,
   isStr,
   isArr,
-  isObj,
   isColor,
   isEmpty
 }

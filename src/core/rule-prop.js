@@ -8,7 +8,7 @@ import type {
   StyleObj
 } from '../types'
 
-import { isBool } from '../utils'
+import { isBool } from '../utils/is'
 
 const ruleProp = (
   cssProp: CSSProp,

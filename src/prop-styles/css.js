@@ -1,5 +1,5 @@
 import { createPropStyles } from '../core'
-import { toObj } from '../utils'
+import { toObj } from '../utils/helpers'
 
 /**
  * ```js

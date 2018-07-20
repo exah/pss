@@ -1,5 +1,5 @@
 import { createPropStyles, createSpaceProps } from '../core'
-import { combine } from '../utils'
+import { combine } from '../utils/fns'
 
 const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
 const paddingPropStyles = createPropStyles(createSpaceProps('padding', 'pd'))
