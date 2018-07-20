@@ -36,7 +36,7 @@ test('props: position', (t) => {
     right: '100%',
     top: 0, // eslint-disable-line
     bottom: 0, // eslint-disable-line
-    right: '0%', // eslint-disable-line
+    right: 0, // eslint-disable-line
     zIndex: 100,
     '@media (max-width: 600px)': {
       position: 'static',

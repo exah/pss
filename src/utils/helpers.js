@@ -118,7 +118,7 @@ const wrapIfMedia = (query, style) => wrap(
 )
 
 const sizeValue = (val, trueVal = '100%', falseVal = 0) => (isNum(val)
-  ? (val > 1 ? val : `${val * 100}%`)
+  ? (val <= 0 || val > 1 ? val : `${val * 100}%`)
   : val === true ? trueVal : val === false ? falseVal : val
 )
 

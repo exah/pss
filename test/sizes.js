@@ -51,7 +51,7 @@ test('props -> sizes relative value', (t) => {
   t.deepEqual(result, {
     height: '100%',
     width: '100%',
-    minWidth: '0%',
+    minWidth: 0,
     maxWidth: 0,
     minHeight: '75%',
     maxHeight: 'auto'
