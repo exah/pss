@@ -125,7 +125,7 @@ toc:
 
   - name: Styles in Theme
     children:
-      - createThemeStyles
+      - propStylesInTheme
 
   - name: Misc
     children:
