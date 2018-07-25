@@ -8,8 +8,8 @@ const toObj = (arr, fn = identity) => toArr(arr).reduce((acc, ...payload) => ({
   ...fn(...payload)
 }), {})
 
-const mapObj = curryN(2, (obj, fn) => Object.keys(obj).reduce((acc, key, index) => {
-  const [ nextKey, nextVal ] = fn([ key, obj[key] ], index, obj)
+const mapObj = curryN(2, (obj, fn) => Object.entries(obj).reduce((acc, entry, index) => {
+  const [ nextKey, nextVal ] = fn(entry, index, obj)
   return {
     ...acc,
     [nextKey]: nextVal
