@@ -1,6 +1,6 @@
 {
   "name": "@exah/prop-styles-system",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Prop styles system for styled components",
   "author": "John Grishin <hi@johngrish.in>",
   "license": "MIT",
