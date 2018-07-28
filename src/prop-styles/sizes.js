@@ -4,7 +4,7 @@ import { sizeProp, createPropStyles } from '../core'
  * Alias **`sizes`**
  *
  * ```js
- * import { sizes } from '@exah/prop-styles-system'
+ * import { sizes } from 'pss'
  * ```
  *
  * Ready to use size prop styles created with {@link sizeProp}.
@@ -20,7 +20,7 @@ import { sizeProp, createPropStyles } from '../core'
  *
  * @example
  * import styled from 'react-emotion'
- * import { sizes } from '@exah/prop-styles-system'
+ * import { sizes } from 'pss'
  *
  * const Box = styled.div(sizes)
  *

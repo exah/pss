@@ -1,4 +1,4 @@
-# prop-styles-system
+# PSS - Prop Styles System
 
 > Design system utils for CSS-in-JS libraries
 
@@ -11,7 +11,7 @@
 ## 📦 Install
 
 ```
-$ yarn add @exah/prop-styles-system
+$ yarn add pss
 ```
 
 
@@ -41,10 +41,10 @@ const Box = styled.div((props) => props.hideOnMobile && {
 <Box hideOnMobile /> // @media (max-width: 600px) { display: none }
 ```
 
-And in large scale project with many styles this is to verbose. With `prop-styles-system` you can add `media` queries to your `theme` and any created **Prop Style** than can be changed in specified media queries with special suffix.
+With `pss` you can add `media` queries to your `theme` and any created **Prop Style** than can be changed in specified media queries with special suffix.
 
 ```js
-import { createPropStyles, createTheme } from '@exah/prop-styles-system'
+import { createPropStyles, createTheme } from 'pss'
 
 const myPropStyles = createPropStyles({
   hide: { display: 'none' },
@@ -87,7 +87,7 @@ prop styles to your component.
 
 ```js
 import styled from 'react-emotion'
-import { space, sizes, colors } from '@exah/prop-styles-system'
+import { space, sizes, colors } from 'pss'
 
 const Box = styled.div(
   space,
@@ -109,7 +109,7 @@ Provide custom theme:
 
 ```js
 import { ThemeProvider } from 'emotion-theming'
-import { createTheme } from '@exah/prop-styles-system' 
+import { createTheme } from 'pss' 
 
 const theme = createTheme({
   media: {

@@ -8,7 +8,7 @@ const paddingPropStyles = createPropStyles(createSpaceProps('padding', 'pd'))
  * Alias **`space`**, also **`marginPropStyles`**, **`paddingPropStyles`**
  *
  * ```js
- * import { space } from '@exah/prop-styles-system'
+ * import { space } from 'pss'
  * ```
  *
  * Ready to use space prop styles created with {@link createSpaceProps} for setting both `margin` with `mg` prop and `padding` with `pd` prop.
@@ -30,7 +30,7 @@ const paddingPropStyles = createPropStyles(createSpaceProps('padding', 'pd'))
  *
  * @example
  * import styled from 'react-emotion'
- * import { space } from '@exah/prop-styles-system'
+ * import { space } from 'pss'
  *
  * const Box = styled.div(space)
  *

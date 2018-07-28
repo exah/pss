@@ -14,7 +14,7 @@ import { everyMediaValue } from './every-media'
 
 /**
  * ```js
- * import { sizeProp } from '@exah/prop-styles-system'
+ * import { sizeProp } from 'pss'
  * ```
  *
  * @param [cssProp] — Any CSS prop like `width`, `height`, `left`, ...
@@ -22,7 +22,7 @@ import { everyMediaValue } from './every-media'
  *
  * @example
  * import styled from 'react-emotion'
- * import { sizeProp, createPropStyles } from '@exah/prop-styles-system'
+ * import { sizeProp, createPropStyles } from 'pss'
  *
  * const mySizes = createPropStyles({
  *   w: sizeProp('width', '100%', 0, true), // this is default

@@ -14,7 +14,7 @@ import { everyMediaValue } from './every-media'
 
 /**
  * ```js
- * import { propStylesInTheme } from '@exah/prop-styles-system'
+ * import { propStylesInTheme } from 'pss'
  * ```
  *
  * Create prop styles using styles defined directly inside `theme[themeKey]`. Useful for creating shared text or buttons styles.
@@ -24,7 +24,7 @@ import { everyMediaValue } from './every-media'
  * - Otherwise style keys must be used as flags `<Comp styleKey1 styleKey2 />`.
  *
  * @example
- * import { createTheme } from '@exah/prop-styles-system'
+ * import { createTheme } from 'pss'
  *
  * const theme = createTheme({
  *   textStyles: {
@@ -45,7 +45,7 @@ import { everyMediaValue } from './every-media'
  *
  * @example
  * import styled from 'react-emotion'
- * import { propStylesInTheme } from '@exah/prop-styles-system'
+ * import { propStylesInTheme } from 'pss'
  *
  * const Text = styled.div(propStylesInTheme('textStyles', 'ts'))
  *
@@ -57,7 +57,7 @@ import { everyMediaValue } from './every-media'
  *
  * @example
  * import styled from 'react-emotion'
- * import { propStylesInTheme } from '@exah/prop-styles-system'
+ * import { propStylesInTheme } from 'pss'
  *
  * const Text = styled.div(propStylesInTheme('textStyles'))
  *

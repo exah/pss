@@ -40,7 +40,7 @@ const handlePropStyle = (style, value, ...args) => isFn(style)
  * Alias **`ps`**
  *
  * ```js
- * import { ps } from '@exah/prop-styles-system'
+ * import { ps } from 'pss'
  * ```
  *
  * Wrap result of prop style in custom CSS selector.
@@ -50,12 +50,12 @@ const handlePropStyle = (style, value, ...args) => isFn(style)
  *
  * @example
  * import styled from 'react-emotion'
- * import { space } from '@exah/prop-styles-system'
+ * import { space } from 'pss'
  *
  * const Box = styled.div(space)
  *
  * @example
- * import { ps } from '@exah/prop-styles-system'
+ * import { ps } from 'pss'
  *
  * <Box mgt={ps('& + &', 1)} />
  *
@@ -79,19 +79,19 @@ const themeSelector = (fn) => (props, mediaKey, style = identity) => handlePropS
  * Alias **`cs`**
  *
  * ```js
- * import { cs } from '@exah/prop-styles-system'
+ * import { cs } from 'pss'
  * ```
  *
  * Combine any number of {@link propSelector}s.
  *
  * @example
  * import styled from 'react-emotion'
- * import { space } from '@exah/prop-styles-system'
+ * import { space } from 'pss'
  *
  * const Box = styled.div(space)
  *
  * @example
- * import { cs, ps } from '@exah/prop-styles-system'
+ * import { cs, ps } from 'pss'
  *
  * <Box mgt={cs(2, ps('& + &', 1), ps('&:nth-of-type(2)', 0))} />
  *

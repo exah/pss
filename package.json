@@ -1,10 +1,10 @@
 {
-  "name": "@exah/prop-styles-system",
+  "name": "pss",
   "version": "1.2.0",
   "description": "Prop styles system for styled components",
   "author": "John Grishin <hi@johngrish.in>",
   "license": "MIT",
-  "repository": "exah/prop-styles-system",
+  "repository": "exah/pss",
   "sideEffects": false,
   "main": "cjs/index.js",
   "module": "esm/index.js",
@@ -14,7 +14,10 @@
   ],
   "tags": [
     "css-in-js",
-    "emotion-js",
+    "styles",
+    "emotion",
+    "glamorous",
+    "react",
     "prop-styles",
     "styled-components",
     "css"

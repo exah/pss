@@ -3,7 +3,7 @@ import { toObj } from '../utils/helpers'
 
 /**
  * ```js
- * import { cssProp } from '@exah/prop-styles-system'
+ * import { cssProp } from 'pss'
  * ```
  *
  * Dynamic CSS prop like in [glamorous](https://glamorous.rocks).
@@ -19,7 +19,7 @@ import { toObj } from '../utils/helpers'
  *
  * @example
  * import styled from 'react-emotion'
- * import { cssProp } from '@exah/prop-styles-system'
+ * import { cssProp } from 'pss'
  *
  * const Box = styled.div(cssProp)
  *

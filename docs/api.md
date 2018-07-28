@@ -63,7 +63,7 @@
 ### createPropStyles
 
 ```js
-import { createPropStyles } from '@exah/prop-styles-system'
+import { createPropStyles } from 'pss'
 ```
 
 Function that accepts Object (see [PropStylesObj][9]) with keys that
@@ -84,7 +84,7 @@ in media query with media name suffix (key in `theme.media`).
 
 ```js
 import styled from 'react-emotion'
-import { createPropStyles } from '@exah/prop-styles-system'
+import { createPropStyles } from 'pss'
 
 // Create prop styles
 const myPropStyle = createPropStyles({
@@ -105,7 +105,7 @@ const Box = styled.div(myPropStyle)
 
 ```js
 import { ThemeProvider } from 'emotion-theming'
-import { createTheme } from '@exah/prop-styles-system'
+import { createTheme } from 'pss'
 
 // Create theme with media queries
 const theme = createTheme({
@@ -125,7 +125,7 @@ Returns **DynamicStyleFn**
 ### createTheme
 
 ```js
-import { createTheme } from '@exah/prop-styles-system'
+import { createTheme } from 'pss'
 ```
 
 Function for creating `theme` with your design system settings.
@@ -278,7 +278,7 @@ const theme = createTheme({
 Alias **`space`**, also **`marginPropStyles`**, **`paddingPropStyles`**
 
 ```js
-import { space } from '@exah/prop-styles-system'
+import { space } from 'pss'
 ```
 
 Ready to use space prop styles created with [createSpaceProps][17] for setting both `margin` with `mg` prop and `padding` with `pd` prop.
@@ -302,7 +302,7 @@ Ready to use space prop styles created with [createSpaceProps][17] for setting b
 
 ```js
 import styled from 'react-emotion'
-import { space } from '@exah/prop-styles-system'
+import { space } from 'pss'
 
 const Box = styled.div(space)
 ```
@@ -327,7 +327,7 @@ const Box = styled.div(space)
 #### createSpaceProps
 
 ```js
-import { createSpaceProps } from '@exah/prop-styles-system'
+import { createSpaceProps } from 'pss'
 ```
 
 Create space props for `margin`, `padding` or any CSS prop that have similiar signature.
@@ -351,7 +351,7 @@ Result is props for [createPropStyles][2] with specified prop prefix.
 
 ```js
 import styled from 'react-emotion'
-import { createSpaceProps, createPropStyles } from '@exah/prop-styles-system'
+import { createSpaceProps, createPropStyles } from 'pss'
 
 // Create `margin` space prop styles with `mg` prefix
 const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
@@ -368,7 +368,7 @@ Returns **[PropStylesObj][54]**
 #### createSpaceStyle
 
 ```js
-import { createSpaceStyle } from '@exah/prop-styles-system'
+import { createSpaceStyle } from 'pss'
 ```
 
 Similar to [createSpaceProps][17], but creates style function instead of prop styles,
@@ -393,7 +393,7 @@ For example if `cssProp` = `margin` result is [DynamicStyleFn][53] with API:
 
 ```js
 import styled from 'react-emotion'
-import { createSpaceStyle, createPropStyles } from '@exah/prop-styles-system'
+import { createSpaceStyle, createPropStyles } from 'pss'
 
 const marginFn = createSpaceStyle('margin')
 
@@ -455,7 +455,7 @@ const theme = createTheme({
 Alias **`sizes`**
 
 ```js
-import { sizes } from '@exah/prop-styles-system'
+import { sizes } from 'pss'
 ```
 
 Ready to use size prop styles created with [sizeProp][27].
@@ -473,7 +473,7 @@ Additionaly `true` prop value is `100%` and `false` is `0`.
 
 ```js
 import styled from 'react-emotion'
-import { sizes } from '@exah/prop-styles-system'
+import { sizes } from 'pss'
 
 const Box = styled.div(sizes)
 ```
@@ -509,7 +509,7 @@ const Box = styled.div(sizes)
 #### sizeProp
 
 ```js
-import { sizeProp } from '@exah/prop-styles-system'
+import { sizeProp } from 'pss'
 ```
 
 ##### Parameters
@@ -523,7 +523,7 @@ import { sizeProp } from '@exah/prop-styles-system'
 
 ```js
 import styled from 'react-emotion'
-import { sizeProp, createPropStyles } from '@exah/prop-styles-system'
+import { sizeProp, createPropStyles } from 'pss'
 
 const mySizes = createPropStyles({
   w: sizeProp('width', '100%', 0, true), // this is default
@@ -586,7 +586,7 @@ const theme = createTheme({
 Alias **`colors`**
 
 ```js
-import { colors } from '@exah/prop-styles-system'
+import { colors } from 'pss'
 ```
 
 Ready to use colors prop styles created with [colorProp][34] and [themeProp][37].
@@ -599,7 +599,7 @@ Ready to use colors prop styles created with [colorProp][34] and [themeProp][37]
 
 ```js
 import styled from 'react-emotion'
-import { colors } from '@exah/prop-styles-system'
+import { colors } from 'pss'
 
 const Box = styled.div(colors)
 ```
@@ -632,7 +632,7 @@ const Box = styled.div(colors)
 #### colorProp
 
 ```js
-import { colorProp } from '@exah/prop-styles-system'
+import { colorProp } from 'pss'
 ```
 
 Get color from theme and apply it to css prop.
@@ -647,7 +647,7 @@ Get color from theme and apply it to css prop.
 
 ```js
 import styled from 'react-emotion'
-import { colorProp, createPropStyles } from '@exah/prop-styles-system'
+import { colorProp, createPropStyles } from 'pss'
 
 const myColors = createPropStyles({
   color: colorProp('color', 'fg'),
@@ -677,7 +677,7 @@ Returns **[PropStyleFn][60]**
 #### themeProp
 
 ```js
-import { themeProp } from '@exah/prop-styles-system'
+import { themeProp } from 'pss'
 ```
 
 Set both `background-color` and `color` for selected `theme.palette`.
@@ -691,7 +691,7 @@ Set both `background-color` and `color` for selected `theme.palette`.
 
 ```js
 import styled from 'react-emotion'
-import { themeProp, createPropStyles } from '@exah/prop-styles-system'
+import { themeProp, createPropStyles } from 'pss'
 
 const myColors = createPropStyles({
   tm: themeProp('bg', 'fg')
@@ -718,7 +718,7 @@ Returns **[PropStyleFn][60]**
 ### propStylesInTheme
 
 ```js
-import { propStylesInTheme } from '@exah/prop-styles-system'
+import { propStylesInTheme } from 'pss'
 ```
 
 Create prop styles using styles defined directly inside `theme[themeKey]`. Useful for creating shared text or buttons styles.
@@ -736,7 +736,7 @@ Create prop styles using styles defined directly inside `theme[themeKey]`. Usefu
 #### Examples
 
 ```js
-import { createTheme } from '@exah/prop-styles-system'
+import { createTheme } from 'pss'
 
 const theme = createTheme({
   textStyles: {
@@ -758,7 +758,7 @@ const theme = createTheme({
 
 ```js
 import styled from 'react-emotion'
-import { propStylesInTheme } from '@exah/prop-styles-system'
+import { propStylesInTheme } from 'pss'
 
 const Text = styled.div(propStylesInTheme('textStyles', 'ts'))
 
@@ -771,7 +771,7 @@ const Text = styled.div(propStylesInTheme('textStyles', 'ts'))
 
 ```js
 import styled from 'react-emotion'
-import { propStylesInTheme } from '@exah/prop-styles-system'
+import { propStylesInTheme } from 'pss'
 
 const Text = styled.div(propStylesInTheme('textStyles'))
 
@@ -792,7 +792,7 @@ Returns **DynamicStyleFn**
 ### cssProp
 
 ```js
-import { cssProp } from '@exah/prop-styles-system'
+import { cssProp } from 'pss'
 ```
 
 Dynamic CSS prop like in [glamorous][61].
@@ -810,7 +810,7 @@ const cssProp = createPropStyles({
 
 ```js
 import styled from 'react-emotion'
-import { cssProp } from '@exah/prop-styles-system'
+import { cssProp } from 'pss'
 
 const Box = styled.div(cssProp)
 ```
@@ -832,7 +832,7 @@ const Box = styled.div(cssProp)
 Alias **`ps`**
 
 ```js
-import { ps } from '@exah/prop-styles-system'
+import { ps } from 'pss'
 ```
 
 Wrap result of prop style in custom CSS selector.
@@ -846,13 +846,13 @@ Wrap result of prop style in custom CSS selector.
 
 ```js
 import styled from 'react-emotion'
-import { space } from '@exah/prop-styles-system'
+import { space } from 'pss'
 
 const Box = styled.div(space)
 ```
 
 ```js
-import { ps } from '@exah/prop-styles-system'
+import { ps } from 'pss'
 
 <Box mgt={ps('& + &', 1)} />
 ```
@@ -866,7 +866,7 @@ import { ps } from '@exah/prop-styles-system'
 Alias **`cs`**
 
 ```js
-import { cs } from '@exah/prop-styles-system'
+import { cs } from 'pss'
 ```
 
 Combine any number of [propSelector][47]s.
@@ -879,13 +879,13 @@ Combine any number of [propSelector][47]s.
 
 ```js
 import styled from 'react-emotion'
-import { space } from '@exah/prop-styles-system'
+import { space } from 'pss'
 
 const Box = styled.div(space)
 ```
 
 ```js
-import { cs, ps } from '@exah/prop-styles-system'
+import { cs, ps } from 'pss'
 
 <Box mgt={cs(2, ps('& + &', 1), ps('&:nth-of-type(2)', 0))} />
 ```

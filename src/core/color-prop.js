@@ -15,7 +15,7 @@ import { getColors, getColor } from '../utils/getters'
 
 /**
  * ```js
- * import { themeProp } from '@exah/prop-styles-system'
+ * import { themeProp } from 'pss'
  * ```
  *
  * Set both `background-color` and `color` for selected `theme.palette`.
@@ -25,7 +25,7 @@ import { getColors, getColor } from '../utils/getters'
  *
  * @example
  * import styled from 'react-emotion'
- * import { themeProp, createPropStyles } from '@exah/prop-styles-system'
+ * import { themeProp, createPropStyles } from 'pss'
  *
  * const myColors = createPropStyles({
  *   tm: themeProp('bg', 'fg')
@@ -66,7 +66,7 @@ const themeProp = (
 
 /**
  * ```js
- * import { colorProp } from '@exah/prop-styles-system'
+ * import { colorProp } from 'pss'
  * ```
  *
  * Get color from theme and apply it to css prop.
@@ -77,7 +77,7 @@ const themeProp = (
  *
  * @example
  * import styled from 'react-emotion'
- * import { colorProp, createPropStyles } from '@exah/prop-styles-system'
+ * import { colorProp, createPropStyles } from 'pss'
  *
  * const myColors = createPropStyles({
  *   color: colorProp('color', 'fg'),

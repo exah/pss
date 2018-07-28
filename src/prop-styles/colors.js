@@ -4,7 +4,7 @@ import { createPropStyles, themeProp, colorProp } from '../core'
  * Alias **`colors`**
  *
  * ```js
- * import { colors } from '@exah/prop-styles-system'
+ * import { colors } from 'pss'
  * ```
  *
  * Ready to use colors prop styles created with {@link colorProp} and {@link themeProp}.
@@ -15,7 +15,7 @@ import { createPropStyles, themeProp, colorProp } from '../core'
  *
  * @example
  * import styled from 'react-emotion'
- * import { colors } from '@exah/prop-styles-system'
+ * import { colors } from 'pss'
  *
  * const Box = styled.div(colors)
  *

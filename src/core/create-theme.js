@@ -15,7 +15,7 @@ import {
 
 /**
  * ```js
- * import { createTheme } from '@exah/prop-styles-system'
+ * import { createTheme } from 'pss'
  * ```
  *
  * Function for creating `theme` with your design system settings.

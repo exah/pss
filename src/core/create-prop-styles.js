@@ -51,7 +51,7 @@ const buildStylesWithMedia = (styles: PropStylesObj) => (theme: ThemeObj): PropS
 
 /**
  * ```js
- * import { createPropStyles } from '@exah/prop-styles-system'
+ * import { createPropStyles } from 'pss'
  * ```
  *
  * Function that accepts Object (see {@link PropStylesObj}) with keys that
@@ -67,7 +67,7 @@ const buildStylesWithMedia = (styles: PropStylesObj) => (theme: ThemeObj): PropS
  *
  * @example
  * import styled from 'react-emotion'
- * import { createPropStyles } from '@exah/prop-styles-system'
+ * import { createPropStyles } from 'pss'
  *
  * // Create prop styles
  * const myPropStyle = createPropStyles({
@@ -88,7 +88,7 @@ const buildStylesWithMedia = (styles: PropStylesObj) => (theme: ThemeObj): PropS
  *
  * @example
  * import { ThemeProvider } from 'emotion-theming'
- * import { createTheme } from '@exah/prop-styles-system'
+ * import { createTheme } from 'pss'
  *
  * // Create theme with media queries
  * const theme = createTheme({

@@ -40,7 +40,7 @@ const cssRuleSpaceStyle = (
 
 /**
  * ```js
- * import { createSpaceStyle } from '@exah/prop-styles-system'
+ * import { createSpaceStyle } from 'pss'
  * ```
  *
  * Similar to {@link createSpaceProps}, but creates style function instead of prop styles,
@@ -61,7 +61,7 @@ const cssRuleSpaceStyle = (
  *
  * @example
  * import styled from 'react-emotion'
- * import { createSpaceStyle, createPropStyles } from '@exah/prop-styles-system'
+ * import { createSpaceStyle, createPropStyles } from 'pss'
  *
  * const marginFn = createSpaceStyle('margin')
  *
@@ -92,7 +92,7 @@ const createSpaceStyle = (cssProp: CSSProp, getSpaceValue: Function): DynamicSty
 
 /**
  * ```js
- * import { createSpaceProps } from '@exah/prop-styles-system'
+ * import { createSpaceProps } from 'pss'
  * ```
  *
  * Create space props for `margin`, `padding` or any CSS prop that have similiar signature.
@@ -112,7 +112,7 @@ const createSpaceStyle = (cssProp: CSSProp, getSpaceValue: Function): DynamicSty
  *
  * @example
  * import styled from 'react-emotion'
- * import { createSpaceProps, createPropStyles } from '@exah/prop-styles-system'
+ * import { createSpaceProps, createPropStyles } from 'pss'
  *
  * // Create `margin` space prop styles with `mg` prefix
  * const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
