@@ -127,6 +127,20 @@ toc:
     children:
       - propStylesInTheme
 
+  - name: Other Prop Styles
+    children:
+      - flexPropStyles
+      - flexItemPropStyles
+      - displayPropStyles
+      - positionPropStyles
+      - floatPropStyles
+      - overflowPropStyles
+      - borderPropStyles
+      - textPropStyles
+      - utilityPropStyles
+      - basePropStyles
+      - systemPropStyles
+
   - name: Misc
     children:
       - cssProp

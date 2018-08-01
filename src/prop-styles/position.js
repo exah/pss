@@ -1,20 +1,54 @@
 import { createPropStyles, ruleProp, sizeProp } from '../core'
 
 const direction = (dir) => sizeProp(dir, 0, 'auto')
+const position = (value) => ruleProp('position', value, 'static')
+
+/**
+ * Alias **`position`**
+ *
+ * ```js
+ * import { position } from 'pss'
+ * ```
+ *
+ * prop       | css                        | type                          | value | true       | false
+ * :----------|:---------------------------|:------------------------------|:------|:-----------|:--------
+ * `position` | [`position`][position-url] | `String`, `Boolean`           | ✓     | `static`   | `static`
+ * `pst`      | `position`                 | `true`                        | —     | `static`   | —
+ * `prl`      | `position`                 | `true`                        | —     | `relative` | —
+ * `pab`      | `position`                 | `true`                        | —     | `absolute` | —
+ * `pfx`      | `position`                 | `true`                        | —     | `fixed`    | —
+ * `psy`      | `position`                 | `true`                        | —     | `sticky`   | —
+ * `l`        | `left`                     | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
+ * `r`        | `right`                    | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
+ * `t`        | `top`                      | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
+ * `b`        | `bottom`                   | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
+ * `zi`       | `z-index`                  | `String`, `Number`, `Boolean` | ✓     | `1`        | `auto`
+ *
+ *
+ * [position-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
+ *
+ * @example
+ * import { position } from 'pss'
+ * import styled from 'react-emotion'
+ *
+ * const Box = styled('div')(position)
+ *
+ * @example
+ * <Box pab t={0.2} l={0} /> // position: absolute; top: 20%; left: 0
+ */
 
 const positionPropStyles = createPropStyles({
-  pst: { position: 'static' },
-  prl: { position: 'relative' },
-  pab: { position: 'absolute' },
-  pfx: { position: 'fixed' },
-  psy: { position: 'sticky' },
+  position: position('static'),
+  pst: position('static'),
+  prl: position('relative'),
+  pab: position('absolute'),
+  pfx: position('fixed'),
+  psy: position('sticky'),
   l: direction('left'),
   r: direction('right'),
   t: direction('top'),
   b: direction('bottom'),
-  x: [ direction('left'), direction('right') ],
-  y: [ direction('top'), direction('bottom') ],
-  z: ruleProp('zIndex', 1, 'auto')
+  zi: ruleProp('zIndex', 1, 'auto')
 })
 
 export {

@@ -1,20 +1,90 @@
 import { createPropStyles, sizeProp, ruleProp } from '../core'
 
+const flexWrap = ruleProp('flexWrap', 'wrap', 'nowrap')
+const flexDirection = ruleProp('flexDirection')
+const alignItems = ruleProp('alignItems')
+const alignContent = ruleProp('alignContent')
+const justifyContent = ruleProp('justifyContent', 'space-between', 'normal')
+
+/**
+ * Alias **`flex`**
+ *
+ * ```js
+ * import { flex } from 'pss'
+ * ```
+ *
+ * [Flex container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container) prop styles
+ *
+ * prop                        | css               | type                | value | true            | false
+ * :---------------------------|:----------------- |:--------------------|:------|:----------------|:--------
+ * `flexWrap`, `wrap`          | `flex-wrap`       | `String`, `Boolean` | ✓     | `wrap`          | `nowrap`
+ * `flexDirection`             | `flex-direction`  | `String`            | ✓     | —               | —
+ * `alignItems`, `align`       | `align-items`     | `String`            | ✓     | —               | —
+ * `alignContent`              | `align-content`   | `String`            | ✓     | —               | —
+ * `justifyContent`, `justify` | `justify-content` | `String`            | ✓     | `space-between` | `normal`
+ * `inline`                    | `display`         | `true`              | —     | `inline-flex`   | —
+ * `column`                    | `flex-direction`  | `true`              | —     | `column`        | —
+ * `row`                       | `flex-direction`  | `true`              | —     | `row`           | —
+ *
+ *
+ * @example
+ * import { flex } from 'pss'
+ * import styled from 'react-emotion'
+ *
+ * const FlexBox = styled('div')({ display: 'flex' }, flex)
+ *
+ * @example
+ * <FlexBox align='center' wrap> // display: flex; flex-wrap: wrap; align-items: center
+ *   <div>1</div>
+ *   <div>2</div>
+ * </FlexBox>
+ */
+
 const flexPropStyles = createPropStyles({
+  flexWrap,
+  flexDirection,
+  alignItems,
+  justifyContent,
+  alignContent,
   inline: { display: 'inline-flex' },
-  wrap: ruleProp('flexWrap', 'wrap', 'nowrap'),
-  nowrap: { flexWrap: 'nowrap' },
-  direction: ruleProp('flexDirection'),
   column: { flexDirection: 'column' },
-  vertical: { flexDirection: 'column' }, // compat
   row: { flexDirection: 'row' },
-  horizontal: { flexDirection: 'row' }, // compat
-  align: ruleProp('alignItems'),
-  alignItems: ruleProp('alignItems'),
-  justify: ruleProp('justifyContent', 'space-between', 'normal'),
-  justifyContent: ruleProp('justifyContent', 'space-between', 'normal'),
-  alignContent: ruleProp('alignContent')
+  wrap: flexWrap,
+  align: alignItems,
+  justify: justifyContent
 })
+
+/**
+ * Alias **`flexItem`**
+ *
+ * ```js
+ * import { flexItem } from 'pss'
+ * ```
+ *
+ * [Flex item](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#Properties_applied_to_flex_items) prop styles
+ *
+ * prop     | css           | type                          | value | true    | false
+ * :--------|:--------------|:------------------------------|:------|:------- |:--------
+ * `flex`   | `flex`        | `String`, `Boolean`           | ✓     | `1 1 0` | `0 1 auto`
+ * `grow`   | `flex-grow`   | `Number`, `Boolean`           | ✓     | `1`     | `0`
+ * `shrink` | `flex-shrink` | `Number`, `Boolean`           | ✓     | `1`     | `0`
+ * `basis`  | `flex-basis`  | `String`, `Number`, `Boolean` | ✓     | `auto`  | —
+ * `order`  | `order`       | `Number`, `Boolean`           | ✓     | `1`     | `0`
+ * `align`  | `align-self`  | `String`                      | ✓     | —       | —
+ *
+ *
+ * @example
+ * import { flexItem } from 'pss'
+ * import styled from 'react-emotion'
+ *
+ * const FlexBoxItem = styled('div')(flexItem)
+ *
+ * @example
+ * <FlexBox> // display: flex
+ *   <FlexBoxItem grow>2</FlexBoxItem> // flex-grow: 1
+ *   <FlexBoxItem order={-1}>1</FlexBoxItem> // order: -1
+ * </FlexBox>
+ */
 
 const flexItemPropStyles = createPropStyles({
   flex: ruleProp('flex', '1 1 0', '0 1 auto'),

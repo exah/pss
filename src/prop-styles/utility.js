@@ -1,44 +1,44 @@
 import { createPropStyles, ruleProp } from '../core'
+import { isBool } from '../utils/is'
+
+const randomHexColor = () =>
+  '#' + (Math.random() * 0xFFFFFF << 0).toString(16)
+
+/**
+ * Alias **`utility`**
+ *
+ * ```js
+ * import { utility } from 'pss'
+ * ```
+ *
+ * prop         | css             | type                 | value | true       | false
+ * :------------|:----------------|:---------------------|:------|:-----------|:--------
+ * `opacity`    | `opacity`       | `0...1`, `Boolean`   | ✓     | `1`       | `0`
+ * `radius`     | `border-radius` | `Number`             | ✓     | —         | —
+ * `transform`  | `transform`     | `String`             | ✓     | —         | —
+ * `transition` | `transition`    | `String`, `Boolean`  | ✓     | `all .3s` | `none`
+ * `outline`    | `outline`       | `String`, `'debug'`* | ✓     | —         | —
+ * `cursor`     | `cursor`        | `String`             | ✓     | —         | —
+ *
+ * \* Random hex color, useful for debugging layout
+ *
+ * @example
+ * import { utility } from 'pss'
+ * import styled from 'react-emotion'
+ *
+ * const Box = styled('div')(utility)
+ *
+ * @example
+ * <Box opacity={0.4} /> // opacity: 0.4
+ */
 
 const utilityPropStyles = createPropStyles({
-  // Display
-  display: ruleProp('display', 'initial', 'none'),
-  order: ruleProp('order'),
-  hide: { display: 'none' },
-  // Floats
-  float: ruleProp('float'),
-  clear: ruleProp('clear', 'both', 'none'),
-  cf: {
-    '&::after': {
-      content: '""',
-      display: 'block',
-      clear: 'both'
-    }
-  },
-  // Decorations
-  op: (val) => ({ opacity: (val > 1 ? (val / 100) : val) }),
-  radius: ruleProp('borderRadius'),
-  outline: ruleProp('outline'),
-  // Overflow
-  ov: ruleProp('overflow', 'auto'),
-  ovx: ruleProp('overflowX', 'auto'),
-  ovy: ruleProp('overflowY', 'auto'),
-  ovh: { overflow: 'hidden' },
-  ovsx: { overflowX: 'auto', overflowY: 'hidden' },
-  ovsy: { overflowX: 'hidden', overflowY: 'auto' },
-  ovtouch: { 'WebkitOverflowScrolling': 'touch' },
-  // Other
-  nobr: { whiteSpace: 'nowrap' },
-  pe: ruleProp('pointerEvents', 'auto', 'none'),
   cursor: ruleProp('cursor'),
-  filter: ruleProp('filter'),
+  opacity: (val) => ({ opacity: isBool(val) ? val ? 1 : 0 : val }),
+  radius: ruleProp('borderRadius'),
+  outline: (val) => ({ outline: val === 'debug' ? randomHexColor() : val }),
   transform: ruleProp('transform'),
-  transition: ruleProp('transition', 'all .3s', 'none'),
-  willChange: ruleProp('willChange'),
-  // Hacks
-  _hgpu: { transform: 'translateZ(0)' },
-  _hoverflow: { overflow: 'hidden' },
-  _hz: { zIndex: 9999 }
+  transition: ruleProp('transition', 'all .3s', 'none')
 })
 
 export {

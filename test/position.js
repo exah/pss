@@ -20,11 +20,9 @@ test('props: position', (t) => {
     t: true,
     b: false,
     l: 1 / 2,
-    x: 1,
-    y: true,
     r: 0,
-    z: 100,
-    zM: 100
+    zi: 100,
+    ziM: 100
   })
 
   t.deepEqual(toStyles(result), {
@@ -32,12 +30,11 @@ test('props: position', (t) => {
     top: 0,
     bottom: 'auto',
     left: '50%',
-    left: '100%', // eslint-disable-line
-    right: '100%',
-    top: 0, // eslint-disable-line
-    bottom: 0, // eslint-disable-line
-    right: 0, // eslint-disable-line
+    right: 0,
     zIndex: 100,
+    '@media (min-width: 601px) and (max-width: 1024px)': {
+      position: 'static'
+    },
     '@media (max-width: 600px)': {
       position: 'static',
       zIndex: 100
@@ -46,8 +43,8 @@ test('props: position', (t) => {
 })
 
 test('props: z-index', (t) => {
-  const zIndexFalse = positionPropStyles({ theme, z: false })
-  const zIndexTrue = positionPropStyles({ theme, z: true })
+  const zIndexFalse = positionPropStyles({ theme, zi: false })
+  const zIndexTrue = positionPropStyles({ theme, zi: true })
 
   t.deepEqual(toStyles(zIndexFalse), {
     zIndex: 'auto'
