@@ -28,6 +28,11 @@ export {
 } from './utils/helpers'
 
 export {
+  combine,
+  fallbackTo
+} from './utils/fns'
+
+export {
   getPalette,
   getColors,
   getColor,
