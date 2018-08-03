@@ -4,6 +4,7 @@ import { positionPropStyles } from './position'
 import { borderPropStyles } from './border'
 import { displayPropStyles } from './display'
 import { floatPropStyles } from './float'
+import { ratioPropStyles } from './ratio'
 import { overflowPropStyles } from './overflow'
 import { utilityPropStyles } from './utility'
 
@@ -19,6 +20,7 @@ import { utilityPropStyles } from './utility'
  *   - {@link borderPropStyles}
  *   - {@link positionPropStyles}
  *   - {@link displayPropStyles}
+ *   - {@link ratioPropStyles}
  *   - {@link floatPropStyles}
  *   - {@link overflowPropStyles}
  *   - {@link utilityPropStyles}
@@ -60,6 +62,7 @@ const systemPropStyles = combine(
   displayPropStyles,
   floatPropStyles,
   overflowPropStyles,
+  ratioPropStyles,
   utilityPropStyles
 )
 

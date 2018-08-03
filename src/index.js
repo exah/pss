@@ -59,6 +59,8 @@ export {
   sizePropsStyles as sizes,
   marginPropStyles,
   paddingPropStyles,
+  ratioPropStyles,
+  ratioPropStyles as ratio,
   spacePropStyles,
   spacePropStyles as space,
   textPropStyles,

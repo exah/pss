@@ -138,6 +138,7 @@ toc:
       - borderPropStyles
       - textPropStyles
       - utilityPropStyles
+      - ratioPropStyles
       - basePropStyles
       - systemPropStyles
 
