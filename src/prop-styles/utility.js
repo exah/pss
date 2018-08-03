@@ -36,7 +36,7 @@ const utilityPropStyles = createPropStyles({
   cursor: ruleProp('cursor'),
   opacity: (val) => ({ opacity: isBool(val) ? val ? 1 : 0 : val }),
   radius: ruleProp('borderRadius'),
-  outline: (val) => ({ outline: val === 'debug' ? randomHexColor() : val }),
+  outline: (val) => ({ outline: val === 'debug' ? `1px solid ${randomHexColor()}` : val }),
   transform: ruleProp('transform'),
   transition: ruleProp('transition', 'all .3s', 'none')
 })
