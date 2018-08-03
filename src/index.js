@@ -16,16 +16,21 @@ export {
 export {
   wrap,
   wrapIfMedia,
-  propSelector,
-  propSelector as ps,
-  combineSelectors,
-  combineSelectors as cs,
-  themeSelector,
-  themeSelector as ts,
   sizeValue,
   spaceValue,
   skipPropValue
 } from './utils/helpers'
+
+export {
+  propSelector,
+  propSelector as ps,
+  combineSelectors,
+  combineSelectors as cs,
+  mediaPropSelector,
+  mediaPropSelector as mps,
+  themeSelector,
+  themeSelector as ts
+} from './utils/selectors'
 
 export {
   combine,

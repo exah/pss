@@ -146,4 +146,5 @@ toc:
     children:
       - cssProp
       - propSelector
+      - mediaPropSelector
       - combineSelectors

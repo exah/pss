@@ -8,7 +8,8 @@ import {
   positionPropStyles,
   ts,
   ps,
-  cs
+  cs,
+  mps
 } from '../src'
 
 import { toStyles } from './_helpers'
@@ -90,5 +91,60 @@ test('themeSelector', (t) => {
 
   t.deepEqual(result, {
     top: '100px'
+  })
+})
+
+test('add margin on mobile with mediaPropSelector', (t) => {
+  const result = toStyles(marginPropStyles({
+    theme,
+    mg: mps('M', 2)
+  }))
+
+  t.deepEqual(result, {
+    '@media (max-width: 600px)': {
+      margin: '10px'
+    }
+  })
+})
+
+test('add margin & + & element on mobile with mediaPropSelector', (t) => {
+  const result = toStyles(marginPropStyles({
+    theme,
+    mg: mps('M', ps('& + &', 2))
+  }))
+
+  t.deepEqual(result, {
+    '@media (max-width: 600px)': {
+      '& + &': {
+        margin: '10px'
+      }
+    }
+  })
+})
+
+test('change media query in mediaPropSelector but keep value', (t) => {
+  const result = toStyles(marginPropStyles({
+    theme,
+    mg: mps([ 'M', '(max-width: 1024px)' ], 2)
+  }))
+
+  t.deepEqual(result, {
+    '@media (max-width: 1024px)': {
+      margin: '10px'
+    }
+  })
+})
+
+test('use mediaPropSelector with combineSelectors', (t) => {
+  const result = toStyles(positionPropStyles({
+    theme,
+    position: cs('relative', mps('M', 'absolute'))
+  }))
+
+  t.deepEqual(result, {
+    position: 'relative',
+    '@media (max-width: 600px)': {
+      position: 'absolute'
+    }
   })
 })

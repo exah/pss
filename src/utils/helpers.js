@@ -3,9 +3,9 @@ import { curryN, identity } from './fns'
 
 const toArr = (val) => isArr(val) ? val : val != null ? [ val ] : []
 
-const toObj = (arr, fn = identity) => toArr(arr).reduce((acc, ...payload) => ({
+const toObj = (arr, fn = identity) => toArr(arr).reduce((acc, value) => ({
   ...acc,
-  ...fn(...payload)
+  ...fn(value)
 }), {})
 
 const mapObj = curryN(2, (obj, fn) => Object.entries(obj).reduce((acc, entry, index) => {
@@ -35,82 +35,6 @@ const wrap = curryN(2, (name, style) => {
 const handlePropStyle = (style, value, ...args) => isFn(style)
   ? style(value, ...args)
   : value === true ? style : null
-
-/**
- * Alias **`ps`**
- *
- * ```js
- * import { ps } from 'pss'
- * ```
- *
- * Wrap result of prop style in custom CSS selector.
- *
- * @param {string} [name] — CSS selector, like `&:first-child`, `& + &`
- * @param {PropStyleVal} [value] — prop value
- *
- * @example
- * import styled from 'react-emotion'
- * import { space } from 'pss'
- *
- * const Box = styled.div(space)
- *
- * @example
- * import { ps } from 'pss'
- *
- * <Box mgt={ps('& + &', 1)} />
- *
- * @example
- * .css + .css { margin-top: 10px }
- * @media (max-width: 600px) { .css + .css { margin-top: 8px } }
- */
-
-const propSelector = curryN(2, (name, value) => (props, mediaKey, style) => ({
-  [name]: handlePropStyle(style, value, props, mediaKey)
-}))
-
-const themeSelector = (fn) => (props, mediaKey, style = identity) => handlePropStyle(
-  style,
-  fn(props.theme),
-  props,
-  mediaKey
-)
-
-/**
- * Alias **`cs`**
- *
- * ```js
- * import { cs } from 'pss'
- * ```
- *
- * Combine any number of {@link propSelector}s.
- *
- * @example
- * import styled from 'react-emotion'
- * import { space } from 'pss'
- *
- * const Box = styled.div(space)
- *
- * @example
- * import { cs, ps } from 'pss'
- *
- * <Box mgt={cs(2, ps('& + &', 1), ps('&:nth-of-type(2)', 0))} />
- *
- * @example
- * .css { margin-top: 20px }
- * .css + .css { margin-top: 10px }
- * .css:nth-of-type(2) { margin-top: 0 }
- *
- * \@media (max-width: 600px) {
- *   .css { margin-top: 16px }
- *   .css + .css { margin-top: 8px }
- * }
- */
-
-const combineSelectors = (...selectors) => (props, mediaKey, style) => selectors.map(
-  (selectorOrValue) => isFn(selectorOrValue)
-    ? selectorOrValue(props, mediaKey, style)
-    : handlePropStyle(style, selectorOrValue, props, mediaKey)
-)
 
 const wrapIfMedia = (query, style) => wrap(
   query ? `@media ${query}` : null,
@@ -161,11 +85,8 @@ export {
   wrap,
   path,
   wrapIfMedia,
-  propSelector,
-  combineSelectors,
   handlePropStyle,
   sizeValue,
-  themeSelector,
   spaceValue,
   skipPropValue
 }
