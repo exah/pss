@@ -1200,7 +1200,7 @@ Combination of
 -   [borderPropStyles][58]
 -   [positionPropStyles][51]
 -   [displayPropStyles][49]
--   [floatsPropStyles][90]
+-   [floatPropStyles][53]
 -   [overflowPropStyles][56]
 -   [utilityPropStyles][63]
 
@@ -1249,7 +1249,7 @@ const Box = styled('div')(system)
 import { cssProp } from 'pss'
 ```
 
-Dynamic CSS prop like in [glamorous][91].
+Dynamic CSS prop like in [glamorous][90].
 You don't need it if yours CSS-in-JS library support it natively.
 
 Simple implementation:
@@ -1533,6 +1533,4 @@ import { cs, ps } from 'pss'
 
 [89]: colorPropStyles
 
-[90]: floatsPropStyles
-
-[91]: https://glamorous.rocks
+[90]: https://glamorous.rocks

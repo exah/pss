@@ -3,7 +3,7 @@ import { basePropStyles } from './base'
 import { positionPropStyles } from './position'
 import { borderPropStyles } from './border'
 import { displayPropStyles } from './display'
-import { floatsPropStyles } from './float'
+import { floatPropStyles } from './float'
 import { overflowPropStyles } from './overflow'
 import { utilityPropStyles } from './utility'
 
@@ -19,7 +19,7 @@ import { utilityPropStyles } from './utility'
  *   - {@link borderPropStyles}
  *   - {@link positionPropStyles}
  *   - {@link displayPropStyles}
- *   - {@link floatsPropStyles}
+ *   - {@link floatPropStyles}
  *   - {@link overflowPropStyles}
  *   - {@link utilityPropStyles}
  *
@@ -58,7 +58,7 @@ const systemPropStyles = combine(
   borderPropStyles,
   positionPropStyles,
   displayPropStyles,
-  floatsPropStyles,
+  floatPropStyles,
   overflowPropStyles,
   utilityPropStyles
 )
