@@ -5,7 +5,7 @@ const randomHexColor = () =>
   '#' + (Math.random() * 0xFFFFFF << 0).toString(16)
 
 /**
- * Alias **`utility`**
+ * Alias **`utilityPropStyles`**
  *
  * ```js
  * import { utility } from 'pss'
@@ -32,7 +32,7 @@ const randomHexColor = () =>
  * <Box opacity={0.4} /> // opacity: 0.4
  */
 
-const utilityPropStyles = createPropStyles({
+const utility = createPropStyles({
   cursor: ruleProp('cursor'),
   opacity: (val) => ({ opacity: isBool(val) ? val ? 1 : 0 : val }),
   radius: ruleProp('borderRadius'),
@@ -42,5 +42,5 @@ const utilityPropStyles = createPropStyles({
 })
 
 export {
-  utilityPropStyles
+  utility
 }

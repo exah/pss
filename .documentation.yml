@@ -37,7 +37,7 @@ toc:
       ```
 
     children:
-      - spacePropStyles
+      - space
       - name: Utils
         children:
           - createSpaceProps
@@ -79,7 +79,7 @@ toc:
       })
       ```
     children:
-      - sizePropsStyles
+      - sizes
       - name: Utils
         children:
           - sizeProp
@@ -117,7 +117,7 @@ toc:
         }
       })
     children:
-      - colorsPropStyles
+      - colors
       - name: Utils
         children:
           - colorProp
@@ -129,18 +129,18 @@ toc:
 
   - name: Other Prop Styles
     children:
-      - flexPropStyles
-      - flexItemPropStyles
-      - displayPropStyles
-      - positionPropStyles
-      - floatPropStyles
-      - overflowPropStyles
-      - borderPropStyles
-      - textPropStyles
-      - utilityPropStyles
-      - ratioPropStyles
-      - basePropStyles
-      - systemPropStyles
+      - flex
+      - flexItem
+      - display
+      - position
+      - float
+      - overflow
+      - border
+      - text
+      - utility
+      - ratio
+      - base
+      - system
 
   - name: Misc
     children:

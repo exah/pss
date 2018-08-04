@@ -1,7 +1,7 @@
 import { createPropStyles, ruleProp } from '../core'
 
 /**
- * Alias **`overflow`**
+ * Alias **`overflowPropStyles`**
  *
  * ```js
  * import { overflow } from 'pss'
@@ -27,7 +27,7 @@ import { createPropStyles, ruleProp } from '../core'
  * <Box ovh /> // overflow: hidden
  */
 
-const overflowPropStyles = createPropStyles({
+const overflow = createPropStyles({
   ov: ruleProp('overflow', 'auto', 'visible'),
   ovx: ruleProp('overflowX', 'auto', 'visible'),
   ovy: ruleProp('overflowY', 'auto', 'visible'),
@@ -38,5 +38,5 @@ const overflowPropStyles = createPropStyles({
 })
 
 export {
-  overflowPropStyles
+  overflow
 }

@@ -1,7 +1,7 @@
 import { createPropStyles, themeProp, colorProp } from '../core'
 
 /**
- * Alias **`colors`**
+ * Alias **`colorsPropStyles`**
  *
  * ```js
  * import { colors } from 'pss'
@@ -39,12 +39,12 @@ import { createPropStyles, themeProp, colorProp } from '../core'
  * <Box bg="#ffff00" /> // background-color: #ffff00
  */
 
-const colorsPropStyles = createPropStyles({
+const colors = createPropStyles({
   tm: themeProp('bg', 'fg'),
   fg: colorProp('color', 'fg'),
   bg: colorProp('backgroundColor', 'bg')
 })
 
 export {
-  colorsPropStyles
+  colors
 }

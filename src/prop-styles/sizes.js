@@ -1,7 +1,7 @@
 import { sizeProp, createPropStyles } from '../core'
 
 /**
- * Alias **`sizes`**
+ * Alias **`sizePropsStyles`**
  *
  * ```js
  * import { sizes } from 'pss'
@@ -47,7 +47,7 @@ import { sizeProp, createPropStyles } from '../core'
  * <Box minWd={500} /> // max-width: 500px
  */
 
-const sizePropsStyles = createPropStyles({
+const sizes = createPropStyles({
   ht: sizeProp('height'),
   wd: sizeProp('width'),
   maxWd: sizeProp('maxWidth'),
@@ -57,5 +57,5 @@ const sizePropsStyles = createPropStyles({
 })
 
 export {
-  sizePropsStyles
+  sizes
 }

@@ -7,7 +7,7 @@ const alignContent = ruleProp('alignContent')
 const justifyContent = ruleProp('justifyContent', 'space-between', 'normal')
 
 /**
- * Alias **`flex`**
+ * Alias **`flexPropStyles`**
  *
  * ```js
  * import { flex } from 'pss'
@@ -40,7 +40,7 @@ const justifyContent = ruleProp('justifyContent', 'space-between', 'normal')
  * </FlexBox>
  */
 
-const flexPropStyles = createPropStyles({
+const flex = createPropStyles({
   flexWrap,
   flexDirection,
   alignItems,
@@ -55,7 +55,7 @@ const flexPropStyles = createPropStyles({
 })
 
 /**
- * Alias **`flexItem`**
+ * Alias **`flexItemPropStyles`**
  *
  * ```js
  * import { flexItem } from 'pss'
@@ -86,7 +86,7 @@ const flexPropStyles = createPropStyles({
  * </FlexBox>
  */
 
-const flexItemPropStyles = createPropStyles({
+const flexItem = createPropStyles({
   flex: ruleProp('flex', '1 1 0', '0 1 auto'),
   grow: ruleProp('flexGrow', 1, 0),
   shrink: ruleProp('flexShrink', 1, 0),
@@ -96,6 +96,6 @@ const flexItemPropStyles = createPropStyles({
 })
 
 export {
-  flexPropStyles,
-  flexItemPropStyles
+  flex,
+  flexItem
 }

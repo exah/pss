@@ -1,7 +1,7 @@
 import { createPropStyles, ruleProp } from '../core'
 
 /**
- * Alias **`text`**
+ * Alias **`textPropStyles`**
  *
  * ```js
  * import { text } from 'pss'
@@ -43,7 +43,7 @@ import { createPropStyles, ruleProp } from '../core'
  * <Text font='system-ui' /> // font-family: system-ui
  */
 
-const textPropStyles = createPropStyles({
+const text = createPropStyles({
   font: ruleProp('fontFamily'),
   weight: ruleProp('fontWeight'),
   size: ruleProp('fontSize', '1rem', 'medium'),
@@ -59,5 +59,5 @@ const textPropStyles = createPropStyles({
 })
 
 export {
-  textPropStyles
+  text
 }

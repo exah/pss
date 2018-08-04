@@ -1,7 +1,7 @@
 import { createPropStyles, ruleProp } from '../core'
 
 /**
- * Alias **`float`**
+ * Alias **`floatPropStyles`**
  *
  * ```js
  * import { float } from 'pss'
@@ -13,7 +13,7 @@ import { createPropStyles, ruleProp } from '../core'
  * `clear`    | [`clear`][clear-url]     | `String`, `Boolean` | ✓     | `both`                     | `none`
  * `clearFix` | [Clearfix][clearfix-url] | `true`              | —     | [styles](#clearfix-styles) | —
  *
- * ##### Clearfix styles
+ * #### Clearfix styles
  *
  * ```css
  * &::after {
@@ -37,7 +37,7 @@ import { createPropStyles, ruleProp } from '../core'
  * <Box float='left' /> // float: left
  */
 
-const floatPropStyles = createPropStyles({
+const float = createPropStyles({
   float: ruleProp('float'),
   clear: ruleProp('clear', 'both', 'none'),
   clearFix: {
@@ -50,5 +50,5 @@ const floatPropStyles = createPropStyles({
 })
 
 export {
-  floatPropStyles
+  float
 }

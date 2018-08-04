@@ -1,7 +1,7 @@
 import { createPropStyles, ruleProp } from '../core'
 
 /**
- * Alias **`display`**
+ * Alias **`displayPropStyles`**
  *
  * ```js
  * import { display } from 'pss'
@@ -25,11 +25,11 @@ import { createPropStyles, ruleProp } from '../core'
  * // display: inline-block; @media (max-width: 600px) { display: none }
  */
 
-const displayPropStyles = createPropStyles({
+const display = createPropStyles({
   display: ruleProp('display', 'initial', 'none'),
   hide: { display: 'none' }
 })
 
 export {
-  displayPropStyles
+  display
 }

@@ -1,19 +1,19 @@
 import { combine } from '../utils/fns'
-import { spacePropStyles } from './space'
-import { sizePropsStyles } from './sizes'
-import { colorsPropStyles } from './colors'
+import { space } from './space'
+import { sizes } from './sizes'
+import { colors } from './colors'
 
 /**
- * Alias **`base`**
+ * Alias **`basePropStyles`**
  *
  * ```js
  * import { base } from 'pss'
  * ```
  *
  * Combination of
- *   - {@link spacePropStyles}
- *   - {@link sizePropStyles}
- *   - {@link colorPropStyles}.
+ *   - {@link space}
+ *   - {@link sizes}
+ *   - {@link colors}.
  *
  * @example
  * import styled from 'react-emotion'
@@ -40,12 +40,12 @@ import { colorsPropStyles } from './colors'
  * }
  */
 
-const basePropStyles = combine(
-  spacePropStyles,
-  sizePropsStyles,
-  colorsPropStyles
+const base = combine(
+  space,
+  sizes,
+  colors
 )
 
 export {
-  basePropStyles
+  base
 }

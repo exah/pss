@@ -15,7 +15,7 @@
         -   [PropStyleFn][11]
             -   [Parameters][12]
 -   [Space][13]
-    -   [spacePropStyles][14]
+    -   [space][14]
         -   [Examples][15]
     -   [Utils][16]
         -   [createSpaceProps][17]
@@ -25,14 +25,14 @@
             -   [Parameters][21]
             -   [Examples][22]
 -   [Sizes][23]
-    -   [sizePropsStyles][24]
+    -   [sizes][24]
         -   [Examples][25]
     -   [Utils][26]
         -   [sizeProp][27]
             -   [Parameters][28]
             -   [Examples][29]
 -   [Colors][30]
-    -   [colorsPropStyles][31]
+    -   [colors][31]
         -   [Examples][32]
     -   [Utils][33]
         -   [colorProp][34]
@@ -46,31 +46,31 @@
         -   [Parameters][42]
         -   [Examples][43]
 -   [Other Prop Styles][44]
-    -   [flexPropStyles][45]
+    -   [flex][45]
         -   [Examples][46]
-    -   [flexItemPropStyles][47]
+    -   [flexItem][47]
         -   [Examples][48]
-    -   [displayPropStyles][49]
+    -   [display][49]
         -   [Examples][50]
-    -   [positionPropStyles][51]
+    -   [position][51]
         -   [Examples][52]
-    -   [floatPropStyles][53]
-        -   -   [Clearfix styles][54]
+    -   [float][53]
+        -   [Clearfix styles][54]
         -   [Examples][55]
-    -   [overflowPropStyles][56]
+    -   [overflow][56]
         -   [Examples][57]
-    -   [borderPropStyles][58]
+    -   [border][58]
         -   [Examples][59]
-    -   [textPropStyles][60]
+    -   [text][60]
         -   -   [Ellipsis styles][61]
         -   [Examples][62]
-    -   [utilityPropStyles][63]
+    -   [utility][63]
         -   [Examples][64]
-    -   [ratioPropStyles][65]
+    -   [ratio][65]
         -   [Examples][66]
-    -   [basePropStyles][67]
+    -   [base][67]
         -   [Examples][68]
-    -   [systemPropStyles][69]
+    -   [system][69]
         -   [Examples][70]
 -   [Misc][71]
     -   [cssProp][72]
@@ -306,9 +306,9 @@ const theme = createTheme({
 ```
 
 
-### spacePropStyles
+### space
 
-Alias **`space`**, also **`marginPropStyles`**, **`paddingPropStyles`**
+Alias **`spacePropStyles`**, **`marginPropStyles`**, **`paddingPropStyles`**
 
 ```js
 import { space } from 'pss'
@@ -483,9 +483,9 @@ const theme = createTheme({
 ```
 
 
-### sizePropsStyles
+### sizes
 
-Alias **`sizes`**
+Alias **`sizePropsStyles`**
 
 ```js
 import { sizes } from 'pss'
@@ -614,9 +614,9 @@ const theme = createTheme({
 ```
 
 
-### colorsPropStyles
+### colors
 
-Alias **`colors`**
+Alias **`colorsPropStyles`**
 
 ```js
 import { colors } from 'pss'
@@ -822,9 +822,9 @@ Returns **DynamicStyleFn**
 
 
 
-### flexPropStyles
+### flex
 
-Alias **`flex`**
+Alias **`flexPropStyles`**
 
 ```js
 import { flex } from 'pss'
@@ -857,9 +857,9 @@ const FlexBox = styled('div')({ display: 'flex' }, flex)
       <div>2</div>
     </FlexBox>
 
-### flexItemPropStyles
+### flexItem
 
-Alias **`flexItem`**
+Alias **`flexItemPropStyles`**
 
 ```js
 import { flexItem } from 'pss'
@@ -890,9 +890,9 @@ const FlexBoxItem = styled('div')(flexItem)
       <FlexBoxItem order={-1}>1</FlexBoxItem> // order: -1
     </FlexBox>
 
-### displayPropStyles
+### display
 
-Alias **`display`**
+Alias **`displayPropStyles`**
 
 ```js
 import { display } from 'pss'
@@ -919,9 +919,9 @@ const Box = styled('div')(position)
 // display: inline-block; @media (max-width: 600px) { display: none }
 ```
 
-### positionPropStyles
+### position
 
-Alias **`position`**
+Alias **`positionPropStyles`**
 
 ```js
 import { position } from 'pss'
@@ -956,9 +956,9 @@ const Box = styled('div')(position)
 <Box pab t={0.2} l={0} /> // position: absolute; top: 20%; left: 0
 ```
 
-### floatPropStyles
+### float
 
-Alias **`float`**
+Alias **`floatPropStyles`**
 
 ```js
 import { float } from 'pss'
@@ -970,7 +970,7 @@ import { float } from 'pss'
 | `clear`    | [`clear`][clear-url]     | `String`, `Boolean` | ✓     | `both`       | `none` |
 | `clearFix` | [Clearfix][clearfix-url] | `true`              | —     | [styles][54] | —      |
 
-##### Clearfix styles
+#### Clearfix styles
 
 ```css
 &::after {
@@ -999,9 +999,9 @@ const Box = styled('div')(float)
 <Box float='left' /> // float: left
 ```
 
-### overflowPropStyles
+### overflow
 
-Alias **`overflow`**
+Alias **`overflowPropStyles`**
 
 ```js
 import { overflow } from 'pss'
@@ -1029,9 +1029,9 @@ const Box = styled('div')(overflow)
 <Box ovh /> // overflow: hidden
 ```
 
-### borderPropStyles
+### border
 
-Alias **`border`**
+Alias **`borderPropStyles`**
 
 ```js
 import { border } from 'pss'
@@ -1074,9 +1074,9 @@ const Box = styled('p')(border)
 <Box bdl='1px dotted' bdc='red' />
 ```
 
-### textPropStyles
+### text
 
-Alias **`text`**
+Alias **`textPropStyles`**
 
 ```js
 import { text } from 'pss'
@@ -1121,9 +1121,9 @@ const Text = styled('p')(text)
 <Text font='system-ui' /> // font-family: system-ui
 ```
 
-### utilityPropStyles
+### utility
 
-Alias **`utility`**
+Alias **`utilityPropStyles`**
 
 ```js
 import { utility } from 'pss'
@@ -1153,9 +1153,9 @@ const Box = styled('div')(utility)
 <Box opacity={0.4} /> // opacity: 0.4
 ```
 
-### ratioPropStyles
+### ratio
 
-Alias **`ratio`**
+Alias **`ratioPropStyles`**
 
 ```js
 import { ratio } from 'pss'
@@ -1192,9 +1192,9 @@ const Box = styled.div(ratio)
 }
 ```
 
-### basePropStyles
+### base
 
-Alias **`base`**
+Alias **`basePropStyles`**
 
 ```js
 import { base } from 'pss'
@@ -1202,9 +1202,9 @@ import { base } from 'pss'
 
 Combination of
 
--   [spacePropStyles][14]
--   [sizePropStyles][97]
--   [colorPropStyles][98].
+-   [space][13]
+-   [sizes][23]
+-   [colors][30].
 
 #### Examples
 
@@ -1233,7 +1233,7 @@ const Box = styled('div')(base)
       }
     }
 
-### systemPropStyles
+### system
 
 Alias **`system`**
 
@@ -1243,14 +1243,14 @@ import { system } from 'pss'
 
 Combination of
 
--   [basePropStyles][67]
--   [borderPropStyles][58]
--   [positionPropStyles][51]
--   [displayPropStyles][49]
--   [ratioPropStyles][65]
--   [floatPropStyles][53]
--   [overflowPropStyles][56]
--   [utilityPropStyles][63]
+-   [base][67]
+-   [border][58]
+-   [position][51]
+-   [display][49]
+-   [ratio][65]
+-   [float][53]
+-   [overflow][56]
+-   [utility][63]
 
 #### Examples
 
@@ -1297,7 +1297,7 @@ const Box = styled('div')(system)
 import { cssProp } from 'pss'
 ```
 
-Dynamic CSS prop like in [glamorous][99].
+Dynamic CSS prop like in [glamorous][97].
 You don't need it if yours CSS-in-JS library support it natively.
 
 Simple implementation:
@@ -1485,7 +1485,7 @@ const Box = styled.div(sizes, ts)
 
 [13]: #space
 
-[14]: #spacepropstyles
+[14]: #space-1
 
 [15]: #examples-3
 
@@ -1505,7 +1505,7 @@ const Box = styled.div(sizes, ts)
 
 [23]: #sizes
 
-[24]: #sizepropsstyles
+[24]: #sizes-1
 
 [25]: #examples-6
 
@@ -1519,7 +1519,7 @@ const Box = styled.div(sizes, ts)
 
 [30]: #colors
 
-[31]: #colorspropstyles
+[31]: #colors-1
 
 [32]: #examples-8
 
@@ -1547,55 +1547,55 @@ const Box = styled.div(sizes, ts)
 
 [44]: #other-prop-styles
 
-[45]: #flexpropstyles
+[45]: #flex
 
 [46]: #examples-12
 
-[47]: #flexitempropstyles
+[47]: #flexitem
 
 [48]: #examples-13
 
-[49]: #displaypropstyles
+[49]: #display
 
 [50]: #examples-14
 
-[51]: #positionpropstyles
+[51]: #position
 
 [52]: #examples-15
 
-[53]: #floatpropstyles
+[53]: #float
 
 [54]: #clearfix-styles
 
 [55]: #examples-16
 
-[56]: #overflowpropstyles
+[56]: #overflow
 
 [57]: #examples-17
 
-[58]: #borderpropstyles
+[58]: #border
 
 [59]: #examples-18
 
-[60]: #textpropstyles
+[60]: #text
 
 [61]: #ellipsis-styles
 
 [62]: #examples-19
 
-[63]: #utilitypropstyles
+[63]: #utility
 
 [64]: #examples-20
 
-[65]: #ratiopropstyles
+[65]: #ratio
 
 [66]: #examples-21
 
-[67]: #basepropstyles
+[67]: #base
 
 [68]: #examples-22
 
-[69]: #systempropstyles
+[69]: #system
 
 [70]: #examples-23
 
@@ -1651,8 +1651,4 @@ const Box = styled.div(sizes, ts)
 
 [96]: https://css-tricks.com/aspect-ratio-boxes/
 
-[97]: sizePropStyles
-
-[98]: colorPropStyles
-
-[99]: https://glamorous.rocks
+[97]: https://glamorous.rocks

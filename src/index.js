@@ -48,39 +48,81 @@ export {
 } from './utils/getters'
 
 export {
-  borderPropStyles,
-  borderPropStyles as border,
-  flexPropStyles,
-  flexPropStyles as flex,
-  flexItemPropStyles,
-  flexItemPropStyles as flexItem,
-  displayPropStyles,
-  displayPropStyles as display,
-  floatPropStyles,
-  floatPropStyles as float,
-  positionPropStyles,
-  positionPropStyles as position,
-  sizePropsStyles,
-  sizePropsStyles as sizes,
-  marginPropStyles,
-  paddingPropStyles,
-  ratioPropStyles,
-  ratioPropStyles as ratio,
-  spacePropStyles,
-  spacePropStyles as space,
-  textPropStyles,
-  textPropStyles as text,
-  colorsPropStyles,
-  colorsPropStyles as colors,
-  overflowPropStyles,
-  overflowPropStyles as overflow,
-  utilityPropStyles,
-  utilityPropStyles as utility,
-  basePropStyles,
-  basePropStyles as base,
-  systemPropStyles,
-  systemPropStyles as system,
+  border,
+  border as borderPropStyles
+} from './prop-styles/border'
+
+export {
+  colors,
+  colors as colorsPropStyles
+} from './prop-styles/colors'
+
+export {
   cssProp
-} from './prop-styles'
+} from './prop-styles/css'
+
+export {
+  display,
+  display as displayPropStyles
+} from './prop-styles/display'
+
+export {
+  flex,
+  flex as flexPropStyles,
+  flexItem,
+  flexItem as flexItemPropStyles
+} from './prop-styles/flex'
+
+export {
+  float,
+  float as floatPropStyles
+} from './prop-styles/float'
+
+export {
+  overflow,
+  overflow as overflowPropStyles
+} from './prop-styles/overflow'
+
+export {
+  position,
+  position as positionPropStyles
+} from './prop-styles/position'
+
+export {
+  ratio,
+  ratio as ratioPropStyles
+} from './prop-styles/ratio'
+
+export {
+  sizes,
+  sizes as sizePropsStyles
+} from './prop-styles/sizes'
+
+export {
+  space,
+  space as spacePropStyles,
+  marginPropStyles,
+  paddingPropStyles
+} from './prop-styles/space'
+
+export {
+  text,
+  text as textPropStyles
+} from './prop-styles/text'
+
+export {
+  utility,
+  utility as utilityPropStyles
+} from './prop-styles/utility'
+
+export {
+  base,
+  base as basePropStyles
+} from './prop-styles/base'
+
+export {
+  system,
+  system as systemPropStyles
+} from './prop-styles/system.js'
 
 export * from './styles'

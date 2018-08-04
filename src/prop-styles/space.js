@@ -5,7 +5,7 @@ const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
 const paddingPropStyles = createPropStyles(createSpaceProps('padding', 'pd'))
 
 /**
- * Alias **`space`**, also **`marginPropStyles`**, **`paddingPropStyles`**
+ * Alias **`spacePropStyles`**, **`marginPropStyles`**, **`paddingPropStyles`**
  *
  * ```js
  * import { space } from 'pss'
@@ -46,10 +46,10 @@ const paddingPropStyles = createPropStyles(createSpaceProps('padding', 'pd'))
  * <Box mgr={2} mgrM={-1} /> // .css { margin-right: 20px; @media (max-width: 600px) { margin-right: -8px } }
  */
 
-const spacePropStyles = combine(marginPropStyles, paddingPropStyles)
+const space = combine(marginPropStyles, paddingPropStyles)
 
 export {
   marginPropStyles,
   paddingPropStyles,
-  spacePropStyles
+  space
 }

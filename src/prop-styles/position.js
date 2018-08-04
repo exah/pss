@@ -1,10 +1,10 @@
 import { createPropStyles, ruleProp, sizeProp } from '../core'
 
 const direction = (dir) => sizeProp(dir, 0, 'auto')
-const position = (value) => ruleProp('position', value, 'static')
+const positionStyle = (value) => ruleProp('position', value, 'static')
 
 /**
- * Alias **`position`**
+ * Alias **`positionPropStyles`**
  *
  * ```js
  * import { position } from 'pss'
@@ -37,13 +37,13 @@ const position = (value) => ruleProp('position', value, 'static')
  * <Box pab t={0.2} l={0} /> // position: absolute; top: 20%; left: 0
  */
 
-const positionPropStyles = createPropStyles({
-  position: position('static'),
-  pst: position('static'),
-  prl: position('relative'),
-  pab: position('absolute'),
-  pfx: position('fixed'),
-  psy: position('sticky'),
+const position = createPropStyles({
+  position: positionStyle('static'),
+  pst: positionStyle('static'),
+  prl: positionStyle('relative'),
+  pab: positionStyle('absolute'),
+  pfx: positionStyle('fixed'),
+  psy: positionStyle('sticky'),
   l: direction('left'),
   r: direction('right'),
   t: direction('top'),
@@ -52,5 +52,5 @@ const positionPropStyles = createPropStyles({
 })
 
 export {
-  positionPropStyles
+  position
 }

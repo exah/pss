@@ -3,7 +3,7 @@ import { floor } from '../utils/fns'
 import { isNum } from '../utils/is'
 
 /**
- * Alias **`ratio`**
+ * Alias **`ratioPropStyles`**
  *
  * ```js
  * import { ratio } from 'pss'
@@ -38,7 +38,7 @@ import { isNum } from '../utils/is'
  * }
  */
 
-const ratioPropStyles = createPropStyles({
+const ratio = createPropStyles({
   ratio: (value) => {
     if (value === true || isNum(value)) {
       const size = value === true ? '100%' : floor((100 / value), 2) + '%'
@@ -63,5 +63,5 @@ const ratioPropStyles = createPropStyles({
 })
 
 export {
-  ratioPropStyles
+  ratio
 }

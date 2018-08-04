@@ -1,12 +1,12 @@
 import { combine } from '../utils/fns'
-import { basePropStyles } from './base'
-import { positionPropStyles } from './position'
-import { borderPropStyles } from './border'
-import { displayPropStyles } from './display'
-import { floatPropStyles } from './float'
-import { ratioPropStyles } from './ratio'
-import { overflowPropStyles } from './overflow'
-import { utilityPropStyles } from './utility'
+import { base } from './base'
+import { position } from './position'
+import { border } from './border'
+import { display } from './display'
+import { float } from './float'
+import { ratio } from './ratio'
+import { overflow } from './overflow'
+import { utility } from './utility'
 
 /**
  * Alias **`system`**
@@ -16,14 +16,14 @@ import { utilityPropStyles } from './utility'
  * ```
  *
  * Combination of
- *   - {@link basePropStyles}
- *   - {@link borderPropStyles}
- *   - {@link positionPropStyles}
- *   - {@link displayPropStyles}
- *   - {@link ratioPropStyles}
- *   - {@link floatPropStyles}
- *   - {@link overflowPropStyles}
- *   - {@link utilityPropStyles}
+ *   - {@link base}
+ *   - {@link border}
+ *   - {@link position}
+ *   - {@link display}
+ *   - {@link ratio}
+ *   - {@link float}
+ *   - {@link overflow}
+ *   - {@link utility}
  *
  * @example
  * import styled from 'react-emotion'
@@ -55,17 +55,17 @@ import { utilityPropStyles } from './utility'
  * }
  */
 
-const systemPropStyles = combine(
-  basePropStyles,
-  borderPropStyles,
-  positionPropStyles,
-  displayPropStyles,
-  floatPropStyles,
-  overflowPropStyles,
-  ratioPropStyles,
-  utilityPropStyles
+const system = combine(
+  base,
+  border,
+  position,
+  display,
+  float,
+  overflow,
+  ratio,
+  utility
 )
 
 export {
-  systemPropStyles
+  system
 }

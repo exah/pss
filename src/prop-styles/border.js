@@ -29,7 +29,7 @@ const borderStyle = (Dir = '') => {
 }
 
 /**
- * Alias **`border`**
+ * Alias **`borderPropStyles`**
  *
  * ```js
  * import { border } from 'pss'
@@ -70,7 +70,7 @@ const borderStyle = (Dir = '') => {
  * <Box bdl='1px dotted' bdc='red' />
  */
 
-const borderPropStyles = createPropStyles({
+const border = createPropStyles({
   bdc: colorProp('borderColor', 'border'),
   bd: borderStyle(),
   ...mapObj(SHORT_DIRECTIONS, ([ shortDir, longDir ]) => [
@@ -80,5 +80,5 @@ const borderPropStyles = createPropStyles({
 })
 
 export {
-  borderPropStyles
+  border
 }
