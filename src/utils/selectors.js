@@ -75,6 +75,21 @@ const mediaPropSelector = curryN(2, (mediaKeyAndQuery, value) => {
   )
 })
 
+/**
+ * Alias **`ts`**
+ *
+ * ```js
+ * import { sizes, ts } from 'pss'
+ * ```
+ *
+ * Get value from `theme` directly in prop
+ *
+ * const Box = styled.div(sizes, ts)
+ *
+ * @example
+ * <Box wd={ts((theme) => theme.myValue)}
+ */
+
 const themeSelector = (fn) => (props, mediaKey, style = identity) => handlePropStyle(
   style,
   fn(props.theme),
