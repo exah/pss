@@ -8,10 +8,10 @@ const borderStyle = (Dir = '') => {
   const styleCssProp = `border${Dir}Style`
   const getWidthStyles = sizeProp(widthCssProp, 1, 0)
 
-  return (value, props, mediaKey) => {
+  return (value, props, mediaKey, isRawValue) => {
     if (isBool(value) || isNum(value)) {
       return {
-        ...getWidthStyles(value, props, mediaKey),
+        ...getWidthStyles(value, props, mediaKey, isRawValue),
         [styleCssProp]: value ? 'solid' : 'none'
       }
     } else if (isStr(value) || isArr(value)) {
@@ -19,7 +19,7 @@ const borderStyle = (Dir = '') => {
       const [ parsedWidth, style = 'solid' ] = value.toString().split(/,|\s+/g)
 
       return {
-        ...getWidthStyles(parsedWidth, props, mediaKey),
+        ...getWidthStyles(parsedWidth, props, mediaKey, isRawValue),
         [styleCssProp]: style
       }
     }

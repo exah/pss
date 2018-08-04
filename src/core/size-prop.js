@@ -47,8 +47,12 @@ const sizeProp = (
   trueVal?: CSSVal = '100%',
   falseVal?: CSSVal = 0,
   toPx?: boolean = true
-): PropStyleFn => curryN(2, (propValue, { theme }, mediaKey) => {
+): PropStyleFn => curryN(2, (propValue, { theme }, mediaKey, isRawValue) => {
   const cssRule = toCssRule(cssProp, toPx)
+
+  if (isRawValue === true) {
+    return cssRule(propValue)
+  }
 
   if (isStr(propValue)) {
     const customPathValue = themePath(propValue, null)(theme)

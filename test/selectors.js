@@ -6,6 +6,7 @@ import {
   createPropStyles,
   createSpaceProps,
   positionPropStyles,
+  themePath,
   ts,
   ps,
   cs,
@@ -83,14 +84,35 @@ test('add different top value to &:last-child and &:first-child', (t) => {
   })
 })
 
-test('themeSelector', (t) => {
+test('themeSelector → position', (t) => {
   const result = toStyles(positionPropStyles({
     theme,
-    t: ts((tm) => tm.myValue)
+    t: ts((tm) => tm.myValue),
+    b: ts(themePath('myValue')),
+    l: ts(themePath('noneExistentProp', 5)),
+    r: ts(themePath('notPercentage', 1))
   }))
 
   t.deepEqual(result, {
-    top: '100px'
+    top: '100px',
+    bottom: '100px',
+    left: '5px',
+    right: '1px'
+  })
+})
+
+test('themeSelector → space', (t) => {
+  const result = toStyles(marginPropStyles({
+    theme,
+    mg: ts((tm) => tm.myValue),
+    mgb: ts(themePath('myValue')),
+    mgr: ts(themePath('notPercentage', 1))
+  }))
+
+  t.deepEqual(result, {
+    margin: '100px',
+    marginBottom: '100px',
+    marginRight: '1px'
   })
 })
 

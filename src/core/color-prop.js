@@ -105,9 +105,15 @@ const colorProp = (
   cssProp: CSSProp,
   colorKey: ThemeKey,
   getCssValue?: (color: string, props: Props) => CSSVal = identity
-): PropStyleFn => curryN(2, (value, props) => {
+): PropStyleFn => curryN(2, (value, props, mediaKey, isRawValue) => {
   if (value == null) {
     return {}
+  }
+
+  if (isRawValue === true) {
+    return {
+      [cssProp]: value
+    }
   }
 
   const color = value === false

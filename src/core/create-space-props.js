@@ -31,10 +31,10 @@ const cssRuleSpaceStyle = (
   toPx = true
 ): Function =>
   (value, defaultMediaKey): DynamicStyleFn =>
-    ({ theme }, mediaKey = defaultMediaKey) => everyMediaValue(
+    ({ theme }, mediaKey = defaultMediaKey, isRawValue) => everyMediaValue(
       theme,
       mediaKey,
-      getSpaceValue(theme, value),
+      isRawValue ? value : getSpaceValue(theme, value),
       toCssRule(styleProp, toPx)
     )
 
@@ -134,7 +134,8 @@ const createSpaceProps = (
   return toObj(modifiers, ([ modName, styleProp ]) => {
     const style = cssRuleSpaceStyle(styleProp, getSpaceValue)
     return {
-      [modName]: (value, compProps, mediaKey) => style(value)(compProps, mediaKey)
+      [modName]: (value, compProps, mediaKey, isRawValue) =>
+        style(value)(compProps, mediaKey, isRawValue)
     }
   })
 }

@@ -79,7 +79,8 @@ const themeSelector = (fn) => (props, mediaKey, style = identity) => handlePropS
   style,
   fn(props.theme),
   props,
-  mediaKey
+  mediaKey,
+  true
 )
 
 /**

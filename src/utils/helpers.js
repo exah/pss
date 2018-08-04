@@ -32,8 +32,8 @@ const wrap = curryN(2, (name, style) => {
     : wrapper(style)
 })
 
-const handlePropStyle = (style, value, ...args) => isFn(style)
-  ? style(value, ...args)
+const handlePropStyle = (style, value, props, mediaKey, isRawValue) => isFn(style)
+  ? style(value, props, mediaKey, isRawValue)
   : value === true ? style : null
 
 const wrapIfMedia = (query, style) => wrap(
