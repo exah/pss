@@ -14,7 +14,7 @@ import { everyMediaValue } from './every-media'
 
 /**
  * ```js
- * import { sizeProp } from 'pss'
+ * import { createSizeProp } from 'pss'
  * ```
  *
  * @param [cssProp] — Any CSS prop like `width`, `height`, `left`, ...
@@ -22,13 +22,13 @@ import { everyMediaValue } from './every-media'
  *
  * @example
  * import styled from 'react-emotion'
- * import { sizeProp, createPropStyles } from 'pss'
+ * import { createSizeProp, createPropStyles } from 'pss'
  *
  * const mySizes = createPropStyles({
- *   w: sizeProp('width', '100%', 0, true), // this is default
- *   h: sizeProp('height'), // same as above
- *   l: sizeProp('left', 0, 'auto'),
- *   r: sizeProp('right', 0, 'auto')
+ *   w: createSizeProp('width', '100%', 0, true), // this is default
+ *   h: createSizeProp('height'), // same as above
+ *   l: createSizeProp('left', 0, 'auto'),
+ *   r: createSizeProp('right', 0, 'auto')
  * })
  *
  * const Box = styled.div(mySizes)
@@ -42,7 +42,7 @@ import { everyMediaValue } from './every-media'
  * <Box l={20} r={10} /> // left: 20px; right: 10px
  */
 
-const sizeProp = (
+const createSizeProp = (
   cssProp: CSSProp,
   trueVal?: CSSVal = '100%',
   falseVal?: CSSVal = 0,
@@ -79,10 +79,10 @@ const sizeProp = (
   )
 })
 
-const sizeStyle = (cssProp: CSSProp, ...sizeValueArgs?: [ CSSVal, CSSVal ]): PropStyleFn =>
-  (val = true, ...args) => sizeProp(cssProp, ...sizeValueArgs)(val, ...args)
+const createSizeStyle = (cssProp: CSSProp, ...sizeValueArgs?: [ CSSVal, CSSVal ]): PropStyleFn =>
+  (val = true, ...args) => createSizeProp(cssProp, ...sizeValueArgs)(val, ...args)
 
 export {
-  sizeStyle,
-  sizeProp
+  createSizeStyle,
+  createSizeProp
 }

@@ -27,11 +27,11 @@ toc:
     children:
       - createPropStyles
       - createTheme
-      - sizeProp
+      - createSizeProp
       - createSpaceProps
       - createSpaceStyle
-      - colorProp
-      - themeProp
+      - createColorProp
+      - createPaletteProp
       - propStylesInTheme
 
   - name: Misc

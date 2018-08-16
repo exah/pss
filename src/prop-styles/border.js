@@ -1,12 +1,12 @@
 import { SHORT_DIRECTIONS } from '../constants'
-import { createPropStyles, colorProp, sizeProp } from '../core'
+import { createPropStyles, createColorProp, createSizeProp } from '../core'
 import { isNum, isStr, isBool, isArr } from '../utils/is'
 import { mapObj } from '../utils/helpers'
 
 const borderStyle = (Dir = '') => {
   const widthCssProp = `border${Dir}Width`
   const styleCssProp = `border${Dir}Style`
-  const getWidthStyles = sizeProp(widthCssProp, 1, 0)
+  const getWidthStyles = createSizeProp(widthCssProp, 1, 0)
 
   return (value, props, mediaKey, isRawValue) => {
     if (isBool(value) || isNum(value)) {
@@ -35,7 +35,7 @@ const borderStyle = (Dir = '') => {
  * import { border } from 'pss'
  * ```
  *
- * Set border with values from theme, created with {@link sizeProp} and {@link colorProp}.
+ * Set border with values from theme, created with {@link createSizeProp} and {@link createColorProp}.
  *
  * prop       | css            | type                | value | true            | false
  * :----------|:---------------|:--------------------|:------|:----------------|:--------
@@ -71,7 +71,7 @@ const borderStyle = (Dir = '') => {
  */
 
 const border = createPropStyles({
-  bdc: colorProp('borderColor', 'border'),
+  bdc: createColorProp('borderColor', 'border'),
   bd: borderStyle(),
   ...mapObj(SHORT_DIRECTIONS, ([ shortDir, longDir ]) => [
     'bd' + shortDir,

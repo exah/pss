@@ -1,13 +1,13 @@
-import { sizeProp, createPropStyles } from '../core'
+import { createSizeProp, createPropStyles } from '../core'
 
 /**
- * Alias **`sizePropsStyles`**
+ * Alias **`createSizePropsStyles`**
  *
  * ```js
  * import { sizes } from 'pss'
  * ```
  *
- * Consistent `sizes` system for `width`, `height`. Created with {@link sizeProp}.
+ * Consistent `sizes` system for `width`, `height`. Created with {@link createSizeProp}.
  *
  * **Component props:**
  *
@@ -89,12 +89,12 @@ import { sizeProp, createPropStyles } from '../core'
  */
 
 const sizes = createPropStyles({
-  ht: sizeProp('height'),
-  wd: sizeProp('width'),
-  maxWd: sizeProp('maxWidth'),
-  maxHt: sizeProp('maxHeight'),
-  minHt: sizeProp('minHeight'),
-  minWd: sizeProp('minWidth')
+  ht: createSizeProp('height'),
+  wd: createSizeProp('width'),
+  maxWd: createSizeProp('maxWidth'),
+  maxHt: createSizeProp('maxHeight'),
+  minHt: createSizeProp('minHeight'),
+  minWd: createSizeProp('minWidth')
 })
 
 export {

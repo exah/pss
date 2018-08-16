@@ -1,6 +1,6 @@
-import { createPropStyles, ruleProp, sizeProp } from '../core'
+import { createPropStyles, ruleProp, createSizeProp } from '../core'
 
-const direction = (dir) => sizeProp(dir, 0, 'auto')
+const direction = (dir) => createSizeProp(dir, 0, 'auto')
 const positionStyle = (value) => ruleProp('position', value, 'static')
 
 /**

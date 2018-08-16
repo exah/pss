@@ -1,4 +1,4 @@
-import { createPropStyles, themeProp, colorProp } from '../core'
+import { createPropStyles, createPaletteProp, createColorProp } from '../core'
 
 /**
  * Alias **`colorsPropStyles`**
@@ -7,7 +7,7 @@ import { createPropStyles, themeProp, colorProp } from '../core'
  * import { colors } from 'pss'
  * ```
  *
- * Prop styles for getting current `palette` or `color` value from `theme`. Created with {@link colorProp} and {@link themeProp}.
+ * Prop styles for getting current `palette` or `color` value from `theme`. Created with {@link createColorProp} and {@link createPaletteProp}.
  *
  * Result can be changed in nested components with setting other key in `theme.default.palette`.
  *
@@ -88,9 +88,9 @@ import { createPropStyles, themeProp, colorProp } from '../core'
  */
 
 const colors = createPropStyles({
-  tm: themeProp('bg', 'fg'),
-  fg: colorProp('color', 'fg'),
-  bg: colorProp('backgroundColor', 'bg')
+  tm: createPaletteProp('bg', 'fg'),
+  fg: createColorProp('color', 'fg'),
+  bg: createColorProp('backgroundColor', 'bg')
 })
 
 export {

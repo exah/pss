@@ -7,10 +7,14 @@ export {
   createSpaceProps,
   everyMedia,
   ruleProp,
-  sizeStyle,
-  sizeProp,
-  colorProp,
-  themeProp
+  createSizeStyle,
+  createSizeStyle as sizeStyle,
+  createSizeProp,
+  createSizeProp as sizeProp,
+  createColorProp,
+  createColorProp as colorProp,
+  createPaletteProp,
+  createPaletteProp as themeProp
 } from './core'
 
 export {
@@ -95,7 +99,7 @@ export {
 
 export {
   sizes,
-  sizes as sizePropsStyles
+  sizes as createSizePropsStyles
 } from './prop-styles/sizes'
 
 export {

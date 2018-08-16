@@ -40,7 +40,7 @@
     -   [createTheme][36]
         -   [Parameters][37]
         -   [Examples][38]
-    -   [sizeProp][39]
+    -   [createSizeProp][39]
         -   [Parameters][40]
         -   [Examples][41]
     -   [createSpaceProps][42]
@@ -49,10 +49,10 @@
     -   [createSpaceStyle][45]
         -   [Parameters][46]
         -   [Examples][47]
-    -   [colorProp][48]
+    -   [createColorProp][48]
         -   [Parameters][49]
         -   [Examples][50]
-    -   [themeProp][51]
+    -   [createPaletteProp][51]
         -   [Parameters][52]
         -   [Examples][53]
     -   [propStylesInTheme][54]
@@ -162,13 +162,13 @@ const Box = styled.div(space)
 
 ### sizes
 
-Alias **`sizePropsStyles`**
+Alias **`createSizePropsStyles`**
 
 ```js
 import { sizes } from 'pss'
 ```
 
-Consistent `sizes` system for `width`, `height`. Created with [sizeProp][39].
+Consistent `sizes` system for `width`, `height`. Created with [createSizeProp][39].
 
 **Component props:**
 
@@ -256,7 +256,7 @@ Alias **`colorsPropStyles`**
 import { colors } from 'pss'
 ```
 
-Prop styles for getting current `palette` or `color` value from `theme`. Created with [colorProp][48] and [themeProp][51].
+Prop styles for getting current `palette` or `color` value from `theme`. Created with [createColorProp][48] and [createPaletteProp][51].
 
 Result can be changed in nested components with setting other key in `theme.default.palette`.
 
@@ -553,7 +553,7 @@ Alias **`borderPropStyles`**
 import { border } from 'pss'
 ```
 
-Set border with values from theme, created with [sizeProp][39] and [colorProp][48].
+Set border with values from theme, created with [createSizeProp][39] and [createColorProp][48].
 
 | prop        | css                                              | type                          | value | true                 | false               |
 | :---------- | :----------------------------------------------- | :---------------------------- | :---- | :------------------- | :------------------ |
@@ -954,10 +954,10 @@ const theme = createTheme({
 
 Returns **ThemeObj** 
 
-### sizeProp
+### createSizeProp
 
 ```js
-import { sizeProp } from 'pss'
+import { createSizeProp } from 'pss'
 ```
 
 #### Parameters
@@ -971,13 +971,13 @@ import { sizeProp } from 'pss'
 
 ```js
 import styled from 'react-emotion'
-import { sizeProp, createPropStyles } from 'pss'
+import { createSizeProp, createPropStyles } from 'pss'
 
 const mySizes = createPropStyles({
-  w: sizeProp('width', '100%', 0, true), // this is default
-  h: sizeProp('height'), // same as above
-  l: sizeProp('left', 0, 'auto'),
-  r: sizeProp('right', 0, 'auto')
+  w: createSizeProp('width', '100%', 0, true), // this is default
+  h: createSizeProp('height'), // same as above
+  l: createSizeProp('left', 0, 'auto'),
+  r: createSizeProp('right', 0, 'auto')
 })
 
 const Box = styled.div(mySizes)
@@ -1083,10 +1083,12 @@ const OtherBox = styled.div({ display: 'flex' }, marginFn.l(1))
 
 Returns **DynamicStyleFn** 
 
-### colorProp
+### createColorProp
+
+Alias **`colorProp`**
 
 ```js
-import { colorProp } from 'pss'
+import { createColorProp } from 'pss'
 ```
 
 Get color from theme and apply it to css prop.
@@ -1101,11 +1103,11 @@ Get color from theme and apply it to css prop.
 
 ```js
 import styled from 'react-emotion'
-import { colorProp, createPropStyles } from 'pss'
+import { createColorProp, createPropStyles } from 'pss'
 
 const myColors = createPropStyles({
-  color: colorProp('color', 'fg'),
-  shadow: colorProp('boxShadow', 'shadow', (color) => `0 0 20px 0 ${color}`)
+  color: createColorProp('color', 'fg'),
+  shadow: createColorProp('boxShadow', 'shadow', (color) => `0 0 20px 0 ${color}`)
 })
 
 // Add to component
@@ -1128,10 +1130,12 @@ const Box = styled.div(myColors)
 
 Returns **[PropStyleFn][85]** 
 
-### themeProp
+### createPaletteProp
+
+Alias **`themeProp`**
 
 ```js
-import { themeProp } from 'pss'
+import { createPaletteProp } from 'pss'
 ```
 
 Set both `background-color` and `color` for selected `theme.palette`.
@@ -1145,10 +1149,10 @@ Set both `background-color` and `color` for selected `theme.palette`.
 
 ```js
 import styled from 'react-emotion'
-import { themeProp, createPropStyles } from 'pss'
+import { createPaletteProp, createPropStyles } from 'pss'
 
 const myColors = createPropStyles({
-  tm: themeProp('bg', 'fg')
+  tm: createPaletteProp('bg', 'fg')
 })
 
 const Box = styled.div(myColors)
@@ -1522,7 +1526,7 @@ Type: function (value: PropStyleVal, props: Props, mediaKey: ([string][87] | nul
 
 [38]: #examples-16
 
-[39]: #sizeprop
+[39]: #createsizeprop
 
 [40]: #parameters-2
 
@@ -1540,13 +1544,13 @@ Type: function (value: PropStyleVal, props: Props, mediaKey: ([string][87] | nul
 
 [47]: #examples-19
 
-[48]: #colorprop
+[48]: #createcolorprop
 
 [49]: #parameters-5
 
 [50]: #examples-20
 
-[51]: #themeprop
+[51]: #createpaletteprop
 
 [52]: #parameters-6
 

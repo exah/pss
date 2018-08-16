@@ -4,8 +4,8 @@ import { MEDIA_KEY, SIZES_KEY } from '../src/constants'
 import {
   createTheme,
   createPropStyles,
-  sizeProp,
-  sizeStyle,
+  createSizeProp,
+  createSizeStyle,
   onMedia
 } from '../src'
 
@@ -29,12 +29,12 @@ const theme = createTheme({
 })
 
 const sizesPropStyles = createPropStyles({
-  ht: sizeProp('height'),
-  wd: sizeProp('width'),
-  maxWd: sizeProp('maxWidth'),
-  maxHt: sizeProp('maxHeight'),
-  minHt: sizeProp('minHeight'),
-  minWd: sizeProp('minWidth')
+  ht: createSizeProp('height'),
+  wd: createSizeProp('width'),
+  maxWd: createSizeProp('maxWidth'),
+  maxHt: createSizeProp('maxHeight'),
+  minHt: createSizeProp('minHeight'),
+  minWd: createSizeProp('minWidth')
 })
 
 test('props -> sizes relative value', (t) => {
@@ -103,7 +103,7 @@ test('props -> sizes custom values', (t) => {
 })
 
 test('style -> set height', (t) => {
-  const height = sizeStyle('height')
+  const height = createSizeStyle('height')
   const percent = toStyles(height()({ theme }))
 
   t.deepEqual(percent, {

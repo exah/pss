@@ -1,11 +1,11 @@
-import { sizeStyle } from '../core'
+import { createSizeStyle } from '../core'
 
-const height = sizeStyle('height')
-const width = sizeStyle('width')
-const maxWidth = sizeStyle('maxWidth')
-const maxHeight = sizeStyle('maxHeight')
-const minHeight = sizeStyle('minHeight')
-const minWidth = sizeStyle('minWidth')
+const height = createSizeStyle('height')
+const width = createSizeStyle('width')
+const maxWidth = createSizeStyle('maxWidth')
+const maxHeight = createSizeStyle('maxHeight')
+const minHeight = createSizeStyle('minHeight')
+const minWidth = createSizeStyle('minWidth')
 
 export {
   height,
