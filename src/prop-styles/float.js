@@ -13,7 +13,7 @@ import { createPropStyles, ruleProp } from '../core'
  * `clear`    | [`clear`][clear-url]     | `String`, `Boolean` | ✓     | `both`                     | `none`
  * `clearFix` | [Clearfix][clearfix-url] | `true`              | —     | [styles](#clearfix-styles) | —
  *
- * #### Clearfix styles
+ * <span id="clearfix-styles">Clearfix styles</span>
  *
  * ```css
  * &::after {

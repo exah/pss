@@ -26,22 +26,21 @@ import {
  *   media: {
  *     M: '(max-width: 600px)'
  *   },
- *   // createSpaceProps, spacePropStyles
+ *   // For `space`
  *   space: {
  *     default: [ 0, 16, 32, 64, 128 ],
  *     M: [ 0, 8, 16, 32, 64 ]
  *   },
- *   // sizesPropStyles, sizeProp
+ *   // For `sizes`
  *   size: {
  *     s: 10,
  *     m: 25,
  *     l: 50
  *   },
- *   // colorsPropStyles, colorProp
+ *   // For `colors`
  *   color: {
  *     red: '#ff0000'
  *   },
- *   // colorsPropStyles, themeProp
  *   palette: {
  *     default: {
  *       bg: '#ffffff',

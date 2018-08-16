@@ -11,7 +11,10 @@ const paddingPropStyles = createPropStyles(createSpaceProps('padding', 'pd'))
  * import { space } from 'pss'
  * ```
  *
- * Ready to use space prop styles created with {@link createSpaceProps} for setting both `margin` with `mg` prop and `padding` with `pd` prop.
+ * Consistent `space` system for setting `margin` or `padding`. Created with {@link createSpaceProps}.
+ *
+ *
+ * **Component props:**
  *
  * - `mg` → `margin`
  * - `mgl` → `margin-left`
@@ -27,6 +30,39 @@ const paddingPropStyles = createPropStyles(createSpaceProps('padding', 'pd'))
  * - `pdb` → `padding-bottom`
  * - `pdx` → `padding-left`, `padding-right`
  * - `pdy` → `padding-top`, `padding-bottom`
+ *
+ *
+ * **`Number` values:**
+ *
+ * - Value from `theme.space[mediaKey]` or `theme.space.default` `Array` by index
+ * - Negative value for negative margins
+ *
+ *
+ * **`Boolean` values:**
+ *
+ * - `true` value is equal to `1` index in space `Array`
+ * - `false` value is equal to `0` index in space `Array`
+ *
+ *
+ * **`String` values:**
+ *
+ * - Used as plain CSS value (like `'10%'`, `'1em'` or `'100vh'`)
+ *
+ *
+ * <br /> Examples use this [`theme`](#createtheme):
+ *
+ * ```js
+ * const theme = createTheme({
+ *   media: {
+ *     M: `(max-width: 600px)`
+ *   },
+ *   space: {
+ *     default: [ 0, 10, 20, 40, 80 ],
+ *     M: [ 0, 8, 16, 32, 64 ],
+ *   }
+ * })
+ * ```
+ *
  *
  * @example
  * import styled from 'react-emotion'

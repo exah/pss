@@ -21,7 +21,7 @@ import { createPropStyles, ruleProp } from '../core'
  * `nobr`       | `white-space`               | `true`             | —     | `nowrap`                   | `normal`
  * `ellipsis`   | [Ellipsis...][ellipsis-url] | `true`             | —     | [styles](#ellipsis-styles) | —
  *
- * ##### Ellipsis styles
+ * <span id="ellipsis-styles">Ellipsis styles</span>
  *
  * ```css
  * {

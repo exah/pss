@@ -4,46 +4,12 @@ hljs:
     - css
     - js
 toc:
-  - name: Creating Prop Styles and Theme
-    children:
-      - createPropStyles
-      - createTheme
-      - name: Types
-        children:
-          - PropStylesObj
-          - PropStyleFn
-  - name: Space
-    file: ./docs/space.md
+
+  - name: Prop Styles
     children:
       - space
-      - name: Utils
-        children:
-          - createSpaceProps
-          - createSpaceStyle
-
-  - name: Sizes
-    file: ./docs/sizes.md
-    children:
       - sizes
-      - name: Utils
-        children:
-          - sizeProp
-
-  - name: Colors
-    file: ./docs/colors.md
-    children:
       - colors
-      - name: Utils
-        children:
-          - colorProp
-          - themeProp
-
-  - name: Styles in Theme
-    children:
-      - propStylesInTheme
-
-  - name: Other Prop Styles
-    children:
       - flex
       - flexItem
       - display
@@ -57,9 +23,26 @@ toc:
       - base
       - system
 
+  - name: Creating Prop Styles and Theme
+    children:
+      - createPropStyles
+      - createTheme
+      - sizeProp
+      - createSpaceProps
+      - createSpaceStyle
+      - colorProp
+      - themeProp
+      - propStylesInTheme
+
   - name: Misc
     children:
       - cssProp
       - propSelector
       - mediaPropSelector
       - combineSelectors
+      - themeSelector
+
+  - name: Types
+    children:
+      - PropStylesObj
+      - PropStyleFn

@@ -7,7 +7,9 @@ import { sizeProp, createPropStyles } from '../core'
  * import { sizes } from 'pss'
  * ```
  *
- * Ready to use size prop styles created with {@link sizeProp}.
+ * Consistent `sizes` system for `width`, `height`. Created with {@link sizeProp}.
+ *
+ * **Component props:**
  *
  * - `wd` → `width`
  * - `maxWd` → `max-width`
@@ -16,7 +18,46 @@ import { sizeProp, createPropStyles } from '../core'
  * - `maxHt` → `max-height`
  * - `minHt` → `min-height`
  *
- * Additionaly `true` prop value is `100%` and `false` is `0`.
+ *
+ * **`String` values:**
+ *
+ * - Get value by path in `theme.size` or in top level `theme` object
+ * - If value in `theme.sizes` is an `Object` with media keys (like in `theme.media`) value is responsive
+ * - Other `String` values is passed as raw CSS value (like `'10%'` or `'100vh'`).
+ *
+ *
+ * **`Number` values:**
+ *
+ * - From 0-1 it is converted to percentage widths
+ * - Greater than 1 are converted to pixel values.
+ *
+ *
+ * **`Boolean` values:**
+ *
+ * - `true` is `100%`
+ * - `false` is `0`.
+ *
+ *
+ * Examples use this [`theme`](#createtheme):
+ *
+ * ```js
+ * const theme = createTheme({
+ *   media: {
+ *     M: `(max-width: 600px)`
+ *   },
+ *   size: {
+ *     small: '10px',
+ *     medium: '20px',
+ *     block: {
+ *       default: '500px',
+ *       M: '300px'
+ *     }
+ *   },
+ *   site: {
+ *     width: '1300px'
+ *   }
+ * })
+ * ```
  *
  * @example
  * import styled from 'react-emotion'
