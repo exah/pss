@@ -1,16 +1,17 @@
 # PSS - Prop Styles System
 
-> Design system utils for CSS-in-JS libraries
+> Design system utils for React based CSS-in-JS libraries
 
 
 - [x] Support [`emotion`](https://emotion.sh), [`styled-components`](https://www.styled-components.com) and [`glamorous`](https://glamorous.rocks)
-- [x] All styles are responsive by default
-- [x] Customizable
+- [x] Configurable
+- [x] Dynamic
+- [x] Responsive
 
 
 ## 📦 Install
 
-```
+```sh
 $ yarn add pss
 ```
 
@@ -20,35 +21,19 @@ $ yarn add pss
 
 ## 🤔 Why?
 
+Because css-in-js and design systems are all the hype right now! But seriously, we want to: 
 
-### Prop What?
+- Define our styling system (grid, colors, fonts, sizes, breakpoints, etc.) once and reuse it throughout the project
+- Style our components using concise and easy-to-memorize props
+- Have a convenient way to define alternative styles for different screen sizes
 
-**Prop Styles** is when you can set CSS styles in runtime with component props. 
-
-For example if you want prop that hides element on mobile. Usually you will do something like this:
-
-```js
-import styled from 'react-emotion'
-
-// Add to component
-const Box = styled.div((props) => props.hideOnMobile && {  
-  '@media (max-width: 600px)': {
-    display: 'none' 
-  }
-})
-
-// Use prop
-<Box hideOnMobile /> // @media (max-width: 600px) { display: none }
-```
-
-With `pss` you can add `media` queries to your `theme` and any created **Prop Style** than can be changed in specified media queries with special suffix.
+For example if you want prop that hides element on mobile, you can add `media` queries to your [`theme`](./docs/api.md#createtheme) and [create](./docs/api.md#createpropstyles) simple prop style to do that.
 
 ```js
 import { createPropStyles, createTheme } from 'pss'
 
 const myPropStyles = createPropStyles({
-  hide: { display: 'none' },
-  makeItRed: { backgroundColor: 'red' }
+  hide: { display: 'none' }
 })
 
 const myTheme = createTheme({
@@ -58,6 +43,8 @@ const myTheme = createTheme({
 })
 ```
 
+Prop styles (`hide`) then can be enabled and wrapped inside media queries with suffix (`OnMobile`) to props.
+
 ```js
 import styled from 'react-emotion'
 import { ThemeProvider } from 'emotion-theming'
@@ -65,25 +52,23 @@ import { ThemeProvider } from 'emotion-theming'
 const Box = styled.div(myPropStyles)
 
 <ThemeProvider theme={myTheme}>
-  <Box hideOnMobile makeItRed />
+  <Box hideOnMobile />
 </ThemeProvider>
 
-// background-color: red; 
 // @media (max-width: 600px) { display: none }
 ```
 
 
-### More Useful Example
+## 👀 Example
 
 [![Edit prop-styles-system-demo-1](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/zlrwm3ymzx)
 
-Add ready to use
+Add some design system prop styles to your components.
 
 - [`space`](./docs/api.md#space) — for setting `margin`, `padding`
 - [`sizes`](./docs/api.md#sizes) - for `width`, `height`, ...
 - [`colors`](./docs/api.md#colors) — for `color`, `background-color` 
 
-prop styles to your component.
 
 ```js
 import styled from 'react-emotion'
@@ -96,16 +81,8 @@ const Box = styled.div(
 )
 ```
 
-Use them in runtime:
 
-```js
-<Box mgx /> // margin-left: 8px; margin-right: 8px
-<Box wd={(1 / 2)} /> // width: 50%
-<Box tm='inverted' /> // background-color: #000000; color: #ffffff
-<Box wdM='300px' /> // @media (max-width: 600px) { width: 300px }
-```
-
-Provide custom theme:
+Use them in runtime with custom theme:
 
 ```js
 import { ThemeProvider } from 'emotion-theming'
@@ -233,12 +210,13 @@ CSS-in-JS result:
 ### Sites
 
 - [strelkamag.com](http://strelkamag.com) — 🌍 Real-world usage
-- [goremykina](https://github.com/exah/goremykina) — 👀 Code (WIP)
+- [goremykina](https://github.com/exah/goremykina) — 🚧 WIP
 
 
 ### Packages
 
-- [`defaults.css`](https://github.com/exah/defaults.css) — CSS reset
+- [`components`](https://github.com/exah/components) — Components created with `pss`
+- [`defaults.css`](https://github.com/exah/defaults.css) — CSS reset based on normalize.css
 - [`styled-system`](https://github.com/jxnblk/styled-system) — "Design system utilities for styled-components and other css-in-js libraries." Similiar project and probably better.
 - [`prop-styles`](https://github.com/peterschussheim/prop-styles) — "Utility to create flexible React components which accept props to enable/disable certain styles."
 - [`polished`](https://github.com/styled-components/polished) — "A lightweight toolset for writing styles in JavaScript"
