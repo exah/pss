@@ -424,10 +424,10 @@ import { display } from 'pss'
 #### Examples
 
 ```js
-import { position } from 'pss'
+import { display } from 'pss'
 import styled from 'react-emotion'
 
-const Box = styled('div')(position)
+const Box = styled('div')(display)
 ```
 
 ```js

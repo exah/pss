@@ -15,10 +15,10 @@ import { createPropStyles, ruleProp } from '../core'
  * [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
  *
  * @example
- * import { position } from 'pss'
+ * import { display } from 'pss'
  * import styled from 'react-emotion'
  *
- * const Box = styled('div')(position)
+ * const Box = styled('div')(display)
  *
  * @example
  * <Box display='inline-block' hideM />
