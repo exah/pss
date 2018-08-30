@@ -11,7 +11,34 @@ const theme = createTheme({
   }
 })
 
-test('props: position', (t) => {
+test('props: position (compat)', (t) => {
+  const result = positionPropStyles({
+    theme,
+    position: 'relative',
+    positionM: 'static',
+    top: true,
+    bottom: false,
+    left: 1 / 2,
+    right: 0,
+    zIndex: 100,
+    zIndexM: 100
+  })
+
+  t.deepEqual(toStyles(result), {
+    position: 'relative',
+    top: 0,
+    bottom: 'auto',
+    left: '50%',
+    right: 0,
+    zIndex: 100,
+    '@media (max-width: 600px)': {
+      position: 'static',
+      zIndex: 100
+    }
+  })
+})
+
+test('props: position (compat)', (t) => {
   const result = positionPropStyles({
     theme,
     prl: true,
@@ -42,7 +69,7 @@ test('props: position', (t) => {
   })
 })
 
-test('props: z-index', (t) => {
+test('props: z-index (compat)', (t) => {
   const zIndexFalse = positionPropStyles({ theme, zi: false })
   const zIndexTrue = positionPropStyles({ theme, zi: true })
 

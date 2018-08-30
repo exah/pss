@@ -13,16 +13,11 @@ const positionStyle = (value) => ruleProp('position', value, 'static')
  * prop       | css                        | type                          | value | true       | false
  * :----------|:---------------------------|:------------------------------|:------|:-----------|:--------
  * `position` | [`position`][position-url] | `String`, `Boolean`           | ✓     | `static`   | `static`
- * `pst`      | `position`                 | `true`                        | —     | `static`   | —
- * `prl`      | `position`                 | `true`                        | —     | `relative` | —
- * `pab`      | `position`                 | `true`                        | —     | `absolute` | —
- * `pfx`      | `position`                 | `true`                        | —     | `fixed`    | —
- * `psy`      | `position`                 | `true`                        | —     | `sticky`   | —
- * `l`        | `left`                     | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
- * `r`        | `right`                    | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
- * `t`        | `top`                      | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
- * `b`        | `bottom`                   | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
- * `zi`       | `z-index`                  | `String`, `Number`, `Boolean` | ✓     | `1`        | `auto`
+ * `left`     | `left`                     | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
+ * `right`    | `right`                    | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
+ * `top`      | `top`                      | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
+ * `bottom`   | `bottom`                   | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
+ * `zIndex`   | `z-index`                  | `String`, `Number`, `Boolean` | ✓     | `1`        | `auto`
  *
  *
  * [position-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
@@ -34,11 +29,17 @@ const positionStyle = (value) => ruleProp('position', value, 'static')
  * const Box = styled('div')(position)
  *
  * @example
- * <Box pab t={0.2} l={0} /> // position: absolute; top: 20%; left: 0
+ * <Box position='absolute' top={0.2} left={0} /> // position: absolute; top: 20%; left: 0
  */
 
 const position = createPropStyles({
   position: positionStyle('static'),
+  top: direction('top'),
+  left: direction('left'),
+  right: direction('right'),
+  bottom: direction('bottom'),
+  zIndex: ruleProp('zIndex', 1, 'auto'),
+  // COMPAT:
   pst: positionStyle('static'),
   prl: positionStyle('relative'),
   pab: positionStyle('absolute'),
