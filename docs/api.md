@@ -643,19 +643,20 @@ import { text } from 'pss'
 
 ⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `size`), so you may need to provide custom prop filtering.
 
-| prop         | css                         | type               | value | true         | false    |
-| :----------- | :-------------------------- | :----------------- | :---- | :----------- | :------- |
-| `font`       | `font-family`               | `String`           | ✓     | —            | —        |
-| `weight`     | `font-weight`               | `String`           | ✓     | —            | —        |
-| `size`       | `font-size`                 | `String`, `Number` | ✓     | `1rem`       | `medium` |
-| `lineHeight` | `line-height`               | `String`, `Number` | ✓     | `normal`     | —        |
-| `transform`  | `text-transform`            | `String`           | ✓     | —            | —        |
-| `decoration` | `text-decoration`           | `String`           | ✓     | —            | —        |
-| `align`      | `text-align`                | `String`           | ✓     | —            | —        |
-| `hyphens`    | `text-align`                | `String`           | ✓     | `auto`       | —        |
-| `whiteSpace` | `white-space`               | `String`           | ✓     | —            | —        |
-| `nobr`       | `white-space`               | `true`             | —     | `nowrap`     | `normal` |
-| `ellipsis`   | [Ellipsis...][ellipsis-url] | `true`             | —     | [styles][83] | —        |
+| prop            | css                         | type               | value | true         | false    |
+| :-------------- | :-------------------------- | :----------------- | :---- | :----------- | :------- |
+| `font`          | `font-family`               | `String`           | ✓     | —            | —        |
+| `weight`        | `font-weight`               | `String`           | ✓     | —            | —        |
+| `size`          | `font-size`                 | `String`, `Number` | ✓     | `1rem`       | `medium` |
+| `lineHeight`    | `line-height`               | `String`, `Number` | ✓     | `normal`     | —        |
+| `letterSpacing` | `letter-spacing`            | `String`, `Number` | ✓     | `normal`     | —        |
+| `transform`     | `text-transform`            | `String`           | ✓     | —            | —        |
+| `decoration`    | `text-decoration`           | `String`           | ✓     | —            | —        |
+| `align`         | `text-align`                | `String`           | ✓     | —            | —        |
+| `hyphens`       | `text-align`                | `String`           | ✓     | `auto`       | —        |
+| `whiteSpace`    | `white-space`               | `String`           | ✓     | —            | —        |
+| `nobr`          | `white-space`               | `true`             | —     | `nowrap`     | `normal` |
+| `ellipsis`      | [Ellipsis...][ellipsis-url] | `true`             | —     | [styles][83] | —        |
 
 <span id="ellipsis-styles">Ellipsis styles</span>
 
