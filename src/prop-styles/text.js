@@ -7,6 +7,8 @@ import { createPropStyles, ruleProp } from '../core'
  * import { text } from 'pss'
  * ```
  *
+ * ⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `size`), so you may need to provide custom prop filtering.
+ *
  * prop         | css                         | type               | value | true                       | false
  * :------------|:----------------------------|:-------------------|:------|:---------------------------|:--------
  * `font`       | `font-family`               | `String`           | ✓     | —                          | —

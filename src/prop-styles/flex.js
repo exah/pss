@@ -63,6 +63,8 @@ const flex = createPropStyles({
  *
  * [Flex item](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#Properties_applied_to_flex_items) prop styles
  *
+ * ⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `order`), so you may need to provide custom prop filtering.
+ *
  * prop     | css           | type                          | value | true    | false
  * :--------|:--------------|:------------------------------|:------|:------- |:--------
  * `flex`   | `flex`        | `String`, `Boolean`           | ✓     | `1 1 0` | `0 1 auto`

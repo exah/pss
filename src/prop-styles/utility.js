@@ -11,6 +11,8 @@ const randomHexColor = () =>
  * import { utility } from 'pss'
  * ```
  *
+ * ⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `opacity`), so you may need to provide custom prop filtering.
+ *
  * prop         | css             | type                 | value | true       | false
  * :------------|:----------------|:---------------------|:------|:-----------|:--------
  * `opacity`    | `opacity`       | `0...1`, `Boolean`   | ✓     | `1`       | `0`

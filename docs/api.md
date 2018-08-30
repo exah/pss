@@ -383,6 +383,8 @@ import { flexItem } from 'pss'
 
 [Flex item][78] prop styles
 
+⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `order`), so you may need to provide custom prop filtering.
+
 | prop     | css           | type                          | value | true    | false      |
 | :------- | :------------ | :---------------------------- | :---- | :------ | :--------- |
 | `flex`   | `flex`        | `String`, `Boolean`           | ✓     | `1 1 0` | `0 1 auto` |
@@ -593,6 +595,8 @@ Alias **`textPropStyles`**
 import { text } from 'pss'
 ```
 
+⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `size`), so you may need to provide custom prop filtering.
+
 | prop         | css                         | type               | value | true         | false    |
 | :----------- | :-------------------------- | :----------------- | :---- | :----------- | :------- |
 | `font`       | `font-family`               | `String`           | ✓     | —            | —        |
@@ -639,6 +643,8 @@ Alias **`utilityPropStyles`**
 ```js
 import { utility } from 'pss'
 ```
+
+⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `opacity`), so you may need to provide custom prop filtering.
 
 | prop         | css             | type                  | value | true      | false  |
 | :----------- | :-------------- | :-------------------- | :---- | :-------- | :----- |
