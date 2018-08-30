@@ -17,6 +17,7 @@ toc:
       - float
       - overflow
       - border
+      - textStyle
       - text
       - utility
       - ratio

@@ -27,7 +27,7 @@ import { everyMediaValue } from './every-media'
  * import { createTheme } from 'pss'
  *
  * const theme = createTheme({
- *   textStyles: {
+ *   textStyle: {
  *     caps: {
  *       textTransform: 'uppercase'
  *     },
@@ -47,7 +47,7 @@ import { everyMediaValue } from './every-media'
  * import styled from 'react-emotion'
  * import { propStylesInTheme } from 'pss'
  *
- * const Text = styled.div(propStylesInTheme('textStyles', 'ts'))
+ * const Text = styled.div(propStylesInTheme('textStyle', 'ts'))
  *
  * <ThemeProvider theme={theme}>
  *   <Text ts='heading'> // font-size: 32px; line-height: 1.2; font-weight: bold; font-family: system-ui;
@@ -59,7 +59,7 @@ import { everyMediaValue } from './every-media'
  * import styled from 'react-emotion'
  * import { propStylesInTheme } from 'pss'
  *
- * const Text = styled.div(propStylesInTheme('textStyles'))
+ * const Text = styled.div(propStylesInTheme('textStyle'))
  *
  * <ThemeProvider theme={theme}>
  *   <Text caps underline={false}> // text-transform: uppercase;
