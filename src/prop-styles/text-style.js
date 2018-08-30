@@ -1,4 +1,5 @@
-import { propStylesInTheme } from '../core'
+import { TEXT_STYLE_KEY } from '../constants'
+import { stylesInTheme } from '../core'
 
 /**
  * ```js
@@ -40,7 +41,10 @@ import { propStylesInTheme } from '../core'
  * <Text textStyle='heading' />
  */
 
-const textStyle = propStylesInTheme('textStyle', 'textStyle')
+const textStyle = stylesInTheme({
+  themeKey: TEXT_STYLE_KEY,
+  propName: 'textStyle'
+})
 
 export {
   textStyle

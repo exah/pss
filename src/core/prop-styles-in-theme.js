@@ -9,12 +9,13 @@ import type {
 import { isStr } from '../utils/is'
 import { mapObj } from '../utils/helpers'
 import { getThemeMediaValue, themePath } from '../utils/getters'
+import { identity } from '../utils/fns'
 import { createPropStyles } from './create-prop-styles'
 import { everyMediaValue } from './every-media'
 
 /**
  * ```js
- * import { propStylesInTheme } from 'pss'
+ * import { stylesInTheme } from 'pss'
  * ```
  *
  * Create prop styles using styles defined directly inside `theme[themeKey]`. Useful for creating shared text or buttons styles.
@@ -45,9 +46,9 @@ import { everyMediaValue } from './every-media'
  *
  * @example
  * import styled from 'react-emotion'
- * import { propStylesInTheme } from 'pss'
+ * import { stylesInTheme } from 'pss'
  *
- * const Text = styled.div(propStylesInTheme('textStyle', 'ts'))
+ * const Text = styled.div(stylesInTheme({ themeKey: 'textStyle', propName: 'ts' }))
  *
  * <ThemeProvider theme={theme}>
  *   <Text ts='heading'> // font-size: 32px; line-height: 1.2; font-weight: bold; font-family: system-ui;
@@ -57,9 +58,9 @@ import { everyMediaValue } from './every-media'
  *
  * @example
  * import styled from 'react-emotion'
- * import { propStylesInTheme } from 'pss'
+ * import { stylesInTheme } from 'pss'
  *
- * const Text = styled.div(propStylesInTheme('textStyle'))
+ * const Text = styled.div(stylesInTheme('textStyle'))
  *
  * <ThemeProvider theme={theme}>
  *   <Text caps underline={false}> // text-transform: uppercase;
@@ -68,17 +69,19 @@ import { everyMediaValue } from './every-media'
  * </ThemeProvider>
  */
 
-const propStylesInTheme = (
+const stylesInTheme = (options: {
   themeKey: ThemeKey,
   propName: ? CompPropName,
-  getStyle: ? Function
-): DynamicStyleFn => {
-  const getter = getStyle || getThemeMediaValue(themeKey)
+  themeGetter: ? Function,
+  getStyle?: Function
+}): DynamicStyleFn => {
+  const { themeKey, propName, themeGetter, getStyle = identity } = options
+  const getter = themeGetter || getThemeMediaValue(themeKey)
 
   const style = (value, { theme }, mediaKey) => everyMediaValue(
     theme,
     mediaKey,
-    getter(theme, value)
+    getStyle(getter(theme, value), value)
   )
 
   if (isStr(propName)) {
@@ -104,6 +107,17 @@ const propStylesInTheme = (
   }
 }
 
+const propStylesInTheme = (
+  themeKey: ThemeKey,
+  propName: ? CompPropName,
+  themeGetter: ? Function
+) => stylesInTheme({
+  themeKey,
+  propName,
+  themeGetter
+})
+
 export {
-  propStylesInTheme
+  propStylesInTheme, // COMPAT
+  stylesInTheme
 }

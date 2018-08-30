@@ -2,6 +2,7 @@ export {
   createPropStyles,
   createPropStyles as default,
   createTheme,
+  stylesInTheme,
   propStylesInTheme,
   createSpaceStyle,
   createSpaceProps,
@@ -113,6 +114,10 @@ export {
   text,
   text as textPropStyles
 } from './prop-styles/text'
+
+export {
+  textStyle
+} from './prop-styles/text-style'
 
 export {
   utility,
