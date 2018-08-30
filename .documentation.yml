@@ -17,8 +17,9 @@ toc:
       - float
       - overflow
       - border
-      - textStyle
       - text
+      - textStyle
+      - typography
       - utility
       - ratio
       - base
@@ -33,7 +34,7 @@ toc:
       - createSpaceStyle
       - createColorProp
       - createPaletteProp
-      - propStylesInTheme
+      - stylesInTheme
 
   - name: Misc
     children:
