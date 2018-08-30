@@ -1,32 +1,8 @@
 import { FONT_KEY } from '../constants'
-import { createPropStyles, stylesInTheme, ruleProp } from '../core'
-import { combine } from '../utils/fns'
-
-const font = stylesInTheme({
-  themeKey: FONT_KEY,
-  propName: 'font',
-  getStyle: (themeValue, value) => ({
-    fontFamily: themeValue || value
-  })
-})
-
-const textUtility = createPropStyles({
-  weight: ruleProp('fontWeight'),
-  size: ruleProp('fontSize', '1rem', 'medium'),
-  lineHeight: ruleProp('lineHeight', 'normal'),
-  letterSpacing: ruleProp('letterSpacing', 'normal'),
-  transform: ruleProp('textTransform'),
-  decoration: ruleProp('textDecoration'),
-  align: ruleProp('textAlign'),
-  hyphens: ruleProp('hyphens', 'auto'),
-  whiteSpace: ruleProp('whiteSpace'),
-  nobr: ruleProp('whiteSpace', 'nowrap', 'normal'),
-  italic: ruleProp('fontStyle', 'italic', 'normal'),
-  ellipsis: { whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }
-})
+import { createPropStyles, createStyleFromTheme, ruleProp } from '../core'
 
 /**
- * Alias **`textPropStyles`**, Also **`font`**, **`textUtility`**
+ * Alias **`textPropStyles`**
  *
  * ```js
  * import { text } from 'pss'
@@ -81,13 +57,27 @@ const textUtility = createPropStyles({
  * <Text font='ui' /> // font-family: Helvetica, Arial, system-ui, sans-serif
  */
 
-const text = combine(
-  font,
-  textUtility
-)
+const text = createPropStyles({
+  font: createStyleFromTheme({
+    themeKey: FONT_KEY,
+    getStyle: (themeValue, value) => ({
+      fontFamily: themeValue || value
+    })
+  }),
+  weight: ruleProp('fontWeight'),
+  size: ruleProp('fontSize', '1rem', 'medium'),
+  lineHeight: ruleProp('lineHeight', 'normal'),
+  letterSpacing: ruleProp('letterSpacing', 'normal'),
+  transform: ruleProp('textTransform'),
+  decoration: ruleProp('textDecoration'),
+  align: ruleProp('textAlign'),
+  hyphens: ruleProp('hyphens', 'auto'),
+  whiteSpace: ruleProp('whiteSpace'),
+  nobr: ruleProp('whiteSpace', 'nowrap', 'normal'),
+  italic: ruleProp('fontStyle', 'italic', 'normal'),
+  ellipsis: { whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }
+})
 
 export {
-  font,
-  textUtility,
   text
 }

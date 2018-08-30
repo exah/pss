@@ -34,7 +34,8 @@ toc:
       - createSpaceStyle
       - createColorProp
       - createPaletteProp
-      - stylesInTheme
+      - createStyleFromTheme
+      - propStylesInTheme
 
   - name: Misc
     children:

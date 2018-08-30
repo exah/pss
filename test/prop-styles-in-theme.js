@@ -1,5 +1,5 @@
 import test from 'ava'
-import { createTheme, propStylesInTheme } from '../src'
+import { createTheme, createPropStyles, propStylesInTheme, createStyleFromTheme } from '../src'
 import { theme as helperTheme, toStyles } from './_helpers'
 
 const theme = createTheme({
@@ -30,8 +30,10 @@ const theme = createTheme({
   }
 })
 
-const customProps = propStylesInTheme('customStyles', 'kind')
 const customFlags = propStylesInTheme('customStyles')
+const customProps = createPropStyles({
+  kind: createStyleFromTheme({ themeKey: 'customStyles' })
+})
 
 test('prop → customStyles → default', (t) => {
   const result = toStyles(customProps({
