@@ -112,6 +112,8 @@ export {
 
 export {
   text,
+  font,
+  textUtility,
   text as textPropStyles
 } from './prop-styles/text'
 

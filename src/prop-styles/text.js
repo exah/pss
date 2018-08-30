@@ -1,7 +1,32 @@
-import { createPropStyles, ruleProp } from '../core'
+import { FONT_KEY } from '../constants'
+import { createPropStyles, stylesInTheme, ruleProp } from '../core'
+import { combine } from '../utils/fns'
+
+const font = stylesInTheme({
+  themeKey: FONT_KEY,
+  propName: 'font',
+  getStyle: (themeValue, value) => ({
+    fontFamily: themeValue || value
+  })
+})
+
+const textUtility = createPropStyles({
+  weight: ruleProp('fontWeight'),
+  size: ruleProp('fontSize', '1rem', 'medium'),
+  lineHeight: ruleProp('lineHeight', 'normal'),
+  letterSpacing: ruleProp('letterSpacing', 'normal'),
+  transform: ruleProp('textTransform'),
+  decoration: ruleProp('textDecoration'),
+  align: ruleProp('textAlign'),
+  hyphens: ruleProp('hyphens', 'auto'),
+  whiteSpace: ruleProp('whiteSpace'),
+  nobr: ruleProp('whiteSpace', 'nowrap', 'normal'),
+  italic: ruleProp('fontStyle', 'italic', 'normal'),
+  ellipsis: { whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }
+})
 
 /**
- * Alias **`textPropStyles`**
+ * Alias **`textPropStyles`**, Also **`font`**, **`textUtility`**
  *
  * ```js
  * import { text } from 'pss'
@@ -36,6 +61,16 @@ import { createPropStyles, ruleProp } from '../core'
  *
  * [ellipsis-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
  *
+ * Also you can provide **fonts** with [`theme`](#createtheme):
+ *
+ * ```js
+ * const theme = createTheme({
+ *   font: {
+ *     ui: 'Helvetica, Arial, system-ui, sans-serif'
+ *   }
+ * })
+ * ```
+ *
  * @example
  * import { text } from 'pss'
  * import styled from 'react-emotion'
@@ -43,25 +78,16 @@ import { createPropStyles, ruleProp } from '../core'
  * const Text = styled('p')(text)
  *
  * @example
- * <Text font='system-ui' /> // font-family: system-ui
+ * <Text font='ui' /> // font-family: Helvetica, Arial, system-ui, sans-serif
  */
 
-const text = createPropStyles({
-  font: ruleProp('fontFamily'),
-  weight: ruleProp('fontWeight'),
-  size: ruleProp('fontSize', '1rem', 'medium'),
-  lineHeight: ruleProp('lineHeight', 'normal'),
-  letterSpacing: ruleProp('letterSpacing', 'normal'),
-  transform: ruleProp('textTransform'),
-  decoration: ruleProp('textDecoration'),
-  align: ruleProp('textAlign'),
-  hyphens: ruleProp('hyphens', 'auto'),
-  whiteSpace: ruleProp('whiteSpace'),
-  nobr: ruleProp('whiteSpace', 'nowrap', 'normal'),
-  italic: ruleProp('fontStyle', 'italic', 'normal'),
-  ellipsis: { whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }
-})
+const text = combine(
+  font,
+  textUtility
+)
 
 export {
+  font,
+  textUtility,
   text
 }
