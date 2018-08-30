@@ -122,6 +122,10 @@ export {
 } from './prop-styles/text-style'
 
 export {
+  typography
+} from './prop-styles/typography'
+
+export {
   utility,
   utility as utilityPropStyles
 } from './prop-styles/utility'
