@@ -11,7 +11,7 @@ const theme = createTheme({
   }
 })
 
-test('props: position (compat)', (t) => {
+test('props: position', (t) => {
   const result = positionPropStyles({
     theme,
     position: 'relative',
