@@ -1,16 +1,16 @@
+const IS_ESM = process.env.MODULES !== 'cjs'
+
 module.exports = {
-  'env': {
-    'modules': {
-      'plugins': [
-        '@babel/plugin-transform-modules-commonjs'
-      ]
-    }
-  },
   'presets': [
     '@babel/preset-flow',
-    [ '@babel/preset-env', { 'modules': false } ]
+    [
+      '@babel/preset-env', {
+        modules: IS_ESM ? false : 'commonjs',
+        loose: true
+      }
+    ]
   ],
   'plugins': [
-    [ '@babel/plugin-proposal-object-rest-spread', { 'useBuiltIns': true } ]
+    [ '@babel/plugin-proposal-object-rest-spread', { useBuiltIns: true, loose: true } ]
   ]
 }
