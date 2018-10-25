@@ -46,14 +46,25 @@ const sizeValue = (val, trueVal = '100%', falseVal = 0) => (isNum(val)
   : val === true ? trueVal : val === false ? falseVal : val
 )
 
+const getNumber = (str) => parseFloat(str, 10)
+const getUnit = (str) => String(str)
+  .replace(/([\d.]+)(\D+)?$/, '$2')
+  .trim()
+
+const splitUnit = (str) => [ getNumber(str), getUnit(str) ]
+
 const spaceValue = (val, spaces) => {
   const size = spaces[Math.abs(val)]
+  const coeficent = ((val < 0) ? -1 : 1)
 
   if (size === undefined) {
     return null
+  } else if (isStr(size)) {
+    const [ number, unit ] = splitUnit(size)
+    return `${Number(number) * coeficent}${unit}`
   }
 
-  return size * ((val < 0) ? -1 : 1)
+  return size * coeficent
 }
 
 const skipPropValue = (...styles) => (value, ...rest) => (

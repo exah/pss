@@ -18,8 +18,8 @@ const theme = createTheme({
     M: '(max-width: 600px)'
   },
   [SPACE_KEY]: {
-    default: [ 0, 10, 20, 30, 60 ],
-    M: [ 0, 5, 10, 20, 20 ]
+    default: [ 0, 10, 20, '3rem', 60 ],
+    M: [ 0, 5, 10, '2rem', 20 ]
   },
   [SIZES_KEY]: {
     nudge: {
@@ -59,7 +59,7 @@ test('props -> override one step space on mobile and tablet', (t) => {
 
   t.deepEqual(result, {
     margin: '10px',
-    '@media (max-width: 600px)': { margin: '5px', marginLeft: '20px' },
+    '@media (max-width: 600px)': { margin: '5px', marginLeft: '2rem' },
     '@media (min-width: 601px) and (max-width: 1024px)': {
       marginLeft: 0,
       marginRight: 0
@@ -102,13 +102,13 @@ test('props -> set margin to "30px" on mobile', (t) => {
 test('style -> padding', (t) => {
   const padding = createSpaceStyle('padding')
 
-  const spaceStep3 = toStyles(padding(3)({ theme }))
+  const spaceStep3 = toStyles(padding(-3)({ theme }))
   const spaceStep2Y = toStyles(padding.y(2)({ theme }))
   const spaceAutoXOnMobile = toStyles(onMedia('M', padding.x('auto'))({ theme }))
 
   t.deepEqual(spaceStep3, {
-    padding: '30px',
-    '@media (max-width: 600px)': { padding: '20px' }
+    padding: '-3rem',
+    '@media (max-width: 600px)': { padding: '-2rem' }
   })
 
   t.deepEqual(spaceStep2Y, {
