@@ -32,7 +32,7 @@
     "prewatch": "npm run cleanup",
     "test": "run-s test:*",
     "test:lint": "eslint src test",
-    "test:unit": "cross-env MODULES=cjs ava test",
+    "test:unit": "ava test",
     "test:types": "flow check",
     "deploy": "np --no-cleanup",
     "cleanup": "rimraf cjs esm",
