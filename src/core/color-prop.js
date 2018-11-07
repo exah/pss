@@ -8,10 +8,10 @@ import type {
   ThemeKey
 } from '../types'
 
+import { identity, curryN } from '@exah/utils'
 import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
-import { isColor } from '../utils/is'
-import { identity, curryN } from '../utils/fns'
 import { getColors, getColor } from '../utils/getters'
+import { isColor } from '../utils/color'
 
 /**
  * Alias **`themeProp`**

@@ -7,9 +7,7 @@ import type {
   ThemeKey
 } from '../types'
 
-import { isStr } from '../utils/is'
-import { identity } from '../utils/fns'
-import { mapObj } from '../utils/helpers'
+import { isStr, mapObj, identity } from '@exah/utils'
 import { getThemeMediaValue, themePath } from '../utils/getters'
 import { createPropStyles } from './create-prop-styles'
 import { everyMediaValue } from './every-media'
@@ -141,11 +139,11 @@ const propStylesInTheme = (
   return (props) => {
     if (cachedPropStyles === null) {
       cachedPropStyles = createPropStyles(mapObj(
-        themePath(themeKey, {})(props.theme),
-        ([ key ]) => [
+        (key) => [
           key,
           (value, ...args) => value === true ? style(key, ...args) : null
-        ]
+        ],
+        themePath(themeKey, {})(props.theme)
       ))
     }
 

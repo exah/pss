@@ -7,9 +7,10 @@ import type {
   PropStylesObj
 } from '../types'
 
+import { toObj } from '@exah/utils'
 import { SHORT_DIRECTIONS } from '../constants'
 import { getSpace } from '../utils/getters'
-import { toObj, toCssRule } from '../utils/helpers'
+import { toCssRule } from '../utils/helpers'
 import { everyMediaValue } from './every-media'
 
 type SpaceProps = Array<Array<CompPropName | Array<CSSProp>>>

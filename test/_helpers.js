@@ -1,6 +1,6 @@
-import { flatten, mergeDeepRight } from 'ramda'
+import { mergeDeepRight } from 'ramda'
+import { toArr, flatten } from '@exah/utils'
 import { MEDIA_KEY } from '../src/constants'
-import { toArr } from '../src/utils/helpers'
 import { createTheme, defaultTheme } from '../src/core/create-theme'
 
 const theme = createTheme({

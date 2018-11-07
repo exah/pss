@@ -1,5 +1,5 @@
+import { isBool } from '@exah/utils'
 import { createPropStyles, ruleProp } from '../core'
-import { isBool } from '../utils/is'
 
 const randomHexColor = () =>
   '#' + (Math.random() * 0xFFFFFF << 0).toString(16)

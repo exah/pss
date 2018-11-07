@@ -1,5 +1,5 @@
+import { toObj } from '@exah/utils'
 import { createPropStyles } from '../core'
-import { toObj } from '../utils/helpers'
 
 /**
  * ```js

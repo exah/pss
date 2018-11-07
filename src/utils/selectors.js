@@ -1,7 +1,6 @@
-import { isFn } from './is'
+import { isFn, curryN, identity, toArr, toObj } from '@exah/utils'
 import { themeMedia } from './getters'
-import { curryN, identity } from './fns'
-import { handlePropStyle, wrapIfMedia, toObj, toArr } from './helpers'
+import { handlePropStyle, wrapIfMedia } from './helpers'
 
 /**
  * Alias **`ps`**

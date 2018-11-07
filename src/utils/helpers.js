@@ -1,20 +1,4 @@
-import { isFn, isNum, isStr, isArr } from './is'
-import { curryN, identity } from './fns'
-
-const toArr = (val) => isArr(val) ? val : val != null ? [ val ] : []
-
-const toObj = (arr, fn = identity) => toArr(arr).reduce((acc, value) => ({
-  ...acc,
-  ...fn(value)
-}), {})
-
-const mapObj = curryN(2, (obj, fn) => Object.entries(obj).reduce((acc, entry, index) => {
-  const [ nextKey, nextVal ] = fn(entry, index, obj)
-  return {
-    ...acc,
-    [nextKey]: nextVal
-  }
-}, {}))
+import { isFn, isNum, isStr, toObj, curryN } from '@exah/utils'
 
 const toCssRule = (cssProps, toPx) => (val) => val != null
   ? toObj(cssProps, (name) => {
@@ -71,30 +55,9 @@ const skipPropValue = (...styles) => (value, ...rest) => (
   styles.map((s) => s(...rest))
 )
 
-const path = curryN(3, (pathsOpt, fallback, src) => {
-  const paths = isStr(pathsOpt) ? pathsOpt.split('.') : toArr(pathsOpt)
-  let val = src
-  let idx = 0
-
-  while (idx < paths.length) {
-    val = val[paths[idx]]
-    idx += 1
-
-    if (val == null) {
-      return fallback
-    }
-  }
-
-  return val === src ? fallback : val
-})
-
 export {
-  toArr,
-  toObj,
-  mapObj,
   toCssRule,
   wrap,
-  path,
   wrapIfMedia,
   handlePropStyle,
   sizeValue,

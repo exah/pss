@@ -7,7 +7,8 @@
 type CSSProp = string
 type CSSVal = string | number
 type StyleObj = { [CSSProp]: CSSVal }
-type Styles = StyleObj | Array<StyleObj>
+type EmptyArray = Array<*>
+type Styles = EmptyArray | StyleObj | StyleObj[]
 
 //
 // Prop Styles

@@ -1,6 +1,6 @@
 [ignore]
-.*/cjs/.*
-.*/esm/.*
+<PROJECT_ROOT>/cjs/.*
+<PROJECT_ROOT>/esm/.*
 
 [include]
 

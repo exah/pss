@@ -8,11 +8,9 @@ import type {
   PropStylesObj
 } from '../types'
 
-import { isFn } from '../utils/is'
-import { once } from '../utils/fns'
+import { isFn, toArr, once } from '@exah/utils'
 
 import {
-  toArr,
   wrapIfMedia,
   handlePropStyle
 } from '../utils/helpers'

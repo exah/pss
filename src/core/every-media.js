@@ -1,5 +1,4 @@
-import { isFn } from '../utils/is'
-import { identity } from '../utils/fns'
+import { isFn, identity } from '@exah/utils'
 import { themeMedia } from '../utils/getters'
 import { wrapIfMedia } from '../utils/helpers'
 

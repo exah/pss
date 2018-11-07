@@ -6,8 +6,7 @@ import type {
   PropStyleFn
 } from '../types'
 
-import { isStr } from '../utils/is'
-import { curryN } from '../utils/fns'
+import { isStr, curryN } from '@exah/utils'
 import { getSize, themePath } from '../utils/getters'
 import { sizeValue, toCssRule } from '../utils/helpers'
 import { everyMediaValue } from './every-media'

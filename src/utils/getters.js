@@ -1,3 +1,5 @@
+import { isStr, isFn, fallbackTo, path } from '@exah/utils'
+
 import {
   DEFAULT_KEY,
   COLORS_KEY,
@@ -7,15 +9,11 @@ import {
   SPACE_KEY
 } from '../constants'
 
-import { isStr, isFn, isEmpty } from './is'
-import { spaceValue, path } from './helpers'
-import { fallbackTo } from './fns'
-import { defaultTheme } from '../core/create-theme'
+import { spaceValue } from './helpers'
 
-const themePath = (key, fallback) => (src) => path(
-  key,
-  fallback,
-  isEmpty(src) ? defaultTheme : src
+const themePath = (input, fallback) => (src) => fallbackTo(
+  path(input)((src && src.theme) || src),
+  fallback
 )
 
 const themeDefaultPaletteName = themePath([ DEFAULT_KEY, PALETTE_KEY ], DEFAULT_KEY)
@@ -51,15 +49,16 @@ const getColor = (theme, key, colorName) => {
   const palette = getPalette(theme, colorName)
   const fallback = palette[key] ? palette : colors
 
-  return isStr(colorName) ? path(colorName, fallback[key])(colors) : colors[key]
+  return isStr(colorName) ? themePath(colorName, fallback[key])(colors) : colors[key]
 }
 
 const getThemeMediaValue = (themeParentKey) => (theme, value) => {
   const key = value === true
     ? themePath([ DEFAULT_KEY, themeParentKey ], DEFAULT_KEY)(theme)
     : isStr(value) ? value : null
+
   const src = themePath(themeParentKey, null)(theme)
-  const result = path(key, null, src)
+  const result = key == null ? null : themePath(key, null)(src)
 
   if (result !== null && result.hasOwnProperty(DEFAULT_KEY)) {
     return (mediaKey, exact = false) => {

@@ -1,6 +1,7 @@
+import { isNum } from '@exah/utils'
+
 import { createPropStyles } from '../core/create-prop-styles'
 import { floor } from '../utils/fns'
-import { isNum } from '../utils/is'
 
 /**
  * Alias **`ratioPropStyles`**
