@@ -38,8 +38,7 @@ export {
 } from './utils/selectors'
 
 export {
-  combine,
-  fallbackTo
+  combine
 } from './utils/fns'
 
 export {
