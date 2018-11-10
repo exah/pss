@@ -34,7 +34,7 @@ const paddingPropStyles = createPropStyles(createSpaceProps('padding', 'pd'))
  *
  * **`Number` values:**
  *
- * - Value from `theme.space[mediaKey]` or `theme.space.default` `Array` by index
+ * - Value from `theme.space[mediaKey]`, `theme.space.default` or `theme.space` `Array` by index
  * - Negative value for negative margins
  *
  *

@@ -1,4 +1,4 @@
-import { isStr, isFn, fallbackTo, path } from '@exah/utils'
+import { isStr, isFn, isArr, fallbackTo, path } from '@exah/utils'
 
 import {
   DEFAULT_KEY,
@@ -87,6 +87,8 @@ const getThemeMediaValue = (themeParentKey) => (theme, value) => {
 const getSize = getThemeMediaValue(SIZES_KEY)
 
 const getSpace = (theme, step) => (mediaKey, exact = false) => {
+  const isDefaultValue = ((exact === true && mediaKey === DEFAULT_KEY) || !exact)
+
   if (isStr(step)) {
     const themeSize = getSize(theme, step)
 
@@ -95,13 +97,17 @@ const getSpace = (theme, step) => (mediaKey, exact = false) => {
       if (size !== step) {
         return size
       }
-    } else if ((exact === true && mediaKey === DEFAULT_KEY) || !exact) {
+    } else if (isDefaultValue) {
       return fallbackTo(themeSize, step)
     }
     return null
   }
 
   const spaces = themeSpaces(theme)
+
+  if (isArr(spaces) && isDefaultValue) {
+    return spaceValue(step, spaces)
+  }
 
   return spaceValue(step, fallbackTo(
     spaces[mediaKey],

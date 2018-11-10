@@ -126,3 +126,8 @@ test('style -> padding', (t) => {
     }
   })
 })
+
+test('props -> without theme', (t) => {
+  t.deepEqual(toStyles(marginPropStyles({ mg: 1 })), {})
+  t.deepEqual(toStyles(marginPropStyles({ mg: 0 })), { margin: 0 })
+})
