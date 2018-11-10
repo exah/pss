@@ -6,22 +6,34 @@ import {
   MEDIA_KEY,
   PALETTE_KEY,
   SIZES_KEY,
-  SPACE_KEY
+  SPACE_KEY,
+  DEFAULT_THEME_MEDIA,
+  DEFAULT_THEME_SPACE,
+  DEFAULT_THEME_PALETTE,
+  DEFAULT_THEME_COLORS
 } from '../constants'
 
 import { spaceValue } from './helpers'
 
-const themePath = (input, fallback) => (src) => fallbackTo(
-  path(input)((src && src.theme) || src),
+const getTheme = (obj) => {
+  const theme = ((obj && obj.theme) || obj || {})
+  return {
+    ...theme,
+    [MEDIA_KEY]: { ...DEFAULT_THEME_MEDIA, ...theme[MEDIA_KEY] }
+  }
+}
+
+const themePath = (input, fallback) => (obj) => fallbackTo(
+  path(input)(getTheme(obj)),
   fallback
 )
 
 const themeDefaultPaletteName = themePath([ DEFAULT_KEY, PALETTE_KEY ], DEFAULT_KEY)
 const themeDefaultMedia = themePath([ DEFAULT_KEY, MEDIA_KEY ], DEFAULT_KEY)
-const themeSpaces = themePath(SPACE_KEY, {})
-const themeMedia = themePath(MEDIA_KEY, {})
-const themePalettes = themePath(PALETTE_KEY, {})
-const themeColors = themePath(COLORS_KEY, {})
+const themeMedia = themePath(MEDIA_KEY, DEFAULT_THEME_MEDIA)
+const themeSpaces = themePath(SPACE_KEY, DEFAULT_THEME_SPACE)
+const themePalettes = themePath(PALETTE_KEY, DEFAULT_THEME_PALETTE)
+const themeColors = themePath(COLORS_KEY, DEFAULT_THEME_COLORS)
 
 const getPalette = (theme, name) => {
   const palettes = themePalettes(theme)
@@ -57,8 +69,8 @@ const getThemeMediaValue = (themeParentKey) => (theme, value) => {
     ? themePath([ DEFAULT_KEY, themeParentKey ], DEFAULT_KEY)(theme)
     : isStr(value) ? value : null
 
-  const src = themePath(themeParentKey, null)(theme)
-  const result = key == null ? null : themePath(key, null)(src)
+  const obj = themePath(themeParentKey, null)(theme)
+  const result = key == null ? null : themePath(key, null)(obj)
 
   if (result !== null && result.hasOwnProperty(DEFAULT_KEY)) {
     return (mediaKey, exact = false) => {

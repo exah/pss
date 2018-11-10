@@ -38,10 +38,10 @@ import { createSizeProp, createPropStyles } from '../core'
  * - `false` is `0`.
  *
  *
- * Examples use this [`theme`](#createtheme):
+ * Examples use this `theme`:
  *
  * ```js
- * const theme = createTheme({
+ * const theme = {
  *   media: {
  *     M: `(max-width: 600px)`
  *   },
@@ -56,7 +56,7 @@ import { createSizeProp, createPropStyles } from '../core'
  *   site: {
  *     width: '1300px'
  *   }
- * })
+ * }
  * ```
  *
  * @example

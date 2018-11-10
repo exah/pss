@@ -2,7 +2,6 @@ import test from 'ava'
 import { MEDIA_KEY, SPACE_KEY } from '../src/constants'
 
 import {
-  createTheme,
   createPropStyles,
   createSpaceProps,
   positionPropStyles,
@@ -15,7 +14,7 @@ import {
 
 import { toStyles } from './_helpers'
 
-const theme = createTheme({
+const theme = {
   [MEDIA_KEY]: {
     D: '(min-width: 1025px)',
     T: '(min-width: 601px) and (max-width: 1024px)',
@@ -26,7 +25,7 @@ const theme = createTheme({
     M: [ 0, 5, 10, 20, 20 ]
   },
   myValue: 100
-})
+}
 
 const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
 

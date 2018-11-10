@@ -49,10 +49,10 @@ const paddingPropStyles = createPropStyles(createSpaceProps('padding', 'pd'))
  * - Used as plain CSS value (like `'10%'`, `'1em'` or `'100vh'`)
  *
  *
- * <br /> Examples use this [`theme`](#createtheme):
+ * <br /> Examples use this `theme`:
  *
  * ```js
- * const theme = createTheme({
+ * const theme = {
  *   media: {
  *     M: `(max-width: 600px)`
  *   },
@@ -60,7 +60,7 @@ const paddingPropStyles = createPropStyles(createSpaceProps('padding', 'pd'))
  *     default: [ 0, 10, 20, 40, 80 ],
  *     M: [ 0, 8, 16, 32, 64 ],
  *   }
- * })
+ * }
  * ```
  *
  *

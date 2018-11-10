@@ -9,7 +9,6 @@ import {
 } from '../src/constants'
 
 import {
-  createTheme,
   createPropStyles,
   createPaletteProp,
   createColorProp
@@ -21,7 +20,7 @@ const COLOR_WHITE = '#ffffff'
 const COLOR_BLACK = '#000000'
 const COLOR_YELLOW = '#fff000'
 
-const theme = createTheme({
+const theme = {
   [MEDIA_KEY]: {
     D: '(min-width: 1025px)',
     M: '(max-width: 600px)'
@@ -45,7 +44,7 @@ const theme = createTheme({
       accent: COLOR_YELLOW
     }
   }
-})
+}
 
 const themeInvertedDefault = mergeDeepRight(theme, {
   [DEFAULT_KEY]: { [PALETTE_KEY]: 'inverted' }

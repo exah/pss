@@ -2,7 +2,6 @@ import test from 'ava'
 import { MEDIA_KEY, SIZES_KEY } from '../src/constants'
 
 import {
-  createTheme,
   createPropStyles,
   createSizeProp,
   createSizeStyle,
@@ -11,7 +10,7 @@ import {
 
 import { toStyles } from './_helpers'
 
-const theme = createTheme({
+const theme = {
   [MEDIA_KEY]: {
     D: '(min-width: 1025px)',
     M: '(max-width: 600px)'
@@ -26,7 +25,7 @@ const theme = createTheme({
   custom: {
     'my-value': '1000px'
   }
-})
+}
 
 const sizesPropStyles = createPropStyles({
   ht: createSizeProp('height'),

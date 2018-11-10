@@ -7,14 +7,13 @@ import {
 } from '../src/constants'
 
 import {
-  createTheme,
   text,
   textStyle
 } from '../src'
 
 import { toStyles } from './_helpers'
 
-const theme = createTheme({
+const theme = {
   [MEDIA_KEY]: {
     D: '(min-width: 1025px)',
     M: '(max-width: 600px)'
@@ -30,7 +29,7 @@ const theme = createTheme({
       fontWeight: 'bold'
     }
   }
-})
+}
 
 test('props -> set font family', (t) => {
   const result = toStyles(text({

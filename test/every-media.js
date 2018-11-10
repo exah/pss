@@ -1,14 +1,14 @@
 import test from 'ava'
 import { MEDIA_KEY } from '../src/constants'
-import { createTheme, everyMedia } from '../src'
+import { everyMedia } from '../src'
 import { toStyles } from './_helpers'
 
-const theme = createTheme({
+const theme = {
   [MEDIA_KEY]: {
     D: '(min-width: 601px)',
     M: '(max-width: 600px)'
   }
-})
+}
 
 test('run callback for every media in theme', (t) => {
   let i = 0

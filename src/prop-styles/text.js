@@ -37,14 +37,14 @@ import { createPropStyles, createStyleFromTheme, ruleProp } from '../core'
  *
  * [ellipsis-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
  *
- * Also you can provide **fonts** with [`theme`](#createtheme):
+ * Also you can provide **fonts** with `theme`:
  *
  * ```js
- * const theme = createTheme({
+ * const theme = {
  *   font: {
  *     ui: 'Helvetica, Arial, system-ui, sans-serif'
  *   }
- * })
+ * }
  * ```
  *
  * @example

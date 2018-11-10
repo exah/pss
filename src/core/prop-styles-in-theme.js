@@ -21,9 +21,7 @@ import { everyMediaValue } from './every-media'
  * Useful for creating text or buttons styles. See {@link textStyle}.
  *
  * @example
- * import { createTheme } from 'pss'
- *
- * const theme = createTheme({
+ * const theme = {
  *   textStyle: {
  *     default: {
  *       fontSize: '16px',
@@ -37,7 +35,7 @@ import { everyMediaValue } from './every-media'
  *       fontFamily: 'system-ui'
  *     }
  *   }
- * })
+ * }
  *
  * @example
  * import styled from 'react-emotion'
@@ -86,9 +84,7 @@ const createStyleFromTheme = (options: {
  *
  *
  * @example
- * import { createTheme } from 'pss'
- *
- * const theme = createTheme({
+ * const theme = {
  *   textStyleFlags: {
  *     caps: {
  *       textTransform: 'uppercase'
@@ -97,7 +93,7 @@ const createStyleFromTheme = (options: {
  *       borderBottom: '1px solid'
  *     }
  *   }
- * })
+ * }
  *
  * @example
  * import styled from 'react-emotion'

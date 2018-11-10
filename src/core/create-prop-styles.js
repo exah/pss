@@ -86,14 +86,13 @@ const buildStylesWithMedia = (styles: PropStylesObj) => (theme: ThemeObj): PropS
  *
  * @example
  * import { ThemeProvider } from 'emotion-theming'
- * import { createTheme } from 'pss'
  *
  * // Create theme with media queries
- * const theme = createTheme({
+ * const theme = {
  *   media: {
  *     M: '(max-width: 600px)'
  *   }
- * })
+ * }
  *
  * // Add theme to ThemeProvider
  * <ThemeProvider theme={theme}>

@@ -8,27 +8,25 @@ import { createPropStyles, createStyleFromTheme } from '../core'
  *
  * Global text styles system, like in [Sketch](https://sketchapp.com/docs/text/text-styles).
  *
- * Examples use this [`theme`](#createtheme):
+ * Examples use this `theme`:
  *
  * ```js
- *  import { createTheme } from 'pss'
- *
- *  const theme = createTheme({
- *    textStyle: {
- *      default: {
- *        fontSize: '16px',
- *        lineHeight: 1.2,
- *        fontWeight: normal,
- *        fontFamily: 'system-ui'
- *      },
- *      heading: {
- *        fontSize: '2rem',
- *        lineHeight: 1.2,
- *        fontWeight: 'bold',
- *        fontFamily: 'system-ui'
- *      }
- *    }
- *  })
+ * const theme = {
+ *   textStyle: {
+ *     default: {
+ *       fontSize: '16px',
+ *       lineHeight: 1.2,
+ *       fontWeight: normal,
+ *       fontFamily: 'system-ui'
+ *     },
+ *     heading: {
+ *       fontSize: '2rem',
+ *       lineHeight: 1.2,
+ *       fontWeight: 'bold',
+ *       fontFamily: 'system-ui'
+ *     }
+ *   }
+ * }
  * ```
  *
  * @example

@@ -28,7 +28,6 @@ toc:
   - name: Creating Prop Styles and Theme
     children:
       - createPropStyles
-      - createTheme
       - createSizeProp
       - createSpaceProps
       - createSpaceStyle

@@ -28,3 +28,19 @@ export const CSS_PROPS_DEFAULTS = {
   borderColor: 'transparent',
   backgroundColor: 'transparent'
 }
+
+export const DEFAULT_THEME_MEDIA = {
+  [DEFAULT_KEY]: null
+}
+
+export const DEFAULT_THEME_SPACE = {
+  [DEFAULT_KEY]: [ 0 ]
+}
+
+export const DEFAULT_THEME_PALETTE = {
+  [DEFAULT_KEY]: {}
+}
+
+export const DEFAULT_THEME_COLORS = {
+  [DEFAULT_KEY]: {}
+}

@@ -1,14 +1,14 @@
 import test from 'ava'
-import { createTheme, border } from '../src'
+import { border } from '../src'
 import { toStyles } from './_helpers'
 
-const theme = createTheme({
+const theme = {
   palette: {
     default: {
       border: '#eee'
     }
   }
-})
+}
 
 test('props: border', (t) => {
   const result = border({

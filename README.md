@@ -27,37 +27,6 @@ Because css-in-js and design systems are all the hype right now! But seriously, 
 - Style our components using concise and easy-to-memorize props
 - Have a convenient way to define alternative styles for different screen sizes
 
-For example if you want prop that hides element on mobile, you can add `media` queries to your [`theme`](./docs/api.md#createtheme) and [create](./docs/api.md#createpropstyles) simple prop style to do that.
-
-```js
-import { createPropStyles, createTheme } from 'pss'
-
-const myPropStyles = createPropStyles({
-  hide: { display: 'none' }
-})
-
-const myTheme = createTheme({
-  media: {
-    OnMobile: '(max-width: 600px)'
-  }
-})
-```
-
-Prop styles (`hide`) then can be enabled and wrapped inside media queries with suffix (`OnMobile`) to props.
-
-```js
-import styled from 'react-emotion'
-import { ThemeProvider } from 'emotion-theming'
-
-const Box = styled.div(myPropStyles)
-
-<ThemeProvider theme={myTheme}>
-  <Box hideOnMobile />
-</ThemeProvider>
-
-// @media (max-width: 600px) { display: none }
-```
-
 
 ## 👀 Example
 
@@ -86,9 +55,8 @@ Use them in runtime with custom theme:
 
 ```js
 import { ThemeProvider } from 'emotion-theming'
-import { createTheme } from 'pss' 
 
-const theme = createTheme({
+const theme = {
   media: {
     M: '(max-width: 600px)'
   },
@@ -110,7 +78,7 @@ const theme = createTheme({
       fg: '#ffffff'
     }
   }
-})
+}
 
 <ThemeProvider theme={theme}>
   <Box bg="inverted" ht> // css-0

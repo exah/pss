@@ -33,10 +33,10 @@ import { createPropStyles, createPaletteProp, createColorProp } from '../core'
  *   - `tm` → `theme.palette.default.fg`, `theme.palette.default.bg`
  *
  *
- * Examples use this [`theme`](#createtheme):
+ * Examples use this `theme`:
  *
  * ```js
- * const theme = createTheme({
+ * const theme = {
  *   default: {
  *     palette: 'default' // this can be changed
  *   },
@@ -58,7 +58,7 @@ import { createPropStyles, createPaletteProp, createColorProp } from '../core'
  *       accent: '#ff0000'
  *     }
  *   }
- * })
+ * }
  * ```
  *
  * @example

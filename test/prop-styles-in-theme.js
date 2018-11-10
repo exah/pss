@@ -1,8 +1,8 @@
 import test from 'ava'
-import { createTheme, createPropStyles, propStylesInTheme, createStyleFromTheme } from '../src'
+import { createPropStyles, propStylesInTheme, createStyleFromTheme } from '../src'
 import { theme as helperTheme, toStyles } from './_helpers'
 
-const theme = createTheme({
+const theme = {
   ...helperTheme,
   customStyles: {
     default: {
@@ -28,7 +28,7 @@ const theme = createTheme({
       }
     }
   }
-})
+}
 
 const customFlags = propStylesInTheme('customStyles')
 const customProps = createPropStyles({
