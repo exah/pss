@@ -1,29 +1,29 @@
-import { isFn, identity } from '@exah/utils'
-import { themeMedia } from '../utils/getters'
+import { isFn, identity, reduceObj } from '@exah/utils'
 import { wrapIfMedia } from '../utils/helpers'
+import { themeMedia } from '../utils/getters'
 
-const everyMedia = (theme, getStyle) =>
-  Object.entries(themeMedia(theme))
-    .reduce((acc, [ mediaKey, mediaQuery ]) => acc.concat(wrapIfMedia(
-      mediaQuery,
-      getStyle(mediaKey)
-    ) || []), [])
+const everyMedia = (getStyle) => (props) => reduceObj(
+  (acc, mediaKey, mediaQuery) => acc.concat(
+    wrapIfMedia(mediaQuery, getStyle(mediaKey)) || []
+  ),
+  themeMedia(props),
+  []
+)
 
 const everyMediaValue = (
-  theme,
-  fnMediaKey,
-  themeValue,
+  mediaKey,
+  getThemeValue,
   wrapper = identity
-) => {
-  if (isFn(themeValue)) {
-    if (fnMediaKey != null) {
-      return wrapper(themeValue(fnMediaKey))
+) => (props) => {
+  if (isFn(getThemeValue)) {
+    if (mediaKey != null) {
+      return wrapper(getThemeValue(mediaKey))
     }
 
-    return everyMedia(theme, (mediaKey) => wrapper(themeValue(mediaKey, true)))
+    return everyMedia((key) => wrapper(getThemeValue(key, true)))(props)
   }
 
-  return wrapper(themeValue)
+  return wrapper(getThemeValue)
 }
 
 export {

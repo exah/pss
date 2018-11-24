@@ -46,36 +46,28 @@ const createSizeProp = (
   trueVal?: CSSVal = '100%',
   falseVal?: CSSVal = 0,
   toPx?: boolean = true
-): PropStyleFn => curryN(2, (propValue, { theme }, mediaKey, isRawValue) => {
+): PropStyleFn => curryN(2, (input, props, mediaKey, isRawValue) => {
   const cssRule = toCssRule(cssProp, toPx)
 
   if (isRawValue === true) {
-    return cssRule(propValue)
+    return cssRule(input)
   }
 
-  if (isStr(propValue)) {
-    const customPathValue = themePath(propValue, null)(theme)
+  if (isStr(input)) {
+    const customPathValue = themePath(input, null)(props)
     if (customPathValue !== null) return cssRule(customPathValue)
   }
 
-  const size = sizeValue(propValue, trueVal, falseVal)
-
-  if (size !== propValue) {
-    return cssRule(size)
-  }
-
-  const themeSize = getSize(theme, propValue)
-
-  if (themeSize == null) {
-    return cssRule(propValue)
-  }
+  const themeSize = getSize(
+    input,
+    sizeValue(input, trueVal, falseVal)
+  )(props)
 
   return everyMediaValue(
-    theme,
     mediaKey,
     themeSize,
     cssRule
-  )
+  )(props)
 })
 
 const createSizeStyle = (cssProp: CSSProp, ...sizeValueArgs?: [ CSSVal, CSSVal ]): PropStyleFn =>

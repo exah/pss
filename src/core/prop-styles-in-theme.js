@@ -68,11 +68,10 @@ const createStyleFromTheme = (options: {
   const { themeKey, themeGetter, getStyle = identity } = options
   const getter = themeGetter || getThemeMediaValue(themeKey)
 
-  return (value, { theme }, mediaKey) => everyMediaValue(
-    theme,
+  return (input, props, mediaKey) => everyMediaValue(
     mediaKey,
-    getStyle(getter(theme, value), value)
-  )
+    getStyle(getter(input)(props), input)
+  )(props)
 }
 
 /**
@@ -137,9 +136,9 @@ const propStylesInTheme = (
       cachedPropStyles = createPropStyles(mapObj(
         (key) => [
           key,
-          (value, ...args) => value === true ? style(key, ...args) : null
+          (input, ...args) => input === true ? style(key, ...args) : null
         ],
-        themePath(themeKey, {})(props.theme)
+        themePath(themeKey, {})(props)
       ))
     }
 

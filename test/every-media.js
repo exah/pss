@@ -12,19 +12,19 @@ const theme = {
 
 test('run callback for every media in theme', (t) => {
   let i = 0
-  everyMedia(theme, (mediaKey) => {
+  everyMedia((mediaKey) => {
     if (theme[MEDIA_KEY].hasOwnProperty(mediaKey)) i++
-  })
+  })({ theme })
 
   t.is(i, Object.keys(theme[MEDIA_KEY]).length)
 })
 
 test('get styles for every media in theme', (t) => {
-  const result = everyMedia(theme, (mediaKey) => {
+  const result = everyMedia((mediaKey) => {
     return mediaKey === 'D' ? null : {
       backgroundColor: mediaKey === 'default' ? 'red' : 'yellow'
     }
-  })
+  })({ theme })
 
   t.deepEqual(toStyles(result), {
     backgroundColor: 'red',

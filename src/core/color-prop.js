@@ -46,7 +46,7 @@ import { isColor } from '../utils/color'
 const createPaletteProp = (
   bgKey: string = 'bg',
   fgKey: string = 'fg'
-): PropStyleFn => curryN(2, (value, { theme }) => {
+): PropStyleFn => curryN(2, (value, props) => {
   if (value == null) {
     return {}
   }
@@ -58,7 +58,7 @@ const createPaletteProp = (
     }
   }
 
-  const palette = getColors(theme, value)
+  const palette = getColors(value)(props)
 
   return {
     backgroundColor: palette[bgKey],
@@ -122,7 +122,7 @@ const createColorProp = (
 
   const color = value === false
     ? CSS_PROPS_DEFAULTS[cssProp] || CSS_DEFAULT_VALUE
-    : isColor(value) ? value : getColor(props.theme, colorKey, value)
+    : isColor(value) ? value : getColor(colorKey, value)(props)
 
   return !color ? {} : {
     [cssProp]: getCssValue(color, props)

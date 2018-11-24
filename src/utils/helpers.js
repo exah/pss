@@ -1,4 +1,4 @@
-import { isFn, isNum, isStr, isPlainObj, toObj, curryN } from '@exah/utils'
+import { isFn, isNum, isStr, toObj, curryN } from '@exah/utils'
 
 const toCssRule = (cssProps, toPx) => (val) => val != null
   ? toObj(cssProps, (name) => {
@@ -16,18 +16,18 @@ const wrap = curryN(2, (name, style) => {
     : wrapper(style)
 })
 
-const handlePropStyle = (style, value, props, mediaKey, isRawValue) => isFn(style)
-  ? style(value, props, mediaKey, isRawValue)
-  : value === true ? style : null
+const handlePropStyle = (style, input, props, mediaKey, isRawValue) => isFn(style)
+  ? style(input, props, mediaKey, isRawValue)
+  : input === true ? style : null
 
 const wrapIfMedia = (query, style) => wrap(
   query ? `@media ${query}` : null,
   style
 )
 
-const sizeValue = (val, trueVal = '100%', falseVal = 0) => (isNum(val)
-  ? (val <= 0 || val > 1 ? val : `${val * 100}%`)
-  : val === true ? trueVal : val === false ? falseVal : val
+const sizeValue = (input, trueVal = '100%', falseVal = 0) => (isNum(input)
+  ? (input <= 0 || input > 1 ? input : `${input * 100}%`)
+  : input === true ? trueVal : input === false ? falseVal : input
 )
 
 const getNumber = (str) => parseFloat(str, 10)
@@ -37,30 +37,30 @@ const getUnit = (str) => String(str)
 
 const splitUnit = (str) => [ getNumber(str), getUnit(str) ]
 
-const spaceValue = (val, spaces) => {
-  const size = spaces[Math.abs(val)]
-  const coeficent = ((val < 0) ? -1 : 1)
+const spaceValue = (input, spaces) => {
+  const value = spaces[Math.abs(input)]
+  const coeficent = ((input < 0) ? -1 : 1)
 
-  if (size === undefined) {
+  if (value === undefined) {
     return null
-  } else if (isStr(size)) {
-    const [ number, unit ] = splitUnit(size)
+  } else if (isStr(value)) {
+    const [ number, unit ] = splitUnit(value)
     return `${Number(number) * coeficent}${unit}`
   }
 
-  return size * coeficent
+  return value * coeficent
 }
 
-const skipPropValue = (...styles) => (value, ...rest) => (
+const skipPropValue = (...styles) => (input, ...rest) =>
   styles.map((s) => s(...rest))
-)
 
-const hasMediaKeys = (mediaKeys, value = {}) => (
-  isPlainObj(value) &&
-  Object.keys(value).some((key) => mediaKeys.includes(key))
-)
+const keys = (obj) => Object.keys(Object(obj))
+
+const hasMediaKeys = (mediaKeys, value = {}) =>
+  keys(value).some((key) => mediaKeys.includes(key))
 
 export {
+  keys,
   toCssRule,
   wrap,
   wrapIfMedia,

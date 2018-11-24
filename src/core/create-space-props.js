@@ -31,13 +31,12 @@ const cssRuleSpaceStyle = (
   getSpaceValue: Function = getSpace,
   toPx = true
 ): Function =>
-  (value, defaultMediaKey): DynamicStyleFn =>
-    ({ theme }, mediaKey = defaultMediaKey, isRawValue) => everyMediaValue(
-      theme,
+  (input, defaultMediaKey): DynamicStyleFn =>
+    (props, mediaKey = defaultMediaKey, isRawValue) => everyMediaValue(
       mediaKey,
-      isRawValue ? value : getSpaceValue(theme, value),
+      isRawValue ? input : getSpaceValue(input)(props),
       toCssRule(styleProp, toPx)
-    )
+    )(props)
 
 /**
  * ```js
@@ -135,8 +134,8 @@ const createSpaceProps = (
   return toObj(modifiers, ([ modName, styleProp ]) => {
     const style = cssRuleSpaceStyle(styleProp, getSpaceValue)
     return {
-      [modName]: (value, compProps, mediaKey, isRawValue) =>
-        style(value)(compProps, mediaKey, isRawValue)
+      [modName]: (input, compProps, mediaKey, isRawValue) =>
+        style(input)(compProps, mediaKey, isRawValue)
     }
   })
 }

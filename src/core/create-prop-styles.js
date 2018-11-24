@@ -15,6 +15,7 @@ import {
 } from '@exah/utils'
 
 import {
+  keys,
   wrapIfMedia,
   handlePropStyle,
   hasMediaKeys
@@ -111,9 +112,9 @@ const createPropStyles = (
   const propStylesWithMediaMemoized = memoize(propStylesWithMedia(propStyles))
 
   return (props: Props): Styles => {
-    const media = themeMedia(props.theme)
-    const mediaKeys = Object.keys(media)
-    const isMedia = opts.isMediaProps && themeDefaultMedia(props.theme) !== false
+    const media = themeMedia(props)
+    const mediaKeys = keys(media)
+    const isMedia = opts.isMediaProps && themeDefaultMedia(props) !== false
     const stylesMap = isMedia ? propStylesWithMediaMemoized(mediaKeys) : propStyles
 
     const getStylesFromProps = reduceObj((acc, propName, propValue) => {
@@ -133,10 +134,10 @@ const createPropStyles = (
           } else {
             // like: { default: 0, M: 1 }
             if (hasMediaKeys(mediaKeys, propValue)) {
-              return reduceObj((subAcc, key, value) => subAcc.concat(
+              return reduceObj((subAcc, key, input) => subAcc.concat(
                 wrapIfMedia(
                   media[key],
-                  handlePropStyle(style, value, props, key)
+                  handlePropStyle(style, input, props, key)
                 ) || []
               ), propValue, [])
             }

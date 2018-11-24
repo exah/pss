@@ -69,7 +69,7 @@ const mediaPropSelector = curryN(2, (mediaKeyAndQuery, value) => {
   const styleFromValue = combineSelectors(value)
 
   return (props, propMediaKey, style) => wrapIfMedia(
-    customQuery || themeMedia(props.theme)[mediaKey],
+    customQuery || themeMedia(props)[mediaKey],
     toObj(styleFromValue(props, mediaKey, style))
   )
 })
