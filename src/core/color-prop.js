@@ -10,8 +10,7 @@ import type {
 
 import { identity, curryN } from '@exah/utils'
 import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
-import { getColors, getColor } from '../utils/getters'
-import { isColor } from '../utils/color'
+import { getActiveColors, getColor } from '../utils/getters'
 
 /**
  * Alias **`themeProp`**
@@ -46,19 +45,19 @@ import { isColor } from '../utils/color'
 const createPaletteProp = (
   bgKey: string = 'bg',
   fgKey: string = 'fg'
-): PropStyleFn => curryN(2, (value, props) => {
-  if (value == null) {
+): PropStyleFn => curryN(2, (input, props) => {
+  if (input == null) {
     return {}
   }
 
-  if (value === false) {
+  if (input === false) {
     return {
       backgroundColor: CSS_PROPS_DEFAULTS['backgroundColor'],
       color: CSS_PROPS_DEFAULTS['color']
     }
   }
 
-  const palette = getColors(value)(props)
+  const palette = getActiveColors(input)(props)
 
   return {
     backgroundColor: palette[bgKey],
@@ -109,20 +108,20 @@ const createColorProp = (
   cssProp: CSSProp,
   colorKey: ThemeKey,
   getCssValue?: (color: string, props: Props) => CSSVal = identity
-): PropStyleFn => curryN(2, (value, props, mediaKey, isRawValue) => {
-  if (value == null) {
+): PropStyleFn => curryN(2, (input, props, mediaKey, isRawValue) => {
+  if (input == null) {
     return {}
   }
 
   if (isRawValue === true) {
     return {
-      [cssProp]: value
+      [cssProp]: input
     }
   }
 
-  const color = value === false
+  const color = input === false
     ? CSS_PROPS_DEFAULTS[cssProp] || CSS_DEFAULT_VALUE
-    : isColor(value) ? value : getColor(colorKey, value)(props)
+    : getColor(colorKey, input)(props)
 
   return !color ? {} : {
     [cssProp]: getCssValue(color, props)

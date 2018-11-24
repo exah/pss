@@ -120,9 +120,10 @@ test('props -> set default "inverted" theme foreground color', (t) => {
 
 test('props -> set custom foreground color', (t) => {
   const customColor = 'rgba(255, 0, 255, 0.3)'
-  const result = toStyles(colorsPropStyles({ theme, fg: customColor }))
+  const result = toStyles(colorsPropStyles({ theme, fg: customColor, bg: 'custom-color' }))
 
   t.deepEqual(result, {
-    color: customColor
+    color: customColor,
+    backgroundColor: 'custom-color'
   })
 })

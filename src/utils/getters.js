@@ -65,7 +65,10 @@ const getSpace = (input) => (props) => (mediaKey, every = false) => {
         return size
       }
     } else if (isDefaultValue) {
-      return fallbackTo(themeSize, input)
+      return fallbackTo(
+        themeSize,
+        input
+      )
     }
     return null
   }
@@ -83,20 +86,14 @@ const getSpace = (input) => (props) => (mediaKey, every = false) => {
   ))
 }
 
-const getPalette = (input) => (props) => {
-  const palettes = themePalettes(props)
-
-  return fallbackTo(
-    palettes[input],
-    palettes[themeDefaultPaletteName(props)],
-    palettes[DEFAULT_KEY],
-    {}
-  )
+const getPaletteColors = (input) => (props) => {
+  const paletteKey = isStr(input) ? input : themeDefaultPaletteName(props)
+  return path(paletteKey, {})(themePalettes(props))
 }
 
-const getColors = (input) => (props) => {
+const getActiveColors = (input) => (props) => {
+  const palette = getPaletteColors(input)(props)
   const colors = themeColors(props)
-  const palette = getPalette(input)(props)
 
   return {
     ...palette,
@@ -104,12 +101,18 @@ const getColors = (input) => (props) => {
   }
 }
 
-const getColor = (key, colorName) => (props) => {
-  const colors = getColors()(props)
-  const palette = getPalette(colorName)(props)
-  const fallback = palette[key] ? palette : colors
+const getColor = (defaultColorKey, colorKey = true) => (props) => {
+  const activeColors = getActiveColors()(props)
 
-  return isStr(colorName) ? themePath(colorName, fallback[key])(colors) : colors[key]
+  const color = colorKey === true
+    ? path(defaultColorKey)(activeColors)
+    : isStr(colorKey) ? path(colorKey)(activeColors) : null
+
+  return fallbackTo(
+    color,
+    path(defaultColorKey)(getPaletteColors(colorKey)(props)),
+    colorKey
+  )
 }
 
 export {
@@ -121,8 +124,8 @@ export {
   themeColors,
   themePath,
   getThemeMediaValue,
-  getPalette,
-  getColors,
+  getPaletteColors,
+  getActiveColors,
   getColor,
   getSize,
   getSpace
