@@ -26,7 +26,7 @@ test('props: css', (t) => {
 })
 
 test('props: css (responsive)', (t) => {
-  const result = cssProp({
+  const result1 = cssProp({
     theme,
     css: {
       backgroundColor: 'blue'
@@ -37,13 +37,29 @@ test('props: css (responsive)', (t) => {
     }
   })
 
-  t.deepEqual(toStyles(result), {
+  const result2 = cssProp({
+    theme,
+    css: {
+      default: {
+        backgroundColor: 'blue'
+      },
+      M: {
+        backgroundColor: 'red',
+        display: 'flex'
+      }
+    }
+  })
+
+  const expected = {
     backgroundColor: 'blue',
     '@media (max-width: 600px)': {
       backgroundColor: 'red',
       display: 'flex'
     }
-  })
+  }
+
+  t.deepEqual(toStyles(result1), expected)
+  t.deepEqual(toStyles(result2), expected)
 })
 
 test('props: css (callback)', (t) => {

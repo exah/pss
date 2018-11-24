@@ -41,29 +41,37 @@ test('props -> set one step space for every media', (t) => {
 })
 
 test('props -> set bool space value', (t) => {
-  const result = toStyles(marginPropStyles({ theme, mg: true, mgxM: false }))
+  const result1 = toStyles(marginPropStyles({ theme, mg: true, mgxM: false }))
+  const result2 = toStyles(marginPropStyles({ theme, mg: true, mgx: { M: false } }))
 
-  t.deepEqual(result, {
+  const expected = {
     margin: '10px',
     '@media (max-width: 600px)': {
       margin: '5px',
       marginLeft: 0,
       marginRight: 0
     }
-  })
+  }
+
+  t.deepEqual(result1, expected)
+  t.deepEqual(result2, expected)
 })
 
 test('props -> override one step space on mobile and tablet', (t) => {
-  const result = toStyles(marginPropStyles({ theme, mg: 1, mglM: 3, mgxT: 0 }))
+  const result1 = toStyles(marginPropStyles({ theme, mg: 1, mglM: 3, mgxT: 0 }))
+  const result2 = toStyles(marginPropStyles({ theme, mg: 1, mgl: { M: 3 }, mgx: { T: 0 } }))
 
-  t.deepEqual(result, {
+  const expected = {
     margin: '10px',
     '@media (max-width: 600px)': { margin: '5px', marginLeft: '2rem' },
     '@media (min-width: 601px) and (max-width: 1024px)': {
       marginLeft: 0,
       marginRight: 0
     }
-  })
+  }
+
+  t.deepEqual(result1, expected)
+  t.deepEqual(result2, expected)
 })
 
 test('props -> set margin to sizes responsive "nudge" value', (t) => {
@@ -90,12 +98,16 @@ test('props -> set margin to "auto"', (t) => {
 })
 
 test('props -> set margin to "30px" on mobile', (t) => {
-  const result = toStyles(marginPropStyles({ theme, mg: '10px', mgM: '30px' }))
+  const result1 = toStyles(marginPropStyles({ theme, mg: '10px', mgM: '30px' }))
+  const result2 = toStyles(marginPropStyles({ theme, mg: { default: '10px', M: '30px' } }))
 
-  t.deepEqual(result, {
+  const expected = {
     margin: '10px',
     '@media (max-width: 600px)': { margin: '30px' }
-  })
+  }
+
+  t.deepEqual(result1, expected)
+  t.deepEqual(result2, expected)
 })
 
 test('style -> padding', (t) => {

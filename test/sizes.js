@@ -69,36 +69,61 @@ test('props -> sizes path from theme', (t) => {
 })
 
 test('props -> sizes theme values', (t) => {
-  const result = toStyles(sizesPropStyles({
+  const result1 = toStyles(sizesPropStyles({
     theme,
     minWd: 'nudge',
     maxWdM: 'xl'
   }))
 
-  t.deepEqual(result, {
+  const result2 = toStyles(sizesPropStyles({
+    theme,
+    minWd: 'nudge',
+    maxWd: {
+      M: 'xl'
+    }
+  }))
+
+  const expected = {
     minWidth: '2px',
     '@media (max-width: 600px)': {
       minWidth: '1px',
       maxWidth: '100px'
     }
-  })
+  }
+
+  t.deepEqual(result1, expected)
+  t.deepEqual(result2, expected)
 })
 
 test('props -> sizes custom values', (t) => {
-  const result = toStyles(sizesPropStyles({
+  const result1 = toStyles(sizesPropStyles({
     theme,
     ht: '100px',
     wdM: '20px',
     minHtM: '300px'
   }))
 
-  t.deepEqual(result, {
+  const result2 = toStyles(sizesPropStyles({
+    theme,
+    ht: '100px',
+    wd: {
+      M: '20px'
+    },
+    minHt: {
+      M: '300px'
+    }
+  }))
+
+  const expected = {
     height: '100px',
     '@media (max-width: 600px)': {
       width: '20px',
       minHeight: '300px'
     }
-  })
+  }
+
+  t.deepEqual(result1, expected)
+  t.deepEqual(result2, expected)
 })
 
 test('style -> set height', (t) => {

@@ -1,4 +1,4 @@
-import { isFn, isNum, isStr, toObj, curryN } from '@exah/utils'
+import { isFn, isNum, isStr, isPlainObj, toObj, curryN } from '@exah/utils'
 
 const toCssRule = (cssProps, toPx) => (val) => val != null
   ? toObj(cssProps, (name) => {
@@ -55,6 +55,11 @@ const skipPropValue = (...styles) => (value, ...rest) => (
   styles.map((s) => s(...rest))
 )
 
+const hasMediaKeys = (mediaKeys, value = {}) => (
+  isPlainObj(value) &&
+  Object.keys(value).some((key) => mediaKeys.includes(key))
+)
+
 export {
   toCssRule,
   wrap,
@@ -62,5 +67,6 @@ export {
   handlePropStyle,
   sizeValue,
   spaceValue,
-  skipPropValue
+  skipPropValue,
+  hasMediaKeys
 }

@@ -28,26 +28,34 @@ test('props -> set one step space', (t) => {
 })
 
 test('props -> set bool space value', (t) => {
-  const result = toStyles(marginPropStyles({ theme, mg: true, mgxM: false }))
+  const result1 = toStyles(marginPropStyles({ theme, mg: true, mgxM: false }))
+  const result2 = toStyles(marginPropStyles({ theme, mg: true, mgx: { M: false } }))
 
-  t.deepEqual(result, {
+  const expected = {
     margin: '10px',
     '@media (max-width: 600px)': {
       marginLeft: 0,
       marginRight: 0
     }
-  })
+  }
+
+  t.deepEqual(result1, expected)
+  t.deepEqual(result2, expected)
 })
 
 test('props -> override one step space on mobile and tablet', (t) => {
-  const result = toStyles(marginPropStyles({ theme, mg: 1, mglM: 3, mgxT: 0 }))
+  const result1 = toStyles(marginPropStyles({ theme, mg: 1, mglM: 3, mgxT: 0 }))
+  const result2 = toStyles(marginPropStyles({ theme, mg: 1, mgl: { M: 3 }, mgx: { T: 0 } }))
 
-  t.deepEqual(result, {
+  const expected = {
     margin: '10px',
     '@media (max-width: 600px)': { marginLeft: '3rem' },
     '@media (min-width: 601px) and (max-width: 1024px)': {
       marginLeft: 0,
       marginRight: 0
     }
-  })
+  }
+
+  t.deepEqual(result1, expected)
+  t.deepEqual(result2, expected)
 })

@@ -16,7 +16,8 @@ import {
 
 import {
   wrapIfMedia,
-  handlePropStyle
+  handlePropStyle,
+  hasMediaKeys
 } from '../utils/helpers'
 
 import {
@@ -130,6 +131,16 @@ const createPropStyles = (
               propValue(props, mediaKey, style)
             )
           } else {
+            // like: { default: 0, M: 1 }
+            if (hasMediaKeys(mediaKeys, propValue)) {
+              return reduceObj((subAcc, key, value) => subAcc.concat(
+                wrapIfMedia(
+                  media[key],
+                  handlePropStyle(style, value, props, key)
+                ) || []
+              ), propValue, [])
+            }
+
             return wrapIfMedia(
               mediaQuery,
               handlePropStyle(style, propValue, props, mediaKey)

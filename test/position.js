@@ -12,7 +12,7 @@ const theme = {
 }
 
 test('props: position', (t) => {
-  const result = positionPropStyles({
+  const result1 = positionPropStyles({
     theme,
     position: 'relative',
     positionM: 'static',
@@ -20,22 +20,41 @@ test('props: position', (t) => {
     bottom: false,
     left: 1 / 2,
     right: 0,
-    zIndex: 100,
+    zIndex: 50,
     zIndexM: 100
   })
 
-  t.deepEqual(toStyles(result), {
+  const result2 = positionPropStyles({
+    theme,
+    position: {
+      default: 'relative',
+      M: 'static'
+    },
+    top: true,
+    bottom: false,
+    left: 1 / 2,
+    right: 0,
+    zIndex: {
+      default: 50,
+      M: 100
+    }
+  })
+
+  const expected = {
     position: 'relative',
     top: 0,
     bottom: 'auto',
     left: '50%',
     right: 0,
-    zIndex: 100,
-    '@media (max-width: 600px)': {
+    zIndex: 50,
+    [`@media ${theme.media.M}`]: {
       position: 'static',
       zIndex: 100
     }
-  })
+  }
+
+  t.deepEqual(toStyles(result1), expected)
+  t.deepEqual(toStyles(result2), expected)
 })
 
 test('props: position (compat)', (t) => {
@@ -59,25 +78,12 @@ test('props: position (compat)', (t) => {
     left: '50%',
     right: 0,
     zIndex: 100,
-    '@media (min-width: 601px) and (max-width: 1024px)': {
+    [`@media ${theme.media.T}`]: {
       position: 'static'
     },
-    '@media (max-width: 600px)': {
+    [`@media ${theme.media.M}`]: {
       position: 'static',
       zIndex: 100
     }
-  })
-})
-
-test('props: z-index (compat)', (t) => {
-  const zIndexFalse = positionPropStyles({ theme, zi: false })
-  const zIndexTrue = positionPropStyles({ theme, zi: true })
-
-  t.deepEqual(toStyles(zIndexFalse), {
-    zIndex: 'auto'
-  })
-
-  t.deepEqual(toStyles(zIndexTrue), {
-    zIndex: 1
   })
 })
