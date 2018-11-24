@@ -852,10 +852,10 @@
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-0.7.3.tgz#4240c5eee8af86843452af7497ac2808be04a77d"
 
-"@exah/utils@>=1.4.2":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@exah/utils/-/utils-1.5.0.tgz#a0d6d75abd6d66e540250eb4563d6ddb79d039ed"
-  integrity sha512-B8alGY94CF8+e5NsFc3FrXfYUD3Dzi5GIgiBwl1r2sEOvvBPi/E1LfE3Ppgspgxq3vB1kvKe6LjR58VDLUS1kQ==
+"@exah/utils@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@exah/utils/-/utils-1.6.0.tgz#2181ad01922e7b9aeba8e40ee8f4efe8bedad802"
+  integrity sha512-n/1yZhZugBgX9AzvwjV9hQ5N0OZFVaJmhmj46N4Y4/l6mLqtvmoz8LbN/4Wwh2G76c2C1py1X3xiEe6jVJgHDQ==
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"

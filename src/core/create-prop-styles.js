@@ -3,12 +3,16 @@
 import type {
   Styles,
   Props,
-  ThemeObj,
   DynamicStyleFn,
   PropStylesObj
 } from '../types'
 
-import { isFn, toArr, once } from '@exah/utils'
+import {
+  isFn,
+  toArr,
+  reduceObj,
+  memoize
+} from '@exah/utils'
 
 import {
   wrapIfMedia,
@@ -28,9 +32,8 @@ const DEFAULT_OPTIONS = {
   isMediaProps: true
 }
 
-const buildStylesWithMedia = (styles: PropStylesObj) => (theme: ThemeObj): PropStylesObj => {
-  const media = themeMedia(theme)
-  const mediaKeys = Object.keys(media).map((mediaKey) =>
+const propStylesWithMedia = (styles: PropStylesObj) => (media: Array<string>): PropStylesObj => {
+  const mediaKeys = toArr(media).map((mediaKey) =>
     mediaKey === DEFAULT_KEY ? '' : mediaKey
   )
 
@@ -40,8 +43,7 @@ const buildStylesWithMedia = (styles: PropStylesObj) => (theme: ThemeObj): PropS
       ...mediaAcc,
       [propName + mediaKey]: [
         styles[propName],
-        mediaKey || null,
-        media[mediaKey]
+        mediaKey || null
       ]
     }), {})
   }), {})
@@ -105,33 +107,41 @@ const createPropStyles = (
   options?: { isMediaProps: boolean }
 ): DynamicStyleFn => {
   const opts = { ...DEFAULT_OPTIONS, ...options }
-  const buildStylesWithMediaOnce = once(buildStylesWithMedia(propStyles))
+  const propStylesWithMediaMemoized = memoize(propStylesWithMedia(propStyles))
 
   return (props: Props): Styles => {
+    const media = themeMedia(props.theme)
+    const mediaKeys = Object.keys(media)
     const isMedia = opts.isMediaProps && themeDefaultMedia(props.theme) !== false
-    const stylesMap = isMedia ? buildStylesWithMediaOnce(props.theme) : propStyles
+    const stylesMap = isMedia ? propStylesWithMediaMemoized(mediaKeys) : propStyles
 
-    const result = Object.keys(props).reduce((acc, key) => {
-      const matched = stylesMap[key]
+    const getStylesFromProps = reduceObj((acc, propName, propValue) => {
+      const matched = stylesMap[propName]
 
       if (matched !== undefined) {
-        const [ propStyle, mediaKey, mediaQuery ] = isMedia ? matched : [ matched ]
-        const value = props[key]
+        const [ propStyle, mediaKey ] = isMedia ? matched : [ matched ]
+        const mediaQuery = media[mediaKey]
 
-        return acc.concat(
-          toArr(propStyle).map((style) => wrapIfMedia(
-            mediaQuery,
-            isFn(value)
-              ? value(props, mediaKey, style)
-              : handlePropStyle(style, value, props, mediaKey)
-          ) || [])
-        )
+        return acc.concat(toArr(propStyle).map(function mapPropStyles (style) {
+          // selectors
+          if (isFn(propValue)) {
+            return wrapIfMedia(
+              mediaQuery,
+              propValue(props, mediaKey, style)
+            )
+          } else {
+            return wrapIfMedia(
+              mediaQuery,
+              handlePropStyle(style, propValue, props, mediaKey)
+            ) || []
+          }
+        }))
       }
 
       return acc
-    }, [])
+    })
 
-    return result
+    return getStylesFromProps(props, [])
   }
 }
 
