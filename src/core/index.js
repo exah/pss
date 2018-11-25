@@ -1,5 +1,4 @@
 export * from './create-prop-styles'
-export * from './create-theme'
 export * from './create-space-props'
 export * from './prop-styles-in-theme'
 export * from './every-media'

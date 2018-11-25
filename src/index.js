@@ -1,7 +1,6 @@
 export {
   createPropStyles,
   createPropStyles as default,
-  createTheme,
   createStyleFromTheme,
   propStylesInTheme,
   createSpaceStyle,
