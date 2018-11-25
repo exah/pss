@@ -11,12 +11,12 @@ import { createSizeProp, createPropStyles } from '../core'
  *
  * **Component props:**
  *
- * - `wd` → `width`
- * - `maxWd` → `max-width`
- * - `minWd` → `min-width`
- * - `ht` → `height`
- * - `maxHt` → `max-height`
- * - `minHt` → `min-height`
+ * - `width` → `width`
+ * - `maxWidth` → `max-width`
+ * - `minWidth` → `min-width`
+ * - `height` → `height`
+ * - `maxHeight` → `max-height`
+ * - `minHeight` → `min-height`
  *
  *
  * **`String` values:**
@@ -67,34 +67,34 @@ import { createSizeProp, createPropStyles } from '../core'
  *
  * @example
  * // theme.size.small
- * <Box ht='small' /> // height: 10px
+ * <Box height='small' /> // height: 10px
  *
  * // `theme.size.card.default` and `theme.size.card.M`
- * <Box wd='card' /> // width: 500px; @media (max-width: 600px) { margin-left: 300px }
+ * <Box width='card' /> // width: 500px; @media (max-width: 600px) { margin-left: 300px }
  *
  * // only `theme.size.card.M`
- * <Box wdM='card' /> // @media (max-width: 600px) { margin-left: 300px }
+ * <Box widthM='card' /> // @media (max-width: 600px) { margin-left: 300px }
  *
  * // `theme.site.width`
- * <Box maxWd='site.width' /> // max-width: 1300px
+ * <Box maxWidth='site.width' /> // max-width: 1300px
  *
  * // Smaller that or equal to `1` is percentage value
- * <Box maxWd={(1 / 2)} /> // max-width: 50%
+ * <Box maxWidth={(1 / 2)} /> // max-width: 50%
  *
  * // By default `false` is `0`
- * <Box ht={false} /> // height: 0
+ * <Box height={false} /> // height: 0
  *
  * // Convert to px
- * <Box minWd={500} /> // max-width: 500px
+ * <Box minWidth={500} /> // max-width: 500px
  */
 
 const sizes = createPropStyles({
-  ht: createSizeProp('height'),
-  wd: createSizeProp('width'),
-  maxWd: createSizeProp('maxWidth'),
-  maxHt: createSizeProp('maxHeight'),
-  minHt: createSizeProp('minHeight'),
-  minWd: createSizeProp('minWidth')
+  height: createSizeProp('height'),
+  width: createSizeProp('width'),
+  maxWidth: createSizeProp('maxWidth'),
+  maxHeight: createSizeProp('maxHeight'),
+  minHeight: createSizeProp('minHeight'),
+  minWidth: createSizeProp('minWidth')
 })
 
 export {

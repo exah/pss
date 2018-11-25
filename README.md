@@ -81,9 +81,9 @@ const theme = {
 }
 
 <ThemeProvider theme={theme}>
-  <Box bg="inverted" ht> // css-0
-    <Box maxWd="site" mgx="auto" pdx> // css-1
-      <Box tm wd={1 / 4} minWd="card" minWdM> // css-2
+  <Box bg="inverted" height> // css-0
+    <Box maxWidth="site" mgx="auto" pdx> // css-1
+      <Box tm width={1 / 4} minWidth="card" minWidthM> // css-2
         <figure>
           <img src="/pic.jpg" alt="" />
           <figcaption>

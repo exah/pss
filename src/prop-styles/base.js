@@ -22,7 +22,7 @@ import { colors } from './colors'
  * const Box = styled('div')(base)
  *
  * @example
- * <Box tm='inverted' minHt='200px' maxWd='site.width' mgx='auto' pd={2} />
+ * <Box tm='inverted' minHeight='200px' maxWidth='site.width' mgx='auto' pd={2} />
  *
  * @example
  * .css {

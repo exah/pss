@@ -28,23 +28,23 @@ const theme = {
 }
 
 const sizesPropStyles = createPropStyles({
-  ht: createSizeProp('height'),
-  wd: createSizeProp('width'),
-  maxWd: createSizeProp('maxWidth'),
-  maxHt: createSizeProp('maxHeight'),
-  minHt: createSizeProp('minHeight'),
-  minWd: createSizeProp('minWidth')
+  height: createSizeProp('height'),
+  width: createSizeProp('width'),
+  maxWidth: createSizeProp('maxWidth'),
+  maxHeight: createSizeProp('maxHeight'),
+  minHeight: createSizeProp('minHeight'),
+  minWidth: createSizeProp('minWidth')
 })
 
 test('props -> sizes relative value', (t) => {
   const result = toStyles(sizesPropStyles({
     theme,
-    ht: true,
-    wd: 1,
-    minWd: 0,
-    maxWd: false,
-    minHt: (3 / 4),
-    maxHt: 'auto'
+    height: true,
+    width: 1,
+    minWidth: 0,
+    maxWidth: false,
+    minHeight: (3 / 4),
+    maxHeight: 'auto'
   }))
 
   t.deepEqual(result, {
@@ -60,7 +60,7 @@ test('props -> sizes relative value', (t) => {
 test('props -> sizes path from theme', (t) => {
   const result = toStyles(sizesPropStyles({
     theme,
-    ht: 'custom.my-value'
+    height: 'custom.my-value'
   }))
 
   t.deepEqual(result, {
@@ -71,14 +71,14 @@ test('props -> sizes path from theme', (t) => {
 test('props -> sizes theme values', (t) => {
   const result1 = toStyles(sizesPropStyles({
     theme,
-    minWd: 'nudge',
-    maxWdM: 'xl'
+    minWidth: 'nudge',
+    maxWidthM: 'xl'
   }))
 
   const result2 = toStyles(sizesPropStyles({
     theme,
-    minWd: 'nudge',
-    maxWd: {
+    minWidth: 'nudge',
+    maxWidth: {
       M: 'xl'
     }
   }))
@@ -98,18 +98,18 @@ test('props -> sizes theme values', (t) => {
 test('props -> sizes custom values', (t) => {
   const result1 = toStyles(sizesPropStyles({
     theme,
-    ht: '100px',
-    wdM: '20px',
-    minHtM: '300px'
+    height: '100px',
+    widthM: '20px',
+    minHeightM: '300px'
   }))
 
   const result2 = toStyles(sizesPropStyles({
     theme,
-    ht: '100px',
-    wd: {
+    height: '100px',
+    width: {
       M: '20px'
     },
-    minHt: {
+    minHeight: {
       M: '300px'
     }
   }))

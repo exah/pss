@@ -86,7 +86,7 @@ const mediaPropSelector = curryN(2, (mediaKeyAndQuery, value) => {
  * const Box = styled.div(sizes, ts)
  *
  * @example
- * <Box wd={ts((theme) => theme.myValue)}
+ * <Box width={ts((theme) => theme.myValue)}
  */
 
 const themeSelector = (fn) => (props, mediaKey, style = identity) => handlePropStyle(

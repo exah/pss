@@ -9,7 +9,7 @@ import { theme } from './_helpers.js'
 test('basic', (t) => {
   flush()
 
-  const sizeClassName = css(sizes({ theme, wd: true, maxHt: (3 / 4) }))
+  const sizeClassName = css(sizes({ theme, width: true, maxHeight: (3 / 4) }))
 
   t.is(Object.keys(caches.registered).includes(sizeClassName), true)
   t.snapshot(caches.registered)
@@ -31,7 +31,7 @@ test('basic', (t) => {
   flush()
 
   const Box = styled('div')(space, sizes, colors)
-  const element = h(Box, { theme, wd: true, tm: true, mg: true, mgM: 0 })
+  const element = h(Box, { theme, width: true, tm: true, mg: true, mgM: 0 })
   const tree = renderer.create(element).toJSON()
 
   t.snapshot(tree)
