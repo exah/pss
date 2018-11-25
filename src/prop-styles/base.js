@@ -11,7 +11,7 @@ import { colors } from './colors'
  * Combination of
  *   - {@link space}
  *   - {@link sizes}
- *   - {@link colors}.
+ *   - {@link colors}
  *
  * @example
  * import styled from 'react-emotion'

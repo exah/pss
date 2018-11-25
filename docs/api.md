@@ -710,12 +710,14 @@ const Text = styled('div')(typography)
 <Text textStyle='heading' ellipsis />
 ```
 
-    .css {
-       font-size: 16px;
-       line-height: 1.2;
-       font-weight: normal;
-    .   font-family: system-ui;
-    }
+```css
+.css {
+   font-size: 16px;
+   line-height: 1.2;
+   font-weight: normal;
+   font-family: system-ui;
+}
+```
 
 ### utility
 
@@ -796,7 +798,7 @@ Combination of
 
 -   [space][2]
 -   [sizes][4]
--   [colors][6].
+-   [colors][6]
 
 #### Examples
 

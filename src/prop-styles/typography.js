@@ -25,7 +25,7 @@ import { text } from './text'
  *    font-size: 16px;
  *    line-height: 1.2;
  *    font-weight: normal;
- *.   font-family: system-ui;
+ *    font-family: system-ui;
  * }
  */
 
