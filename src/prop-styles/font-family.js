@@ -6,16 +6,16 @@ import { createPropStyles, createStyleFromTheme } from '../core'
  * import { fontFamily } from 'pss'
  * ```
  *
- * prop           | css                         | type               | value | true      | false
- * :--------------|:----------------------------|:-------------------|:------|:----------|:--------
- * `fontFamily`   | `font-family`               | `String`           | ✓     | —         | —
- *
- * Also you can provide **fonts** with `theme`:
+ * Set `fontFamly` from `theme`:
  *
  * ```js
  * const theme = {
- *   font: {
- *     ui: 'Helvetica, Arial, system-ui, sans-serif'
+ *   default: {
+ *     fontFamily: 'ui'
+ *   },
+ *   fontFamily: {
+ *     heading: 'Times',
+ *     ui: 'Helvetica'
  *   }
  * }
  * ```
@@ -27,7 +27,10 @@ import { createPropStyles, createStyleFromTheme } from '../core'
  * const Text = styled('span')(fontFamily)
  *
  * @example
- * <Text fontFamily='ui' /> // font-family: Helvetica, Arial, system-ui, sans-serif
+ * <Text fontFamily={true} /> // → font-family: Helvetica
+ * <Text fontFamily='ui' /> // → font-family: Helvetica
+ * <Text fontFamily='serif' /> // → font-family: Times
+ * <Text fontFamily='Comic Sans' /> // → font-family: Comic Sans
  */
 
 const fontFamily = createPropStyles({

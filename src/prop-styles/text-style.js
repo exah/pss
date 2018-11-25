@@ -7,8 +7,7 @@ import { createPropStyles, createStyleFromTheme } from '../core'
  * ```
  *
  * Global text styles system, like in [Sketch](https://sketchapp.com/docs/text/text-styles).
- *
- * Examples use this `theme`:
+ * Add `textStyle` to `theme`:
  *
  * ```js
  * const theme = {
@@ -33,10 +32,11 @@ import { createPropStyles, createStyleFromTheme } from '../core'
  * import { textStyle } from 'pss'
  * import styled from 'react-emotion'
  *
- * const Text = styled('div')(textStyle)
+ * const Text = styled('span')(textStyle)
  *
  * @example
- * <Text textStyle='heading' />
+ * <Text textStyle={true} /> // → `theme.textStyle.default`
+ * <Text textStyle='heading' /> // → `theme.textStyle.heading`
  */
 
 const textStyle = createPropStyles({

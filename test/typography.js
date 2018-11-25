@@ -52,16 +52,18 @@ test('props -> set defaults', (t) => {
   })
 })
 
-test('props -> set font family', (t) => {
+test('props -> use text helpers', (t) => {
   const result = toStyles(typography({
     theme,
     fontFamily: 'heading',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textAlign: 'center'
   }))
 
   t.deepEqual(result, {
     fontFamily: 'Times New Roman, serif',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textAlign: 'center'
   })
 })
 

@@ -17,16 +17,16 @@ toc:
       - float
       - overflow
       - border
-      - text
-      - fontFamily
       - textStyle
+      - fontFamily
+      - text
       - typography
       - utility
       - ratio
       - base
       - system
 
-  - name: Creating Prop Styles and Theme
+  - name: Creating Prop Styles
     children:
       - createPropStyles
       - createSizeProp
