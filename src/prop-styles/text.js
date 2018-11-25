@@ -19,26 +19,16 @@ const textHelpers = createPropStyles({
  *
  * ⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `size`), so you may need to provide custom prop filtering.
  *
- * prop           | css                         | type               | value | true                       | false
- * :--------------|:----------------------------|:-------------------|:------|:---------------------------|:--------
- * `fontFamily`   | `font-family`               | `String`           | ✓     | key from `theme.default.fontFamily` | —
- * `fontSize`     | `font-size`                 | `String`, `Number` | ✓     | `1rem`                     | `medium`
- * `fontWeight`   | `font-weight`               | `String`           | ✓     | —                          | —
- * `lineHeight`   | `line-height`               | `String`, `Number` | ✓     | `normal`                   | —
- * `letterSpacing`| `letter-spacing`            | `String`, `Number` | ✓     | `normal`                   | —
- * `textAlign`    | `text-align`                | `String`           | ✓     | —                          | —
- * `whiteSpace`   | `white-space`               | `String`           | ✓     | —                          | —
- * `ellipsis`     | [Ellipsis...][ellipsis-url] | `true`             | —     | [styles](#ellipsis-styles) | —
- *
- * <span id="ellipsis-styles">Ellipsis styles</span>
- *
- * ```css
- * {
- *   white-space: nowrap;
- *   overflow: hidden;
- *   text-overflow: ellipsis;
- * }
- * ```
+ * prop           | css                         | type               | value | true               | false
+ * :--------------|:----------------------------|:-------------------|:------|:-------------------|:--------
+ * `fontFamily`   | `font-family`               | `String`           | ✓     | {@link fontFamily} | —
+ * `fontSize`     | `font-size`                 | `String`, `Number` | ✓     | `1rem`             | `medium`
+ * `fontWeight`   | `font-weight`               | `String`           | ✓     | —                  | —
+ * `lineHeight`   | `line-height`               | `String`, `Number` | ✓     | `normal`           | —
+ * `letterSpacing`| `letter-spacing`            | `String`, `Number` | ✓     | `normal`           | —
+ * `textAlign`    | `text-align`                | `String`           | ✓     | —                  | —
+ * `whiteSpace`   | `white-space`               | `String`           | ✓     | —                  | —
+ * `ellipsis`     | [Ellipsis...][ellipsis-url] | `true`             | —     | (see&nbsp;example) | —
  *
  * [ellipsis-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
  *
@@ -50,6 +40,7 @@ const textHelpers = createPropStyles({
  *
  * @example
  * <Text textAlign='center' /> // text-align: center
+ * <Text ellipsis /> // white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
  */
 
 const text = combine(

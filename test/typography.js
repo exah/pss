@@ -57,13 +57,15 @@ test('props -> use text helpers', (t) => {
     theme,
     fontFamily: 'heading',
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+    whiteSpace: 'nowrap'
   }))
 
   t.deepEqual(result, {
     fontFamily: 'Times New Roman, serif',
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+    whiteSpace: 'nowrap'
   })
 })
 
