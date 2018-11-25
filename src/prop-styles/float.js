@@ -1,8 +1,6 @@
 import { createPropStyles, ruleProp } from '../core'
 
 /**
- * Alias **`floatPropStyles`**
- *
  * ```js
  * import { float } from 'pss'
  * ```

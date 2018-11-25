@@ -53,7 +53,7 @@ const propStylesWithMedia = (styles: PropStylesObj) => (media: Array<string>): P
 
 /**
  * ```js
- * import { createPropStyles } from 'pss'
+ * import pss from 'pss'
  * ```
  *
  * Function that accepts Object (see {@link PropStylesObj}) with keys that
@@ -69,10 +69,10 @@ const propStylesWithMedia = (styles: PropStylesObj) => (media: Array<string>): P
  *
  * @example
  * import styled from 'react-emotion'
- * import { createPropStyles } from 'pss'
+ * import pss from 'pss'
  *
  * // Create prop styles
- * const myPropStyle = createPropStyles({
+ * const myPropStyle = pss({
  *   display: value => ({ display: value }),
  *   flex: { display: 'flex' },
  *   inline: { display: 'inline-block' },

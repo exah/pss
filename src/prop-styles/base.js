@@ -4,8 +4,6 @@ import { sizes } from './sizes'
 import { colors } from './colors'
 
 /**
- * Alias **`basePropStyles`**
- *
  * ```js
  * import { base } from 'pss'
  * ```

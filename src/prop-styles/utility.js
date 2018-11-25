@@ -5,8 +5,6 @@ const randomHexColor = () =>
   '#' + (Math.random() * 0xFFFFFF << 0).toString(16)
 
 /**
- * Alias **`utilityPropStyles`**
- *
  * ```js
  * import { utility } from 'pss'
  * ```

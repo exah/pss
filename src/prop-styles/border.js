@@ -28,8 +28,6 @@ const borderStyle = (Dir = '') => {
 }
 
 /**
- * Alias **`borderPropStyles`**
- *
  * ```js
  * import { border } from 'pss'
  * ```

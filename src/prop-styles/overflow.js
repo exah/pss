@@ -1,8 +1,6 @@
 import { createPropStyles, ruleProp } from '../core'
 
 /**
- * Alias **`overflowPropStyles`**
- *
  * ```js
  * import { overflow } from 'pss'
  * ```

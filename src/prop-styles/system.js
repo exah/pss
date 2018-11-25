@@ -9,8 +9,6 @@ import { overflow } from './overflow'
 import { utility } from './utility'
 
 /**
- * Alias **`system`**
- *
  * ```js
  * import { system } from 'pss'
  * ```

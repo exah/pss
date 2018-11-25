@@ -1,6 +1,6 @@
 import test from 'ava'
 import { MEDIA_KEY } from '../src/constants'
-import { positionPropStyles } from '../src'
+import { position } from '../src'
 import { toStyles } from './_helpers'
 
 const theme = {
@@ -12,7 +12,7 @@ const theme = {
 }
 
 test('props: position', (t) => {
-  const result1 = positionPropStyles({
+  const result1 = position({
     theme,
     position: 'relative',
     positionM: 'static',
@@ -24,7 +24,7 @@ test('props: position', (t) => {
     zIndexM: 100
   })
 
-  const result2 = positionPropStyles({
+  const result2 = position({
     theme,
     position: {
       default: 'relative',
@@ -55,35 +55,4 @@ test('props: position', (t) => {
 
   t.deepEqual(toStyles(result1), expected)
   t.deepEqual(toStyles(result2), expected)
-})
-
-test('props: position (compat)', (t) => {
-  const result = positionPropStyles({
-    theme,
-    prl: true,
-    pstM: true,
-    pabT: false,
-    t: true,
-    b: false,
-    l: 1 / 2,
-    r: 0,
-    zi: 100,
-    ziM: 100
-  })
-
-  t.deepEqual(toStyles(result), {
-    position: 'relative',
-    top: 0,
-    bottom: 'auto',
-    left: '50%',
-    right: 0,
-    zIndex: 100,
-    [`@media ${theme.media.T}`]: {
-      position: 'static'
-    },
-    [`@media ${theme.media.M}`]: {
-      position: 'static',
-      zIndex: 100
-    }
-  })
 })

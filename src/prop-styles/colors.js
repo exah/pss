@@ -1,8 +1,6 @@
 import { createPropStyles, createPaletteProp, createColorProp } from '../core'
 
 /**
- * Alias **`colorsPropStyles`**
- *
  * ```js
  * import { colors } from 'pss'
  * ```

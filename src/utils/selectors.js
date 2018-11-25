@@ -3,8 +3,6 @@ import { themeMedia } from './getters'
 import { handlePropStyle, wrapIfMedia } from './helpers'
 
 /**
- * Alias **`ps`**
- *
  * ```js
  * import { ps } from 'pss'
  * ```
@@ -35,8 +33,7 @@ const propSelector = curryN(2, (name, value) => (props, mediaKey, style) => ({
 }))
 
 /**
- * Alias **`mps`**
- *
+ *  *
  * ```js
  * import { mps } from 'pss'
  * ```
@@ -75,8 +72,7 @@ const mediaPropSelector = curryN(2, (mediaKeyAndQuery, value) => {
 })
 
 /**
- * Alias **`ts`**
- *
+ *  *
  * ```js
  * import { sizes, ts } from 'pss'
  * ```
@@ -98,8 +94,7 @@ const themeSelector = (fn) => (props, mediaKey, style = identity) => handlePropS
 )
 
 /**
- * Alias **`cs`**
- *
+ *  *
  * ```js
  * import { cs } from 'pss'
  * ```

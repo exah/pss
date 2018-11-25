@@ -4,8 +4,6 @@ import { createPropStyles } from '../core/create-prop-styles'
 import { floor } from '../utils/fns'
 
 /**
- * Alias **`ratioPropStyles`**
- *
  * ```js
  * import { ratio } from 'pss'
  * ```

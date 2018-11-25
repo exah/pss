@@ -4,8 +4,6 @@ const direction = (dir) => createSizeProp(dir, 0, 'auto')
 const positionStyle = (value) => ruleProp('position', value, 'static')
 
 /**
- * Alias **`positionPropStyles`**
- *
  * ```js
  * import { position } from 'pss'
  * ```

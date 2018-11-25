@@ -1,8 +1,6 @@
 import { createPropStyles, ruleProp } from '../core'
 
 /**
- * Alias **`displayPropStyles`**
- *
  * ```js
  * import { display } from 'pss'
  * ```

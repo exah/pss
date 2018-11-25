@@ -13,8 +13,6 @@ import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
 import { getActiveColors, getColor } from '../utils/getters'
 
 /**
- * Alias **`themeProp`**
- *
  * ```js
  * import { createPaletteProp } from 'pss'
  * ```
@@ -66,8 +64,6 @@ const createPaletteProp = (
 })
 
 /**
- * Alias **`colorProp`**
- *
  * ```js
  * import { createColorProp } from 'pss'
  * ```

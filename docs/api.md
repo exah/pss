@@ -92,8 +92,6 @@
 
 ### space
 
-Alias **`spacePropStyles`**, **`marginPropStyles`**, **`paddingPropStyles`**
-
 ```js
 import { space } from 'pss'
 ```
@@ -167,8 +165,6 @@ const Box = styled.div(space)
 ```
 
 ### sizes
-
-Alias **`createSizePropsStyles`**
 
 ```js
 import { sizes } from 'pss'
@@ -255,8 +251,6 @@ const Box = styled.div(sizes)
 ```
 
 ### colors
-
-Alias **`colorsPropStyles`**
 
 ```js
 import { colors } from 'pss'
@@ -346,8 +340,6 @@ const Box = styled.div(colors)
 
 ### flex
 
-Alias **`flexPropStyles`**
-
 ```js
 import { flex } from 'pss'
 ```
@@ -380,8 +372,6 @@ const FlexBox = styled('div')({ display: 'flex' }, flex)
     </FlexBox>
 
 ### flexItem
-
-Alias **`flexItemPropStyles`**
 
 ```js
 import { flexItem } from 'pss'
@@ -416,8 +406,6 @@ const FlexBoxItem = styled('div')(flexItem)
 
 ### display
 
-Alias **`displayPropStyles`**
-
 ```js
 import { display } from 'pss'
 ```
@@ -444,8 +432,6 @@ const Box = styled('div')(display)
 ```
 
 ### position
-
-Alias **`positionPropStyles`**
 
 ```js
 import { position } from 'pss'
@@ -476,8 +462,6 @@ const Box = styled('div')(position)
 ```
 
 ### float
-
-Alias **`floatPropStyles`**
 
 ```js
 import { float } from 'pss'
@@ -520,8 +504,6 @@ const Box = styled('div')(float)
 
 ### overflow
 
-Alias **`overflowPropStyles`**
-
 ```js
 import { overflow } from 'pss'
 ```
@@ -549,8 +531,6 @@ const Box = styled('div')(overflow)
 ```
 
 ### border
-
-Alias **`borderPropStyles`**
 
 ```js
 import { border } from 'pss'
@@ -739,8 +719,6 @@ const Text = styled('div')(typography)
 
 ### utility
 
-Alias **`utilityPropStyles`**
-
 ```js
 import { utility } from 'pss'
 ```
@@ -772,8 +750,6 @@ const Box = styled('div')(utility)
 ```
 
 ### ratio
-
-Alias **`ratioPropStyles`**
 
 ```js
 import { ratio } from 'pss'
@@ -811,8 +787,6 @@ const Box = styled.div(ratio)
 ```
 
 ### base
-
-Alias **`basePropStyles`**
 
 ```js
 import { base } from 'pss'
@@ -853,8 +827,6 @@ const Box = styled('div')(base)
 
 ### system
 
-Alias **`system`**
-
 ```js
 import { system } from 'pss'
 ```
@@ -880,8 +852,8 @@ const Box = styled('div')(system)
 ```
 
 ```js
-<Box prl height='300px' width='300px' mgx='auto'>
-  <Box pab t={0} l={0} bg='red' height='20px' width='20px' />
+<Box position='relative' height='300px' width='300px' mgx='auto'>
+  <Box position='absolute' top={0} left={0} bg='red' height='20px' width='20px' />
 </Box>
 ```
 
@@ -912,7 +884,7 @@ const Box = styled('div')(system)
 ### createPropStyles
 
 ```js
-import { createPropStyles } from 'pss'
+import pss from 'pss'
 ```
 
 Function that accepts Object (see [PropStylesObj][79]) with keys that
@@ -933,10 +905,10 @@ in media query with media name suffix (key in `theme.media`).
 
 ```js
 import styled from 'react-emotion'
-import { createPropStyles } from 'pss'
+import pss from 'pss'
 
 // Create prop styles
-const myPropStyle = createPropStyles({
+const myPropStyle = pss({
   display: value => ({ display: value }),
   flex: { display: 'flex' },
   inline: { display: 'inline-block' },
@@ -1101,8 +1073,6 @@ Returns **DynamicStyleFn**
 
 ### createColorProp
 
-Alias **`colorProp`**
-
 ```js
 import { createColorProp } from 'pss'
 ```
@@ -1147,8 +1117,6 @@ const Box = styled.div(myColors)
 Returns **[PropStyleFn][91]** 
 
 ### createPaletteProp
-
-Alias **`themeProp`**
 
 ```js
 import { createPaletteProp } from 'pss'
@@ -1339,8 +1307,6 @@ const Box = styled.div(cssProp)
 
 ### propSelector
 
-Alias **`ps`**
-
 ```js
 import { ps } from 'pss'
 ```
@@ -1373,7 +1339,7 @@ import { ps } from 'pss'
 
 ### mediaPropSelector
 
-Alias **`mps`**
+\*
 
 ```js
 import { mps } from 'pss'
@@ -1407,7 +1373,7 @@ const mobile = mps('M')
 
 ### combineSelectors
 
-Alias **`cs`**
+\*
 
 ```js
 import { cs } from 'pss'
@@ -1447,7 +1413,7 @@ import { cs, ps } from 'pss'
 
 ### themeSelector
 
-Alias **`ts`**
+\*
 
 ```js
 import { sizes, ts } from 'pss'

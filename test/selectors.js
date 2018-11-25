@@ -4,7 +4,7 @@ import { MEDIA_KEY, SPACE_KEY } from '../src/constants'
 import {
   createPropStyles,
   createSpaceProps,
-  positionPropStyles,
+  position,
   themePath,
   ts,
   ps,
@@ -27,10 +27,10 @@ const theme = {
   myValue: 100
 }
 
-const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
+const margin = createPropStyles(createSpaceProps('margin', 'mg'))
 
 test('add margin-top to &:first-child', (t) => {
-  const result = toStyles(marginPropStyles({
+  const result = toStyles(margin({
     theme,
     mgt: ps('&:first-child', 1)
   }))
@@ -50,7 +50,7 @@ test('add margin-top to &:first-child', (t) => {
 })
 
 test('add margin to & + & element on mobile', (t) => {
-  const result = toStyles(marginPropStyles({
+  const result = toStyles(margin({
     theme,
     mgM: ps('& + &', 2)
   }))
@@ -65,7 +65,7 @@ test('add margin to & + & element on mobile', (t) => {
 })
 
 test('add different top value to &:last-child and &:first-child', (t) => {
-  const result = toStyles(positionPropStyles({
+  const result = toStyles(position({
     theme,
     prl: true,
     t: cs(50, ps('&:last-child', 10), ps('&:first-child', 20))
@@ -84,7 +84,7 @@ test('add different top value to &:last-child and &:first-child', (t) => {
 })
 
 test('themeSelector → position', (t) => {
-  const result = toStyles(positionPropStyles({
+  const result = toStyles(position({
     theme,
     t: ts((tm) => tm.myValue),
     b: ts(themePath('myValue')),
@@ -101,7 +101,7 @@ test('themeSelector → position', (t) => {
 })
 
 test('themeSelector → space', (t) => {
-  const result = toStyles(marginPropStyles({
+  const result = toStyles(margin({
     theme,
     mg: ts((tm) => tm.myValue),
     mgb: ts(themePath('myValue')),
@@ -116,7 +116,7 @@ test('themeSelector → space', (t) => {
 })
 
 test('add margin on mobile with mediaPropSelector', (t) => {
-  const result = toStyles(marginPropStyles({
+  const result = toStyles(margin({
     theme,
     mg: mps('M', 2)
   }))
@@ -129,7 +129,7 @@ test('add margin on mobile with mediaPropSelector', (t) => {
 })
 
 test('add margin & + & element on mobile with mediaPropSelector', (t) => {
-  const result = toStyles(marginPropStyles({
+  const result = toStyles(margin({
     theme,
     mg: mps('M', ps('& + &', 2))
   }))
@@ -144,7 +144,7 @@ test('add margin & + & element on mobile with mediaPropSelector', (t) => {
 })
 
 test('change media query in mediaPropSelector but keep value', (t) => {
-  const result = toStyles(marginPropStyles({
+  const result = toStyles(margin({
     theme,
     mg: mps([ 'M', '(max-width: 1024px)' ], 2)
   }))
@@ -157,7 +157,7 @@ test('change media query in mediaPropSelector but keep value', (t) => {
 })
 
 test('use mediaPropSelector with combineSelectors', (t) => {
-  const result = toStyles(positionPropStyles({
+  const result = toStyles(position({
     theme,
     position: cs('relative', mps('M', 'absolute'))
   }))

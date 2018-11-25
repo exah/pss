@@ -1,8 +1,6 @@
 import { createSizeProp, createPropStyles } from '../core'
 
 /**
- * Alias **`createSizePropsStyles`**
- *
  * ```js
  * import { sizes } from 'pss'
  * ```

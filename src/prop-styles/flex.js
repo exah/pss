@@ -7,8 +7,6 @@ const alignContent = ruleProp('alignContent')
 const justifyContent = ruleProp('justifyContent', 'space-between', 'normal')
 
 /**
- * Alias **`flexPropStyles`**
- *
  * ```js
  * import { flex } from 'pss'
  * ```
@@ -55,8 +53,6 @@ const flex = createPropStyles({
 })
 
 /**
- * Alias **`flexItemPropStyles`**
- *
  * ```js
  * import { flexItem } from 'pss'
  * ```
