@@ -13,16 +13,14 @@ const justifyContent = ruleProp('justifyContent', 'space-between', 'normal')
  *
  * [Flex container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container) prop styles
  *
- * prop                        | css               | type                | value | true            | false
- * :---------------------------|:----------------- |:--------------------|:------|:----------------|:--------
- * `flexWrap`, `wrap`          | `flex-wrap`       | `String`, `Boolean` | ✓     | `wrap`          | `nowrap`
- * `flexDirection`             | `flex-direction`  | `String`            | ✓     | —               | —
- * `alignItems`, `align`       | `align-items`     | `String`            | ✓     | —               | —
- * `alignContent`              | `align-content`   | `String`            | ✓     | —               | —
- * `justifyContent`, `justify` | `justify-content` | `String`            | ✓     | `space-between` | `normal`
- * `inline`                    | `display`         | `true`              | —     | `inline-flex`   | —
- * `column`                    | `flex-direction`  | `true`              | —     | `column`        | —
- * `row`                       | `flex-direction`  | `true`              | —     | `row`           | —
+ * prop             | css               | type                | value | true            | false
+ * :----------------|:----------------- |:--------------------|:------|:----------------|:--------
+ * `flexWrap`       | `flex-wrap`       | `String`, `Boolean` | ✓     | `wrap`          | `nowrap`
+ * `flexDirection`  | `flex-direction`  | `String`            | ✓     | —               | —
+ * `alignItems`     | `align-items`     | `String`            | ✓     | —               | —
+ * `alignContent`   | `align-content`   | `String`            | ✓     | —               | —
+ * `justifyContent` | `justify-content` | `String`            | ✓     | `space-between` | `normal`
+ * `inline`         | `display`         | `true`              | —     | `inline-flex`   | —
  *
  *
  * @example
@@ -46,10 +44,7 @@ const flex = createPropStyles({
   alignContent,
   inline: { display: 'inline-flex' },
   column: { flexDirection: 'column' },
-  row: { flexDirection: 'row' },
-  wrap: flexWrap,
-  align: alignItems,
-  justify: justifyContent
+  row: { flexDirection: 'row' }
 })
 
 /**
@@ -61,14 +56,14 @@ const flex = createPropStyles({
  *
  * ⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `order`), so you may need to provide custom prop filtering.
  *
- * prop     | css           | type                          | value | true    | false
- * :--------|:--------------|:------------------------------|:------|:------- |:--------
- * `flex`   | `flex`        | `String`, `Boolean`           | ✓     | `1 1 0` | `0 1 auto`
- * `grow`   | `flex-grow`   | `Number`, `Boolean`           | ✓     | `1`     | `0`
- * `shrink` | `flex-shrink` | `Number`, `Boolean`           | ✓     | `1`     | `0`
- * `basis`  | `flex-basis`  | `String`, `Number`, `Boolean` | ✓     | `auto`  | —
- * `order`  | `order`       | `Number`, `Boolean`           | ✓     | `1`     | `0`
- * `align`  | `align-self`  | `String`                      | ✓     | —       | —
+ * prop        | css           | type                          | value | true    | false
+ * :-----------|:--------------|:------------------------------|:------|:------- |:--------
+ * `flex`      | `flex`        | `String`, `Boolean`           | ✓     | `1 1 0` | `0 1 auto`
+ * `grow`      | `flex-grow`   | `Number`, `Boolean`           | ✓     | `1`     | `0`
+ * `shrink`    | `flex-shrink` | `Number`, `Boolean`           | ✓     | `1`     | `0`
+ * `basis`     | `flex-basis`  | `String`, `Number`, `Boolean` | ✓     | `auto`  | —
+ * `order`     | `order`       | `Number`, `Boolean`           | ✓     | `1`     | `0`
+ * `alignSelf` | `align-self`  | `String`                      | ✓     | —       | —
  *
  *
  * @example
@@ -90,7 +85,7 @@ const flexItem = createPropStyles({
   shrink: ruleProp('flexShrink', 1, 0),
   basis: createSizeProp('flexBasis', 'auto'),
   order: ruleProp('order', 1, 0),
-  align: ruleProp('alignSelf')
+  alignSelf: ruleProp('alignSelf')
 })
 
 export {
