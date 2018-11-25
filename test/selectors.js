@@ -67,8 +67,8 @@ test('add margin to & + & element on mobile', (t) => {
 test('add different top value to &:last-child and &:first-child', (t) => {
   const result = toStyles(position({
     theme,
-    prl: true,
-    t: cs(50, ps('&:last-child', 10), ps('&:first-child', 20))
+    position: 'relative',
+    top: cs(50, ps('&:last-child', 10), ps('&:first-child', 20))
   }))
 
   t.deepEqual(result, {
@@ -86,10 +86,10 @@ test('add different top value to &:last-child and &:first-child', (t) => {
 test('themeSelector → position', (t) => {
   const result = toStyles(position({
     theme,
-    t: ts((tm) => tm.myValue),
-    b: ts(themePath('myValue')),
-    l: ts(themePath('noneExistentProp', 5)),
-    r: ts(themePath('notPercentage', 1))
+    top: ts((tm) => tm.myValue),
+    bottom: ts(themePath('myValue')),
+    left: ts(themePath('noneExistentProp', 5)),
+    right: ts(themePath('notPercentage', 1))
   }))
 
   t.deepEqual(result, {
