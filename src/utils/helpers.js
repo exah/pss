@@ -37,7 +37,7 @@ const getUnit = (str) => String(str)
 
 const splitUnit = (str) => [ getNumber(str), getUnit(str) ]
 
-const spaceValue = (input, spaces) => {
+const spaceValue = (input, spaces = []) => {
   const value = spaces[Math.abs(input)]
   const coeficent = ((input < 0) ? -1 : 1)
 

@@ -8,7 +8,7 @@ import type {
   ThemeKey
 } from '../types'
 
-import { identity, curryN } from '@exah/utils'
+import { identity, fallbackTo, curryN } from '@exah/utils'
 import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
 import { getActiveColors, getColor } from '../utils/getters'
 
@@ -121,7 +121,7 @@ const createColorProp = (
 
   const color = input === false
     ? CSS_PROPS_DEFAULTS[cssProp] || CSS_DEFAULT_VALUE
-    : getColor(colorKey, input)(props)
+    : fallbackTo(getColor(colorKey, input)(props), input)
 
   return !color ? {} : {
     [cssProp]: getCssValue(color, props)

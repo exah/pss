@@ -853,9 +853,9 @@
   resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-0.7.3.tgz#4240c5eee8af86843452af7497ac2808be04a77d"
 
 "@exah/utils@^1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@exah/utils/-/utils-1.7.0.tgz#564e1fe95bc504a5353f9dbdabc97b838e0cde43"
-  integrity sha512-KSI2qfo3o6bhGa7VYY1THjQAcgHuy1qus+QsYXrk5rvD7t4FQWo1EQ5kzNSrwIynlCQOHpnZMR7XusmEYmTkTQ==
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@exah/utils/-/utils-1.7.1.tgz#ba2cea9a2f4c435765ed4459e05fd0d0c9b559cc"
+  integrity sha512-+OCLyk/27VD53I+7RjyPe4FLasFljN/kIk7Utyg3lL2fptud3pdjLm09LyYjQHImFOtRYGcNTuYx3JRx+nB7aw==
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"

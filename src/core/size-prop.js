@@ -60,14 +60,11 @@ const createSizeProp = (
 
   const themeSize = getSize(
     input,
-    sizeValue(input, trueVal, falseVal)
-  )(props)
+    sizeValue(input, trueVal, falseVal),
+    mediaKey
+  )
 
-  return everyMediaValue(
-    mediaKey,
-    themeSize,
-    cssRule
-  )(props)
+  return everyMediaValue(themeSize, cssRule)(props)
 })
 
 const createSizeStyle = (cssProp: CSSProp, ...sizeValueArgs?: [ CSSVal, CSSVal ]): PropStyleFn =>

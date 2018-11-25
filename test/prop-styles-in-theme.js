@@ -32,13 +32,13 @@ const theme = {
 
 const customFlags = propStylesInTheme('customStyles')
 const customProps = createPropStyles({
-  kind: createStyleFromTheme({ themeKey: 'customStyles' })
+  is: createStyleFromTheme({ themeKey: 'customStyles' })
 })
 
 test('prop → customStyles → default', (t) => {
   const result = toStyles(customProps({
     theme,
-    kind: true
+    is: true
   }))
 
   t.deepEqual(result, theme.customStyles.default)
@@ -47,7 +47,7 @@ test('prop → customStyles → default', (t) => {
 test('prop → customStyles → other key', (t) => {
   const result = toStyles(customProps({
     theme,
-    kind: 'accent'
+    is: 'accent'
   }))
 
   t.deepEqual(result, theme.customStyles.accent)
@@ -56,7 +56,7 @@ test('prop → customStyles → other key', (t) => {
 test('prop → customStyles → media style', (t) => {
   const result = toStyles(customProps({
     theme,
-    kind: 'small'
+    is: 'small'
   }))
 
   t.deepEqual(result, {
@@ -68,12 +68,12 @@ test('prop → customStyles → media style', (t) => {
 test('prop → customStyles → media M style', (t) => {
   const result1 = toStyles(customProps({
     theme,
-    kindM: 'small'
+    isM: 'small'
   }))
 
   const result2 = toStyles(customProps({
     theme,
-    kind: {
+    is: {
       M: 'small'
     }
   }))

@@ -11,19 +11,16 @@ const everyMedia = (getStyle) => (props) => reduceObj(
 )
 
 const everyMediaValue = (
-  mediaKey,
-  getThemeValue,
+  getterOrValue,
   wrapper = identity
 ) => (props) => {
-  if (isFn(getThemeValue)) {
-    if (mediaKey != null) {
-      return wrapper(getThemeValue(mediaKey))
-    }
+  const themeValue = isFn(getterOrValue) ? getterOrValue(props) : getterOrValue
 
-    return everyMedia((key) => wrapper(getThemeValue(key, true)))(props)
+  if (isFn(themeValue)) {
+    return everyMedia((mediaKey) => wrapper(themeValue(mediaKey)))(props)
   }
 
-  return wrapper(getThemeValue)
+  return wrapper(themeValue)
 }
 
 export {

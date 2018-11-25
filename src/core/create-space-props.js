@@ -33,8 +33,7 @@ const cssRuleSpaceStyle = (
 ): Function =>
   (input, defaultMediaKey): DynamicStyleFn =>
     (props, mediaKey = defaultMediaKey, isRawValue) => everyMediaValue(
-      mediaKey,
-      isRawValue ? input : getSpaceValue(input)(props),
+      isRawValue ? input : getSpaceValue(input, null, mediaKey),
       toCssRule(styleProp, toPx)
     )(props)
 
