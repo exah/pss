@@ -651,6 +651,39 @@ const Text = styled('p')(text)
 <Text font='ui' /> // font-family: Helvetica, Arial, system-ui, sans-serif
 ```
 
+### fontFamily
+
+```js
+import { fontFamily } from 'pss'
+```
+
+| prop         | css           | type     | value | true | false |
+| :----------- | :------------ | :------- | :---- | :--- | :---- |
+| `fontFamily` | `font-family` | `String` | ✓     | —    | —     |
+
+Also you can provide **fonts** with `theme`:
+
+```js
+const theme = {
+  font: {
+    ui: 'Helvetica, Arial, system-ui, sans-serif'
+  }
+}
+```
+
+#### Examples
+
+```js
+import { fontFamily } from 'pss'
+import styled from 'react-emotion'
+
+const Text = styled('span')(fontFamily)
+```
+
+```js
+<Text fontFamily='ui' /> // font-family: Helvetica, Arial, system-ui, sans-serif
+```
+
 ### textStyle
 
 ```js

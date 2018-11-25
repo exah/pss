@@ -83,6 +83,10 @@ export {
 } from './prop-styles/float'
 
 export {
+  fontFamily
+} from './prop-styles/font-family'
+
+export {
   overflow,
   overflow as overflowPropStyles
 } from './prop-styles/overflow'

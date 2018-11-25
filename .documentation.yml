@@ -18,6 +18,7 @@ toc:
       - overflow
       - border
       - text
+      - fontFamily
       - textStyle
       - typography
       - utility

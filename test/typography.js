@@ -1,19 +1,23 @@
 import test from 'ava'
 
 import {
+  DEFAULT_KEY,
   MEDIA_KEY,
   TEXT_STYLE_KEY,
   FONT_KEY
 } from '../src/constants'
 
 import {
-  text,
+  typography,
   textStyle
 } from '../src'
 
 import { toStyles } from './_helpers'
 
 const theme = {
+  [DEFAULT_KEY]: {
+    [FONT_KEY]: 'ui'
+  },
   [MEDIA_KEY]: {
     D: '(min-width: 1025px)',
     M: '(max-width: 600px)'
@@ -31,11 +35,28 @@ const theme = {
   }
 }
 
-test('props -> set font family', (t) => {
-  const result = toStyles(text({
+test('props -> set defaults', (t) => {
+  const result = toStyles(typography({
     theme,
-    font: 'heading',
-    weight: 'bold'
+    fontFamily: true,
+    fontSize: true,
+    lineHeight: true,
+    letterSpacing: true
+  }))
+
+  t.deepEqual(result, {
+    fontFamily: 'Helivetica, system-ui',
+    fontSize: '1rem',
+    lineHeight: 'normal',
+    letterSpacing: 'normal'
+  })
+})
+
+test('props -> set font family', (t) => {
+  const result = toStyles(typography({
+    theme,
+    fontFamily: 'heading',
+    fontWeight: 'bold'
   }))
 
   t.deepEqual(result, {
