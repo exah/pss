@@ -22,11 +22,19 @@ toc:
       - text
       - typography
       - utility
+      - cssProp
       - ratio
       - base
       - system
 
-  - name: Creating Prop Styles
+  - name: Selectors
+    children:
+      - propSelector
+      - mediaPropSelector
+      - combineSelectors
+      - themeSelector
+
+  - name: Customization
     children:
       - createPropStyles
       - createSizeProp
@@ -36,14 +44,6 @@ toc:
       - createPaletteProp
       - createStyleFromTheme
       - propStylesInTheme
-
-  - name: Misc
-    children:
-      - cssProp
-      - propSelector
-      - mediaPropSelector
-      - combineSelectors
-      - themeSelector
 
   - name: Types
     children:

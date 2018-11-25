@@ -25,7 +25,7 @@ import { handlePropStyle, wrapIfMedia } from './helpers'
  *
  * @example
  * .css + .css { margin-top: 10px }
- * @media (max-width: 600px) { .css + .css { margin-top: 8px } }
+ * \@media (max-width: 600px) { .css + .css { margin-top: 8px } }
  */
 
 const propSelector = curryN(2, (name, value) => (props, mediaKey, style) => ({
@@ -33,7 +33,6 @@ const propSelector = curryN(2, (name, value) => (props, mediaKey, style) => ({
 }))
 
 /**
- *  *
  * ```js
  * import { mps } from 'pss'
  * ```
@@ -50,15 +49,10 @@ const propSelector = curryN(2, (name, value) => (props, mediaKey, style) => ({
  * const Box = styled.div(space)
  *
  * @example
- * <Box mgt={mps('M', 1)} />
- *
- * @example
  * const mobile = mps('M')
  *
- * <Box mgt={mobile(1)} />
- *
- * @example
- * @media (max-width: 600px) { margin-top: 8px }
+ * <Box mgt={mps('M', 1)} /> // @media (max-width: 600px) { margin-top: 8px }
+ * <Box mgt={mobile(1)} /> // @media (max-width: 600px) { margin-top: 8px }
  */
 
 const mediaPropSelector = curryN(2, (mediaKeyAndQuery, value) => {
@@ -72,16 +66,15 @@ const mediaPropSelector = curryN(2, (mediaKeyAndQuery, value) => {
 })
 
 /**
- *  *
  * ```js
- * import { sizes, ts } from 'pss'
+ * import { ts } from 'pss'
  * ```
  *
  * Get value from `theme` directly in prop
  *
- * const Box = styled.div(sizes, ts)
- *
  * @example
+ * const Box = styled.div(sizes)
+ *
  * <Box width={ts((theme) => theme.myValue)}
  */
 
@@ -94,7 +87,6 @@ const themeSelector = (fn) => (props, mediaKey, style = identity) => handlePropS
 )
 
 /**
- *  *
  * ```js
  * import { cs } from 'pss'
  * ```
