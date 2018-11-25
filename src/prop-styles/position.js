@@ -38,18 +38,7 @@ const position = createPropStyles({
   left: direction('left'),
   right: direction('right'),
   bottom: direction('bottom'),
-  zIndex: ruleProp('zIndex', 1, 'auto'),
-  // COMPAT:
-  pst: positionStyle('static'),
-  prl: positionStyle('relative'),
-  pab: positionStyle('absolute'),
-  pfx: positionStyle('fixed'),
-  psy: positionStyle('sticky'),
-  l: direction('left'),
-  r: direction('right'),
-  t: direction('top'),
-  b: direction('bottom'),
-  zi: ruleProp('zIndex', 1, 'auto')
+  zIndex: ruleProp('zIndex', 1, 'auto')
 })
 
 export {

@@ -32,8 +32,8 @@ import { utility } from './utility'
  * const Box = styled('div')(system)
  *
  * @example
- * <Box prl height='300px' width='300px' mgx='auto'>
- *   <Box pab t={0} l={0} bg='red' height='20px' width='20px' />
+ * <Box position='relative' height='300px' width='300px' mgx='auto'>
+ *   <Box position='absolute' top={0} left={0} bg='red' height='20px' width='20px' />
  * </Box>
  *
  * @example
