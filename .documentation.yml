@@ -43,8 +43,7 @@ toc:
       - createSpaceMixin
       - createColor
       - createPaletteStyle
-      - createStyleFromTheme
-      - propStylesInTheme
+      - createThemeStyles
 
   - name: Types
     children:

@@ -16,9 +16,8 @@ export {
   createSizeStyle,
   createSpace,
   createSpaceMixin,
-  createStyleFromTheme,
+  createThemeStyles,
   everyMedia,
-  propStylesInTheme,
   ruleProp
 } from './core'
 

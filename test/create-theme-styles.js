@@ -1,5 +1,5 @@
 import test from 'ava'
-import { createPropStyles, propStylesInTheme, createStyleFromTheme } from '../src'
+import { createPropStyles, createThemeStyles } from '../src'
 import { theme as helperTheme, toStyles } from './_helpers'
 
 const theme = {
@@ -30,9 +30,8 @@ const theme = {
   }
 }
 
-const customFlags = propStylesInTheme('customStyles')
 const customProps = createPropStyles({
-  is: createStyleFromTheme({ themeKey: 'customStyles' })
+  is: createThemeStyles({ themeKey: 'customStyles' })
 })
 
 test('prop → customStyles → default', (t) => {
@@ -84,17 +83,4 @@ test('prop → customStyles → media M style', (t) => {
 
   t.deepEqual(result1, expected)
   t.deepEqual(result2, expected)
-})
-
-test('flags → customStyles', (t) => {
-  const result = toStyles(customFlags({
-    theme,
-    accent: true,
-    caps: true
-  }))
-
-  t.deepEqual(result, {
-    ...theme.customStyles.accent,
-    ...theme.customStyles.caps
-  })
 })
