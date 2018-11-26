@@ -1,14 +1,13 @@
 // @flow
 
 import type {
-  CSSProp,
-  CSSVal,
-  PropStyleFn
+  StyleValue,
+  PropStyle
 } from '../types'
 
 import { isStr, curryN } from '@exah/utils'
-import { getSize, themePath } from '../utils/getters'
-import { sizeValue, toCssRule } from '../utils/helpers'
+import { getSize, themePath } from '../getters'
+import { sizeValue, toCssRule } from '../utils'
 import { everyMediaValue } from './every-media'
 
 /**
@@ -42,11 +41,11 @@ import { everyMediaValue } from './every-media'
  */
 
 const createSizeProp = (
-  cssProp: CSSProp,
-  trueVal?: CSSVal = '100%',
-  falseVal?: CSSVal = 0,
+  cssProp: string,
+  trueVal?: StyleValue = '100%',
+  falseVal?: StyleValue = 0,
   toPx?: boolean = true
-): PropStyleFn => curryN(2, (input, props, mediaKey, isRawValue) => {
+): PropStyle => curryN(2, (input, props, mediaKey, isRawValue) => {
   const cssRule = toCssRule(cssProp, toPx)
 
   if (isRawValue === true) {
@@ -67,7 +66,7 @@ const createSizeProp = (
   return everyMediaValue(themeSize, cssRule)(props)
 })
 
-const createSizeStyle = (cssProp: CSSProp, ...sizeValueArgs?: [ CSSVal, CSSVal ]): PropStyleFn =>
+const createSizeStyle = (cssProp: string, ...sizeValueArgs?: [ StyleValue, StyleValue ]): PropStyle =>
   (val = true, ...args) => createSizeProp(cssProp, ...sizeValueArgs)(val, ...args)
 
 export {

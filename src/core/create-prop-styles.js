@@ -3,8 +3,8 @@
 import type {
   Styles,
   Props,
-  DynamicStyleFn,
-  PropStylesObj
+  DynamicStyle,
+  PropStyles
 } from '../types'
 
 import {
@@ -15,16 +15,16 @@ import {
 } from '@exah/utils'
 
 import {
+  getMedia,
+  getDefaultMedia
+} from '../getters'
+
+import {
   keys,
   wrapIfMedia,
   handlePropStyle,
   hasMediaKeys
-} from '../utils/helpers'
-
-import {
-  themeMedia,
-  themeDefaultMedia
-} from '../utils/getters'
+} from '../utils'
 
 import {
   DEFAULT_KEY
@@ -34,7 +34,7 @@ const DEFAULT_OPTIONS = {
   isMediaProps: true
 }
 
-const propStylesWithMedia = (styles: PropStylesObj) => (media: Array<string>): PropStylesObj => {
+const propStylesWithMedia = (styles: PropStyles) => (media: Array<string>): PropStyles => {
   const mediaKeys = toArr(media).map((mediaKey) =>
     mediaKey === DEFAULT_KEY ? '' : mediaKey
   )
@@ -56,10 +56,10 @@ const propStylesWithMedia = (styles: PropStylesObj) => (media: Array<string>): P
  * import pss from 'pss'
  * ```
  *
- * Function that accepts Object (see {@link PropStylesObj}) with keys that
+ * Function that accepts Object (see {@link PropStyles}) with keys that
  * represents component `prop` and the value is a `style` that will be applied.
  *
- * Returns Function (see {@link DynamicStyleFn}) that you add to
+ * Returns Function (see {@link DynamicStyle}) that you add to
  * components created with CSS-in-JS libraries.
  *
  * When `theme` with `media` is provided to components, any styles can be changed
@@ -105,16 +105,16 @@ const propStylesWithMedia = (styles: PropStylesObj) => (media: Array<string>): P
  */
 
 const createPropStyles = (
-  propStyles: PropStylesObj = {},
+  propStyles: PropStyles = {},
   options?: { isMediaProps: boolean }
-): DynamicStyleFn => {
+): DynamicStyle => {
   const opts = { ...DEFAULT_OPTIONS, ...options }
   const propStylesWithMediaMemoized = memoize(propStylesWithMedia(propStyles))
 
   return (props: Props): Styles => {
-    const media = themeMedia(props)
+    const media = getMedia(props)
     const mediaKeys = keys(media)
-    const isMedia = opts.isMediaProps && themeDefaultMedia(props) !== false
+    const isMedia = opts.isMediaProps && getDefaultMedia(props) !== false
     const stylesMap = isMedia ? propStylesWithMediaMemoized(mediaKeys) : propStyles
 
     const getStylesFromProps = reduceObj((acc, propName, propValue) => {

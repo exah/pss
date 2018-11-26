@@ -60,8 +60,8 @@ import { createPropStyles, createPaletteProp, createColorProp } from '../core'
  * ```
  *
  * @example
- * import styled from 'react-emotion'
  * import { colors } from 'pss'
+ * import styled from 'react-emotion'
  *
  * const Box = styled.div(colors)
  *

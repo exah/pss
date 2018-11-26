@@ -1,4 +1,4 @@
-import { combine } from '../utils/fns'
+import { combine } from '../utils'
 import { space } from './space'
 import { sizes } from './sizes'
 import { colors } from './colors'
@@ -14,8 +14,8 @@ import { colors } from './colors'
  *   - {@link colors}
  *
  * @example
- * import styled from 'react-emotion'
  * import { base } from 'pss'
+ * import styled from 'react-emotion'
  *
  * const Box = styled('div')(base)
  *

@@ -1,23 +1,34 @@
 // @flow
 
-//
-// Styles
-//
+import {
+  DEFAULT_KEY,
+  SPACE_KEY,
+  SIZES_KEY,
+  COLORS_KEY,
+  PALETTE_KEY
+} from './constants'
 
-type CSSProp = string
-type CSSVal = string | number
-type StyleObj = { [CSSProp]: CSSVal }
-type EmptyArray = Array<*>
-type Styles = EmptyArray | StyleObj | StyleObj[]
+type DefaultKey = DEFAULT_KEY
 
-//
-// Prop Styles
-//
+type ThemeKey = SPACE_KEY | SIZES_KEY | COLORS_KEY | PALETTE_KEY | string
 
-type CompPropName = string
-type PropStyleVal = string | number | boolean | Function | null
-type Props = { [theme: CompPropName]: PropStyleVal }
-type DynamicStyleFn = (props: Props, mediaKey?: string) => StyleObj | Styles
+type Theme = $Shape<{
+  default: { media: string | DefaultKey | false, [ThemeKey]: string | DefaultKey },
+  media: { [DefaultKey | string]: string | null },
+  [ThemeKey]: {}
+}>
+
+type Props = { theme: Theme }
+
+type StyleValue = string | number
+
+type Style = { [string]: StyleValue }
+
+type Styles = Style | Style[]
+
+type PropStyleValue = string | number | boolean | Function | null
+
+type DynamicStyle = (props: Props, mediaKey?: string) => Styles
 
 /**
  * {@link Function} that returns style that will be applied to component when prop is used.
@@ -27,11 +38,11 @@ type DynamicStyleFn = (props: Props, mediaKey?: string) => StyleObj | Styles
  * @param mediaKey — is prop suffix, same as key in `theme.media`, resulted style is wrapped in matched media query
  */
 
-type PropStyleFn = (value: PropStyleVal, props: Props, mediaKey: string | null) => StyleObj
+type PropStyle = (value: PropStyleValue, props: Props, mediaKey: string | null) => Styles
 
 /**
  * Object with keys that represents component `prop` and
- * the value is a `style` that will be applied (or {@link PropStyleFn}).
+ * the value is a `style` that will be applied (or {@link PropStyle}).
  *
  * @type {Object}
  *
@@ -47,35 +58,18 @@ type PropStyleFn = (value: PropStyleVal, props: Props, mediaKey: string | null) 
  *   color: (value, props) => ({ color: props.theme.color[value] })
  * }
  */
-type PropStylesObj = { [CompPropName]: PropStyleFn }
 
-//
-// Themes
-//
-
-type ThemeDefaultKey = 'default'
-type ThemeKey = 'media' | 'space' | 'size' | 'color' | 'palette'
-
-type ThemeObj = $Shape<{
-  default: { [ThemeKey]: string | ThemeDefaultKey },
-  media: { [ThemeDefaultKey | string]: string | null },
-  space: { [ThemeDefaultKey | string]: Array<number> },
-  size: { [string]: string | number },
-  color: { [string]: string },
-  palette: { [ThemeDefaultKey | string]: {} }
-}>
+type PropStyles = { [string]: PropStyle }
 
 export type {
   ThemeKey,
-  ThemeObj,
-  CompPropName,
+  Theme,
   Props,
-  CSSProp,
-  CSSVal,
-  StyleObj,
+  StyleValue,
+  Style,
   Styles,
-  DynamicStyleFn,
-  PropStylesObj,
-  PropStyleFn,
-  PropStyleVal
+  DynamicStyle,
+  PropStyles,
+  PropStyle,
+  PropStyleValue
 }

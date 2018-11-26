@@ -1,6 +1,6 @@
 import { isFn, curryN, identity, toArr, toObj } from '@exah/utils'
-import { themeMedia } from './getters'
-import { handlePropStyle, wrapIfMedia } from './helpers'
+import { handlePropStyle, wrapIfMedia } from '../utils'
+import { getMedia } from '../getters'
 
 /**
  * ```js
@@ -10,7 +10,7 @@ import { handlePropStyle, wrapIfMedia } from './helpers'
  * Wrap result of prop style in custom CSS selector.
  *
  * @param {string} [name] — CSS selector, like `&:first-child`, `& + &`
- * @param {PropStyleVal} [value] — prop value
+ * @param {PropStyleValue} [value] — prop value
  *
  * @example
  * import styled from 'react-emotion'
@@ -40,7 +40,7 @@ const propSelector = curryN(2, (name, value) => (props, mediaKey, style) => ({
  * Wrap result of prop style in media query from `theme.media` by key.
  *
  * @param {string} [mediaKeyAndQuery] — key in `theme.media`
- * @param {PropStyleVal} [value] — prop value
+ * @param {PropStyleValue} [value] — prop value
  *
  * @example
  * import styled from 'react-emotion'
@@ -60,7 +60,7 @@ const mediaPropSelector = curryN(2, (mediaKeyAndQuery, value) => {
   const styleFromValue = combineSelectors(value)
 
   return (props, propMediaKey, style) => wrapIfMedia(
-    customQuery || themeMedia(props)[mediaKey],
+    customQuery || getMedia(props)[mediaKey],
     toObj(styleFromValue(props, mediaKey, style))
   )
 })

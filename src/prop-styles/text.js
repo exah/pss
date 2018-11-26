@@ -1,5 +1,5 @@
 import { createPropStyles, ruleProp } from '../core'
-import { combine } from '../utils/fns'
+import { combine } from '../utils'
 import { fontFamily } from './font-family'
 
 const textHelpers = createPropStyles({

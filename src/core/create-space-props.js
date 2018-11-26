@@ -1,23 +1,21 @@
 // @flow
 
 import type {
-  CSSProp,
-  CompPropName,
-  DynamicStyleFn,
-  PropStylesObj
+  DynamicStyle,
+  PropStyles
 } from '../types'
 
 import { toObj } from '@exah/utils'
 import { SHORT_DIRECTIONS } from '../constants'
-import { getSpace } from '../utils/getters'
-import { toCssRule } from '../utils/helpers'
+import { getSpace } from '../getters'
+import { toCssRule } from '../utils'
 import { everyMediaValue } from './every-media'
 
-type SpaceProps = Array<Array<CompPropName | Array<CSSProp>>>
+type SpaceProps = Array<Array<string | Array<string>>>
 
 const buildDirectionModifiers = (
-  styleProp: CSSProp,
-  compProp: CompPropName = ''
+  styleProp: string,
+  compProp: string = ''
 ): SpaceProps => [
   ...Object.entries(SHORT_DIRECTIONS).map(([ shortDir, longDir ]: any) => [
     compProp + shortDir,
@@ -27,11 +25,11 @@ const buildDirectionModifiers = (
 ]
 
 const cssRuleSpaceStyle = (
-  styleProp: CSSProp,
+  styleProp: string,
   getSpaceValue: Function = getSpace,
   toPx = true
 ): Function =>
-  (input, defaultMediaKey): DynamicStyleFn =>
+  (input, defaultMediaKey): DynamicStyle =>
     (props, mediaKey = defaultMediaKey, isRawValue) => everyMediaValue(
       isRawValue ? input : getSpaceValue(input, null, mediaKey),
       toCssRule(styleProp, toPx)
@@ -45,7 +43,7 @@ const cssRuleSpaceStyle = (
  * Similar to {@link createSpaceProps}, but creates style function instead of prop styles,
  * that can be used inside CSS-in-JS components with `theme` prop.
  *
- * For example if `cssProp` = `margin` result is {@link DynamicStyleFn} with API:
+ * For example if `cssProp` = `margin` result is {@link DynamicStyle} with API:
  *
  * - `fn(step)` → `margin`
  * - `fn.l(step)` → `margin-left`
@@ -77,7 +75,7 @@ const cssRuleSpaceStyle = (
  * <OtherBox />
  */
 
-const createSpaceStyle = (cssProp: CSSProp, getSpaceValue: Function): DynamicStyleFn => {
+const createSpaceStyle = (cssProp: string, getSpaceValue: Function): DynamicStyle => {
   const baseStyle = cssRuleSpaceStyle(cssProp, getSpaceValue)
   const modifiers = buildDirectionModifiers(cssProp)
 
@@ -124,10 +122,10 @@ const createSpaceStyle = (cssProp: CSSProp, getSpaceValue: Function): DynamicSty
  */
 
 const createSpaceProps = (
-  cssProp: CSSProp,
-  compProp: CompPropName,
+  cssProp: string,
+  compProp: string,
   getSpaceValue: Function
-): PropStylesObj => {
+): PropStyles => {
   const modifiers = buildDirectionModifiers(cssProp, compProp)
 
   return toObj(modifiers, ([ modName, styleProp ]) => {

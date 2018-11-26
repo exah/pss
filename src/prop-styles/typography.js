@@ -1,4 +1,4 @@
-import { combine } from '../utils/fns'
+import { combine } from '../utils'
 import { textStyle } from './text-style'
 import { text } from './text'
 

@@ -1,5 +1,4 @@
-// @flow
-
+export * from './base'
 export * from './border'
 export * from './colors'
 export * from './css'
@@ -12,9 +11,8 @@ export * from './position'
 export * from './ratio'
 export * from './sizes'
 export * from './space'
+export * from './system'
 export * from './text'
 export * from './text-style'
 export * from './typography'
 export * from './utility'
-export * from './base'
-export * from './system'

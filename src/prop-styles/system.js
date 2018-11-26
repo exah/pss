@@ -1,4 +1,4 @@
-import { combine } from '../utils/fns'
+import { combine } from '../utils'
 import { base } from './base'
 import { position } from './position'
 import { border } from './border'
@@ -24,8 +24,8 @@ import { utility } from './utility'
  *   - {@link utility}
  *
  * @example
- * import styled from 'react-emotion'
  * import { system } from 'pss'
+ * import styled from 'react-emotion'
  *
  * const Box = styled('div')(system)
  *

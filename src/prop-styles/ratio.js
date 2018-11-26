@@ -1,7 +1,7 @@
 import { isNum } from '@exah/utils'
 
 import { createPropStyles } from '../core/create-prop-styles'
-import { floor } from '../utils/fns'
+import { floor } from '../utils'
 
 /**
  * ```js
@@ -12,8 +12,8 @@ import { floor } from '../utils/fns'
  * with pseudo elements.
  *
  * @example
- * import styled from 'react-emotion'
  * import { ratio } from 'pss'
+ * import styled from 'react-emotion'
  *
  * const Box = styled.div(ratio)
  *

@@ -47,5 +47,5 @@ toc:
 
   - name: Types
     children:
-      - PropStylesObj
-      - PropStyleFn
+      - PropStyles
+      - PropStyle

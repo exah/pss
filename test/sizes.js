@@ -5,7 +5,7 @@ import {
   createPropStyles,
   createSizeProp,
   createSizeStyle,
-  onMedia
+  styles
 } from '../src'
 
 import { toStyles } from './_helpers'
@@ -143,7 +143,7 @@ test('style -> set height', (t) => {
     }
   })
 
-  const nudgeOnMobile = toStyles(onMedia('M', height('nudge'))({ theme }))
+  const nudgeOnMobile = toStyles(styles.onMedia('M', height('nudge'))({ theme }))
 
   t.deepEqual(nudgeOnMobile, {
     '@media (max-width: 600px)': {

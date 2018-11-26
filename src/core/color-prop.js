@@ -1,16 +1,15 @@
 // @flow
 
 import type {
-  PropStyleFn,
-  CSSProp,
-  CSSVal,
+  PropStyle,
+  StyleValue,
   Props,
   ThemeKey
 } from '../types'
 
 import { identity, fallbackTo, curryN } from '@exah/utils'
 import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
-import { getActiveColors, getColor } from '../utils/getters'
+import { getActiveColors, getColor } from '../getters'
 
 /**
  * ```js
@@ -41,9 +40,9 @@ import { getActiveColors, getColor } from '../utils/getters'
  */
 
 const createPaletteProp = (
-  bgKey: string = 'bg',
-  fgKey: string = 'fg'
-): PropStyleFn => curryN(2, (input, props) => {
+  backgroundKey: string = 'bg',
+  colorKey: string = 'fg'
+): PropStyle => curryN(2, (input, props) => {
   if (input == null) {
     return {}
   }
@@ -58,8 +57,8 @@ const createPaletteProp = (
   const palette = getActiveColors(input)(props)
 
   return {
-    backgroundColor: palette[bgKey],
-    color: palette[fgKey]
+    backgroundColor: palette[backgroundKey],
+    color: palette[colorKey]
   }
 })
 
@@ -101,10 +100,10 @@ const createPaletteProp = (
  */
 
 const createColorProp = (
-  cssProp: CSSProp,
-  colorKey: ThemeKey,
-  getCssValue?: (color: string, props: Props) => CSSVal = identity
-): PropStyleFn => curryN(2, (input, props, mediaKey, isRawValue) => {
+  cssProp: string,
+  themeKey: ThemeKey,
+  getCssValue?: (color: string, props: Props) => StyleValue = identity
+): PropStyle => curryN(2, (input, props, mediaKey, isRawValue) => {
   if (input == null) {
     return {}
   }
@@ -117,7 +116,7 @@ const createColorProp = (
 
   const color = input === false
     ? CSS_PROPS_DEFAULTS[cssProp] || CSS_DEFAULT_VALUE
-    : fallbackTo(getColor(colorKey, input)(props), input)
+    : fallbackTo(getColor(themeKey, input)(props), input)
 
   return !color ? {} : {
     [cssProp]: getCssValue(color, props)

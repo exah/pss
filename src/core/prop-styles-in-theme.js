@@ -1,14 +1,13 @@
 // @flow
 
 import type {
-  PropStyleFn,
-  DynamicStyleFn,
-  CompPropName,
+  PropStyle,
+  DynamicStyle,
   ThemeKey
 } from '../types'
 
 import { isStr, mapObj, identity } from '@exah/utils'
-import { getThemeMediaValue, themePath } from '../utils/getters'
+import { getThemeMediaValue, themePath } from '../getters'
 import { createPropStyles } from './create-prop-styles'
 import { everyMediaValue } from './every-media'
 
@@ -64,7 +63,7 @@ const createStyleFromTheme = (options: {
   themeKey: ? ThemeKey,
   themeGetter?: ? Function,
   getStyle?: Function
-}): PropStyleFn => {
+}): PropStyle => {
   const { themeKey, themeGetter, getStyle = identity } = options
   const getter = themeGetter || getThemeMediaValue(themeKey)
 
@@ -115,9 +114,9 @@ const createStyleFromTheme = (options: {
 
 const propStylesInTheme = (
   themeKey: ThemeKey,
-  propName: ? CompPropName, // COMPAT
+  propName: ? string, // COMPAT
   themeGetter: ? Function
-): DynamicStyleFn => {
+): DynamicStyle => {
   const style = createStyleFromTheme({
     themeKey,
     themeGetter

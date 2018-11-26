@@ -58,8 +58,8 @@ import { createSizeProp, createPropStyles } from '../core'
  * ```
  *
  * @example
- * import styled from 'react-emotion'
  * import { sizes } from 'pss'
+ * import styled from 'react-emotion'
  *
  * const Box = styled.div(sizes)
  *

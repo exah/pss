@@ -1,5 +1,5 @@
 import { createPropStyles, createSpaceProps } from '../core'
-import { combine } from '../utils/fns'
+import { combine } from '../utils'
 
 const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
 const paddingPropStyles = createPropStyles(createSpaceProps('padding', 'pd'))
@@ -63,8 +63,8 @@ const paddingPropStyles = createPropStyles(createSpaceProps('padding', 'pd'))
  *
  *
  * @example
- * import styled from 'react-emotion'
  * import { space } from 'pss'
+ * import styled from 'react-emotion'
  *
  * const Box = styled.div(space)
  *

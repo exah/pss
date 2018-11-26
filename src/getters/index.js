@@ -1,5 +1,5 @@
 import { isStr, fallbackTo, isArr, path } from '@exah/utils'
-import { spaceValue, hasMediaKeys, keys } from './helpers'
+import { spaceValue, hasMediaKeys, keys } from '../utils'
 
 import {
   DEFAULT_KEY,
@@ -14,26 +14,26 @@ import {
   DEFAULT_THEME_COLORS
 } from '../constants'
 
-const getTheme = (props) => (props && props.theme) || Object(props)
+export const getTheme = (props) => (props && props.theme) || Object(props)
 
-const themePath = (input, defaultValue) => (props) => path(
+export const themePath = (input, defaultValue) => (props) => path(
   input,
   defaultValue
 )(getTheme(props))
 
-const themeMedia = (props) => ({
+export const getMedia = (props) => ({
   ...DEFAULT_THEME_MEDIA,
   ...path(MEDIA_KEY)(getTheme(props))
 })
 
-const themeMediaKeys = (props) => keys(themeMedia(props))
-const themeDefaultMedia = themePath([ DEFAULT_KEY, MEDIA_KEY ], DEFAULT_KEY)
-const themeDefaultPaletteName = themePath([ DEFAULT_KEY, PALETTE_KEY ], DEFAULT_KEY)
-const themePalettes = themePath(PALETTE_KEY, DEFAULT_THEME_PALETTE)
-const themeColors = themePath(COLORS_KEY, DEFAULT_THEME_COLORS)
-const themeSpaces = themePath(SPACE_KEY, DEFAULT_THEME_SPACE)
+export const getMediaKeys = (props) => keys(getMedia(props))
+export const getDefaultMedia = themePath([ DEFAULT_KEY, MEDIA_KEY ], DEFAULT_KEY)
+export const getDefaultPaletteName = themePath([ DEFAULT_KEY, PALETTE_KEY ], DEFAULT_KEY)
+export const getPalettes = themePath(PALETTE_KEY, DEFAULT_THEME_PALETTE)
+export const getColors = themePath(COLORS_KEY, DEFAULT_THEME_COLORS)
+export const getSpaces = themePath(SPACE_KEY, DEFAULT_THEME_SPACE)
 
-const getThemeMediaValue = (themeDataKey) => (
+export const getThemeMediaValue = (themeDataKey) => (
   input,
   defaultValue,
   defaultMediaKey
@@ -49,7 +49,7 @@ const getThemeMediaValue = (themeDataKey) => (
     return themeValue[defaultMediaKey]
   }
 
-  if (hasMediaKeys(themeMediaKeys(props), themeValue)) {
+  if (hasMediaKeys(getMediaKeys(props), themeValue)) {
     return (mediaKey) => themeValue[mediaKey]
   }
 
@@ -59,15 +59,15 @@ const getThemeMediaValue = (themeDataKey) => (
   )
 }
 
-const getSize = getThemeMediaValue(SIZES_KEY)
+export const getSize = getThemeMediaValue(SIZES_KEY)
 
-function getSpace (input, defaultValue, defaultMediaKey) {
+export function getSpace (input, defaultValue, defaultMediaKey) {
   if (isStr(input)) {
     return getSize(input, input, defaultMediaKey)
   }
 
   return (props) => {
-    const spaces = themeSpaces(props)
+    const spaces = getSpaces(props)
 
     if (isArr(spaces)) {
       return spaceValue(input, spaces)
@@ -80,7 +80,7 @@ function getSpace (input, defaultValue, defaultMediaKey) {
       ))
     }
 
-    if (hasMediaKeys(themeMediaKeys(props), spaces)) {
+    if (hasMediaKeys(getMediaKeys(props), spaces)) {
       return (mediaKey) => spaceValue(input, spaces[mediaKey])
     }
 
@@ -88,14 +88,14 @@ function getSpace (input, defaultValue, defaultMediaKey) {
   }
 }
 
-const getPaletteColors = (input) => (props) => {
-  const paletteKey = isStr(input) ? input : themeDefaultPaletteName(props)
-  return path(paletteKey, {})(themePalettes(props))
-}
+export const getPaletteColors = (input) => (props) => path(
+  isStr(input) ? input : getDefaultPaletteName(props),
+  {}
+)(getPalettes(props))
 
-const getActiveColors = (input) => (props) => {
+export const getActiveColors = (input) => (props) => {
   const palette = getPaletteColors(input)(props)
-  const colors = themeColors(props)
+  const colors = getColors(props)
 
   return {
     ...palette,
@@ -103,7 +103,7 @@ const getActiveColors = (input) => (props) => {
   }
 }
 
-const getColor = (defaultColorKey, colorKey = true) => (props) => {
+export const getColor = (defaultColorKey, colorKey = true) => (props) => {
   const activeColors = getActiveColors()(props)
 
   const color = colorKey === true
@@ -114,20 +114,4 @@ const getColor = (defaultColorKey, colorKey = true) => (props) => {
     color,
     path(defaultColorKey)(getPaletteColors(colorKey)(props))
   )
-}
-
-export {
-  themeDefaultPaletteName,
-  themeDefaultMedia,
-  themeSpaces,
-  themeMedia,
-  themePalettes,
-  themeColors,
-  themePath,
-  getThemeMediaValue,
-  getPaletteColors,
-  getActiveColors,
-  getColor,
-  getSize,
-  getSpace
 }

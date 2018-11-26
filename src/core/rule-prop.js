@@ -1,20 +1,19 @@
 // @flow
 
 import type {
-  CSSProp,
-  CSSVal,
-  PropStyleFn,
-  PropStyleVal,
-  StyleObj
+  StyleValue,
+  PropStyle,
+  PropStyleValue,
+  Style
 } from '../types'
 
 import { isBool } from '@exah/utils'
 
 const ruleProp = (
-  cssProp: CSSProp,
-  trueVal: CSSVal,
-  falseVal: CSSVal
-): PropStyleFn => (val: PropStyleVal | CSSVal): StyleObj => ({
+  cssProp: string,
+  trueVal: StyleValue,
+  falseVal: StyleValue
+): PropStyle => (val: PropStyleValue | StyleValue): Style => ({
   [cssProp]: isBool(val) ? (val === true ? trueVal : falseVal) : val
 })
 

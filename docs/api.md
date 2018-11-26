@@ -80,9 +80,9 @@
         -   [Parameters][76]
         -   [Examples][77]
 -   [Types][78]
-    -   [PropStylesObj][79]
+    -   [PropStyles][79]
         -   [Examples][80]
-    -   [PropStyleFn][81]
+    -   [PropStyle][81]
         -   [Parameters][82]
 
 ## Prop Styles
@@ -930,7 +930,7 @@ Wrap result of prop style in custom CSS selector.
 #### Parameters
 
 -   `name` **[string][89]?** — CSS selector, like `&:first-child`, `& + &`
--   `value` **PropStyleVal?** — prop value
+-   `value` **PropStyleValue?** — prop value
 
 #### Examples
 
@@ -963,7 +963,7 @@ Wrap result of prop style in media query from `theme.media` by key.
 #### Parameters
 
 -   `mediaKeyAndQuery` **[string][89]?** — key in `theme.media`
--   `value` **PropStyleVal?** — prop value
+-   `value` **PropStyleValue?** — prop value
 
 #### Examples
 
@@ -1050,10 +1050,10 @@ const Box = styled.div(sizes)
 import pss from 'pss'
 ```
 
-Function that accepts Object (see [PropStylesObj][79]) with keys that
+Function that accepts Object (see [PropStyles][79]) with keys that
 represents component `prop` and the value is a `style` that will be applied.
 
-Returns Function (see [DynamicStyleFn][90]) that you add to
+Returns Function (see [DynamicStyle][90]) that you add to
 components created with CSS-in-JS libraries.
 
 When `theme` with `media` is provided to components, any styles can be changed
@@ -1061,7 +1061,7 @@ in media query with media name suffix (key in `theme.media`).
 
 #### Parameters
 
--   `propStyles` **[PropStylesObj][91]**  (optional, default `{}`)
+-   `propStyles` **[PropStyles][91]**  (optional, default `{}`)
 -   `options` **{isMediaProps: [boolean][92]}**  (optional, default `{isMediaProps:true}`)
 
 #### Examples
@@ -1103,7 +1103,7 @@ const theme = {
 </ThemeProvider>
 ```
 
-Returns **DynamicStyleFn** 
+Returns **DynamicStyle** 
 
 ### createSizeProp
 
@@ -1113,9 +1113,9 @@ import { createSizeProp } from 'pss'
 
 #### Parameters
 
--   `cssProp` **CSSProp** — Any CSS prop like `width`, `height`, `left`, ...
--   `trueVal` **CSSVal**  (optional, default `'100%'`)
--   `falseVal` **CSSVal**  (optional, default `0`)
+-   `cssProp` **[string][89]** — Any CSS prop like `width`, `height`, `left`, ...
+-   `trueVal` **StyleValue**  (optional, default `'100%'`)
+-   `falseVal` **StyleValue**  (optional, default `0`)
 -   `toPx` **[boolean][92]** — Add `px` unit to `number` result (optional, default `true`)
 
 #### Examples
@@ -1143,7 +1143,7 @@ const Box = styled.div(mySizes)
 <Box l={20} r={10} /> // left: 20px; right: 10px
 ```
 
-Returns **[PropStyleFn][93]** 
+Returns **[PropStyle][93]** 
 
 ### createSpaceProps
 
@@ -1164,8 +1164,8 @@ Result is props for [createPropStyles][54] with specified prop prefix.
 
 #### Parameters
 
--   `cssProp` **CSSProp** — Usually is `margin` or `padding`
--   `compProp` **CompPropName** — Prop name that will be used in component
+-   `cssProp` **[string][89]** — Usually is `margin` or `padding`
+-   `compProp` **[string][89]** — Prop name that will be used in component
 -   `getSpaceValue` **[Function][94]** — Custom getter from theme, default to get values from `theme.space`
 
 #### Examples
@@ -1184,7 +1184,7 @@ const Box = styled.div(marginPropStyles)
 <Box mg /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
 ```
 
-Returns **[PropStylesObj][91]** 
+Returns **[PropStyles][91]** 
 
 ### createSpaceStyle
 
@@ -1195,7 +1195,7 @@ import { createSpaceStyle } from 'pss'
 Similar to [createSpaceProps][60], but creates style function instead of prop styles,
 that can be used inside CSS-in-JS components with `theme` prop.
 
-For example if `cssProp` = `margin` result is [DynamicStyleFn][90] with API:
+For example if `cssProp` = `margin` result is [DynamicStyle][90] with API:
 
 -   `fn(step)` → `margin`
 -   `fn.l(step)` → `margin-left`
@@ -1207,7 +1207,7 @@ For example if `cssProp` = `margin` result is [DynamicStyleFn][90] with API:
 
 #### Parameters
 
--   `cssProp` **CSSProp** — Usually is `margin` or `padding`
+-   `cssProp` **[string][89]** — Usually is `margin` or `padding`
 -   `getSpaceValue` **[Function][94]** — Custom getter from theme, default to get values from `theme.space`
 
 #### Examples
@@ -1232,7 +1232,7 @@ const OtherBox = styled.div({ display: 'flex' }, marginFn.l(1))
 <OtherBox />
 ```
 
-Returns **DynamicStyleFn** 
+Returns **DynamicStyle** 
 
 ### createColorProp
 
@@ -1244,9 +1244,10 @@ Get color from theme and apply it to css prop.
 
 #### Parameters
 
--   `cssProp` **CSSProp** — Any CSS prop like `backgroundColor`, `color`, `borderColor`, ...
--   `colorKey` **ThemeKey** — Key in `theme.color` or in `theme.palette[theme.default.palette]`
--   `getCssValue` **function (color: [string][89], props: Props): CSSVal** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)
+-   `cssProp` **[string][89]** — Any CSS prop like `backgroundColor`, `color`, `borderColor`, ...
+-   `themeKey` **ThemeKey** 
+-   `getCssValue` **function (color: [string][89], props: Props): StyleValue** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)
+-   `colorKey`  — Key in `theme.color` or in `theme.palette[theme.default.palette]`
 
 #### Examples
 
@@ -1277,7 +1278,7 @@ const Box = styled.div(myColors)
 <Box shadow /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
 ```
 
-Returns **[PropStyleFn][93]** 
+Returns **[PropStyle][93]** 
 
 ### createPaletteProp
 
@@ -1289,8 +1290,10 @@ Set both `background-color` and `color` for selected `theme.palette`.
 
 #### Parameters
 
--   `bgKey` **[string][89]** — is key in `theme.palette[val]` for CSS `background-color` prop (optional, default `'background'`)
--   `fgKey` **[string][89]** — is key in `theme.palette[val]` for CSS `color` prop (optional, default `'foreground'`)
+-   `backgroundKey` **[string][89]**  (optional, default `'bg'`)
+-   `colorKey` **[string][89]**  (optional, default `'fg'`)
+-   `bgKey`  — is key in `theme.palette[val]` for CSS `background-color` prop (optional, default `'background'`)
+-   `fgKey`  — is key in `theme.palette[val]` for CSS `color` prop (optional, default `'foreground'`)
 
 #### Examples
 
@@ -1313,7 +1316,7 @@ const Box = styled.div(myColors)
 <Box tm='inverted' /> // background-color: #222222; color: #fffffff
 ```
 
-Returns **[PropStyleFn][93]** 
+Returns **[PropStyle][93]** 
 
 ### createStyleFromTheme
 
@@ -1372,7 +1375,7 @@ const Text = styled.div(createPropStyles({
 }
 ```
 
-Returns **[PropStyleFn][93]** 
+Returns **[PropStyle][93]** 
 
 ### propStylesInTheme
 
@@ -1385,7 +1388,7 @@ Create prop styles using styles defined directly inside `theme[themeKey]`. Usefu
 #### Parameters
 
 -   `themeKey` **ThemeKey** 
--   `propName` **CompPropName?** 
+-   `propName` **[string][89]?** 
 -   `themeGetter` **[Function][94]?** 
 
 #### Examples
@@ -1423,17 +1426,17 @@ const Text = styled.div(propStylesInTheme('textStyleFlags'))
 }
 ```
 
-Returns **DynamicStyleFn** 
+Returns **DynamicStyle** 
 
 ## Types
 
 
 
 
-### PropStylesObj
+### PropStyles
 
 Object with keys that represents component `prop` and
-the value is a `style` that will be applied (or [PropStyleFn][81]).
+the value is a `style` that will be applied (or [PropStyle][81]).
 
 Type: [Object][95]
 
@@ -1453,11 +1456,11 @@ Type: [Object][95]
 }
 ```
 
-### PropStyleFn
+### PropStyle
 
 [Function][96] that returns style that will be applied to component when prop is used.
 
-Type: function (value: PropStyleVal, props: Props, mediaKey: ([string][89] | null)): StyleObj
+Type: function (value: PropStyleValue, props: Props, mediaKey: ([string][89] | null)): Styles
 
 #### Parameters
 
@@ -1621,11 +1624,11 @@ Type: function (value: PropStyleVal, props: Props, mediaKey: ([string][89] | nul
 
 [78]: #types
 
-[79]: #propstylesobj
+[79]: #propstyles
 
 [80]: #examples-31
 
-[81]: #propstylefn
+[81]: #propstyle
 
 [82]: #parameters-12
 
@@ -1643,13 +1646,13 @@ Type: function (value: PropStyleVal, props: Props, mediaKey: ([string][89] | nul
 
 [89]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[90]: DynamicStyleFn
+[90]: DynamicStyle
 
-[91]: #propstylesobj
+[91]: #propstyles
 
 [92]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 
-[93]: #propstylefn
+[93]: #propstyle
 
 [94]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 

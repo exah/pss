@@ -1,56 +1,38 @@
+// @flow
+
+import * as styles from './styles'
+
 export {
-  createPropStyles,
-  createPropStyles as pss,
-  createPropStyles as default,
-  createStyleFromTheme,
-  propStylesInTheme,
-  createSpaceStyle,
-  createSpaceProps,
-  everyMedia,
-  ruleProp,
-  createSizeStyle,
-  createSizeStyle as sizeStyle,
-  createSizeProp,
-  createSizeProp as sizeProp,
-  createColorProp,
   createColorProp as colorProp,
+  createColorProp,
+  createPaletteProp as themeProp,
   createPaletteProp,
-  createPaletteProp as themeProp
+  createPropStyles as default,
+  createPropStyles as pss,
+  createPropStyles,
+  createSizeProp as sizeProp,
+  createSizeProp,
+  createSizeStyle as sizeStyle,
+  createSizeStyle,
+  createSpaceProps,
+  createSpaceStyle,
+  createStyleFromTheme,
+  everyMedia,
+  propStylesInTheme,
+  ruleProp
 } from './core'
 
 export {
-  propSelector,
-  propSelector as ps,
-  combineSelectors,
-  combineSelectors as cs,
-  mediaPropSelector,
-  mediaPropSelector as mps,
-  themeSelector,
-  themeSelector as ts
-} from './utils/selectors'
-
-export {
-  wrap,
-  wrapIfMedia,
-  sizeValue,
-  spaceValue,
-  skipPropValue
-} from './utils/helpers'
-
-export {
-  combine
-} from './utils/fns'
-
-export {
-  getPalette,
-  getColors,
   getColor,
+  getColors,
+  getPalette,
   getSize,
   getSpace,
   themePath
-} from './utils/getters'
+} from './getters'
 
 export {
+  base,
   border,
   colors,
   cssProp,
@@ -59,19 +41,40 @@ export {
   flexItem,
   float,
   fontFamily,
+  marginPropStyles,
   overflow,
+  paddingPropStyles,
   position,
   ratio,
   sizes,
   space,
-  marginPropStyles,
-  paddingPropStyles,
+  system,
   text,
   textStyle,
   typography,
-  utility,
-  base,
-  system
+  utility
 } from './prop-styles'
 
-export * from './styles'
+export {
+  combineSelectors as cs,
+  combineSelectors,
+  mediaPropSelector as mps,
+  mediaPropSelector,
+  propSelector as ps,
+  propSelector,
+  themeSelector as ts,
+  themeSelector
+} from './selectors'
+
+export {
+  styles
+}
+
+export {
+  combine,
+  sizeValue,
+  skipPropValue,
+  spaceValue,
+  wrap,
+  wrapIfMedia
+} from './utils'

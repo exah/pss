@@ -5,7 +5,7 @@ import {
   createPropStyles,
   createSpaceProps,
   createSpaceStyle,
-  onMedia
+  styles
 } from '../src'
 
 import { toStyles } from './_helpers'
@@ -115,7 +115,7 @@ test('style -> padding', (t) => {
 
   const spaceStep3 = toStyles(padding(-3)({ theme }))
   const spaceStep2Y = toStyles(padding.y(2)({ theme }))
-  const spaceAutoXOnMobile = toStyles(onMedia('M', padding.x('auto'))({ theme }))
+  const spaceAutoXOnMobile = toStyles(styles.onMedia('M', padding.x('auto'))({ theme }))
 
   t.deepEqual(spaceStep3, {
     padding: '-3rem',
