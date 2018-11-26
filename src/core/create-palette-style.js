@@ -12,14 +12,14 @@ import { getActiveColors } from '../getters'
  *
  * Set both `background-color` and `color` for selected `theme.palette`.
  *
- * @param [bgKey = 'background'] — is key in `theme.palette[val]` for CSS `background-color` prop
- * @param [fgKey = 'foreground'] — is key in `theme.palette[val]` for CSS `color` prop
+ * @param [backgroundKey = 'bg'] — is key in `theme.palette[val]` for CSS `background-color` prop
+ * @param [colorKey = 'fg'] — is key in `theme.palette[val]` for CSS `color` prop
  *
  * @example
  * import styled from 'react-emotion'
- * import { createPaletteStyle, createPropStyles } from 'pss'
+ * import pss, { createPaletteStyle } from 'pss'
  *
- * const myColors = createPropStyles({
+ * const myColors = pss({
  *   tm: createPaletteStyle('bg', 'fg')
  * })
  *

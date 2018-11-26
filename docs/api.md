@@ -1152,10 +1152,10 @@ Result is props for [createPropStyles][56] with specified prop prefix.
 
 ```js
 import styled from 'react-emotion'
-import { createSpace, createPropStyles } from 'pss'
+import pss, { createSpace } from 'pss'
 
 // Create `margin` space prop styles with `mg` prefix
-const marginPropStyles = createPropStyles(createSpace('margin', 'mg'))
+const marginPropStyles = pss(createSpace('margin', 'mg'))
 
 // Add to component
 const Box = styled.div(marginPropStyles)
@@ -1183,9 +1183,9 @@ import { createSize } from 'pss'
 
 ```js
 import styled from 'react-emotion'
-import { createSize, createPropStyles } from 'pss'
+import pss, { createSize } from 'pss'
 
-const mySizes = createPropStyles({
+const mySizes = pss({
   w: createSize('width', '100%', 0, true), // this is default
   h: createSize('height'), // same as above
   l: createSize('left', 0, 'auto'),
@@ -1225,9 +1225,9 @@ Get color from theme and apply it to css prop.
 
 ```js
 import styled from 'react-emotion'
-import { createColor, createPropStyles } from 'pss'
+import pss, { createColor } from 'pss'
 
-const myColors = createPropStyles({
+const myColors = pss({
   color: createColor('color', 'fg'),
   shadow: createColor('boxShadow', 'shadow', (color) => `0 0 20px 0 ${color}`)
 })
@@ -1262,18 +1262,16 @@ Set both `background-color` and `color` for selected `theme.palette`.
 
 #### Parameters
 
--   `backgroundKey` **[string][89]**  (optional, default `'bg'`)
--   `colorKey` **[string][89]**  (optional, default `'fg'`)
--   `bgKey`  — is key in `theme.palette[val]` for CSS `background-color` prop (optional, default `'background'`)
--   `fgKey`  — is key in `theme.palette[val]` for CSS `color` prop (optional, default `'foreground'`)
+-   `backgroundKey` **[string][89]** — is key in `theme.palette[val]` for CSS `background-color` prop (optional, default `'bg'`)
+-   `colorKey` **[string][89]** — is key in `theme.palette[val]` for CSS `color` prop (optional, default `'fg'`)
 
 #### Examples
 
 ```js
 import styled from 'react-emotion'
-import { createPaletteStyle, createPropStyles } from 'pss'
+import pss, { createPaletteStyle } from 'pss'
 
-const myColors = createPropStyles({
+const myColors = pss({
   tm: createPaletteStyle('bg', 'fg')
 })
 
@@ -1301,7 +1299,7 @@ Useful for creating text or buttons styles. See [textStyle][22].
 
 #### Parameters
 
--   `options` **{themeKey: ThemeKey?, themeGetter: [Function][93]??, getStyle: [Function][93]?}** 
+-   `options` **{themeKey: ThemeKey?, themeGetter: [Function][93]?, getStyle: [Function][93]?}** 
 
 #### Examples
 
@@ -1325,7 +1323,7 @@ const theme = {
 
 ```js
 import styled from 'react-emotion'
-import { pss, createThemeStyle } from 'pss'
+import pss, { createThemeStyle } from 'pss'
 
 const Text = styled.div(pss({
   textStyle: createThemeStyle({ themeKey: 'textStyle' })
@@ -1377,12 +1375,12 @@ For example if `cssProp` = `margin` result is [Mixin][90] with API:
 
 ```js
 import styled from 'react-emotion'
-import { createSpaceMixin, createPropStyles } from 'pss'
+import pss, { createSpaceMixin } from 'pss'
 
-const marginFn = createSpaceMixin('margin')
+const margin = createSpaceMixin('margin')
 
-const Box = styled.div(marginFn.x(2))
-const OtherBox = styled.div({ display: 'flex' }, marginFn.l(1))
+const Box = styled.div(margin.x(2))
+const OtherBox = styled.div({ display: 'flex' }, margin.l(1))
 ```
 
 ```js

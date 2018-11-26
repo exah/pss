@@ -18,9 +18,9 @@ import { getColor } from '../getters'
  *
  * @example
  * import styled from 'react-emotion'
- * import { createColor, createPropStyles } from 'pss'
+ * import pss, { createColor } from 'pss'
  *
- * const myColors = createPropStyles({
+ * const myColors = pss({
  *   color: createColor('color', 'fg'),
  *   shadow: createColor('boxShadow', 'shadow', (color) => `0 0 20px 0 ${color}`)
  * })

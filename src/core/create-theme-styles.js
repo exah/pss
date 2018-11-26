@@ -32,7 +32,7 @@ import { everyMediaValue } from './every-media'
  *
  * @example
  * import styled from 'react-emotion'
- * import { pss, createThemeStyle } from 'pss'
+ * import pss, { createThemeStyle } from 'pss'
  *
  * const Text = styled.div(pss({
  *   textStyle: createThemeStyle({ themeKey: 'textStyle' })
@@ -54,8 +54,8 @@ import { everyMediaValue } from './every-media'
  */
 
 const createThemeStyle = (options: {
-  themeKey: ? ThemeKey,
-  themeGetter?: ? Function,
+  themeKey?: ThemeKey,
+  themeGetter?: Function,
   getStyle?: Function
 }): PropStyle => {
   const { themeKey, themeGetter, getStyle = identity } = options

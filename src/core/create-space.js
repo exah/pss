@@ -13,7 +13,7 @@ import { everyMediaValue } from './every-media'
 
 type SpaceProps = Array<Array<string | Array<string>>>
 
-const buildDirectionModifiers = (
+const createSpaceModifiers = (
   styleProp: string,
   compProp: string = ''
 ): SpaceProps => [
@@ -24,7 +24,7 @@ const buildDirectionModifiers = (
   [ compProp, [ styleProp ] ]
 ]
 
-const cssRuleSpaceStyle = (
+const getSpaceStyle = (
   styleProp: string,
   getSpaceValue: Function = getSpace,
   toPx = true
@@ -58,12 +58,12 @@ const cssRuleSpaceStyle = (
  *
  * @example
  * import styled from 'react-emotion'
- * import { createSpaceMixin, createPropStyles } from 'pss'
+ * import pss, { createSpaceMixin } from 'pss'
  *
- * const marginFn = createSpaceMixin('margin')
+ * const margin = createSpaceMixin('margin')
  *
- * const Box = styled.div(marginFn.x(2))
- * const OtherBox = styled.div({ display: 'flex' }, marginFn.l(1))
+ * const Box = styled.div(margin.x(2))
+ * const OtherBox = styled.div({ display: 'flex' }, margin.l(1))
  *
  * @example
  * // margin-left: 20px; margin-right: 20px;
@@ -75,14 +75,17 @@ const cssRuleSpaceStyle = (
  * <OtherBox />
  */
 
-const createSpaceMixin = (cssProp: string, getSpaceValue: Function): Mixin => {
-  const baseStyle = cssRuleSpaceStyle(cssProp, getSpaceValue)
-  const modifiers = buildDirectionModifiers(cssProp)
+const createSpaceMixin = (
+  cssProp: string,
+  getSpaceValue: Function
+): Mixin => {
+  const baseStyle = getSpaceStyle(cssProp, getSpaceValue)
+  const modifiers = createSpaceModifiers(cssProp)
 
   return Object.assign(
     baseStyle,
     toObj(modifiers, ([ modName, styleProp ]) => !modName ? null : ({
-      [modName]: cssRuleSpaceStyle(styleProp, getSpaceValue)
+      [modName]: getSpaceStyle(styleProp, getSpaceValue)
     }))
   )
 }
@@ -109,10 +112,10 @@ const createSpaceMixin = (cssProp: string, getSpaceValue: Function): Mixin => {
  *
  * @example
  * import styled from 'react-emotion'
- * import { createSpace, createPropStyles } from 'pss'
+ * import pss, { createSpace } from 'pss'
  *
  * // Create `margin` space prop styles with `mg` prefix
- * const marginPropStyles = createPropStyles(createSpace('margin', 'mg'))
+ * const marginPropStyles = pss(createSpace('margin', 'mg'))
  *
  * // Add to component
  * const Box = styled.div(marginPropStyles)
@@ -126,10 +129,10 @@ const createSpace = (
   compProp: string,
   getSpaceValue: Function
 ): PropStyles => {
-  const modifiers = buildDirectionModifiers(cssProp, compProp)
+  const modifiers = createSpaceModifiers(cssProp, compProp)
 
   return toObj(modifiers, ([ modName, styleProp ]) => {
-    const style = cssRuleSpaceStyle(styleProp, getSpaceValue)
+    const style = getSpaceStyle(styleProp, getSpaceValue)
     return {
       [modName]: (input, compProps, mediaKey, isRawValue) =>
         style(input)(compProps, mediaKey, isRawValue)

@@ -16,9 +16,9 @@ import { everyMediaValue } from './every-media'
  *
  * @example
  * import styled from 'react-emotion'
- * import { createSize, createPropStyles } from 'pss'
+ * import pss, { createSize } from 'pss'
  *
- * const mySizes = createPropStyles({
+ * const mySizes = pss({
  *   w: createSize('width', '100%', 0, true), // this is default
  *   h: createSize('height'), // same as above
  *   l: createSize('left', 0, 'auto'),
