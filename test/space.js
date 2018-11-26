@@ -3,8 +3,8 @@ import { MEDIA_KEY, SPACE_KEY, SIZES_KEY } from '../src/constants'
 
 import {
   createPropStyles,
-  createSpaceProps,
-  createSpaceStyle,
+  createSpace,
+  createSpaceMixin,
   styles
 } from '../src'
 
@@ -29,7 +29,7 @@ const theme = {
   }
 }
 
-const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
+const marginPropStyles = createPropStyles(createSpace('margin', 'mg'))
 
 test('props -> set one step space for every media', (t) => {
   const result = toStyles(marginPropStyles({ theme, mg: 1 }))
@@ -111,7 +111,7 @@ test('props -> set margin to "30px" on mobile', (t) => {
 })
 
 test('style -> padding', (t) => {
-  const padding = createSpaceStyle('padding')
+  const padding = createSpaceMixin('padding')
 
   const spaceStep3 = toStyles(padding(-3)({ theme }))
   const spaceStep2Y = toStyles(padding.y(2)({ theme }))

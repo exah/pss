@@ -1,7 +1,7 @@
-import { createSpaceStyle } from '../core'
+import { createSpaceMixin } from '../core'
 
-const margin = createSpaceStyle('margin')
-const padding = createSpaceStyle('padding')
+const margin = createSpaceMixin('margin')
+const padding = createSpaceMixin('padding')
 
 export {
   margin,

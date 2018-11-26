@@ -3,7 +3,7 @@
 import type {
   Styles,
   Props,
-  DynamicStyle,
+  Mixin,
   PropStyles
 } from '../types'
 
@@ -59,7 +59,7 @@ const propStylesWithMedia = (styles: PropStyles) => (media: Array<string>): Prop
  * Function that accepts Object (see {@link PropStyles}) with keys that
  * represents component `prop` and the value is a `style` that will be applied.
  *
- * Returns Function (see {@link DynamicStyle}) that you add to
+ * Returns Function (see {@link Mixin}) that you add to
  * components created with CSS-in-JS libraries.
  *
  * When `theme` with `media` is provided to components, any styles can be changed
@@ -107,7 +107,7 @@ const propStylesWithMedia = (styles: PropStyles) => (media: Array<string>): Prop
 const createPropStyles = (
   propStyles: PropStyles = {},
   options?: { isMediaProps: boolean }
-): DynamicStyle => {
+): Mixin => {
   const opts = { ...DEFAULT_OPTIONS, ...options }
   const propStylesWithMediaMemoized = memoize(propStylesWithMedia(propStyles))
 

@@ -26,9 +26,9 @@ type Style = { [string]: StyleValue }
 
 type Styles = Style | Style[]
 
-type PropStyleValue = string | number | boolean | Function | null
+type Mixin = (props: Props, mediaKey?: string) => Styles
 
-type DynamicStyle = (props: Props, mediaKey?: string) => Styles
+type PropStyleValue = string | number | boolean | Function | null
 
 /**
  * {@link Function} that returns style that will be applied to component when prop is used.
@@ -68,7 +68,7 @@ export type {
   StyleValue,
   Style,
   Styles,
-  DynamicStyle,
+  Mixin,
   PropStyles,
   PropStyle,
   PropStyleValue

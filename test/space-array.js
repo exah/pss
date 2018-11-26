@@ -3,7 +3,7 @@ import { MEDIA_KEY, SPACE_KEY } from '../src/constants'
 
 import {
   createPropStyles,
-  createSpaceProps
+  createSpace
 } from '../src'
 
 import { toStyles } from './_helpers'
@@ -17,7 +17,7 @@ const theme = {
   [SPACE_KEY]: [ 0, 10, 20, '3rem', 60 ]
 }
 
-const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
+const marginPropStyles = createPropStyles(createSpace('margin', 'mg'))
 
 test('props -> set one step space', (t) => {
   const result = toStyles(marginPropStyles({ theme, mg: 1 }))

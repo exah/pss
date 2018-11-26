@@ -63,10 +63,10 @@
     -   [createSizeProp][59]
         -   [Parameters][60]
         -   [Examples][61]
-    -   [createSpaceProps][62]
+    -   [createSpace][62]
         -   [Parameters][63]
         -   [Examples][64]
-    -   [createSpaceStyle][65]
+    -   [createSpaceMixin][65]
         -   [Parameters][66]
         -   [Examples][67]
     -   [createColor][68]
@@ -98,7 +98,7 @@
 import { space } from 'pss'
 ```
 
-Consistent `space` system for setting `margin` or `padding`. Created with [createSpaceProps][62].
+Consistent `space` system for setting `margin` or `padding`. Created with [createSpace][62].
 
 **Component props:**
 
@@ -1077,7 +1077,7 @@ import pss from 'pss'
 Function that accepts Object (see [PropStyles][81]) with keys that
 represents component `prop` and the value is a `style` that will be applied.
 
-Returns Function (see [DynamicStyle][93]) that you add to
+Returns Function (see [Mixin][93]) that you add to
 components created with CSS-in-JS libraries.
 
 When `theme` with `media` is provided to components, any styles can be changed
@@ -1127,7 +1127,7 @@ const theme = {
 </ThemeProvider>
 ```
 
-Returns **DynamicStyle** 
+Returns **Mixin** 
 
 ### createSizeProp
 
@@ -1169,10 +1169,10 @@ const Box = styled.div(mySizes)
 
 Returns **[PropStyle][96]** 
 
-### createSpaceProps
+### createSpace
 
 ```js
-import { createSpaceProps } from 'pss'
+import { createSpace } from 'pss'
 ```
 
 Create space props for `margin`, `padding` or any CSS prop that have similiar signature.
@@ -1196,10 +1196,10 @@ Result is props for [createPropStyles][56] with specified prop prefix.
 
 ```js
 import styled from 'react-emotion'
-import { createSpaceProps, createPropStyles } from 'pss'
+import { createSpace, createPropStyles } from 'pss'
 
 // Create `margin` space prop styles with `mg` prefix
-const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
+const marginPropStyles = createPropStyles(createSpace('margin', 'mg'))
 
 // Add to component
 const Box = styled.div(marginPropStyles)
@@ -1210,16 +1210,16 @@ const Box = styled.div(marginPropStyles)
 
 Returns **[PropStyles][94]** 
 
-### createSpaceStyle
+### createSpaceMixin
 
 ```js
-import { createSpaceStyle } from 'pss'
+import { createSpaceMixin } from 'pss'
 ```
 
-Similar to [createSpaceProps][62], but creates style function instead of prop styles,
+Similar to [createSpace][62], but creates style function instead of prop styles,
 that can be used inside CSS-in-JS components with `theme` prop.
 
-For example if `cssProp` = `margin` result is [DynamicStyle][93] with API:
+For example if `cssProp` = `margin` result is [Mixin][93] with API:
 
 -   `fn(step)` → `margin`
 -   `fn.l(step)` → `margin-left`
@@ -1238,9 +1238,9 @@ For example if `cssProp` = `margin` result is [DynamicStyle][93] with API:
 
 ```js
 import styled from 'react-emotion'
-import { createSpaceStyle, createPropStyles } from 'pss'
+import { createSpaceMixin, createPropStyles } from 'pss'
 
-const marginFn = createSpaceStyle('margin')
+const marginFn = createSpaceMixin('margin')
 
 const Box = styled.div(marginFn.x(2))
 const OtherBox = styled.div({ display: 'flex' }, marginFn.l(1))
@@ -1256,7 +1256,7 @@ const OtherBox = styled.div({ display: 'flex' }, marginFn.l(1))
 <OtherBox />
 ```
 
-Returns **DynamicStyle** 
+Returns **Mixin** 
 
 ### createColor
 
@@ -1450,7 +1450,7 @@ const Text = styled.div(propStylesInTheme('textStyleFlags'))
 }
 ```
 
-Returns **DynamicStyle** 
+Returns **Mixin** 
 
 ## Types
 
@@ -1614,13 +1614,13 @@ Type: function (value: PropStyleValue, props: Props, mediaKey: ([string][92] | n
 
 [61]: #examples-25
 
-[62]: #createspaceprops
+[62]: #createspace
 
 [63]: #parameters-6
 
 [64]: #examples-26
 
-[65]: #createspacestyle
+[65]: #createspacemixin
 
 [66]: #parameters-7
 
@@ -1676,7 +1676,7 @@ Type: function (value: PropStyleValue, props: Props, mediaKey: ([string][92] | n
 
 [92]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[93]: DynamicStyle
+[93]: Mixin
 
 [94]: #propstyles
 

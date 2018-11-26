@@ -2,7 +2,7 @@
 
 import type {
   PropStyle,
-  DynamicStyle,
+  Mixin,
   ThemeKey
 } from '../types'
 
@@ -116,7 +116,7 @@ const propStylesInTheme = (
   themeKey: ThemeKey,
   propName: ? string, // COMPAT
   themeGetter: ? Function
-): DynamicStyle => {
+): Mixin => {
   const style = createStyleFromTheme({
     themeKey,
     themeGetter

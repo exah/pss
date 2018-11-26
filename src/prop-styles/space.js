@@ -1,15 +1,15 @@
-import { createPropStyles, createSpaceProps } from '../core'
+import { createPropStyles, createSpace } from '../core'
 import { combine } from '../utils'
 
-const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
-const paddingPropStyles = createPropStyles(createSpaceProps('padding', 'pd'))
+const marginPropStyles = createPropStyles(createSpace('margin', 'mg'))
+const paddingPropStyles = createPropStyles(createSpace('padding', 'pd'))
 
 /**
  * ```js
  * import { space } from 'pss'
  * ```
  *
- * Consistent `space` system for setting `margin` or `padding`. Created with {@link createSpaceProps}.
+ * Consistent `space` system for setting `margin` or `padding`. Created with {@link createSpace}.
  *
  *
  * **Component props:**

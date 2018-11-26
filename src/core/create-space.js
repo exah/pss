@@ -1,7 +1,7 @@
 // @flow
 
 import type {
-  DynamicStyle,
+  Mixin,
   PropStyles
 } from '../types'
 
@@ -29,7 +29,7 @@ const cssRuleSpaceStyle = (
   getSpaceValue: Function = getSpace,
   toPx = true
 ): Function =>
-  (input, defaultMediaKey): DynamicStyle =>
+  (input, defaultMediaKey): Mixin =>
     (props, mediaKey = defaultMediaKey, isRawValue) => everyMediaValue(
       isRawValue ? input : getSpaceValue(input, null, mediaKey),
       toCssRule(styleProp, toPx)
@@ -37,13 +37,13 @@ const cssRuleSpaceStyle = (
 
 /**
  * ```js
- * import { createSpaceStyle } from 'pss'
+ * import { createSpaceMixin } from 'pss'
  * ```
  *
- * Similar to {@link createSpaceProps}, but creates style function instead of prop styles,
+ * Similar to {@link createSpace}, but creates style function instead of prop styles,
  * that can be used inside CSS-in-JS components with `theme` prop.
  *
- * For example if `cssProp` = `margin` result is {@link DynamicStyle} with API:
+ * For example if `cssProp` = `margin` result is {@link Mixin} with API:
  *
  * - `fn(step)` → `margin`
  * - `fn.l(step)` → `margin-left`
@@ -58,9 +58,9 @@ const cssRuleSpaceStyle = (
  *
  * @example
  * import styled from 'react-emotion'
- * import { createSpaceStyle, createPropStyles } from 'pss'
+ * import { createSpaceMixin, createPropStyles } from 'pss'
  *
- * const marginFn = createSpaceStyle('margin')
+ * const marginFn = createSpaceMixin('margin')
  *
  * const Box = styled.div(marginFn.x(2))
  * const OtherBox = styled.div({ display: 'flex' }, marginFn.l(1))
@@ -75,7 +75,7 @@ const cssRuleSpaceStyle = (
  * <OtherBox />
  */
 
-const createSpaceStyle = (cssProp: string, getSpaceValue: Function): DynamicStyle => {
+const createSpaceMixin = (cssProp: string, getSpaceValue: Function): Mixin => {
   const baseStyle = cssRuleSpaceStyle(cssProp, getSpaceValue)
   const modifiers = buildDirectionModifiers(cssProp)
 
@@ -89,7 +89,7 @@ const createSpaceStyle = (cssProp: string, getSpaceValue: Function): DynamicStyl
 
 /**
  * ```js
- * import { createSpaceProps } from 'pss'
+ * import { createSpace } from 'pss'
  * ```
  *
  * Create space props for `margin`, `padding` or any CSS prop that have similiar signature.
@@ -109,10 +109,10 @@ const createSpaceStyle = (cssProp: string, getSpaceValue: Function): DynamicStyl
  *
  * @example
  * import styled from 'react-emotion'
- * import { createSpaceProps, createPropStyles } from 'pss'
+ * import { createSpace, createPropStyles } from 'pss'
  *
  * // Create `margin` space prop styles with `mg` prefix
- * const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
+ * const marginPropStyles = createPropStyles(createSpace('margin', 'mg'))
  *
  * // Add to component
  * const Box = styled.div(marginPropStyles)
@@ -121,7 +121,7 @@ const createSpaceStyle = (cssProp: string, getSpaceValue: Function): DynamicStyl
  * <Box mg /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
  */
 
-const createSpaceProps = (
+const createSpace = (
   cssProp: string,
   compProp: string,
   getSpaceValue: Function
@@ -138,6 +138,6 @@ const createSpaceProps = (
 }
 
 export {
-  createSpaceStyle,
-  createSpaceProps
+  createSpaceMixin,
+  createSpace
 }

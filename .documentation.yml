@@ -39,8 +39,8 @@ toc:
     children:
       - createPropStyles
       - createSizeProp
-      - createSpaceProps
-      - createSpaceStyle
+      - createSpace
+      - createSpaceMixin
       - createColor
       - createPaletteStyle
       - createStyleFromTheme
