@@ -3,22 +3,18 @@
 import * as styles from './styles'
 
 export {
-  createColor as colorProp,
   createColor,
-  createPaletteStyle as themeProp,
   createPaletteStyle,
   createPropStyles as default,
   createPropStyles as pss,
   createPropStyles,
-  createSizeProp as sizeProp,
-  createSizeProp,
-  createSizeStyle as sizeStyle,
-  createSizeStyle,
+  createRule,
+  createSize,
+  createSizeMixin,
   createSpace,
   createSpaceMixin,
   createThemeStyles,
-  everyMedia,
-  createRule
+  everyMedia
 } from './core'
 
 export {

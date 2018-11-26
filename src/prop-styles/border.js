@@ -1,11 +1,11 @@
 import { isNum, isStr, isBool, isArr, mapObj } from '@exah/utils'
 import { SHORT_DIRECTIONS } from '../constants'
-import { createPropStyles, createColor, createSizeProp } from '../core'
+import { createPropStyles, createColor, createSize } from '../core'
 
 const borderStyle = (Dir = '') => {
   const widthCssProp = `border${Dir}Width`
   const styleCssProp = `border${Dir}Style`
-  const getWidthStyles = createSizeProp(widthCssProp, 1, 0)
+  const getWidthStyles = createSize(widthCssProp, 1, 0)
 
   return (value, props, mediaKey, isRawValue) => {
     if (isBool(value) || isNum(value)) {
@@ -32,7 +32,7 @@ const borderStyle = (Dir = '') => {
  * import { border } from 'pss'
  * ```
  *
- * Set border with values from theme, created with {@link createSizeProp} and {@link createColor}.
+ * Set border with values from theme, created with {@link createSize} and {@link createColor}.
  *
  * prop       | css            | type                | value | true            | false
  * :----------|:---------------|:--------------------|:------|:----------------|:--------

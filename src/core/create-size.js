@@ -1,10 +1,6 @@
 // @flow
 
-import type {
-  StyleValue,
-  PropStyle
-} from '../types'
-
+import type { StyleValue, PropStyle } from '../types'
 import { isStr, curryN } from '@exah/utils'
 import { getSize, themePath } from '../getters'
 import { sizeValue, toCssRule } from '../utils'
@@ -12,7 +8,7 @@ import { everyMediaValue } from './every-media'
 
 /**
  * ```js
- * import { createSizeProp } from 'pss'
+ * import { createSize } from 'pss'
  * ```
  *
  * @param [cssProp] — Any CSS prop like `width`, `height`, `left`, ...
@@ -20,13 +16,13 @@ import { everyMediaValue } from './every-media'
  *
  * @example
  * import styled from 'react-emotion'
- * import { createSizeProp, createPropStyles } from 'pss'
+ * import { createSize, createPropStyles } from 'pss'
  *
  * const mySizes = createPropStyles({
- *   w: createSizeProp('width', '100%', 0, true), // this is default
- *   h: createSizeProp('height'), // same as above
- *   l: createSizeProp('left', 0, 'auto'),
- *   r: createSizeProp('right', 0, 'auto')
+ *   w: createSize('width', '100%', 0, true), // this is default
+ *   h: createSize('height'), // same as above
+ *   l: createSize('left', 0, 'auto'),
+ *   r: createSize('right', 0, 'auto')
  * })
  *
  * const Box = styled.div(mySizes)
@@ -40,7 +36,7 @@ import { everyMediaValue } from './every-media'
  * <Box l={20} r={10} /> // left: 20px; right: 10px
  */
 
-const createSizeProp = (
+const createSize = (
   cssProp: string,
   trueVal?: StyleValue = '100%',
   falseVal?: StyleValue = 0,
@@ -66,10 +62,10 @@ const createSizeProp = (
   return everyMediaValue(themeSize, cssRule)(props)
 })
 
-const createSizeStyle = (cssProp: string, ...sizeValueArgs?: [ StyleValue, StyleValue ]): PropStyle =>
-  (val = true, ...args) => createSizeProp(cssProp, ...sizeValueArgs)(val, ...args)
+const createSizeMixin = (cssProp: string, ...sizeValueArgs?: [ StyleValue, StyleValue ]): PropStyle =>
+  (val = true, ...args) => createSize(cssProp, ...sizeValueArgs)(val, ...args)
 
 export {
-  createSizeStyle,
-  createSizeProp
+  createSizeMixin,
+  createSize
 }

@@ -3,8 +3,8 @@ hljs:
   languages:
     - css
     - js
-toc:
 
+toc:
   - name: Prop Styles
     children:
       - space
@@ -38,8 +38,8 @@ toc:
   - name: Customization
     children:
       - createPropStyles
-      - createSizeProp
       - createSpace
+      - createSize
       - createSpaceMixin
       - createColor
       - createPaletteStyle

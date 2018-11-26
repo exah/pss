@@ -1,4 +1,4 @@
-import { createPropStyles, createSizeProp, createRule } from '../core'
+import { createPropStyles, createSize, createRule } from '../core'
 
 const flexWrap = createRule('flexWrap', 'wrap', 'nowrap')
 const flexDirection = createRule('flexDirection')
@@ -83,7 +83,7 @@ const flexItem = createPropStyles({
   flex: createRule('flex', '1 1 0', '0 1 auto'),
   grow: createRule('flexGrow', 1, 0),
   shrink: createRule('flexShrink', 1, 0),
-  basis: createSizeProp('flexBasis', 'auto'),
+  basis: createSize('flexBasis', 'auto'),
   order: createRule('order', 1, 0),
   alignSelf: createRule('alignSelf')
 })
