@@ -1,5 +1,5 @@
 import { isBool } from '@exah/utils'
-import { createPropStyles, ruleProp } from '../core'
+import { createPropStyles, createRule } from '../core'
 
 const randomHexColor = () =>
   '#' + (Math.random() * 0xFFFFFF << 0).toString(16)
@@ -33,12 +33,12 @@ const randomHexColor = () =>
  */
 
 const utility = createPropStyles({
-  cursor: ruleProp('cursor'),
+  cursor: createRule('cursor'),
   opacity: (val) => ({ opacity: isBool(val) ? val ? 1 : 0 : val }),
-  radius: ruleProp('borderRadius'),
+  radius: createRule('borderRadius'),
   outline: (val) => ({ outline: val === 'debug' ? `1px solid ${randomHexColor()}` : val }),
-  transform: ruleProp('transform'),
-  transition: ruleProp('transition', 'all .3s', 'none')
+  transform: createRule('transform'),
+  transition: createRule('transition', 'all .3s', 'none')
 })
 
 export {

@@ -9,7 +9,7 @@ import type {
 
 import { isBool } from '@exah/utils'
 
-const ruleProp = (
+const createRule = (
   cssProp: string,
   trueVal: StyleValue,
   falseVal: StyleValue
@@ -18,5 +18,5 @@ const ruleProp = (
 })
 
 export {
-  ruleProp
+  createRule
 }

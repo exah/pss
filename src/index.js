@@ -18,7 +18,7 @@ export {
   createSpaceMixin,
   createThemeStyles,
   everyMedia,
-  ruleProp
+  createRule
 } from './core'
 
 export {

@@ -1,7 +1,7 @@
-import { createPropStyles, ruleProp, createSizeProp } from '../core'
+import { createPropStyles, createRule, createSizeProp } from '../core'
 
 const direction = (dir) => createSizeProp(dir, 0, 'auto')
-const positionStyle = (value) => ruleProp('position', value, 'static')
+const positionStyle = (value) => createRule('position', value, 'static')
 
 /**
  * ```js
@@ -36,7 +36,7 @@ const position = createPropStyles({
   left: direction('left'),
   right: direction('right'),
   bottom: direction('bottom'),
-  zIndex: ruleProp('zIndex', 1, 'auto')
+  zIndex: createRule('zIndex', 1, 'auto')
 })
 
 export {

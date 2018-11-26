@@ -1,4 +1,4 @@
-import { createPropStyles, ruleProp } from '../core'
+import { createPropStyles, createRule } from '../core'
 
 /**
  * ```js
@@ -24,7 +24,7 @@ import { createPropStyles, ruleProp } from '../core'
  */
 
 const display = createPropStyles({
-  display: ruleProp('display', 'initial', 'none'),
+  display: createRule('display', 'initial', 'none'),
   hide: { display: 'none' }
 })
 
