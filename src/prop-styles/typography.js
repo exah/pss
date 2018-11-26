@@ -15,7 +15,7 @@ import { text } from './text'
  * import styled from 'react-emotion'
  * import { typography } from 'pss'
  *
- * const Text = styled('div')(typography)
+ * const Text = styled('p')(typography)
  *
  * @example
  * <Text textStyle='heading' ellipsis />
@@ -26,6 +26,9 @@ import { text } from './text'
  *    line-height: 1.2;
  *    font-weight: normal;
  *    font-family: system-ui;
+ *    white-space: nowrap;
+ *    overflow: hidden;
+ *    text-overflow: ellipsis;
  * }
  */
 

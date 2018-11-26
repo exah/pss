@@ -37,6 +37,7 @@ export {
   colors,
   cssProp,
   display,
+  ellipsis,
   flex,
   flexItem,
   float,

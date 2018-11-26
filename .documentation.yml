@@ -19,6 +19,7 @@ toc:
       - border
       - textStyle
       - fontFamily
+      - ellipsis
       - text
       - typography
       - utility
