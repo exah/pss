@@ -41,8 +41,8 @@ toc:
       - createSizeProp
       - createSpaceProps
       - createSpaceStyle
-      - createColorProp
-      - createPaletteProp
+      - createColor
+      - createPaletteStyle
       - createStyleFromTheme
       - propStylesInTheme
 

@@ -3,10 +3,10 @@
 import * as styles from './styles'
 
 export {
-  createColorProp as colorProp,
-  createColorProp,
-  createPaletteProp as themeProp,
-  createPaletteProp,
+  createColor as colorProp,
+  createColor,
+  createPaletteStyle as themeProp,
+  createPaletteStyle,
   createPropStyles as default,
   createPropStyles as pss,
   createPropStyles,

@@ -1,6 +1,7 @@
 // @flow
 
-export * from './color-prop'
+export * from './create-color'
+export * from './create-palette-style'
 export * from './create-prop-styles'
 export * from './create-space-props'
 export * from './every-media'

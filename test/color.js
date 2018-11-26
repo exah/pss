@@ -10,8 +10,8 @@ import {
 
 import {
   createPropStyles,
-  createPaletteProp,
-  createColorProp
+  createPaletteStyle,
+  createColor
 } from '../src'
 
 import { toStyles } from './_helpers'
@@ -51,10 +51,10 @@ const themeInvertedDefault = mergeDeepRight(theme, {
 })
 
 const colorsPropStyles = createPropStyles({
-  tm: createPaletteProp('background', 'foreground'),
-  fg: createColorProp('color', 'foreground'),
-  bg: createColorProp('backgroundColor', 'background'),
-  bc: createColorProp('borderColor', 'border')
+  tm: createPaletteStyle('background', 'foreground'),
+  fg: createColor('color', 'foreground'),
+  bg: createColor('backgroundColor', 'background'),
+  bc: createColor('borderColor', 'border')
 })
 
 test('props -> set theme colors and override text color on mobile', (t) => {

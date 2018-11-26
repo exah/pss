@@ -69,10 +69,10 @@
     -   [createSpaceStyle][65]
         -   [Parameters][66]
         -   [Examples][67]
-    -   [createColorProp][68]
+    -   [createColor][68]
         -   [Parameters][69]
         -   [Examples][70]
-    -   [createPaletteProp][71]
+    -   [createPaletteStyle][71]
         -   [Parameters][72]
         -   [Examples][73]
     -   [createStyleFromTheme][74]
@@ -258,7 +258,7 @@ const Box = styled.div(sizes)
 import { colors } from 'pss'
 ```
 
-Prop styles for getting current `palette` or `color` value from `theme`. Created with [createColorProp][68] and [createPaletteProp][71].
+Prop styles for getting current `palette` or `color` value from `theme`. Created with [createColor][68] and [createPaletteStyle][71].
 
 Result can be changed in nested components with setting other key in `theme.default.palette`.
 
@@ -536,7 +536,7 @@ const Box = styled('div')(overflow)
 import { border } from 'pss'
 ```
 
-Set border with values from theme, created with [createSizeProp][59] and [createColorProp][68].
+Set border with values from theme, created with [createSizeProp][59] and [createColor][68].
 
 | prop        | css                                              | type                          | value | true                 | false               |
 | :---------- | :----------------------------------------------- | :---------------------------- | :---- | :------------------- | :------------------ |
@@ -1258,10 +1258,10 @@ const OtherBox = styled.div({ display: 'flex' }, marginFn.l(1))
 
 Returns **DynamicStyle** 
 
-### createColorProp
+### createColor
 
 ```js
-import { createColorProp } from 'pss'
+import { createColor } from 'pss'
 ```
 
 Get color from theme and apply it to css prop.
@@ -1269,7 +1269,7 @@ Get color from theme and apply it to css prop.
 #### Parameters
 
 -   `cssProp` **[string][92]** — Any CSS prop like `backgroundColor`, `color`, `borderColor`, ...
--   `themeKey` **ThemeKey** 
+-   `paletteKey` **[string][92]** 
 -   `getCssValue` **function (color: [string][92], props: Props): StyleValue** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)
 -   `colorKey`  — Key in `theme.color` or in `theme.palette[theme.default.palette]`
 
@@ -1277,11 +1277,11 @@ Get color from theme and apply it to css prop.
 
 ```js
 import styled from 'react-emotion'
-import { createColorProp, createPropStyles } from 'pss'
+import { createColor, createPropStyles } from 'pss'
 
 const myColors = createPropStyles({
-  color: createColorProp('color', 'fg'),
-  shadow: createColorProp('boxShadow', 'shadow', (color) => `0 0 20px 0 ${color}`)
+  color: createColor('color', 'fg'),
+  shadow: createColor('boxShadow', 'shadow', (color) => `0 0 20px 0 ${color}`)
 })
 
 // Add to component
@@ -1304,10 +1304,10 @@ const Box = styled.div(myColors)
 
 Returns **[PropStyle][96]** 
 
-### createPaletteProp
+### createPaletteStyle
 
 ```js
-import { createPaletteProp } from 'pss'
+import { createPaletteStyle } from 'pss'
 ```
 
 Set both `background-color` and `color` for selected `theme.palette`.
@@ -1323,10 +1323,10 @@ Set both `background-color` and `color` for selected `theme.palette`.
 
 ```js
 import styled from 'react-emotion'
-import { createPaletteProp, createPropStyles } from 'pss'
+import { createPaletteStyle, createPropStyles } from 'pss'
 
 const myColors = createPropStyles({
-  tm: createPaletteProp('bg', 'fg')
+  tm: createPaletteStyle('bg', 'fg')
 })
 
 const Box = styled.div(myColors)
@@ -1626,13 +1626,13 @@ Type: function (value: PropStyleValue, props: Props, mediaKey: ([string][92] | n
 
 [67]: #examples-27
 
-[68]: #createcolorprop
+[68]: #createcolor
 
 [69]: #parameters-8
 
 [70]: #examples-28
 
-[71]: #createpaletteprop
+[71]: #createpalettestyle
 
 [72]: #parameters-9
 

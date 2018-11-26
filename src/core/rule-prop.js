@@ -17,4 +17,6 @@ const ruleProp = (
   [cssProp]: isBool(val) ? (val === true ? trueVal : falseVal) : val
 })
 
-export { ruleProp }
+export {
+  ruleProp
+}
