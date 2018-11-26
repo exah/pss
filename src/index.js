@@ -13,7 +13,7 @@ export {
   createSizeMixin,
   createSpace,
   createSpaceMixin,
-  createThemeStyles,
+  createThemeStyle,
   everyMedia
 } from './core'
 

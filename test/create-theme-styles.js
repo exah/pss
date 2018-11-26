@@ -1,5 +1,5 @@
 import test from 'ava'
-import { createPropStyles, createThemeStyles } from '../src'
+import { createPropStyles, createThemeStyle } from '../src'
 import { theme as helperTheme, toStyles } from './_helpers'
 
 const theme = {
@@ -31,7 +31,7 @@ const theme = {
 }
 
 const customProps = createPropStyles({
-  is: createThemeStyles({ themeKey: 'customStyles' })
+  is: createThemeStyle({ themeKey: 'customStyles' })
 })
 
 test('prop → customStyles → default', (t) => {

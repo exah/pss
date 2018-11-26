@@ -40,10 +40,10 @@ toc:
       - createPropStyles
       - createSpace
       - createSize
-      - createSpaceMixin
       - createColor
       - createPaletteStyle
-      - createThemeStyles
+      - createThemeStyle
+      - createSpaceMixin
 
   - name: Types
     children:

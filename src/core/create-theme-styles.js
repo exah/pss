@@ -7,7 +7,7 @@ import { everyMediaValue } from './every-media'
 
 /**
  * ```js
- * import { createThemeStyles } from 'pss'
+ * import { createThemeStyle } from 'pss'
  * ```
  *
  * Create global styles directly inside `theme[themeKey]`.
@@ -32,10 +32,10 @@ import { everyMediaValue } from './every-media'
  *
  * @example
  * import styled from 'react-emotion'
- * import { pss, createThemeStyles } from 'pss'
+ * import { pss, createThemeStyle } from 'pss'
  *
  * const Text = styled.div(pss({
- *   textStyle: createThemeStyles({ themeKey: 'textStyle' })
+ *   textStyle: createThemeStyle({ themeKey: 'textStyle' })
  * }))
  *
  * <ThemeProvider theme={theme}>
@@ -53,7 +53,7 @@ import { everyMediaValue } from './every-media'
  * }
  */
 
-const createThemeStyles = (options: {
+const createThemeStyle = (options: {
   themeKey: ? ThemeKey,
   themeGetter?: ? Function,
   getStyle?: Function
@@ -68,5 +68,5 @@ const createThemeStyles = (options: {
 }
 
 export {
-  createThemeStyles
+  createThemeStyle
 }

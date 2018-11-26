@@ -66,16 +66,16 @@
     -   [createSize][62]
         -   [Parameters][63]
         -   [Examples][64]
-    -   [createSpaceMixin][65]
+    -   [createColor][65]
         -   [Parameters][66]
         -   [Examples][67]
-    -   [createColor][68]
+    -   [createPaletteStyle][68]
         -   [Parameters][69]
         -   [Examples][70]
-    -   [createPaletteStyle][71]
+    -   [createThemeStyle][71]
         -   [Parameters][72]
         -   [Examples][73]
-    -   [createThemeStyles][74]
+    -   [createSpaceMixin][74]
         -   [Parameters][75]
         -   [Examples][76]
 -   [Types][77]
@@ -255,7 +255,7 @@ const Box = styled.div(sizes)
 import { colors } from 'pss'
 ```
 
-Prop styles for getting current `palette` or `color` value from `theme`. Created with [createColor][68] and [createPaletteStyle][71].
+Prop styles for getting current `palette` or `color` value from `theme`. Created with [createColor][65] and [createPaletteStyle][68].
 
 Result can be changed in nested components with setting other key in `theme.default.palette`.
 
@@ -533,7 +533,7 @@ const Box = styled('div')(overflow)
 import { border } from 'pss'
 ```
 
-Set border with values from theme, created with [createSize][62] and [createColor][68].
+Set border with values from theme, created with [createSize][62] and [createColor][65].
 
 | prop        | css                                              | type                          | value | true                 | false               |
 | :---------- | :----------------------------------------------- | :---------------------------- | :---- | :------------------- | :------------------ |
@@ -1207,54 +1207,6 @@ const Box = styled.div(mySizes)
 
 Returns **[PropStyle][94]** 
 
-### createSpaceMixin
-
-```js
-import { createSpaceMixin } from 'pss'
-```
-
-Similar to [createSpace][59], but creates style function instead of prop styles,
-that can be used inside CSS-in-JS components with `theme` prop.
-
-For example if `cssProp` = `margin` result is [Mixin][90] with API:
-
--   `fn(step)` → `margin`
--   `fn.l(step)` → `margin-left`
--   `fn.r(step)` → `margin-right`
--   `fn.t(step)` → `margin-top`
--   `fn.b(step)` → `margin-bottom`
--   `fn.x(step)` → `margin-left`, `margin-right`
--   `fn.y(step)` → `margin-top`, `margin-bottom`
-
-#### Parameters
-
--   `cssProp` **[string][89]** — Usually is `margin` or `padding`
--   `getSpaceValue` **[Function][93]** — Custom getter from theme, default to get values from `theme.space`
-
-#### Examples
-
-```js
-import styled from 'react-emotion'
-import { createSpaceMixin, createPropStyles } from 'pss'
-
-const marginFn = createSpaceMixin('margin')
-
-const Box = styled.div(marginFn.x(2))
-const OtherBox = styled.div({ display: 'flex' }, marginFn.l(1))
-```
-
-```js
-// margin-left: 20px; margin-right: 20px;
-// @media (max-width: 600px) { margin-left: 16px; margin-right: 16px }
-<Box />
-
-// display: flex; margin-left: 10px;
-// @media (max-width: 600px) { margin-left: 10px }
-<OtherBox />
-```
-
-Returns **Mixin** 
-
 ### createColor
 
 ```js
@@ -1339,10 +1291,10 @@ const Box = styled.div(myColors)
 
 Returns **[PropStyle][94]** 
 
-### createThemeStyles
+### createThemeStyle
 
 ```js
-import { createThemeStyles } from 'pss'
+import { createThemeStyle } from 'pss'
 ```
 
 Create global styles directly inside `theme[themeKey]`.
@@ -1374,10 +1326,10 @@ const theme = {
 
 ```js
 import styled from 'react-emotion'
-import { pss, createThemeStyles } from 'pss'
+import { pss, createThemeStyle } from 'pss'
 
 const Text = styled.div(pss({
-  textStyle: createThemeStyles({ themeKey: 'textStyle' })
+  textStyle: createThemeStyle({ themeKey: 'textStyle' })
 }))
 
 <ThemeProvider theme={theme}>
@@ -1397,6 +1349,54 @@ const Text = styled.div(pss({
 ```
 
 Returns **[PropStyle][94]** 
+
+### createSpaceMixin
+
+```js
+import { createSpaceMixin } from 'pss'
+```
+
+Similar to [createSpace][59], but creates style function instead of prop styles,
+that can be used inside CSS-in-JS components with `theme` prop.
+
+For example if `cssProp` = `margin` result is [Mixin][90] with API:
+
+-   `fn(step)` → `margin`
+-   `fn.l(step)` → `margin-left`
+-   `fn.r(step)` → `margin-right`
+-   `fn.t(step)` → `margin-top`
+-   `fn.b(step)` → `margin-bottom`
+-   `fn.x(step)` → `margin-left`, `margin-right`
+-   `fn.y(step)` → `margin-top`, `margin-bottom`
+
+#### Parameters
+
+-   `cssProp` **[string][89]** — Usually is `margin` or `padding`
+-   `getSpaceValue` **[Function][93]** — Custom getter from theme, default to get values from `theme.space`
+
+#### Examples
+
+```js
+import styled from 'react-emotion'
+import { createSpaceMixin, createPropStyles } from 'pss'
+
+const marginFn = createSpaceMixin('margin')
+
+const Box = styled.div(marginFn.x(2))
+const OtherBox = styled.div({ display: 'flex' }, marginFn.l(1))
+```
+
+```js
+// margin-left: 20px; margin-right: 20px;
+// @media (max-width: 600px) { margin-left: 16px; margin-right: 16px }
+<Box />
+
+// display: flex; margin-left: 10px;
+// @media (max-width: 600px) { margin-left: 10px }
+<OtherBox />
+```
+
+Returns **Mixin** 
 
 ## Types
 
@@ -1566,25 +1566,25 @@ Type: function (value: PropStyleValue, props: Props, mediaKey: ([string][89] | n
 
 [64]: #examples-26
 
-[65]: #createspacemixin
+[65]: #createcolor
 
 [66]: #parameters-7
 
 [67]: #examples-27
 
-[68]: #createcolor
+[68]: #createpalettestyle
 
 [69]: #parameters-8
 
 [70]: #examples-28
 
-[71]: #createpalettestyle
+[71]: #createthemestyle
 
 [72]: #parameters-9
 
 [73]: #examples-29
 
-[74]: #createthemestyles
+[74]: #createspacemixin
 
 [75]: #parameters-10
 
