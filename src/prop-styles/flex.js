@@ -20,7 +20,6 @@ const justifyContent = createRule('justifyContent', 'space-between', 'normal')
  * `alignItems`     | `align-items`     | `String`            | ✓     | —               | —
  * `alignContent`   | `align-content`   | `String`            | ✓     | —               | —
  * `justifyContent` | `justify-content` | `String`            | ✓     | `space-between` | `normal`
- * `inline`         | `display`         | `true`              | —     | `inline-flex`   | —
  *
  *
  * @example
@@ -41,10 +40,7 @@ const flex = createPropStyles({
   flexDirection,
   alignItems,
   justifyContent,
-  alignContent,
-  inline: { display: 'inline-flex' },
-  column: { flexDirection: 'column' },
-  row: { flexDirection: 'row' }
+  alignContent
 })
 
 /**

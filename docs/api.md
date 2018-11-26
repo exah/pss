@@ -352,7 +352,6 @@ import { flex } from 'pss'
 | `alignItems`     | `align-items`     | `String`            | ✓     | —               | —        |
 | `alignContent`   | `align-content`   | `String`            | ✓     | —               | —        |
 | `justifyContent` | `justify-content` | `String`            | ✓     | `space-between` | `normal` |
-| `inline`         | `display`         | `true`              | —     | `inline-flex`   | —        |
 
 #### Examples
 
