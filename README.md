@@ -1,4 +1,6 @@
-# PSS
+<p align="center">
+  <img src="https://www.dropbox.com/s/esz2so72ahvgpow/text-animation-1s-157x80px.gif?raw=1" width="100" height="51" />
+</p>
 
 > Design system utils for component based CSS-in-JS libraries
 
