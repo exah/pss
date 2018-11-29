@@ -9,6 +9,7 @@ export {
   createPropStyles as pss,
   createPropStyles,
   createRule,
+  experimentalCreateRule,
   createSize,
   createSizeMixin,
   createSpace,
@@ -67,10 +68,15 @@ export {
 }
 
 export {
-  combine,
+  createSizeValue,
   sizeValue,
+  colorValue,
+  boolValue
+} from './value'
+
+export {
+  combine,
   skipPropValue,
-  spaceValue,
   wrap,
   wrapIfMedia
 } from './utils'

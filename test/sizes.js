@@ -5,6 +5,7 @@ import {
   createPropStyles,
   createSize,
   createSizeMixin,
+  sizes as exportedSizes,
   styles
 } from '../src'
 
@@ -27,7 +28,7 @@ const theme = {
   }
 }
 
-const sizesPropStyles = createPropStyles({
+const customSizes = createPropStyles({
   height: createSize('height'),
   width: createSize('width'),
   maxWidth: createSize('maxWidth'),
@@ -37,7 +38,7 @@ const sizesPropStyles = createPropStyles({
 })
 
 test('props -> sizes relative value', (t) => {
-  const result = toStyles(sizesPropStyles({
+  const props = {
     theme,
     height: true,
     width: 1,
@@ -45,43 +46,60 @@ test('props -> sizes relative value', (t) => {
     maxWidth: false,
     minHeight: (3 / 4),
     maxHeight: 'auto'
-  }))
+  }
 
-  t.deepEqual(result, {
+  const expected = {
     height: '100%',
     width: '100%',
     minWidth: 0,
     maxWidth: 0,
     minHeight: '75%',
     maxHeight: 'auto'
-  })
+  }
+
+  const result1 = toStyles(customSizes(props))
+  const result2 = toStyles(exportedSizes(props))
+
+  t.deepEqual(result1, expected)
+  t.deepEqual(result2, expected)
 })
 
 test('props -> sizes path from theme', (t) => {
-  const result = toStyles(sizesPropStyles({
+  const props = {
     theme,
     height: 'custom.my-value'
-  }))
+  }
 
-  t.deepEqual(result, {
+  const expected = {
     height: '1000px'
-  })
+  }
+
+  const result1 = toStyles(customSizes(props))
+  const result2 = toStyles(exportedSizes(props))
+
+  t.deepEqual(result1, expected)
+  t.deepEqual(result2, expected)
 })
 
 test('props -> sizes theme values', (t) => {
-  const result1 = toStyles(sizesPropStyles({
+  const propsSuffix = {
     theme,
     minWidth: 'nudge',
     maxWidthM: 'xl'
-  }))
+  }
 
-  const result2 = toStyles(sizesPropStyles({
+  const propsObject = {
     theme,
     minWidth: 'nudge',
     maxWidth: {
       M: 'xl'
     }
-  }))
+  }
+
+  const result1 = toStyles(customSizes(propsSuffix))
+  const result2 = toStyles(exportedSizes(propsSuffix))
+  const result3 = toStyles(customSizes(propsObject))
+  const result4 = toStyles(exportedSizes(propsObject))
 
   const expected = {
     minWidth: '2px',
@@ -93,17 +111,19 @@ test('props -> sizes theme values', (t) => {
 
   t.deepEqual(result1, expected)
   t.deepEqual(result2, expected)
+  t.deepEqual(result3, expected)
+  t.deepEqual(result4, expected)
 })
 
 test('props -> sizes custom values', (t) => {
-  const result1 = toStyles(sizesPropStyles({
+  const propsSuffix = {
     theme,
     height: '100px',
     widthM: '20px',
     minHeightM: '300px'
-  }))
+  }
 
-  const result2 = toStyles(sizesPropStyles({
+  const propsObject = {
     theme,
     height: '100px',
     width: {
@@ -112,7 +132,12 @@ test('props -> sizes custom values', (t) => {
     minHeight: {
       M: '300px'
     }
-  }))
+  }
+
+  const result1 = toStyles(customSizes(propsSuffix))
+  const result2 = toStyles(exportedSizes(propsSuffix))
+  const result3 = toStyles(customSizes(propsObject))
+  const result4 = toStyles(exportedSizes(propsObject))
 
   const expected = {
     height: '100px',
@@ -124,6 +149,8 @@ test('props -> sizes custom values', (t) => {
 
   t.deepEqual(result1, expected)
   t.deepEqual(result2, expected)
+  t.deepEqual(result3, expected)
+  t.deepEqual(result4, expected)
 })
 
 test('style -> set height', (t) => {

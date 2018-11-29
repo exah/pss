@@ -3,11 +3,16 @@
 import type {
   StyleValue,
   PropStyle,
+  Props,
   PropStyleValue,
   Style
 } from '../types'
 
-import { isBool } from '@exah/utils'
+import { isBool, isStr, identity } from '@exah/utils'
+import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
+import { everyMediaValue } from './every-media'
+import { themePath } from '../getters'
+import { toCssRule } from '../utils'
 
 const createRule = (
   cssProp: string,
@@ -17,6 +22,43 @@ const createRule = (
   [cssProp]: isBool(val) ? (val === true ? trueVal : falseVal) : val
 })
 
+function experimentalCreateRule (
+  cssProp: string,
+  getValue: Function = identity,
+  toPx?: boolean = true,
+  defaultValue: StyleValue = CSS_PROPS_DEFAULTS[cssProp] || CSS_DEFAULT_VALUE
+): PropStyle {
+  return (
+    input: PropStyleValue,
+    props: Props,
+    mediaKey: ? string,
+    isRawValue: ? boolean
+  ): Style => {
+    const css = toCssRule(cssProp, toPx)
+
+    if (isRawValue === true) {
+      return css(input)
+    }
+
+    if (isStr(input)) {
+      const customValue = themePath(input)(props)
+
+      if (customValue !== undefined) {
+        return css(customValue)
+      }
+    }
+
+    const value = getValue(input, props, mediaKey)
+
+    if (value === false) {
+      return css(defaultValue)
+    }
+
+    return everyMediaValue(value, css)(props)
+  }
+}
+
 export {
-  createRule
+  createRule,
+  experimentalCreateRule
 }

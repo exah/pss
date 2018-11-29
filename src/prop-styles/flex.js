@@ -1,11 +1,5 @@
 import { createPropStyles, createSize, createRule } from '../core'
 
-const flexWrap = createRule('flexWrap', 'wrap', 'nowrap')
-const flexDirection = createRule('flexDirection')
-const alignItems = createRule('alignItems')
-const alignContent = createRule('alignContent')
-const justifyContent = createRule('justifyContent', 'space-between', 'normal')
-
 /**
  * ```js
  * import { flex } from 'pss'
@@ -36,11 +30,11 @@ const justifyContent = createRule('justifyContent', 'space-between', 'normal')
  */
 
 const flex = createPropStyles({
-  flexWrap,
-  flexDirection,
-  alignItems,
-  justifyContent,
-  alignContent
+  flexWrap: createRule('flexWrap', 'wrap', 'nowrap'),
+  flexDirection: createRule('flexDirection'),
+  alignItems: createRule('alignItems'),
+  justifyContent: createRule('justifyContent', 'space-between', 'normal'),
+  alignContent: createRule('alignContent')
 })
 
 /**

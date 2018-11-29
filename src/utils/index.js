@@ -1,8 +1,11 @@
 import { isFn, isNum, isStr, toObj, curryN } from '@exah/utils'
 
+export const toUnit = (n, str = 'px') => isStr(n) ? n : n + str
+export const percentage = (n) => (n <= 0 || n > 1) ? n : toUnit(n * 100, '%')
+
 export const toCssRule = (cssProps, toPx) => (val) => val != null
   ? toObj(cssProps, (name) => {
-    const valWithUnit = toPx === true && (val > 0 || val < 0) ? `${val}px` : val
+    const valWithUnit = toPx === true && (val > 0 || val < 0) ? toUnit(val) : val
     return {
       [name]: valWithUnit
     }
@@ -26,7 +29,7 @@ export const wrapIfMedia = (query, style) => wrap(
 )
 
 export const sizeValue = (input, trueVal = '100%', falseVal = 0) => (isNum(input)
-  ? (input <= 0 || input > 1 ? input : `${input * 100}%`)
+  ? percentage(input)
   : input === true ? trueVal : input === false ? falseVal : input
 )
 

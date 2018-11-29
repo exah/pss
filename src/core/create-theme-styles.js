@@ -63,7 +63,7 @@ const createThemeStyle = (options: {
 
   return (input, props, mediaKey) => everyMediaValue(
     getter(input, null, mediaKey),
-    (style) => getStyle(style, input)
+    (themeValue) => getStyle(themeValue, input, props, mediaKey)
   )(props)
 }
 

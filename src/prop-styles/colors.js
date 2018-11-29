@@ -1,4 +1,10 @@
-import { createPropStyles, createPaletteStyle, createColor } from '../core'
+import {
+  createPropStyles,
+  createPaletteStyle,
+  experimentalCreateRule
+} from '../core'
+
+import { colorValue } from '../value'
 
 /**
  * ```js
@@ -87,8 +93,8 @@ import { createPropStyles, createPaletteStyle, createColor } from '../core'
 
 const colors = createPropStyles({
   tm: createPaletteStyle('bg', 'fg'),
-  fg: createColor('color', 'fg'),
-  bg: createColor('backgroundColor', 'bg')
+  fg: experimentalCreateRule('color', colorValue('fg')),
+  bg: experimentalCreateRule('backgroundColor', colorValue('bg'))
 })
 
 export {

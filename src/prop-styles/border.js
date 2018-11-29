@@ -1,16 +1,19 @@
 import { isNum, isStr, isBool, isArr, mapObj } from '@exah/utils'
 import { SHORT_DIRECTIONS } from '../constants'
-import { createPropStyles, createColor, createSize } from '../core'
+import { createPropStyles, experimentalCreateRule } from '../core'
+import { colorValue, sizeValue, boolValue } from '../value'
+import { toUnit } from '../utils'
 
 const borderStyle = (Dir = '') => {
   const widthCssProp = `border${Dir}Width`
   const styleCssProp = `border${Dir}Style`
-  const getWidthStyles = createSize(widthCssProp, 1, 0)
+  const getValue = sizeValue(boolValue(1, 0))
+  const returnValue = (value, props) => toUnit(getValue(value, props)(props))
 
-  return (value, props, mediaKey, isRawValue) => {
+  return (value, props) => {
     if (isBool(value) || isNum(value)) {
       return {
-        ...getWidthStyles(value, props, mediaKey, isRawValue),
+        [widthCssProp]: returnValue(value, props),
         [styleCssProp]: value ? 'solid' : 'none'
       }
     } else if (isStr(value) || isArr(value)) {
@@ -18,7 +21,7 @@ const borderStyle = (Dir = '') => {
       const [ parsedWidth, style = 'solid' ] = value.toString().split(/,|\s+/g)
 
       return {
-        ...getWidthStyles(parsedWidth, props, mediaKey, isRawValue),
+        [widthCssProp]: returnValue(parsedWidth, props),
         [styleCssProp]: style
       }
     }
@@ -68,7 +71,7 @@ const borderStyle = (Dir = '') => {
  */
 
 const border = createPropStyles({
-  bdc: createColor('borderColor', 'border'),
+  bdc: experimentalCreateRule('borderColor', colorValue('border')),
   bd: borderStyle(),
   ...mapObj((shortDir, longDir) => [
     'bd' + shortDir,

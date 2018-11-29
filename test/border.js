@@ -24,7 +24,7 @@ test('props: border', (t) => {
   })
 })
 
-test('props: border (left)', (t) => {
+test('props: custom border', (t) => {
   const result = border({
     theme,
     bdl: '5px dotted',
