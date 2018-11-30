@@ -1,4 +1,5 @@
-import { createPropStyles, createRule } from '../core'
+import { createPropStyles, experimentalCreateRule } from '../core'
+import { boolValue } from '../value'
 
 /**
  * ```js
@@ -26,9 +27,9 @@ import { createPropStyles, createRule } from '../core'
  */
 
 const overflow = createPropStyles({
-  ov: createRule('overflow', 'auto', 'visible'),
-  ovx: createRule('overflowX', 'auto', 'visible'),
-  ovy: createRule('overflowY', 'auto', 'visible'),
+  ov: experimentalCreateRule('overflow', boolValue('auto', 'visible')),
+  ovx: experimentalCreateRule('overflowX', boolValue('auto', 'visible')),
+  ovy: experimentalCreateRule('overflowY', boolValue('auto', 'visible')),
   ovh: { overflow: 'hidden' },
   ovsx: { overflowX: 'auto', overflowY: 'hidden' },
   ovsy: { overflowX: 'hidden', overflowY: 'auto' },
