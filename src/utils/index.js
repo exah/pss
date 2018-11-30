@@ -1,15 +1,10 @@
 import { isFn, isNum, isStr, toObj, curryN } from '@exah/utils'
 
-export const toUnit = (n, str = 'px') => isStr(n) ? n : n + str
+export const toUnit = (n, str = 'px') => (n > 0 || n < 0) ? n + str : n
 export const percentage = (n) => (n <= 0 || n > 1) ? n : toUnit(n * 100, '%')
 
 export const toCssRule = (cssProps, toPx) => (val) => val != null
-  ? toObj(cssProps, (name) => {
-    const valWithUnit = toPx === true && (val > 0 || val < 0) ? toUnit(val) : val
-    return {
-      [name]: valWithUnit
-    }
-  })
+  ? toObj(cssProps, (name) => ({ [name]: toPx === true ? toUnit(val) : val }))
   : null
 
 export const wrap = curryN(2, (name, style) => {

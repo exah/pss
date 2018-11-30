@@ -1,5 +1,5 @@
-import { isStr, fallbackTo, isArr, path } from '@exah/utils'
-import { spaceValue, hasMediaKeys, keys } from '../utils'
+import { isStr, fallbackTo, isArr, path, identity } from '@exah/utils'
+import { spaceValue, hasMediaKeys, keys, toUnit } from '../utils'
 
 import {
   DEFAULT_KEY,
@@ -33,7 +33,10 @@ export const getPalettes = themePath(PALETTE_KEY, DEFAULT_THEME_PALETTE)
 export const getColors = themePath(COLORS_KEY, DEFAULT_THEME_COLORS)
 export const getSpaces = themePath(SPACE_KEY, DEFAULT_THEME_SPACE)
 
-export const getThemeMediaValue = (themeDataKey) => (
+export const getThemeMediaValue = (
+  themeDataKey,
+  transformValue = identity
+) => (
   input,
   defaultValue,
   defaultMediaKey
@@ -46,20 +49,17 @@ export const getThemeMediaValue = (themeDataKey) => (
   const themeValue = path(themeKey)(themeData)
 
   if (Object(themeValue).hasOwnProperty(defaultMediaKey)) {
-    return themeValue[defaultMediaKey]
+    return transformValue(themeValue[defaultMediaKey])
   }
 
   if (hasMediaKeys(getMediaKeys(props), themeValue)) {
-    return (mediaKey) => themeValue[mediaKey]
+    return (mediaKey) => transformValue(themeValue[mediaKey])
   }
 
-  return fallbackTo(
-    themeValue,
-    defaultValue
-  )
+  return transformValue(fallbackTo(themeValue, defaultValue))
 }
 
-export const getSize = getThemeMediaValue(SIZES_KEY)
+export const getSize = getThemeMediaValue(SIZES_KEY, toUnit)
 
 export function getSpace (input, defaultValue, defaultMediaKey) {
   if (isStr(input)) {

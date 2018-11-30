@@ -8,10 +8,11 @@ import type {
   Style
 } from '../types'
 
-import { isBool, isStr, identity } from '@exah/utils'
+import { isBool, isStr } from '@exah/utils'
 import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
 import { everyMediaValue } from './every-media'
 import { themePath } from '../getters'
+import { boolValue } from '../value'
 import { toCssRule } from '../utils'
 
 const createRule = (
@@ -24,8 +25,7 @@ const createRule = (
 
 function experimentalCreateRule (
   cssProp: string,
-  getValue: Function = identity,
-  toPx?: boolean = true,
+  getValue: Function = boolValue(),
   defaultValue: StyleValue = CSS_PROPS_DEFAULTS[cssProp] || CSS_DEFAULT_VALUE
 ): PropStyle {
   return (
@@ -34,7 +34,7 @@ function experimentalCreateRule (
     mediaKey: ? string,
     isRawValue: ? boolean
   ): Style => {
-    const css = toCssRule(cssProp, toPx)
+    const css = toCssRule(cssProp)
 
     if (isRawValue === true) {
       return css(input)
