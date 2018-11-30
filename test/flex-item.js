@@ -29,7 +29,7 @@ test('flex', t => {
   t.deepEqual(result2, { flex: 1 })
   t.deepEqual(result3, { flex: '0 1 auto' })
   t.deepEqual(result4, { flex: '0' })
-  t.deepEqual(result5, { flex: null }) // should be empty object
+  t.deepEqual(result5, {})
   t.deepEqual(resultMedia1, mobStyle({ flex: '0' }))
   t.deepEqual(resultMedia2, mobStyle({ flex: '0' }))
 })
@@ -47,7 +47,7 @@ test('grow', t => {
   t.deepEqual(result2, { flexGrow: 1 })
   t.deepEqual(result3, { flexGrow: 0 })
   t.deepEqual(result4, { flexGrow: '0' })
-  t.deepEqual(result5, { flexGrow: null }) // should be empty object
+  t.deepEqual(result5, {})
   t.deepEqual(resultMedia1, mobStyle({ flexGrow: '0' }))
   t.deepEqual(resultMedia2, mobStyle({ flexGrow: '0' }))
 })
@@ -65,7 +65,7 @@ test('shrink', t => {
   t.deepEqual(result2, { flexShrink: 1 })
   t.deepEqual(result3, { flexShrink: 0 })
   t.deepEqual(result4, { flexShrink: '0' })
-  t.deepEqual(result5, { flexShrink: null }) // should be empty object
+  t.deepEqual(result5, {})
   t.deepEqual(resultMedia1, mobStyle({ flexShrink: '0' }))
   t.deepEqual(resultMedia2, mobStyle({ flexShrink: '0' }))
 })
@@ -83,7 +83,7 @@ test('order', t => {
   t.deepEqual(result2, { order: 1 })
   t.deepEqual(result3, { order: 0 })
   t.deepEqual(result4, { order: '0' })
-  t.deepEqual(result5, { order: null }) // should be empty object
+  t.deepEqual(result5, {})
   t.deepEqual(resultMedia1, mobStyle({ order: '0' }))
   t.deepEqual(resultMedia2, mobStyle({ order: '0' }))
 })
@@ -99,13 +99,12 @@ test('alignSelf', t => {
 
   const expectedSpace = { alignSelf: 'space-between' }
   const expectedNormal = { alignSelf: 'normal' }
-  const expectedUndefined = { alignSelf: undefined }
 
-  t.deepEqual(result1, expectedUndefined)
+  t.deepEqual(result1, {})
   t.deepEqual(result2, expectedSpace)
-  t.deepEqual(result3, expectedUndefined)
+  t.deepEqual(result3, {})
   t.deepEqual(result4, expectedNormal)
-  t.deepEqual(result5, { alignSelf: null }) // should be empty object
+  t.deepEqual(result5, {})
   t.deepEqual(resultMedia1, mobStyle(expectedNormal))
   t.deepEqual(resultMedia2, mobStyle(expectedNormal))
 })
@@ -121,7 +120,7 @@ test('basis', t => {
 
   t.deepEqual(result1, { flexBasis: 'auto' })
   t.deepEqual(result2, { flexBasis: '100%' })
-  t.deepEqual(result3, { flexBasis: 0 })
+  t.deepEqual(result3, {})
   t.deepEqual(result4, { flexBasis: '0' })
   t.deepEqual(result5, {})
   t.deepEqual(resultMedia1, mobStyle({ flexBasis: '0' }))

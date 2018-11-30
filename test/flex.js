@@ -32,7 +32,7 @@ test('flexWrap', t => {
   t.deepEqual(result2, expectedWrap)
   t.deepEqual(result3, expectedNowrap)
   t.deepEqual(result4, expectedNowrap)
-  t.deepEqual(result5, { flexWrap: null }) // should be empty object
+  t.deepEqual(result5, {})
   t.deepEqual(resultMedia1, mobStyle(expectedNowrap))
   t.deepEqual(resultMedia2, mobStyle(expectedNowrap))
 })
@@ -49,9 +49,9 @@ test('flexDirection', t => {
 
   t.deepEqual(result1, expectedColumn)
   t.deepEqual(result2, expectedRow)
-  t.deepEqual(result3, { flexDirection: undefined }) // should be empty object
-  t.deepEqual(result4, { flexDirection: undefined }) // should be empty object
-  t.deepEqual(result5, { flexDirection: null }) // should be empty object
+  t.deepEqual(result3, {})
+  t.deepEqual(result4, {})
+  t.deepEqual(result5, {})
 })
 
 test('alignItems', t => {
@@ -61,9 +61,9 @@ test('alignItems', t => {
   const result4 = toStyles(flex({ alignItems: null }))
 
   t.deepEqual(result1, { alignItems: 'center' })
-  t.deepEqual(result2, { alignItems: undefined }) // should be empty object
-  t.deepEqual(result3, { alignItems: undefined }) // should be empty object
-  t.deepEqual(result4, { alignItems: null }) // should be empty object
+  t.deepEqual(result2, {})
+  t.deepEqual(result3, {})
+  t.deepEqual(result4, {})
 })
 
 test('justifyContent', t => {
@@ -82,7 +82,7 @@ test('justifyContent', t => {
   t.deepEqual(result2, expectedSpace)
   t.deepEqual(result3, expectedNormal)
   t.deepEqual(result4, expectedNormal)
-  t.deepEqual(result5, { justifyContent: null }) // should be empty object
+  t.deepEqual(result5, {})
   t.deepEqual(resultMedia1, mobStyle(expectedNormal))
   t.deepEqual(resultMedia2, mobStyle(expectedNormal))
 })
@@ -98,13 +98,12 @@ test('alignContent', t => {
 
   const expectedSpace = { alignContent: 'space-between' }
   const expectedNormal = { alignContent: 'normal' }
-  const expectedUndefined = { alignContent: undefined }
 
-  t.deepEqual(result1, expectedUndefined)
+  t.deepEqual(result1, {})
   t.deepEqual(result2, expectedSpace)
-  t.deepEqual(result3, expectedUndefined)
+  t.deepEqual(result3, {})
   t.deepEqual(result4, expectedNormal)
-  t.deepEqual(result5, { alignContent: null }) // should be empty object
+  t.deepEqual(result5, {})
   t.deepEqual(resultMedia1, mobStyle(expectedNormal))
   t.deepEqual(resultMedia2, mobStyle(expectedNormal))
 })

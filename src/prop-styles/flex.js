@@ -1,4 +1,5 @@
-import { createPropStyles, createSize, createRule } from '../core'
+import { createPropStyles, experimentalCreateRule } from '../core'
+import { boolValue, sizeValue } from '../value'
 
 /**
  * ```js
@@ -30,11 +31,11 @@ import { createPropStyles, createSize, createRule } from '../core'
  */
 
 const flex = createPropStyles({
-  flexWrap: createRule('flexWrap', 'wrap', 'nowrap'),
-  flexDirection: createRule('flexDirection'),
-  alignItems: createRule('alignItems'),
-  alignContent: createRule('alignContent'),
-  justifyContent: createRule('justifyContent', 'space-between', 'normal')
+  flexWrap: experimentalCreateRule('flexWrap', boolValue('wrap', 'nowrap')),
+  flexDirection: experimentalCreateRule('flexDirection'),
+  alignItems: experimentalCreateRule('alignItems'),
+  alignContent: experimentalCreateRule('alignContent'),
+  justifyContent: experimentalCreateRule('justifyContent', boolValue('space-between', 'normal'))
 })
 
 /**
@@ -70,12 +71,12 @@ const flex = createPropStyles({
  */
 
 const flexItem = createPropStyles({
-  flex: createRule('flex', '1 1 0', '0 1 auto'),
-  grow: createRule('flexGrow', 1, 0),
-  shrink: createRule('flexShrink', 1, 0),
-  basis: createSize('flexBasis', 'auto'),
-  order: createRule('order', 1, 0),
-  alignSelf: createRule('alignSelf')
+  flex: experimentalCreateRule('flex', boolValue('1 1 0', '0 1 auto')),
+  grow: experimentalCreateRule('flexGrow', boolValue(1, 0)),
+  shrink: experimentalCreateRule('flexShrink', boolValue(1, 0)),
+  basis: experimentalCreateRule('flexBasis', sizeValue(boolValue('auto'))),
+  order: experimentalCreateRule('order', boolValue(1, 0)),
+  alignSelf: experimentalCreateRule('alignSelf')
 })
 
 export {
