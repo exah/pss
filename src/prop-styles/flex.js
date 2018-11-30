@@ -33,8 +33,8 @@ const flex = createPropStyles({
   flexWrap: createRule('flexWrap', 'wrap', 'nowrap'),
   flexDirection: createRule('flexDirection'),
   alignItems: createRule('alignItems'),
-  justifyContent: createRule('justifyContent', 'space-between', 'normal'),
-  alignContent: createRule('alignContent')
+  alignContent: createRule('alignContent'),
+  justifyContent: createRule('justifyContent', 'space-between', 'normal')
 })
 
 /**
