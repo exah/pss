@@ -118,8 +118,8 @@ test('props -> sizes theme values', (t) => {
 test('props -> sizes custom values', (t) => {
   const propsSuffix = {
     theme,
-    height: '100px',
-    widthM: '20px',
+    height: '100',
+    widthM: 20,
     minHeightM: '300px'
   }
 
