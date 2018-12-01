@@ -8,6 +8,12 @@ const THEME = {
   space: {
     default: [ 0, 8, 16, 32, 64 ]
   },
+  size: {
+    card: {
+      default: 200,
+      'M': 100
+    }
+  },
   palette: {
     default: {
       bg: '#ffffff',
@@ -28,15 +34,18 @@ const testAnyValue = ({
   prop,
   cssProp,
   theme = THEME,
-  value = 'any'
+  values = []
 }) => (t) => {
   t.deepEqual(toStyles(fn({ [prop]: true })), {})
-  t.deepEqual(toStyles(fn({ [prop]: value })), { [cssProp]: value })
   t.deepEqual(toStyles(fn({ [prop]: false })), {})
-  t.deepEqual(toStyles(fn({ [prop]: value })), { [cssProp]: value })
   t.deepEqual(toStyles(fn({ [prop]: null })), {})
-  t.deepEqual(toStyles(fn({ theme, [prop]: { M: value } })), mediaStyle({ [cssProp]: value }))
-  t.deepEqual(toStyles(fn({ theme, [prop + 'M']: value })), mediaStyle({ [cssProp]: value }))
+
+  values.forEach((val) => {
+    t.deepEqual(toStyles(fn({ [prop]: val })), { [cssProp]: val })
+    t.deepEqual(toStyles(fn({ [prop]: val })), { [cssProp]: val })
+    t.deepEqual(toStyles(fn({ theme, [prop]: { M: val } })), mediaStyle({ [cssProp]: val }))
+    t.deepEqual(toStyles(fn({ theme, [prop + 'M']: val })), mediaStyle({ [cssProp]: val }))
+  })
 }
 
 const testBoolValue = ({
@@ -44,21 +53,25 @@ const testBoolValue = ({
   prop,
   cssProp,
   theme = THEME,
-  value,
+  values = [],
   trueValue,
   falseValue
 }) => (t) => {
   t.deepEqual(toStyles(fn({ [prop]: true })), { [cssProp]: trueValue })
-  t.deepEqual(toStyles(fn({ [prop]: value })), { [cssProp]: value })
   t.deepEqual(toStyles(fn({ [prop]: false })), { [cssProp]: falseValue })
-  t.deepEqual(toStyles(fn({ [prop]: value })), { [cssProp]: value })
   t.deepEqual(toStyles(fn({ [prop]: null })), {})
-  t.deepEqual(toStyles(fn({ theme, [prop]: { M: value } })), mediaStyle({ [cssProp]: value }))
-  t.deepEqual(toStyles(fn({ theme, [prop + 'M']: value })), mediaStyle({ [cssProp]: value }))
+
+  values.forEach((val) => {
+    t.deepEqual(toStyles(fn({ [prop]: val })), { [cssProp]: val })
+    t.deepEqual(toStyles(fn({ [prop]: val })), { [cssProp]: val })
+    t.deepEqual(toStyles(fn({ theme, [prop]: { M: val } })), mediaStyle({ [cssProp]: val }))
+    t.deepEqual(toStyles(fn({ theme, [prop + 'M']: val })), mediaStyle({ [cssProp]: val }))
+  })
 }
 export {
   THEME as theme,
   toStyles,
+  mediaStyle,
   testAnyValue,
   testBoolValue
 }

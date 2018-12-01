@@ -6,14 +6,14 @@ test('cursor', testAnyValue({
   fn: utility,
   prop: 'cursor',
   cssProp: 'cursor',
-  value: 'pointer'
+  values: [ 'pointer' ]
 }))
 
 test('opacity', testBoolValue({
   fn: utility,
   prop: 'opacity',
   cssProp: 'opacity',
-  value: 0.5,
+  values: [ 0.5 ],
   trueValue: 1,
   falseValue: 0
 }))
@@ -22,21 +22,21 @@ test('radius', testAnyValue({
   fn: utility,
   prop: 'radius',
   cssProp: 'borderRadius',
-  value: '9999px'
+  values: [ '9999px' ]
 }))
 
 test('transform', testAnyValue({
   fn: utility,
   prop: 'transform',
   cssProp: 'transform',
-  value: 'scale(2)'
+  values: [ 'scale(2)' ]
 }))
 
 test('transition', testBoolValue({
   fn: utility,
   prop: 'transition',
   cssProp: 'transition',
-  value: 'any',
+  values: [ 'any' ],
   trueValue: 'all .3s',
   falseValue: 'none'
 }))
