@@ -1,4 +1,4 @@
-import { experimentalCreateRule, createPropStyles } from '../core'
+import { createRule, createPropStyles } from '../core'
 import { sizeValue } from '../value'
 
 /**
@@ -88,12 +88,12 @@ import { sizeValue } from '../value'
  */
 
 const sizes = createPropStyles({
-  height: experimentalCreateRule('height', sizeValue()),
-  width: experimentalCreateRule('width', sizeValue()),
-  maxWidth: experimentalCreateRule('maxWidth', sizeValue()),
-  maxHeight: experimentalCreateRule('maxHeight', sizeValue()),
-  minHeight: experimentalCreateRule('minHeight', sizeValue()),
-  minWidth: experimentalCreateRule('minWidth', sizeValue())
+  height: createRule('height', sizeValue()),
+  width: createRule('width', sizeValue()),
+  maxWidth: createRule('maxWidth', sizeValue()),
+  maxHeight: createRule('maxHeight', sizeValue()),
+  minHeight: createRule('minHeight', sizeValue()),
+  minWidth: createRule('minWidth', sizeValue())
 })
 
 export {

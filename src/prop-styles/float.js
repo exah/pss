@@ -1,4 +1,4 @@
-import { createPropStyles, experimentalCreateRule } from '../core'
+import { createPropStyles, createRule } from '../core'
 import { boolValue } from '../value'
 
 /**
@@ -37,8 +37,8 @@ import { boolValue } from '../value'
  */
 
 const float = createPropStyles({
-  float: experimentalCreateRule('float'),
-  clear: experimentalCreateRule('clear', boolValue('both', 'none')),
+  float: createRule('float'),
+  clear: createRule('clear', boolValue('both', 'none')),
   clearFix: {
     '&::after': {
       content: '""',

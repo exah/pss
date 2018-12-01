@@ -9,7 +9,6 @@ export {
   createPropStyles as pss,
   createPropStyles,
   createRule,
-  experimentalCreateRule,
   createSize,
   createSizeMixin,
   createSpace,

@@ -13,7 +13,7 @@ import {
   createPaletteStyle,
   createColor,
   colorValue,
-  experimentalCreateRule,
+  createRule,
   colors as exportedColors
 } from '../src'
 
@@ -56,7 +56,7 @@ const customColors = createPropStyles({
   tm: createPaletteStyle('bg', 'fg'),
   fg: createColor('color', 'fg'),
   bg: createColor('backgroundColor', 'bg'),
-  bc: experimentalCreateRule('borderColor', colorValue('border'))
+  bc: createRule('borderColor', colorValue('border'))
 })
 
 test('fg', testValue({

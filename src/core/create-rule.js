@@ -15,15 +15,7 @@ import { themePath } from '../getters'
 import { boolValue } from '../value'
 import { toCssRule } from '../utils'
 
-const createRule = (
-  cssProp: string,
-  trueVal: StyleValue,
-  falseVal: StyleValue
-): PropStyle => (val: PropStyleValue | StyleValue): Style => ({
-  [cssProp]: isBool(val) ? (val === true ? trueVal : falseVal) : val
-})
-
-function experimentalCreateRule (
+function createRule (
   cssProp: string,
   getValue: Function = boolValue(),
   defaultValue: StyleValue = CSS_PROPS_DEFAULTS[cssProp] || CSS_DEFAULT_VALUE
@@ -59,6 +51,5 @@ function experimentalCreateRule (
 }
 
 export {
-  createRule,
-  experimentalCreateRule
+  createRule
 }

@@ -1,4 +1,4 @@
-import { createPropStyles, experimentalCreateRule } from '../core'
+import { createPropStyles, createRule } from '../core'
 import { boolValue } from '../value'
 
 /**
@@ -25,7 +25,7 @@ import { boolValue } from '../value'
  */
 
 const display = createPropStyles({
-  display: experimentalCreateRule('display', boolValue('initial', 'none')),
+  display: createRule('display', boolValue('initial', 'none')),
   hide: { display: 'none' }
 })
 

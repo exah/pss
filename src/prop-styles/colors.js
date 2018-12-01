@@ -1,7 +1,7 @@
 import {
   createPropStyles,
   createPaletteStyle,
-  experimentalCreateRule
+  createRule
 } from '../core'
 
 import { colorValue } from '../value'
@@ -93,8 +93,8 @@ import { colorValue } from '../value'
 
 const colors = createPropStyles({
   tm: createPaletteStyle('bg', 'fg'),
-  fg: experimentalCreateRule('color', colorValue('fg')),
-  bg: experimentalCreateRule('backgroundColor', colorValue('bg'))
+  fg: createRule('color', colorValue('fg')),
+  bg: createRule('backgroundColor', colorValue('bg'))
 })
 
 export {

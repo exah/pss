@@ -2,7 +2,7 @@ import test from 'ava'
 
 import {
   createPropStyles,
-  experimentalCreateRule,
+  createRule,
   sizeValue
 } from '../src'
 
@@ -29,7 +29,7 @@ const theme = {
 
 test('sizeValue: 100%', (t) => {
   const style = createPropStyles({
-    height: experimentalCreateRule('height', sizeValue())
+    height: createRule('height', sizeValue())
   })
 
   const expected = {
@@ -43,7 +43,7 @@ test('sizeValue: 100%', (t) => {
 
 test('sizeValue: sizes.xl', (t) => {
   const style = createPropStyles({
-    height: experimentalCreateRule('height', sizeValue())
+    height: createRule('height', sizeValue())
   })
 
   const expected = {
@@ -56,7 +56,7 @@ test('sizeValue: sizes.xl', (t) => {
 
 test('sizeValue: sizes.nudge', (t) => {
   const style = createPropStyles({
-    height: experimentalCreateRule('height', sizeValue())
+    height: createRule('height', sizeValue())
   })
 
   const expected = {
@@ -72,7 +72,7 @@ test('sizeValue: sizes.nudge', (t) => {
 
 test('sizeValue: 0', (t) => {
   const style = createPropStyles({
-    height: experimentalCreateRule('height', sizeValue())
+    height: createRule('height', sizeValue())
   })
 
   const expected = {
@@ -86,7 +86,7 @@ test('sizeValue: 0', (t) => {
 
 test('sizeValue: custom.my-value', (t) => {
   const style = createPropStyles({
-    height: experimentalCreateRule('height', sizeValue())
+    height: createRule('height', sizeValue())
   })
 
   const expected = {
