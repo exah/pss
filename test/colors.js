@@ -21,6 +21,7 @@ const theme = {
     default: {
       fg: COLOR_BLACK,
       bg: COLOR_WHITE,
+      border: COLOR_BLACK,
       shadow: COLOR_SHADOW,
       primary: COLOR_BLACK,
       accent: COLOR_YELLOW
@@ -28,6 +29,7 @@ const theme = {
     inverted: {
       fg: COLOR_WHITE,
       bg: COLOR_BLACK,
+      border: COLOR_WHITE,
       shadow: COLOR_SHADOW,
       primary: COLOR_WHITE,
       accent: COLOR_YELLOW
@@ -39,8 +41,16 @@ const themeInverted = mergeDeepRight(theme, {
   default: { palette: 'inverted' }
 })
 
+const shadowRule = rule('boxShadow', colorValue('shadow', (color) => `0 0 20px 0 ${color}`))
+
 const shadow = createPropStyles({
-  shadow: rule('boxShadow', colorValue('shadow', (color) => `0 0 20px 0 ${color}`))
+  tm: [
+    rule('color', colorValue('fg')),
+    rule('backgroundColor', colorValue('bg')),
+    rule('borderColor', colorValue('border')),
+    shadowRule
+  ],
+  shadow: shadowRule
 })
 
 test('fg', testValue({
@@ -134,4 +144,27 @@ test('transform color value', (t) => {
   const expected = { boxShadow: `0 0 20px 0 ${COLOR_SHADOW}` }
 
   t.deepEqual(toStyles(shadow(props)), expected)
+})
+
+test('custom color combination', (t) => {
+  t.deepEqual(toStyles(shadow({ theme, tm: true })), {
+    color: COLOR_BLACK,
+    backgroundColor: COLOR_WHITE,
+    borderColor: COLOR_BLACK,
+    boxShadow: `0 0 20px 0 ${COLOR_SHADOW}`
+  })
+
+  t.deepEqual(toStyles(shadow({ theme, tm: 'inverted' })), {
+    color: COLOR_WHITE,
+    backgroundColor: COLOR_BLACK,
+    borderColor: COLOR_WHITE,
+    boxShadow: `0 0 20px 0 ${COLOR_SHADOW}`
+  })
+
+  t.deepEqual(toStyles(shadow({ theme, tm: false })), {
+    color: 'inherit',
+    backgroundColor: 'transparent',
+    borderColor: 'transparent',
+    boxShadow: `unset`
+  })
 })

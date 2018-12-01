@@ -3,7 +3,6 @@
 import * as styles from './styles'
 
 export {
-  createPaletteStyle,
   createPropStyles as default,
   createPropStyles as pss,
   createPropStyles,

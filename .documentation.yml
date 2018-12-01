@@ -45,7 +45,6 @@ toc:
       - themeValue
       - mediaRule
       - createSpace
-      - createPaletteStyle
 
   - name: Mixins
     children:

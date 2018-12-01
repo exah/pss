@@ -81,18 +81,15 @@
     -   [createSpace][77]
         -   [Parameters][78]
         -   [Examples][79]
-    -   [createPaletteStyle][80]
-        -   [Parameters][81]
-        -   [Examples][82]
--   [Mixins][83]
-    -   [createSpaceMixin][84]
-        -   [Parameters][85]
+-   [Mixins][80]
+    -   [createSpaceMixin][81]
+        -   [Parameters][82]
+        -   [Examples][83]
+-   [Types][84]
+    -   [PropStyles][85]
         -   [Examples][86]
--   [Types][87]
-    -   [PropStyles][88]
-        -   [Examples][89]
-    -   [PropStyle][90]
-        -   [Parameters][91]
+    -   [PropStyle][87]
+        -   [Parameters][88]
 
 ## Prop Styles
 
@@ -265,7 +262,7 @@ const Box = styled.div(sizes)
 import { colors } from 'pss'
 ```
 
-Prop styles for getting current `palette` or `color` value from `theme`. Created with [colorValue][68] and [createPaletteStyle][80].
+Prop styles for getting current `palette` or `color` value from `theme`. Created with [colorValue][68].
 
 Result can be changed in nested components with setting other key in `theme.default.palette`.
 
@@ -353,7 +350,7 @@ const Box = styled.div(colors)
 import { flex } from 'pss'
 ```
 
-[Flex container][92] prop styles.
+[Flex container][89] prop styles.
 
 | prop             | css               | type                | value | true            | false    |
 | :--------------- | :---------------- | :------------------ | :---- | :-------------- | :------- |
@@ -383,7 +380,7 @@ const FlexBox = styled('div')({ display: 'flex' }, flex)
 import { flexItem } from 'pss'
 ```
 
-[Flex item][93] prop styles.
+[Flex item][90] prop styles.
 
 ⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `order`), so you may need to provide custom prop filtering.
 
@@ -477,7 +474,7 @@ import { float } from 'pss'
 | :--------- | :----------------------- | :------------------ | :---- | :----------- | :----- |
 | `float`    | [`float`][float-url]     | `String`            | ✓     | —            | —      |
 | `clear`    | [`clear`][clear-url]     | `String`, `Boolean` | ✓     | `both`       | `none` |
-| `clearFix` | [Clearfix][clearfix-url] | `true`              | —     | [styles][94] | —      |
+| `clearFix` | [Clearfix][clearfix-url] | `true`              | —     | [styles][91] | —      |
 
 <span id="clearfix-styles">Clearfix styles</span>
 
@@ -585,7 +582,7 @@ const Box = styled('p')(border)
 import { textStyle } from 'pss'
 ```
 
-Global text styles system, like in [Sketch][95].
+Global text styles system, like in [Sketch][92].
 Add `textStyle` to `theme`:
 
 ```js
@@ -663,7 +660,7 @@ const Text = styled('span')(fontFamily)
 import { ellipsis } from 'pss'
 ```
 
-Add [ellipsis][96] to text.
+Add [ellipsis][93] to text.
 
 #### Examples
 
@@ -785,7 +782,7 @@ const Box = styled('div')(utility)
 import { cssProp } from 'pss'
 ```
 
-Dynamic CSS prop like in [glamorous][97].
+Dynamic CSS prop like in [glamorous][94].
 You don't need it if yours CSS-in-JS library support it natively.
 
 Simple implementation:
@@ -823,7 +820,7 @@ const Box = styled.div(cssProp)
 import { ratio } from 'pss'
 ```
 
-[Aspect Ratio Box][98] prop style
+[Aspect Ratio Box][95] prop style
 with pseudo elements.
 
 #### Examples
@@ -959,7 +956,7 @@ Wrap result of prop style in custom CSS selector.
 
 #### Parameters
 
--   `name` **[string][99]?** — CSS selector, like `&:first-child`, `& + &`
+-   `name` **[string][96]?** — CSS selector, like `&:first-child`, `& + &`
 -   `value` **PropStyleValue?** — prop value
 
 #### Examples
@@ -992,7 +989,7 @@ Wrap result of prop style in media query from `theme.media` by key.
 
 #### Parameters
 
--   `mediaKeyAndQuery` **[string][99]?** — key in `theme.media`
+-   `mediaKeyAndQuery` **[string][96]?** — key in `theme.media`
 -   `value` **PropStyleValue?** — prop value
 
 #### Examples
@@ -1081,10 +1078,10 @@ const Box = styled.div(sizes)
 import pss from 'pss'
 ```
 
-Function that accepts Object (see [PropStyles][88]) with keys that
+Function that accepts Object (see [PropStyles][85]) with keys that
 represents component `prop` and the value is a `style` that will be applied.
 
-Returns Function (see [Mixin][100]) that you add to
+Returns Function (see [Mixin][97]) that you add to
 components created with CSS-in-JS libraries.
 
 When `theme` with `media` is provided to components, any styles can be changed
@@ -1092,8 +1089,8 @@ in media query with media name suffix (key in `theme.media`).
 
 #### Parameters
 
--   `propStyles` **[PropStyles][101]**  (optional, default `{}`)
--   `options` **{isMediaProps: [boolean][102]}**  (optional, default `{isMediaProps:true}`)
+-   `propStyles` **[PropStyles][98]**  (optional, default `{}`)
+-   `options` **{isMediaProps: [boolean][99]}**  (optional, default `{isMediaProps:true}`)
 
 #### Examples
 
@@ -1146,8 +1143,8 @@ Create style rule. Must be used with [createPropStyles][56].
 
 #### Parameters
 
--   `cssProp` **[string][99]** 
--   `getValue` **[Function][103]**  (optional, default `boolValue()`)
+-   `cssProp` **[string][96]** 
+-   `getValue` **[Function][100]**  (optional, default `boolValue()`)
 -   `defaultValue` **StyleValue**  (optional, default `CSS_PROPS_DEFAULTS[cssProp]||CSS_DEFAULT_VALUE`)
 
 #### Examples
@@ -1168,7 +1165,7 @@ const Box = styled.div(pss({
 </ThemeProvider>
 ```
 
-Returns **[PropStyle][104]** 
+Returns **[PropStyle][101]** 
 
 ### boolValue
 
@@ -1248,8 +1245,8 @@ Get color from theme and apply it to css prop. Must be used with [rule][59].
 
 #### Parameters
 
--   `key` **[string][99]** — Key in `theme.color` or in `theme.palette[theme.default.palette]`
--   `transformValue` **function (color: [string][99], props: Props): StyleValue** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)
+-   `key` **[string][96]** — Key in `theme.color` or in `theme.palette[theme.default.palette]`
+-   `transformValue` **function (color: [string][96], props: Props): StyleValue** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)
 
 #### Examples
 
@@ -1258,8 +1255,12 @@ import styled from 'react-emotion'
 import pss, { rule, colorValue } from 'pss'
 
 const colors = pss({
-  color: rule('color', colorValue('fg'),
-  shadow: rule('boxShadow', colorValue('shadow', (color) => `0 0 20px 0 ${color}`))
+  color: rule('color', colorValue('fg')),
+  shadow: rule('boxShadow', colorValue('shadow', (color) => `0 0 20px 0 ${color}`)),
+  tm: [
+     rule('color', colorValue('fg')),
+     rule('backgroundColor', colorValue('bg'))
+  ]
 })
 
 // Add to component
@@ -1278,9 +1279,12 @@ const Box = styled.div(colors)
 
 // theme.palette.default.shadow
 <Box shadow /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
+
+// theme.palette.default.fg, theme.palette.default.bg
+<Box tm='default' /> // color: #222222; background-color: #ffffff
 ```
 
-Returns **[Function][103]** 
+Returns **[Function][100]** 
 
 ### themeValue
 
@@ -1294,7 +1298,7 @@ See [textStyle][22].
 
 #### Parameters
 
--   `options` **{themeKey: ThemeKey?, themeGetter: [Function][103]?, transformValue: [Function][103]?}** 
+-   `options` **{themeKey: ThemeKey?, themeGetter: [Function][100]?, transformValue: [Function][100]?}** 
 
 #### Examples
 
@@ -1340,7 +1344,7 @@ const Text = styled.div(pss({
 }
 ```
 
-Returns **[PropStyle][104]** 
+Returns **[PropStyle][101]** 
 
 ### mediaRule
 
@@ -1352,9 +1356,9 @@ Create style wrapped in `theme.media`.
 
 #### Parameters
 
--   `cssProp` **[string][99]** 
+-   `cssProp` **[string][96]** 
 -   `value` **StyleValue** 
--   `transformValue` **[Function][103]**  (optional, default `identity`)
+-   `transformValue` **[Function][100]**  (optional, default `identity`)
 
 #### Examples
 
@@ -1399,9 +1403,9 @@ Result is props for [createPropStyles][56] with specified prop prefix.
 
 #### Parameters
 
--   `cssProp` **[string][99]** — Usually is `margin` or `padding`
--   `compProp` **[string][99]** — Prop name that will be used in component
--   `getSpaceValue` **[Function][103]** — Custom getter from theme, default to get values from `theme.space`
+-   `cssProp` **[string][96]** — Usually is `margin` or `padding`
+-   `compProp` **[string][96]** — Prop name that will be used in component
+-   `getSpaceValue` **[Function][100]** — Custom getter from theme, default to get values from `theme.space`
 
 #### Examples
 
@@ -1419,43 +1423,7 @@ const Box = styled.div(marginPropStyles)
 <Box mg /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
 ```
 
-Returns **[PropStyles][101]** 
-
-### createPaletteStyle
-
-```js
-import { createPaletteStyle } from 'pss'
-```
-
-Set both `background-color` and `color` for selected `theme.palette`.
-
-#### Parameters
-
--   `backgroundKey` **[string][99]** — is key in `theme.palette[val]` for CSS `background-color` prop (optional, default `'bg'`)
--   `colorKey` **[string][99]** — is key in `theme.palette[val]` for CSS `color` prop (optional, default `'fg'`)
-
-#### Examples
-
-```js
-import styled from 'react-emotion'
-import pss, { createPaletteStyle } from 'pss'
-
-const myColors = pss({
-  tm: createPaletteStyle('bg', 'fg')
-})
-
-const Box = styled.div(myColors)
-```
-
-```js
-// theme.palette.default.bg, theme.palette.default.fg
-<Box tm /> // background-color: #ffffff; color: #222222
-
-// theme.palette.inverted.bg, theme.palette.inverted.fg
-<Box tm='inverted' /> // background-color: #222222; color: #fffffff
-```
-
-Returns **[PropStyle][104]** 
+Returns **[PropStyles][98]** 
 
 ## Mixins
 
@@ -1471,7 +1439,7 @@ import { createSpaceMixin } from 'pss'
 Similar to [createSpace][77], but creates style function instead of prop styles,
 that can be used inside CSS-in-JS components with `theme` prop.
 
-For example if `cssProp` = `margin` result is [Mixin][100] with API:
+For example if `cssProp` = `margin` result is [Mixin][97] with API:
 
 -   `fn(step)` → `margin`
 -   `fn.l(step)` → `margin-left`
@@ -1483,8 +1451,8 @@ For example if `cssProp` = `margin` result is [Mixin][100] with API:
 
 #### Parameters
 
--   `cssProp` **[string][99]** — Usually is `margin` or `padding`
--   `getSpaceValue` **[Function][103]** — Custom getter from theme, default to get values from `theme.space`
+-   `cssProp` **[string][96]** — Usually is `margin` or `padding`
+-   `getSpaceValue` **[Function][100]** — Custom getter from theme, default to get values from `theme.space`
 
 #### Examples
 
@@ -1518,9 +1486,9 @@ Returns **Mixin**
 ### PropStyles
 
 Object with keys that represents component `prop` and
-the value is a `style` that will be applied (or [PropStyle][90]).
+the value is a `style` that will be applied (or [PropStyle][87]).
 
-Type: [Object][105]
+Type: [Object][102]
 
 #### Examples
 
@@ -1540,9 +1508,9 @@ Type: [Object][105]
 
 ### PropStyle
 
-[Function][106] that returns style that will be applied to component when prop is used.
+[Function][103] that returns style that will be applied to component when prop is used.
 
-Type: function (value: PropStyleValue, props: Props, mediaKey: ([string][99] | null)): Styles
+Type: function (value: PropStyleValue, props: Props, mediaKey: ([string][96] | null)): Styles
 
 #### Parameters
 
@@ -1708,56 +1676,50 @@ Type: function (value: PropStyleValue, props: Props, mediaKey: ([string][99] | n
 
 [79]: #examples-31
 
-[80]: #createpalettestyle
+[80]: #mixins
 
-[81]: #parameters-12
+[81]: #createspacemixin
 
-[82]: #examples-32
+[82]: #parameters-12
 
-[83]: #mixins
+[83]: #examples-32
 
-[84]: #createspacemixin
+[84]: #types
 
-[85]: #parameters-13
+[85]: #propstyles
 
 [86]: #examples-33
 
-[87]: #types
+[87]: #propstyle
 
-[88]: #propstyles
+[88]: #parameters-13
 
-[89]: #examples-34
+[89]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container
 
-[90]: #propstyle
+[90]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#Properties_applied_to_flex_items
 
-[91]: #parameters-14
+[91]: #clearfix-styles
 
-[92]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container
+[92]: https://sketchapp.com/docs/text/text-styles
 
-[93]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#Properties_applied_to_flex_items
+[93]: https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
 
-[94]: #clearfix-styles
+[94]: https://glamorous.rocks
 
-[95]: https://sketchapp.com/docs/text/text-styles
+[95]: https://css-tricks.com/aspect-ratio-boxes/
 
-[96]: https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
+[96]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[97]: https://glamorous.rocks
+[97]: Mixin
 
-[98]: https://css-tricks.com/aspect-ratio-boxes/
+[98]: #propstyles
 
-[99]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[99]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 
-[100]: Mixin
+[100]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[101]: #propstyles
+[101]: #propstyle
 
-[102]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[102]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
 [103]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
-
-[104]: #propstyle
-
-[105]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
-[106]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function

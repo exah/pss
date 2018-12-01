@@ -19,8 +19,12 @@ import { getColor } from '../getters'
  * import pss, { rule, colorValue } from 'pss'
  *
  * const colors = pss({
- *   color: rule('color', colorValue('fg'),
- *   shadow: rule('boxShadow', colorValue('shadow', (color) => `0 0 20px 0 ${color}`))
+ *   color: rule('color', colorValue('fg')),
+ *   shadow: rule('boxShadow', colorValue('shadow', (color) => `0 0 20px 0 ${color}`)),
+ *   tm: [
+ *      rule('color', colorValue('fg')),
+ *      rule('backgroundColor', colorValue('bg'))
+ *   ]
  * })
  *
  * // Add to component
@@ -38,6 +42,9 @@ import { getColor } from '../getters'
  *
  * // theme.palette.default.shadow
  * <Box shadow /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
+ *
+ * // theme.palette.default.fg, theme.palette.default.bg
+ * <Box tm='default' /> // color: #222222; background-color: #ffffff
  */
 
 const colorValue = (
