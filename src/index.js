@@ -68,7 +68,7 @@ export {
   colorValue,
   boolValue,
   themeValue
-} from './value'
+} from './values'
 
 export {
   combine,

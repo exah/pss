@@ -1,6 +1,6 @@
 import { TEXT_STYLE_KEY } from '../constants'
 import { createPropStyles } from '../core'
-import { themeValue } from '../value'
+import { themeValue } from '../values'
 
 /**
  * ```js

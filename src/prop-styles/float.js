@@ -1,5 +1,5 @@
 import { createPropStyles, createRule } from '../core'
-import { boolValue } from '../value'
+import { boolValue } from '../values'
 
 /**
  * ```js

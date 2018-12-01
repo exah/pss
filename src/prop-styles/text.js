@@ -1,5 +1,5 @@
 import { createPropStyles, createRule } from '../core'
-import { boolValue } from '../value'
+import { boolValue } from '../values'
 import { combine } from '../utils'
 import { ellipsis } from './ellipsis'
 import { fontFamily } from './font-family'

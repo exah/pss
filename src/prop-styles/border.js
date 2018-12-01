@@ -1,7 +1,7 @@
 import { isNum, isStr, isBool, isArr, mapObj } from '@exah/utils'
 import { SHORT_DIRECTIONS } from '../constants'
 import { createPropStyles, createRule } from '../core'
-import { colorValue, sizeValue, boolValue } from '../value'
+import { colorValue, sizeValue, boolValue } from '../values'
 import { px } from '../utils'
 
 const borderStyle = (Dir = '') => {

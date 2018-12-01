@@ -1,5 +1,5 @@
 import { createPropStyles, createRule } from '../core'
-import { boolValue, sizeValue } from '../value'
+import { boolValue, sizeValue } from '../values'
 
 const direction = (dir) => createRule(dir, sizeValue(boolValue(0, 'auto')))
 

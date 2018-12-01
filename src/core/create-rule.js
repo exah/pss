@@ -12,7 +12,7 @@ import { isBool, isStr } from '@exah/utils'
 import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
 import { everyMediaValue } from './every-media'
 import { themePath } from '../getters'
-import { boolValue } from '../value'
+import { boolValue } from '../values'
 import { toCssRule } from '../utils'
 
 function createRule (

@@ -4,7 +4,7 @@ import {
   createRule
 } from '../core'
 
-import { colorValue } from '../value'
+import { colorValue } from '../values'
 
 /**
  * ```js

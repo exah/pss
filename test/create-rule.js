@@ -1,20 +1,13 @@
 import test from 'ava'
-
-import {
-  createPropStyles,
-  createRule,
-  sizeValue
-} from '../src'
-
-import { MEDIA_KEY, SIZES_KEY } from '../src/constants'
+import { createPropStyles, createRule, sizeValue } from '../src'
 import { toStyles } from './_helpers'
 
 const theme = {
-  [MEDIA_KEY]: {
+  media: {
     all: null,
     sm: '(max-width: 600px)'
   },
-  [SIZES_KEY]: {
+  size: {
     nudge: {
       default: 2,
       sm: 1

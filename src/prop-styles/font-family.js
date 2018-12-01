@@ -1,6 +1,6 @@
 import { FONT_KEY } from '../constants'
 import { createPropStyles, createRule } from '../core'
-import { themeValue } from '../value'
+import { themeValue } from '../values'
 
 /**
  * ```js

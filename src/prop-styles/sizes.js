@@ -1,5 +1,5 @@
 import { createRule, createPropStyles } from '../core'
-import { sizeValue } from '../value'
+import { sizeValue } from '../values'
 
 /**
  * ```js
