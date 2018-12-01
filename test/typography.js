@@ -35,7 +35,7 @@ const theme = {
   }
 }
 
-test('props -> set defaults', (t) => {
+test('defaults', (t) => {
   const result = toStyles(typography({
     theme,
     fontFamily: true,
@@ -52,7 +52,7 @@ test('props -> set defaults', (t) => {
   })
 })
 
-test('props -> use text helpers', (t) => {
+test('text helpers', (t) => {
   const result = toStyles(typography({
     theme,
     fontFamily: 'heading',
@@ -69,7 +69,7 @@ test('props -> use text helpers', (t) => {
   })
 })
 
-test('props -> set text style', (t) => {
+test('text style', (t) => {
   const result = toStyles(textStyle({
     theme,
     textStyle: 'heading'

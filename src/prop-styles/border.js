@@ -2,13 +2,13 @@ import { isNum, isStr, isBool, isArr, mapObj } from '@exah/utils'
 import { SHORT_DIRECTIONS } from '../constants'
 import { createPropStyles, experimentalCreateRule } from '../core'
 import { colorValue, sizeValue, boolValue } from '../value'
-import { toUnit } from '../utils'
+import { px } from '../utils'
 
 const borderStyle = (Dir = '') => {
   const widthCssProp = `border${Dir}Width`
   const styleCssProp = `border${Dir}Style`
   const getValue = sizeValue(boolValue(1, 0))
-  const returnValue = (value, props) => toUnit(getValue(value, props)(props))
+  const returnValue = (value, props) => px(getValue(value, props)(props))
 
   return (value, props) => {
     if (isBool(value) || isNum(value)) {

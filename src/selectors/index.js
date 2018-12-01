@@ -1,5 +1,5 @@
 import { isFn, curryN, identity, toArr, toObj } from '@exah/utils'
-import { handlePropStyle, wrapIfMedia } from '../utils'
+import { handlePropStyle, wrapIfMedia, px } from '../utils'
 import { getMedia } from '../getters'
 
 /**
@@ -78,9 +78,12 @@ const mediaPropSelector = curryN(2, (mediaKeyAndQuery, value) => {
  * <Box width={ts((theme) => theme.myValue)}
  */
 
-const themeSelector = (fn) => (props, mediaKey, style = identity) => handlePropStyle(
+const themeSelector = (
+  fn,
+  transformValue = px
+) => (props, mediaKey, style = identity) => handlePropStyle(
   style,
-  fn(props.theme),
+  transformValue(fn(props.theme)),
   props,
   mediaKey,
   true

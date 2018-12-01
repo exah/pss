@@ -1,5 +1,5 @@
 import { isStr, fallbackTo, isArr, path, identity } from '@exah/utils'
-import { spaceValue, hasMediaKeys, keys, toUnit } from '../utils'
+import { spaceValue, hasMediaKeys, keys, px } from '../utils'
 
 import {
   DEFAULT_KEY,
@@ -59,7 +59,7 @@ export const getThemeMediaValue = (
   return transformValue(fallbackTo(themeValue, defaultValue))
 }
 
-export const getSize = getThemeMediaValue(SIZES_KEY, toUnit)
+export const getSize = getThemeMediaValue(SIZES_KEY, px)
 
 export function getSpace (input, defaultValue, defaultMediaKey) {
   if (isStr(input)) {
