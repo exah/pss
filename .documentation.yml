@@ -35,14 +35,19 @@ toc:
       - combineSelectors
       - themeSelector
 
-  - name: Customization
+  - name: Custom styles
     children:
       - createPropStyles
-      - createSpace
+      - createRule
+      - mediaRule
       - sizeValue
       - themeValue
       - colorValue
+      - createSpace
       - createPaletteStyle
+
+  - name: Mixins
+    children:
       - createSpaceMixin
 
   - name: Types

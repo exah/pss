@@ -8,9 +8,11 @@ export {
   createPropStyles as pss,
   createPropStyles,
   createRule,
+  createRule as rule,
   createSpace,
   createSpaceMixin,
-  everyMedia
+  everyMedia,
+  mediaRule
 } from './core'
 
 export {

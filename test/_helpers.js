@@ -3,6 +3,7 @@ import { toArr, flatten } from '@exah/utils'
 
 const THEME = {
   media: {
+    D: '(min-width: 601px)',
     M: '(max-width: 600px)'
   }
 }

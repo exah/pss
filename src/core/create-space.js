@@ -17,11 +17,11 @@ const createSpaceModifiers = (
   styleProp: string,
   compProp: string = ''
 ): SpaceProps => [
-  ...Object.entries(SHORT_DIRECTIONS).map(([ shortDir, longDir ]: any) => [
-    compProp + shortDir,
-    longDir.map((dir) => styleProp + dir)
-  ]),
-  [ compProp, [ styleProp ] ]
+  [ compProp, [ styleProp ] ],
+  ...Object.keys(SHORT_DIRECTIONS).map((key: string) => [
+    compProp + key,
+    SHORT_DIRECTIONS[key].map((dir) => styleProp + dir)
+  ])
 ]
 
 const getSpaceStyle = (

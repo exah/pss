@@ -1,4 +1,4 @@
-import { createPropStyles, createRule } from '../core'
+import { createPropStyles, createRule, mediaRule } from '../core'
 import { boolValue } from '../values'
 
 /**
@@ -9,7 +9,7 @@ import { boolValue } from '../values'
  * prop       | css                      | type                | value | true      | false
  * :----------|:-------------------------|:--------------------|:------|:--------- |:--------
  * `display`  | [`display`][display-url] | `String`, `Boolean` | ✓     | `initial` | `none`
- * `hide`     | `display`                | `true`              | —     | `none`    | —
+ * `hideOn`   | `display: none`          | `theme.media`       | media | —         | —
  *
  * [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
  *
@@ -26,7 +26,7 @@ import { boolValue } from '../values'
 
 const display = createPropStyles({
   display: createRule('display', boolValue('initial', 'none')),
-  hide: { display: 'none' }
+  hideOn: mediaRule('display', 'none')
 })
 
 export {
