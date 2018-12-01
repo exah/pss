@@ -106,6 +106,8 @@ const createSpaceMixin = (
  * - `{compProp}x` → `{cssProp}-left`, `{cssProp}-right`
  * - `{compProp}y` → `{cssProp}-top`, `{cssProp}-bottom`
  *
+ * Related: {@link space}.
+ *
  * @param cssProp — Usually is `margin` or `padding`
  * @param compProp — Prop name that will be used in component
  * @param getSpaceValue — Custom getter from theme, default to get values from `theme.space`
@@ -121,7 +123,7 @@ const createSpaceMixin = (
  * const Box = styled.div(marginPropStyles)
  *
  * // Result
- * <Box mg /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
+ * <Box mg={1} /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
  */
 
 const createSpace = (

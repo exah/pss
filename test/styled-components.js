@@ -32,7 +32,7 @@ test('basic', (t) => {
     ${colors}
   `
 
-  const element = h(Box, { theme, width: true, tm: true, mg: true, mgM: 0 })
+  const element = h(Box, { theme, width: true, tm: true, mg: { default: true, M: 0 } })
   const tree = renderer.create(sheet.collectStyles(element)).toJSON()
 
   t.snapshot(tree)

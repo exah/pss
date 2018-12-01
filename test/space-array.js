@@ -1,5 +1,4 @@
 import test from 'ava'
-import { MEDIA_KEY, SPACE_KEY } from '../src/constants'
 
 import {
   createPropStyles,
@@ -9,17 +8,17 @@ import {
 import { toStyles } from './_helpers'
 
 const theme = {
-  [MEDIA_KEY]: {
+  media: {
     D: '(min-width: 1025px)',
     T: '(min-width: 601px) and (max-width: 1024px)',
     M: '(max-width: 600px)'
   },
-  [SPACE_KEY]: [ 0, 10, 20, '3rem', 60 ]
+  space: [ 0, 10, 20, '3rem', 60 ]
 }
 
 const marginPropStyles = createPropStyles(createSpace('margin', 'mg'))
 
-test('props -> set one step space', (t) => {
+test('set one step space', (t) => {
   const result = toStyles(marginPropStyles({ theme, mg: 1 }))
 
   t.deepEqual(result, {
@@ -27,9 +26,8 @@ test('props -> set one step space', (t) => {
   })
 })
 
-test('props -> set bool space value', (t) => {
-  const result1 = toStyles(marginPropStyles({ theme, mg: true, mgxM: false }))
-  const result2 = toStyles(marginPropStyles({ theme, mg: true, mgx: { M: false } }))
+test('set bool space value', (t) => {
+  const result = toStyles(marginPropStyles({ theme, mg: true, mgx: { M: false } }))
 
   const expected = {
     margin: '10px',
@@ -39,14 +37,10 @@ test('props -> set bool space value', (t) => {
     }
   }
 
-  t.deepEqual(result1, expected)
-  t.deepEqual(result2, expected)
+  t.deepEqual(result, expected)
 })
 
-test('props -> override one step space on mobile and tablet', (t) => {
-  const result1 = toStyles(marginPropStyles({ theme, mg: 1, mglM: 3, mgxT: 0 }))
-  const result2 = toStyles(marginPropStyles({ theme, mg: 1, mgl: { M: 3 }, mgx: { T: 0 } }))
-
+test('override one step space on mobile and tablet', (t) => {
   const expected = {
     margin: '10px',
     '@media (max-width: 600px)': { marginLeft: '3rem' },
@@ -56,6 +50,8 @@ test('props -> override one step space on mobile and tablet', (t) => {
     }
   }
 
-  t.deepEqual(result1, expected)
-  t.deepEqual(result2, expected)
+  t.deepEqual(
+    toStyles(marginPropStyles({ theme, mg: 1, mgl: { M: 3 }, mgx: { T: 0 } })),
+    expected
+  )
 })

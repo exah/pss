@@ -41,29 +41,14 @@ test('transition', testValue({
   falseValue: 'none'
 }))
 
-test('outline', t => {
-  t.deepEqual(
-    toStyles(utility({ outline: '1px solid red' })),
-    { outline: '1px solid red' }
-  )
+test('outline', testValue({
+  fn: utility,
+  prop: 'outline',
+  cssProp: 'outline',
+  values: [ '1px solid red', 'none' ],
+  falseValue: 'unset'
+}))
 
-  t.deepEqual(
-    toStyles(utility({ outline: null })),
-    {}
-  )
-
-  t.deepEqual(
-    toStyles(utility({ outline: true })),
-    {}
-  )
-
-  t.deepEqual(
-    toStyles(utility({ outline: false })),
-    { outline: 'unset' }
-  )
-
-  t.is(
-    toStyles(utility({ outline: 'debug' })).outline.indexOf('1px solid'),
-    0
-  )
+test('outline: debug', t => {
+  t.is(toStyles(utility({ outline: 'debug' })).outline.indexOf('1px solid'), 0)
 })

@@ -77,7 +77,7 @@ test('set theme colors and override text color on mobile', (t) => {
   const props = {
     theme,
     tm: true,
-    fgM: 'accent'
+    fg: { M: 'accent' }
   }
 
   const expected = {
@@ -108,8 +108,7 @@ test('change default theme to "inverted"', (t) => {
 test('reset theme colors on mobile', (t) => {
   const props = {
     theme: themeInverted,
-    tm: true,
-    tmM: false
+    tm: { default: true, M: false }
   }
 
   const expected = {

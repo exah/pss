@@ -49,7 +49,7 @@ test('basic', (t) => {
   flush()
 
   const Box = styled('div')(space, sizes, colors)
-  const element = h(Box, { theme, width: true, tm: true, mg: true, mgM: 0 })
+  const element = h(Box, { theme, width: true, tm: true, mg: { default: true, M: 0 } })
   const tree = renderer.create(element).toJSON()
 
   t.snapshot(tree)

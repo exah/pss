@@ -1,10 +1,9 @@
 import test from 'ava'
-import { MEDIA_KEY } from '../src/constants'
 import { position } from '../src'
 import { toStyles } from './_helpers'
 
 const theme = {
-  [MEDIA_KEY]: {
+  media: {
     D: '(min-width: 1025px)',
     T: '(min-width: 601px) and (max-width: 1024px)',
     M: '(max-width: 600px)'
@@ -12,19 +11,7 @@ const theme = {
 }
 
 test('position', (t) => {
-  const result1 = position({
-    theme,
-    position: 'relative',
-    positionM: 'static',
-    top: true,
-    bottom: false,
-    left: 1 / 2,
-    right: 0,
-    zIndex: 50,
-    zIndexM: 100
-  })
-
-  const result2 = position({
+  const result = position({
     theme,
     position: {
       default: 'relative',
@@ -53,6 +40,5 @@ test('position', (t) => {
     }
   }
 
-  t.deepEqual(toStyles(result1), expected)
-  t.deepEqual(toStyles(result2), expected)
+  t.deepEqual(toStyles(result), expected)
 })

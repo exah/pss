@@ -1,10 +1,9 @@
 import test from 'ava'
-import { MEDIA_KEY } from '../src/constants'
 import { cssProp } from '../src'
 import { toStyles } from './_helpers'
 
 const theme = {
-  [MEDIA_KEY]: {
+  media: {
     M: '(max-width: 600px)'
   },
   myColor: 'blue'
@@ -26,18 +25,7 @@ test('props: css', (t) => {
 })
 
 test('props: css (responsive)', (t) => {
-  const result1 = cssProp({
-    theme,
-    css: {
-      backgroundColor: 'blue'
-    },
-    cssM: {
-      backgroundColor: 'red',
-      display: 'flex'
-    }
-  })
-
-  const result2 = cssProp({
+  const result = cssProp({
     theme,
     css: {
       default: {
@@ -58,8 +46,7 @@ test('props: css (responsive)', (t) => {
     }
   }
 
-  t.deepEqual(toStyles(result1), expected)
-  t.deepEqual(toStyles(result2), expected)
+  t.deepEqual(toStyles(result), expected)
 })
 
 test('props: css (callback)', (t) => {

@@ -29,11 +29,11 @@ import { ThemeProvider } from 'emotion-theming'
 
 const theme = {
   media: {
-    M: '(max-width: 600px)'
+    sm: '(max-width: 600px)'
   },
   space: {
     default: [ 0, 16, 32, 64, 128 ],
-    M: [ 0, 8, 16, 32, 64 ]
+    sm: [ 0, 8, 16, 32, 64 ]
   },
   size: {
     card: '300px',
@@ -54,7 +54,7 @@ const theme = {
 <ThemeProvider theme={theme}>
   <Box bg="inverted" height> // css-0
     <Box maxWidth="site" mgx="auto" pdx> // css-1
-      <Box tm width={1 / 4} minWidth="card" minWidthM> // css-2
+      <Box tm width={1 / 4} minWidth={{ default: "card", sm: "100%" }}> // css-2
         <figure>
           <img src="/pic.jpg" alt="" />
           <figcaption>

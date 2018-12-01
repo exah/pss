@@ -28,7 +28,6 @@ const testValue = ({
     t.deepEqual(toStyles(fn({ theme, [prop]: val })), { [cssProp]: val })
     t.deepEqual(toStyles(fn({ theme, [prop]: val })), { [cssProp]: val })
     t.deepEqual(toStyles(fn({ theme, [prop]: { M: val } })), wrapInMedia({ [cssProp]: val }))
-    t.deepEqual(toStyles(fn({ theme, [prop + 'M']: val })), wrapInMedia({ [cssProp]: val }))
   })
 }
 export {

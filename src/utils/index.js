@@ -1,4 +1,4 @@
-import { isFn, isStr, toObj, curryN } from '@exah/utils'
+import { isFn, isStr, isObj, toArr, toObj, curryN } from '@exah/utils'
 
 export const toUnit = curryN(2, (unit, n) => (n > 0 || n < 0) ? n + unit : n)
 export const px = toUnit('px')
@@ -49,10 +49,10 @@ export const spaceValue = (input, spaces = []) => {
 export const skipPropValue = (...styles) => (input, ...rest) =>
   styles.map((s) => s(...rest))
 
-export const keys = (obj) => Object.keys(Object(obj))
+export const keys = (obj) => isObj(obj) ? Object.keys(Object(obj)) : []
 
-export const hasMediaKeys = (mediaKeys, value = {}) =>
-  keys(value).some((key) => mediaKeys.includes(key))
+export const hasMediaKeys = (mediaKeys, val) =>
+  toArr(val).some((key) => mediaKeys.includes(key))
 
 export const combine = (...fns) => (...args) => fns.map((fn) => fn(...args))
 

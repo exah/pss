@@ -49,9 +49,9 @@ const propSelector = curryN(2, (name, value) => (props, mediaKey, style) => ({
  * const Box = styled.div(space)
  *
  * @example
- * const mobile = mps('M')
+ * const mobile = mps('sm')
  *
- * <Box mgt={mps('M', 1)} /> // @media (max-width: 600px) { margin-top: 8px }
+ * <Box mgt={mps('sm', 1)} /> // @media (max-width: 600px) { margin-top: 8px }
  * <Box mgt={mobile(1)} /> // @media (max-width: 600px) { margin-top: 8px }
  */
 

@@ -140,11 +140,11 @@ Consistent `space` system for setting `margin` or `padding`. Created with [creat
 ```js
 const theme = {
   media: {
-    M: `(max-width: 600px)`
+    sm: `(max-width: 600px)`
   },
   space: {
     default: [ 0, 10, 20, 40, 80 ],
-    M: [ 0, 8, 16, 32, 64 ],
+    sm: [ 0, 8, 16, 32, 64 ],
   }
 }
 ```
@@ -159,15 +159,15 @@ const Box = styled.div(space)
 ```
 
 ```js
-<Box mg /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
-<Box mgl /> // .css { margin-left: 10px; @media (max-width: 600px) { margin-left: 8px } }
-<Box mgt /> // .css { margin-top: 10px; @media (max-width: 600px) { margin-top: 8px } }
+<Box mg={1} /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
+<Box mgl={1} /> // .css { margin-left: 10px; @media (max-width: 600px) { margin-left: 8px } }
+<Box mgt={true} /> // .css { margin-top: 10px; @media (max-width: 600px) { margin-top: 8px } }
 <Box mgx='auto' /> // .css { margin-left: auto; margin-right: auto }
 <Box mgy={2} /> // .css { margin-top: 20px; margin-bottom: 20px; @media (max-width: 600px) { margin-top: 16px; margin-bottom: 16px } }
 <Box mg={-2} /> // .css { margin: -20px; @media (max-width: 600px) { margin: -16px; } }
 <Box mg={0} /> // .css { margin: 0 }
-<Box mgrM={-1} /> // @media (max-width: 600px) { .css { margin-right: -8px } }
-<Box mgr={2} mgrM={-1} /> // .css { margin-right: 20px; @media (max-width: 600px) { margin-right: -8px } }
+<Box mgr={{ sm: -1 }} /> // @media (max-width: 600px) { .css { margin-right: -8px } }
+<Box mgr={{ default: 2, sm: -1 }} /> // .css { margin-right: 20px; @media (max-width: 600px) { margin-right: -8px } }
 ```
 
 ### sizes
@@ -208,14 +208,14 @@ Examples use this `theme`:
 ```js
 const theme = {
   media: {
-    M: `(max-width: 600px)`
+    sm: `(max-width: 600px)`
   },
   size: {
     small: '10px',
     medium: '20px',
     block: {
       default: '500px',
-      M: '300px'
+      sm: '300px'
     }
   },
   site: {
@@ -237,11 +237,11 @@ const Box = styled.div(sizes)
 // theme.size.small
 <Box height='small' /> // height: 10px
 
-// `theme.size.card.default` and `theme.size.card.M`
+// `theme.size.card.default` and `theme.size.card.sm`
 <Box width='card' /> // width: 500px; @media (max-width: 600px) { margin-left: 300px }
 
-// only `theme.size.card.M`
-<Box widthM='card' /> // @media (max-width: 600px) { margin-left: 300px }
+// only `theme.size.card.sm`
+<Box width={{ sm: 'card' }} /> // @media (max-width: 600px) { margin-left: 300px }
 
 // `theme.site.width`
 <Box maxWidth='site.width' /> // max-width: 1300px
@@ -249,7 +249,7 @@ const Box = styled.div(sizes)
 // Smaller that or equal to `1` is percentage value
 <Box maxWidth={(1 / 2)} /> // max-width: 50%
 
-// By default `false` is `0`
+// `false` is `0`
 <Box height={false} /> // height: 0
 
 // Convert to px
@@ -430,7 +430,7 @@ const Box = styled('div')(display)
 ```
 
 ```js
-<Box display='inline-block' hideM />
+<Box display='inline-block' hideOn='sm' />
 // display: inline-block; @media (max-width: 600px) { display: none }
 ```
 
@@ -745,7 +745,7 @@ import { cssProp } from 'pss'
 ```
 
 Dynamic CSS prop like in [glamorous][94].
-You don't need it if yours CSS-in-JS library support it natively.
+You don't need this if your CSS-in-JS library of choice support it.
 
 Simple implementation:
 
@@ -765,15 +765,8 @@ const Box = styled.div(cssProp)
 ```
 
 ```js
-<Box
-  css={{ color: 'red', display: 'flex' }}
-  cssM={{ color: 'yellow' }}
-/>
-// color: red; display: flex
-// @media (max-width: 600px) { color: yellow }
-
-<Box css={(props) => ({ color: props.color.red })} />
-// color: #ff0000
+<Box css={{ color: 'red', display: 'flex' }} /> // → color: red; display: flex
+<Box css={(props) => ({ color: props.theme.color.red })} /> // → color: #ff0000
 ```
 
 ### ratio
@@ -1002,9 +995,9 @@ const Box = styled.div(space)
 ```
 
 ```js
-const mobile = mps('M')
+const mobile = mps('sm')
 
-<Box mgt={mps('M', 1)} /> // @media (max-width: 600px) { margin-top: 8px }
+<Box mgt={mps('sm', 1)} /> // @media (max-width: 600px) { margin-top: 8px }
 <Box mgt={mobile(1)} /> // @media (max-width: 600px) { margin-top: 8px }
 ```
 
@@ -1090,7 +1083,6 @@ in media query with media name suffix (key in `theme.media`).
 #### Parameters
 
 -   `propStyles` **[PropStyles][98]**  (optional, default `{}`)
--   `options` **{isMediaProps: [boolean][99]}**  (optional, default `{isMediaProps:true}`)
 
 #### Examples
 
@@ -1121,14 +1113,17 @@ import { ThemeProvider } from 'emotion-theming'
 // Create theme with media queries
 const theme = {
   media: {
-    M: '(max-width: 600px)'
+    sm: '(max-width: 600px)'
   }
 }
 
 // Add theme to ThemeProvider
 <ThemeProvider theme={theme}>
-  <Box hideM /> // @media (max-width: 600px) { display: none }
+  <Box display='flex' hide={{ sm: true }} />
 </ThemeProvider>
+
+// { display: flex }
+// @media (max-width: 600px) { display: none }
 ```
 
 Returns **Mixin** 
@@ -1144,7 +1139,7 @@ Create style rule. Must be used with [createPropStyles][56].
 #### Parameters
 
 -   `cssProp` **[string][96]** 
--   `getValue` **[Function][100]**  (optional, default `boolValue()`)
+-   `getValue` **[Function][99]**  (optional, default `boolValue()`)
 -   `defaultValue` **StyleValue**  (optional, default `CSS_PROPS_DEFAULTS[cssProp]||CSS_DEFAULT_VALUE`)
 
 #### Examples
@@ -1165,7 +1160,7 @@ const Box = styled.div(pss({
 </ThemeProvider>
 ```
 
-Returns **[PropStyle][101]** 
+Returns **[PropStyle][100]** 
 
 ### boolValue
 
@@ -1229,10 +1224,11 @@ const Box = styled.div(mySizes)
 ```js
 <Box w /> // width: 100%
 <Box w={false} /> // width: 0
-<Box wM={(1 / 2)} /> // @media (max-width: 600px) { width: 50% }
+<Box w={{ sm: (1 / 2) }} /> // @media (max-width: 600px) { width: 50% }
 <Box h='300px' /> // height: 300px
-<Box l lM='auto' /> // left: 0; @media (max-width: 600px) { left: auto }
+<Box l={{ default: 0, sm: 'auto' }} /> // left: 0; @media (max-width: 600px) { left: auto }
 <Box l={20} r={10} /> // left: 20px; right: 10px
+<Box l r /> // left: 0; right: 0
 ```
 
 ### colorValue
@@ -1284,7 +1280,7 @@ const Box = styled.div(colors)
 <Box tm='default' /> // color: #222222; background-color: #ffffff
 ```
 
-Returns **[Function][100]** 
+Returns **[Function][99]** 
 
 ### themeValue
 
@@ -1298,7 +1294,7 @@ See [textStyle][24].
 
 #### Parameters
 
--   `options` **{themeKey: ThemeKey?, themeGetter: [Function][100]?, transformValue: [Function][100]?}** 
+-   `options` **{themeKey: ThemeKey?, themeGetter: [Function][99]?, transformValue: [Function][99]?}** 
 
 #### Examples
 
@@ -1345,7 +1341,7 @@ const Text = styled.div(pss({
 }
 ```
 
-Returns **[PropStyle][101]** 
+Returns **[PropStyle][100]** 
 
 ### mediaRule
 
@@ -1359,7 +1355,7 @@ Create style wrapped in `theme.media`.
 
 -   `cssProp` **[string][96]** 
 -   `value` **StyleValue** 
--   `transformValue` **[Function][100]**  (optional, default `identity`)
+-   `transformValue` **[Function][99]**  (optional, default `identity`)
 
 #### Examples
 
@@ -1402,11 +1398,13 @@ Result is props for [createPropStyles][56] with specified prop prefix.
 -   `{compProp}x` → `{cssProp}-left`, `{cssProp}-right`
 -   `{compProp}y` → `{cssProp}-top`, `{cssProp}-bottom`
 
+Related: [space][2].
+
 #### Parameters
 
 -   `cssProp` **[string][96]** — Usually is `margin` or `padding`
 -   `compProp` **[string][96]** — Prop name that will be used in component
--   `getSpaceValue` **[Function][100]** — Custom getter from theme, default to get values from `theme.space`
+-   `getSpaceValue` **[Function][99]** — Custom getter from theme, default to get values from `theme.space`
 
 #### Examples
 
@@ -1421,7 +1419,7 @@ const marginPropStyles = pss(createSpace('margin', 'mg'))
 const Box = styled.div(marginPropStyles)
 
 // Result
-<Box mg /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
+<Box mg={1} /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
 ```
 
 Returns **[PropStyles][98]** 
@@ -1453,7 +1451,7 @@ For example if `cssProp` = `margin` result is [Mixin][97] with API:
 #### Parameters
 
 -   `cssProp` **[string][96]** — Usually is `margin` or `padding`
--   `getSpaceValue` **[Function][100]** — Custom getter from theme, default to get values from `theme.space`
+-   `getSpaceValue` **[Function][99]** — Custom getter from theme, default to get values from `theme.space`
 
 #### Examples
 
@@ -1489,7 +1487,7 @@ Returns **Mixin**
 Object with keys that represents component `prop` and
 the value is a `style` that will be applied (or [PropStyle][87]).
 
-Type: [Object][102]
+Type: [Object][101]
 
 #### Examples
 
@@ -1509,7 +1507,7 @@ Type: [Object][102]
 
 ### PropStyle
 
-[Function][103] that returns style that will be applied to component when prop is used.
+[Function][102] that returns style that will be applied to component when prop is used.
 
 Type: function (value: PropStyleValue, props: Props, mediaKey: ([string][96] | null)): Styles
 
@@ -1715,12 +1713,10 @@ Type: function (value: PropStyleValue, props: Props, mediaKey: ([string][96] | n
 
 [98]: #propstyles
 
-[99]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[99]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[100]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[100]: #propstyle
 
-[101]: #propstyle
+[101]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[102]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
-
-[103]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[102]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function

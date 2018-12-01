@@ -7,7 +7,7 @@ import { createPropStyles } from '../core'
  * ```
  *
  * Dynamic CSS prop like in [glamorous](https://glamorous.rocks).
- * You don't need it if yours CSS-in-JS library support it natively.
+ * You don't need this if your CSS-in-JS library of choice support it.
  *
  * Simple implementation:
  *
@@ -24,15 +24,8 @@ import { createPropStyles } from '../core'
  * const Box = styled.div(cssProp)
  *
  * @example
- * <Box
- *   css={{ color: 'red', display: 'flex' }}
- *   cssM={{ color: 'yellow' }}
- * />
- * // color: red; display: flex
- * // @media (max-width: 600px) { color: yellow }
- *
- * <Box css={(props) => ({ color: props.color.red })} />
- * // color: #ff0000
+ * <Box css={{ color: 'red', display: 'flex' }} /> // → color: red; display: flex
+ * <Box css={(props) => ({ color: props.theme.color.red })} /> // → color: #ff0000
  */
 
 const cssProp = createPropStyles({

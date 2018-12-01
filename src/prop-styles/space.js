@@ -52,11 +52,11 @@ const paddingPropStyles = createPropStyles(createSpace('padding', 'pd'))
  * ```js
  * const theme = {
  *   media: {
- *     M: `(max-width: 600px)`
+ *     sm: `(max-width: 600px)`
  *   },
  *   space: {
  *     default: [ 0, 10, 20, 40, 80 ],
- *     M: [ 0, 8, 16, 32, 64 ],
+ *     sm: [ 0, 8, 16, 32, 64 ],
  *   }
  * }
  * ```
@@ -69,15 +69,15 @@ const paddingPropStyles = createPropStyles(createSpace('padding', 'pd'))
  * const Box = styled.div(space)
  *
  * @example
- * <Box mg /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
- * <Box mgl /> // .css { margin-left: 10px; @media (max-width: 600px) { margin-left: 8px } }
- * <Box mgt /> // .css { margin-top: 10px; @media (max-width: 600px) { margin-top: 8px } }
+ * <Box mg={1} /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
+ * <Box mgl={1} /> // .css { margin-left: 10px; @media (max-width: 600px) { margin-left: 8px } }
+ * <Box mgt={true} /> // .css { margin-top: 10px; @media (max-width: 600px) { margin-top: 8px } }
  * <Box mgx='auto' /> // .css { margin-left: auto; margin-right: auto }
  * <Box mgy={2} /> // .css { margin-top: 20px; margin-bottom: 20px; @media (max-width: 600px) { margin-top: 16px; margin-bottom: 16px } }
  * <Box mg={-2} /> // .css { margin: -20px; @media (max-width: 600px) { margin: -16px; } }
  * <Box mg={0} /> // .css { margin: 0 }
- * <Box mgrM={-1} /> // @media (max-width: 600px) { .css { margin-right: -8px } }
- * <Box mgr={2} mgrM={-1} /> // .css { margin-right: 20px; @media (max-width: 600px) { margin-right: -8px } }
+ * <Box mgr={{ sm: -1 }} /> // @media (max-width: 600px) { .css { margin-right: -8px } }
+ * <Box mgr={{ default: 2, sm: -1 }} /> // .css { margin-right: 20px; @media (max-width: 600px) { margin-right: -8px } }
  */
 
 const space = combine(marginPropStyles, paddingPropStyles)

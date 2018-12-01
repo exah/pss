@@ -1,32 +1,20 @@
 import test from 'ava'
-
-import {
-  DEFAULT_KEY,
-  MEDIA_KEY,
-  TEXT_STYLE_KEY,
-  FONT_KEY
-} from '../src/constants'
-
-import {
-  typography,
-  textStyle
-} from '../src'
-
+import { typography, textStyle } from '../src'
 import { toStyles } from './_helpers'
 
 const theme = {
-  [DEFAULT_KEY]: {
-    [FONT_KEY]: 'ui'
+  default: {
+    fontFamily: 'ui'
   },
-  [MEDIA_KEY]: {
+  media: {
     D: '(min-width: 1025px)',
     M: '(max-width: 600px)'
   },
-  [FONT_KEY]: {
+  fontFamily: {
     heading: 'Times New Roman, serif',
     ui: 'Helivetica, system-ui'
   },
-  [TEXT_STYLE_KEY]: {
+  textStyle: {
     heading: {
       fontSize: 32,
       lineHeight: 1.1,

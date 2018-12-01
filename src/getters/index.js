@@ -52,7 +52,7 @@ export const getThemeMediaValue = (
     return transformValue(themeValue[defaultMediaKey])
   }
 
-  if (hasMediaKeys(getMediaKeys(props), themeValue)) {
+  if (hasMediaKeys(getMediaKeys(props), keys(themeValue))) {
     return (mediaKey) => transformValue(themeValue[mediaKey])
   }
 
@@ -80,7 +80,7 @@ export function getSpace (input, defaultValue, defaultMediaKey) {
       ))
     }
 
-    if (hasMediaKeys(getMediaKeys(props), spaces)) {
+    if (hasMediaKeys(getMediaKeys(props), keys(spaces))) {
       return (mediaKey) => spaceValue(input, spaces[mediaKey])
     }
 

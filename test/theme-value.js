@@ -65,22 +65,14 @@ test('media style', (t) => {
 })
 
 test('media M style', (t) => {
-  const result1 = toStyles(customProps({
-    theme,
-    isM: 'small'
-  }))
-
-  const result2 = toStyles(customProps({
+  const result = toStyles(customProps({
     theme,
     is: {
       M: 'small'
     }
   }))
 
-  const expected = {
+  t.deepEqual(result, {
     [`@media ${theme.media.M}`]: theme.customStyles.small.M
-  }
-
-  t.deepEqual(result1, expected)
-  t.deepEqual(result2, expected)
+  })
 })

@@ -20,7 +20,7 @@ import { boolValue } from '../values'
  * const Box = styled('div')(display)
  *
  * @example
- * <Box display='inline-block' hideM />
+ * <Box display='inline-block' hideOn='sm' />
  * // display: inline-block; @media (max-width: 600px) { display: none }
  */
 

@@ -52,7 +52,7 @@ test('add margin-top to &:first-child', (t) => {
 test('add margin to & + & element on mobile', (t) => {
   const result = toStyles(margin({
     theme,
-    mgM: ps('& + &', 2)
+    mg: { M: ps('& + &', 2) }
   }))
 
   t.deepEqual(result, {

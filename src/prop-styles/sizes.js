@@ -42,14 +42,14 @@ import { sizeValue } from '../values'
  * ```js
  * const theme = {
  *   media: {
- *     M: `(max-width: 600px)`
+ *     sm: `(max-width: 600px)`
  *   },
  *   size: {
  *     small: '10px',
  *     medium: '20px',
  *     block: {
  *       default: '500px',
- *       M: '300px'
+ *       sm: '300px'
  *     }
  *   },
  *   site: {
@@ -68,11 +68,11 @@ import { sizeValue } from '../values'
  * // theme.size.small
  * <Box height='small' /> // height: 10px
  *
- * // `theme.size.card.default` and `theme.size.card.M`
+ * // `theme.size.card.default` and `theme.size.card.sm`
  * <Box width='card' /> // width: 500px; @media (max-width: 600px) { margin-left: 300px }
  *
- * // only `theme.size.card.M`
- * <Box widthM='card' /> // @media (max-width: 600px) { margin-left: 300px }
+ * // only `theme.size.card.sm`
+ * <Box width={{ sm: 'card' }} /> // @media (max-width: 600px) { margin-left: 300px }
  *
  * // `theme.site.width`
  * <Box maxWidth='site.width' /> // max-width: 1300px
@@ -80,7 +80,7 @@ import { sizeValue } from '../values'
  * // Smaller that or equal to `1` is percentage value
  * <Box maxWidth={(1 / 2)} /> // max-width: 50%
  *
- * // By default `false` is `0`
+ * // `false` is `0`
  * <Box height={false} /> // height: 0
  *
  * // Convert to px

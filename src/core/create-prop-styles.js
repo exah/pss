@@ -1,5 +1,4 @@
 // @flow
-
 import type {
   Styles,
   Props,
@@ -10,13 +9,11 @@ import type {
 import {
   isFn,
   toArr,
-  reduceObj,
-  memoize
+  reduceObj
 } from '@exah/utils'
 
 import {
-  getMedia,
-  getDefaultMedia
+  getMedia
 } from '../getters'
 
 import {
@@ -25,31 +22,6 @@ import {
   handlePropStyle,
   hasMediaKeys
 } from '../utils'
-
-import {
-  DEFAULT_KEY
-} from '../constants'
-
-const DEFAULT_OPTIONS = {
-  isMediaProps: true
-}
-
-const propStylesWithMedia = (styles: PropStyles) => (media: Array<string>): PropStyles => {
-  const mediaKeys = toArr(media).map((mediaKey) =>
-    mediaKey === DEFAULT_KEY ? '' : mediaKey
-  )
-
-  return Object.keys(styles).reduce((propsAcc, propName) => ({
-    ...propsAcc,
-    ...mediaKeys.reduce((mediaAcc, mediaKey) => ({
-      ...mediaAcc,
-      [propName + mediaKey]: [
-        styles[propName],
-        mediaKey || null
-      ]
-    }), {})
-  }), {})
-}
 
 /**
  * ```js
@@ -64,8 +36,6 @@ const propStylesWithMedia = (styles: PropStyles) => (media: Array<string>): Prop
  *
  * When `theme` with `media` is provided to components, any styles can be changed
  * in media query with media name suffix (key in `theme.media`).
- *
- * @param [options = { isMediaProps: true }]
  *
  * @example
  * import styled from 'react-emotion'
@@ -94,67 +64,58 @@ const propStylesWithMedia = (styles: PropStyles) => (media: Array<string>): Prop
  * // Create theme with media queries
  * const theme = {
  *   media: {
- *     M: '(max-width: 600px)'
+ *     sm: '(max-width: 600px)'
  *   }
  * }
  *
  * // Add theme to ThemeProvider
  * <ThemeProvider theme={theme}>
- *   <Box hideM /> // @media (max-width: 600px) { display: none }
+ *   <Box display='flex' hide={{ sm: true }} />
  * </ThemeProvider>
+ *
+ * // { display: flex }
+ * // @media (max-width: 600px) { display: none }
  */
 
 const createPropStyles = (
-  propStyles: PropStyles = {},
-  options?: { isMediaProps: boolean }
-): Mixin => {
-  const opts = { ...DEFAULT_OPTIONS, ...options }
-  const propStylesWithMediaMemoized = memoize(propStylesWithMedia(propStyles))
+  propStyles: PropStyles = {}
+): Mixin => (props: Props): Styles => {
+  const media = getMedia(props)
+  const mediaKeys = keys(media)
 
-  return (props: Props): Styles => {
-    const media = getMedia(props)
-    const mediaKeys = keys(media)
-    const isMedia = opts.isMediaProps && getDefaultMedia(props) !== false
-    const stylesMap = isMedia ? propStylesWithMediaMemoized(mediaKeys) : propStyles
+  function mapPropStyles (input, mediaKey, style) {
+    // selectors
+    if (isFn(input)) {
+      return wrapIfMedia(
+        media[mediaKey],
+        input(props, mediaKey, style)
+      )
+    }
 
-    const getStylesFromProps = reduceObj((acc, propName, propValue) => {
-      const matched = stylesMap[propName]
+    // value with media keys: { default: 0, M: 1 }
+    if (hasMediaKeys(mediaKeys, keys(input))) {
+      return reduceObj(
+        (acc, key, value) => acc.concat(mapPropStyles(value, key, style)),
+        input,
+        []
+      )
+    }
 
-      if (matched !== undefined) {
-        const [ propStyle, mediaKey ] = isMedia ? matched : [ matched ]
-        const mediaQuery = media[mediaKey]
-
-        return acc.concat(toArr(propStyle).map(function mapPropStyles (style) {
-          // selectors
-          if (isFn(propValue)) {
-            return wrapIfMedia(
-              mediaQuery,
-              propValue(props, mediaKey, style)
-            )
-          } else {
-            // like: { default: 0, M: 1 }
-            if (hasMediaKeys(mediaKeys, propValue)) {
-              return reduceObj((subAcc, key, input) => subAcc.concat(
-                wrapIfMedia(
-                  media[key],
-                  handlePropStyle(style, input, props, key)
-                ) || []
-              ), propValue, [])
-            }
-
-            return wrapIfMedia(
-              mediaQuery,
-              handlePropStyle(style, propValue, props, mediaKey)
-            ) || []
-          }
-        }))
-      }
-
-      return acc
-    })
-
-    return getStylesFromProps(props, [])
+    // general prop style
+    return wrapIfMedia(
+      media[mediaKey],
+      handlePropStyle(style, input, props, mediaKey)
+    )
   }
+
+  return reduceObj(
+    (acc, propName, propValue) => acc.concat(
+      toArr(propStyles[propName])
+        .map((style) => mapPropStyles(propValue, null, style) || [])
+    ),
+    props,
+    []
+  )
 }
 
 export {

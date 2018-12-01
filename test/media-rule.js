@@ -15,7 +15,6 @@ test('return style', t => {
 
   t.deepEqual(toStyles(style({ theme, hideOn: 'M' })), expected)
   t.deepEqual(toStyles(style({ theme, hideOn: { M: true } })), expected)
-  t.deepEqual(toStyles(style({ theme, hideOnM: true })), expected)
 })
 
 test('multiple media', t => {
@@ -33,7 +32,6 @@ test('multiple media', t => {
   }
 
   t.deepEqual(toStyles(style({ theme, hideOn: { M: true, D: true } })), expected)
-  t.deepEqual(toStyles(style({ theme, hideOnM: true, hideOnD: true })), expected)
 })
 
 test('return nothing', t => {
