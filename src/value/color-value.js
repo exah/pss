@@ -4,11 +4,47 @@ import type { StyleValue, Props } from '../types'
 import { identity, fallbackTo, isStr } from '@exah/utils'
 import { getColor } from '../getters'
 
+/**
+ * ```js
+ * import { colorValue } from 'pss'
+ * ```
+ *
+ * Get color from theme and apply it to css prop.
+ *
+ * @param key — Key in `theme.color` or in `theme.palette[theme.default.palette]`
+ * @param transformValue — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)
+ *
+ * @example
+ * import styled from 'react-emotion'
+ * import pss, { createRule, colorValue } from 'pss'
+ *
+ * const colors = pss({
+ *   color: createRule('color', colorValue('fg'),
+ *   shadow: createRule('boxShadow', colorValue('shadow', (color) => `0 0 20px 0 ${color}`))
+ * })
+ *
+ * // Add to component
+ * const Box = styled.div(colors)
+ *
+ * @example
+ * // theme.palette.default.fg
+ * <Box color /> // background-color: #222222
+ *
+ * // theme.colors.black
+ * <Box color='black' /> // color: #222222
+ *
+ * // theme.palette.default.accent
+ * <Box color='accent' /> // color: #ff0000
+ *
+ * // theme.palette.default.shadow
+ * <Box shadow /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
+ */
+
 const colorValue = (
-  paletteKey: string,
+  key: string,
   transformValue: (color: string, props: Props) => StyleValue = identity
 ): Function => (input, props) => {
-  const color = getColor(paletteKey, input)(props)
+  const color = getColor(key, input)(props)
   return fallbackTo(
     isStr(color) ? transformValue(color, props) : color,
     input

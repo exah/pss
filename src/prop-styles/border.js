@@ -35,7 +35,7 @@ const borderStyle = (Dir = '') => {
  * import { border } from 'pss'
  * ```
  *
- * Set border with values from theme, created with {@link createSize} and {@link createColor}.
+ * Set border with values from theme, created with {@link createSize} and {@link colorValue}.
  *
  * prop       | css            | type                | value | true            | false
  * :----------|:---------------|:--------------------|:------|:----------------|:--------

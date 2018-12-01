@@ -1,6 +1,5 @@
 // @flow
 
-export * from './create-color'
 export * from './create-palette-style'
 export * from './create-prop-styles'
 export * from './create-rule'

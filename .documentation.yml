@@ -40,7 +40,7 @@ toc:
       - createPropStyles
       - createSpace
       - createSize
-      - createColor
+      - colorValue
       - createPaletteStyle
       - createThemeStyle
       - createSpaceMixin

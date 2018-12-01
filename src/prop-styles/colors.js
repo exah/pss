@@ -11,7 +11,7 @@ import { colorValue } from '../value'
  * import { colors } from 'pss'
  * ```
  *
- * Prop styles for getting current `palette` or `color` value from `theme`. Created with {@link createColor} and {@link createPaletteStyle}.
+ * Prop styles for getting current `palette` or `color` value from `theme`. Created with {@link colorValue} and {@link createPaletteStyle}.
  *
  * Result can be changed in nested components with setting other key in `theme.default.palette`.
  *

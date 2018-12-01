@@ -1,67 +1,51 @@
 import test from 'ava'
 import { mergeDeepRight } from 'ramda'
-
-import {
-  DEFAULT_KEY,
-  MEDIA_KEY,
-  COLORS_KEY,
-  PALETTE_KEY
-} from '../src/constants'
-
-import {
-  createPropStyles,
-  createPaletteStyle,
-  createColor,
-  colorValue,
-  createRule,
-  colors as exportedColors
-} from '../src'
-
+import { colors, createPropStyles, createRule, colorValue } from '../src'
 import { toStyles, testValue } from './_helpers'
 
 const COLOR_WHITE = '#ffffff'
 const COLOR_BLACK = '#000000'
 const COLOR_YELLOW = '#fff000'
+const COLOR_SHADOW = 'rgba(0, 0, 0, 0.5)'
 
 const theme = {
-  [MEDIA_KEY]: {
+  media: {
     M: '(max-width: 600px)'
   },
-  [COLORS_KEY]: {
+  color: {
     yellow: COLOR_YELLOW,
     white: COLOR_WHITE,
     black: COLOR_BLACK
   },
-  [PALETTE_KEY]: {
-    [DEFAULT_KEY]: {
+  palette: {
+    default: {
       fg: COLOR_BLACK,
       bg: COLOR_WHITE,
+      shadow: COLOR_SHADOW,
       primary: COLOR_BLACK,
       accent: COLOR_YELLOW
     },
     inverted: {
       fg: COLOR_WHITE,
       bg: COLOR_BLACK,
+      shadow: COLOR_SHADOW,
       primary: COLOR_WHITE,
       accent: COLOR_YELLOW
     }
   }
 }
 
-const themeInvertedDefault = mergeDeepRight(theme, {
-  [DEFAULT_KEY]: { [PALETTE_KEY]: 'inverted' }
+const themeInverted = mergeDeepRight(theme, {
+  default: { palette: 'inverted' }
 })
 
-const customColors = createPropStyles({
-  tm: createPaletteStyle('bg', 'fg'),
-  fg: createColor('color', 'fg'),
-  bg: createColor('backgroundColor', 'bg'),
-  bc: createRule('borderColor', colorValue('border'))
+const shadow = createPropStyles({
+  shadow: createRule('boxShadow', colorValue('shadow', (color) => `0 0 20px 0 ${color}`))
 })
 
 test('fg', testValue({
   theme,
-  fn: exportedColors,
+  fn: colors,
   prop: 'fg',
   cssProp: 'color',
   values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ],
@@ -71,7 +55,7 @@ test('fg', testValue({
 
 test('bg', testValue({
   theme,
-  fn: exportedColors,
+  fn: colors,
   prop: 'bg',
   cssProp: 'backgroundColor',
   values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ],
@@ -94,16 +78,12 @@ test('set theme colors and override text color on mobile', (t) => {
     }
   }
 
-  const result1 = toStyles(customColors(props))
-  const result2 = toStyles(exportedColors(props))
-
-  t.deepEqual(result1, expected)
-  t.deepEqual(result2, expected)
+  t.deepEqual(toStyles(colors(props)), expected)
 })
 
 test('change default theme to "inverted"', (t) => {
   const props = {
-    theme: themeInvertedDefault,
+    theme: themeInverted,
     tm: true
   }
 
@@ -112,16 +92,12 @@ test('change default theme to "inverted"', (t) => {
     backgroundColor: COLOR_BLACK
   }
 
-  const result1 = toStyles(customColors(props))
-  const result2 = toStyles(exportedColors(props))
-
-  t.deepEqual(result1, expected)
-  t.deepEqual(result2, expected)
+  t.deepEqual(toStyles(colors(props)), expected)
 })
 
 test('reset theme colors on mobile', (t) => {
   const props = {
-    theme: themeInvertedDefault,
+    theme: themeInverted,
     tm: true,
     tmM: false
   }
@@ -135,11 +111,7 @@ test('reset theme colors on mobile', (t) => {
     }
   }
 
-  const result1 = toStyles(customColors(props))
-  const result2 = toStyles(exportedColors(props))
-
-  t.deepEqual(result1, expected)
-  t.deepEqual(result2, expected)
+  t.deepEqual(toStyles(colors(props)), expected)
 })
 
 test('set custom  colors', (t) => {
@@ -147,20 +119,19 @@ test('set custom  colors', (t) => {
   const props = { theme, fg: customColor, bg: 'custom-color' }
   const expected = { color: customColor, backgroundColor: 'custom-color' }
 
-  const resultCustom = toStyles(customColors(props))
-  const resultExported = toStyles(exportedColors(props))
-
-  t.deepEqual(resultCustom, expected)
-  t.deepEqual(resultExported, expected)
+  t.deepEqual(toStyles(colors(props)), expected)
 })
 
 test('use palette name to set default color in prop', (t) => {
   const props = { theme, fg: 'inverted' }
   const expected = { color: COLOR_WHITE }
 
-  const resultCustom = toStyles(customColors(props))
-  const resultExported = toStyles(exportedColors(props))
+  t.deepEqual(toStyles(colors(props)), expected)
+})
 
-  t.deepEqual(resultCustom, expected)
-  t.deepEqual(resultExported, expected)
+test('transform color value', (t) => {
+  const props = { theme, shadow: true }
+  const expected = { boxShadow: `0 0 20px 0 ${COLOR_SHADOW}` }
+
+  t.deepEqual(toStyles(shadow(props)), expected)
 })
