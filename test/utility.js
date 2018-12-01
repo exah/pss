@@ -1,15 +1,15 @@
 import test from 'ava'
 import { utility } from '../src'
-import { toStyles, testAnyValue, testBoolValue } from './_helpers'
+import { toStyles, testValue } from './_helpers'
 
-test('cursor', testAnyValue({
+test('cursor', testValue({
   fn: utility,
   prop: 'cursor',
   cssProp: 'cursor',
   values: [ 'pointer' ]
 }))
 
-test('opacity', testBoolValue({
+test('opacity', testValue({
   fn: utility,
   prop: 'opacity',
   cssProp: 'opacity',
@@ -18,21 +18,21 @@ test('opacity', testBoolValue({
   falseValue: 0
 }))
 
-test('radius', testAnyValue({
+test('radius', testValue({
   fn: utility,
   prop: 'radius',
   cssProp: 'borderRadius',
   values: [ '9999px' ]
 }))
 
-test('transform', testAnyValue({
+test('transform', testValue({
   fn: utility,
   prop: 'transform',
   cssProp: 'transform',
   values: [ 'scale(2)' ]
 }))
 
-test('transition', testBoolValue({
+test('transition', testValue({
   fn: utility,
   prop: 'transition',
   cssProp: 'transition',
@@ -54,7 +54,7 @@ test('outline', t => {
 
   t.deepEqual(
     toStyles(utility({ outline: true })),
-    { outline: 'unset' }
+    {}
   )
 
   t.deepEqual(

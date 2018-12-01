@@ -12,10 +12,12 @@ import {
   createPropStyles,
   createPaletteStyle,
   createColor,
+  colorValue,
+  experimentalCreateRule,
   colors as exportedColors
 } from '../src'
 
-import { toStyles } from './_helpers'
+import { toStyles, testValue } from './_helpers'
 
 const COLOR_WHITE = '#ffffff'
 const COLOR_BLACK = '#000000'
@@ -23,7 +25,6 @@ const COLOR_YELLOW = '#fff000'
 
 const theme = {
   [MEDIA_KEY]: {
-    D: '(min-width: 1025px)',
     M: '(max-width: 600px)'
   },
   [COLORS_KEY]: {
@@ -55,10 +56,30 @@ const customColors = createPropStyles({
   tm: createPaletteStyle('bg', 'fg'),
   fg: createColor('color', 'fg'),
   bg: createColor('backgroundColor', 'bg'),
-  bc: createColor('borderColor', 'border')
+  bc: experimentalCreateRule('borderColor', colorValue('border'))
 })
 
-test('props -> set theme colors and override text color on mobile', (t) => {
+test('fg', testValue({
+  theme,
+  fn: exportedColors,
+  prop: 'fg',
+  cssProp: 'color',
+  values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ],
+  trueValue: COLOR_BLACK,
+  falseValue: 'inherit'
+}))
+
+test('bg', testValue({
+  theme,
+  fn: exportedColors,
+  prop: 'bg',
+  cssProp: 'backgroundColor',
+  values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ],
+  trueValue: COLOR_WHITE,
+  falseValue: 'transparent'
+}))
+
+test('set theme colors and override text color on mobile', (t) => {
   const props = {
     theme,
     tm: true,
@@ -80,7 +101,7 @@ test('props -> set theme colors and override text color on mobile', (t) => {
   t.deepEqual(result2, expected)
 })
 
-test('props -> change default theme to "inverted"', (t) => {
+test('change default theme to "inverted"', (t) => {
   const props = {
     theme: themeInvertedDefault,
     tm: true
@@ -98,7 +119,7 @@ test('props -> change default theme to "inverted"', (t) => {
   t.deepEqual(result2, expected)
 })
 
-test('props -> reset theme colors on mobile', (t) => {
+test('reset theme colors on mobile', (t) => {
   const props = {
     theme: themeInvertedDefault,
     tm: true,
@@ -121,20 +142,10 @@ test('props -> reset theme colors on mobile', (t) => {
   t.deepEqual(result2, expected)
 })
 
-test('props -> set default foreground color', (t) => {
-  const props = { theme, fg: true }
-  const expected = { color: COLOR_BLACK }
-
-  const result1 = toStyles(customColors(props))
-  const result2 = toStyles(exportedColors(props))
-
-  t.deepEqual(result1, expected)
-  t.deepEqual(result2, expected)
-})
-
-test('props -> set default "inverted" theme foreground color', (t) => {
-  const props = { theme, fg: 'inverted' }
-  const expected = { color: COLOR_WHITE }
+test('set custom  colors', (t) => {
+  const customColor = 'rgba(255, 0, 255, 0.3)'
+  const props = { theme, fg: customColor, bg: 'custom-color' }
+  const expected = { color: customColor, backgroundColor: 'custom-color' }
 
   const resultCustom = toStyles(customColors(props))
   const resultExported = toStyles(exportedColors(props))
@@ -143,10 +154,9 @@ test('props -> set default "inverted" theme foreground color', (t) => {
   t.deepEqual(resultExported, expected)
 })
 
-test('props -> set custom foreground color', (t) => {
-  const customColor = 'rgba(255, 0, 255, 0.3)'
-  const props = { theme, fg: customColor, bg: 'custom-color' }
-  const expected = { color: customColor, backgroundColor: 'custom-color' }
+test('use palette name to set default color in prop', (t) => {
+  const props = { theme, fg: 'inverted' }
+  const expected = { color: COLOR_WHITE }
 
   const resultCustom = toStyles(customColors(props))
   const resultExported = toStyles(exportedColors(props))

@@ -1,6 +1,6 @@
 import test from 'ava'
 import { border } from '../src'
-import { toStyles } from './_helpers'
+import { toStyles, testValue } from './_helpers'
 
 const theme = {
   palette: {
@@ -10,7 +10,7 @@ const theme = {
   }
 }
 
-test('props: border', (t) => {
+test('bd', (t) => {
   const result = border({
     theme,
     bd: true,
@@ -24,7 +24,15 @@ test('props: border', (t) => {
   })
 })
 
-test('props: custom border', (t) => {
+test('bdc', testValue({
+  fn: border,
+  prop: 'bdc',
+  cssProp: 'borderColor',
+  values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ],
+  falseValue: 'transparent'
+}))
+
+test('bdl custom', (t) => {
   const result = border({
     theme,
     bdl: '5px dotted',

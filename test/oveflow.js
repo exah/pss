@@ -1,14 +1,6 @@
 import test from 'ava'
 import { overflow } from '../src'
-import { toStyles } from './_helpers'
-
-const theme = {
-  media: {
-    M: '(max-width: 600px)'
-  }
-}
-
-const mobStyle = (style) => ({ [`@media ${theme.media.M}`]: style })
+import { toStyles, theme, wrapInMedia } from './_helpers'
 
 const testProp = (prop, cssProp) => (t) => {
   const result1 = toStyles(overflow({ [prop]: true }))
@@ -28,8 +20,8 @@ const testProp = (prop, cssProp) => (t) => {
   t.deepEqual(result3, expectedVisible)
   t.deepEqual(result4, expectedAuto)
   t.deepEqual(result5, {})
-  t.deepEqual(resultMedia1, mobStyle(expectedAuto))
-  t.deepEqual(resultMedia2, mobStyle(expectedAuto))
+  t.deepEqual(resultMedia1, wrapInMedia(expectedAuto))
+  t.deepEqual(resultMedia2, wrapInMedia(expectedAuto))
 }
 
 const testStyle = (prop, style) => t => {
@@ -44,8 +36,8 @@ const testStyle = (prop, style) => t => {
   t.deepEqual(result2, {})
   t.deepEqual(result3, {})
   t.deepEqual(result4, {})
-  t.deepEqual(resultMedia1, mobStyle(style))
-  t.deepEqual(resultMedia2, mobStyle(style))
+  t.deepEqual(resultMedia1, wrapInMedia(style))
+  t.deepEqual(resultMedia2, wrapInMedia(style))
 }
 
 test('ov', testProp('ov', 'overflow'))
