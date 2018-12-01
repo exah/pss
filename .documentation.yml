@@ -17,15 +17,15 @@ toc:
       - float
       - overflow
       - border
-      - textStyle
       - fontFamily
+      - textStyle
+      - textHelpers
       - ellipsis
-      - text
-      - typography
       - utility
       - cssProp
       - ratio
       - base
+      - typography
       - system
 
   - name: Selectors

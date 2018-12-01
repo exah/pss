@@ -23,23 +23,23 @@
         -   [Examples][19]
     -   [border][20]
         -   [Examples][21]
-    -   [textStyle][22]
+    -   [fontFamily][22]
         -   [Examples][23]
-    -   [fontFamily][24]
+    -   [textStyle][24]
         -   [Examples][25]
-    -   [ellipsis][26]
+    -   [textHelpers][26]
         -   [Examples][27]
-    -   [text][28]
+    -   [ellipsis][28]
         -   [Examples][29]
-    -   [typography][30]
+    -   [utility][30]
         -   [Examples][31]
-    -   [utility][32]
+    -   [cssProp][32]
         -   [Examples][33]
-    -   [cssProp][34]
+    -   [ratio][34]
         -   [Examples][35]
-    -   [ratio][36]
+    -   [base][36]
         -   [Examples][37]
-    -   [base][38]
+    -   [typography][38]
         -   [Examples][39]
     -   [system][40]
         -   [Examples][41]
@@ -576,6 +576,42 @@ const Box = styled('p')(border)
 <Box bdl='1px dotted' bdc='red' />
 ```
 
+### fontFamily
+
+```js
+import { fontFamily } from 'pss'
+```
+
+Set `fontFamly` from `theme`:
+
+```js
+const theme = {
+  default: {
+    fontFamily: 'ui'
+  },
+  fontFamily: {
+    heading: 'Times',
+    ui: 'Helvetica'
+  }
+}
+```
+
+#### Examples
+
+```js
+import { fontFamily } from 'pss'
+import styled from 'react-emotion'
+
+const Text = styled('span')(fontFamily)
+```
+
+```js
+<Text fontFamily={true} /> // → font-family: Helvetica
+<Text fontFamily='ui' /> // → font-family: Helvetica
+<Text fontFamily='serif' /> // → font-family: Times
+<Text fontFamily='Comic Sans' /> // → font-family: Comic Sans
+```
+
 ### textStyle
 
 ```js
@@ -618,40 +654,35 @@ const Text = styled('span')(textStyle)
 <Text textStyle='heading' /> // → `theme.textStyle.heading`
 ```
 
-### fontFamily
+### textHelpers
 
 ```js
-import { fontFamily } from 'pss'
+import { textHelpers } from 'pss'
 ```
 
-Set `fontFamly` from `theme`:
+| prop            | css              | type               | value | true     | false    |
+| :-------------- | :--------------- | :----------------- | :---- | :------- | :------- |
+| `fontSize`      | `font-size`      | `String`, `Number` | ✓     | `1rem`   | `medium` |
+| `fontWeight`    | `font-weight`    | `String`           | ✓     | —        | —        |
+| `lineHeight`    | `line-height`    | `String`, `Number` | ✓     | `normal` | —        |
+| `letterSpacing` | `letter-spacing` | `String`, `Number` | ✓     | `normal` | —        |
+| `textAlign`     | `text-align`     | `String`           | ✓     | —        | —        |
+| `whiteSpace`    | `white-space`    | `String`           | ✓     | —        | —        |
 
-```js
-const theme = {
-  default: {
-    fontFamily: 'ui'
-  },
-  fontFamily: {
-    heading: 'Times',
-    ui: 'Helvetica'
-  }
-}
-```
+Related: [fontFamily][22], [ellipsis][28].
 
 #### Examples
 
 ```js
-import { fontFamily } from 'pss'
+import { textHelpers } from 'pss'
 import styled from 'react-emotion'
 
-const Text = styled('span')(fontFamily)
+const Text = styled('p')(textHelpers)
 ```
 
 ```js
-<Text fontFamily={true} /> // → font-family: Helvetica
-<Text fontFamily='ui' /> // → font-family: Helvetica
-<Text fontFamily='serif' /> // → font-family: Times
-<Text fontFamily='Comic Sans' /> // → font-family: Comic Sans
+<Text textAlign='center' /> // text-align: center
+<Text lineHeight /> // line-height: normal
 ```
 
 ### ellipsis
@@ -673,75 +704,6 @@ const Text = styled('p')(ellipsis)
 
 ```js
 <Text ellipsis /> // → white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-```
-
-### text
-
-```js
-import { text } from 'pss'
-```
-
-⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `size`), so you may need to provide custom prop filtering.
-
-| prop            | css              | type               | value | true             | false    |
-| :-------------- | :--------------- | :----------------- | :---- | :--------------- | :------- |
-| `fontFamily`    | `font-family`    | `String`           | ✓     | [fontFamily][24] | —        |
-| `fontSize`      | `font-size`      | `String`, `Number` | ✓     | `1rem`           | `medium` |
-| `fontWeight`    | `font-weight`    | `String`           | ✓     | —                | —        |
-| `lineHeight`    | `line-height`    | `String`, `Number` | ✓     | `normal`         | —        |
-| `letterSpacing` | `letter-spacing` | `String`, `Number` | ✓     | `normal`         | —        |
-| `textAlign`     | `text-align`     | `String`           | ✓     | —                | —        |
-| `whiteSpace`    | `white-space`    | `String`           | ✓     | —                | —        |
-| `ellipsis`      | `text-overflow`  | `true`             | —     | [ellipsis][26]   | —        |
-
-#### Examples
-
-```js
-import { text } from 'pss'
-import styled from 'react-emotion'
-
-const Text = styled('p')(text)
-```
-
-```js
-<Text textAlign='center' /> // text-align: center
-<Text lineHeight /> // line-height: normal
-```
-
-### typography
-
-```js
-import { typography } from 'pss'
-```
-
-Combination of
-
--   [textStyle][22]
--   [text][28]
-
-#### Examples
-
-```js
-import styled from 'react-emotion'
-import { typography } from 'pss'
-
-const Text = styled('p')(typography)
-```
-
-```js
-<Text textStyle='heading' ellipsis />
-```
-
-```css
-.css {
-   font-size: 16px;
-   line-height: 1.2;
-   font-weight: normal;
-   font-family: system-ui;
-   white-space: nowrap;
-   overflow: hidden;
-   text-overflow: ellipsis;
-}
 ```
 
 ### utility
@@ -890,6 +852,44 @@ const Box = styled('div')(base)
       }
     }
 
+### typography
+
+```js
+import { typography } from 'pss'
+```
+
+Combination of
+
+-   [textStyle][24]
+-   [textHelpers][26]
+-   [fontFamily][22]
+-   [ellipsis][28]
+
+#### Examples
+
+```js
+import styled from 'react-emotion'
+import { typography } from 'pss'
+
+const Text = styled('p')(typography)
+```
+
+```js
+<Text textStyle='heading' ellipsis />
+```
+
+```css
+.css {
+   font-size: 16px;
+   line-height: 1.2;
+   font-weight: normal;
+   font-family: system-ui;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+```
+
 ### system
 
 ```js
@@ -898,14 +898,14 @@ import { system } from 'pss'
 
 Combination of
 
--   [base][38]
+-   [base][36]
 -   [border][20]
 -   [position][14]
 -   [display][12]
--   [ratio][36]
+-   [ratio][34]
 -   [float][16]
 -   [overflow][18]
--   [utility][32]
+-   [utility][30]
 
 #### Examples
 
@@ -1294,7 +1294,7 @@ import { themeValue } from 'pss'
 
 Use styles defined in `theme[themeKey]`. Useful for creating global shared styles.
 
-See [textStyle][22].
+See [textStyle][24].
 
 #### Parameters
 
@@ -1561,39 +1561,39 @@ Type: function (value: PropStyleValue, props: Props, mediaKey: ([string][96] | n
 
 [21]: #examples-9
 
-[22]: #textstyle
+[22]: #fontfamily
 
 [23]: #examples-10
 
-[24]: #fontfamily
+[24]: #textstyle
 
 [25]: #examples-11
 
-[26]: #ellipsis
+[26]: #texthelpers
 
 [27]: #examples-12
 
-[28]: #text
+[28]: #ellipsis
 
 [29]: #examples-13
 
-[30]: #typography
+[30]: #utility
 
 [31]: #examples-14
 
-[32]: #utility
+[32]: #cssprop
 
 [33]: #examples-15
 
-[34]: #cssprop
+[34]: #ratio
 
 [35]: #examples-16
 
-[36]: #ratio
+[36]: #base
 
 [37]: #examples-17
 
-[38]: #base
+[38]: #typography
 
 [39]: #examples-18
 

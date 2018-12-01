@@ -1,6 +1,8 @@
 import { combine } from '../utils'
+import { fontFamily } from './font-family'
 import { textStyle } from './text-style'
-import { text } from './text'
+import { textHelpers } from './text-helpers'
+import { ellipsis } from './ellipsis'
 
 /**
  * ```js
@@ -9,7 +11,9 @@ import { text } from './text'
  *
  * Combination of
  *   - {@link textStyle}
- *   - {@link text}
+ *   - {@link textHelpers}
+ *   - {@link fontFamily}
+ *   - {@link ellipsis}
  *
  * @example
  * import styled from 'react-emotion'
@@ -33,8 +37,10 @@ import { text } from './text'
  */
 
 const typography = combine(
+  textHelpers,
   textStyle,
-  text
+  fontFamily,
+  ellipsis
 )
 
 export {

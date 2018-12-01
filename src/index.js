@@ -41,7 +41,7 @@ export {
   sizes,
   space,
   system,
-  text,
+  textHelpers,
   textStyle,
   typography,
   utility
