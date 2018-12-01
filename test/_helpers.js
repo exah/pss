@@ -1,7 +1,7 @@
 import { mergeDeepRight } from 'ramda'
 import { toArr, flatten } from '@exah/utils'
 
-const theme = {
+const THEME = {
   media: {
     M: '(max-width: 600px)'
   },
@@ -21,8 +21,44 @@ const theme = {
 }
 
 const toStyles = (styles) => flatten(toArr(styles)).reduce(mergeDeepRight, {})
+const mediaStyle = (style) => ({ [`@media ${THEME.media.M}`]: style })
 
+const testAnyValue = ({
+  fn,
+  prop,
+  cssProp,
+  theme = THEME,
+  value = 'any'
+}) => (t) => {
+  t.deepEqual(toStyles(fn({ [prop]: true })), {})
+  t.deepEqual(toStyles(fn({ [prop]: value })), { [cssProp]: value })
+  t.deepEqual(toStyles(fn({ [prop]: false })), {})
+  t.deepEqual(toStyles(fn({ [prop]: value })), { [cssProp]: value })
+  t.deepEqual(toStyles(fn({ [prop]: null })), {})
+  t.deepEqual(toStyles(fn({ theme, [prop]: { M: value } })), mediaStyle({ [cssProp]: value }))
+  t.deepEqual(toStyles(fn({ theme, [prop + 'M']: value })), mediaStyle({ [cssProp]: value }))
+}
+
+const testBoolValue = ({
+  fn,
+  prop,
+  cssProp,
+  theme = THEME,
+  value,
+  trueValue,
+  falseValue
+}) => (t) => {
+  t.deepEqual(toStyles(fn({ [prop]: true })), { [cssProp]: trueValue })
+  t.deepEqual(toStyles(fn({ [prop]: value })), { [cssProp]: value })
+  t.deepEqual(toStyles(fn({ [prop]: false })), { [cssProp]: falseValue })
+  t.deepEqual(toStyles(fn({ [prop]: value })), { [cssProp]: value })
+  t.deepEqual(toStyles(fn({ [prop]: null })), {})
+  t.deepEqual(toStyles(fn({ theme, [prop]: { M: value } })), mediaStyle({ [cssProp]: value }))
+  t.deepEqual(toStyles(fn({ theme, [prop + 'M']: value })), mediaStyle({ [cssProp]: value }))
+}
 export {
-  theme,
-  toStyles
+  THEME as theme,
+  toStyles,
+  testAnyValue,
+  testBoolValue
 }

@@ -50,7 +50,7 @@ function experimentalCreateRule (
 
     const value = getValue(input, props, mediaKey)
 
-    if (value === false) {
+    if (isBool(value)) {
       return css(defaultValue)
     }
 
