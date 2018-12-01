@@ -413,10 +413,10 @@ const FlexBoxItem = styled('div')(flexItem)
 import { display } from 'pss'
 ```
 
-| prop      | css                      | type                 | value | true      | false  |
-| :-------- | :----------------------- | :------------------- | :---- | :-------- | :----- |
-| `display` | [`display`][display-url] | `String`, `Boolean`  | ✓     | `initial` | `none` |
-| `hideOn`  | `display: none`          | one of `theme.media` | media | —         | —      |
+| prop      | css                      | type                 | value    | true      | false  |
+| :-------- | :----------------------- | :------------------- | :------- | :-------- | :----- |
+| `display` | [`display`][display-url] | `String`, `Boolean`  | ✓        | `initial` | `none` |
+| `hideOn`  | `display: none`          | one of `theme.media` | mediaKey | —         | —      |
 
 [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
 
@@ -1325,7 +1325,8 @@ import styled from 'react-emotion'
 import pss, { themeValue } from 'pss'
 
 const Text = styled.div(pss({
-  textStyle: themeValue({ themeKey: 'textStyle' })
+  textStyle: themeValue({ themeKey: 'textStyle' }),
+  fontFamily: rule('fontFamily', themeValue({ themeKey: 'font' }))
 }))
 
 <ThemeProvider theme={theme}>

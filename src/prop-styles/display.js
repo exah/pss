@@ -6,10 +6,10 @@ import { boolValue } from '../values'
  * import { display } from 'pss'
  * ```
  *
- * prop       | css                      | type                 | value | true      | false
- * :----------|:-------------------------|:---------------------|:------|:--------- |:--------
- * `display`  | [`display`][display-url] | `String`, `Boolean`  | ✓     | `initial` | `none`
- * `hideOn`   | `display: none`          | one of `theme.media` | media | —         | —
+ * prop       | css                      | type                 | value    | true      | false
+ * :----------|:-------------------------|:---------------------|:---------|:--------- |:--------
+ * `display`  | [`display`][display-url] | `String`, `Boolean`  | ✓        | `initial` | `none`
+ * `hideOn`   | `display: none`          | one of `theme.media` | mediaKey | —         | —
  *
  * [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
  *

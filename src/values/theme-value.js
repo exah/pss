@@ -36,7 +36,8 @@ import { getThemeMediaValue } from '../getters'
  * import pss, { themeValue } from 'pss'
  *
  * const Text = styled.div(pss({
- *   textStyle: themeValue({ themeKey: 'textStyle' })
+ *   textStyle: themeValue({ themeKey: 'textStyle' }),
+ *   fontFamily: rule('fontFamily', themeValue({ themeKey: 'font' }))
  * }))
  *
  * <ThemeProvider theme={theme}>
