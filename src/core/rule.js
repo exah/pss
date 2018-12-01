@@ -16,20 +16,18 @@ import { boolValue } from '../values'
 import { toCssRule } from '../utils'
 
 /**
- * Alias **`rule`**.
- *
  * ```js
- * import { createRule } from 'pss'
+ * import { rule } from 'pss'
  * ```
  *
- * Create css rule. Must be used with {@link createPropStyles}.
+ * Create style rule. Must be used with {@link createPropStyles}.
  *
  * @example
- * import pss, { createRule } from 'pss'
+ * import pss, { rule } from 'pss'
  * import styled from 'react-emotion'
  *
  * const Box = styled.div(pss({
- *   display: createRule('display')
+ *   display: rule('display')
  * }))
  *
  * @example
@@ -39,7 +37,7 @@ import { toCssRule } from '../utils'
  * </ThemeProvider>
  */
 
-function createRule (
+function rule (
   cssProp: string,
   getValue: Function = boolValue(),
   defaultValue: StyleValue = CSS_PROPS_DEFAULTS[cssProp] || CSS_DEFAULT_VALUE
@@ -75,5 +73,5 @@ function createRule (
 }
 
 export {
-  createRule
+  rule
 }

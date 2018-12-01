@@ -1,4 +1,4 @@
-import { createPropStyles, createRule } from '../core'
+import { createPropStyles, rule } from '../core'
 import { boolValue } from '../values'
 
 const randomHexColor = () =>
@@ -33,12 +33,12 @@ const randomHexColor = () =>
  */
 
 const utility = createPropStyles({
-  cursor: createRule('cursor'),
-  opacity: createRule('opacity', boolValue(1, 0)),
-  radius: createRule('borderRadius'),
-  outline: createRule('outline', (val) => val === 'debug' ? `1px solid ${randomHexColor()}` : val),
-  transform: createRule('transform'),
-  transition: createRule('transition', boolValue('all .3s', 'none'))
+  cursor: rule('cursor'),
+  opacity: rule('opacity', boolValue(1, 0)),
+  radius: rule('borderRadius'),
+  outline: rule('outline', (val) => val === 'debug' ? `1px solid ${randomHexColor()}` : val),
+  transform: rule('transform'),
+  transition: rule('transition', boolValue('all .3s', 'none'))
 })
 
 export {

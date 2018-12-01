@@ -1,4 +1,4 @@
-import { createPropStyles, createRule } from '../core'
+import { createPropStyles, rule } from '../core'
 import { boolValue, sizeValue } from '../values'
 
 /**
@@ -31,11 +31,11 @@ import { boolValue, sizeValue } from '../values'
  */
 
 const flex = createPropStyles({
-  flexWrap: createRule('flexWrap', boolValue('wrap', 'nowrap')),
-  flexDirection: createRule('flexDirection'),
-  alignItems: createRule('alignItems'),
-  alignContent: createRule('alignContent'),
-  justifyContent: createRule('justifyContent', boolValue('space-between', 'normal'))
+  flexWrap: rule('flexWrap', boolValue('wrap', 'nowrap')),
+  flexDirection: rule('flexDirection'),
+  alignItems: rule('alignItems'),
+  alignContent: rule('alignContent'),
+  justifyContent: rule('justifyContent', boolValue('space-between', 'normal'))
 })
 
 /**
@@ -71,12 +71,12 @@ const flex = createPropStyles({
  */
 
 const flexItem = createPropStyles({
-  flex: createRule('flex', boolValue('1 1 0', '0 1 auto')),
-  grow: createRule('flexGrow', boolValue(1, 0)),
-  shrink: createRule('flexShrink', boolValue(1, 0)),
-  basis: createRule('flexBasis', sizeValue(boolValue('auto'))),
-  order: createRule('order', boolValue(1, 0)),
-  alignSelf: createRule('alignSelf')
+  flex: rule('flex', boolValue('1 1 0', '0 1 auto')),
+  grow: rule('flexGrow', boolValue(1, 0)),
+  shrink: rule('flexShrink', boolValue(1, 0)),
+  basis: rule('flexBasis', sizeValue(boolValue('auto'))),
+  order: rule('order', boolValue(1, 0)),
+  alignSelf: rule('alignSelf')
 })
 
 export {

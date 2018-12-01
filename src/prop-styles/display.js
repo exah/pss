@@ -1,4 +1,4 @@
-import { createPropStyles, createRule, mediaRule } from '../core'
+import { createPropStyles, rule, mediaRule } from '../core'
 import { boolValue } from '../values'
 
 /**
@@ -25,7 +25,7 @@ import { boolValue } from '../values'
  */
 
 const display = createPropStyles({
-  display: createRule('display', boolValue('initial', 'none')),
+  display: rule('display', boolValue('initial', 'none')),
   hideOn: mediaRule('display', 'none')
 })
 

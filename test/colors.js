@@ -1,6 +1,6 @@
 import test from 'ava'
 import { mergeDeepRight } from 'ramda'
-import { colors, createPropStyles, createRule, colorValue } from '../src'
+import { colors, createPropStyles, rule, colorValue } from '../src'
 import { toStyles, testValue } from './_helpers'
 
 const COLOR_WHITE = '#ffffff'
@@ -40,7 +40,7 @@ const themeInverted = mergeDeepRight(theme, {
 })
 
 const shadow = createPropStyles({
-  shadow: createRule('boxShadow', colorValue('shadow', (color) => `0 0 20px 0 ${color}`))
+  shadow: rule('boxShadow', colorValue('shadow', (color) => `0 0 20px 0 ${color}`))
 })
 
 test('fg', testValue({

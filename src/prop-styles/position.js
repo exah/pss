@@ -1,4 +1,4 @@
-import { createPropStyles, createRule } from '../core'
+import { createPropStyles, rule } from '../core'
 import { boolValue, sizeValue } from '../values'
 
 const directionValue = sizeValue(boolValue(0, 'auto'))
@@ -31,12 +31,12 @@ const directionValue = sizeValue(boolValue(0, 'auto'))
  */
 
 const position = createPropStyles({
-  position: createRule('position'),
-  top: createRule('top', directionValue),
-  left: createRule('left', directionValue),
-  right: createRule('right', directionValue),
-  bottom: createRule('bottom', directionValue),
-  zIndex: createRule('zIndex', boolValue(1, 'auto'))
+  position: rule('position'),
+  top: rule('top', directionValue),
+  left: rule('left', directionValue),
+  right: rule('right', directionValue),
+  bottom: rule('bottom', directionValue),
+  zIndex: rule('zIndex', boolValue(1, 'auto'))
 })
 
 export {

@@ -1,16 +1,16 @@
-import { createPropStyles, createRule } from '../core'
+import { createPropStyles, rule } from '../core'
 import { boolValue } from '../values'
 import { combine } from '../utils'
 import { ellipsis } from './ellipsis'
 import { fontFamily } from './font-family'
 
 const textHelpers = createPropStyles({
-  fontSize: createRule('fontSize', boolValue('1rem')),
-  fontWeight: createRule('fontWeight'),
-  lineHeight: createRule('lineHeight', boolValue('normal')),
-  letterSpacing: createRule('letterSpacing', boolValue('normal')),
-  textAlign: createRule('textAlign'),
-  whiteSpace: createRule('whiteSpace')
+  fontSize: rule('fontSize', boolValue('1rem')),
+  fontWeight: rule('fontWeight'),
+  lineHeight: rule('lineHeight', boolValue('normal')),
+  letterSpacing: rule('letterSpacing', boolValue('normal')),
+  textAlign: rule('textAlign'),
+  whiteSpace: rule('whiteSpace')
 })
 
 /**

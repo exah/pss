@@ -1,6 +1,6 @@
 import { isNum, isStr, isBool, isArr, mapObj } from '@exah/utils'
 import { SHORT_DIRECTIONS } from '../constants'
-import { createPropStyles, createRule } from '../core'
+import { createPropStyles, rule } from '../core'
 import { colorValue, sizeValue, boolValue } from '../values'
 import { px } from '../utils'
 
@@ -71,7 +71,7 @@ const borderStyle = (Dir = '') => {
  */
 
 const border = createPropStyles({
-  bdc: createRule('borderColor', colorValue('border')),
+  bdc: rule('borderColor', colorValue('border')),
   bd: borderStyle(),
   ...mapObj((shortDir, longDir) => [
     'bd' + shortDir,

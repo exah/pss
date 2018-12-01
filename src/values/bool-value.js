@@ -9,14 +9,14 @@ import { isBool } from '@exah/utils'
  * ```
  *
  * Get value for rule based boolean condition, other values passed without modification.
- * Must be used with {@link createRule}.
+ * Must be used with {@link rule}.
  *
  * @example
- * import pss, { createRule, boolValue } from 'pss'
+ * import pss, { rule, boolValue } from 'pss'
  * import styled from 'react-emotion'
  *
  * const Box = styled.div(pss({
- *   opacity: createRule('opacity', boolValue(1, 0))
+ *   opacity: rule('opacity', boolValue(1, 0))
  * }))
  *
  * @example

@@ -9,18 +9,18 @@ import { getColor } from '../getters'
  * import { colorValue } from 'pss'
  * ```
  *
- * Get color from theme and apply it to css prop. Must be used with {@link createRule}.
+ * Get color from theme and apply it to css prop. Must be used with {@link rule}.
  *
  * @param key — Key in `theme.color` or in `theme.palette[theme.default.palette]`
  * @param transformValue — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)
  *
  * @example
  * import styled from 'react-emotion'
- * import pss, { createRule, colorValue } from 'pss'
+ * import pss, { rule, colorValue } from 'pss'
  *
  * const colors = pss({
- *   color: createRule('color', colorValue('fg'),
- *   shadow: createRule('boxShadow', colorValue('shadow', (color) => `0 0 20px 0 ${color}`))
+ *   color: rule('color', colorValue('fg'),
+ *   shadow: rule('boxShadow', colorValue('shadow', (color) => `0 0 20px 0 ${color}`))
  * })
  *
  * // Add to component

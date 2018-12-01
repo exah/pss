@@ -60,7 +60,7 @@
     -   [createPropStyles][56]
         -   [Parameters][57]
         -   [Examples][58]
-    -   [createRule][59]
+    -   [rule][59]
         -   [Parameters][60]
         -   [Examples][61]
     -   [boolValue][62]
@@ -1136,15 +1136,13 @@ const theme = {
 
 Returns **Mixin** 
 
-### createRule
-
-Alias **`rule`**.
+### rule
 
 ```js
-import { createRule } from 'pss'
+import { rule } from 'pss'
 ```
 
-Create css rule. Must be used with [createPropStyles][56].
+Create style rule. Must be used with [createPropStyles][56].
 
 #### Parameters
 
@@ -1155,11 +1153,11 @@ Create css rule. Must be used with [createPropStyles][56].
 #### Examples
 
 ```js
-import pss, { createRule } from 'pss'
+import pss, { rule } from 'pss'
 import styled from 'react-emotion'
 
 const Box = styled.div(pss({
-  display: createRule('display')
+  display: rule('display')
 }))
 ```
 
@@ -1179,7 +1177,7 @@ import { boolValue } from 'pss'
 ```
 
 Get value for rule based boolean condition, other values passed without modification.
-Must be used with [createRule][59].
+Must be used with [rule][59].
 
 #### Parameters
 
@@ -1189,13 +1187,15 @@ Must be used with [createRule][59].
 #### Examples
 
 ```js
-import pss, { createRule, boolValue } from 'pss'
+import pss, { rule, boolValue } from 'pss'
 import styled from 'react-emotion'
 
 const Box = styled.div(pss({
-  opacity: createRule('opacity', boolValue(1, 0))
+  opacity: rule('opacity', boolValue(1, 0))
 }))
+```
 
+```js
 <Box opacity={true} /> // → { opacity: 1 }
 <Box opacity={false} /> // → { opacity: 0 }
 <Box opacity={0.5} /> // → { opacity: 0.5 }
@@ -1207,7 +1207,7 @@ const Box = styled.div(pss({
 import { sizeValue } from 'pss'
 ```
 
-Must be used with [createRule][59]. See [sizes][4].
+Must be used with [rule][59]. See [sizes][4].
 
 #### Parameters
 
@@ -1217,13 +1217,13 @@ Must be used with [createRule][59]. See [sizes][4].
 
 ```js
 import styled from 'react-emotion'
-import pss, { createRule, sizeValue, boolValue } from 'pss'
+import pss, { rule, sizeValue, boolValue } from 'pss'
 
 const mySizes = pss({
-  h: createRule('height', sizeValue())
-  w: createRule('width', sizeValue(boolValue('100%', 0))), // this is default - same as above
-  l: createRule('left', sizeValue(boolValue(0, 'auto'))),
-  r: createRule('right', sizeValue(boolValue(0, 'auto')))
+  h: rule('height', sizeValue())
+  w: rule('width', sizeValue(boolValue('100%', 0))), // this is default - same as above
+  l: rule('left', sizeValue(boolValue(0, 'auto'))),
+  r: rule('right', sizeValue(boolValue(0, 'auto')))
 })
 
 const Box = styled.div(mySizes)
@@ -1244,7 +1244,7 @@ const Box = styled.div(mySizes)
 import { colorValue } from 'pss'
 ```
 
-Get color from theme and apply it to css prop. Must be used with [createRule][59].
+Get color from theme and apply it to css prop. Must be used with [rule][59].
 
 #### Parameters
 
@@ -1255,11 +1255,11 @@ Get color from theme and apply it to css prop. Must be used with [createRule][59
 
 ```js
 import styled from 'react-emotion'
-import pss, { createRule, colorValue } from 'pss'
+import pss, { rule, colorValue } from 'pss'
 
 const colors = pss({
-  color: createRule('color', colorValue('fg'),
-  shadow: createRule('boxShadow', colorValue('shadow', (color) => `0 0 20px 0 ${color}`))
+  color: rule('color', colorValue('fg'),
+  shadow: rule('boxShadow', colorValue('shadow', (color) => `0 0 20px 0 ${color}`))
 })
 
 // Add to component
@@ -1375,7 +1375,6 @@ const theme = {
   }
 }
 
-// Add theme to ThemeProvider
 <ThemeProvider theme={theme}>
   <Box hideOn='sm' /> // @media (max-width: 600px) { display: 'none' }
 </ThemeProvider>
@@ -1667,7 +1666,7 @@ Type: function (value: PropStyleValue, props: Props, mediaKey: ([string][99] | n
 
 [58]: #examples-24
 
-[59]: #createrule
+[59]: #rule
 
 [60]: #parameters-5
 

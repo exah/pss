@@ -38,19 +38,19 @@ function createSizeValue ({
  * import { sizeValue } from 'pss'
  * ```
  *
- * Must be used with {@link createRule}. See {@link sizes}.
+ * Must be used with {@link rule}. See {@link sizes}.
  *
  * @param [transformValue = boolValue('100%', 0)]
  *
  * @example
  * import styled from 'react-emotion'
- * import pss, { createRule, sizeValue, boolValue } from 'pss'
+ * import pss, { rule, sizeValue, boolValue } from 'pss'
  *
  * const mySizes = pss({
- *   h: createRule('height', sizeValue())
- *   w: createRule('width', sizeValue(boolValue('100%', 0))), // this is default - same as above
- *   l: createRule('left', sizeValue(boolValue(0, 'auto'))),
- *   r: createRule('right', sizeValue(boolValue(0, 'auto')))
+ *   h: rule('height', sizeValue())
+ *   w: rule('width', sizeValue(boolValue('100%', 0))), // this is default - same as above
+ *   l: rule('left', sizeValue(boolValue(0, 'auto'))),
+ *   r: rule('right', sizeValue(boolValue(0, 'auto')))
  * })
  *
  * const Box = styled.div(mySizes)
