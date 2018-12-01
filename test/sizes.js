@@ -1,14 +1,6 @@
 import test from 'ava'
 import { MEDIA_KEY, SIZES_KEY } from '../src/constants'
-
-import {
-  createPropStyles,
-  createSize,
-  createSizeMixin,
-  sizes as exportedSizes,
-  styles
-} from '../src'
-
+import { sizes } from '../src'
 import { toStyles } from './_helpers'
 
 const theme = {
@@ -28,16 +20,7 @@ const theme = {
   }
 }
 
-const customSizes = createPropStyles({
-  height: createSize('height'),
-  width: createSize('width'),
-  maxWidth: createSize('maxWidth'),
-  maxHeight: createSize('maxHeight'),
-  minHeight: createSize('minHeight'),
-  minWidth: createSize('minWidth')
-})
-
-test('props -> sizes relative value', (t) => {
+test('sizes relative value', (t) => {
   const props = {
     theme,
     height: true,
@@ -57,14 +40,10 @@ test('props -> sizes relative value', (t) => {
     maxHeight: 'auto'
   }
 
-  const result1 = toStyles(customSizes(props))
-  const result2 = toStyles(exportedSizes(props))
-
-  t.deepEqual(result1, expected)
-  t.deepEqual(result2, expected)
+  t.deepEqual(toStyles(sizes(props)), expected)
 })
 
-test('props -> sizes path from theme', (t) => {
+test('sizes path from theme', (t) => {
   const props = {
     theme,
     height: 'custom.my-value'
@@ -74,14 +53,10 @@ test('props -> sizes path from theme', (t) => {
     height: '1000px'
   }
 
-  const result1 = toStyles(customSizes(props))
-  const result2 = toStyles(exportedSizes(props))
-
-  t.deepEqual(result1, expected)
-  t.deepEqual(result2, expected)
+  t.deepEqual(toStyles(sizes(props)), expected)
 })
 
-test('props -> sizes theme values', (t) => {
+test('sizes theme values', (t) => {
   const propsSuffix = {
     theme,
     minWidth: 'nudge',
@@ -96,11 +71,6 @@ test('props -> sizes theme values', (t) => {
     }
   }
 
-  const result1 = toStyles(customSizes(propsSuffix))
-  const result2 = toStyles(exportedSizes(propsSuffix))
-  const result3 = toStyles(customSizes(propsObject))
-  const result4 = toStyles(exportedSizes(propsObject))
-
   const expected = {
     minWidth: '2px',
     '@media (max-width: 600px)': {
@@ -109,13 +79,11 @@ test('props -> sizes theme values', (t) => {
     }
   }
 
-  t.deepEqual(result1, expected)
-  t.deepEqual(result2, expected)
-  t.deepEqual(result3, expected)
-  t.deepEqual(result4, expected)
+  t.deepEqual(toStyles(sizes(propsSuffix)), expected)
+  t.deepEqual(toStyles(sizes(propsObject)), expected)
 })
 
-test('props -> sizes custom values', (t) => {
+test('sizes custom values', (t) => {
   const propsSuffix = {
     theme,
     height: '100',
@@ -134,11 +102,6 @@ test('props -> sizes custom values', (t) => {
     }
   }
 
-  const result1 = toStyles(customSizes(propsSuffix))
-  const result2 = toStyles(exportedSizes(propsSuffix))
-  const result3 = toStyles(customSizes(propsObject))
-  const result4 = toStyles(exportedSizes(propsObject))
-
   const expected = {
     height: '100px',
     '@media (max-width: 600px)': {
@@ -147,34 +110,6 @@ test('props -> sizes custom values', (t) => {
     }
   }
 
-  t.deepEqual(result1, expected)
-  t.deepEqual(result2, expected)
-  t.deepEqual(result3, expected)
-  t.deepEqual(result4, expected)
-})
-
-test('style -> set height', (t) => {
-  const height = createSizeMixin('height')
-  const percent = toStyles(height()({ theme }))
-
-  t.deepEqual(percent, {
-    height: '100%'
-  })
-
-  const nudge = toStyles(height('nudge')({ theme }))
-
-  t.deepEqual(nudge, {
-    height: '2px',
-    '@media (max-width: 600px)': {
-      height: '1px'
-    }
-  })
-
-  const nudgeOnMobile = toStyles(styles.onMedia('M', height('nudge'))({ theme }))
-
-  t.deepEqual(nudgeOnMobile, {
-    '@media (max-width: 600px)': {
-      height: '1px'
-    }
-  })
+  t.deepEqual(toStyles(sizes(propsSuffix)), expected)
+  t.deepEqual(toStyles(sizes(propsObject)), expected)
 })

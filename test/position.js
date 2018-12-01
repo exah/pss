@@ -11,7 +11,7 @@ const theme = {
   }
 }
 
-test('props: position', (t) => {
+test('position', (t) => {
   const result1 = position({
     theme,
     position: 'relative',

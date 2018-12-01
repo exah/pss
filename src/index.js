@@ -8,8 +8,6 @@ export {
   createPropStyles as pss,
   createPropStyles,
   createRule,
-  createSize,
-  createSizeMixin,
   createSpace,
   createSpaceMixin,
   createThemeStyle,

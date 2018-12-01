@@ -9,7 +9,7 @@ import { getColor } from '../getters'
  * import { colorValue } from 'pss'
  * ```
  *
- * Get color from theme and apply it to css prop.
+ * Get color from theme and apply it to css prop. Must be used with {@link createRule}.
  *
  * @param key — Key in `theme.color` or in `theme.palette[theme.default.palette]`
  * @param transformValue — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)

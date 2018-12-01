@@ -6,7 +6,7 @@ import { sizeValue } from '../value'
  * import { sizes } from 'pss'
  * ```
  *
- * Consistent `sizes` system for `width`, `height`. Created with {@link createSize}.
+ * Consistent `sizes` system for `width`, `height`. Created with {@link sizeValue}.
  *
  * **Component props:**
  *

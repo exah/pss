@@ -39,7 +39,7 @@ toc:
     children:
       - createPropStyles
       - createSpace
-      - createSize
+      - sizeValue
       - colorValue
       - createPaletteStyle
       - createThemeStyle
