@@ -15,6 +15,7 @@ import { wrapIfMedia } from '../utils'
  *
  * @example
  * import pss, { mediaRule } from 'pss'
+ * import styled from 'react-emotion'
  *
  * const Box = styled.div(pss({
  *   hideOn: mediaRule('display', 'none')
@@ -28,7 +29,6 @@ import { wrapIfMedia } from '../utils'
  *   }
  * }
  *
- * // Add theme to ThemeProvider
  * <ThemeProvider theme={theme}>
  *   <Box hideOn='sm' /> // @media (max-width: 600px) { display: 'none' }
  * </ThemeProvider>

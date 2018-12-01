@@ -6,7 +6,7 @@ import { boolValue, sizeValue } from '../values'
  * import { flex } from 'pss'
  * ```
  *
- * [Flex container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container) prop styles
+ * [Flex container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container) prop styles.
  *
  * prop             | css               | type                | value | true            | false
  * :----------------|:----------------- |:--------------------|:------|:----------------|:--------
@@ -43,7 +43,7 @@ const flex = createPropStyles({
  * import { flexItem } from 'pss'
  * ```
  *
- * [Flex item](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#Properties_applied_to_flex_items) prop styles
+ * [Flex item](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#Properties_applied_to_flex_items) prop styles.
  *
  * ⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `order`), so you may need to provide custom prop filtering.
  *

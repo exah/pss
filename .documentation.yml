@@ -35,14 +35,15 @@ toc:
       - combineSelectors
       - themeSelector
 
-  - name: Custom styles
+  - name: Custom Styles
     children:
       - createPropStyles
       - createRule
-      - mediaRule
+      - boolValue
       - sizeValue
-      - themeValue
       - colorValue
+      - themeValue
+      - mediaRule
       - createSpace
       - createPaletteStyle
 

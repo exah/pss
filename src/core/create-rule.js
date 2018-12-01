@@ -15,6 +15,30 @@ import { themePath } from '../getters'
 import { boolValue } from '../values'
 import { toCssRule } from '../utils'
 
+/**
+ * Alias **`rule`**.
+ *
+ * ```js
+ * import { createRule } from 'pss'
+ * ```
+ *
+ * Create css rule. Must be used with {@link createPropStyles}.
+ *
+ * @example
+ * import pss, { createRule } from 'pss'
+ * import styled from 'react-emotion'
+ *
+ * const Box = styled.div(pss({
+ *   display: createRule('display')
+ * }))
+ *
+ * @example
+ * // Add theme to ThemeProvider
+ * <ThemeProvider theme={theme}>
+ *   <Box display='flex' /> // { display: 'flex' }
+ * </ThemeProvider>
+ */
+
 function createRule (
   cssProp: string,
   getValue: Function = boolValue(),

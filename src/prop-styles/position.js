@@ -1,7 +1,7 @@
 import { createPropStyles, createRule } from '../core'
 import { boolValue, sizeValue } from '../values'
 
-const direction = (dir) => createRule(dir, sizeValue(boolValue(0, 'auto')))
+const directionValue = sizeValue(boolValue(0, 'auto'))
 
 /**
  * ```js
@@ -10,7 +10,7 @@ const direction = (dir) => createRule(dir, sizeValue(boolValue(0, 'auto')))
  *
  * prop       | css                        | type                          | value | true       | false
  * :----------|:---------------------------|:------------------------------|:------|:-----------|:--------
- * `position` | [`position`][position-url] | `String`, `Boolean`           | ✓     | `static`   | `static`
+ * `position` | [`position`][position-url] | `String`, `Boolean`           | ✓     | —          | —
  * `left`     | `left`                     | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
  * `right`    | `right`                    | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
  * `top`      | `top`                      | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
@@ -32,10 +32,10 @@ const direction = (dir) => createRule(dir, sizeValue(boolValue(0, 'auto')))
 
 const position = createPropStyles({
   position: createRule('position'),
-  top: direction('top'),
-  left: direction('left'),
-  right: direction('right'),
-  bottom: direction('bottom'),
+  top: createRule('top', directionValue),
+  left: createRule('left', directionValue),
+  right: createRule('right', directionValue),
+  bottom: createRule('bottom', directionValue),
   zIndex: createRule('zIndex', boolValue(1, 'auto'))
 })
 

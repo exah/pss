@@ -37,7 +37,8 @@ function createSizeValue ({
  * ```js
  * import { sizeValue } from 'pss'
  * ```
- * Must be used with {@link createRule}. See {@see sizes}.
+ *
+ * Must be used with {@link createRule}. See {@link sizes}.
  *
  * @param [transformValue = boolValue('100%', 0)]
  *
@@ -63,7 +64,7 @@ function createSizeValue ({
  * <Box l={20} r={10} /> // left: 20px; right: 10px
  */
 
-const sizeValue: (transformValue: Function | StyleValue) => Function = createSizeValue()
+const sizeValue = createSizeValue()
 
 export {
   createSizeValue,

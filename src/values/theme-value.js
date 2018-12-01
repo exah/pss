@@ -10,8 +10,9 @@ import { getThemeMediaValue } from '../getters'
  * import { themeValue } from 'pss'
  * ```
  *
- * Create global styles directly inside `theme[themeKey]`.
- * Useful for creating text or buttons styles. See {@link textStyle}.
+ * Use styles defined in `theme[themeKey]`. Useful for creating global shared styles.
+ *
+ * See {@link textStyle}.
  *
  * @example
  * const theme = {
