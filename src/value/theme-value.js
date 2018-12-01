@@ -2,12 +2,12 @@
 
 import type { PropStyle, ThemeKey } from '../types'
 import { identity } from '@exah/utils'
+import { everyMediaValue } from '../core/every-media'
 import { getThemeMediaValue } from '../getters'
-import { everyMediaValue } from './every-media'
 
 /**
  * ```js
- * import { createThemeStyle } from 'pss'
+ * import { themeValue } from 'pss'
  * ```
  *
  * Create global styles directly inside `theme[themeKey]`.
@@ -32,10 +32,10 @@ import { everyMediaValue } from './every-media'
  *
  * @example
  * import styled from 'react-emotion'
- * import pss, { createThemeStyle } from 'pss'
+ * import pss, { themeValue } from 'pss'
  *
  * const Text = styled.div(pss({
- *   textStyle: createThemeStyle({ themeKey: 'textStyle' })
+ *   textStyle: themeValue({ themeKey: 'textStyle' })
  * }))
  *
  * <ThemeProvider theme={theme}>
@@ -53,20 +53,23 @@ import { everyMediaValue } from './every-media'
  * }
  */
 
-const createThemeStyle = (options: {
+const themeValue = (options: {
   themeKey?: ThemeKey,
   themeGetter?: Function,
-  getStyle?: Function
+  transformValue?: Function
 }): PropStyle => {
-  const { themeKey, themeGetter, getStyle = identity } = options
-  const getter = themeGetter || getThemeMediaValue(themeKey)
+  const {
+    themeKey,
+    themeGetter = getThemeMediaValue(themeKey),
+    transformValue = identity
+  } = options
 
   return (input, props, mediaKey) => everyMediaValue(
-    getter(input, null, mediaKey),
-    (themeValue) => getStyle(themeValue, input, props, mediaKey)
+    themeGetter(input, null, mediaKey),
+    (value) => transformValue(value, input, props, mediaKey)
   )(props)
 }
 
 export {
-  createThemeStyle
+  themeValue
 }

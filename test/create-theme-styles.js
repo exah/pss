@@ -1,5 +1,5 @@
 import test from 'ava'
-import { createPropStyles, createThemeStyle } from '../src'
+import { createPropStyles, themeValue } from '../src'
 import { theme as helperTheme, toStyles } from './_helpers'
 
 const theme = {
@@ -31,10 +31,10 @@ const theme = {
 }
 
 const customProps = createPropStyles({
-  is: createThemeStyle({ themeKey: 'customStyles' })
+  is: themeValue({ themeKey: 'customStyles' })
 })
 
-test('prop → customStyles → default', (t) => {
+test('default', (t) => {
   const result = toStyles(customProps({
     theme,
     is: true
@@ -43,7 +43,7 @@ test('prop → customStyles → default', (t) => {
   t.deepEqual(result, theme.customStyles.default)
 })
 
-test('prop → customStyles → other key', (t) => {
+test('other key', (t) => {
   const result = toStyles(customProps({
     theme,
     is: 'accent'
@@ -52,7 +52,7 @@ test('prop → customStyles → other key', (t) => {
   t.deepEqual(result, theme.customStyles.accent)
 })
 
-test('prop → customStyles → media style', (t) => {
+test('media style', (t) => {
   const result = toStyles(customProps({
     theme,
     is: 'small'
@@ -64,7 +64,7 @@ test('prop → customStyles → media style', (t) => {
   })
 })
 
-test('prop → customStyles → media M style', (t) => {
+test('media M style', (t) => {
   const result1 = toStyles(customProps({
     theme,
     isM: 'small'

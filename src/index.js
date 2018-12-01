@@ -10,7 +10,6 @@ export {
   createRule,
   createSpace,
   createSpaceMixin,
-  createThemeStyle,
   everyMedia
 } from './core'
 
@@ -67,7 +66,8 @@ export {
   createSizeValue,
   sizeValue,
   colorValue,
-  boolValue
+  boolValue,
+  themeValue
 } from './value'
 
 export {

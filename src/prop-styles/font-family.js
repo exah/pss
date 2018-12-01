@@ -1,5 +1,6 @@
 import { FONT_KEY } from '../constants'
-import { createPropStyles, createThemeStyle } from '../core'
+import { createPropStyles, createRule } from '../core'
+import { themeValue } from '../value'
 
 /**
  * ```js
@@ -34,12 +35,9 @@ import { createPropStyles, createThemeStyle } from '../core'
  */
 
 const fontFamily = createPropStyles({
-  fontFamily: createThemeStyle({
-    themeKey: FONT_KEY,
-    getStyle: (themeValue, value) => ({
-      fontFamily: themeValue || value
-    })
-  })
+  fontFamily: createRule('fontFamily', themeValue({
+    themeKey: FONT_KEY
+  }))
 })
 
 export {

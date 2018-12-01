@@ -1,8 +1,8 @@
-import { isFn, isNum, isStr, toObj, curryN } from '@exah/utils'
+import { isFn, isStr, toObj, curryN } from '@exah/utils'
 
 export const toUnit = curryN(2, (unit, n) => (n > 0 || n < 0) ? n + unit : n)
-export const percentage = (n) => (n <= 0 || n > 1) ? n : `${n * 100}%`
 export const px = toUnit('px')
+export const percentage = (n) => (n <= 0 || n > 1) ? n : `${n * 100}%`
 
 export const toCssRule = (cssProps, toPx) => (val) => val != null
   ? toObj(cssProps, (name) => ({ [name]: toPx === true ? px(val) : val }))
@@ -24,11 +24,6 @@ export const wrapIfMedia = (query, style) => wrap(
   style
 )
 
-export const sizeValue = (input, trueVal = '100%', falseVal = 0) => (isNum(input)
-  ? percentage(input)
-  : input === true ? trueVal : input === false ? falseVal : input
-)
-
 export const getNumber = (str) => parseFloat(str, 10)
 
 export const getUnit = (str) => String(str)
@@ -45,7 +40,7 @@ export const spaceValue = (input, spaces = []) => {
     return null
   } else if (isStr(value)) {
     const [ number, unit ] = splitUnit(value)
-    return `${Number(number) * coeficent}${unit}`
+    return toUnit(unit, Number(number) * coeficent)
   }
 
   return value * coeficent

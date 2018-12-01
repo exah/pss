@@ -40,9 +40,9 @@ toc:
       - createPropStyles
       - createSpace
       - sizeValue
+      - themeValue
       - colorValue
       - createPaletteStyle
-      - createThemeStyle
       - createSpaceMixin
 
   - name: Types
