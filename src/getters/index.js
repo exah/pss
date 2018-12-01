@@ -110,6 +110,8 @@ export const getColor = (defaultColorKey, colorKey = true) => (props) => {
     ? path(defaultColorKey)(activeColors)
     : isStr(colorKey) ? path(colorKey)(activeColors) : null
 
+  if (!colorKey) return color
+
   return fallbackTo(
     color,
     path(defaultColorKey)(getPaletteColors(colorKey)(props))

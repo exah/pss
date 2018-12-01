@@ -51,7 +51,7 @@ function experimentalCreateRule (
     const value = getValue(input, props, mediaKey)
 
     if (isBool(value)) {
-      return css(defaultValue)
+      return value === false ? css(defaultValue) : {}
     }
 
     return everyMediaValue(value, css)(props)
