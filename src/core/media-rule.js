@@ -3,7 +3,7 @@
 import type { StyleValue, Props } from '../types'
 import { path, identity } from '@exah/utils'
 import { DEFAULT_KEY } from '../constants'
-import { getMedia } from '../getters'
+import { getThemeMedia } from '../getters'
 import { wrapIfMedia } from '../utils'
 
 /**
@@ -48,7 +48,7 @@ export const mediaRule = (
   if (propMediaKey != null && input === true) return style
 
   const mediaKey = input === true ? DEFAULT_KEY : input
-  const media = path(mediaKey)(getMedia(props))
+  const media = path(mediaKey)(getThemeMedia(props))
 
   if (!media) return null
   return wrapIfMedia(media, style)

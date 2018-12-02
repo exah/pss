@@ -21,12 +21,12 @@ export const themePath = (input, defaultValue) => (props) => path(
   defaultValue
 )(getTheme(props))
 
-export const getMedia = (props) => ({
+export const getThemeMedia = (props) => ({
   ...DEFAULT_THEME_MEDIA,
   ...path(MEDIA_KEY)(getTheme(props))
 })
 
-export const getMediaKeys = (props) => keys(getMedia(props))
+export const getThemeMediaKeys = (props) => keys(getThemeMedia(props))
 export const getDefaultMedia = themePath([ DEFAULT_KEY, MEDIA_KEY ], DEFAULT_KEY)
 
 export const getDefaultPaletteName = themePath([ DEFAULT_KEY, PALETTE_KEY ], DEFAULT_KEY)
@@ -53,7 +53,7 @@ export const getThemeMediaValue = (
     return transformValue(themeValue[defaultMediaKey])
   }
 
-  if (hasMediaKeys(getMediaKeys(props), keys(themeValue))) {
+  if (hasMediaKeys(getThemeMediaKeys(props), keys(themeValue))) {
     return (mediaKey) => transformValue(themeValue[mediaKey])
   }
 
@@ -81,7 +81,7 @@ export function getSpace (input, defaultValue, defaultMediaKey) {
       ))
     }
 
-    if (hasMediaKeys(getMediaKeys(props), keys(spaces))) {
+    if (hasMediaKeys(getThemeMediaKeys(props), keys(spaces))) {
       return (mediaKey) => spaceValue(input, spaces[mediaKey])
     }
 

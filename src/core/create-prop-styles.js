@@ -17,7 +17,7 @@ import {
 } from '../constants'
 
 import {
-  getMedia
+  getThemeMedia
 } from '../getters'
 
 import {
@@ -84,7 +84,7 @@ import {
 const createPropStyles = (
   propStyles: PropStyles = {}
 ): Mixin => (props: Props): Styles => {
-  const media = getMedia(props)
+  const media = getThemeMedia(props)
   const mediaKeys = keys(media)
 
   function mapPropStyles (input, mediaKey, style) {

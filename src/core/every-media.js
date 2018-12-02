@@ -2,13 +2,13 @@
 
 import { isFn, identity, reduceObj } from '@exah/utils'
 import { wrapIfMedia } from '../utils'
-import { getMedia } from '../getters'
+import { getThemeMedia } from '../getters'
 
 const everyMedia = (getStyle: Function) => (props: {}) => reduceObj(
   (acc, mediaKey, mediaQuery) => acc.concat(
     wrapIfMedia(mediaQuery, getStyle(mediaKey)) || []
   ),
-  getMedia(props),
+  getThemeMedia(props),
   []
 )
 
