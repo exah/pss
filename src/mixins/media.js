@@ -1,11 +1,4 @@
-import { isFn, curryN } from '@exah/utils'
-import { wrapIfMedia } from '../utils'
 import { getMedia } from '../getters'
-
-const onMedia = curryN(3, (mediaKey, style, props) => wrapIfMedia(
-  getMedia(mediaKey)(props),
-  isFn(style) ? style(props, mediaKey) : style
-))
 
 /**
  * ```js
@@ -28,7 +21,5 @@ const onMedia = curryN(3, (mediaKey, style, props) => wrapIfMedia(
  * <Box /> // → @media (max-width: 600px) { background-color: red; }
  */
 
-const mq = (mediaKey = 'default', fallback = 'all') =>
+export const mq = (mediaKey = 'default', fallback = 'all') =>
   (props) => `@media ${getMedia(mediaKey, fallback)(props)}`
-
-export { onMedia, mq }
