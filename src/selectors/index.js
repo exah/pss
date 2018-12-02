@@ -14,7 +14,9 @@ import { handlePropStyle, wrap, px } from '../utils'
  * @example
  * import { space } from 'pss'
  *
- * const Box = styled.div(space)
+ * const Box = styled.div`
+ *   ${space}
+ * `
  *
  * @example
  * import { ps } from 'pss'
@@ -39,7 +41,9 @@ const propSelector = curryN(2, (name, value, mediaKey) => (props, propMediaKey, 
  * Get value from `theme` directly in prop
  *
  * @example
- * const Box = styled.div(sizes)
+ * const Box = styled.div`
+ *   ${sizes}
+ * `
  *
  * <Box width={ts((theme) => theme.myValue)}
  */
@@ -65,7 +69,9 @@ const themeSelector = (
  * @example
  * import { space } from 'pss'
  *
- * const Box = styled.div(space)
+ * const Box = styled.div`
+ *   ${space}
+ * `
  *
  * @example
  * import { cs, ps } from 'pss'

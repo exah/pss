@@ -63,7 +63,9 @@ import { colorValue } from '../values'
  * @example
  * import { colors } from 'pss'
  *
- * const Box = styled.div(colors)
+ * const Box = styled.div`
+ *   ${colors}
+ * `
  *
  * @example
  * // theme.palette.default.bg

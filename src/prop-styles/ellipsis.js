@@ -10,7 +10,9 @@ import { createPropStyles } from '../core'
  * @example
  * import { ellipsis } from 'pss'
  *
- * const Text = styled('p')(ellipsis)
+ * const Text = styled.p`
+ *   ${ellipsis}
+ * `
  *
  * @example
  * <Text ellipsis /> // → white-space: nowrap; overflow: hidden; text-overflow: ellipsis;

@@ -61,7 +61,9 @@ import { sizeValue } from '../values'
  * @example
  * import { sizes } from 'pss'
  *
- * const Box = styled.div(sizes)
+ * const Box = styled.div`
+ *   ${sizes}
+ * `
  *
  * @example
  * // theme.size.small

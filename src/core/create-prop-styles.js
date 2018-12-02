@@ -58,7 +58,9 @@ import {
  * })
  *
  * // Add to component
- * const Box = styled.div(myPropStyle)
+ * const Box = styled.div`
+ *   ${myPropStyle}
+ * `
  *
  * // Use in component
  * <Box flex /> // .css { display: 'flex' }

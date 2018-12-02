@@ -20,7 +20,10 @@ import { boolValue, sizeValue } from '../values'
  * @example
  * import { flex } from 'pss'
  *
- * const FlexBox = styled('div')({ display: 'flex' }, flex)
+ * const FlexBox = styled.div`
+ *   display: flex;
+ *   ${flex}
+ * `
  *
  * @example
  * <FlexBox align='center' wrap> // display: flex; flex-wrap: wrap; align-items: center
@@ -59,7 +62,9 @@ const flex = createPropStyles({
  * @example
  * import { flexItem } from 'pss'
  *
- * const FlexBoxItem = styled('div')(flexItem)
+ * const FlexBoxItem = styled.div`
+ *   ${flexItem}
+ * `
  *
  * @example
  * <FlexBox> // display: flex

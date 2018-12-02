@@ -26,7 +26,9 @@ import { utility } from './utility'
  * @example
  * import { system } from 'pss'
  *
- * const Box = styled('div')(system)
+ * const Box = styled.div`
+ *   ${system}
+ * `
  *
  * @example
  * <Box position='relative' height='300px' width='300px' mgx='auto'>

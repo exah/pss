@@ -16,7 +16,9 @@ import { colors } from './colors'
  * @example
  * import { base } from 'pss'
  *
- * const Box = styled('div')(base)
+ * const Box = styled.div`
+ *   ${base}
+ * `
  *
  * @example
  * <Box tm='inverted' minHeight='200px' maxWidth='site.width' mgx='auto' pd={2} />

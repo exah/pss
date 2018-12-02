@@ -18,7 +18,9 @@ import { ellipsis } from './ellipsis'
  * @example
  * import { typography } from 'pss'
  *
- * const Text = styled('p')(typography)
+ * const Text = styled.p`
+ *   ${typography}
+ * `
  *
  * @example
  * <Text textStyle='heading' ellipsis />

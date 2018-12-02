@@ -16,7 +16,9 @@ import { boolValue } from '../values'
  * @example
  * import { display } from 'pss'
  *
- * const Box = styled('div')(display)
+ * const Box = styled.div`
+ *   ${display}
+ * `
  *
  * @example
  * <Box display='inline-block' hideOn='sm' />

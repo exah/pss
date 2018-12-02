@@ -65,7 +65,9 @@ const paddingPropStyles = createPropStyles(createSpace('padding', 'pd'))
  * @example
  * import { space } from 'pss'
  *
- * const Box = styled.div(space)
+ * const Box = styled.div`
+ *   ${space}
+ * `
  *
  * @example
  * <Box mg={1} /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }

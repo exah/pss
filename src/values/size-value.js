@@ -45,14 +45,16 @@ function createSizeValue ({
  * @example
  * import pss, { rule, sizeValue, boolValue } from 'pss'
  *
- * const mySizes = pss({
+ * const sizes = pss({
  *   h: rule('height', sizeValue())
  *   w: rule('width', sizeValue(boolValue('100%', 0))), // this is default - same as above
  *   l: rule('left', sizeValue(boolValue(0, 'auto'))),
  *   r: rule('right', sizeValue(boolValue(0, 'auto')))
  * })
  *
- * const Box = styled.div(mySizes)
+ * const Box = styled.div`
+ *   ${sizes}
+ * `
  *
  * @example
  * <Box w /> // width: 100%

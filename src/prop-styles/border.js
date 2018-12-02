@@ -59,7 +59,9 @@ const borderStyle = (Dir = '') => {
  * @example
  * import { border } from 'pss'
  *
- * const Box = styled('p')(border)
+ * const Box = styled.div`
+ *   ${border}
+ * `
  *
  * @example
  * // border-width: 1px; border-style: solid; border-color: #eee

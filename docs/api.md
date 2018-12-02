@@ -157,7 +157,9 @@ const theme = {
 ```js
 import { space } from 'pss'
 
-const Box = styled.div(space)
+const Box = styled.div`
+  ${space}
+`
 ```
 
 ```js
@@ -231,7 +233,9 @@ const theme = {
 ```js
 import { sizes } from 'pss'
 
-const Box = styled.div(sizes)
+const Box = styled.div`
+  ${sizes}
+`
 ```
 
 ```js
@@ -321,7 +325,9 @@ const theme = {
 ```js
 import { colors } from 'pss'
 
-const Box = styled.div(colors)
+const Box = styled.div`
+  ${colors}
+`
 ```
 
 ```js
@@ -365,7 +371,10 @@ import { flex } from 'pss'
 ```js
 import { flex } from 'pss'
 
-const FlexBox = styled('div')({ display: 'flex' }, flex)
+const FlexBox = styled.div`
+  display: flex;
+  ${flex}
+`
 ```
 
     <FlexBox align='center' wrap> // display: flex; flex-wrap: wrap; align-items: center
@@ -397,7 +406,9 @@ import { flexItem } from 'pss'
 ```js
 import { flexItem } from 'pss'
 
-const FlexBoxItem = styled('div')(flexItem)
+const FlexBoxItem = styled.div`
+  ${flexItem}
+`
 ```
 
     <FlexBox> // display: flex
@@ -423,7 +434,9 @@ import { display } from 'pss'
 ```js
 import { display } from 'pss'
 
-const Box = styled('div')(display)
+const Box = styled.div`
+  ${display}
+`
 ```
 
 ```js
@@ -453,7 +466,9 @@ import { position } from 'pss'
 ```js
 import { position } from 'pss'
 
-const Box = styled('div')(position)
+const Box = styled.div`
+  ${position}
+`
 ```
 
 ```js
@@ -493,7 +508,9 @@ import { float } from 'pss'
 ```js
 import { float } from 'pss'
 
-const Box = styled('div')(float)
+const Box = styled.div`
+  ${float}
+`
 ```
 
 ```js
@@ -520,7 +537,9 @@ import { overflow } from 'pss'
 ```js
 import { overflow } from 'pss'
 
-const Box = styled('div')(overflow)
+const Box = styled.div`
+  ${overflow}
+`
 ```
 
 ```js
@@ -558,7 +577,9 @@ Set border with values from theme, created with [sizeValue][62] and [colorValue]
 ```js
 import { border } from 'pss'
 
-const Box = styled('p')(border)
+const Box = styled.div`
+  ${border}
+`
 ```
 
 ```js
@@ -594,7 +615,9 @@ const theme = {
 ```js
 import { fontFamily } from 'pss'
 
-const Text = styled('span')(fontFamily)
+const Text = styled.p`
+  ${fontFamily}
+`
 ```
 
 ```js
@@ -637,7 +660,9 @@ const theme = {
 ```js
 import { textStyle } from 'pss'
 
-const Text = styled('span')(textStyle)
+const Text = styled.p`
+  ${textStyle}
+`
 ```
 
 ```js
@@ -667,7 +692,9 @@ Related: [fontFamily][22], [ellipsis][28].
 ```js
 import { textHelpers } from 'pss'
 
-const Text = styled('p')(textHelpers)
+const Text = styled.p`
+  ${textHelpers}
+`
 ```
 
 ```js
@@ -688,7 +715,9 @@ Add [ellipsis][96] to text.
 ```js
 import { ellipsis } from 'pss'
 
-const Text = styled('p')(ellipsis)
+const Text = styled.p`
+  ${ellipsis}
+`
 ```
 
 ```js
@@ -719,7 +748,9 @@ import { utility } from 'pss'
 ```js
 import { utility } from 'pss'
 
-const Box = styled('div')(utility)
+const Box = styled.div`
+  ${utility}
+`
 ```
 
 ```js
@@ -748,7 +779,9 @@ const cssProp = createPropStyles({
 ```js
 import { cssProp } from 'pss'
 
-const Box = styled.div(cssProp)
+const Box = styled.div`
+  ${cssProp}
+`
 ```
 
 ```js
@@ -770,7 +803,9 @@ with pseudo elements.
 ```js
 import { ratio } from 'pss'
 
-const Box = styled.div(ratio)
+const Box = styled.div`
+  ${ratio}
+`
 ```
 
     <Box ratio={(16 / 9)} />
@@ -809,7 +844,9 @@ Combination of
 ```js
 import { base } from 'pss'
 
-const Box = styled('div')(base)
+const Box = styled.div`
+  ${base}
+`
 ```
 
 ```js
@@ -848,7 +885,9 @@ Combination of
 ```js
 import { typography } from 'pss'
 
-const Text = styled('p')(typography)
+const Text = styled.p`
+  ${typography}
+`
 ```
 
 ```js
@@ -889,7 +928,9 @@ Combination of
 ```js
 import { system } from 'pss'
 
-const Box = styled('div')(system)
+const Box = styled.div`
+  ${system}
+`
 ```
 
 ```js
@@ -940,7 +981,9 @@ Wrap result of prop style in custom CSS selector.
 ```js
 import { space } from 'pss'
 
-const Box = styled.div(space)
+const Box = styled.div`
+  ${space}
+`
 ```
 
 ```js
@@ -970,7 +1013,9 @@ Get value from `theme` directly in prop
 #### Examples
 
 ```js
-const Box = styled.div(sizes)
+const Box = styled.div`
+  ${sizes}
+`
 
 <Box width={ts((theme) => theme.myValue)}
 ```
@@ -992,7 +1037,9 @@ Combine any number of [propSelector][43]s.
 ```js
 import { space } from 'pss'
 
-const Box = styled.div(space)
+const Box = styled.div`
+  ${space}
+`
 ```
 
 ```js
@@ -1034,7 +1081,7 @@ in media query with media name suffix (key in `theme.media`).
 
 #### Parameters
 
--   `propStyles` **[PropStyles][101]**  (optional, default `{}`)
+-   `styles` **[PropStyles][101]**  (optional, default `{}`)
 
 #### Examples
 
@@ -1050,7 +1097,9 @@ const myPropStyle = pss({
 })
 
 // Add to component
-const Box = styled.div(myPropStyle)
+const Box = styled.div`
+  ${myPropStyle}
+`
 
 // Use in component
 <Box flex /> // .css { display: 'flex' }
@@ -1159,14 +1208,16 @@ Must be used with [rule][56]. See [sizes][4].
 ```js
 import pss, { rule, sizeValue, boolValue } from 'pss'
 
-const mySizes = pss({
+const sizes = pss({
   h: rule('height', sizeValue())
   w: rule('width', sizeValue(boolValue('100%', 0))), // this is default - same as above
   l: rule('left', sizeValue(boolValue(0, 'auto'))),
   r: rule('right', sizeValue(boolValue(0, 'auto')))
 })
 
-const Box = styled.div(mySizes)
+const Box = styled.div`
+  ${sizes}
+`
 ```
 
 ```js
@@ -1198,7 +1249,8 @@ Get color from theme and apply it to css prop. Must be used with [rule][56].
 import pss, { rule, colorValue } from 'pss'
 
 const colors = pss({
-  color: rule('color', colorValue('fg')),
+  fg: rule('color', colorValue('fg')),
+  bg: rule('backgroundColor', colorValue('bg')),
   shadow: rule('boxShadow', colorValue('shadow', (color) => `0 0 20px 0 ${color}`)),
   tm: [
      rule('color', colorValue('fg')),
@@ -1207,21 +1259,23 @@ const colors = pss({
 })
 
 // Add to component
-const Box = styled.div(colors)
+const Box = styled.div`
+  ${colors}
+`
 ```
 
 ```js
 // theme.palette.default.fg
-<Box color /> // background-color: #222222
+<Box fg={true} /> // background-color: #222222
 
 // theme.colors.black
-<Box color='black' /> // color: #222222
+<Box fg='black' /> // color: #222222
 
 // theme.palette.default.accent
-<Box color='accent' /> // color: #ff0000
+<Box fg='accent' /> // color: #ff0000
 
 // theme.palette.default.shadow
-<Box shadow /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
+<Box shadow={true} /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
 
 // theme.palette.default.fg, theme.palette.default.bg
 <Box tm='default' /> // color: #222222; background-color: #ffffff

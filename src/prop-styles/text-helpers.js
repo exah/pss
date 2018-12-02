@@ -20,7 +20,9 @@ import { boolValue } from '../values'
  * @example
  * import { textHelpers } from 'pss'
  *
- * const Text = styled('p')(textHelpers)
+ * const Text = styled.p`
+ *   ${textHelpers}
+ * `
  *
  * @example
  * <Text textAlign='center' /> // text-align: center

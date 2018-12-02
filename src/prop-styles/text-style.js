@@ -32,7 +32,9 @@ import { themeValue } from '../values'
  * @example
  * import { textStyle } from 'pss'
  *
- * const Text = styled('span')(textStyle)
+ * const Text = styled.p`
+ *   ${textStyle}
+ * `
  *
  * @example
  * <Text textStyle={true} /> // → `theme.textStyle.default`

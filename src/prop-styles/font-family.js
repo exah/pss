@@ -24,7 +24,9 @@ import { themeValue } from '../values'
  * @example
  * import { fontFamily } from 'pss'
  *
- * const Text = styled('span')(fontFamily)
+ * const Text = styled.p`
+ *   ${fontFamily}
+ * `
  *
  * @example
  * <Text fontFamily={true} /> // → font-family: Helvetica

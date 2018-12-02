@@ -18,7 +18,8 @@ import { getColor } from '../getters'
  * import pss, { rule, colorValue } from 'pss'
  *
  * const colors = pss({
- *   color: rule('color', colorValue('fg')),
+ *   fg: rule('color', colorValue('fg')),
+ *   bg: rule('backgroundColor', colorValue('bg')),
  *   shadow: rule('boxShadow', colorValue('shadow', (color) => `0 0 20px 0 ${color}`)),
  *   tm: [
  *      rule('color', colorValue('fg')),
@@ -27,20 +28,22 @@ import { getColor } from '../getters'
  * })
  *
  * // Add to component
- * const Box = styled.div(colors)
+ * const Box = styled.div`
+ *   ${colors}
+ * `
  *
  * @example
  * // theme.palette.default.fg
- * <Box color /> // background-color: #222222
+ * <Box fg={true} /> // background-color: #222222
  *
  * // theme.colors.black
- * <Box color='black' /> // color: #222222
+ * <Box fg='black' /> // color: #222222
  *
  * // theme.palette.default.accent
- * <Box color='accent' /> // color: #ff0000
+ * <Box fg='accent' /> // color: #ff0000
  *
  * // theme.palette.default.shadow
- * <Box shadow /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
+ * <Box shadow={true} /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
  *
  * // theme.palette.default.fg, theme.palette.default.bg
  * <Box tm='default' /> // color: #222222; background-color: #ffffff

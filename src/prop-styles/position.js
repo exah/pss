@@ -23,7 +23,9 @@ const directionValue = sizeValue(boolValue(0, 'auto'))
  * @example
  * import { position } from 'pss'
  *
- * const Box = styled('div')(position)
+ * const Box = styled.div`
+ *   ${position}
+ * `
  *
  * @example
  * <Box position='absolute' top={0.2} left={0} /> // position: absolute; top: 20%; left: 0

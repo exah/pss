@@ -25,7 +25,9 @@ const randomHexColor = () =>
  * @example
  * import { utility } from 'pss'
  *
- * const Box = styled('div')(utility)
+ * const Box = styled.div`
+ *   ${utility}
+ * `
  *
  * @example
  * <Box opacity={0.4} /> // opacity: 0.4

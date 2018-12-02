@@ -14,7 +14,9 @@ import { floor } from '../utils'
  * @example
  * import { ratio } from 'pss'
  *
- * const Box = styled.div(ratio)
+ * const Box = styled.div`
+ *   ${ratio}
+ * `
  *
  * @example
  * <Box ratio={(16 / 9)} />

@@ -19,7 +19,9 @@ import { boolValue } from '../values'
  * @example
  * import { overflow } from 'pss'
  *
- * const Box = styled('div')(overflow)
+ * const Box = styled.div`
+ *   ${overflow}
+ * `
  *
  * @example
  * <Box ovh /> // overflow: hidden

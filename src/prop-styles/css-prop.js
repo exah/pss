@@ -21,7 +21,9 @@ import { cssPropPropType } from '../prop-types'
  * @example
  * import { cssProp } from 'pss'
  *
- * const Box = styled.div(cssProp)
+ * const Box = styled.div`
+ *   ${cssProp}
+ * `
  *
  * @example
  * <Box css={{ color: 'red', display: 'flex' }} /> // → color: red; display: flex

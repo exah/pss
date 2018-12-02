@@ -29,7 +29,9 @@ import { boolValue } from '../values'
  * @example
  * import { float } from 'pss'
  *
- * const Box = styled('div')(float)
+ * const Box = styled.div`
+ *   ${float}
+ * `
  *
  * @example
  * <Box float='left' /> // float: left
