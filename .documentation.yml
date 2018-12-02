@@ -31,9 +31,8 @@ toc:
   - name: Selectors
     children:
       - propSelector
-      - mediaPropSelector
-      - combineSelectors
       - themeSelector
+      - combineSelectors
 
   - name: Custom Styles
     children:

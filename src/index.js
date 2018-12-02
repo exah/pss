@@ -50,8 +50,6 @@ export {
 export {
   combineSelectors as cs,
   combineSelectors,
-  mediaPropSelector as mps,
-  mediaPropSelector,
   propSelector as ps,
   propSelector,
   themeSelector as ts,

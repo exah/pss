@@ -7,16 +7,13 @@ import {
   themePath,
   ts,
   ps,
-  cs,
-  mps
+  cs
 } from '../src'
 
 import { toStyles } from './_helpers'
 
 const theme = {
   media: {
-    D: '(min-width: 1025px)',
-    T: '(min-width: 601px) and (max-width: 1024px)',
     M: '(max-width: 600px)'
   },
   space: {
@@ -82,7 +79,20 @@ test('add different top value to &:last-child and &:first-child', (t) => {
   })
 })
 
-test('themeSelector → position', (t) => {
+test('change media query on M in propSelector but keep value', (t) => {
+  const result = toStyles(margin({
+    theme,
+    mg: ps('@media (max-width: 1024px)', 2, 'M')
+  }))
+
+  t.deepEqual(result, {
+    '@media (max-width: 1024px)': {
+      margin: '10px'
+    }
+  })
+})
+
+test('themeSelector: position', (t) => {
   const result = toStyles(position({
     theme,
     top: ts((tm) => tm.myValue),
@@ -99,7 +109,7 @@ test('themeSelector → position', (t) => {
   })
 })
 
-test('themeSelector → space', (t) => {
+test('themeSelector: space', (t) => {
   const result = toStyles(margin({
     theme,
     mg: ts((tm) => tm.myValue),
@@ -111,60 +121,5 @@ test('themeSelector → space', (t) => {
     margin: '100px',
     marginBottom: '100px',
     marginRight: '1px'
-  })
-})
-
-test('add margin on mobile with mediaPropSelector', (t) => {
-  const result = toStyles(margin({
-    theme,
-    mg: mps('M', 2)
-  }))
-
-  t.deepEqual(result, {
-    '@media (max-width: 600px)': {
-      margin: '10px'
-    }
-  })
-})
-
-test('add margin & + & element on mobile with mediaPropSelector', (t) => {
-  const result = toStyles(margin({
-    theme,
-    mg: mps('M', ps('& + &', 2))
-  }))
-
-  t.deepEqual(result, {
-    '@media (max-width: 600px)': {
-      '& + &': {
-        margin: '10px'
-      }
-    }
-  })
-})
-
-test('change media query in mediaPropSelector but keep value', (t) => {
-  const result = toStyles(margin({
-    theme,
-    mg: mps([ 'M', '(max-width: 1024px)' ], 2)
-  }))
-
-  t.deepEqual(result, {
-    '@media (max-width: 1024px)': {
-      margin: '10px'
-    }
-  })
-})
-
-test('use mediaPropSelector with combineSelectors', (t) => {
-  const result = toStyles(position({
-    theme,
-    position: cs('relative', mps('M', 'absolute'))
-  }))
-
-  t.deepEqual(result, {
-    position: 'relative',
-    '@media (max-width: 600px)': {
-      position: 'absolute'
-    }
   })
 })
