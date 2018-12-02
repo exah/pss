@@ -17,6 +17,7 @@ import {
 } from '../constants'
 
 import {
+  getMedia,
   getThemeMedia
 } from '../getters'
 
@@ -91,7 +92,7 @@ const createPropStyles = (
     // selectors
     if (isFn(input)) {
       return wrapIfMedia(
-        media[mediaKey],
+        getMedia(mediaKey, media),
         input(props, mediaKey, style)
       )
     }
@@ -109,7 +110,7 @@ const createPropStyles = (
 
     // general prop style
     return wrapIfMedia(
-      media[mediaKey],
+      getMedia(mediaKey, media),
       handlePropStyle(style, input, props, mediaKey)
     )
   }

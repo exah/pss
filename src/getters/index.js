@@ -27,8 +27,11 @@ export const getThemeMedia = (props) => ({
 })
 
 export const getThemeMediaKeys = (props) => keys(getThemeMedia(props))
-export const getDefaultMedia = themePath([ DEFAULT_KEY, MEDIA_KEY ], DEFAULT_KEY)
+export const getMedia = (input, media) => media
+  ? path(input)(media)
+  : (props) => path(input)(getThemeMedia(props))
 
+export const getDefaultMedia = themePath([ DEFAULT_KEY, MEDIA_KEY ], DEFAULT_KEY)
 export const getDefaultPaletteName = themePath([ DEFAULT_KEY, PALETTE_KEY ], DEFAULT_KEY)
 export const getPalettes = themePath(PALETTE_KEY, DEFAULT_THEME_PALETTE)
 export const getColors = themePath(COLORS_KEY, DEFAULT_THEME_COLORS)
