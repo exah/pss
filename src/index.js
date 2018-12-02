@@ -57,7 +57,8 @@ export {
 export {
   margin,
   padding,
-  onMedia
+  onMedia,
+  mq
 } from './mixins'
 
 export {

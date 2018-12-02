@@ -16,6 +16,25 @@ import {
 
 export const getTheme = (props) => (props && props.theme) || Object(props)
 
+/**
+ * ```js
+ * import { themePath } from 'pss'
+ * ```
+ *
+ * Get value from theme.
+ *
+ * @example
+ * import { themePath } from 'pss'
+ * import styled from 'react-emotion'
+ *
+ * const Box = styled.div`
+ *   width: ${themePath('size.card')};
+ *   background-color: ${themePath('color.red', 'hotpink')};
+ * `
+ *
+ * <Box /> // → { width: 200px; background-color: hotpink; }
+ */
+
 export const themePath = (input, defaultValue) => (props) => path(
   input,
   defaultValue

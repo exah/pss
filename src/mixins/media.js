@@ -7,4 +7,29 @@ const onMedia = curryN(3, (mediaKey, style, props) => wrapIfMedia(
   isFn(style) ? style(props, mediaKey) : style
 ))
 
-export { onMedia }
+/**
+ * ```js
+ * import { mq } from 'pss'
+ * ```
+ *
+ * Get value from theme.
+ *
+ * @param [mediaKey] — key in `theme.media`
+ *
+ * @example
+ * import { mq, themePath } from 'pss'
+ * import styled from 'react-emotion'
+ *
+ * const Box = styled.div`
+ *   ${mq('sm')} {
+ *     background-color: ${themePath('color.red', 'hotpink')};
+ *   }
+ * `
+ *
+ * <Box /> // → @media (max-width: 600px) { background-color: red; }
+ */
+
+const mq = (mediaKey = 'default', fallback = 'all') =>
+  (props) => `@media ${getMedia(mediaKey, fallback)(props)}`
+
+export { onMedia, mq }

@@ -47,6 +47,8 @@ toc:
 
   - name: Mixins
     children:
+      - themePath
+      - mq
       - createSpaceMixin
 
   - name: Types
