@@ -19,7 +19,6 @@ import { boolValue } from '../values'
  *
  * @example
  * import { textHelpers } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Text = styled('p')(textHelpers)
  *

@@ -16,7 +16,6 @@ import { ellipsis } from './ellipsis'
  *   - {@link ellipsis}
  *
  * @example
- * import styled from 'react-emotion'
  * import { typography } from 'pss'
  *
  * const Text = styled('p')(typography)

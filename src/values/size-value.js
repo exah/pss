@@ -43,7 +43,6 @@ function createSizeValue ({
  * @param [transformValue = boolValue('100%', 0)]
  *
  * @example
- * import styled from 'react-emotion'
  * import pss, { rule, sizeValue, boolValue } from 'pss'
  *
  * const mySizes = pss({

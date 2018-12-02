@@ -9,7 +9,6 @@ import { createPropStyles } from '../core'
  *
  * @example
  * import { ellipsis } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Text = styled('p')(ellipsis)
  *

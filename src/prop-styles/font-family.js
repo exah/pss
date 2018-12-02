@@ -23,7 +23,6 @@ import { themeValue } from '../values'
  *
  * @example
  * import { fontFamily } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Text = styled('span')(fontFamily)
  *

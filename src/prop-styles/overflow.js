@@ -18,7 +18,6 @@ import { boolValue } from '../values'
  *
  * @example
  * import { overflow } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Box = styled('div')(overflow)
  *

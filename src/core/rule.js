@@ -24,7 +24,6 @@ import { toCssRule } from '../utils'
  *
  * @example
  * import pss, { rule } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Box = styled.div(pss({
  *   display: rule('display')

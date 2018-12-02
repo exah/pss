@@ -15,7 +15,6 @@ import { wrapIfMedia } from '../utils'
  *
  * @example
  * import pss, { mediaRule } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Box = styled.div(pss({
  *   hideOn: mediaRule('display', 'none')

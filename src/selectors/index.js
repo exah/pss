@@ -12,7 +12,6 @@ import { handlePropStyle, wrap, px } from '../utils'
  * @param {PropStyleValue} [value] — prop value
  *
  * @example
- * import styled from 'react-emotion'
  * import { space } from 'pss'
  *
  * const Box = styled.div(space)
@@ -64,7 +63,6 @@ const themeSelector = (
  * Combine any number of {@link propSelector}s.
  *
  * @example
- * import styled from 'react-emotion'
  * import { space } from 'pss'
  *
  * const Box = styled.div(space)

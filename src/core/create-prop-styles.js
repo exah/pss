@@ -43,7 +43,6 @@ import {
  * in media query with media name suffix (key in `theme.media`).
  *
  * @example
- * import styled from 'react-emotion'
  * import pss from 'pss'
  *
  * // Create prop styles

@@ -25,7 +25,6 @@ import { utility } from './utility'
  *
  * @example
  * import { system } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Box = styled('div')(system)
  *

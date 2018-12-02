@@ -15,7 +15,6 @@ import { colors } from './colors'
  *
  * @example
  * import { base } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Box = styled('div')(base)
  *

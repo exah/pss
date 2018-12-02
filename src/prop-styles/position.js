@@ -22,7 +22,6 @@ const directionValue = sizeValue(boolValue(0, 'auto'))
  *
  * @example
  * import { position } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Box = styled('div')(position)
  *

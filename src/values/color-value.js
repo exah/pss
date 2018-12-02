@@ -15,7 +15,6 @@ import { getColor } from '../getters'
  * @param transformValue — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)
  *
  * @example
- * import styled from 'react-emotion'
  * import pss, { rule, colorValue } from 'pss'
  *
  * const colors = pss({

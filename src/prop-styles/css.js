@@ -19,7 +19,6 @@ import { createPropStyles } from '../core'
  *
  * @example
  * import { cssProp } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Box = styled.div(cssProp)
  *

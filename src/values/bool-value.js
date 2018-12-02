@@ -13,7 +13,6 @@ import { isBool } from '@exah/utils'
  *
  * @example
  * import pss, { rule, boolValue } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Box = styled.div(pss({
  *   opacity: rule('opacity', boolValue(1, 0))

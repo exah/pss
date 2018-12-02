@@ -31,7 +31,6 @@ import { themeValue } from '../values'
  *
  * @example
  * import { textStyle } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Text = styled('span')(textStyle)
  *

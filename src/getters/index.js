@@ -25,7 +25,6 @@ export const getTheme = (props) => (props && props.theme) || Object(props)
  *
  * @example
  * import { themePath } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Box = styled.div`
  *   width: ${themePath('size.card')};

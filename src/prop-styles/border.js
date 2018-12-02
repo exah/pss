@@ -58,7 +58,6 @@ const borderStyle = (Dir = '') => {
  *
  * @example
  * import { border } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Box = styled('p')(border)
  *

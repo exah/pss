@@ -62,7 +62,6 @@ import { colorValue } from '../values'
  *
  * @example
  * import { colors } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Box = styled.div(colors)
  *

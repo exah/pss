@@ -19,7 +19,6 @@ import { boolValue, sizeValue } from '../values'
  *
  * @example
  * import { flex } from 'pss'
- * import styled from 'react-emotion'
  *
  * const FlexBox = styled('div')({ display: 'flex' }, flex)
  *
@@ -59,7 +58,6 @@ const flex = createPropStyles({
  *
  * @example
  * import { flexItem } from 'pss'
- * import styled from 'react-emotion'
  *
  * const FlexBoxItem = styled('div')(flexItem)
  *

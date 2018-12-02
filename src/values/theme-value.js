@@ -32,7 +32,6 @@ import { getThemeMediaValue } from '../getters'
  * }
  *
  * @example
- * import styled from 'react-emotion'
  * import pss, { themeValue } from 'pss'
  *
  * const Text = styled.div(pss({

@@ -58,7 +58,6 @@ const getSpaceStyle = (
  *
  * @example
  * import pss, { createSpaceMixin } from 'pss'
- * import styled from 'react-emotion'
  *
  * const margin = createSpaceMixin('margin')
  *
@@ -113,7 +112,6 @@ const createSpaceMixin = (
  * @param getSpaceValue — Custom getter from theme, default to get values from `theme.space`
  *
  * @example
- * import styled from 'react-emotion'
  * import pss, { createSpace } from 'pss'
  *
  * // Create `margin` space prop styles with `mg` prefix

@@ -60,7 +60,6 @@ import { sizeValue } from '../values'
  *
  * @example
  * import { sizes } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Box = styled.div(sizes)
  *

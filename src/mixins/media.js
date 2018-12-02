@@ -18,7 +18,6 @@ const onMedia = curryN(3, (mediaKey, style, props) => wrapIfMedia(
  *
  * @example
  * import { mq, themePath } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Box = styled.div`
  *   ${mq('sm')} {

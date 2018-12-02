@@ -15,7 +15,6 @@ import { boolValue } from '../values'
  *
  * @example
  * import { display } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Box = styled('div')(display)
  *

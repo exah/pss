@@ -156,7 +156,6 @@ const theme = {
 
 ```js
 import { space } from 'pss'
-import styled from 'react-emotion'
 
 const Box = styled.div(space)
 ```
@@ -231,7 +230,6 @@ const theme = {
 
 ```js
 import { sizes } from 'pss'
-import styled from 'react-emotion'
 
 const Box = styled.div(sizes)
 ```
@@ -322,7 +320,6 @@ const theme = {
 
 ```js
 import { colors } from 'pss'
-import styled from 'react-emotion'
 
 const Box = styled.div(colors)
 ```
@@ -367,7 +364,6 @@ import { flex } from 'pss'
 
 ```js
 import { flex } from 'pss'
-import styled from 'react-emotion'
 
 const FlexBox = styled('div')({ display: 'flex' }, flex)
 ```
@@ -400,7 +396,6 @@ import { flexItem } from 'pss'
 
 ```js
 import { flexItem } from 'pss'
-import styled from 'react-emotion'
 
 const FlexBoxItem = styled('div')(flexItem)
 ```
@@ -427,7 +422,6 @@ import { display } from 'pss'
 
 ```js
 import { display } from 'pss'
-import styled from 'react-emotion'
 
 const Box = styled('div')(display)
 ```
@@ -458,7 +452,6 @@ import { position } from 'pss'
 
 ```js
 import { position } from 'pss'
-import styled from 'react-emotion'
 
 const Box = styled('div')(position)
 ```
@@ -499,7 +492,6 @@ import { float } from 'pss'
 
 ```js
 import { float } from 'pss'
-import styled from 'react-emotion'
 
 const Box = styled('div')(float)
 ```
@@ -527,7 +519,6 @@ import { overflow } from 'pss'
 
 ```js
 import { overflow } from 'pss'
-import styled from 'react-emotion'
 
 const Box = styled('div')(overflow)
 ```
@@ -566,7 +557,6 @@ Set border with values from theme, created with [sizeValue][62] and [colorValue]
 
 ```js
 import { border } from 'pss'
-import styled from 'react-emotion'
 
 const Box = styled('p')(border)
 ```
@@ -603,7 +593,6 @@ const theme = {
 
 ```js
 import { fontFamily } from 'pss'
-import styled from 'react-emotion'
 
 const Text = styled('span')(fontFamily)
 ```
@@ -647,7 +636,6 @@ const theme = {
 
 ```js
 import { textStyle } from 'pss'
-import styled from 'react-emotion'
 
 const Text = styled('span')(textStyle)
 ```
@@ -678,7 +666,6 @@ Related: [fontFamily][22], [ellipsis][28].
 
 ```js
 import { textHelpers } from 'pss'
-import styled from 'react-emotion'
 
 const Text = styled('p')(textHelpers)
 ```
@@ -700,7 +687,6 @@ Add [ellipsis][96] to text.
 
 ```js
 import { ellipsis } from 'pss'
-import styled from 'react-emotion'
 
 const Text = styled('p')(ellipsis)
 ```
@@ -732,7 +718,6 @@ import { utility } from 'pss'
 
 ```js
 import { utility } from 'pss'
-import styled from 'react-emotion'
 
 const Box = styled('div')(utility)
 ```
@@ -762,7 +747,6 @@ const cssProp = createPropStyles({
 
 ```js
 import { cssProp } from 'pss'
-import styled from 'react-emotion'
 
 const Box = styled.div(cssProp)
 ```
@@ -785,7 +769,6 @@ with pseudo elements.
 
 ```js
 import { ratio } from 'pss'
-import styled from 'react-emotion'
 
 const Box = styled.div(ratio)
 ```
@@ -825,7 +808,6 @@ Combination of
 
 ```js
 import { base } from 'pss'
-import styled from 'react-emotion'
 
 const Box = styled('div')(base)
 ```
@@ -864,7 +846,6 @@ Combination of
 #### Examples
 
 ```js
-import styled from 'react-emotion'
 import { typography } from 'pss'
 
 const Text = styled('p')(typography)
@@ -907,7 +888,6 @@ Combination of
 
 ```js
 import { system } from 'pss'
-import styled from 'react-emotion'
 
 const Box = styled('div')(system)
 ```
@@ -958,7 +938,6 @@ Wrap result of prop style in custom CSS selector.
 #### Examples
 
 ```js
-import styled from 'react-emotion'
 import { space } from 'pss'
 
 const Box = styled.div(space)
@@ -1011,7 +990,6 @@ Combine any number of [propSelector][43]s.
 #### Examples
 
 ```js
-import styled from 'react-emotion'
 import { space } from 'pss'
 
 const Box = styled.div(space)
@@ -1061,7 +1039,6 @@ in media query with media name suffix (key in `theme.media`).
 #### Examples
 
 ```js
-import styled from 'react-emotion'
 import pss from 'pss'
 
 // Create prop styles
@@ -1120,7 +1097,6 @@ Create style rule. Must be used with [createPropStyles][53].
 
 ```js
 import pss, { rule } from 'pss'
-import styled from 'react-emotion'
 
 const Box = styled.div(pss({
   display: rule('display')
@@ -1154,7 +1130,6 @@ Must be used with [rule][56].
 
 ```js
 import pss, { rule, boolValue } from 'pss'
-import styled from 'react-emotion'
 
 const Box = styled.div(pss({
   opacity: rule('opacity', boolValue(1, 0))
@@ -1182,7 +1157,6 @@ Must be used with [rule][56]. See [sizes][4].
 #### Examples
 
 ```js
-import styled from 'react-emotion'
 import pss, { rule, sizeValue, boolValue } from 'pss'
 
 const mySizes = pss({
@@ -1221,7 +1195,6 @@ Get color from theme and apply it to css prop. Must be used with [rule][56].
 #### Examples
 
 ```js
-import styled from 'react-emotion'
 import pss, { rule, colorValue } from 'pss'
 
 const colors = pss({
@@ -1291,7 +1264,6 @@ const theme = {
 ```
 
 ```js
-import styled from 'react-emotion'
 import pss, { themeValue } from 'pss'
 
 const Text = styled.div(pss({
@@ -1335,7 +1307,6 @@ Create style wrapped in `theme.media`.
 
 ```js
 import pss, { mediaRule } from 'pss'
-import styled from 'react-emotion'
 
 const Box = styled.div(pss({
   hideOn: mediaRule('display', 'none')
@@ -1383,7 +1354,6 @@ Related: [space][2].
 #### Examples
 
 ```js
-import styled from 'react-emotion'
 import pss, { createSpace } from 'pss'
 
 // Create `margin` space prop styles with `mg` prefix
@@ -1420,7 +1390,6 @@ Get value from theme.
 
 ```js
 import { themePath } from 'pss'
-import styled from 'react-emotion'
 
 const Box = styled.div`
   width: ${themePath('size.card')};
@@ -1447,7 +1416,6 @@ Get value from theme.
 
 ```js
 import { mq, themePath } from 'pss'
-import styled from 'react-emotion'
 
 const Box = styled.div`
   ${mq('sm')} {
@@ -1485,7 +1453,6 @@ For example if `cssProp` = `margin` result is [Mixin][100] with API:
 #### Examples
 
 ```js
-import styled from 'react-emotion'
 import pss, { createSpaceMixin } from 'pss'
 
 const margin = createSpaceMixin('margin')

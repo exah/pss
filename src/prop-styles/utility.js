@@ -24,7 +24,6 @@ const randomHexColor = () =>
  *
  * @example
  * import { utility } from 'pss'
- * import styled from 'react-emotion'
  *
  * const Box = styled('div')(utility)
  *
