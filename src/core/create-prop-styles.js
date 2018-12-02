@@ -13,6 +13,10 @@ import {
 } from '@exah/utils'
 
 import {
+  ALL_MEDIA_KEY
+} from '../constants'
+
+import {
   getMedia
 } from '../getters'
 
@@ -92,10 +96,12 @@ const createPropStyles = (
       )
     }
 
-    // value with media keys: { default: 0, M: 1 }
+    // value with `theme.media` keys: { all: 0, M: 1 }
     if (hasMediaKeys(mediaKeys, keys(input))) {
       return reduceObj(
-        (acc, key, value) => acc.concat(mapPropStyles(value, key, style)),
+        (acc, key, value) => acc.concat(
+          mapPropStyles(value, (key === ALL_MEDIA_KEY ? null : key), style)
+        ),
         input,
         []
       )

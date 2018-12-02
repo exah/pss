@@ -108,7 +108,7 @@ test('change default theme to "inverted"', (t) => {
 test('reset theme colors on mobile', (t) => {
   const props = {
     theme: themeInverted,
-    tm: { default: true, M: false }
+    tm: { all: true, M: false }
   }
 
   const expected = {

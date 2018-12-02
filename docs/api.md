@@ -140,7 +140,7 @@ Consistent `space` system for setting `margin` or `padding`. Created with [creat
 ```js
 const theme = {
   media: {
-    sm: `(max-width: 600px)`
+    sm: '(max-width: 600px)'
   },
   space: {
     default: [ 0, 10, 20, 40, 80 ],
@@ -167,7 +167,7 @@ const Box = styled.div(space)
 <Box mg={-2} /> // .css { margin: -20px; @media (max-width: 600px) { margin: -16px; } }
 <Box mg={0} /> // .css { margin: 0 }
 <Box mgr={{ sm: -1 }} /> // @media (max-width: 600px) { .css { margin-right: -8px } }
-<Box mgr={{ default: 2, sm: -1 }} /> // .css { margin-right: 20px; @media (max-width: 600px) { margin-right: -8px } }
+<Box mgr={{ all: 2, sm: -1 }} /> // .css { margin-right: 20px; @media (max-width: 600px) { margin-right: -8px } }
 ```
 
 ### sizes
@@ -1226,7 +1226,7 @@ const Box = styled.div(mySizes)
 <Box w={false} /> // width: 0
 <Box w={{ sm: (1 / 2) }} /> // @media (max-width: 600px) { width: 50% }
 <Box h='300px' /> // height: 300px
-<Box l={{ default: 0, sm: 'auto' }} /> // left: 0; @media (max-width: 600px) { left: auto }
+<Box l={{ all: 0, sm: 'auto' }} /> // left: 0; @media (max-width: 600px) { left: auto }
 <Box l={20} r={10} /> // left: 20px; right: 10px
 <Box l r /> // left: 0; right: 0
 ```

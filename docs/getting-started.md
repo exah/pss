@@ -31,10 +31,7 @@ const theme = {
   media: {
     sm: '(max-width: 600px)'
   },
-  space: {
-    default: [ 0, 16, 32, 64, 128 ],
-    sm: [ 0, 8, 16, 32, 64 ]
-  },
+  space: [ 0, 16, 32, 64, 128 ],
   size: {
     card: '300px',
     site: '1300px'
@@ -52,19 +49,19 @@ const theme = {
 }
 
 <ThemeProvider theme={theme}>
-  <Box bg="inverted" height> // css-0
-    <Box maxWidth="site" mgx="auto" pdx> // css-1
-      <Box tm width={1 / 4} minWidth={{ default: "card", sm: "100%" }}> // css-2
+  <Box bg="inverted" height={1}> // css-0
+    <Box maxWidth="site" mgx="auto" pdx={1}> // css-1
+      <Box tm={true} width={1 / 4} minWidth={{ all: "card", sm: "100%" }}> // css-2
         <figure>
           <img src="/pic.jpg" alt="" />
           <figcaption>
-            <Box pdx pdy={2}> // css-3
-              <Box mgb> // css-4
+            <Box pdx={1} pdy={2}> // css-3
+              <Box mgb={1}> // css-4
                 <h3>
                   Title
                 </h3>
               </Box>
-              <Box mgt> // css-5
+              <Box mgt={1}> // css-5
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Etiam eu libero libero, sit amet commodo sem. Proin a quam
@@ -95,11 +92,6 @@ CSS-in-JS result:
   margin-right: auto; 
   padding-left: 16px; 
   padding-right: 16px;
-  
-  @media (max-width: 600px) { 
-    padding-left: 8px; 
-    padding-right: 8px; 
-  }
 }
 
 .css-2 {
@@ -118,28 +110,13 @@ CSS-in-JS result:
   padding-right: 16px;
   padding-top: 32px;
   padding-bottom: 32px;
-  
-  @media (max-width: 600px) {
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 32px;
-    padding-bottom: 32px;
-  }
 }
 
 .css-4 {
   margin-bottom: 16px;
-  
-  @media (max-width: 600px) {
-    margin-bottom: 8px;
-  }
 }
 
 .css-5 {
   margin-top: 16px;
-  
-  @media (max-width: 600px) {
-    margin-top: 8px;
-  }
 }
 ```

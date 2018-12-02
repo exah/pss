@@ -8,9 +8,7 @@ const theme = {
   media: {
     M: '(max-width: 600px)'
   },
-  space: {
-    default: [ 0, 8, 16, 32, 64 ]
-  },
+  space: [ 0, 8, 16, 32, 64 ],
   palette: {
     default: {
       bg: '#ffffff',
@@ -32,7 +30,7 @@ test('basic', (t) => {
     ${colors}
   `
 
-  const element = h(Box, { theme, width: true, tm: true, mg: { default: true, M: 0 } })
+  const element = h(Box, { theme, width: true, tm: true, mg: { all: true, M: 0 } })
   const tree = renderer.create(sheet.collectStyles(element)).toJSON()
 
   t.snapshot(tree)

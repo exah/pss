@@ -92,7 +92,7 @@ test('set margin to "30px" on mobile', (t) => {
     '@media (max-width: 600px)': { margin: '30px' }
   }
 
-  t.deepEqual(toStyles(marginPropStyles({ theme, mg: { default: '10px', M: '30px' } })), expected)
+  t.deepEqual(toStyles(marginPropStyles({ theme, mg: { all: '10px', M: '30px' } })), expected)
 })
 
 test('without theme', (t) => {

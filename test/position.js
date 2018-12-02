@@ -14,7 +14,7 @@ test('position', (t) => {
   const result = position({
     theme,
     position: {
-      default: 'relative',
+      all: 'relative',
       M: 'static'
     },
     top: true,
@@ -22,7 +22,7 @@ test('position', (t) => {
     left: 1 / 2,
     right: 0,
     zIndex: {
-      default: 50,
+      all: 50,
       M: 100
     }
   })

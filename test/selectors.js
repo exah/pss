@@ -1,5 +1,4 @@
 import test from 'ava'
-import { MEDIA_KEY, SPACE_KEY } from '../src/constants'
 
 import {
   createPropStyles,
@@ -15,12 +14,12 @@ import {
 import { toStyles } from './_helpers'
 
 const theme = {
-  [MEDIA_KEY]: {
+  media: {
     D: '(min-width: 1025px)',
     T: '(min-width: 601px) and (max-width: 1024px)',
     M: '(max-width: 600px)'
   },
-  [SPACE_KEY]: {
+  space: {
     default: [ 0, 10, 20, 30, 60 ],
     M: [ 0, 5, 10, 20, 20 ]
   },

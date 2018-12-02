@@ -9,7 +9,7 @@ const theme = {
   myColor: 'blue'
 }
 
-test('props: css', (t) => {
+test('default', (t) => {
   const result = cssProp({
     theme,
     css: {
@@ -24,11 +24,11 @@ test('props: css', (t) => {
   })
 })
 
-test('props: css (responsive)', (t) => {
+test('responsive', (t) => {
   const result = cssProp({
     theme,
     css: {
-      default: {
+      all: {
         backgroundColor: 'blue'
       },
       M: {
@@ -49,7 +49,7 @@ test('props: css (responsive)', (t) => {
   t.deepEqual(toStyles(result), expected)
 })
 
-test('props: css (callback)', (t) => {
+test('callback', (t) => {
   const result = cssProp({
     theme,
     css: (props) => ({

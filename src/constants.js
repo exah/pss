@@ -6,6 +6,7 @@ export const SIZES_KEY = 'size'
 export const SPACE_KEY = 'space'
 export const TEXT_STYLE_KEY = 'textStyle'
 export const FONT_KEY = 'fontFamily'
+export const ALL_MEDIA_KEY = 'all'
 
 export const DIRECTION_LEFT = 'Left'
 export const DIRECTION_RIGHT = 'Right'
