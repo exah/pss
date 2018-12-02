@@ -1,7 +1,5 @@
 // @flow
 
-import * as styles from './styles'
-
 export {
   createPropStyles as default,
   createPropStyles as pss,
@@ -57,8 +55,10 @@ export {
 } from './selectors'
 
 export {
-  styles
-}
+  margin,
+  padding,
+  onMedia
+} from './mixins'
 
 export {
   createSizeValue,

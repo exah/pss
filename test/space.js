@@ -4,7 +4,7 @@ import {
   createPropStyles,
   createSpace,
   createSpaceMixin,
-  styles
+  onMedia
 } from '../src'
 
 import { toStyles } from './_helpers'
@@ -117,7 +117,7 @@ test('style -> padding', (t) => {
     }
   })
 
-  t.deepEqual(toStyles(styles.onMedia('M', padding.x('auto'))({ theme })), {
+  t.deepEqual(toStyles(onMedia('M', padding.x('auto'))({ theme })), {
     '@media (max-width: 600px)': {
       paddingLeft: 'auto',
       paddingRight: 'auto'
