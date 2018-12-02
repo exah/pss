@@ -1,8 +1,7 @@
 import test from 'ava'
 
 import {
-  createPropStyles,
-  createSpace,
+  space,
   position,
   themePath,
   ts,
@@ -23,10 +22,8 @@ const theme = {
   myValue: 100
 }
 
-const margin = createPropStyles(createSpace('margin', 'mg'))
-
 test('add margin-top to &:first-child', (t) => {
-  const result = toStyles(margin({
+  const result = toStyles(space({
     theme,
     mgt: ps('&:first-child', 1)
   }))
@@ -46,7 +43,7 @@ test('add margin-top to &:first-child', (t) => {
 })
 
 test('add margin to & + & element on mobile', (t) => {
-  const result = toStyles(margin({
+  const result = toStyles(space({
     theme,
     mg: { M: ps('& + &', 2) }
   }))
@@ -80,7 +77,7 @@ test('add different top value to &:last-child and &:first-child', (t) => {
 })
 
 test('change media query on M in propSelector but keep value', (t) => {
-  const result = toStyles(margin({
+  const result = toStyles(space({
     theme,
     mg: ps('@media (max-width: 1024px)', 2, 'M')
   }))
@@ -110,7 +107,7 @@ test('themeSelector: position', (t) => {
 })
 
 test('themeSelector: space', (t) => {
-  const result = toStyles(margin({
+  const result = toStyles(space({
     theme,
     mg: ts((tm) => tm.myValue),
     mgb: ts(themePath('myValue')),

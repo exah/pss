@@ -1,15 +1,35 @@
-import { createPropStyles, createSpace } from '../core'
+import { createPropStyles, rule } from '../core'
+import { spaceValue } from '../values'
 import { combine } from '../utils'
 
-const marginPropStyles = createPropStyles(createSpace('margin', 'mg'))
-const paddingPropStyles = createPropStyles(createSpace('padding', 'pd'))
+const spaceRule = (name) => rule(name, spaceValue())
+
+const margin = createPropStyles({
+  mg: spaceRule('margin'),
+  mgl: spaceRule('marginLeft'),
+  mgr: spaceRule('marginRight'),
+  mgt: spaceRule('marginTop'),
+  mgb: spaceRule('marginBottom'),
+  mgx: [ spaceRule('marginLeft'), spaceRule('marginRight') ],
+  mgy: [ spaceRule('marginTop'), spaceRule('marginBottom') ]
+})
+
+const padding = createPropStyles({
+  pd: spaceRule('padding'),
+  pdl: spaceRule('paddingLeft'),
+  pdr: spaceRule('paddingRight'),
+  pdt: spaceRule('paddingTop'),
+  pdb: spaceRule('paddingBottom'),
+  pdx: [ spaceRule('paddingLeft'), spaceRule('paddingRight') ],
+  pdy: [ spaceRule('paddingTop'), spaceRule('paddingBottom') ]
+})
 
 /**
  * ```js
  * import { space } from 'pss'
  * ```
  *
- * Consistent `space` system for setting `margin` or `padding`. Created with {@link createSpace}.
+ * Consistent `space` system for setting `margin` or `padding`. Created with {@link spaceValue}.
  *
  *
  * **Component props:**
@@ -81,10 +101,4 @@ const paddingPropStyles = createPropStyles(createSpace('padding', 'pd'))
  * <Box mgr={{ all: 2, sm: -1 }} /> // .css { margin-right: 20px; @media (max-width: 600px) { margin-right: -8px } }
  */
 
-const space = combine(marginPropStyles, paddingPropStyles)
-
-export {
-  marginPropStyles,
-  paddingPropStyles,
-  space
-}
+export const space = combine(margin, padding)

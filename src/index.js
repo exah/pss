@@ -4,19 +4,15 @@ export {
   createPropStyles as default,
   createPropStyles as pss,
   createPropStyles,
-  rule,
-  createSpace,
-  createSpaceMixin,
   everyMedia,
-  mediaRule
+  mediaRule,
+  rule
 } from './core'
 
 export {
   getColor,
   getColors,
   getPalette,
-  getSize,
-  getSpace,
   themePath
 } from './getters'
 
@@ -31,9 +27,7 @@ export {
   flexItem,
   float,
   fontFamily,
-  marginPropStyles,
   overflow,
-  paddingPropStyles,
   position,
   ratio,
   sizes,
@@ -55,9 +49,6 @@ export {
 } from './selectors'
 
 export {
-  margin,
-  padding,
-  onMedia,
   mq
 } from './mixins'
 
@@ -66,7 +57,8 @@ export {
   sizeValue,
   colorValue,
   boolValue,
-  themeValue
+  themeValue,
+  spaceValue
 } from './values'
 
 export {

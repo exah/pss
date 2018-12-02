@@ -1,10 +1,5 @@
 import test from 'ava'
-
-import {
-  createPropStyles,
-  createSpace
-} from '../src'
-
+import { space } from '../src'
 import { toStyles } from './_helpers'
 
 const theme = {
@@ -16,10 +11,8 @@ const theme = {
   space: [ 0, 10, 20, '3rem', 60 ]
 }
 
-const marginPropStyles = createPropStyles(createSpace('margin', 'mg'))
-
 test('set one step space', (t) => {
-  const result = toStyles(marginPropStyles({ theme, mg: 1 }))
+  const result = toStyles(space({ theme, mg: 1 }))
 
   t.deepEqual(result, {
     margin: '10px'
@@ -27,7 +20,7 @@ test('set one step space', (t) => {
 })
 
 test('set bool space value', (t) => {
-  const result = toStyles(marginPropStyles({ theme, mg: true, mgx: { M: false } }))
+  const result = toStyles(space({ theme, mg: true, mgx: { M: false } }))
 
   const expected = {
     margin: '10px',
@@ -51,7 +44,7 @@ test('override one step space on mobile and tablet', (t) => {
   }
 
   t.deepEqual(
-    toStyles(marginPropStyles({ theme, mg: 1, mgl: { M: 3 }, mgx: { T: 0 } })),
+    toStyles(space({ theme, mg: 1, mgl: { M: 3 }, mgx: { T: 0 } })),
     expected
   )
 })

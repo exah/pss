@@ -32,7 +32,7 @@ export const getUnit = (str) => String(str)
 
 export const splitUnit = (str) => [ getNumber(str), getUnit(str) ]
 
-export const spaceValue = (input, spaces = []) => {
+export const spaceIndex = (input, spaces = []) => {
   const value = spaces[Math.abs(input)]
   const coeficent = ((input < 0) ? -1 : 1)
 

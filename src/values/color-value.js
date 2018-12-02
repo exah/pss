@@ -49,7 +49,7 @@ import { getColor } from '../getters'
  * <Box tm='default' /> // color: #222222; background-color: #ffffff
  */
 
-const colorValue = (
+export const colorValue = (
   key: string,
   transformValue: (color: string, props: Props) => StyleValue = identity
 ): Function => (input, props) => {
@@ -58,8 +58,4 @@ const colorValue = (
     isStr(color) ? transformValue(color, props) : color,
     input
   )
-}
-
-export {
-  colorValue
 }

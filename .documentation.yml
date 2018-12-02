@@ -28,12 +28,6 @@ toc:
       - typography
       - system
 
-  - name: Selectors
-    children:
-      - propSelector
-      - themeSelector
-      - combineSelectors
-
   - name: Custom Styles
     children:
       - createPropStyles
@@ -42,14 +36,19 @@ toc:
       - sizeValue
       - colorValue
       - themeValue
+      - spaceValue
       - mediaRule
-      - createSpace
 
-  - name: Mixins
+  - name: Selectors
+    children:
+      - propSelector
+      - themeSelector
+      - combineSelectors
+
+  - name: Getters
     children:
       - themePath
       - mq
-      - createSpaceMixin
 
   - name: Types
     children:

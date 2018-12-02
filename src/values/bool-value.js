@@ -1,6 +1,6 @@
 // @flow
 
-import type { StyleValue, PropStyleValue } from '../types'
+import type { StyleValue, PropStyleValue, Props } from '../types'
 import { isBool } from '@exah/utils'
 
 /**
@@ -24,10 +24,8 @@ import { isBool } from '@exah/utils'
  * <Box opacity={0.5} /> // → { opacity: 0.5 }
  */
 
-const boolValue = (trueVal: ? StyleValue, falseVal: ? StyleValue) => (
-  input: PropStyleValue
+export const boolValue = (trueVal: ? StyleValue, falseVal: ? StyleValue) => (
+  input: PropStyleValue,
+  props: ? Props,
+  mediaKey: ? string
 ) => isBool(input) ? (input === true ? trueVal : falseVal) : input
-
-export {
-  boolValue
-}

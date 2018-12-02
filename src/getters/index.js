@@ -1,15 +1,12 @@
-import { isStr, fallbackTo, isArr, path, identity } from '@exah/utils'
-import { spaceValue, hasMediaKeys, keys, px } from '../utils'
+import { isStr, fallbackTo, path, identity } from '@exah/utils'
+import { hasMediaKeys, keys } from '../utils'
 
 import {
   DEFAULT_KEY,
   COLORS_KEY,
   MEDIA_KEY,
   PALETTE_KEY,
-  SIZES_KEY,
-  SPACE_KEY,
   DEFAULT_THEME_MEDIA,
-  DEFAULT_THEME_SPACE,
   DEFAULT_THEME_PALETTE,
   DEFAULT_THEME_COLORS
 } from '../constants'
@@ -53,7 +50,6 @@ export const getDefaultMedia = themePath([ DEFAULT_KEY, MEDIA_KEY ], DEFAULT_KEY
 export const getDefaultPaletteName = themePath([ DEFAULT_KEY, PALETTE_KEY ], DEFAULT_KEY)
 export const getPalettes = themePath(PALETTE_KEY, DEFAULT_THEME_PALETTE)
 export const getColors = themePath(COLORS_KEY, DEFAULT_THEME_COLORS)
-export const getSpaces = themePath(SPACE_KEY, DEFAULT_THEME_SPACE)
 
 export const getThemeMediaValue = (
   themeDataKey,
@@ -79,35 +75,6 @@ export const getThemeMediaValue = (
   }
 
   return transformValue(fallbackTo(themeValue, defaultValue))
-}
-
-export const getSize = getThemeMediaValue(SIZES_KEY, px)
-
-export function getSpace (input, defaultValue, defaultMediaKey) {
-  if (isStr(input)) {
-    return getSize(input, input, defaultMediaKey)
-  }
-
-  return (props) => {
-    const spaces = getSpaces(props)
-
-    if (isArr(spaces)) {
-      return spaceValue(input, spaces)
-    }
-
-    if (defaultMediaKey != null) {
-      return spaceValue(input, fallbackTo(
-        spaces[defaultMediaKey],
-        spaces[DEFAULT_KEY]
-      ))
-    }
-
-    if (hasMediaKeys(getThemeMediaKeys(props), keys(spaces))) {
-      return (mediaKey) => spaceValue(input, spaces[mediaKey])
-    }
-
-    return defaultValue
-  }
 }
 
 export const getPaletteColors = (input) => (props) => path(

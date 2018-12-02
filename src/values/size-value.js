@@ -13,11 +13,11 @@ type Options = {
   themeKey: string
 }
 
-function createSizeValue ({
+export function createSizeValue ({
   transformValue = px,
   themeKey = SIZES_KEY,
   getter = getThemeMediaValue(themeKey, transformValue)
-}: Options = {}): (defaultValue: Function | StyleValue) => Function {
+}: Options = {}): (defaultValue: ? Function | StyleValue) => Function {
   return (defaultValue = boolValue('100%', 0)) => (
     input: PropStyleValue,
     props,
@@ -26,7 +26,7 @@ function createSizeValue ({
     const value = isNum(input)
       ? percentage(input)
       : isFn(defaultValue)
-        ? defaultValue(input)
+        ? defaultValue(input, props, mediaKey)
         : defaultValue
 
     return getter(input, value, mediaKey)
@@ -66,9 +66,4 @@ function createSizeValue ({
  * <Box l r /> // left: 0; right: 0
  */
 
-const sizeValue = createSizeValue()
-
-export {
-  createSizeValue,
-  sizeValue
-}
+export const sizeValue = createSizeValue()
