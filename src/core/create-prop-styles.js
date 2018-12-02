@@ -28,6 +28,10 @@ import {
   hasMediaKeys
 } from '../utils'
 
+import {
+  styleValuePropType
+} from '../prop-types'
+
 /**
  * ```js
  * import pss from 'pss'
@@ -81,49 +85,52 @@ import {
  * // @media (max-width: 600px) { display: none }
  */
 
-const createPropStyles = (
-  propStyles: PropStyles = {}
-): Mixin => (props: Props): Styles => {
-  const media = getThemeMedia(props)
-  const mediaKeys = keys(media)
+export function createPropStyles (styles: PropStyles = {}): Mixin {
+  function propStyles (props: Props): Styles {
+    const media = getThemeMedia(props)
+    const mediaKeys = keys(media)
 
-  function mapPropStyles (input, mediaKey, style) {
-    // selectors
-    if (isFn(input)) {
+    function mapPropStyles (input, mediaKey, style) {
+      // selectors
+      if (isFn(input)) {
+        return wrapIfMedia(
+          getMedia(mediaKey, media),
+          input(props, mediaKey, style)
+        )
+      }
+
+      // value with `theme.media` keys: { all: 0, M: 1 }
+      if (hasMediaKeys(mediaKeys, keys(input))) {
+        return reduceObj(
+          (acc, key, value) => acc.concat(
+            mapPropStyles(value, (key === ALL_MEDIA_KEY ? null : key), style)
+          ),
+          input,
+          []
+        )
+      }
+
+      // general prop style
       return wrapIfMedia(
         getMedia(mediaKey, media),
-        input(props, mediaKey, style)
+        handlePropStyle(style, input, props, mediaKey)
       )
     }
 
-    // value with `theme.media` keys: { all: 0, M: 1 }
-    if (hasMediaKeys(mediaKeys, keys(input))) {
-      return reduceObj(
-        (acc, key, value) => acc.concat(
-          mapPropStyles(value, (key === ALL_MEDIA_KEY ? null : key), style)
-        ),
-        input,
-        []
-      )
-    }
-
-    // general prop style
-    return wrapIfMedia(
-      getMedia(mediaKey, media),
-      handlePropStyle(style, input, props, mediaKey)
+    return reduceObj(
+      (acc, propName, propValue) => acc.concat(
+        toArr(styles[propName])
+          .map((style) => mapPropStyles(propValue, null, style) || [])
+      ),
+      props,
+      []
     )
   }
 
-  return reduceObj(
-    (acc, propName, propValue) => acc.concat(
-      toArr(propStyles[propName])
-        .map((style) => mapPropStyles(propValue, null, style) || [])
-    ),
-    props,
-    []
-  )
-}
+  const propTypes = reduceObj((acc, key) => ({
+    ...acc,
+    [key]: styleValuePropType
+  }), styles)
 
-export {
-  createPropStyles
+  return Object.assign(propStyles, { propTypes })
 }

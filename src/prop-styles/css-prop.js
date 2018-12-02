@@ -1,5 +1,6 @@
 import { toObj } from '@exah/utils'
 import { createPropStyles } from '../core'
+import { cssPropPropType } from '../prop-types'
 
 /**
  * ```js
@@ -30,6 +31,10 @@ import { createPropStyles } from '../core'
 const cssProp = createPropStyles({
   css: (val) => toObj(val)
 })
+
+cssProp.propTypes = {
+  css: cssPropPropType
+}
 
 export {
   cssProp

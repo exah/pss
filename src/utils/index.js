@@ -54,7 +54,15 @@ export const keys = (obj) => isObj(obj) ? Object.keys(Object(obj)) : []
 export const hasMediaKeys = (mediaKeys, val) =>
   toArr(val).some((key) => mediaKeys.includes(key))
 
-export const combine = (...fns) => (...args) => fns.map((fn) => fn(...args))
+export const combine = (...fns) => {
+  const combined = (...args) => fns.map((fn) => fn(...args))
+  const propTypes = fns.reduce((acc, fn) => ({
+    ...acc,
+    ...(fn && fn.propTypes)
+  }), {})
+
+  return Object.assign(combined, { propTypes })
+}
 
 export const floor = (number, precision = 0) => {
   const factor = Math.pow(10, precision)

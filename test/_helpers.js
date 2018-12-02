@@ -11,6 +11,20 @@ const THEME = {
 const toStyles = (styles) => flatten(toArr(styles)).reduce(mergeDeepRight, {})
 const wrapInMedia = (style) => ({ [`@media ${THEME.media.M}`]: style })
 
+const throwConsoleErrors = () => {
+  const original = console.error
+
+  console.error = (message) => {
+    throw new Error(message)
+  }
+
+  const restore = () => {
+    console.error = original
+  }
+
+  return restore
+}
+
 const testValue = ({
   fn,
   prop,
@@ -34,5 +48,6 @@ export {
   THEME as theme,
   toStyles,
   wrapInMedia,
+  throwConsoleErrors,
   testValue
 }

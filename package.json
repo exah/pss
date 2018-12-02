@@ -106,6 +106,7 @@
     "styled-components": "^4.0.3"
   },
   "dependencies": {
-    "@exah/utils": "^1.7.0"
+    "@exah/utils": "^1.7.0",
+    "prop-types": "^15.6.2"
   }
 }
