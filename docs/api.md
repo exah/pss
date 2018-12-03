@@ -1235,7 +1235,7 @@ Get color from theme and apply it to css prop. Must be used with [rule][46].
 #### Parameters
 
 -   `key` **[string][98]** — Key in `theme.color` or in `theme.palette[theme.default.palette]`
--   `transformValue` **function (color: [string][98], props: Props): StyleValue** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)
+-   `transformValue` **[Function][99]** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default `identity`)
 
 #### Examples
 

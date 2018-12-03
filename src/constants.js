@@ -23,11 +23,3 @@ export const DEFAULT_THEME_MEDIA = {
 export const DEFAULT_THEME_SPACE = {
   [DEFAULT_KEY]: [ 0 ]
 }
-
-export const DEFAULT_THEME_PALETTE = {
-  [DEFAULT_KEY]: {}
-}
-
-export const DEFAULT_THEME_COLORS = {
-  [DEFAULT_KEY]: {}
-}

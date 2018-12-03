@@ -1,8 +1,48 @@
-// @flow
+import { identity, fallbackTo, isStr, path } from '@exah/utils'
+import { PALETTE_KEY, DEFAULT_KEY, COLORS_KEY } from '../constants'
+import { themePath } from '../getters'
 
-import type { StyleValue, Props } from '../types'
-import { identity, fallbackTo, isStr } from '@exah/utils'
-import { getColor } from '../getters'
+function createColorValue ({
+  themeColorKey = COLORS_KEY,
+  themePaletteKey = PALETTE_KEY,
+  colorsGetter = themePath(themeColorKey, {}),
+  paletteGetter = themePath(themePaletteKey, {})
+} = {}) {
+  const getColor = (defaultColorName) => (colorName) => (props) => {
+    const colors = colorsGetter(props)
+    const palettes = paletteGetter(props)
+    const defaultPaletteName = themePath([ DEFAULT_KEY, themePaletteKey ], DEFAULT_KEY)(props)
+
+    const activeColors = {
+      ...path(defaultPaletteName)(palettes),
+      ...colors
+    }
+
+    const color = colorName === true
+      ? path(defaultColorName)(activeColors)
+      : isStr(colorName) ? path(colorName)(activeColors) : null
+
+    if (!colorName) return color
+
+    return fallbackTo(
+      color,
+      path(defaultColorName)(path(colorName)(palettes))
+    )
+  }
+
+  return (key, transformValue = identity) => {
+    const getValue = getColor(key)
+
+    return (input = true, props) => {
+      const color = getValue(input)(props)
+
+      return fallbackTo(
+        isStr(color) ? transformValue(color, props) : color,
+        input
+      )
+    }
+  }
+}
 
 /**
  * ```js
@@ -11,8 +51,10 @@ import { getColor } from '../getters'
  *
  * Get color from theme and apply it to css prop. Must be used with {@link rule}.
  *
- * @param key — Key in `theme.color` or in `theme.palette[theme.default.palette]`
- * @param transformValue — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)
+ * @param {string} key — Key in `theme.color` or in `theme.palette[theme.default.palette]`
+ * @param {Function} [transformValue = identity] — Return customized CSS prop value (i.e. `box-shadow`, gradients)
+ *
+ * @return {Function}
  *
  * @example
  * import pss, { rule, colorValue } from 'pss'
@@ -49,13 +91,4 @@ import { getColor } from '../getters'
  * <Box tm='default' /> // color: #222222; background-color: #ffffff
  */
 
-export const colorValue = (
-  key: string,
-  transformValue: (color: string, props: Props) => StyleValue = identity
-): Function => (input, props) => {
-  const color = getColor(key, input)(props)
-  return fallbackTo(
-    isStr(color) ? transformValue(color, props) : color,
-    input
-  )
-}
+export const colorValue = createColorValue()

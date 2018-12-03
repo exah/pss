@@ -1,14 +1,10 @@
-import { isStr, fallbackTo, path, identity } from '@exah/utils'
+import { fallbackTo, path, identity } from '@exah/utils'
 import { hasMediaKeys, keys } from '../utils'
 
 import {
   DEFAULT_KEY,
-  COLORS_KEY,
   MEDIA_KEY,
-  PALETTE_KEY,
-  DEFAULT_THEME_MEDIA,
-  DEFAULT_THEME_PALETTE,
-  DEFAULT_THEME_COLORS
+  DEFAULT_THEME_MEDIA
 } from '../constants'
 
 export const getTheme = (props) => (props && props.theme) || Object(props)
@@ -46,11 +42,6 @@ export const getMedia = (input, media) => media
   ? path(input)(media)
   : (props) => path(input)(getThemeMedia(props))
 
-export const getDefaultMedia = themePath([ DEFAULT_KEY, MEDIA_KEY ], DEFAULT_KEY)
-export const getDefaultPaletteName = themePath([ DEFAULT_KEY, PALETTE_KEY ], DEFAULT_KEY)
-export const getPalettes = themePath(PALETTE_KEY, DEFAULT_THEME_PALETTE)
-export const getColors = themePath(COLORS_KEY, DEFAULT_THEME_COLORS)
-
 export const getThemeMediaValue = (
   themeDataKey,
   transformValue = identity
@@ -75,34 +66,4 @@ export const getThemeMediaValue = (
   }
 
   return transformValue(fallbackTo(themeValue, defaultValue))
-}
-
-export const getPaletteColors = (input) => (props) => path(
-  isStr(input) ? input : getDefaultPaletteName(props),
-  {}
-)(getPalettes(props))
-
-export const getActiveColors = (input) => (props) => {
-  const palette = getPaletteColors(input)(props)
-  const colors = getColors(props)
-
-  return {
-    ...palette,
-    ...colors
-  }
-}
-
-export const getColor = (defaultColorKey, colorKey = true) => (props) => {
-  const activeColors = getActiveColors()(props)
-
-  const color = colorKey === true
-    ? path(defaultColorKey)(activeColors)
-    : isStr(colorKey) ? path(colorKey)(activeColors) : null
-
-  if (!colorKey) return color
-
-  return fallbackTo(
-    color,
-    path(defaultColorKey)(getPaletteColors(colorKey)(props))
-  )
 }

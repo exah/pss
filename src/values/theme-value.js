@@ -61,8 +61,8 @@ const themeValue = (options: {
 }): PropStyle => {
   const {
     themeKey,
-    themeGetter = getThemeMediaValue(themeKey),
-    transformValue = identity
+    transformValue = identity,
+    themeGetter = getThemeMediaValue(themeKey, transformValue)
   } = options
 
   return (input, props, mediaKey) => everyMediaValue(
