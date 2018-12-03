@@ -66,10 +66,39 @@ const padding = createPropStyles({
  *
  * - Used as plain CSS value (like `'10%'`, `'1em'` or `'100vh'`)
  *
+ * @example
+ * import { space } from 'pss'
  *
- * <br /> Examples use this `theme`:
+ * const Box = styled.div`
+ *   ${space}
+ * `
+ * @example
+ * const theme = {
+ *   media: { sm: '(max-width: 600px)' },
+ *   space: [ 0, 8, 16, 32, 65 ]
+ * }
  *
- * ```js
+ * // `theme.space[1]`
+ * <Box mg={1} /> // → margin: 8px;
+ * <Box mgl={1} /> // → margin-left: 8px;
+ * <Box mgt={true} /> // → margin-top: 8px;
+ *
+ * // `theme.space[2]`
+ * <Box mgy={2} /> // → margin-top: 16px; margin-bottom: 16px;
+ * <Box mg={-2} /> // → margin: -16px;
+ *
+ * // `theme.space[0]`
+ * <Box mg={0} /> // → margin: 0;
+ *
+ * // Responsive
+ * <Box mgr={{ sm: -1 }} /> // → @media (max-width: 600px) { margin-right: -8px }
+ * <Box mgr={{ all: 2, sm: -1 }} /> // → margin-right: 16px; @media (max-width: 600px) { margin-right: -8px }
+ *
+ * // Custom values
+ * <Box mgx='auto' /> // → margin-left: auto; margin-right: auto
+ * <Box mgy='100px' /> // → margin-top: 100px; margin-bootom: 100px
+ *
+ * @example
  * const theme = {
  *   media: {
  *     sm: '(max-width: 600px)'
@@ -79,17 +108,7 @@ const padding = createPropStyles({
  *     sm: [ 0, 8, 16, 32, 64 ],
  *   }
  * }
- * ```
  *
- *
- * @example
- * import { space } from 'pss'
- *
- * const Box = styled.div`
- *   ${space}
- * `
- *
- * @example
  * // `theme.space.default[1]` and `theme.space.sm[1]`
  * <Box mg={1} /> // → margin: 10px; @media (max-width: 600px) { margin: 8px }
  * <Box mgl={1} /> // → margin-left: 10px; @media (max-width: 600px) { margin-left: 8px }
@@ -99,16 +118,12 @@ const padding = createPropStyles({
  * <Box mgy={2} /> // → margin-top: 20px; margin-bottom: 20px; @media (max-width: 600px) { margin-top: 16px; margin-bottom: 16px }
  * <Box mg={-2} /> // → margin: -20px; @media (max-width: 600px) { margin: -16px; }
  *
- * // Reset
- * <Box mg={0} /> // → margin: 0
+ * // `theme.space.default[0]` and `theme.space.sm[0]`
+ * <Box mg={0} /> // → margin: 0; @media (max-width: 600px) { margin: 0 }
  *
  * // Responsive
  * <Box mgr={{ sm: -1 }} /> // → @media (max-width: 600px) { margin-right: -8px }
  * <Box mgr={{ all: 2, sm: -1 }} /> // → margin-right: 20px; @media (max-width: 600px) { margin-right: -8px }
- *
- * // Custom values
- * <Box mgx='auto' /> // → margin-left: auto; margin-right: auto
- * <Box mgy='100px' /> // → margin-top: 100px; margin-bootom: 100px
  */
 
 export const space = combine(margin, padding)
