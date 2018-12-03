@@ -160,15 +160,25 @@ const Box = styled.div`
 ```
 
 ```js
-<Box mg={1} /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
-<Box mgl={1} /> // .css { margin-left: 10px; @media (max-width: 600px) { margin-left: 8px } }
-<Box mgt={true} /> // .css { margin-top: 10px; @media (max-width: 600px) { margin-top: 8px } }
-<Box mgx='auto' /> // .css { margin-left: auto; margin-right: auto }
-<Box mgy={2} /> // .css { margin-top: 20px; margin-bottom: 20px; @media (max-width: 600px) { margin-top: 16px; margin-bottom: 16px } }
-<Box mg={-2} /> // .css { margin: -20px; @media (max-width: 600px) { margin: -16px; } }
-<Box mg={0} /> // .css { margin: 0 }
-<Box mgr={{ sm: -1 }} /> // @media (max-width: 600px) { .css { margin-right: -8px } }
-<Box mgr={{ all: 2, sm: -1 }} /> // .css { margin-right: 20px; @media (max-width: 600px) { margin-right: -8px } }
+// `theme.space.default[1]` and `theme.space.sm[1]`
+<Box mg={1} /> // → margin: 10px; @media (max-width: 600px) { margin: 8px }
+<Box mgl={1} /> // → margin-left: 10px; @media (max-width: 600px) { margin-left: 8px }
+<Box mgt={true} /> // → margin-top: 10px; @media (max-width: 600px) { margin-top: 8px }
+
+// `theme.space.default[2]` and `theme.space.sm[2]`
+<Box mgy={2} /> // → margin-top: 20px; margin-bottom: 20px; @media (max-width: 600px) { margin-top: 16px; margin-bottom: 16px }
+<Box mg={-2} /> // → margin: -20px; @media (max-width: 600px) { margin: -16px; }
+
+// Reset
+<Box mg={0} /> // → margin: 0
+
+// Responsive
+<Box mgr={{ sm: -1 }} /> // → @media (max-width: 600px) { margin-right: -8px }
+<Box mgr={{ all: 2, sm: -1 }} /> // → margin-right: 20px; @media (max-width: 600px) { margin-right: -8px }
+
+// Custom values
+<Box mgx='auto' /> // → margin-left: auto; margin-right: auto
+<Box mgy='100px' /> // → margin-top: 100px; margin-bootom: 100px
 ```
 
 ### sizes
@@ -236,7 +246,7 @@ const Box = styled.div`
 ```
 
 ```js
-// theme.size.small
+// `theme.size.small`
 <Box height='small' /> // height: 10px
 
 // `theme.size.card.default` and `theme.size.card.sm`

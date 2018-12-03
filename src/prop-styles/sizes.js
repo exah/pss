@@ -66,7 +66,7 @@ import { sizeValue } from '../values'
  * `
  *
  * @example
- * // theme.size.small
+ * // `theme.size.small`
  * <Box height='small' /> // height: 10px
  *
  * // `theme.size.card.default` and `theme.size.card.sm`
