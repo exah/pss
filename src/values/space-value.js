@@ -1,7 +1,7 @@
 // @flow
 
 import type { StyleValue } from '../types'
-import { isStr, isFn, fallbackTo, isArr } from '@exah/utils'
+import { isStr, isFn, fallbackTo, isArr, identity } from '@exah/utils'
 import { DEFAULT_KEY, DEFAULT_THEME_SPACE, SPACE_KEY } from '../constants'
 import { hasMediaKeys, keys, px, splitUnit, toUnit } from '../utils'
 import { getThemeMediaKeys, themePath } from '../getters'
@@ -11,7 +11,8 @@ type Options = {
   themeKey: string,
   defaultSpace: Array<number>,
   getter: Function,
-  transformValue: Function
+  transformValue: Function,
+  defaultValue: Function
 }
 
 const getValue = (input, spaces = []) => {
@@ -32,9 +33,10 @@ export function createSpaceValue ({
   themeKey = SPACE_KEY,
   defaultSpace = DEFAULT_THEME_SPACE,
   getter = themePath(SPACE_KEY, defaultSpace),
-  transformValue = px
+  transformValue = px,
+  defaultValue: optDefaultValue = sizeValue(identity)
 }: Options = {}): (defaultValue: Function | StyleValue) => Function {
-  return (defaultValue = sizeValue()) => (
+  return (defaultValue = optDefaultValue) => (
     input,
     props,
     defaultMediaKey
@@ -75,34 +77,61 @@ export function createSpaceValue ({
  * import { spaceValue } from 'pss'
  * ```
  *
- * Create space props for `margin`, `padding` or any CSS prop that have similiar signature.
- * Result is props for {@link createPropStyles} with specified prop prefix.
+ * Spacing system for `margin`, `padding`. Default behaviour described in {@link space}. Must be used with {@link rule}.
  *
- * - `{compProp}` → `{cssProp}`
- * - `{compProp}l` → `{cssProp}-left`
- * - `{compProp}r` → `{cssProp}-right`
- * - `{compProp}t` → `{cssProp}-top`
- * - `{compProp}b` → `{cssProp}-bottom`
- * - `{compProp}x` → `{cssProp}-left`, `{cssProp}-right`
- * - `{compProp}y` → `{cssProp}-top`, `{cssProp}-bottom`
+ * Related: {@link space}, {@link sizes}, {@link rule}, {@link sizeValue}.
  *
- * Related: {@link space}.
- *
- * @param cssProp — Usually is `margin` or `padding`
- * @param compProp — Prop name that will be used in component
- * @param getSpaceValue — Custom getter from theme, default to get values from `theme.space`
+ * @param [defaultValue = sizeValue(identity)] — Fallback value used when prop value is {@link String} or nothing returned.
  *
  * @example
- * import pss, { createSpace } from 'pss'
+ * import pss, { rule, spaceValue } from 'pss'
  *
- * // Create `margin` space prop styles with `mg` prefix
- * const marginPropStyles = pss(createSpace('margin', 'mg'))
+ * const spaceRule = (name) => rule(name, spaceValue())
  *
- * // Add to component
- * const Box = styled.div(marginPropStyles)
+ * const margin = pss({
+ *   mg: spaceRule('margin'),
+ *   mgl: spaceRule('marginLeft'),
+ *   mgr: spaceRule('marginRight'),
+ *   mgt: spaceRule('marginTop'),
+ *   mgb: spaceRule('marginBottom'),
+ *   mgx: [ spaceRule('marginLeft'), spaceRule('marginRight') ],
+ *   mgy: [ spaceRule('marginTop'), spaceRule('marginBottom') ]
+ * })
  *
- * // Result
- * <Box mg={1} /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
+ * const Box = styled.div`
+ *   ${margin}
+ * `
+ *
+ * @example
+ * const theme = {
+ *   media: {
+ *     sm: '(max-width: 600px)' // optional
+ *   },
+ *   space: [ 0, 8, 16, 32, 64 ]
+ * }
+ *
+ * <ThemeProvider theme={theme}>
+ *   <Box mg={1} /> // → margin: 8px;
+ *   <Box mgx={2} /> // → margin-left: 16px; margin-right: 16px
+ *   <Box mg={{ sm: 1 }} /> // → @media (max-width: 600px) { margin: 8px }
+ * </ThemeProvider>
+ *
+ * @example
+ * const theme = {
+ *   media: {
+ *     sm: '(max-width: 600px)'
+ *   },
+ *   space: {
+ *     default: [ 0, 8, 16, 32, 64 ],
+ *     sm: [ 0, 4, 8, 16, 32 ]
+ *   }
+ * }
+ *
+ * <ThemeProvider theme={theme}>
+ *   <Box mg={1} /> // → margin: 8px; @media (max-width: 600px) { margin: 4px }
+ *   <Box mgx={2} /> // → margin-left: 16px; margin-right: 16px; @media (max-width: 600px) { margin-left: 8px; margin-right: 8px; }
+ *   <Box mg={{ sm: 1 }} /> // → @media (max-width: 600px) { margin: 4px }
+ * </ThemeProvider>
  */
 
 export const spaceValue = createSpaceValue()

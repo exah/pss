@@ -34,9 +34,9 @@ toc:
       - rule
       - boolValue
       - sizeValue
+      - spaceValue
       - colorValue
       - themeValue
-      - spaceValue
       - mediaRule
 
   - name: Selectors

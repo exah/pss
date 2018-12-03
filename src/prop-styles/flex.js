@@ -26,7 +26,7 @@ import { boolValue, sizeValue } from '../values'
  * `
  *
  * @example
- * <FlexBox align='center' wrap> // display: flex; flex-wrap: wrap; align-items: center
+ * <FlexBox alignItems='center' flexWrap={true}> // display: flex; flex-wrap: wrap; align-items: center
  *   <div>1</div>
  *   <div>2</div>
  * </FlexBox>
@@ -68,7 +68,7 @@ const flex = createPropStyles({
  *
  * @example
  * <FlexBox> // display: flex
- *   <FlexBoxItem grow>2</FlexBoxItem> // flex-grow: 1
+ *   <FlexBoxItem grow={true}>2</FlexBoxItem> // flex-grow: 1
  *   <FlexBoxItem order={-1}>1</FlexBoxItem> // order: -1
  * </FlexBox>
  */

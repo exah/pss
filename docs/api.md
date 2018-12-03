@@ -56,13 +56,13 @@
     -   [sizeValue][52]
         -   [Parameters][53]
         -   [Examples][54]
-    -   [colorValue][55]
+    -   [spaceValue][55]
         -   [Parameters][56]
         -   [Examples][57]
-    -   [themeValue][58]
+    -   [colorValue][58]
         -   [Parameters][59]
         -   [Examples][60]
-    -   [spaceValue][61]
+    -   [themeValue][61]
         -   [Parameters][62]
         -   [Examples][63]
     -   [mediaRule][64]
@@ -102,7 +102,7 @@
 import { space } from 'pss'
 ```
 
-Consistent `space` system for setting `margin` or `padding`. Created with [spaceValue][61].
+Consistent `space` system for setting `margin` or `padding`. Created with [spaceValue][55].
 
 **Component props:**
 
@@ -264,7 +264,7 @@ const Box = styled.div`
 import { colors } from 'pss'
 ```
 
-Prop styles for getting current `palette` or `color` value from `theme`. Created with [colorValue][55].
+Prop styles for getting current `palette` or `color` value from `theme`. Created with [colorValue][58].
 
 Result can be changed in nested components with setting other key in `theme.default.palette`.
 
@@ -374,7 +374,7 @@ const FlexBox = styled.div`
 `
 ```
 
-    <FlexBox align='center' wrap> // display: flex; flex-wrap: wrap; align-items: center
+    <FlexBox alignItems='center' flexWrap={true}> // display: flex; flex-wrap: wrap; align-items: center
       <div>1</div>
       <div>2</div>
     </FlexBox>
@@ -409,7 +409,7 @@ const FlexBoxItem = styled.div`
 ```
 
     <FlexBox> // display: flex
-      <FlexBoxItem grow>2</FlexBoxItem> // flex-grow: 1
+      <FlexBoxItem grow={true}>2</FlexBoxItem> // flex-grow: 1
       <FlexBoxItem order={-1}>1</FlexBoxItem> // order: -1
     </FlexBox>
 
@@ -549,7 +549,7 @@ const Box = styled.div`
 import { border } from 'pss'
 ```
 
-Set border with values from theme, created with [sizeValue][52] and [colorValue][55].
+Set border with values from theme, created with [sizeValue][52] and [colorValue][58].
 
 | prop        | css                                              | type                          | value | true                 | false               |
 | :---------- | :----------------------------------------------- | :---------------------------- | :---- | :------------------- | :------------------ |
@@ -763,7 +763,7 @@ import { cssProp } from 'pss'
 Dynamic CSS prop like in [glamorous][94].
 You don't need this if your CSS-in-JS library of choice support it.
 
-Simple implementation:
+Implementation:
 
 ```js
 const cssProp = createPropStyles({
@@ -1051,7 +1051,7 @@ const Box = styled.div(pss({
 ```js
 // Add theme to ThemeProvider
 <ThemeProvider theme={theme}>
-  <Box display='flex' /> // { display: 'flex' }
+  <Box display='flex' /> // → display: flex
 </ThemeProvider>
 ```
 
@@ -1082,9 +1082,9 @@ const Box = styled.div(pss({
 ```
 
 ```js
-<Box opacity={true} /> // → { opacity: 1 }
-<Box opacity={false} /> // → { opacity: 0 }
-<Box opacity={0.5} /> // → { opacity: 0.5 }
+<Box opacity={true} /> // → opacity: 1
+<Box opacity={false} /> // → opacity: 0
+<Box opacity={0.5} /> // → opacity: 0.5
 ```
 
 ### sizeValue
@@ -1117,13 +1117,82 @@ const Box = styled.div`
 ```
 
 ```js
-<Box w /> // width: 100%
-<Box w={false} /> // width: 0
-<Box w={{ sm: (1 / 2) }} /> // @media (max-width: 600px) { width: 50% }
-<Box h='300px' /> // height: 300px
-<Box l={{ all: 0, sm: 'auto' }} /> // left: 0; @media (max-width: 600px) { left: auto }
-<Box l={20} r={10} /> // left: 20px; right: 10px
-<Box l r /> // left: 0; right: 0
+<Box w /> // → width: 100%
+<Box w={false} /> // → width: 0
+<Box w={{ sm: (1 / 2) }} /> // → @media (max-width: 600px) { width: 50% }
+<Box h='300px' /> // → height: 300px
+<Box l={{ all: 0, sm: 'auto' }} /> // → left: 0; @media (max-width: 600px) { left: auto }
+<Box l={20} r={10} /> // → left: 20px; right: 10px
+<Box l r /> // → left: 0; right: 0
+```
+
+### spaceValue
+
+```js
+import { spaceValue } from 'pss'
+```
+
+Spacing system for `margin`, `padding`. Default behaviour described in [space][2]. Must be used with [rule][46].
+
+Related: [space][2], [sizes][4], [rule][46], [sizeValue][52].
+
+#### Parameters
+
+-   `defaultValue`  — Fallback value used when prop value is [String][101] or nothing returned. (optional, default `sizeValue(identity)`)
+
+#### Examples
+
+```js
+import pss, { rule, spaceValue } from 'pss'
+
+const spaceRule = (name) => rule(name, spaceValue())
+
+const margin = pss({
+  mg: spaceRule('margin'),
+  mgl: spaceRule('marginLeft'),
+  mgr: spaceRule('marginRight'),
+  mgt: spaceRule('marginTop'),
+  mgb: spaceRule('marginBottom'),
+  mgx: [ spaceRule('marginLeft'), spaceRule('marginRight') ],
+  mgy: [ spaceRule('marginTop'), spaceRule('marginBottom') ]
+})
+
+const Box = styled.div`
+  ${margin}
+`
+```
+
+```js
+const theme = {
+  media: {
+    sm: '(max-width: 600px)' // optional
+  },
+  space: [ 0, 8, 16, 32, 64 ]
+}
+
+<ThemeProvider theme={theme}>
+  <Box mg={1} /> // → margin: 8px;
+  <Box mgx={2} /> // → margin-left: 16px; margin-right: 16px
+  <Box mg={{ sm: 1 }} /> // → @media (max-width: 600px) { margin: 8px }
+</ThemeProvider>
+```
+
+```js
+const theme = {
+  media: {
+    sm: '(max-width: 600px)'
+  },
+  space: {
+    default: [ 0, 8, 16, 32, 64 ],
+    sm: [ 0, 4, 8, 16, 32 ]
+  }
+}
+
+<ThemeProvider theme={theme}>
+  <Box mg={1} /> // → margin: 8px; @media (max-width: 600px) { margin: 4px }
+  <Box mgx={2} /> // → margin-left: 16px; margin-right: 16px; @media (max-width: 600px) { margin-left: 8px; margin-right: 8px; }
+  <Box mg={{ sm: 1 }} /> // → @media (max-width: 600px) { margin: 4px }
+</ThemeProvider>
 ```
 
 ### colorValue
@@ -1238,46 +1307,6 @@ const Text = styled.div(pss({
 ```
 
 Returns **[PropStyle][100]** 
-
-### spaceValue
-
-```js
-import { spaceValue } from 'pss'
-```
-
-Create space props for `margin`, `padding` or any CSS prop that have similiar signature.
-Result is props for [createPropStyles][43] with specified prop prefix.
-
--   `{compProp}` → `{cssProp}`
--   `{compProp}l` → `{cssProp}-left`
--   `{compProp}r` → `{cssProp}-right`
--   `{compProp}t` → `{cssProp}-top`
--   `{compProp}b` → `{cssProp}-bottom`
--   `{compProp}x` → `{cssProp}-left`, `{cssProp}-right`
--   `{compProp}y` → `{cssProp}-top`, `{cssProp}-bottom`
-
-Related: [space][2].
-
-#### Parameters
-
--   `cssProp`  — Usually is `margin` or `padding`
--   `compProp`  — Prop name that will be used in component
--   `getSpaceValue`  — Custom getter from theme, default to get values from `theme.space`
-
-#### Examples
-
-```js
-import pss, { createSpace } from 'pss'
-
-// Create `margin` space prop styles with `mg` prefix
-const marginPropStyles = pss(createSpace('margin', 'mg'))
-
-// Add to component
-const Box = styled.div(marginPropStyles)
-
-// Result
-<Box mg={1} /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
-```
 
 ### mediaRule
 
@@ -1485,7 +1514,7 @@ const Box = styled.div`
 Object with keys that represents component `prop` and
 the value is a `style` that will be applied (or [PropStyle][87]).
 
-Type: [Object][101]
+Type: [Object][102]
 
 #### Examples
 
@@ -1505,7 +1534,7 @@ Type: [Object][101]
 
 ### PropStyle
 
-[Function][102] that returns style that will be applied to component when prop is used.
+[Function][103] that returns style that will be applied to component when prop is used.
 
 Type: function (value: PropStyleValue, props: Props, mediaKey: ([string][98] | null)): Styles
 
@@ -1623,19 +1652,19 @@ Type: function (value: PropStyleValue, props: Props, mediaKey: ([string][98] | n
 
 [54]: #examples-23
 
-[55]: #colorvalue
+[55]: #spacevalue
 
 [56]: #parameters-4
 
 [57]: #examples-24
 
-[58]: #themevalue
+[58]: #colorvalue
 
 [59]: #parameters-5
 
 [60]: #examples-25
 
-[61]: #spacevalue
+[61]: #themevalue
 
 [62]: #parameters-6
 
@@ -1715,6 +1744,8 @@ Type: function (value: PropStyleValue, props: Props, mediaKey: ([string][98] | n
 
 [100]: #propstyle
 
-[101]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[101]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[102]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[102]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[103]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function

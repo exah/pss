@@ -57,13 +57,13 @@ export function createSizeValue ({
  * `
  *
  * @example
- * <Box w /> // width: 100%
- * <Box w={false} /> // width: 0
- * <Box w={{ sm: (1 / 2) }} /> // @media (max-width: 600px) { width: 50% }
- * <Box h='300px' /> // height: 300px
- * <Box l={{ all: 0, sm: 'auto' }} /> // left: 0; @media (max-width: 600px) { left: auto }
- * <Box l={20} r={10} /> // left: 20px; right: 10px
- * <Box l r /> // left: 0; right: 0
+ * <Box w /> // → width: 100%
+ * <Box w={false} /> // → width: 0
+ * <Box w={{ sm: (1 / 2) }} /> // → @media (max-width: 600px) { width: 50% }
+ * <Box h='300px' /> // → height: 300px
+ * <Box l={{ all: 0, sm: 'auto' }} /> // → left: 0; @media (max-width: 600px) { left: auto }
+ * <Box l={20} r={10} /> // → left: 20px; right: 10px
+ * <Box l r /> // → left: 0; right: 0
  */
 
 export const sizeValue = createSizeValue()

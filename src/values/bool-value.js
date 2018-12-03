@@ -19,9 +19,9 @@ import { isBool } from '@exah/utils'
  * }))
  *
  * @example
- * <Box opacity={true} /> // → { opacity: 1 }
- * <Box opacity={false} /> // → { opacity: 0 }
- * <Box opacity={0.5} /> // → { opacity: 0.5 }
+ * <Box opacity={true} /> // → opacity: 1
+ * <Box opacity={false} /> // → opacity: 0
+ * <Box opacity={0.5} /> // → opacity: 0.5
  */
 
 export const boolValue = (trueVal: ? StyleValue, falseVal: ? StyleValue) => (

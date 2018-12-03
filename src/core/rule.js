@@ -32,7 +32,7 @@ import { toCssRule } from '../utils'
  * @example
  * // Add theme to ThemeProvider
  * <ThemeProvider theme={theme}>
- *   <Box display='flex' /> // { display: 'flex' }
+ *   <Box display='flex' /> // → display: flex
  * </ThemeProvider>
  */
 
