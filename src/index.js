@@ -62,8 +62,7 @@ export {
 } from './values'
 
 export {
-  combine,
-  skipPropValue,
   wrap,
-  wrapIfMedia
+  wrapIfMedia,
+  combine
 } from './utils'

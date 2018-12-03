@@ -1,4 +1,3 @@
-import { toObj } from '@exah/utils'
 import { createPropStyles } from '../core'
 import { cssPropPropType } from '../prop-types'
 
@@ -10,7 +9,7 @@ import { cssPropPropType } from '../prop-types'
  * Dynamic CSS prop like in [glamorous](https://glamorous.rocks).
  * You don't need this if your CSS-in-JS library of choice support it.
  *
- * Simple implementation:
+ * Implementation:
  *
  * ```js
  * const cssProp = createPropStyles({
@@ -31,7 +30,7 @@ import { cssPropPropType } from '../prop-types'
  */
 
 const cssProp = createPropStyles({
-  css: (val) => toObj(val)
+  css: (val) => ({ ...val })
 })
 
 cssProp.propTypes = {

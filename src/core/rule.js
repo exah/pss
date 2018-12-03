@@ -13,7 +13,7 @@ import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
 import { everyMediaValue } from './every-media'
 import { themePath } from '../getters'
 import { boolValue } from '../values'
-import { toCssRule } from '../utils'
+import { wrap } from '../utils'
 
 /**
  * ```js
@@ -47,7 +47,7 @@ function rule (
     mediaKey: ? string,
     isRawValue: ? boolean
   ): Style => {
-    const css = toCssRule(cssProp)
+    const css = wrap(cssProp)
 
     if (isRawValue === true) {
       return css(input)
