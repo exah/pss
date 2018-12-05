@@ -30,10 +30,10 @@ const getValue = (input, spaces = []) => {
 }
 
 export function createSpaceValue ({
+  transformValue = px,
   themeKey = SPACE_KEY,
   defaultSpace = DEFAULT_THEME_SPACE,
   getter = themePath(SPACE_KEY, defaultSpace),
-  transformValue = px,
   defaultValue: optDefaultValue = sizeValue(identity)
 }: Options = {}): (defaultValue: Function | StyleValue) => Function {
   return (defaultValue = optDefaultValue) => (
@@ -77,11 +77,13 @@ export function createSpaceValue ({
  * import { spaceValue } from 'pss'
  * ```
  *
- * Spacing system for `margin`, `padding`. Default behaviour described in {@link space}. Must be used with {@link rule}.
+ * Spacing system for `margin`, `padding`. Default behaviour described in {@link space}.
+ * Must be used with {@link rule}.
  *
  * Related: {@link space}, {@link sizes}, {@link rule}, {@link sizeValue}.
  *
  * @param [defaultValue = sizeValue(identity)] — Fallback value used when prop value is {@link String} or nothing returned.
+ * @return {Function} - that must be used in {@link rule}
  *
  * @example
  * import pss, { rule, spaceValue } from 'pss'

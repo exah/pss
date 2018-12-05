@@ -36,6 +36,7 @@ import { sizeValue } from '../values'
  * - `true` is `100%`
  * - `false` is `0`.
  *
+ * Related: {@link sizeValue}, {@link space}.
  *
  * Examples use this `theme`:
  *
@@ -67,25 +68,25 @@ import { sizeValue } from '../values'
  *
  * @example
  * // `theme.size.small`
- * <Box height='small' /> // height: 10px
+ * <Box height='small' /> // → height: 10px
  *
  * // `theme.size.card.default` and `theme.size.card.sm`
- * <Box width='card' /> // width: 500px; @media (max-width: 600px) { margin-left: 300px }
+ * <Box width='card' /> // → width: 500px; @media (max-width: 600px) { margin-left: 300px }
  *
  * // only `theme.size.card.sm`
- * <Box width={{ sm: 'card' }} /> // @media (max-width: 600px) { margin-left: 300px }
+ * <Box width={{ sm: 'card' }} /> // → @media (max-width: 600px) { margin-left: 300px }
  *
  * // `theme.site.width`
- * <Box maxWidth='site.width' /> // max-width: 1300px
+ * <Box maxWidth='site.width' /> // → max-width: 1300px
  *
  * // Smaller that or equal to `1` is percentage value
- * <Box maxWidth={(1 / 2)} /> // max-width: 50%
+ * <Box maxWidth={(1 / 2)} /> // → max-width: 50%
  *
  * // `false` is `0`
- * <Box height={false} /> // height: 0
+ * <Box height={false} /> // → height: 0
  *
  * // Convert to px
- * <Box minWidth={500} /> // max-width: 500px
+ * <Box minWidth={500} /> // → max-width: 500px
  */
 
 const sizes = createPropStyles({

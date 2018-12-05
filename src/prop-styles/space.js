@@ -64,7 +64,13 @@ const padding = createPropStyles({
  *
  * **`String` values:**
  *
- * - Used as plain CSS value (like `'10%'`, `'1em'` or `'100vh'`)
+ * Treated same way as in {@link size}.
+ *
+ * - Get value by path in `theme.size` or in top level `theme` object
+ * - If value in `theme.sizes` is an `Object` with media keys (like in `theme.media`) value is responsive
+ * - Other `String` values is passed as raw CSS value (like `'10%'` or `'100vh'`).
+ *
+ * Related: {@link spaceValue}, {@link sizes}.
  *
  * @example
  * import { space } from 'pss'

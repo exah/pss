@@ -1,25 +1,16 @@
-// @flow
-
-import type { PropStyleValue, StyleValue } from '../types'
 import { isNum, isFn } from '@exah/utils'
 import { SIZES_KEY } from '../constants'
 import { getThemeMediaValue } from '../getters'
 import { percentage, px } from '../utils'
 import { boolValue } from './bool-value'
 
-type Options = {
-  transformValue: Function,
-  getter: Function,
-  themeKey: string
-}
-
 export function createSizeValue ({
   transformValue = px,
   themeKey = SIZES_KEY,
   getter = getThemeMediaValue(themeKey, transformValue)
-}: Options = {}): (defaultValue: ? Function | StyleValue) => Function {
+} = {}) {
   return (defaultValue = boolValue('100%', 0)) => (
-    input: PropStyleValue,
+    input,
     props,
     mediaKey
   ) => {
@@ -38,9 +29,13 @@ export function createSizeValue ({
  * import { sizeValue } from 'pss'
  * ```
  *
- * Must be used with {@link rule}. See {@link sizes}.
+ * Sizes system for any css prop. Default behaviour described in {@link sizes}.
+ * Must be used with {@link rule}.
  *
- * @param [transformValue = boolValue('100%', 0)]
+ * Related: {@link sizes}, {@link rule}, {@link spaceValue}.
+ *
+ * @param {Function} [transformValue = boolValue('100%', 0)]
+ * @return {Function} - that must be used in {@link rule}
  *
  * @example
  * import pss, { rule, sizeValue, boolValue } from 'pss'
