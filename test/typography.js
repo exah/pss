@@ -69,3 +69,16 @@ test('text style', (t) => {
     fontWeight: 'bold'
   })
 })
+
+test('ellipsis', (t) => {
+  const result = toStyles(typography({
+    theme,
+    ellipsis: true
+  }))
+
+  t.deepEqual(result, {
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
+  })
+})
