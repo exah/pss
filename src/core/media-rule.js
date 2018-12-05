@@ -1,6 +1,3 @@
-// @flow
-
-import type { StyleValue, Props } from '../types'
 import { identity } from '@exah/utils'
 import { DEFAULT_KEY } from '../constants'
 import { getMedia } from '../getters'
@@ -12,6 +9,10 @@ import { wrapIfMedia } from '../utils'
  * ```
  *
  * Create style wrapped in `theme.media`.
+ *
+ * @param {string} cssProp
+ * @param {string} value
+ * @param {Function} [transformValue = identity]
  *
  * @example
  * import pss, { mediaRule } from 'pss'
@@ -34,10 +35,10 @@ import { wrapIfMedia } from '../utils'
  */
 
 export const mediaRule = (
-  cssProp: string,
-  value: StyleValue,
-  transformValue: Function = identity
-) => (input: string | boolean, props: Props, propMediaKey: string) => {
+  cssProp,
+  value,
+  transformValue = identity
+) => (input, props, propMediaKey) => {
   if (!input) return null
 
   const style = {

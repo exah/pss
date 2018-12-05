@@ -1,5 +1,3 @@
-// @flow
-
 export {
   createPropStyles as default,
   createPropStyles as pss,

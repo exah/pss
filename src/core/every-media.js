@@ -1,10 +1,8 @@
-// @flow
-
 import { isFn, identity, reduceObj } from '@exah/utils'
 import { wrapIfMedia } from '../utils'
 import { getThemeMedia } from '../getters'
 
-const everyMedia = (getStyle: Function) => (props: {}) => reduceObj(
+const everyMedia = (getStyle) => (props) => reduceObj(
   (acc, mediaKey, mediaQuery) => acc.concat(
     wrapIfMedia(mediaQuery, getStyle(mediaKey)) || []
   ),
@@ -13,9 +11,9 @@ const everyMedia = (getStyle: Function) => (props: {}) => reduceObj(
 )
 
 const everyMediaValue = (
-  getterOrValue: *,
-  wrapper: Function = identity
-) => (props: {}) => {
+  getterOrValue,
+  wrapper = identity
+) => (props) => {
   const themeValue = isFn(getterOrValue) ? getterOrValue(props) : getterOrValue
 
   if (isFn(themeValue)) {

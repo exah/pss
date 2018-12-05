@@ -3,7 +3,6 @@ const IS_ESM = !IS_TEST && process.env.MODULES !== 'cjs'
 
 module.exports = {
   'presets': [
-    '@babel/preset-flow',
     [
       '@babel/preset-env', {
         modules: IS_ESM ? false : 'commonjs',

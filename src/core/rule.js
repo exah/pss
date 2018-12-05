@@ -1,13 +1,3 @@
-// @flow
-
-import type {
-  StyleValue,
-  PropStyle,
-  Props,
-  PropStyleValue,
-  Style
-} from '../types'
-
 import { isBool, isStr } from '@exah/utils'
 import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
 import { everyMediaValue } from './every-media'
@@ -21,6 +11,11 @@ import { wrap } from '../utils'
  * ```
  *
  * Create style rule. Must be used with {@link createPropStyles}.
+ *
+ * @param {string} cssProp
+ * @param {Function} [getValue = boolValue()]
+ * @param {string} [defaultValue = 'unset']
+ * @return {Function}
  *
  * @example
  * import pss, { rule } from 'pss'
@@ -37,16 +32,16 @@ import { wrap } from '../utils'
  */
 
 function rule (
-  cssProp: string,
-  getValue: Function = boolValue(),
-  defaultValue: StyleValue = CSS_PROPS_DEFAULTS[cssProp] || CSS_DEFAULT_VALUE
-): PropStyle {
+  cssProp,
+  getValue = boolValue(),
+  defaultValue = CSS_PROPS_DEFAULTS[cssProp] || CSS_DEFAULT_VALUE
+) {
   return (
-    input: PropStyleValue,
-    props: Props,
-    mediaKey: ? string,
-    isRawValue: ? boolean
-  ): Style => {
+    input,
+    props,
+    mediaKey,
+    isRawValue
+  ) => {
     const css = wrap(cssProp)
 
     if (isRawValue === true) {

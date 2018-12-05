@@ -1,6 +1,3 @@
-// @flow
-
-import type { PropStyle, ThemeKey } from '../types'
 import { identity } from '@exah/utils'
 import { everyMediaValue } from '../core/every-media'
 import { getThemeMediaValue } from '../getters'
@@ -13,6 +10,12 @@ import { getThemeMediaValue } from '../getters'
  * Use styles defined in `theme[themeKey]`. Useful for creating global shared styles.
  *
  * See {@link textStyle}.
+ *
+ * @param {Object} [options = {}]
+ * @param {String} options.themeKey
+ * @param {Function} [options.transformValue = identity]
+ * @param {Function} [options.themeGetter = getThemeMediaValue(themeKey, transformValue)]
+ * @return {Function}
  *
  * @example
  * const theme = {
@@ -54,17 +57,11 @@ import { getThemeMediaValue } from '../getters'
  * }
  */
 
-const themeValue = (options: {
-  themeKey?: ThemeKey,
-  themeGetter?: Function,
-  transformValue?: Function
-}): PropStyle => {
-  const {
-    themeKey,
-    transformValue = identity,
-    themeGetter = getThemeMediaValue(themeKey, transformValue)
-  } = options
-
+function themeValue ({
+  themeKey,
+  transformValue = identity,
+  themeGetter = getThemeMediaValue(themeKey, transformValue)
+} = {}) {
   return (input, props, mediaKey) => everyMediaValue(
     themeGetter(input, null, mediaKey),
     (value) => transformValue(value, input, props, mediaKey)

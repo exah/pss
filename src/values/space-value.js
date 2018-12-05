@@ -1,19 +1,8 @@
-// @flow
-
-import type { StyleValue } from '../types'
 import { isStr, isFn, fallbackTo, isArr, identity } from '@exah/utils'
 import { DEFAULT_KEY, DEFAULT_THEME_SPACE, SPACE_KEY } from '../constants'
 import { hasMediaKeys, keys, px, splitUnit, toUnit } from '../utils'
 import { getThemeMediaKeys, themePath } from '../getters'
 import { sizeValue } from './size-value'
-
-type Options = {
-  themeKey: string,
-  defaultSpace: Array<number>,
-  getter: Function,
-  transformValue: Function,
-  defaultValue: Function
-}
 
 const getValue = (input, spaces = []) => {
   const value = spaces[Math.abs(input)]
@@ -35,7 +24,7 @@ export function createSpaceValue ({
   defaultSpace = DEFAULT_THEME_SPACE,
   getter = themePath(SPACE_KEY, defaultSpace),
   defaultValue: optDefaultValue = sizeValue(identity)
-}: Options = {}): (defaultValue: Function | StyleValue) => Function {
+} = {}) {
   return (defaultValue = optDefaultValue) => (
     input,
     props,

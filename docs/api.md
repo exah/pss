@@ -1072,7 +1072,7 @@ Create style rule. Must be used with [createPropStyles][43].
 
 -   `cssProp` **[string][95]** 
 -   `getValue` **[Function][94]**  (optional, default `boolValue()`)
--   `defaultValue` **StyleValue**  (optional, default `CSS_PROPS_DEFAULTS[cssProp]||CSS_DEFAULT_VALUE`)
+-   `defaultValue` **[string][95]**  (optional, default `'unset'`)
 
 #### Examples
 
@@ -1091,7 +1091,7 @@ const Box = styled.div(pss({
 </ThemeProvider>
 ```
 
-Returns **PropStyle** 
+Returns **[Function][94]** 
 
 ### boolValue
 
@@ -1104,8 +1104,8 @@ Must be used with [rule][46].
 
 #### Parameters
 
--   `trueVal` **StyleValue?** 
--   `falseVal` **StyleValue?** 
+-   `trueVal`  
+-   `falseVal`  
 
 #### Examples
 
@@ -1304,7 +1304,10 @@ See [textStyle][24].
 
 #### Parameters
 
--   `options` **{themeKey: ThemeKey?, themeGetter: [Function][94]?, transformValue: [Function][94]?}** 
+-   `options` **[Object][93]**  (optional, default `{}`)
+    -   `options.themeKey` **[String][95]** 
+    -   `options.transformValue` **[Function][94]**  (optional, default `identity`)
+    -   `options.themeGetter` **[Function][94]**  (optional, default `getThemeMediaValue(themeKey,transformValue)`)
 
 #### Examples
 
@@ -1350,7 +1353,7 @@ const Text = styled.div(pss({
 }
 ```
 
-Returns **PropStyle** 
+Returns **[Function][94]** 
 
 ### mediaRule
 
@@ -1363,7 +1366,7 @@ Create style wrapped in `theme.media`.
 #### Parameters
 
 -   `cssProp` **[string][95]** 
--   `value` **StyleValue** 
+-   `value` **[string][95]** 
 -   `transformValue` **[Function][94]**  (optional, default `identity`)
 
 #### Examples
