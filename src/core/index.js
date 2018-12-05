@@ -1,5 +1,3 @@
-// @flow
-
 export * from './create-prop-styles'
 export * from './every-media'
 export * from './media-rule'

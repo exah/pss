@@ -1,12 +1,3 @@
-// @flow
-
-import type {
-  Styles,
-  Props,
-  Mixin,
-  PropStyles
-} from '../types'
-
 import {
   isFn,
   toArr,
@@ -38,14 +29,19 @@ import {
  * import pss from 'pss'
  * ```
  *
- * Function that accepts Object (see {@link PropStyles}) with keys that
- * represents component `prop` and the value is a `style` that will be applied.
+ * Function that accepts Object with keys that represents component `prop` and
+ * the value is a `style` that will be applied.
  *
- * Returns Function (see {@link Mixin}) that you add to
- * components created with CSS-in-JS libraries.
+ * If value is function it accepts following parameters:
+ * - `input` - prop value
+ * - `props` {@link Object} - component props, including `theme`
+ * - `mediaKey` {@link Object} - key in `theme.media` used as prop value
  *
- * When `theme` with `media` is provided to components, any styles can be changed
- * in media query with media name suffix (key in `theme.media`).
+ * By default styles applied without media query.
+ * But if you use object with `key` in `theme.media` as prop value, style will be applied in matched media.
+ *
+ * @param {Object} [styles = {}]
+ * @return {Function} for styled components.
  *
  * @example
  * import pss from 'pss'
@@ -55,7 +51,10 @@ import {
  *   display: value => ({ display: value }),
  *   flex: { display: 'flex' },
  *   inline: { display: 'inline-block' },
- *   hide: { display: 'none' }
+ *   hide: { display: 'none' },
+ *   size: (value, props, mediaKey) => ({
+ *     width: mediaKey === 'sm' && value === true ? '100%' : value
+ *   })
  * })
  *
  * // Add to component
@@ -81,15 +80,13 @@ import {
  *
  * // Add theme to ThemeProvider
  * <ThemeProvider theme={theme}>
- *   <Box display='flex' hide={{ sm: true }} />
+ *   <Box display='flex' hide={{ sm: true }} /> // → display: flex; @media (max-width: 600px) { display: none }
+ *   <Box size={{ all: '100px', sm: true }} /> // → width: 100px; @media (max-width: 600px) { width: 100% }
  * </ThemeProvider>
- *
- * // { display: flex }
- * // @media (max-width: 600px) { display: none }
  */
 
-export function createPropStyles (styles: PropStyles = {}): Mixin {
-  function propStyles (props: Props): Styles {
+export function createPropStyles (styles) {
+  function propStyles (props) {
     const media = getThemeMedia(props)
     const mediaKeys = keys(media)
 
