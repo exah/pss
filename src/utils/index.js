@@ -4,12 +4,10 @@ export const toUnit = curryN(2, (unit, n) => (n > 0 || n < 0) ? n + unit : n)
 export const px = toUnit('px')
 export const percentage = (n) => (n <= 0 || n > 1) ? n : `${n * 100}%`
 
-export const wrap = curryN(2, (name, style) => {
-  const wrapper = (value) => value != null ? (name ? { [name]: value } : value) : null
-  return isFn(style)
-    ? (...args) => wrapper(style(...args))
-    : wrapper(style)
-})
+export const wrap = curryN(2, (name, value) => value != null
+  ? (name ? { [name]: value } : value)
+  : null
+)
 
 export const wrapIfMedia = (query, style) => wrap(
   query ? `@media ${query}` : null,
