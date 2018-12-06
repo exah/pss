@@ -1,6 +1,6 @@
 import { identity, fallbackTo, isStr, path } from '@exah/utils'
-import { PALETTE_KEY, DEFAULT_KEY, COLORS_KEY } from '../constants'
-import { themePath } from '../getters'
+import { PALETTE_KEY, COLORS_KEY } from '../constants'
+import { themePath, getDefault } from '../getters'
 
 function createColorValue ({
   themeColorKey = COLORS_KEY,
@@ -11,7 +11,7 @@ function createColorValue ({
   const getColor = (defaultColorName) => (colorName) => (props) => {
     const colors = colorsGetter(props)
     const palettes = paletteGetter(props)
-    const defaultPaletteName = themePath([ DEFAULT_KEY, themePaletteKey ], DEFAULT_KEY)(props)
+    const defaultPaletteName = getDefault(themePaletteKey)(props)
 
     const activeColors = {
       ...path(defaultPaletteName)(palettes),

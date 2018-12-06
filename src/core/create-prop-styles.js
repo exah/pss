@@ -5,11 +5,13 @@ import {
 } from '@exah/utils'
 
 import {
+  MEDIA_KEY,
   ALL_MEDIA_KEY
 } from '../constants'
 
 import {
   getMedia,
+  getDefault,
   getThemeMedia
 } from '../getters'
 
@@ -88,13 +90,19 @@ import {
 export function createPropStyles (styles) {
   function propStyles (props) {
     const media = getThemeMedia(props)
+    const defaultMediaKey = getDefault(MEDIA_KEY)(props)
     const mediaKeys = keys(media)
 
     function mapPropStyles (input, mediaKey, style) {
+      const mediaQuery = getMedia(
+        mediaKey === undefined ? defaultMediaKey : mediaKey,
+        media
+      )
+
       // selectors
       if (isFn(input)) {
         return wrapIfMedia(
-          getMedia(mediaKey, media),
+          mediaQuery,
           input(props, mediaKey, style)
         )
       }
@@ -112,7 +120,7 @@ export function createPropStyles (styles) {
 
       // general prop style
       return wrapIfMedia(
-        getMedia(mediaKey, media),
+        mediaQuery,
         handlePropStyle(style, input, props, mediaKey)
       )
     }
@@ -120,7 +128,7 @@ export function createPropStyles (styles) {
     return reduceObj(
       (acc, propName, propValue) => acc.concat(
         toArr(styles[propName])
-          .map((style) => mapPropStyles(propValue, null, style) || [])
+          .map((style) => mapPropStyles(propValue, undefined, style) || [])
       ),
       props,
       []

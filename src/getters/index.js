@@ -37,6 +37,11 @@ export const getThemeMedia = (props) => ({
   ...path(MEDIA_KEY)(getTheme(props))
 })
 
+export const getDefault = (input, defaultValue = DEFAULT_KEY) => themePath(
+  [ DEFAULT_KEY, input ],
+  defaultValue
+)
+
 export const getThemeMediaKeys = (props) => keys(getThemeMedia(props))
 export const getMedia = (input, media) => media
   ? path(input)(media)
@@ -51,7 +56,7 @@ export const getThemeMediaValue = (
   defaultMediaKey
 ) => (props) => {
   const themeKey = input === true
-    ? themePath([ DEFAULT_KEY, themeDataKey ], DEFAULT_KEY)(props)
+    ? getDefault(themeDataKey)(props)
     : input
 
   const themeData = themePath(themeDataKey)(props)
