@@ -47,17 +47,14 @@ const flex = createPropStyles({
  *
  * [Flex item](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#Properties_applied_to_flex_items) prop styles.
  *
- * ⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `order`), so you may need to provide custom prop filtering.
  *
  * prop        | css           | type                          | value | true    | false
  * :-----------|:--------------|:------------------------------|:------|:------- |:--------
  * `flex`      | `flex`        | `String`, `Boolean`           | ✓     | `1 1 0` | `0 1 auto`
- * `grow`      | `flex-grow`   | `Number`, `Boolean`           | ✓     | `1`     | `0`
- * `shrink`    | `flex-shrink` | `Number`, `Boolean`           | ✓     | `1`     | `0`
- * `basis`     | `flex-basis`  | `String`, `Number`, `Boolean` | ✓     | `auto`  | —
  * `order`     | `order`       | `Number`, `Boolean`           | ✓     | `1`     | `0`
  * `alignSelf` | `align-self`  | `String`                      | ✓     | —       | —
  *
+ * ⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `order`), so you may need to provide custom prop filtering.
  *
  * @example
  * import { flexItem } from 'pss'
@@ -68,16 +65,13 @@ const flex = createPropStyles({
  *
  * @example
  * <FlexBox> // display: flex
- *   <FlexBoxItem grow={true}>2</FlexBoxItem> // flex-grow: 1
+ *   <FlexBoxItem flex='1 1'>2</FlexBoxItem> // flex: 1 1
  *   <FlexBoxItem order={-1}>1</FlexBoxItem> // order: -1
  * </FlexBox>
  */
 
 const flexItem = createPropStyles({
-  flex: rule('flex', boolValue('1 1 0', '0 1 auto')),
-  grow: rule('flexGrow', boolValue(1, 0)),
-  shrink: rule('flexShrink', boolValue(1, 0)),
-  basis: rule('flexBasis', sizeValue(boolValue('auto'))),
+  flex: rule('flex', sizeValue(boolValue('1 1 0', '0 1 auto'))),
   order: rule('order', boolValue(1, 0)),
   alignSelf: rule('alignSelf')
 })

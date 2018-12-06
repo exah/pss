@@ -429,16 +429,13 @@ import { flexItem } from 'pss'
 
 [Flex item][96] prop styles.
 
-⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `order`), so you may need to provide custom prop filtering.
+| prop        | css          | type                | value | true    | false      |
+| :---------- | :----------- | :------------------ | :---- | :------ | :--------- |
+| `flex`      | `flex`       | `String`, `Boolean` | ✓     | `1 1 0` | `0 1 auto` |
+| `order`     | `order`      | `Number`, `Boolean` | ✓     | `1`     | `0`        |
+| `alignSelf` | `align-self` | `String`            | ✓     | —       | —          |
 
-| prop        | css           | type                          | value | true    | false      |
-| :---------- | :------------ | :---------------------------- | :---- | :------ | :--------- |
-| `flex`      | `flex`        | `String`, `Boolean`           | ✓     | `1 1 0` | `0 1 auto` |
-| `grow`      | `flex-grow`   | `Number`, `Boolean`           | ✓     | `1`     | `0`        |
-| `shrink`    | `flex-shrink` | `Number`, `Boolean`           | ✓     | `1`     | `0`        |
-| `basis`     | `flex-basis`  | `String`, `Number`, `Boolean` | ✓     | `auto`  | —          |
-| `order`     | `order`       | `Number`, `Boolean`           | ✓     | `1`     | `0`        |
-| `alignSelf` | `align-self`  | `String`                      | ✓     | —       | —          |
+⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `order`), so you may need to provide custom prop filtering.
 
 #### Examples
 
@@ -451,7 +448,7 @@ const FlexBoxItem = styled.div`
 ```
 
     <FlexBox> // display: flex
-      <FlexBoxItem grow={true}>2</FlexBoxItem> // flex-grow: 1
+      <FlexBoxItem flex='1 1'>2</FlexBoxItem> // flex: 1 1
       <FlexBoxItem order={-1}>1</FlexBoxItem> // order: -1
     </FlexBox>
 
