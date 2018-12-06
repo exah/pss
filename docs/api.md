@@ -563,10 +563,11 @@ import { overflow } from 'pss'
 | :-------- | :------------------------------- | :------------------ | :---- | :--------------------- | :-------- |
 | `ov`      | `overflow`                       | `String`, `Boolean` | ✓     | `auto`                 | `visible` |
 | `ovx`     | `overflow-x`                     | `String`, `Boolean` | ✓     | `auto`                 | `visible` |
+| `ovy`     | `overflow-y`                     | `String`, `Boolean` | ✓     | `auto`                 | `visible` |
 | `ovh`     | `overflow`                       | `true`              | —     | `hidden`               | —         |
-| `ovtouch` | `-webkit-overflow-scrolling`     | `true`              | —     | `touch`                | —         |
 | `ovsx`    | `overflow-x` <br /> `overflow-y` | `true`              | —     | `auto` <br /> `hidden` | —         |
 | `ovsy`    | `overflow-x` <br /> `overflow-y` | `true`              | —     | `hidden` <br /> `auto` | —         |
+| `ovtouch` | `-webkit-overflow-scrolling`     | `true`              | —     | `touch`                | —         |
 
 #### Examples
 
