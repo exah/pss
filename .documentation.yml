@@ -21,7 +21,12 @@ toc:
       - textStyle
       - textHelpers
       - ellipsis
-      - utility
+      - outline
+      - opacity
+      - radius
+      - cursor
+      - transition
+      - transform
       - cssProp
       - ratio
       - base

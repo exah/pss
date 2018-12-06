@@ -31,7 +31,7 @@ import { themeValue } from '../values'
  * @example
  * <Text fontFamily={true} /> // → font-family: Helvetica
  * <Text fontFamily='ui' /> // → font-family: Helvetica
- * <Text fontFamily='serif' /> // → font-family: Times
+ * <Text fontFamily='heading' /> // → font-family: Times
  * <Text fontFamily='Comic Sans' /> // → font-family: Comic Sans
  */
 

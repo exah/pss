@@ -21,7 +21,11 @@ import { utility } from './utility'
  *   - {@link ratio}
  *   - {@link float}
  *   - {@link overflow}
- *   - {@link utility}
+ *   - {@link outline}
+ *   - {@link opacity}
+ *   - {@link radius}
+ *   - {@link cursor}
+ *   - {@link transition}
  *
  * @example
  * import { system } from 'pss'

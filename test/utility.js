@@ -22,7 +22,8 @@ test('radius', testValue({
   fn: utility,
   prop: 'radius',
   cssProp: 'borderRadius',
-  values: [ '9999px' ]
+  values: [ '9999px' ],
+  falseValue: 'unset'
 }))
 
 test('transform', testValue({
@@ -36,9 +37,7 @@ test('transition', testValue({
   fn: utility,
   prop: 'transition',
   cssProp: 'transition',
-  values: [ 'any' ],
-  trueValue: 'all .3s',
-  falseValue: 'none'
+  values: [ 'any', 'none' ]
 }))
 
 test('outline', testValue({
