@@ -5,7 +5,7 @@ hljs:
     - js
 
 toc:
-  - name: Prop Styles
+  - name: Styles
     children:
       - space
       - sizes

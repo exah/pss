@@ -33,7 +33,7 @@ export {
   textStyle,
   typography,
   utility
-} from './prop-styles'
+} from './styles'
 
 export {
   combineSelectors as cs,
