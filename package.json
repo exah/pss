@@ -56,7 +56,8 @@
   },
   "auto-changelog": {
     "unreleased": true,
-    "commitLimit": 20,
+    "commitLimit": false,
+    "tagPattern": "^\\d+\\.\\d+.\\d+$",
     "template": ".changelog.hbs"
   },
   "ava": {
