@@ -1674,7 +1674,6 @@ Get value from theme.
 #### Parameters
 
 -   `mediaKey`  — key in `theme.media`
--   `fallback`   (optional, default `'all'`)
 
 #### Examples
 

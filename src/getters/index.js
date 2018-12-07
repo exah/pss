@@ -32,6 +32,30 @@ export const themePath = (input, defaultValue) => (props) => path(
   defaultValue
 )(getTheme(props))
 
+/**
+ * ```js
+ * import { mq } from 'pss'
+ * ```
+ *
+ * Get value from theme.
+ *
+ * @param [mediaKey] — key in `theme.media`
+ *
+ * @example
+ * import { mq, themePath } from 'pss'
+ *
+ * const Box = styled.div`
+ *   ${mq('sm')} {
+ *     background-color: ${themePath('color.red', 'hotpink')};
+ *   }
+ * `
+ *
+ * <Box /> // → @media (max-width: 600px) { background-color: red; }
+ */
+
+export const mq = (mediaKey = 'default') =>
+  (props) => `@media ${getMedia(mediaKey)(props)}`
+
 export const getThemeMedia = (props) => ({
   ...DEFAULT_THEME_MEDIA,
   ...path(MEDIA_KEY)(getTheme(props))

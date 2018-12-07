@@ -8,9 +8,7 @@ export {
 } from './core'
 
 export {
-  getColor,
-  getColors,
-  getPalette,
+  mq,
   themePath
 } from './getters'
 
@@ -45,10 +43,6 @@ export {
   themeSelector as ts,
   themeSelector
 } from './selectors'
-
-export {
-  mq
-} from './mixins'
 
 export {
   createSizeValue,
