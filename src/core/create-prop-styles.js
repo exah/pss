@@ -91,7 +91,6 @@ export function createPropStyles (styles) {
   function propStyles (props) {
     const media = getThemeMedia(props)
     const defaultMediaKey = getDefault(MEDIA_KEY)(props)
-    const mediaKeys = keys(media)
 
     function mapPropStyles (input, mediaKey, style) {
       const mediaQuery = getMedia(
@@ -108,7 +107,7 @@ export function createPropStyles (styles) {
       }
 
       // value with `theme.media` keys: { all: 0, M: 1 }
-      if (hasMediaKeys(mediaKeys, keys(input))) {
+      if (hasMediaKeys(media, keys(input))) {
         return reduceObj(
           (acc, key, value) => acc.concat(
             mapPropStyles(value, (key === ALL_MEDIA_KEY ? null : key), style)

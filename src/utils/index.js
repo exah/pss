@@ -28,8 +28,10 @@ export const splitUnit = (str) => [ getNumber(str), getUnit(str) ]
 
 export const keys = (obj) => isObj(obj) ? Object.keys(Object(obj)) : []
 
-export const hasMediaKeys = (mediaKeys, val) =>
-  toArr(val).some((key) => mediaKeys.includes(key))
+export const hasMediaKeys = (media, val) => {
+  const mediaKeys = keys(media)
+  return toArr(val).some((key) => mediaKeys.includes(key))
+}
 
 export const combine = (...fns) => {
   const combined = (...args) => fns.map((fn) => fn(...args))

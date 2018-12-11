@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types'
-import { getThemeMediaKeys } from './getters'
+import { getThemeMedia } from './getters'
 import { keys, hasMediaKeys } from './utils'
 
 export function objectWithMediaKeysType (props, propName, componentName) {
-  const mediaKeys = getThemeMediaKeys(props)
+  const media = getThemeMedia(props)
+  const mediaKeys = keys(media)
 
-  if (mediaKeys.length === 0 || hasMediaKeys(mediaKeys, keys(props[propName]))) {
+  if (mediaKeys.length === 0 || hasMediaKeys(media, keys(props[propName]))) {
     return null
   }
 

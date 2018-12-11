@@ -1,4 +1,4 @@
-import { isStr, isFn, fallbackTo, isArr, identity } from '@exah/utils'
+import { isStr, isFn, fallbackTo, isArr, identity, pipe } from '@exah/utils'
 import { DEFAULT_KEY, DEFAULT_THEME_SPACE, SPACE_KEY } from '../constants'
 import { keys, px, splitUnit, toUnit } from '../utils'
 import { themePath } from '../getters'
@@ -19,7 +19,7 @@ const getValue = (input, spaces = []) => {
 }
 
 export function createSpaceValue ({
-  transformValue = px,
+  transformValue = pipe(getValue, px),
   themeKey = SPACE_KEY,
   defaultSpace = DEFAULT_THEME_SPACE,
   getter = themePath(SPACE_KEY, defaultSpace),
@@ -34,21 +34,19 @@ export function createSpaceValue ({
       const spaces = getter(props)
 
       if (isArr(spaces)) {
-        return transformValue(getValue(input, spaces))
+        return transformValue(input, spaces)
       }
 
       if (defaultMediaKey != null) {
-        return transformValue(
-          getValue(input, fallbackTo(
-            spaces[defaultMediaKey],
-            spaces[DEFAULT_KEY]
-          ))
-        )
+        return transformValue(input, fallbackTo(
+          spaces[defaultMediaKey],
+          spaces[DEFAULT_KEY]
+        ))
       }
 
       return keys(spaces).reduce((acc, key) => ({
         ...acc,
-        [key]: transformValue(getValue(input, spaces[key]))
+        [key]: transformValue(input, spaces[key])
       }), {})
     }
 

@@ -9,7 +9,7 @@ const everyMedia = (
 ) => {
   const media = getThemeMedia(props)
 
-  if (hasMediaKeys(keys(media), keys(value))) {
+  if (hasMediaKeys(media, keys(value))) {
     return keys(value).reduce((acc, key) => ({
       ...acc,
       ...wrapIfMedia(media[key], wrapper(value[key]))

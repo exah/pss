@@ -66,7 +66,6 @@ export const getDefault = (input, defaultValue = DEFAULT_KEY) => themePath(
   defaultValue
 )
 
-export const getThemeMediaKeys = (props) => keys(getThemeMedia(props))
 export const getMedia = (input, media) => media
   ? path(input)(media)
   : (props) => path(input)(getThemeMedia(props))
@@ -90,7 +89,7 @@ export const getThemeValue = (
     return transformValue(themeValue[defaultMediaKey])
   }
 
-  if (hasMediaKeys(getThemeMediaKeys(props), keys(themeValue))) {
+  if (hasMediaKeys(getThemeMedia(props), keys(themeValue))) {
     return mapObj((key, value) => [ key, transformValue(themeValue[key]) ], themeValue)
   }
 
