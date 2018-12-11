@@ -1,9 +1,9 @@
 import { isBool, isStr } from '@exah/utils'
 import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
-import { themePath } from '../getters'
-import { wrap } from '../utils'
 import { everyMedia } from '../core/every-media'
+import { themePath } from '../getters'
 import { boolValue } from '../values'
+import { wrap } from '../utils'
 
 /**
  * ```js
