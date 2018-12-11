@@ -1,5 +1,5 @@
 import test from 'ava'
-import { mergeDeepRight } from 'ramda'
+import { deepMerge } from '@exah/utils'
 import { colors, createPropStyles, rule, colorValue } from '../src'
 import { toStyles, testValue } from './_helpers'
 
@@ -37,7 +37,7 @@ const theme = {
   }
 }
 
-const themeInverted = mergeDeepRight(theme, {
+const themeInverted = deepMerge(theme, {
   default: { palette: 'inverted' }
 })
 

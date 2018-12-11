@@ -1,4 +1,4 @@
-import { identity } from '@exah/utils'
+import { identity, mapObj } from '@exah/utils'
 import { wrapIfMedia, hasMediaKeys, keys } from '../utils'
 import { getThemeMedia } from '../getters'
 
@@ -10,10 +10,7 @@ const everyMedia = (
   const media = getThemeMedia(props)
 
   if (hasMediaKeys(media, keys(value))) {
-    return keys(value).reduce((acc, key) => ({
-      ...acc,
-      ...wrapIfMedia(media[key], wrapper(value[key]))
-    }), {})
+    return mapObj((k, v) => wrapIfMedia(media[k], wrapper(v)), value)
   }
 
   return wrapper(value)

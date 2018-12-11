@@ -1,5 +1,4 @@
-import { mergeDeepRight } from 'ramda'
-import { toArr, flatten } from '@exah/utils'
+import { toArr, flatten, deepMerge } from '@exah/utils'
 
 const THEME = {
   media: {
@@ -8,7 +7,7 @@ const THEME = {
   }
 }
 
-const toStyles = (styles) => flatten(toArr(styles)).reduce(mergeDeepRight, {})
+const toStyles = (styles) => deepMerge(...flatten(toArr(styles)))
 const wrapInMedia = (style) => ({ [`@media ${THEME.media.M}`]: style })
 
 const throwConsoleErrors = () => {

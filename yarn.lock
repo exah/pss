@@ -832,10 +832,10 @@
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-0.7.3.tgz#4240c5eee8af86843452af7497ac2808be04a77d"
 
-"@exah/utils@^1.7.0":
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/@exah/utils/-/utils-1.7.2.tgz#bbca3c2913163b3a38bf28ccfa7f334694beeb4b"
-  integrity sha512-LzcYdNweYL8cSxvbPS2vQ8MmO8ErkNxVr7L+pMS2d7tpmXPLuC7k2C84wlOklT6MmiJdD+HXNSsA3VplwMiowA==
+"@exah/utils@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@exah/utils/-/utils-2.0.0.tgz#3a551bd4bb6e2f1e894357d3d945ac1867194f00"
+  integrity sha512-ylzX6B8K4H8e0MTVA/VJqo+U0mMKkXyFUGPKd18OeJNnoUPa7uMJfCHVRulnqAfvQqgHeFB+RKPI/O2QbtkBEw==
 
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
@@ -5674,10 +5674,6 @@ qs@^6.4.0:
 quick-lru@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-1.1.0.tgz#4360b17c61136ad38078397ff11416e186dcfbb8"
-
-ramda@^0.25.0:
-  version "0.25.0"
-  resolved "https://registry.yarnpkg.com/ramda/-/ramda-0.25.0.tgz#8fdf68231cffa90bc2f9460390a0cb74a29b29a9"
 
 raw-body@~1.1.0:
   version "1.1.7"

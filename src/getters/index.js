@@ -90,7 +90,10 @@ export const getThemeValue = (
   }
 
   if (hasMediaKeys(getThemeMedia(props), keys(themeValue))) {
-    return mapObj((key, value) => [ key, transformValue(themeValue[key]) ], themeValue)
+    return mapObj(
+      (key, value) => ({ [key]: transformValue(themeValue[key]) }),
+      themeValue
+    )
   }
 
   return transformValue(fallbackTo(themeValue, defaultValue))

@@ -1,6 +1,15 @@
-import { isStr, isFn, fallbackTo, isArr, identity, pipe } from '@exah/utils'
+import {
+  isStr,
+  isFn,
+  fallbackTo,
+  isArr,
+  identity,
+  pipe,
+  mapObj
+} from '@exah/utils'
+
 import { DEFAULT_KEY, DEFAULT_THEME_SPACE, SPACE_KEY } from '../constants'
-import { keys, px, splitUnit, toUnit } from '../utils'
+import { px, splitUnit, toUnit } from '../utils'
 import { themePath } from '../getters'
 import { sizeValue } from './size-value'
 
@@ -44,10 +53,7 @@ export function createSpaceValue ({
         ))
       }
 
-      return keys(spaces).reduce((acc, key) => ({
-        ...acc,
-        [key]: transformValue(input, spaces[key])
-      }), {})
+      return mapObj((key, value) => ({ [key]: transformValue(input, value) }), spaces)
     }
 
     return isFn(defaultValue)

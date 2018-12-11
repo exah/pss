@@ -1,7 +1,8 @@
 import {
   isFn,
   toArr,
-  reduceObj
+  reduceObj,
+  mapObj
 } from '@exah/utils'
 
 import {
@@ -108,13 +109,9 @@ export function createPropStyles (styles) {
 
       // value with `theme.media` keys: { all: 0, M: 1 }
       if (hasMediaKeys(media, keys(input))) {
-        return reduceObj(
-          (acc, key, value) => acc.concat(
-            mapPropStyles(value, (key === ALL_MEDIA_KEY ? null : key), style)
-          ),
-          input,
-          []
-        )
+        return mapObj((k, v) => (
+          mapPropStyles(v, (k === ALL_MEDIA_KEY ? null : k), style)
+        ), input)
       }
 
       // general prop style
@@ -129,15 +126,12 @@ export function createPropStyles (styles) {
         toArr(styles[propName])
           .map((style) => mapPropStyles(propValue, undefined, style) || [])
       ),
-      props,
-      []
+      [],
+      props
     )
   }
 
-  const propTypes = reduceObj((acc, key) => ({
-    ...acc,
-    [key]: styleValuePropType
-  }), styles)
+  const propTypes = mapObj((key) => ({ [key]: styleValuePropType }), styles)
 
   return Object.assign(propStyles, { propTypes })
 }
