@@ -2521,7 +2521,7 @@ See [textStyle][46].
 -   `options` **[Object][153]**  (optional, default `{}`)
     -   `options.themeKey` **[String][155]** 
     -   `options.transformValue` **[Function][154]**  (optional, default `identity`)
-    -   `options.themeGetter` **[Function][154]**  (optional, default `getThemeMediaValue(themeKey,transformValue)`)
+    -   `options.themeGetter` **[Function][154]**  (optional, default `getThemeValue(themeKey,transformValue)`)
 
 #### Examples
 

@@ -7,7 +7,7 @@ const borderRule = (Dir = '') => {
   const widthCssProp = `border${Dir}Width`
   const styleCssProp = `border${Dir}Style`
   const getValue = sizeValue(boolValue(1, 0))
-  const returnValue = (value, props) => px(getValue(value, props)(props))
+  const returnValue = (value, props) => px(getValue(value, props))
 
   return (value, props) => {
     if (isBool(value) || isNum(value)) {

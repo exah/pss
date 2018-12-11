@@ -1,6 +1,6 @@
 import { identity } from '@exah/utils'
-import { everyMediaValue } from '../core/every-media'
-import { getThemeMediaValue } from '../getters'
+import { everyMedia } from '../core/every-media'
+import { getThemeValue } from '../getters'
 
 /**
  * ```js
@@ -14,7 +14,7 @@ import { getThemeMediaValue } from '../getters'
  * @param {Object} [options = {}]
  * @param {String} options.themeKey
  * @param {Function} [options.transformValue = identity]
- * @param {Function} [options.themeGetter = getThemeMediaValue(themeKey, transformValue)]
+ * @param {Function} [options.themeGetter = getThemeValue(themeKey, transformValue)]
  * @return {Function}
  *
  * @example
@@ -60,12 +60,13 @@ import { getThemeMediaValue } from '../getters'
 function themeValue ({
   themeKey,
   transformValue = identity,
-  themeGetter = getThemeMediaValue(themeKey, transformValue)
+  themeGetter = getThemeValue(themeKey, transformValue)
 } = {}) {
-  return (input, props, mediaKey) => everyMediaValue(
-    themeGetter(input, null, mediaKey),
-    (value) => transformValue(value, input, props, mediaKey)
-  )(props)
+  return (input, props, mediaKey) => everyMedia(
+    themeGetter(input, null, mediaKey)(props),
+    (value) => transformValue(value, input, props, mediaKey),
+    props
+  )
 }
 
 export {

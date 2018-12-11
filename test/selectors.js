@@ -29,16 +29,12 @@ test('add margin-top to &:first-child', (t) => {
   }))
 
   t.deepEqual(result, {
-    '&:first-child': [
-      {
-        marginTop: '10px'
-      },
-      {
-        '@media (max-width: 600px)': {
-          marginTop: '5px'
-        }
+    '&:first-child': {
+      marginTop: '10px',
+      '@media (max-width: 600px)': {
+        marginTop: '5px'
       }
-    ]
+    }
   })
 })
 

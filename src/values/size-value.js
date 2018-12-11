@@ -1,13 +1,13 @@
 import { isNum, isFn } from '@exah/utils'
 import { SIZES_KEY } from '../constants'
-import { getThemeMediaValue } from '../getters'
+import { getThemeValue } from '../getters'
 import { percentage, px } from '../utils'
 import { boolValue } from './bool-value'
 
 export function createSizeValue ({
   transformValue = px,
   themeKey = SIZES_KEY,
-  getter = getThemeMediaValue(themeKey, transformValue)
+  getter = getThemeValue(themeKey, transformValue)
 } = {}) {
   return (defaultValue = boolValue('100%', 0)) => (
     input,
@@ -20,7 +20,7 @@ export function createSizeValue ({
         ? defaultValue(input, props, mediaKey)
         : defaultValue
 
-    return getter(input, value, mediaKey)
+    return getter(input, value, mediaKey)(props)
   }
 }
 

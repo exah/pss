@@ -1,4 +1,4 @@
-import { fallbackTo, path, identity } from '@exah/utils'
+import { fallbackTo, path, identity, mapObj } from '@exah/utils'
 import { hasMediaKeys, keys } from '../utils'
 
 import {
@@ -71,7 +71,7 @@ export const getMedia = (input, media) => media
   ? path(input)(media)
   : (props) => path(input)(getThemeMedia(props))
 
-export const getThemeMediaValue = (
+export const getThemeValue = (
   themeDataKey,
   transformValue = identity
 ) => (
@@ -91,7 +91,7 @@ export const getThemeMediaValue = (
   }
 
   if (hasMediaKeys(getThemeMediaKeys(props), keys(themeValue))) {
-    return (mediaKey) => transformValue(themeValue[mediaKey])
+    return mapObj((key, value) => [ key, transformValue(themeValue[key]) ], themeValue)
   }
 
   return transformValue(fallbackTo(themeValue, defaultValue))

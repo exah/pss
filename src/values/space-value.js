@@ -1,7 +1,7 @@
 import { isStr, isFn, fallbackTo, isArr, identity } from '@exah/utils'
 import { DEFAULT_KEY, DEFAULT_THEME_SPACE, SPACE_KEY } from '../constants'
-import { hasMediaKeys, keys, px, splitUnit, toUnit } from '../utils'
-import { getThemeMediaKeys, themePath } from '../getters'
+import { keys, px, splitUnit, toUnit } from '../utils'
+import { themePath } from '../getters'
 import { sizeValue } from './size-value'
 
 const getValue = (input, spaces = []) => {
@@ -34,9 +34,7 @@ export function createSpaceValue ({
       const spaces = getter(props)
 
       if (isArr(spaces)) {
-        return transformValue(
-          getValue(input, spaces)
-        )
+        return transformValue(getValue(input, spaces))
       }
 
       if (defaultMediaKey != null) {
@@ -48,11 +46,10 @@ export function createSpaceValue ({
         )
       }
 
-      if (hasMediaKeys(getThemeMediaKeys(props), keys(spaces))) {
-        return () => (mediaKey) => transformValue(
-          getValue(input, spaces[mediaKey])
-        )
-      }
+      return keys(spaces).reduce((acc, key) => ({
+        ...acc,
+        [key]: transformValue(getValue(input, spaces[key]))
+      }), {})
     }
 
     return isFn(defaultValue)

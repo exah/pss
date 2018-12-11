@@ -2,7 +2,6 @@ export {
   createPropStyles as default,
   createPropStyles as pss,
   createPropStyles,
-  everyMedia,
   mediaRule,
   rule
 } from './core'

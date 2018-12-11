@@ -1,9 +1,9 @@
 import { isBool, isStr } from '@exah/utils'
 import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
-import { everyMediaValue } from './every-media'
 import { themePath } from '../getters'
-import { boolValue } from '../values'
 import { wrap } from '../utils'
+import { everyMedia } from '../core/every-media'
+import { boolValue } from '../values'
 
 /**
  * ```js
@@ -62,7 +62,7 @@ function rule (
       return value === false ? css(defaultValue) : {}
     }
 
-    return everyMediaValue(value, css)(props)
+    return everyMedia(value, css, props)
   }
 }
 
