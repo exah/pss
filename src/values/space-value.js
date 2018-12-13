@@ -7,7 +7,7 @@ import {
   mapObj
 } from '@exah/utils'
 
-import { DEFAULT_KEY, DEFAULT_THEME_SPACE, SPACE_KEY } from '../constants'
+import { ALL_MEDIA_KEY, DEFAULT_THEME_SPACE, SPACE_KEY } from '../constants'
 import { px, splitUnit, toUnit } from '../utils'
 import { themePath } from '../getters'
 import { sizeValue } from './size-value'
@@ -50,7 +50,7 @@ export function createSpaceValue ({
     if (mediaKey != null) {
       return transformValue(input, fallbackTo(
         spaces[mediaKey],
-        spaces[DEFAULT_KEY]
+        spaces[ALL_MEDIA_KEY]
       ))
     }
 
@@ -113,7 +113,7 @@ export function createSpaceValue ({
  *     sm: '(max-width: 600px)'
  *   },
  *   space: {
- *     default: [ 0, 8, 16, 32, 64 ],
+ *     all: [ 0, 8, 16, 32, 64 ],
  *     sm: [ 0, 4, 8, 16, 32 ]
  *   }
  * }

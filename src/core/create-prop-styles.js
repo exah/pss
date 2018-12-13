@@ -6,8 +6,7 @@ import {
 } from '@exah/utils'
 
 import {
-  MEDIA_KEY,
-  ALL_MEDIA_KEY
+  MEDIA_KEY
 } from '../constants'
 
 import {
@@ -109,8 +108,8 @@ export function createPropStyles (styles) {
 
       // value with `theme.media` keys: { all: 0, M: 1 }
       if (hasMediaKeys(media, keys(input))) {
-        return mapObj((k, v) => (
-          mapPropStyles(v, (k === ALL_MEDIA_KEY ? null : k), style)
+        return mapObj((key, value) => (
+          mapPropStyles(value, key, style)
         ), input)
       }
 

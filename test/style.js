@@ -20,7 +20,7 @@ const theme = {
       textTransform: 'uppercase'
     },
     small: {
-      default: {
+      all: {
         height: '30px'
       },
       M: {
@@ -59,7 +59,7 @@ test('media style', (t) => {
   }))
 
   t.deepEqual(result, {
-    ...theme.customStyles.small.default,
+    ...theme.customStyles.small.all,
     [`@media ${theme.media.M}`]: theme.customStyles.small.M
   })
 })

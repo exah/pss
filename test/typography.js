@@ -24,7 +24,7 @@ const theme = {
       fontWeight: 'bold'
     },
     responsive: {
-      default: {
+      all: {
         fontSize: 16
       },
       M: {

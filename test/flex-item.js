@@ -34,8 +34,8 @@ const theme = {
   size: {
     site: 1000,
     card: {
-      default: 200,
-      'M': 100
+      all: 200,
+      M: 100
     }
   }
 }

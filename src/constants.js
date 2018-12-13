@@ -11,9 +11,9 @@ export const FONT_KEY = 'fontFamily'
 export const ALL_MEDIA_KEY = 'all'
 
 export const DEFAULT_THEME_MEDIA = {
-  [DEFAULT_KEY]: null
+  [ALL_MEDIA_KEY]: null
 }
 
 export const DEFAULT_THEME_SPACE = {
-  [DEFAULT_KEY]: [ 0 ]
+  [ALL_MEDIA_KEY]: [ 0 ]
 }

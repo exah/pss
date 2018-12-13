@@ -16,7 +16,7 @@ const theme = {
     M: '(max-width: 600px)'
   },
   space: {
-    default: [ 0, 10, 20, 30, 60 ],
+    all: [ 0, 10, 20, 30, 60 ],
     M: [ 0, 5, 10, 20, 20 ]
   },
   myValue: 100

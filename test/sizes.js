@@ -9,8 +9,8 @@ const theme = {
   },
   size: {
     nudge: {
-      default: 2,
-      'M': 1
+      all: 2,
+      M: 1
     },
     xl: 100
   },

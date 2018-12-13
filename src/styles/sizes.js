@@ -49,7 +49,7 @@ import { sizeValue } from '../values'
  *     small: '10px',
  *     medium: '20px',
  *     block: {
- *       default: '500px',
+ *       all: '500px',
  *       sm: '300px'
  *     }
  *   },

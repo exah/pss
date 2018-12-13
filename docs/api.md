@@ -260,7 +260,7 @@ const theme = {
     small: '10px',
     medium: '20px',
     block: {
-      default: '500px',
+      all: '500px',
       sm: '300px'
     }
   },
@@ -1367,7 +1367,7 @@ const theme = {
     sm: '(max-width: 600px)'
   },
   space: {
-    default: [ 0, 8, 16, 32, 64 ],
+    all: [ 0, 8, 16, 32, 64 ],
     sm: [ 0, 4, 8, 16, 32 ]
   }
 }

@@ -7,12 +7,12 @@ const theme = {
     sm: '(max-width: 600px)'
   },
   space: {
-    default: [ 0, 8, 16, 32 ],
+    all: [ 0, 8, 16, 32 ],
     sm: [ 0, 4, 8, 16 ]
   },
   size: {
     nudge: {
-      default: 2,
+      all: 2,
       sm: 1
     },
     xl: 100,
@@ -136,7 +136,7 @@ test('spaceValue', (t) => {
     }
   })
 
-  t.deepEqual(toStyles(style({ theme, mg: { default: 2 } })), {
+  t.deepEqual(toStyles(style({ theme, mg: { all: 2 } })), {
     margin: '16px'
   })
 
