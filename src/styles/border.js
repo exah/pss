@@ -1,33 +1,12 @@
-import { isNum, isStr, isBool, isArr } from '@exah/utils'
 import { createPropStyles, rule } from '../core'
-import { colorValue, sizeValue, boolValue } from '../values'
+import { BORDER_KEY } from '../constants'
+import { themeValue, colorValue } from '../values'
 import { px } from '../utils'
 
-const borderRule = (Dir = '') => {
-  const widthCssProp = `border${Dir}Width`
-  const styleCssProp = `border${Dir}Style`
-  const getValue = sizeValue(boolValue(1, 0))
-  const returnValue = (value, props) => px(getValue(value, props))
-
-  return (value, props) => {
-    if (isBool(value) || isNum(value)) {
-      return {
-        [widthCssProp]: returnValue(value, props),
-        [styleCssProp]: value ? 'solid' : 'none'
-      }
-    } else if (isStr(value) || isArr(value)) {
-      // '5px dotted' -> [ '5px', 'dotted' ]
-      const [ parsedWidth, style = 'solid' ] = value.toString().split(/,|\s+/g)
-
-      return {
-        [widthCssProp]: returnValue(parsedWidth, props),
-        [styleCssProp]: style
-      }
-    }
-
-    return {}
-  }
-}
+const sizeRule = (name) => rule(name, themeValue({
+  themeKey: BORDER_KEY,
+  transformValue: px
+}))
 
 /**
  * ```js
@@ -38,8 +17,8 @@ const borderRule = (Dir = '') => {
  *
  * prop       | css            | type                | value | true            | false
  * :----------|:---------------|:--------------------|:------|:----------------|:--------
- * `bdc`      | `border-color` | String              | ✓     | Default color** | `transparent`
- * `bd{dir}`* | `border-{dir}-width` <br /> `border-{dir}-style` | `Number`, `Boolean`, `String` | ✓ | `1px` <br /> `solid` | `0px` <br /> `none`
+ * `bdc`      | `border-color` | String              | ✓     | Default color** | —
+ * `bd{dir}`* | `border-{dir}` <br /> `border-{dir}` | `Number`, `Boolean`, `String` | ✓ | `1px` <br /> `solid` | `0px` <br /> `none`
  *
  * \* Directions:
  *
@@ -71,13 +50,13 @@ const borderRule = (Dir = '') => {
  */
 
 const border = createPropStyles({
-  bd: borderRule(),
-  bdl: borderRule('Left'),
-  bdr: borderRule('Right'),
-  bdt: borderRule('Top'),
-  bdb: borderRule('Bottom'),
-  bdx: [ borderRule('Left'), borderRule('Right') ],
-  bdy: [ borderRule('Top'), borderRule('Bottom') ],
+  bd: sizeRule('border'),
+  bdl: sizeRule('borderLeft'),
+  bdr: sizeRule('borderRight'),
+  bdt: sizeRule('borderTop'),
+  bdb: sizeRule('borderBottom'),
+  bdx: [ sizeRule('borderLeft'), sizeRule('borderRight') ],
+  bdy: [ sizeRule('borderTop'), sizeRule('borderBottom') ],
   bdc: rule('borderColor', colorValue('border'))
 })
 

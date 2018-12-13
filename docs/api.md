@@ -594,10 +594,10 @@ import { border } from 'pss'
 
 Set border with values from theme, created with [sizeValue][62] and [colorValue][68].
 
-| prop        | css                                              | type                          | value | true                 | false               |
-| :---------- | :----------------------------------------------- | :---------------------------- | :---- | :------------------- | :------------------ |
-| `bdc`       | `border-color`                                   | String                        | ✓     | Default color\*\*    | `transparent`       |
-| `bd{dir}`\* | `border-{dir}-width` <br /> `border-{dir}-style` | `Number`, `Boolean`, `String` | ✓     | `1px` <br /> `solid` | `0px` <br /> `none` |
+| prop        | css                                  | type                          | value | true                 | false               |
+| :---------- | :----------------------------------- | :---------------------------- | :---- | :------------------- | :------------------ |
+| `bdc`       | `border-color`                       | String                        | ✓     | Default color\*\*    | —                   |
+| `bd{dir}`\* | `border-{dir}` <br /> `border-{dir}` | `Number`, `Boolean`, `String` | ✓     | `1px` <br /> `solid` | `0px` <br /> `none` |
 
 \* Directions:
 

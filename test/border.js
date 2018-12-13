@@ -13,13 +13,12 @@ const theme = {
 test('bd', (t) => {
   const result = border({
     theme,
-    bd: true,
+    bd: '1px solid',
     bdc: true
   })
 
   t.deepEqual(toStyles(result), {
-    borderWidth: '1px',
-    borderStyle: 'solid',
+    border: '1px solid',
     borderColor: '#eee'
   })
 })
@@ -28,8 +27,7 @@ test('bdc', testValue({
   fn: border,
   prop: 'bdc',
   cssProp: 'borderColor',
-  values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ],
-  falseValue: 'transparent'
+  values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ]
 }))
 
 test('bdl custom', (t) => {
@@ -40,8 +38,7 @@ test('bdl custom', (t) => {
   })
 
   t.deepEqual(toStyles(result), {
-    borderLeftWidth: '5px',
-    borderLeftStyle: 'dotted',
+    borderLeft: '5px dotted',
     borderColor: '#eee'
   })
 })

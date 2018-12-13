@@ -1,6 +1,7 @@
 export const DEFAULT_KEY = 'default'
 export const COLORS_KEY = 'color'
 export const PALETTE_KEY = 'palette'
+export const BORDER_KEY = 'border'
 export const MEDIA_KEY = 'media'
 export const SIZES_KEY = 'size'
 export const SPACE_KEY = 'space'
