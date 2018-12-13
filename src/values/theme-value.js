@@ -1,5 +1,4 @@
 import { identity } from '@exah/utils'
-import { everyMedia } from '../core/every-media'
 import { getThemeValue } from '../getters'
 
 /**
@@ -7,9 +6,9 @@ import { getThemeValue } from '../getters'
  * import { themeValue } from 'pss'
  * ```
  *
- * Use styles defined in `theme[themeKey]`. Useful for creating global shared styles.
+ * Use values defined in `theme[themeKey]`.
  *
- * See {@link textStyle}.
+ * See {@link fontFamily}, {@link radius}.
  *
  * @param {Object} [options = {}]
  * @param {String} options.themeKey
@@ -19,18 +18,9 @@ import { getThemeValue } from '../getters'
  *
  * @example
  * const theme = {
- *   textStyle: {
- *     default: {
- *       fontSize: '16px',
- *       lineHeight: 1.2,
- *       fontFamily: 'system-ui'
- *     },
- *     heading: {
- *       fontSize: '2rem',
- *       lineHeight: 1.2,
- *       fontWeight: 'bold',
- *       fontFamily: 'system-ui'
- *     }
+ *   font: {
+ *     heading: 'Times New Roman, serif',
+ *     ui: 'system-ui, Helvetica, sans-serif'
  *   }
  * }
  *
@@ -38,22 +28,18 @@ import { getThemeValue } from '../getters'
  * import pss, { themeValue } from 'pss'
  *
  * const Text = styled.div(pss({
- *   textStyle: themeValue({ themeKey: 'textStyle' }),
  *   fontFamily: rule('fontFamily', themeValue({ themeKey: 'font' }))
  * }))
  *
  * <ThemeProvider theme={theme}>
- *   <Text textStyle='heading'>
+ *   <Text fontFamily='ui'>
  *     Hello World!
  *   </Text>
  * </ThemeProvider>
  *
  * @example
  * .css {
- *   font-size: 2rem;
- *   line-height: 1.2;
- *   font-weight: bold;
- *   font-family: system-ui;
+ *   font-family: system-ui, Helvetica, sans-serif;
  * }
  */
 
@@ -62,11 +48,7 @@ function themeValue ({
   transformValue = identity,
   themeGetter = getThemeValue(themeKey, transformValue)
 } = {}) {
-  return (input, props, mediaKey) => everyMedia(
-    themeGetter(input, null, mediaKey)(props),
-    (value) => transformValue(value, input, props, mediaKey),
-    props
-  )
+  return (input, props, mediaKey) => themeGetter(input, input, mediaKey)(props)
 }
 
 export {

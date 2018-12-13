@@ -26,8 +26,5 @@ import { themeValue } from '../values'
  */
 
 export const radius = createPropStyles({
-  radius: rule('borderRadius', themeValue({
-    themeKey: RADIUS_KEY,
-    transformValue: (value, input) => value || input
-  }))
+  radius: rule('borderRadius', themeValue({ themeKey: RADIUS_KEY }))
 })

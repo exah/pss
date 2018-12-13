@@ -1,6 +1,5 @@
 import { TEXT_STYLE_KEY } from '../constants'
-import { createPropStyles } from '../core'
-import { themeValue } from '../values'
+import { createPropStyles, themeStyle } from '../core'
 
 /**
  * ```js
@@ -42,7 +41,7 @@ import { themeValue } from '../values'
  */
 
 const textStyle = createPropStyles({
-  textStyle: themeValue({ themeKey: TEXT_STYLE_KEY })
+  textStyle: themeStyle({ themeKey: TEXT_STYLE_KEY })
 })
 
 export {

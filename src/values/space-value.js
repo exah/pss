@@ -13,7 +13,7 @@ import { px, splitUnit, toUnit } from '../utils'
 import { themePath } from '../getters'
 import { sizeValue } from './size-value'
 
-const getValue = (input, spaces = []) => {
+const getSpaceStep = (input, spaces = []) => {
   const value = spaces[Math.abs(input)]
   const coeficent = ((input < 0) ? -1 : 1)
 
@@ -28,7 +28,7 @@ const getValue = (input, spaces = []) => {
 }
 
 export function createSpaceValue ({
-  transformValue = pipe(getValue, px),
+  transformValue = pipe(getSpaceStep, px),
   themeKey = SPACE_KEY,
   defaultSpace = DEFAULT_THEME_SPACE,
   getter = themePath(SPACE_KEY, defaultSpace),

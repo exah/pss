@@ -3,9 +3,9 @@ import { wrapIfMedia, hasMediaKeys, keys } from '../utils'
 import { getThemeMedia } from '../getters'
 
 const everyMedia = (
+  props,
   value,
-  wrapper = identity,
-  props
+  wrapper = identity
 ) => {
   const media = getThemeMedia(props)
 

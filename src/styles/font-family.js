@@ -36,9 +36,7 @@ import { themeValue } from '../values'
  */
 
 const fontFamily = createPropStyles({
-  fontFamily: rule('fontFamily', themeValue({
-    themeKey: FONT_KEY
-  }))
+  fontFamily: rule('fontFamily', themeValue({ themeKey: FONT_KEY }))
 })
 
 export {

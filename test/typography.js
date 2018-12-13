@@ -1,5 +1,6 @@
 import test from 'ava'
-import { typography, textStyle } from '../src'
+import { typography } from '../src/styles/typography'
+import { textStyle } from '../src/styles/text-style'
 import { toStyles } from './_helpers'
 
 const theme = {
@@ -7,18 +8,28 @@ const theme = {
     fontFamily: 'ui'
   },
   media: {
-    D: '(min-width: 1025px)',
     M: '(max-width: 600px)'
   },
   fontFamily: {
     heading: 'Times New Roman, serif',
-    ui: 'Helivetica, system-ui'
+    ui: 'Helivetica, system-ui',
+    responsive: {
+      M: 'Times New Roman, serif'
+    }
   },
   textStyle: {
     heading: {
       fontSize: 32,
       lineHeight: 1.1,
       fontWeight: 'bold'
+    },
+    responsive: {
+      default: {
+        fontSize: 16
+      },
+      M: {
+        fontSize: 12
+      }
     }
   }
 }
@@ -80,5 +91,32 @@ test('ellipsis', (t) => {
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis'
+  })
+})
+
+test('responsive textStyle', (t) => {
+  const result = toStyles(typography({
+    theme,
+    textStyle: 'responsive'
+  }))
+
+  t.deepEqual(result, {
+    fontSize: 16,
+    '@media (max-width: 600px)': {
+      fontSize: 12
+    }
+  })
+})
+
+test('responsive fontFamily', (t) => {
+  const result = toStyles(typography({
+    theme,
+    fontFamily: 'responsive'
+  }))
+
+  t.deepEqual(result, {
+    '@media (max-width: 600px)': {
+      fontFamily: 'Times New Roman, serif'
+    }
   })
 })

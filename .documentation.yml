@@ -43,6 +43,7 @@ toc:
       - colorValue
       - themeValue
       - mediaRule
+      - themeStyle
 
   - name: Selectors
     children:

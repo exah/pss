@@ -62,7 +62,7 @@ function rule (
       return value === false ? css(defaultValue) : {}
     }
 
-    return everyMedia(value, css, props)
+    return everyMedia(props, value, css)
   }
 }
 
