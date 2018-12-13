@@ -2,9 +2,9 @@ export {
   createPropStyles as default,
   createPropStyles as pss,
   createPropStyles,
-  themeStyle,
   mediaRule,
-  rule
+  rule,
+  style
 } from './core'
 
 export {
