@@ -59,8 +59,7 @@ test('fg', testValue({
   prop: 'fg',
   cssProp: 'color',
   values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ],
-  trueValue: COLOR_BLACK,
-  falseValue: 'inherit'
+  trueValue: COLOR_BLACK
 }))
 
 test('bg', testValue({
@@ -69,8 +68,7 @@ test('bg', testValue({
   prop: 'bg',
   cssProp: 'backgroundColor',
   values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ],
-  trueValue: COLOR_WHITE,
-  falseValue: 'transparent'
+  trueValue: COLOR_WHITE
 }))
 
 test('set theme colors and override text color on mobile', (t) => {
@@ -100,24 +98,6 @@ test('change default theme to "inverted"', (t) => {
   const expected = {
     color: COLOR_WHITE,
     backgroundColor: COLOR_BLACK
-  }
-
-  t.deepEqual(toStyles(colors(props)), expected)
-})
-
-test('reset theme colors on mobile', (t) => {
-  const props = {
-    theme: themeInverted,
-    tm: { all: true, M: false }
-  }
-
-  const expected = {
-    color: COLOR_WHITE,
-    backgroundColor: COLOR_BLACK,
-    '@media (max-width: 600px)': {
-      color: 'inherit',
-      backgroundColor: 'transparent'
-    }
   }
 
   t.deepEqual(toStyles(colors(props)), expected)
@@ -158,12 +138,5 @@ test('custom color combination', (t) => {
     backgroundColor: COLOR_BLACK,
     borderColor: COLOR_WHITE,
     boxShadow: `0 0 20px 0 ${COLOR_SHADOW}`
-  })
-
-  t.deepEqual(toStyles(shadow({ theme, tm: false })), {
-    color: 'inherit',
-    backgroundColor: 'transparent',
-    borderColor: 'transparent',
-    boxShadow: `unset`
   })
 })

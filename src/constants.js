@@ -10,14 +10,6 @@ export const TEXT_STYLE_KEY = 'textStyle'
 export const FONT_KEY = 'fontFamily'
 export const ALL_MEDIA_KEY = 'all'
 
-export const CSS_DEFAULT_VALUE = 'unset'
-
-export const CSS_PROPS_DEFAULTS = {
-  color: 'inherit',
-  borderColor: 'transparent',
-  backgroundColor: 'transparent'
-}
-
 export const DEFAULT_THEME_MEDIA = {
   [DEFAULT_KEY]: null
 }

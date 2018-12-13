@@ -1,5 +1,4 @@
-import { isBool, isStr } from '@exah/utils'
-import { CSS_DEFAULT_VALUE, CSS_PROPS_DEFAULTS } from '../constants'
+import { isBool, isStr, isFn } from '@exah/utils'
 import { everyMedia } from '../core/every-media'
 import { themePath } from '../getters'
 import { boolValue } from '../values'
@@ -33,17 +32,26 @@ import { wrap } from '../utils'
 
 function rule (
   cssProp,
-  getValue = boolValue(),
-  defaultValue = CSS_PROPS_DEFAULTS[cssProp] || CSS_DEFAULT_VALUE
+  getValue = boolValue()
 ) {
+  const css = wrap(cssProp)
+
+  function getStyle (get, input, props, mediaKey) {
+    const value = get(input, props, mediaKey)
+
+    if (isBool(value)) {
+      return null
+    }
+
+    return isFn(value) ? getStyle(value, input, props, mediaKey) : value
+  }
+
   return (
     input,
     props,
     mediaKey,
     isRawValue
   ) => {
-    const css = wrap(cssProp)
-
     if (isRawValue === true) {
       return css(input)
     }
@@ -56,13 +64,11 @@ function rule (
       }
     }
 
-    const value = getValue(input, props, mediaKey)
-
-    if (isBool(value)) {
-      return value === false ? css(defaultValue) : {}
-    }
-
-    return everyMedia(props, value, css)
+    return everyMedia(
+      props,
+      getStyle(getValue, input, props, mediaKey),
+      css
+    )
   }
 }
 

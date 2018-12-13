@@ -1,6 +1,5 @@
 import {
   isStr,
-  isFn,
   fallbackTo,
   isArr,
   identity,
@@ -31,34 +30,34 @@ export function createSpaceValue ({
   transformValue = pipe(getSpaceStep, px),
   themeKey = SPACE_KEY,
   defaultSpace = DEFAULT_THEME_SPACE,
-  getter = themePath(SPACE_KEY, defaultSpace),
-  defaultValue: optDefaultValue = sizeValue(identity)
+  getter = themePath(SPACE_KEY, defaultSpace)
 } = {}) {
-  return (defaultValue = optDefaultValue) => (
+  return (defaultValue = sizeValue(identity)) => (
     input,
     props,
-    defaultMediaKey
+    mediaKey
   ) => {
-    if (!isStr(input)) {
-      const spaces = getter(props)
-
-      if (isArr(spaces)) {
-        return transformValue(input, spaces)
-      }
-
-      if (defaultMediaKey != null) {
-        return transformValue(input, fallbackTo(
-          spaces[defaultMediaKey],
-          spaces[DEFAULT_KEY]
-        ))
-      }
-
-      return mapObj((key, value) => ({ [key]: transformValue(input, value) }), spaces)
+    if (isStr(input)) {
+      return defaultValue
     }
 
-    return isFn(defaultValue)
-      ? defaultValue(input, props, defaultMediaKey)
-      : defaultValue
+    const spaces = getter(props)
+
+    if (isArr(spaces)) {
+      return transformValue(input, spaces)
+    }
+
+    if (mediaKey != null) {
+      return transformValue(input, fallbackTo(
+        spaces[mediaKey],
+        spaces[DEFAULT_KEY]
+      ))
+    }
+
+    return mapObj(
+      (key, value) => ({ [key]: transformValue(input, value) }),
+      spaces
+    )
   }
 }
 
