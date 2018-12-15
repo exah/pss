@@ -1,6 +1,5 @@
 import { FONT_KEY } from '../constants'
-import { createPropStyles, rule } from '../core'
-import { themeValue } from '../values'
+import { variant } from '../core'
 
 /**
  * ```js
@@ -35,8 +34,10 @@ import { themeValue } from '../values'
  * <Text fontFamily='Comic Sans' /> // → font-family: Comic Sans
  */
 
-const fontFamily = createPropStyles({
-  fontFamily: rule('fontFamily', themeValue({ themeKey: FONT_KEY }))
+const fontFamily = variant({
+  themeKey: FONT_KEY,
+  prop: 'fontFamily',
+  cssProp: 'fontFamily'
 })
 
 export {

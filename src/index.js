@@ -6,7 +6,8 @@ export {
   createPropStyles,
   themeStyle,
   mediaRule,
-  rule
+  rule,
+  variant
 } from './core'
 
 export {

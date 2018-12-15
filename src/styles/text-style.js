@@ -1,5 +1,5 @@
 import { TEXT_STYLE_KEY } from '../constants'
-import { createPropStyles, themeStyle } from '../core'
+import { variant } from '../core'
 
 /**
  * ```js
@@ -40,8 +40,9 @@ import { createPropStyles, themeStyle } from '../core'
  * <Text textStyle='heading' /> // → `theme.textStyle.heading`
  */
 
-const textStyle = createPropStyles({
-  textStyle: themeStyle({ themeKey: TEXT_STYLE_KEY })
+const textStyle = variant({
+  themeKey: TEXT_STYLE_KEY,
+  prop: 'textStyle'
 })
 
 export {
