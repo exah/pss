@@ -15,7 +15,20 @@ const theme = {
   color: {
     yellow: COLOR_YELLOW,
     white: COLOR_WHITE,
-    black: COLOR_BLACK
+    black: COLOR_BLACK,
+    greyArr: [
+      '#eee',
+      '#ccc',
+      '#ddd',
+      '#aaa'
+    ],
+    greyObj: {
+      default: '#eee',
+      100: '#eee',
+      200: '#ccc',
+      300: '#ddd',
+      400: '#aaa'
+    }
   },
   palette: {
     default: {
@@ -70,6 +83,26 @@ test('bg', testValue({
   values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ],
   trueValue: COLOR_WHITE
 }))
+
+test('theme.color as array', (t) => {
+  t.deepEqual(toStyles(colors({ theme, fg: 'greyArr.0' })), {
+    color: '#eee'
+  })
+
+  t.deepEqual(toStyles(colors({ theme, fg: 'greyArr' })), {
+    color: '#eee'
+  })
+})
+
+test('theme.color as object', (t) => {
+  t.deepEqual(toStyles(colors({ theme, fg: 'greyObj.200' })), {
+    color: '#ccc'
+  })
+
+  t.deepEqual(toStyles(colors({ theme, fg: 'greyObj' })), {
+    color: '#eee'
+  })
+})
 
 test('set theme colors and override text color on mobile', (t) => {
   const props = {

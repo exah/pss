@@ -1,4 +1,4 @@
-import { identity, fallbackTo, isStr, path } from '@exah/utils'
+import { identity, fallbackTo, isStr, isArr, path } from '@exah/utils'
 import { PALETTE_KEY, COLORS_KEY } from '../constants'
 import { themePath, getDefault } from '../getters'
 
@@ -34,7 +34,13 @@ function createColorValue ({
     const getValue = getColor(key)
 
     return (input = true, props) => {
-      const color = getValue(input)(props)
+      let color = getValue(input)(props)
+
+      if (isArr(color)) {
+        color = color[0]
+      } else if (color != null && color.default != null) {
+        color = color.default
+      }
 
       return fallbackTo(
         isStr(color) ? transformValue(color, props) : color,
