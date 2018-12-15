@@ -1,4 +1,3 @@
-import expect from 'expect'
 import { createPropStyles, mediaRule } from '../src'
 import { theme, toStyles } from './_helpers'
 

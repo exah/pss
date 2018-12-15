@@ -1,4 +1,3 @@
-import expect from 'expect'
 import { float } from '../src'
 import { toStyles, testValue, theme, wrapInMedia } from './_helpers'
 

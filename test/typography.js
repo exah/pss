@@ -1,4 +1,3 @@
-import expect from 'expect'
 import { typography } from '../src/styles/typography'
 import { textStyle } from '../src/styles/text-style'
 import { toStyles } from './_helpers'

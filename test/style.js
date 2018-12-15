@@ -1,4 +1,3 @@
-import expect from 'expect'
 import { createPropStyles, style } from '../src'
 import { theme as helperTheme, toStyles } from './_helpers'
 

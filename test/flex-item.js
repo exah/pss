@@ -1,4 +1,3 @@
-import expect from 'expect'
 import { flexItem } from '../src'
 import { toStyles, testValue } from './_helpers'
 

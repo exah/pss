@@ -1,8 +1,7 @@
-import expect from 'expect'
 import renderer from 'react-test-renderer'
 import { createElement as h } from 'react'
-import { css, caches, flush } from 'emotion'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
+import serializer from 'jest-emotion'
 import { space, sizes, colors } from '../src'
 
 const theme = {
@@ -22,34 +21,12 @@ const theme = {
   }
 }
 
+expect.addSnapshotSerializer(serializer)
+
 test('basic', () => {
-  flush()
-
-  const sizeClassName = css(sizes({ theme, width: true, maxHeight: (3 / 4) }))
-
-  expect(Object.keys(caches.registered).includes(sizeClassName)).toBe(true)
-  expect(caches.registered).toMatchSnapshot()
-
-  flush()
-
-  const spaceClassName = css(space({ theme, mg: true }))
-
-  expect(Object.keys(caches.registered).includes(spaceClassName)).toBe(true)
-  expect(caches.registered).toMatchSnapshot()
-
-  flush()
-
-  const tmClassName = css(colors({ theme, tm: true }))
-
-  expect(Object.keys(caches.registered).includes(tmClassName)).toBe(true)
-  expect(caches.registered).toMatchSnapshot()
-
-  flush()
-
   const Box = styled('div')(space, sizes, colors)
   const element = h(Box, { theme, width: true, tm: true, mg: { all: true, M: 0 } })
   const tree = renderer.create(element).toJSON()
 
   expect(tree).toMatchSnapshot()
-  expect(caches.registered).toMatchSnapshot()
 })

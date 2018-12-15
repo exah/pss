@@ -1,4 +1,3 @@
-import expect from 'expect'
 import { overflow } from '../src'
 import { toStyles, theme, wrapInMedia, testValue } from './_helpers'
 

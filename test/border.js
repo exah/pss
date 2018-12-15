@@ -1,4 +1,3 @@
-import expect from 'expect'
 import { border } from '../src'
 import { toStyles, testValue } from './_helpers'
 

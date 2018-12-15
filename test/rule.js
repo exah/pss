@@ -1,4 +1,3 @@
-import expect from 'expect'
 import { createPropStyles, rule, sizeValue, spaceValue, boolValue } from '../src'
 import { toStyles } from './_helpers'
 

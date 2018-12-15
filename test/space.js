@@ -1,4 +1,3 @@
-import expect from 'expect'
 import { space } from '../src'
 import { toStyles } from './_helpers'
 

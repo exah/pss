@@ -1,4 +1,3 @@
-import expect from 'expect'
 import { deepMerge } from '@exah/utils'
 import { colors, createPropStyles, rule, colorValue } from '../src'
 import { toStyles, testValue } from './_helpers'

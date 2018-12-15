@@ -1,4 +1,3 @@
-import expect from 'expect'
 import { display } from '../src'
 import { theme, testValue, toStyles } from './_helpers'
 

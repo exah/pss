@@ -1,5 +1,4 @@
 import 'jest-styled-components'
-import expect from 'expect'
 import renderer from 'react-test-renderer'
 import styled from 'styled-components'
 import { createElement as h } from 'react'

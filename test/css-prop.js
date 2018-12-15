@@ -1,4 +1,3 @@
-import expect from 'expect'
 import { cssProp } from '../src'
 import { toStyles } from './_helpers'
 

@@ -1,4 +1,3 @@
-import expect from 'expect'
 import pss from '../src'
 import { toStyles } from './_helpers'
 
