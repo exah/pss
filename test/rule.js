@@ -1,5 +1,5 @@
 import test from 'ava'
-import { createPropStyles, rule, sizeValue, spaceValue } from '../src'
+import { createPropStyles, rule, sizeValue, spaceValue, boolValue } from '../src'
 import { toStyles } from './_helpers'
 
 const theme = {
@@ -25,7 +25,7 @@ const theme = {
 
 test('sizeValue: 100%', (t) => {
   const style = createPropStyles({
-    height: rule('height', sizeValue())
+    height: rule('height', sizeValue(boolValue('100%')))
   })
 
   const expected = {
@@ -68,7 +68,7 @@ test('sizeValue: sizes.nudge', (t) => {
 
 test('sizeValue: 0', (t) => {
   const style = createPropStyles({
-    height: rule('height', sizeValue())
+    height: rule('height', sizeValue(boolValue(null, 0)))
   })
 
   const expected = {
@@ -94,7 +94,7 @@ test('sizeValue: custom.my-value', (t) => {
 
 test('spaceValue', (t) => {
   const style = createPropStyles({
-    mg: rule('margin', spaceValue()),
+    mg: rule('margin', spaceValue(sizeValue())),
     mgl: rule('marginLeft', spaceValue()),
     mgr: rule('marginRight', spaceValue()),
     mgt: rule('marginTop', spaceValue()),

@@ -2,7 +2,7 @@ import { isFn, isNum, isObj, toArr, curryN } from '@exah/utils'
 
 export const toUnit = curryN(2, (unit, n) => isNum(n) && n !== 0 ? n + unit : n)
 export const px = toUnit('px')
-export const percentage = (n) => (n <= 0 || n > 1) ? n : `${n * 100}%`
+export const percent = (n) => (n <= 0 || n > 1 || !isNum(n)) ? n : `${n * 100}%`
 
 export const wrap = curryN(2, (name, value) => value != null
   ? (name ? { [name]: value } : value)

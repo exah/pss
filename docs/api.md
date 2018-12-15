@@ -1287,7 +1287,7 @@ import pss, { rule, sizeValue, boolValue } from 'pss'
 
 const sizes = pss({
   h: rule('height', sizeValue())
-  w: rule('width', sizeValue(boolValue('100%', 0))), // this is default - same as above
+  w: rule('width', sizeValue(),
   l: rule('left', sizeValue(boolValue(0, 'auto'))),
   r: rule('right', sizeValue(boolValue(0, 'auto')))
 })
@@ -1298,8 +1298,8 @@ const Box = styled.div`
 ```
 
 ```js
-<Box w /> // → width: 100%
-<Box w={false} /> // → width: 0
+<Box w={1} /> // → width: 100%
+<Box w={0} /> // → width: 0
 <Box w={{ sm: (1 / 2) }} /> // → @media (max-width: 600px) { width: 50% }
 <Box h='300px' /> // → height: 300px
 <Box l={{ all: 0, sm: 'auto' }} /> // → left: 0; @media (max-width: 600px) { left: auto }

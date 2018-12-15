@@ -1,5 +1,5 @@
 import { identity } from '@exah/utils'
-import { ALL_MEDIA_KEY } from '../constants'
+import { DEFAULT_MEDIA_KEY } from '../constants'
 import { getMedia } from '../getters'
 import { wrapIfMedia } from '../utils'
 
@@ -49,7 +49,7 @@ export const mediaRule = (
 
   if (propMediaKey != null && input === true) return style
 
-  const mediaKey = input === true ? ALL_MEDIA_KEY : input
+  const mediaKey = input === true ? DEFAULT_MEDIA_KEY : input
   const media = getMedia(mediaKey)(props)
 
   if (!media) return null

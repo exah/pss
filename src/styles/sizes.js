@@ -1,5 +1,5 @@
 import { createPropStyles, rule } from '../core'
-import { sizeValue } from '../values'
+import { sizeValue, boolValue } from '../values'
 
 /**
  * ```js
@@ -90,12 +90,12 @@ import { sizeValue } from '../values'
  */
 
 const sizes = createPropStyles({
-  height: rule('height', sizeValue()),
-  width: rule('width', sizeValue()),
-  maxWidth: rule('maxWidth', sizeValue()),
-  maxHeight: rule('maxHeight', sizeValue()),
-  minHeight: rule('minHeight', sizeValue()),
-  minWidth: rule('minWidth', sizeValue())
+  height: rule('height', sizeValue(boolValue('100%', 0))),
+  width: rule('width', sizeValue(boolValue('100%', 0))),
+  maxWidth: rule('maxWidth', sizeValue(boolValue('100%', 0))),
+  maxHeight: rule('maxHeight', sizeValue(boolValue('100%', 0))),
+  minHeight: rule('minHeight', sizeValue(boolValue('100%', 0))),
+  minWidth: rule('minWidth', sizeValue(boolValue('100%', 0)))
 })
 
 export {

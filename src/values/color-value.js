@@ -30,7 +30,7 @@ function createColorValue ({
     )
   }
 
-  return (key, transformValue = identity) => {
+  return (key, transformValue = identity, defaultValue) => {
     const getValue = getColor(key)
 
     return (input = true, props) => {
@@ -44,6 +44,7 @@ function createColorValue ({
 
       return fallbackTo(
         isStr(color) ? transformValue(color, props) : color,
+        defaultValue,
         input
       )
     }

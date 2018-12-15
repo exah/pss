@@ -1,24 +1,32 @@
-import { isNum } from '@exah/utils'
+import { isNum, isStr, path, compose } from '@exah/utils'
 import { SIZES_KEY } from '../constants'
 import { getThemeValue } from '../getters'
-import { percentage, px } from '../utils'
-import { boolValue } from './bool-value'
+import { percent, px } from '../utils'
+
+const scaleGetter = (scale, transformValue) =>
+  (input, fallback) => transformValue(path(input, fallback)(scale))
 
 export function createSizeValue ({
   transformValue = px,
+  transformInput = compose(transformValue, percent),
   themeKey = SIZES_KEY,
-  getter = getThemeValue(themeKey, transformValue)
+  scale = null,
+  getter = scale
+    ? scaleGetter(scale, transformValue)
+    : getThemeValue(themeKey, transformValue)
 } = {}) {
-  return (defaultValue = boolValue('100%', 0)) => (
+  return (defaultValue) => (
     input,
     props,
     mediaKey
   ) => {
-    const value = isNum(input)
-      ? percentage(input)
-      : defaultValue
+    if (isNum(input)) {
+      return transformInput(input)
+    } else if (isStr(input)) {
+      return getter(input, input, mediaKey)(props)
+    }
 
-    return getter(input, value, mediaKey)(props)
+    return defaultValue
   }
 }
 
@@ -40,7 +48,7 @@ export function createSizeValue ({
  *
  * const sizes = pss({
  *   h: rule('height', sizeValue())
- *   w: rule('width', sizeValue(boolValue('100%', 0))), // this is default - same as above
+ *   w: rule('width', sizeValue(),
  *   l: rule('left', sizeValue(boolValue(0, 'auto'))),
  *   r: rule('right', sizeValue(boolValue(0, 'auto')))
  * })
@@ -50,8 +58,8 @@ export function createSizeValue ({
  * `
  *
  * @example
- * <Box w /> // → width: 100%
- * <Box w={false} /> // → width: 0
+ * <Box w={1} /> // → width: 100%
+ * <Box w={0} /> // → width: 0
  * <Box w={{ sm: (1 / 2) }} /> // → @media (max-width: 600px) { width: 50% }
  * <Box h='300px' /> // → height: 300px
  * <Box l={{ all: 0, sm: 'auto' }} /> // → left: 0; @media (max-width: 600px) { left: auto }

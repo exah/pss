@@ -1,8 +1,8 @@
 import { createPropStyles, rule } from '../core'
-import { spaceValue } from '../values'
+import { spaceValue, sizeValue } from '../values'
 import { combine } from '../utils'
 
-const spaceRule = (name) => rule(name, spaceValue())
+const spaceRule = (name) => rule(name, spaceValue(sizeValue()))
 
 const margin = createPropStyles({
   mg: spaceRule('margin'),

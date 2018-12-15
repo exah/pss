@@ -1,4 +1,4 @@
-import { fallbackTo, path, identity, mapObj } from '@exah/utils'
+import { path, identity, mapObj } from '@exah/utils'
 import { hasMediaKeys, keys } from '../utils'
 
 import {
@@ -96,5 +96,7 @@ export const getThemeValue = (
     )
   }
 
-  return transformValue(fallbackTo(themeValue, defaultValue))
+  return themeValue == null
+    ? defaultValue
+    : transformValue(themeValue)
 }

@@ -1,16 +1,16 @@
 import {
   isStr,
+  isBool,
+  isNum,
   fallbackTo,
   isArr,
-  identity,
   pipe,
   mapObj
 } from '@exah/utils'
 
-import { ALL_MEDIA_KEY, DEFAULT_THEME_SPACE, SPACE_KEY } from '../constants'
+import { DEFAULT_MEDIA_KEY, DEFAULT_THEME_SPACE, SPACE_KEY } from '../constants'
 import { px, splitUnit, toUnit } from '../utils'
 import { themePath } from '../getters'
-import { sizeValue } from './size-value'
 
 const getSpaceStep = (input, spaces = []) => {
   const value = spaces[Math.abs(input)]
@@ -30,34 +30,35 @@ export function createSpaceValue ({
   transformValue = pipe(getSpaceStep, px),
   themeKey = SPACE_KEY,
   defaultSpace = DEFAULT_THEME_SPACE,
-  getter = themePath(SPACE_KEY, defaultSpace)
+  getter = themePath(SPACE_KEY, defaultSpace),
+  scale = null
 } = {}) {
-  return (defaultValue = sizeValue(identity)) => (
+  return (defaultValue) => (
     input,
     props,
     mediaKey
   ) => {
-    if (isStr(input)) {
-      return defaultValue
+    if (isNum(input) || isBool(input)) {
+      const spaces = scale || getter(props)
+
+      if (isArr(spaces)) {
+        return transformValue(input, spaces)
+      }
+
+      if (mediaKey != null) {
+        return transformValue(input, fallbackTo(
+          spaces[mediaKey],
+          spaces[DEFAULT_MEDIA_KEY]
+        ))
+      }
+
+      return mapObj(
+        (key, value) => ({ [key]: transformValue(input, value) }),
+        spaces
+      )
     }
 
-    const spaces = getter(props)
-
-    if (isArr(spaces)) {
-      return transformValue(input, spaces)
-    }
-
-    if (mediaKey != null) {
-      return transformValue(input, fallbackTo(
-        spaces[mediaKey],
-        spaces[ALL_MEDIA_KEY]
-      ))
-    }
-
-    return mapObj(
-      (key, value) => ({ [key]: transformValue(input, value) }),
-      spaces
-    )
+    return defaultValue
   }
 }
 
