@@ -1,10 +1,10 @@
-import { createPropStyles, rule } from '../core'
+import { createStyles, rule } from '../core'
 import { spaceValue, sizeValue } from '../values'
 import { combine } from '../utils'
 
 const spaceRule = (name) => rule(name, spaceValue(sizeValue()))
 
-const margin = createPropStyles({
+const margin = createStyles({
   mg: spaceRule('margin'),
   mgl: spaceRule('marginLeft'),
   mgr: spaceRule('marginRight'),
@@ -14,7 +14,7 @@ const margin = createPropStyles({
   mgy: [ spaceRule('marginTop'), spaceRule('marginBottom') ]
 })
 
-const padding = createPropStyles({
+const padding = createStyles({
   pd: spaceRule('padding'),
   pdl: spaceRule('paddingLeft'),
   pdr: spaceRule('paddingRight'),

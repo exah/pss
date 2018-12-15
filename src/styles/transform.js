@@ -1,4 +1,4 @@
-import { createPropStyles, rule } from '../core'
+import { createStyles, rule } from '../core'
 
 /**
  * ```js
@@ -22,6 +22,6 @@ import { createPropStyles, rule } from '../core'
  * <Box transform='rotate(90deg)' /> // → transform: rotate(90deg)
  */
 
-export const transform = createPropStyles({
+export const transform = createStyles({
   transform: rule('transform')
 })

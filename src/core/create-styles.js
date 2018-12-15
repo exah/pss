@@ -87,7 +87,7 @@ import {
  * </ThemeProvider>
  */
 
-export function createPropStyles (styles) {
+export function createStyles (styles) {
   function propStyles (props) {
     const media = getThemeMedia(props)
     const defaultMediaKey = getDefault(MEDIA_KEY)(props)

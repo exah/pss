@@ -1,4 +1,4 @@
-import { createPropStyles } from '../core'
+import { createStyles } from '../core'
 import { cssPropPropType } from '../prop-types'
 
 /**
@@ -12,7 +12,7 @@ import { cssPropPropType } from '../prop-types'
  * Implementation:
  *
  * ```js
- * const cssProp = createPropStyles({
+ * const cssProp = createStyles({
  *   css: (val) => ({ ...val })
  * })
  * ```
@@ -29,7 +29,7 @@ import { cssPropPropType } from '../prop-types'
  * <Box css={(props) => ({ color: props.theme.color.red })} /> // → color: #ff0000
  */
 
-const cssProp = createPropStyles({
+const cssProp = createStyles({
   css: (val) => ({ ...val })
 })
 

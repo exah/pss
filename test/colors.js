@@ -1,5 +1,5 @@
 import { deepMerge } from '@exah/utils'
-import { colors, createPropStyles, rule, colorValue } from '../src'
+import { colors, createStyles, rule, colorValue } from '../src'
 import { toStyles, testValue } from './_helpers'
 
 const COLOR_WHITE = '#ffffff'
@@ -55,7 +55,7 @@ const themeInverted = deepMerge(theme, {
 
 const shadowRule = rule('boxShadow', colorValue('shadow', (color) => `0 0 20px 0 ${color}`))
 
-const shadow = createPropStyles({
+const shadow = createStyles({
   tm: [
     rule('color', colorValue('fg')),
     rule('backgroundColor', colorValue('bg')),

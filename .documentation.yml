@@ -35,7 +35,7 @@ toc:
 
   - name: Custom Styles
     children:
-      - createPropStyles
+      - createStyles
       - rule
       - boolValue
       - sizeValue

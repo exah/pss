@@ -1,11 +1,11 @@
 export * from './constants'
 
 export {
-  createPropStyles as default,
-  createPropStyles as pss,
+  createStyles as default,
+  createStyles as pss,
   createVariant as variant,
   createVariant,
-  createPropStyles,
+  createStyles,
   themeStyle,
   mediaRule,
   rule

@@ -1,5 +1,5 @@
 import { RADIUS_KEY } from '../constants'
-import { createPropStyles, rule } from '../core'
+import { createStyles, rule } from '../core'
 import { themeValue } from '../values'
 
 /**
@@ -25,6 +25,6 @@ import { themeValue } from '../values'
  * <Box radius='round' /> // → `theme.radius.round` → border-radius: 9999px
  */
 
-export const radius = createPropStyles({
+export const radius = createStyles({
   radius: rule('borderRadius', themeValue({ themeKey: RADIUS_KEY }))
 })

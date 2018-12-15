@@ -1,4 +1,4 @@
-import { createPropStyles, rule } from '../core'
+import { createStyles, rule } from '../core'
 import { boolValue } from '../values'
 
 /**
@@ -29,7 +29,7 @@ import { boolValue } from '../values'
  * <Text lineHeight /> // line-height: normal
  */
 
-export const textHelpers = createPropStyles({
+export const textHelpers = createStyles({
   fontSize: rule('fontSize', boolValue('1rem')),
   fontWeight: rule('fontWeight'),
   lineHeight: rule('lineHeight', boolValue('normal')),

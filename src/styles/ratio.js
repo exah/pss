@@ -1,6 +1,5 @@
 import { isNum } from '@exah/utils'
-
-import { createPropStyles } from '../core/create-prop-styles'
+import { createStyles } from '../core'
 import { floor } from '../utils'
 
 /**
@@ -38,7 +37,7 @@ import { floor } from '../utils'
  * }
  */
 
-const ratio = createPropStyles({
+const ratio = createStyles({
   ratio: (value) => {
     if (value === true || isNum(value)) {
       const size = value === true ? '100%' : floor((100 / value), 2) + '%'

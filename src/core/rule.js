@@ -7,7 +7,7 @@ import { wrap } from '../utils'
  * import { rule } from 'pss'
  * ```
  *
- * Create style rule. Must be used with {@link createPropStyles}.
+ * Create style rule. Must be used with {@link createStyles}.
  *
  * @param {string} cssProp
  * @param {Function} [getValue = identity]

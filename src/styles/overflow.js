@@ -1,4 +1,4 @@
-import { createPropStyles, rule } from '../core'
+import { createStyles, rule } from '../core'
 import { boolValue } from '../values'
 
 /**
@@ -28,7 +28,7 @@ import { boolValue } from '../values'
  * <Box ovh /> // overflow: hidden
  */
 
-const overflow = createPropStyles({
+const overflow = createStyles({
   ov: rule('overflow', boolValue('auto', 'visible')),
   ovx: rule('overflowX', boolValue('auto', 'visible')),
   ovy: rule('overflowY', boolValue('auto', 'visible')),

@@ -1,4 +1,4 @@
-import { createPropStyles, rule } from '../core'
+import { createStyles, rule } from '../core'
 import { boolValue, sizeValue } from '../values'
 
 const directionValue = sizeValue(boolValue(0, 'auto'))
@@ -31,7 +31,7 @@ const directionValue = sizeValue(boolValue(0, 'auto'))
  * <Box position='absolute' top={0.2} left={0} /> // position: absolute; top: 20%; left: 0
  */
 
-const position = createPropStyles({
+const position = createStyles({
   position: rule('position'),
   top: rule('top', directionValue),
   left: rule('left', directionValue),

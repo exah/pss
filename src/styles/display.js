@@ -1,4 +1,4 @@
-import { createPropStyles, rule, mediaRule } from '../core'
+import { createStyles, rule, mediaRule } from '../core'
 import { boolValue } from '../values'
 
 /**
@@ -25,7 +25,7 @@ import { boolValue } from '../values'
  * // display: inline-block; @media (max-width: 600px) { display: none }
  */
 
-const display = createPropStyles({
+const display = createStyles({
   display: rule('display', boolValue('initial', 'none')),
   hideOn: mediaRule('display', 'none')
 })

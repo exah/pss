@@ -1,4 +1,4 @@
-import { createPropStyles, themeStyle } from '../src'
+import { createStyles, themeStyle } from '../src'
 import { theme as helperTheme, toStyles } from './_helpers'
 
 const theme = {
@@ -29,7 +29,7 @@ const theme = {
   }
 }
 
-const customProps = createPropStyles({
+const customProps = createStyles({
   is: themeStyle({ themeKey: 'customStyles' })
 })
 

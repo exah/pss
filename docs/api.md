@@ -54,7 +54,7 @@
     -   [system][50]
         -   [Examples][51]
 -   [Custom Styles][52]
-    -   [createPropStyles][53]
+    -   [createStyles][53]
         -   [Parameters][54]
         -   [Examples][55]
     -   [rule][56]
@@ -933,7 +933,7 @@ You don't need this if your CSS-in-JS library of choice support it.
 Implementation:
 
 ```js
-const cssProp = createPropStyles({
+const cssProp = createStyles({
   css: (val) => ({ ...val })
 })
 ```
@@ -1131,7 +1131,7 @@ const Box = styled.div`
 
 
 
-### createPropStyles
+### createStyles
 
 ```js
 import pss from 'pss'
@@ -1205,7 +1205,7 @@ Returns **[Function][110]** for styled components.
 import { rule } from 'pss'
 ```
 
-Create style rule. Must be used with [createPropStyles][53].
+Create style rule. Must be used with [createStyles][53].
 
 #### Parameters
 
@@ -1892,7 +1892,7 @@ const Box = styled.div`
 
 [52]: #custom-styles
 
-[53]: #createpropstyles
+[53]: #createstyles
 
 [54]: #parameters
 

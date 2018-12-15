@@ -1,4 +1,4 @@
-import { createPropStyles, rule } from '../core'
+import { createStyles, rule } from '../core'
 import { boolValue } from '../values'
 
 /**
@@ -26,6 +26,6 @@ import { boolValue } from '../values'
  * <Box opacity={false} /> // → opacity: 0
  */
 
-export const opacity = createPropStyles({
+export const opacity = createStyles({
   opacity: rule('opacity', boolValue(1, 0))
 })

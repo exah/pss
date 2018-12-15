@@ -1,4 +1,4 @@
-import { createPropStyles, rule, sizeValue, spaceValue, boolValue } from '../src'
+import { createStyles, rule, sizeValue, spaceValue, boolValue } from '../src'
 import { toStyles } from './_helpers'
 
 const theme = {
@@ -23,7 +23,7 @@ const theme = {
 }
 
 test('sizeValue: 100%', () => {
-  const style = createPropStyles({
+  const style = createStyles({
     height: rule('height', sizeValue(boolValue('100%')))
   })
 
@@ -37,7 +37,7 @@ test('sizeValue: 100%', () => {
 })
 
 test('sizeValue: sizes.xl', () => {
-  const style = createPropStyles({
+  const style = createStyles({
     height: rule('height', sizeValue())
   })
 
@@ -50,7 +50,7 @@ test('sizeValue: sizes.xl', () => {
 })
 
 test('sizeValue: sizes.nudge', () => {
-  const style = createPropStyles({
+  const style = createStyles({
     height: rule('height', sizeValue())
   })
 
@@ -66,7 +66,7 @@ test('sizeValue: sizes.nudge', () => {
 })
 
 test('sizeValue: 0', () => {
-  const style = createPropStyles({
+  const style = createStyles({
     height: rule('height', sizeValue(boolValue(null, 0)))
   })
 
@@ -80,7 +80,7 @@ test('sizeValue: 0', () => {
 })
 
 test('spaceValue', () => {
-  const style = createPropStyles({
+  const style = createStyles({
     mg: rule('margin', spaceValue(sizeValue())),
     mgl: rule('marginLeft', spaceValue()),
     mgr: rule('marginRight', spaceValue()),

@@ -1,4 +1,4 @@
-import { createPropStyles, rule } from '../core'
+import { createStyles, rule } from '../core'
 
 /**
  * ```js
@@ -22,6 +22,6 @@ import { createPropStyles, rule } from '../core'
  * <Box cursor='pointer' /> // → cursor: pointer
  */
 
-export const cursor = createPropStyles({
+export const cursor = createStyles({
   cursor: rule('cursor')
 })

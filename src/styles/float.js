@@ -1,4 +1,4 @@
-import { createPropStyles, rule } from '../core'
+import { createStyles, rule } from '../core'
 import { boolValue } from '../values'
 
 /**
@@ -37,7 +37,7 @@ import { boolValue } from '../values'
  * <Box float='left' /> // float: left
  */
 
-const float = createPropStyles({
+const float = createStyles({
   float: rule('float'),
   clear: rule('clear', boolValue('both', 'none')),
   clearFix: {

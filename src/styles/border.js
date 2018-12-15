@@ -1,4 +1,4 @@
-import { createPropStyles, rule } from '../core'
+import { createStyles, rule } from '../core'
 import { BORDER_KEY } from '../constants'
 import { themeValue, colorValue } from '../values'
 import { px } from '../utils'
@@ -49,7 +49,7 @@ const sizeRule = (name) => rule(name, themeValue({
  * <Box bdl='1px dotted' bdc='red' />
  */
 
-const border = createPropStyles({
+const border = createStyles({
   bd: sizeRule('border'),
   bdl: sizeRule('borderLeft'),
   bdr: sizeRule('borderRight'),

@@ -1,4 +1,4 @@
-import { createPropStyles, rule } from '../core'
+import { createStyles, rule } from '../core'
 import { boolValue, sizeValue } from '../values'
 
 /**
@@ -32,7 +32,7 @@ import { boolValue, sizeValue } from '../values'
  * </FlexBox>
  */
 
-const flex = createPropStyles({
+const flex = createStyles({
   flexWrap: rule('flexWrap', boolValue('wrap', 'nowrap')),
   flexDirection: rule('flexDirection'),
   alignItems: rule('alignItems'),
@@ -70,7 +70,7 @@ const flex = createPropStyles({
  * </FlexBox>
  */
 
-const flexItem = createPropStyles({
+const flexItem = createStyles({
   flex: rule('flex', sizeValue(boolValue('1 1 0', '0 1 auto'))),
   order: rule('order', boolValue(1, 0)),
   alignSelf: rule('alignSelf')

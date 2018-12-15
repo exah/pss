@@ -1,4 +1,4 @@
-import { createPropStyles, rule } from '../core'
+import { createStyles, rule } from '../core'
 import { sizeValue, boolValue } from '../values'
 
 /**
@@ -83,7 +83,7 @@ import { sizeValue, boolValue } from '../values'
  * <Box minWidth={500} /> // → max-width: 500px
  */
 
-const sizes = createPropStyles({
+const sizes = createStyles({
   height: rule('height', sizeValue(boolValue('100%', 0))),
   width: rule('width', sizeValue(boolValue('100%', 0))),
   maxWidth: rule('maxWidth', sizeValue(boolValue('100%', 0))),

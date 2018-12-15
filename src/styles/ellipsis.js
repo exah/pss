@@ -1,4 +1,4 @@
-import { createPropStyles, rule } from '../core'
+import { createStyles, rule } from '../core'
 import { boolValue } from '../values'
 
 /**
@@ -19,7 +19,7 @@ import { boolValue } from '../values'
  * <Text ellipsis /> // → white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
  */
 
-const ellipsis = createPropStyles({
+const ellipsis = createStyles({
   ellipsis: [
     { whiteSpace: 'nowrap', overflow: 'hidden' },
     rule('textOverflow', boolValue('ellipsis'))

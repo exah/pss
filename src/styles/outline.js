@@ -1,4 +1,4 @@
-import { createPropStyles, rule } from '../core'
+import { createStyles, rule } from '../core'
 
 const randomHexColor = () =>
   '#' + (Math.random() * 0xFFFFFF << 0).toString(16)
@@ -27,6 +27,6 @@ const randomHexColor = () =>
  * <Box outline='1px solid red' /> // → outline: 1px solid red
  */
 
-export const outline = createPropStyles({
+export const outline = createStyles({
   outline: rule('outline', (val) => val === 'debug' ? `1px solid ${randomHexColor()}` : val)
 })

@@ -1,4 +1,4 @@
-import { createPropStyles, rule } from '../core'
+import { createStyles, rule } from '../core'
 import { colorValue } from '../values'
 
 /**
@@ -87,7 +87,7 @@ import { colorValue } from '../values'
  * <Box bg="#ffff00" /> // background-color: #ffff00
  */
 
-const colors = createPropStyles({
+const colors = createStyles({
   tm: [
     rule('backgroundColor', colorValue('bg')),
     rule('color', colorValue('fg'))

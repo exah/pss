@@ -1,8 +1,8 @@
-import { createPropStyles, mediaRule } from '../src'
+import { createStyles, mediaRule } from '../src'
 import { theme, toStyles } from './_helpers'
 
 test('return style', () => {
-  const style = createPropStyles({
+  const style = createStyles({
     hideOn: mediaRule('display', 'none')
   })
 
@@ -17,7 +17,7 @@ test('return style', () => {
 })
 
 test('multiple media', () => {
-  const style = createPropStyles({
+  const style = createStyles({
     hideOn: mediaRule('display', 'none')
   })
 
@@ -34,7 +34,7 @@ test('multiple media', () => {
 })
 
 test('return nothing', () => {
-  const style = createPropStyles({
+  const style = createStyles({
     hideOn: mediaRule('display', 'none')
   })
 

@@ -1,7 +1,7 @@
 import { identity } from '@exah/utils'
 import { getThemeValue } from '../getters'
 import { themeValue } from '../values/theme-value'
-import { createPropStyles } from './create-prop-styles'
+import { createStyles } from './create-styles'
 import { themeStyle } from './theme-style'
 import { rule } from './rule'
 
@@ -53,7 +53,7 @@ function createVariant ({
     ? themeStyle({ themeKey, transformValue, themeGetter })
     : rule(cssProp, themeValue({ themeKey, transformValue, themeGetter }))
 
-  return createPropStyles({
+  return createStyles({
     [prop]: style
   })
 }
