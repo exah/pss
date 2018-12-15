@@ -1,6 +1,7 @@
+import 'jest-styled-components'
 import expect from 'expect'
 import renderer from 'react-test-renderer'
-import styled, { ServerStyleSheet } from 'styled-components'
+import styled from 'styled-components'
 import { createElement as h } from 'react'
 import { space, sizes, colors } from '../src'
 import { throwConsoleErrors } from './_helpers'
@@ -23,8 +24,6 @@ const theme = {
 }
 
 test('basic', () => {
-  const sheet = new ServerStyleSheet()
-
   const Box = styled.div`
     ${space}
     ${sizes}
@@ -32,10 +31,9 @@ test('basic', () => {
   `
 
   const element = h(Box, { theme, width: true, tm: true, mg: { all: true, M: 0 } })
-  const tree = renderer.create(sheet.collectStyles(element)).toJSON()
+  const tree = renderer.create(element).toJSON()
 
   expect(tree).toMatchSnapshot()
-  expect(sheet.getStyleTags()).toMatchSnapshot()
 })
 
 test('prop-types', () => {
