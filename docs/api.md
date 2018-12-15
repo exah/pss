@@ -78,7 +78,7 @@
     -   [mediaRule][74]
         -   [Parameters][75]
         -   [Examples][76]
-    -   [style][77]
+    -   [themeStyle][77]
         -   [Parameters][78]
         -   [Examples][79]
 -   [Selectors][80]
@@ -1523,10 +1523,10 @@ const theme = {
 </ThemeProvider>
 ```
 
-### style
+### themeStyle
 
 ```js
-import { style } from 'pss'
+import { themeStyle } from 'pss'
 ```
 
 Use styles defined in `theme[themeKey]`. Useful for creating global shared styles.
@@ -1561,10 +1561,10 @@ const theme = {
 ```
 
 ```js
-import pss, { style } from 'pss'
+import pss, { themeStyle } from 'pss'
 
 const Text = styled.div(pss({
-  textStyle: style({ themeKey: 'textStyle' })
+  textStyle: themeStyle({ themeKey: 'textStyle' })
 }))
 
 <ThemeProvider theme={theme}>
@@ -1895,7 +1895,7 @@ const Box = styled.div`
 
 [76]: #examples-32
 
-[77]: #style
+[77]: #themestyle
 
 [78]: #parameters-8
 

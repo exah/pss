@@ -4,7 +4,7 @@ import { everyMedia } from './every-media'
 
 /**
  * ```js
- * import { style } from 'pss'
+ * import { themeStyle } from 'pss'
  * ```
  *
  * Use styles defined in `theme[themeKey]`. Useful for creating global shared styles.
@@ -35,10 +35,10 @@ import { everyMedia } from './every-media'
  * }
  *
  * @example
- * import pss, { style } from 'pss'
+ * import pss, { themeStyle } from 'pss'
  *
  * const Text = styled.div(pss({
- *   textStyle: style({ themeKey: 'textStyle' })
+ *   textStyle: themeStyle({ themeKey: 'textStyle' })
  * }))
  *
  * <ThemeProvider theme={theme}>
@@ -56,7 +56,7 @@ import { everyMedia } from './every-media'
  * }
  */
 
-function style ({
+function themeStyle ({
   themeKey,
   transformValue = identity,
   themeGetter = getThemeValue(themeKey, transformValue)
@@ -68,5 +68,5 @@ function style ({
 }
 
 export {
-  style
+  themeStyle
 }
