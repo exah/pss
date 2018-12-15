@@ -1,5 +1,4 @@
-import { typography } from '../src/styles/typography'
-import { textStyle } from '../src/styles/text-style'
+import { typography } from '../src'
 import { toStyles } from './_helpers'
 
 const theme = {
@@ -14,21 +13,6 @@ const theme = {
     ui: 'Helivetica, system-ui',
     responsive: {
       M: 'Times New Roman, serif'
-    }
-  },
-  textStyle: {
-    heading: {
-      fontSize: 32,
-      lineHeight: 1.1,
-      fontWeight: 'bold'
-    },
-    responsive: {
-      all: {
-        fontSize: 16
-      },
-      M: {
-        fontSize: 12
-      }
     }
   }
 }
@@ -67,19 +51,6 @@ test('text helpers', () => {
   })
 })
 
-test('text style', () => {
-  const result = toStyles(textStyle({
-    theme,
-    textStyle: 'heading'
-  }))
-
-  expect(result).toEqual({
-    fontSize: 32,
-    lineHeight: 1.1,
-    fontWeight: 'bold'
-  })
-})
-
 test('ellipsis', () => {
   const result = toStyles(typography({
     theme,
@@ -90,20 +61,6 @@ test('ellipsis', () => {
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis'
-  })
-})
-
-test('responsive textStyle', () => {
-  const result = toStyles(typography({
-    theme,
-    textStyle: 'responsive'
-  }))
-
-  expect(result).toEqual({
-    fontSize: 16,
-    '@media (max-width: 600px)': {
-      fontSize: 12
-    }
   })
 })
 

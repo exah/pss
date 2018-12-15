@@ -1039,7 +1039,6 @@ import { typography } from 'pss'
 
 Combination of
 
--   [textStyle][24]
 -   [textHelpers][26]
 -   [fontFamily][22]
 -   [ellipsis][28]
@@ -1055,15 +1054,14 @@ const Text = styled.p`
 ```
 
 ```js
-<Text textStyle='heading' ellipsis />
+<Text fontSize={24} lineHeight={1.2} letterSpacing='0.12em' ellipsis />
 ```
 
 ```css
 .css {
-   font-size: 16px;
+   font-size: 14px;
    line-height: 1.2;
-   font-weight: normal;
-   font-family: system-ui;
+   letterSpacing: 0.12em;
    white-space: nowrap;
    overflow: hidden;
    text-overflow: ellipsis;

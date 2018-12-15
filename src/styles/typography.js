@@ -1,6 +1,5 @@
 import { combine } from '../utils'
 import { fontFamily } from './font-family'
-import { textStyle } from './text-style'
 import { textHelpers } from './text-helpers'
 import { ellipsis } from './ellipsis'
 
@@ -10,7 +9,6 @@ import { ellipsis } from './ellipsis'
  * ```
  *
  * Combination of
- *   - {@link textStyle}
  *   - {@link textHelpers}
  *   - {@link fontFamily}
  *   - {@link ellipsis}
@@ -23,14 +21,13 @@ import { ellipsis } from './ellipsis'
  * `
  *
  * @example
- * <Text textStyle='heading' ellipsis />
+ * <Text fontSize={24} lineHeight={1.2} letterSpacing='0.12em' ellipsis />
  *
  * @example
  * .css {
- *    font-size: 16px;
+ *    font-size: 14px;
  *    line-height: 1.2;
- *    font-weight: normal;
- *    font-family: system-ui;
+ *    letterSpacing: 0.12em;
  *    white-space: nowrap;
  *    overflow: hidden;
  *    text-overflow: ellipsis;
@@ -39,7 +36,6 @@ import { ellipsis } from './ellipsis'
 
 const typography = combine(
   textHelpers,
-  textStyle,
   fontFamily,
   ellipsis
 )
