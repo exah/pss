@@ -1,7 +1,6 @@
-import { isBool, isStr, isFn } from '@exah/utils'
+import { isBool, isStr, isFn, identity } from '@exah/utils'
 import { everyMedia } from '../core/every-media'
 import { themePath } from '../getters'
-import { boolValue } from '../values'
 import { wrap } from '../utils'
 
 /**
@@ -12,8 +11,7 @@ import { wrap } from '../utils'
  * Create style rule. Must be used with {@link createPropStyles}.
  *
  * @param {string} cssProp
- * @param {Function} [getValue = boolValue()]
- * @param {string} [defaultValue = 'unset']
+ * @param {Function} [getValue = identity]
  * @return {Function}
  *
  * @example
@@ -30,10 +28,7 @@ import { wrap } from '../utils'
  * </ThemeProvider>
  */
 
-function rule (
-  cssProp,
-  getValue = boolValue()
-) {
+function rule (cssProp, getValue = identity) {
   const css = wrap(cssProp)
 
   function getStyle (get, input, props, mediaKey) {

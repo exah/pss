@@ -1216,8 +1216,7 @@ Create style rule. Must be used with [createPropStyles][53].
 #### Parameters
 
 -   `cssProp` **[string][111]** 
--   `getValue` **[Function][110]**  (optional, default `boolValue()`)
--   `defaultValue` **[string][111]**  (optional, default `'unset'`)
+-   `getValue` **[Function][110]**  (optional, default `identity`)
 
 #### Examples
 
