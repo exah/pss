@@ -81,7 +81,7 @@
     -   [themeStyle][77]
         -   [Parameters][78]
         -   [Examples][79]
-    -   [variant][80]
+    -   [createVariant][80]
         -   [Parameters][81]
         -   [Examples][82]
 -   [Selectors][83]
@@ -1581,7 +1581,7 @@ const Text = styled.div(pss({
 
 Returns **[Function][110]** 
 
-### variant
+### createVariant
 
 Create `variant` from styles defined directly in `theme`.
 Inspired by [`styled-system`][113].
@@ -1600,10 +1600,10 @@ Related: [themeValue][71], [themeStyle][77].
 #### Examples
 
 ```js
-import { variant } from 'pss'
+import { createVariant } from 'pss'
 
 const Text = styled.p`
-  ${variant({ themeKey: 'textStyle' })}
+  ${createVariant({ themeKey: 'textStyle' })}
 `
 ```
 
@@ -1946,7 +1946,7 @@ const Box = styled.div`
 
 [79]: #examples-33
 
-[80]: #variant
+[80]: #createvariant
 
 [81]: #parameters-9
 

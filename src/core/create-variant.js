@@ -14,10 +14,10 @@ import { rule } from './rule'
  * @param {Object} options
  *
  * @example
- * import { variant } from 'pss'
+ * import { createVariant } from 'pss'
  *
  * const Text = styled.p`
- *   ${variant({ themeKey: 'textStyle' })}
+ *   ${createVariant({ themeKey: 'textStyle' })}
  * `
  *
  * @example
@@ -42,7 +42,7 @@ import { rule } from './rule'
  * <Text variant='heading' /> // → `theme.textStyle.heading`
  */
 
-function variant ({
+function createVariant ({
   themeKey,
   prop = 'variant',
   cssProp = false,
@@ -59,5 +59,5 @@ function variant ({
 }
 
 export {
-  variant
+  createVariant
 }

@@ -3,11 +3,12 @@ export * from './constants'
 export {
   createPropStyles as default,
   createPropStyles as pss,
+  createVariant as variant,
+  createVariant,
   createPropStyles,
   themeStyle,
   mediaRule,
-  rule,
-  variant
+  rule
 } from './core'
 
 export {

@@ -1,5 +1,5 @@
 import { FONT_KEY } from '../constants'
-import { variant } from '../core'
+import { createVariant } from '../core'
 
 /**
  * ```js
@@ -34,7 +34,7 @@ import { variant } from '../core'
  * <Text fontFamily='Comic Sans' /> // → font-family: Comic Sans
  */
 
-const fontFamily = variant({
+const fontFamily = createVariant({
   themeKey: FONT_KEY,
   prop: 'fontFamily',
   cssProp: 'fontFamily'

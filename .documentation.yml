@@ -44,7 +44,7 @@ toc:
       - themeValue
       - mediaRule
       - themeStyle
-      - variant
+      - createVariant
 
   - name: Selectors
     children:
