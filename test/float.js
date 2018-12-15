@@ -1,4 +1,4 @@
-import test from 'ava'
+import expect from 'expect'
 import { float } from '../src'
 import { toStyles, testValue, theme, wrapInMedia } from './_helpers'
 
@@ -18,7 +18,7 @@ test('clear', testValue({
   falseValue: 'none'
 }))
 
-test('clearFix', t => {
+test('clearFix', () => {
   const clearFixStyle = {
     '&::after': {
       content: '""',
@@ -27,9 +27,9 @@ test('clearFix', t => {
     }
   }
 
-  t.deepEqual(toStyles(float({ clearFix: true })), clearFixStyle)
-  t.deepEqual(toStyles(float({ clearFix: 'anything' })), {})
-  t.deepEqual(toStyles(float({ clearFix: false })), {})
-  t.deepEqual(toStyles(float({ clearFix: null })), {})
-  t.deepEqual(toStyles(float({ theme, clearFix: { M: true } })), wrapInMedia(clearFixStyle))
+  expect(toStyles(float({ clearFix: true }))).toEqual(clearFixStyle)
+  expect(toStyles(float({ clearFix: 'anything' }))).toEqual({})
+  expect(toStyles(float({ clearFix: false }))).toEqual({})
+  expect(toStyles(float({ clearFix: null }))).toEqual({})
+  expect(toStyles(float({ theme, clearFix: { M: true } }))).toEqual(wrapInMedia(clearFixStyle))
 })

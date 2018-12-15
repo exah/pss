@@ -1,4 +1,4 @@
-import test from 'ava'
+import expect from 'expect'
 import { display } from '../src'
 import { theme, testValue, toStyles } from './_helpers'
 
@@ -11,19 +11,10 @@ test('display', testValue({
   falseValue: 'none'
 }))
 
-test('hideOn', t => {
-  t.deepEqual(
-    toStyles(display({ theme, hideOn: { M: true } })),
-    { '@media (max-width: 600px)': { display: 'none' } }
-  )
+test('hideOn', () => {
+  expect(toStyles(display({ theme, hideOn: { M: true } }))).toEqual({ '@media (max-width: 600px)': { display: 'none' } })
 
-  t.deepEqual(
-    toStyles(display({ theme, hideOn: 'M' })),
-    { '@media (max-width: 600px)': { display: 'none' } }
-  )
+  expect(toStyles(display({ theme, hideOn: 'M' }))).toEqual({ '@media (max-width: 600px)': { display: 'none' } })
 
-  t.deepEqual(
-    toStyles(display({ theme, hideOn: { M: false } })),
-    {}
-  )
+  expect(toStyles(display({ theme, hideOn: { M: false } }))).toEqual({})
 })

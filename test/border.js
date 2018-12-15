@@ -1,4 +1,4 @@
-import test from 'ava'
+import expect from 'expect'
 import { border } from '../src'
 import { toStyles, testValue } from './_helpers'
 
@@ -10,14 +10,14 @@ const theme = {
   }
 }
 
-test('bd', (t) => {
+test('bd', () => {
   const result = border({
     theme,
     bd: '1px solid',
     bdc: true
   })
 
-  t.deepEqual(toStyles(result), {
+  expect(toStyles(result)).toEqual({
     border: '1px solid',
     borderColor: '#eee'
   })
@@ -30,14 +30,14 @@ test('bdc', testValue({
   values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ]
 }))
 
-test('bdl custom', (t) => {
+test('bdl custom', () => {
   const result = border({
     theme,
     bdl: '5px dotted',
     bdc: true
   })
 
-  t.deepEqual(toStyles(result), {
+  expect(toStyles(result)).toEqual({
     borderLeft: '5px dotted',
     borderColor: '#eee'
   })

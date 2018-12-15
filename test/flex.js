@@ -1,4 +1,3 @@
-import test from 'ava'
 import { flex } from '../src'
 import { testValue } from './_helpers'
 

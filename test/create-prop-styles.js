@@ -1,4 +1,4 @@
-import test from 'ava'
+import expect from 'expect'
 import pss from '../src'
 import { toStyles } from './_helpers'
 
@@ -18,22 +18,22 @@ const example = pss({
   })
 })
 
-test('docs/api @example', (t) => {
-  t.deepEqual(toStyles(example({ display: 'inline-flex' })), { display: 'inline-flex' })
-  t.deepEqual(toStyles(example({ flex: true })), { display: 'flex' })
-  t.deepEqual(toStyles(example({ inline: true })), { display: 'inline-block' })
-  t.deepEqual(toStyles(example({ size: '500px' })), { width: '500px' })
+test('docs/api @example', () => {
+  expect(toStyles(example({ display: 'inline-flex' }))).toEqual({ display: 'inline-flex' })
+  expect(toStyles(example({ flex: true }))).toEqual({ display: 'flex' })
+  expect(toStyles(example({ inline: true }))).toEqual({ display: 'inline-block' })
+  expect(toStyles(example({ size: '500px' }))).toEqual({ width: '500px' })
 })
 
-test('docs/api @example (with theme)', (t) => {
-  t.deepEqual(toStyles(example({ theme, display: 'flex', hide: { sm: true } })), {
+test('docs/api @example (with theme)', () => {
+  expect(toStyles(example({ theme, display: 'flex', hide: { sm: true } }))).toEqual({
     display: 'flex',
     '@media (max-width: 600px)': {
       display: 'none'
     }
   })
 
-  t.deepEqual(toStyles(example({ theme, size: { all: '500px', sm: true } })), {
+  expect(toStyles(example({ theme, size: { all: '500px', sm: true } }))).toEqual({
     width: '500px',
     '@media (max-width: 600px)': {
       width: '100%'

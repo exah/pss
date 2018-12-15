@@ -1,4 +1,4 @@
-import test from 'ava'
+import expect from 'expect'
 import { deepMerge } from '@exah/utils'
 import { colors, createPropStyles, rule, colorValue } from '../src'
 import { toStyles, testValue } from './_helpers'
@@ -84,27 +84,27 @@ test('bg', testValue({
   trueValue: COLOR_WHITE
 }))
 
-test('theme.color as array', (t) => {
-  t.deepEqual(toStyles(colors({ theme, fg: 'greyArr.0' })), {
+test('theme.color as array', () => {
+  expect(toStyles(colors({ theme, fg: 'greyArr.0' }))).toEqual({
     color: '#eee'
   })
 
-  t.deepEqual(toStyles(colors({ theme, fg: 'greyArr' })), {
+  expect(toStyles(colors({ theme, fg: 'greyArr' }))).toEqual({
     color: '#eee'
   })
 })
 
-test('theme.color as object', (t) => {
-  t.deepEqual(toStyles(colors({ theme, fg: 'greyObj.200' })), {
+test('theme.color as object', () => {
+  expect(toStyles(colors({ theme, fg: 'greyObj.200' }))).toEqual({
     color: '#ccc'
   })
 
-  t.deepEqual(toStyles(colors({ theme, fg: 'greyObj' })), {
+  expect(toStyles(colors({ theme, fg: 'greyObj' }))).toEqual({
     color: '#eee'
   })
 })
 
-test('set theme colors and override text color on mobile', (t) => {
+test('set theme colors and override text color on mobile', () => {
   const props = {
     theme,
     tm: true,
@@ -119,10 +119,10 @@ test('set theme colors and override text color on mobile', (t) => {
     }
   }
 
-  t.deepEqual(toStyles(colors(props)), expected)
+  expect(toStyles(colors(props))).toEqual(expected)
 })
 
-test('change default theme to "inverted"', (t) => {
+test('change default theme to "inverted"', () => {
   const props = {
     theme: themeInverted,
     tm: true
@@ -133,40 +133,40 @@ test('change default theme to "inverted"', (t) => {
     backgroundColor: COLOR_BLACK
   }
 
-  t.deepEqual(toStyles(colors(props)), expected)
+  expect(toStyles(colors(props))).toEqual(expected)
 })
 
-test('set custom  colors', (t) => {
+test('set custom  colors', () => {
   const customColor = 'rgba(255, 0, 255, 0.3)'
   const props = { theme, fg: customColor, bg: 'custom-color' }
   const expected = { color: customColor, backgroundColor: 'custom-color' }
 
-  t.deepEqual(toStyles(colors(props)), expected)
+  expect(toStyles(colors(props))).toEqual(expected)
 })
 
-test('use palette name to set default color in prop', (t) => {
+test('use palette name to set default color in prop', () => {
   const props = { theme, fg: 'inverted' }
   const expected = { color: COLOR_WHITE }
 
-  t.deepEqual(toStyles(colors(props)), expected)
+  expect(toStyles(colors(props))).toEqual(expected)
 })
 
-test('transform color value', (t) => {
+test('transform color value', () => {
   const props = { theme, shadow: true }
   const expected = { boxShadow: `0 0 20px 0 ${COLOR_SHADOW}` }
 
-  t.deepEqual(toStyles(shadow(props)), expected)
+  expect(toStyles(shadow(props))).toEqual(expected)
 })
 
-test('custom color combination', (t) => {
-  t.deepEqual(toStyles(shadow({ theme, tm: true })), {
+test('custom color combination', () => {
+  expect(toStyles(shadow({ theme, tm: true }))).toEqual({
     color: COLOR_BLACK,
     backgroundColor: COLOR_WHITE,
     borderColor: COLOR_BLACK,
     boxShadow: `0 0 20px 0 ${COLOR_SHADOW}`
   })
 
-  t.deepEqual(toStyles(shadow({ theme, tm: 'inverted' })), {
+  expect(toStyles(shadow({ theme, tm: 'inverted' }))).toEqual({
     color: COLOR_WHITE,
     backgroundColor: COLOR_BLACK,
     borderColor: COLOR_WHITE,

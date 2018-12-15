@@ -1,4 +1,4 @@
-import test from 'ava'
+import expect from 'expect'
 import renderer from 'react-test-renderer'
 import styled, { ServerStyleSheet } from 'styled-components'
 import { createElement as h } from 'react'
@@ -22,7 +22,7 @@ const theme = {
   }
 }
 
-test('basic', (t) => {
+test('basic', () => {
   const sheet = new ServerStyleSheet()
 
   const Box = styled.div`
@@ -34,11 +34,11 @@ test('basic', (t) => {
   const element = h(Box, { theme, width: true, tm: true, mg: { all: true, M: 0 } })
   const tree = renderer.create(sheet.collectStyles(element)).toJSON()
 
-  t.snapshot(tree)
-  t.snapshot(sheet.getStyleTags())
+  expect(tree).toMatchSnapshot()
+  expect(sheet.getStyleTags()).toMatchSnapshot()
 })
 
-test('prop-types', (t) => {
+test('prop-types', () => {
   const Box = styled.div`
     ${space}
     ${sizes}
@@ -55,9 +55,9 @@ test('prop-types', (t) => {
 
   h(Box, { theme, width: true, tm: true, mg: { all: true, M: 0 } })
 
-  t.throws(() => {
+  expect(() => {
     h(Box, { theme, mg: { wrong: false } })
-  }, /(Invalid prop|Failed prop type)/, 'should show prop type error')
+  }).toThrowError(/(Invalid prop|Failed prop type)/)
 
   restoreConsole()
 })

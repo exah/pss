@@ -1,4 +1,4 @@
-import test from 'ava'
+import expect from 'expect'
 import { sizes } from '../src'
 import { toStyles } from './_helpers'
 
@@ -19,7 +19,7 @@ const theme = {
   }
 }
 
-test('sizes relative value', (t) => {
+test('sizes relative value', () => {
   const props = {
     theme,
     height: true,
@@ -39,10 +39,10 @@ test('sizes relative value', (t) => {
     maxHeight: 'auto'
   }
 
-  t.deepEqual(toStyles(sizes(props)), expected)
+  expect(toStyles(sizes(props))).toEqual(expected)
 })
 
-test('sizes path from theme', (t) => {
+test('sizes path from theme', () => {
   const props = {
     theme,
     height: 'custom.my-value'
@@ -52,10 +52,10 @@ test('sizes path from theme', (t) => {
     height: '1000px'
   }
 
-  t.deepEqual(toStyles(sizes(props)), expected)
+  expect(toStyles(sizes(props))).toEqual(expected)
 })
 
-test('sizes theme values', (t) => {
+test('sizes theme values', () => {
   const props = {
     theme,
     minWidth: 'nudge',
@@ -72,10 +72,10 @@ test('sizes theme values', (t) => {
     }
   }
 
-  t.deepEqual(toStyles(sizes(props)), expected)
+  expect(toStyles(sizes(props))).toEqual(expected)
 })
 
-test('sizes custom values', (t) => {
+test('sizes custom values', () => {
   const props = {
     theme,
     height: '100px',
@@ -95,5 +95,5 @@ test('sizes custom values', (t) => {
     }
   }
 
-  t.deepEqual(toStyles(sizes(props)), expected)
+  expect(toStyles(sizes(props))).toEqual(expected)
 })

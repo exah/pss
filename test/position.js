@@ -1,4 +1,4 @@
-import test from 'ava'
+import expect from 'expect'
 import { position } from '../src'
 import { toStyles } from './_helpers'
 
@@ -10,7 +10,7 @@ const theme = {
   }
 }
 
-test('position', (t) => {
+test('position', () => {
   const result = position({
     theme,
     position: {
@@ -40,5 +40,5 @@ test('position', (t) => {
     }
   }
 
-  t.deepEqual(toStyles(result), expected)
+  expect(toStyles(result)).toEqual(expected)
 })

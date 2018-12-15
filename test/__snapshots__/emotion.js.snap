@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic 1`] = `
+Object {
+  "css-x8qxcp": "width:100%;max-height:75%;",
+}
+`;
+
+exports[`basic 2`] = `
+Object {
+  "css-1ynyhby": "margin:8px;",
+}
+`;
+
+exports[`basic 3`] = `
+Object {
+  "css-fctmu3": "background-color:#ffffff;color:#000000;",
+}
+`;
+
+exports[`basic 4`] = `
+<div
+  className="css-1qwlrg4"
+  width={true}
+/>
+`;
+
+exports[`basic 5`] = `
+Object {
+  "css-1qwlrg4": "margin:8px;@media (max-width: 600px){margin:0;}width:100%;background-color:#ffffff;color:#000000;",
+}
+`;

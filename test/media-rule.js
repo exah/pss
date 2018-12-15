@@ -1,8 +1,8 @@
-import test from 'ava'
+import expect from 'expect'
 import { createPropStyles, mediaRule } from '../src'
-import { theme, toStyles } from './_helpers.js'
+import { theme, toStyles } from './_helpers'
 
-test('return style', t => {
+test('return style', () => {
   const style = createPropStyles({
     hideOn: mediaRule('display', 'none')
   })
@@ -13,11 +13,11 @@ test('return style', t => {
     }
   }
 
-  t.deepEqual(toStyles(style({ theme, hideOn: 'M' })), expected)
-  t.deepEqual(toStyles(style({ theme, hideOn: { M: true } })), expected)
+  expect(toStyles(style({ theme, hideOn: 'M' }))).toEqual(expected)
+  expect(toStyles(style({ theme, hideOn: { M: true } }))).toEqual(expected)
 })
 
-test('multiple media', t => {
+test('multiple media', () => {
   const style = createPropStyles({
     hideOn: mediaRule('display', 'none')
   })
@@ -31,17 +31,17 @@ test('multiple media', t => {
     }
   }
 
-  t.deepEqual(toStyles(style({ theme, hideOn: { M: true, D: true } })), expected)
+  expect(toStyles(style({ theme, hideOn: { M: true, D: true } }))).toEqual(expected)
 })
 
-test('return nothing', t => {
+test('return nothing', () => {
   const style = createPropStyles({
     hideOn: mediaRule('display', 'none')
   })
 
-  t.deepEqual(toStyles(style({ theme, hideOn: 'default' })), {})
-  t.deepEqual(toStyles(style({ theme, hideOn: true })), {})
-  t.deepEqual(toStyles(style({ theme, hideOn: 'wrong' })), {})
-  t.deepEqual(toStyles(style({ theme, hideOn: false })), {})
-  t.deepEqual(toStyles(style({ theme, hideOn: null })), {})
+  expect(toStyles(style({ theme, hideOn: 'default' }))).toEqual({})
+  expect(toStyles(style({ theme, hideOn: true }))).toEqual({})
+  expect(toStyles(style({ theme, hideOn: 'wrong' }))).toEqual({})
+  expect(toStyles(style({ theme, hideOn: false }))).toEqual({})
+  expect(toStyles(style({ theme, hideOn: null }))).toEqual({})
 })

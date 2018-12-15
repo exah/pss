@@ -1,4 +1,4 @@
-import test from 'ava'
+import expect from 'expect'
 import { createPropStyles, rule, sizeValue, spaceValue, boolValue } from '../src'
 import { toStyles } from './_helpers'
 
@@ -23,7 +23,7 @@ const theme = {
   }
 }
 
-test('sizeValue: 100%', (t) => {
+test('sizeValue: 100%', () => {
   const style = createPropStyles({
     height: rule('height', sizeValue(boolValue('100%')))
   })
@@ -32,12 +32,12 @@ test('sizeValue: 100%', (t) => {
     height: '100%'
   }
 
-  t.deepEqual(toStyles(style({ theme, height: 1 })), expected)
-  t.deepEqual(toStyles(style({ theme, height: '100%' })), expected)
-  t.deepEqual(toStyles(style({ theme, height: true })), expected)
+  expect(toStyles(style({ theme, height: 1 }))).toEqual(expected)
+  expect(toStyles(style({ theme, height: '100%' }))).toEqual(expected)
+  expect(toStyles(style({ theme, height: true }))).toEqual(expected)
 })
 
-test('sizeValue: sizes.xl', (t) => {
+test('sizeValue: sizes.xl', () => {
   const style = createPropStyles({
     height: rule('height', sizeValue())
   })
@@ -46,11 +46,11 @@ test('sizeValue: sizes.xl', (t) => {
     height: '100px'
   }
 
-  t.deepEqual(toStyles(style({ theme, height: 100 })), expected)
-  t.deepEqual(toStyles(style({ theme, height: 'xl' })), expected)
+  expect(toStyles(style({ theme, height: 100 }))).toEqual(expected)
+  expect(toStyles(style({ theme, height: 'xl' }))).toEqual(expected)
 })
 
-test('sizeValue: sizes.nudge', (t) => {
+test('sizeValue: sizes.nudge', () => {
   const style = createPropStyles({
     height: rule('height', sizeValue())
   })
@@ -62,11 +62,11 @@ test('sizeValue: sizes.nudge', (t) => {
     }
   }
 
-  t.deepEqual(toStyles(style({ theme, height: 'nudge' })), expected)
-  t.deepEqual(toStyles(style({ theme, height: { all: 2, sm: '1px' } })), expected)
+  expect(toStyles(style({ theme, height: 'nudge' }))).toEqual(expected)
+  expect(toStyles(style({ theme, height: { all: 2, sm: '1px' } }))).toEqual(expected)
 })
 
-test('sizeValue: 0', (t) => {
+test('sizeValue: 0', () => {
   const style = createPropStyles({
     height: rule('height', sizeValue(boolValue(null, 0)))
   })
@@ -75,12 +75,12 @@ test('sizeValue: 0', (t) => {
     height: 0
   }
 
-  t.deepEqual(toStyles(style({ theme, height: 0 })), expected)
-  t.deepEqual(toStyles(style({ theme, height: false })), expected)
-  t.deepEqual(toStyles(style({ theme, height: 'none' })), expected)
+  expect(toStyles(style({ theme, height: 0 }))).toEqual(expected)
+  expect(toStyles(style({ theme, height: false }))).toEqual(expected)
+  expect(toStyles(style({ theme, height: 'none' }))).toEqual(expected)
 })
 
-test('sizeValue: custom.my-value', (t) => {
+test('sizeValue: custom.my-value', () => {
   const style = createPropStyles({
     height: rule('height', sizeValue())
   })
@@ -89,10 +89,10 @@ test('sizeValue: custom.my-value', (t) => {
     height: '1000vh'
   }
 
-  t.deepEqual(toStyles(style({ theme, height: 'custom.my-value' })), expected)
+  expect(toStyles(style({ theme, height: 'custom.my-value' }))).toEqual(expected)
 })
 
-test('spaceValue', (t) => {
+test('spaceValue', () => {
   const style = createPropStyles({
     mg: rule('margin', spaceValue(sizeValue())),
     mgl: rule('marginLeft', spaceValue()),
@@ -103,21 +103,21 @@ test('spaceValue', (t) => {
     mgy: [ rule('marginTop', spaceValue()), rule('marginBottom', spaceValue()) ]
   })
 
-  t.deepEqual(toStyles(style({ theme, mg: 1 })), {
+  expect(toStyles(style({ theme, mg: 1 }))).toEqual({
     margin: '8px',
     '@media (max-width: 600px)': {
       margin: '4px'
     }
   })
 
-  t.deepEqual(toStyles(style({ theme, mg: { all: 2, sm: 1 } })), {
+  expect(toStyles(style({ theme, mg: { all: 2, sm: 1 } }))).toEqual({
     margin: '16px',
     '@media (max-width: 600px)': {
       margin: '4px'
     }
   })
 
-  t.deepEqual(toStyles(style({ theme, mgx: { all: 2, sm: 1 }, mgy: 3 })), {
+  expect(toStyles(style({ theme, mgx: { all: 2, sm: 1 }, mgy: 3 }))).toEqual({
     marginTop: '32px',
     marginBottom: '32px',
     marginLeft: '16px',
@@ -130,26 +130,26 @@ test('spaceValue', (t) => {
     }
   })
 
-  t.deepEqual(toStyles(style({ theme, mg: { sm: 1 } })), {
+  expect(toStyles(style({ theme, mg: { sm: 1 } }))).toEqual({
     '@media (max-width: 600px)': {
       margin: '4px'
     }
   })
 
-  t.deepEqual(toStyles(style({ theme, mg: { all: 2 } })), {
+  expect(toStyles(style({ theme, mg: { all: 2 } }))).toEqual({
     margin: '16px'
   })
 
-  t.deepEqual(toStyles(style({ theme, mg: 'xl' })), {
+  expect(toStyles(style({ theme, mg: 'xl' }))).toEqual({
     margin: '100px'
   })
 
-  t.deepEqual(toStyles(style({ theme, mg: 'nudge' })), {
+  expect(toStyles(style({ theme, mg: 'nudge' }))).toEqual({
     margin: '2px',
     '@media (max-width: 600px)': {
       margin: '1px'
     }
   })
 
-  t.deepEqual(toStyles(style({ theme, mg: 0.5 })), {})
+  expect(toStyles(style({ theme, mg: 0.5 }))).toEqual({})
 })

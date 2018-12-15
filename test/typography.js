@@ -1,4 +1,4 @@
-import test from 'ava'
+import expect from 'expect'
 import { typography } from '../src/styles/typography'
 import { textStyle } from '../src/styles/text-style'
 import { toStyles } from './_helpers'
@@ -34,7 +34,7 @@ const theme = {
   }
 }
 
-test('defaults', (t) => {
+test('defaults', () => {
   const result = toStyles(typography({
     theme,
     fontFamily: true,
@@ -43,7 +43,7 @@ test('defaults', (t) => {
     letterSpacing: true
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     fontFamily: 'Helivetica, system-ui',
     fontSize: '1rem',
     lineHeight: 'normal',
@@ -51,7 +51,7 @@ test('defaults', (t) => {
   })
 })
 
-test('text helpers', (t) => {
+test('text helpers', () => {
   const result = toStyles(typography({
     theme,
     fontFamily: 'heading',
@@ -60,7 +60,7 @@ test('text helpers', (t) => {
     whiteSpace: 'nowrap'
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     fontFamily: 'Times New Roman, serif',
     fontWeight: 'bold',
     textAlign: 'center',
@@ -68,39 +68,39 @@ test('text helpers', (t) => {
   })
 })
 
-test('text style', (t) => {
+test('text style', () => {
   const result = toStyles(textStyle({
     theme,
     textStyle: 'heading'
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     fontSize: 32,
     lineHeight: 1.1,
     fontWeight: 'bold'
   })
 })
 
-test('ellipsis', (t) => {
+test('ellipsis', () => {
   const result = toStyles(typography({
     theme,
     ellipsis: true
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis'
   })
 })
 
-test('responsive textStyle', (t) => {
+test('responsive textStyle', () => {
   const result = toStyles(typography({
     theme,
     textStyle: 'responsive'
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     fontSize: 16,
     '@media (max-width: 600px)': {
       fontSize: 12
@@ -108,13 +108,13 @@ test('responsive textStyle', (t) => {
   })
 })
 
-test('responsive fontFamily', (t) => {
+test('responsive fontFamily', () => {
   const result = toStyles(typography({
     theme,
     fontFamily: 'responsive'
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     '@media (max-width: 600px)': {
       fontFamily: 'Times New Roman, serif'
     }

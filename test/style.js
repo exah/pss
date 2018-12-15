@@ -1,4 +1,4 @@
-import test from 'ava'
+import expect from 'expect'
 import { createPropStyles, style } from '../src'
 import { theme as helperTheme, toStyles } from './_helpers'
 
@@ -34,37 +34,37 @@ const customProps = createPropStyles({
   is: style({ themeKey: 'customStyles' })
 })
 
-test('default', (t) => {
+test('default', () => {
   const result = toStyles(customProps({
     theme,
     is: true
   }))
 
-  t.deepEqual(result, theme.customStyles.default)
+  expect(result).toEqual(theme.customStyles.default)
 })
 
-test('other key', (t) => {
+test('other key', () => {
   const result = toStyles(customProps({
     theme,
     is: 'accent'
   }))
 
-  t.deepEqual(result, theme.customStyles.accent)
+  expect(result).toEqual(theme.customStyles.accent)
 })
 
-test('media style', (t) => {
+test('media style', () => {
   const result = toStyles(customProps({
     theme,
     is: 'small'
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     ...theme.customStyles.small.all,
     [`@media ${theme.media.M}`]: theme.customStyles.small.M
   })
 })
 
-test('media M style', (t) => {
+test('media M style', () => {
   const result = toStyles(customProps({
     theme,
     is: {
@@ -72,7 +72,7 @@ test('media M style', (t) => {
     }
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     [`@media ${theme.media.M}`]: theme.customStyles.small.M
   })
 })

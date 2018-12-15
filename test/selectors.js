@@ -1,4 +1,4 @@
-import test from 'ava'
+import expect from 'expect'
 
 import {
   space,
@@ -22,13 +22,13 @@ const theme = {
   myValue: 100
 }
 
-test('add margin-top to &:first-child', (t) => {
+test('add margin-top to &:first-child', () => {
   const result = toStyles(space({
     theme,
     mgt: ps('&:first-child', 1)
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     '&:first-child': {
       marginTop: '10px',
       '@media (max-width: 600px)': {
@@ -38,13 +38,13 @@ test('add margin-top to &:first-child', (t) => {
   })
 })
 
-test('add margin to & + & element on mobile', (t) => {
+test('add margin to & + & element on mobile', () => {
   const result = toStyles(space({
     theme,
     mg: { M: ps('& + &', 2) }
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     '@media (max-width: 600px)': {
       '& + &': {
         margin: '10px'
@@ -53,14 +53,14 @@ test('add margin to & + & element on mobile', (t) => {
   })
 })
 
-test('add different top value to &:last-child and &:first-child', (t) => {
+test('add different top value to &:last-child and &:first-child', () => {
   const result = toStyles(position({
     theme,
     position: 'relative',
     top: cs(50, ps('&:last-child', 10), ps('&:first-child', 20))
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     position: 'relative',
     top: '50px',
     '&:first-child': {
@@ -72,20 +72,20 @@ test('add different top value to &:last-child and &:first-child', (t) => {
   })
 })
 
-test('change media query on M in propSelector but keep value', (t) => {
+test('change media query on M in propSelector but keep value', () => {
   const result = toStyles(space({
     theme,
     mg: ps('@media (max-width: 1024px)', 2, 'M')
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     '@media (max-width: 1024px)': {
       margin: '10px'
     }
   })
 })
 
-test('themeSelector: position', (t) => {
+test('themeSelector: position', () => {
   const result = toStyles(position({
     theme,
     top: ts((tm) => tm.myValue),
@@ -94,7 +94,7 @@ test('themeSelector: position', (t) => {
     right: ts(themePath('notPercentage', 1))
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     top: '100px',
     bottom: '100px',
     left: '5px',
@@ -102,7 +102,7 @@ test('themeSelector: position', (t) => {
   })
 })
 
-test('themeSelector: space', (t) => {
+test('themeSelector: space', () => {
   const result = toStyles(space({
     theme,
     mg: ts((tm) => tm.myValue),
@@ -110,7 +110,7 @@ test('themeSelector: space', (t) => {
     mgr: ts(themePath('notPercentage', 1))
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     margin: '100px',
     marginBottom: '100px',
     marginRight: '1px'

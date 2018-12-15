@@ -1,4 +1,4 @@
-import test from 'ava'
+import expect from 'expect'
 import renderer from 'react-test-renderer'
 import { createElement as h } from 'react'
 import { css, caches, flush } from 'emotion'
@@ -22,27 +22,27 @@ const theme = {
   }
 }
 
-test('basic', (t) => {
+test('basic', () => {
   flush()
 
   const sizeClassName = css(sizes({ theme, width: true, maxHeight: (3 / 4) }))
 
-  t.is(Object.keys(caches.registered).includes(sizeClassName), true)
-  t.snapshot(caches.registered)
+  expect(Object.keys(caches.registered).includes(sizeClassName)).toBe(true)
+  expect(caches.registered).toMatchSnapshot()
 
   flush()
 
   const spaceClassName = css(space({ theme, mg: true }))
 
-  t.is(Object.keys(caches.registered).includes(spaceClassName), true)
-  t.snapshot(caches.registered)
+  expect(Object.keys(caches.registered).includes(spaceClassName)).toBe(true)
+  expect(caches.registered).toMatchSnapshot()
 
   flush()
 
   const tmClassName = css(colors({ theme, tm: true }))
 
-  t.is(Object.keys(caches.registered).includes(tmClassName), true)
-  t.snapshot(caches.registered)
+  expect(Object.keys(caches.registered).includes(tmClassName)).toBe(true)
+  expect(caches.registered).toMatchSnapshot()
 
   flush()
 
@@ -50,6 +50,6 @@ test('basic', (t) => {
   const element = h(Box, { theme, width: true, tm: true, mg: { all: true, M: 0 } })
   const tree = renderer.create(element).toJSON()
 
-  t.snapshot(tree)
-  t.snapshot(caches.registered)
+  expect(tree).toMatchSnapshot()
+  expect(caches.registered).toMatchSnapshot()
 })

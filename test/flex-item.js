@@ -1,4 +1,4 @@
-import test from 'ava'
+import expect from 'expect'
 import { flexItem } from '../src'
 import { toStyles, testValue } from './_helpers'
 
@@ -42,11 +42,11 @@ const theme = {
 
 const mobStyle = (style) => ({ [`@media ${theme.media.M}`]: style })
 
-test('flex (basis)', t => {
-  t.deepEqual(toStyles(flexItem({ flex: 1 })), { flex: '100%' })
-  t.deepEqual(toStyles(flexItem({ flex: (1 / 2) })), { flex: '50%' })
-  t.deepEqual(toStyles(flexItem({ flex: 10 })), { flex: '10px' })
-  t.deepEqual(toStyles(flexItem({ flex: null })), {})
-  t.deepEqual(toStyles(flexItem({ theme, flex: 'site' })), { flex: '1000px' })
-  t.deepEqual(toStyles(flexItem({ theme, flex: { M: '0' } })), mobStyle({ flex: '0' }))
+test('flex (basis)', () => {
+  expect(toStyles(flexItem({ flex: 1 }))).toEqual({ flex: '100%' })
+  expect(toStyles(flexItem({ flex: (1 / 2) }))).toEqual({ flex: '50%' })
+  expect(toStyles(flexItem({ flex: 10 }))).toEqual({ flex: '10px' })
+  expect(toStyles(flexItem({ flex: null }))).toEqual({})
+  expect(toStyles(flexItem({ theme, flex: 'site' }))).toEqual({ flex: '1000px' })
+  expect(toStyles(flexItem({ theme, flex: { M: '0' } }))).toEqual(mobStyle({ flex: '0' }))
 })

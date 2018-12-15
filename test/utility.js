@@ -1,4 +1,4 @@
-import test from 'ava'
+import expect from 'expect'
 import { utility } from '../src'
 import { toStyles, testValue } from './_helpers'
 
@@ -46,6 +46,6 @@ test('outline', testValue({
   values: [ '1px solid red', 'none' ]
 }))
 
-test('outline: debug', t => {
-  t.is(toStyles(utility({ outline: 'debug' })).outline.indexOf('1px solid'), 0)
+test('outline: debug', () => {
+  expect(toStyles(utility({ outline: 'debug' })).outline.indexOf('1px solid')).toBe(0)
 })

@@ -1,3 +1,4 @@
+import expect from 'expect'
 import { toArr, flatten, deepMerge } from '@exah/utils'
 
 const THEME = {
@@ -32,15 +33,15 @@ const testValue = ({
   values = [],
   trueValue,
   falseValue
-}) => (t) => {
-  t.deepEqual(toStyles(fn({ theme, [prop]: true })), trueValue != null ? { [cssProp]: trueValue } : {})
-  t.deepEqual(toStyles(fn({ theme, [prop]: false })), falseValue != null ? { [cssProp]: falseValue } : {})
-  t.deepEqual(toStyles(fn({ theme, [prop]: null })), {})
+}) => () => {
+  expect(toStyles(fn({ theme, [prop]: true }))).toEqual(trueValue != null ? { [cssProp]: trueValue } : {})
+  expect(toStyles(fn({ theme, [prop]: false }))).toEqual(falseValue != null ? { [cssProp]: falseValue } : {})
+  expect(toStyles(fn({ theme, [prop]: null }))).toEqual({})
 
   values.forEach((val) => {
-    t.deepEqual(toStyles(fn({ theme, [prop]: val })), { [cssProp]: val })
-    t.deepEqual(toStyles(fn({ theme, [prop]: val })), { [cssProp]: val })
-    t.deepEqual(toStyles(fn({ theme, [prop]: { M: val } })), wrapInMedia({ [cssProp]: val }))
+    expect(toStyles(fn({ theme, [prop]: val }))).toEqual({ [cssProp]: val })
+    expect(toStyles(fn({ theme, [prop]: val }))).toEqual({ [cssProp]: val })
+    expect(toStyles(fn({ theme, [prop]: { M: val } }))).toEqual(wrapInMedia({ [cssProp]: val }))
   })
 }
 export {

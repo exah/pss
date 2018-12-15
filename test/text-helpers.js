@@ -1,4 +1,3 @@
-import test from 'ava'
 import { textHelpers } from '../src'
 import { testValue } from './_helpers'
 

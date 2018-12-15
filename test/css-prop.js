@@ -1,4 +1,4 @@
-import test from 'ava'
+import expect from 'expect'
 import { cssProp } from '../src'
 import { toStyles } from './_helpers'
 
@@ -9,7 +9,7 @@ const theme = {
   myColor: 'blue'
 }
 
-test('default', (t) => {
+test('default', () => {
   const result = cssProp({
     theme,
     css: {
@@ -18,13 +18,13 @@ test('default', (t) => {
     }
   })
 
-  t.deepEqual(toStyles(result), {
+  expect(toStyles(result)).toEqual({
     backgroundColor: 'red',
     display: 'flex'
   })
 })
 
-test('responsive', (t) => {
+test('responsive', () => {
   const result = cssProp({
     theme,
     css: {
@@ -46,10 +46,10 @@ test('responsive', (t) => {
     }
   }
 
-  t.deepEqual(toStyles(result), expected)
+  expect(toStyles(result)).toEqual(expected)
 })
 
-test('callback', (t) => {
+test('callback', () => {
   const result = cssProp({
     theme,
     css: (props) => ({
@@ -57,7 +57,7 @@ test('callback', (t) => {
     })
   })
 
-  t.deepEqual(toStyles(result), {
+  expect(toStyles(result)).toEqual({
     color: theme.myColor
   })
 })

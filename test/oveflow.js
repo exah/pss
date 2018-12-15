@@ -1,4 +1,4 @@
-import test from 'ava'
+import expect from 'expect'
 import { overflow } from '../src'
 import { toStyles, theme, wrapInMedia, testValue } from './_helpers'
 
@@ -29,12 +29,12 @@ test('ovx', testValue({
   falseValue: 'visible'
 }))
 
-const testStyle = (prop, style) => t => {
-  t.deepEqual(toStyles(overflow({ [prop]: true })), style)
-  t.deepEqual(toStyles(overflow({ [prop]: 'anything' })), {})
-  t.deepEqual(toStyles(overflow({ [prop]: false })), {})
-  t.deepEqual(toStyles(overflow({ [prop]: null })), {})
-  t.deepEqual(toStyles(overflow({ theme, [prop]: { M: true } })), wrapInMedia(style))
+const testStyle = (prop, style) => () => {
+  expect(toStyles(overflow({ [prop]: true }))).toEqual(style)
+  expect(toStyles(overflow({ [prop]: 'anything' }))).toEqual({})
+  expect(toStyles(overflow({ [prop]: false }))).toEqual({})
+  expect(toStyles(overflow({ [prop]: null }))).toEqual({})
+  expect(toStyles(overflow({ theme, [prop]: { M: true } }))).toEqual(wrapInMedia(style))
 }
 
 test('ovh', testStyle('ovh', { overflow: 'hidden' }))

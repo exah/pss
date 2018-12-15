@@ -1,4 +1,4 @@
-import test from 'ava'
+import expect from 'expect'
 import { space } from '../src'
 import { toStyles } from './_helpers'
 
@@ -11,15 +11,15 @@ const theme = {
   space: [ 0, 10, 20, '3rem', 60 ]
 }
 
-test('set one step space', (t) => {
+test('set one step space', () => {
   const result = toStyles(space({ theme, mg: 1 }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     margin: '10px'
   })
 })
 
-test('set bool space value', (t) => {
+test('set bool space value', () => {
   const result = toStyles(space({ theme, mg: true, mgx: { M: false } }))
 
   const expected = {
@@ -30,10 +30,10 @@ test('set bool space value', (t) => {
     }
   }
 
-  t.deepEqual(result, expected)
+  expect(result).toEqual(expected)
 })
 
-test('override one step space on mobile and tablet', (t) => {
+test('override one step space on mobile and tablet', () => {
   const expected = {
     margin: '10px',
     '@media (max-width: 600px)': { marginLeft: '3rem' },
@@ -43,8 +43,5 @@ test('override one step space on mobile and tablet', (t) => {
     }
   }
 
-  t.deepEqual(
-    toStyles(space({ theme, mg: 1, mgl: { M: 3 }, mgx: { T: 0 } })),
-    expected
-  )
+  expect(toStyles(space({ theme, mg: 1, mgl: { M: 3 }, mgx: { T: 0 } }))).toEqual(expected)
 })
