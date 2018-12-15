@@ -35,7 +35,7 @@ const propSelector = curryN(2, (name, value, mediaKey) => (props, propMediaKey, 
 
 /**
  * ```js
- * import { ts } from 'pss'
+ * import { ts, themePath } from 'pss'
  * ```
  *
  * Get value from `theme` directly in prop
@@ -46,6 +46,7 @@ const propSelector = curryN(2, (name, value, mediaKey) => (props, propMediaKey, 
  * `
  *
  * <Box width={ts((theme) => theme.myValue)}
+ * <Box width={ts(themePath('site.width'))}
  */
 
 const themeSelector = (

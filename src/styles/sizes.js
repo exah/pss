@@ -52,9 +52,6 @@ import { sizeValue, boolValue } from '../values'
  *       all: '500px',
  *       sm: '300px'
  *     }
- *   },
- *   site: {
- *     width: '1300px'
  *   }
  * }
  * ```
@@ -75,9 +72,6 @@ import { sizeValue, boolValue } from '../values'
  *
  * // only `theme.size.card.sm`
  * <Box width={{ sm: 'card' }} /> // → @media (max-width: 600px) { margin-left: 300px }
- *
- * // `theme.site.width`
- * <Box maxWidth='site.width' /> // → max-width: 1300px
  *
  * // Smaller that or equal to `1` is percentage value
  * <Box maxWidth={(1 / 2)} /> // → max-width: 50%

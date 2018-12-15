@@ -1,6 +1,5 @@
-import { isBool, isStr, isFn, identity } from '@exah/utils'
+import { isBool, isFn, identity } from '@exah/utils'
 import { everyMedia } from '../core/every-media'
-import { themePath } from '../getters'
 import { wrap } from '../utils'
 
 /**
@@ -49,14 +48,6 @@ function rule (cssProp, getValue = identity) {
   ) => {
     if (isRawValue === true) {
       return css(input)
-    }
-
-    if (isStr(input)) {
-      const customValue = themePath(input)(props)
-
-      if (customValue !== undefined) {
-        return css(customValue)
-      }
     }
 
     return everyMedia(

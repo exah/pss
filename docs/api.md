@@ -266,9 +266,6 @@ const theme = {
       all: '500px',
       sm: '300px'
     }
-  },
-  site: {
-    width: '1300px'
   }
 }
 ```
@@ -292,9 +289,6 @@ const Box = styled.div`
 
 // only `theme.size.card.sm`
 <Box width={{ sm: 'card' }} /> // → @media (max-width: 600px) { margin-left: 300px }
-
-// `theme.site.width`
-<Box maxWidth='site.width' /> // → max-width: 1300px
 
 // Smaller that or equal to `1` is percentage value
 <Box maxWidth={(1 / 2)} /> // → max-width: 50%
@@ -1020,7 +1014,7 @@ const Box = styled.div`
 ```
 
 ```js
-<Box tm='inverted' minHeight='200px' maxWidth='site.width' mgx='auto' pd={2} />
+<Box tm='inverted' minHeight='200px' maxWidth='site' mgx='auto' pd={2} />
 ```
 
     .css {
@@ -1677,7 +1671,7 @@ import { ps } from 'pss'
 ### themeSelector
 
 ```js
-import { ts } from 'pss'
+import { ts, themePath } from 'pss'
 ```
 
 Get value from `theme` directly in prop
@@ -1695,6 +1689,7 @@ const Box = styled.div`
 `
 
 <Box width={ts((theme) => theme.myValue)}
+<Box width={ts(themePath('site.width'))}
 ```
 
 ### combineSelectors

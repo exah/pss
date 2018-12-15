@@ -12,9 +12,6 @@ const theme = {
       M: 1
     },
     xl: 100
-  },
-  custom: {
-    'my-value': '1000px'
   }
 }
 
@@ -36,19 +33,6 @@ test('sizes relative value', () => {
     maxWidth: 0,
     minHeight: '75%',
     maxHeight: 'auto'
-  }
-
-  expect(toStyles(sizes(props))).toEqual(expected)
-})
-
-test('sizes path from theme', () => {
-  const props = {
-    theme,
-    height: 'custom.my-value'
-  }
-
-  const expected = {
-    height: '1000px'
   }
 
   expect(toStyles(sizes(props))).toEqual(expected)

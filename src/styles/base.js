@@ -21,7 +21,7 @@ import { colors } from './colors'
  * `
  *
  * @example
- * <Box tm='inverted' minHeight='200px' maxWidth='site.width' mgx='auto' pd={2} />
+ * <Box tm='inverted' minHeight='200px' maxWidth='site' mgx='auto' pd={2} />
  *
  * @example
  * .css {

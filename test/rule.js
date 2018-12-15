@@ -79,18 +79,6 @@ test('sizeValue: 0', () => {
   expect(toStyles(style({ theme, height: 'none' }))).toEqual(expected)
 })
 
-test('sizeValue: custom.my-value', () => {
-  const style = createPropStyles({
-    height: rule('height', sizeValue())
-  })
-
-  const expected = {
-    height: '1000vh'
-  }
-
-  expect(toStyles(style({ theme, height: 'custom.my-value' }))).toEqual(expected)
-})
-
 test('spaceValue', () => {
   const style = createPropStyles({
     mg: rule('margin', spaceValue(sizeValue())),
