@@ -57,3 +57,7 @@ toc:
     children:
       - themePath
       - mq
+
+  - name: Utils
+    children:
+      - combine

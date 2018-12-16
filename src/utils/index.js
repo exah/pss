@@ -33,6 +33,29 @@ export const hasMediaKeys = (media, val) => {
   return toArr(val).some((key) => mediaKeys.includes(key))
 }
 
+/**
+ * Combine multiple styles together
+ *
+ * @example
+ * import { combine } from 'pss'
+ *
+ * @example
+ * import { combine, margin, padding } from 'pss'
+ *
+ * const space = combine(
+ *   margin,
+ *   padding
+ * )
+ *
+ * const Space = styled.div`
+ *   ${space}
+ * `
+ *
+ * Space.propTypes = {
+ *   ...space.propTypes
+ * }
+ */
+
 export const combine = (...fns) => {
   const combined = (...args) => fns.map((fn) => fn(...args))
   const propTypes = fns.reduce((acc, fn) => ({
