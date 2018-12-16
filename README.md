@@ -1,14 +1,13 @@
 <p align="center">
-  <img src="https://www.dropbox.com/s/esz2so72ahvgpow/text-animation-1s-157x80px.gif?raw=1" width="100" height="51" />
+  <img src="./pss.gif" width="100" height="51" />
 </p>
 
 > Design system utils for component based CSS-in-JS libraries
 
 
 - [x] Support [`emotion`](https://emotion.sh), [`styled-components`](https://www.styled-components.com) and [`glamorous`](https://glamorous.rocks)
-- [x] Configurable
+- [x] Responsive by default
 - [x] Dynamic
-- [x] Responsive
 
 
 ## 📦 Install
@@ -28,6 +27,8 @@ Because css-in-js and design systems are all the hype right now! But seriously, 
 
 ## 🏃‍♂️ [Getting Started](./docs/getting-started.md)
 
+## 🌍 [Demo](http://johngrish.in/components/#/box)
+
 ## 📖 [API](./docs/api.md)
 
 ## 🔗 Links
@@ -41,8 +42,8 @@ Because css-in-js and design systems are all the hype right now! But seriously, 
 
 ### Packages
 
-- [`components`](https://github.com/exah/components) — Components created with `pss`
-- [`base-component`](https://github.com/exah/react-base-component) – Base component that prevents rendering unknown props in DOM
+- [`pss-components`](https://github.com/exah/components) — Components created with `pss`
+- [`react-styled-base`](https://github.com/exah/react-base-component) – Base component that prevents rendering unknown props in DOM
 - [`polished`](https://github.com/styled-components/polished) — "A lightweight toolset for writing styles in JavaScript"
 
 

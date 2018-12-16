@@ -84,6 +84,7 @@ CSS-in-JS result:
 
 .css-0 {
   background-color: #000000;
+  height: 100%;
 }
 
 .css-1 {
