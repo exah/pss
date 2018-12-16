@@ -1,7 +1,7 @@
 import { createStyles, rule } from '../core'
 
 const randomHexColor = () =>
-  '#' + (Math.random() * 0xFFFFFF << 0).toString(16)
+  '#' + ((Math.random() * 0xFFFFFF << 0).toString(16) + '0').slice(0, 6)
 
 /**
  * ```js
