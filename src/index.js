@@ -2,7 +2,6 @@ export * from './constants'
 
 export {
   createStyles as default,
-  createStyles as pss,
   createVariant as variant,
   createVariant,
   createStyles,
@@ -32,6 +31,12 @@ export {
   ratio,
   sizes,
   space,
+  outline,
+  opacity,
+  radius,
+  cursor,
+  transition,
+  transform,
   margin,
   padding,
   system,
