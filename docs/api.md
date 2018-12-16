@@ -472,10 +472,7 @@ const Box = styled.div`
 ```
 
 ```js
-// border-width: 1px; border-style: solid; border-color: #eee
-<Box bd bdc />
-
-// border-left-width: 1px; border-left-style: dotted; border-color: red
+// border-left: 1px dotted; border-color: red
 <Box bdl='1px dotted' bdc='red' />
 ```
 
