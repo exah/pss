@@ -7,6 +7,9 @@ import { createVariant } from '../core'
  * ```
  *
  * Global text styles system, like in [Sketch](https://sketchapp.com/docs/text/text-styles).
+ *
+ * Related: {@link createVariant}, {@link typography}.
+ *
  * Add `textStyle` to `theme`:
  *
  * ```js
@@ -27,6 +30,8 @@ import { createVariant } from '../core'
  *   }
  * }
  * ```
+ *
+ * @param {Object} props
  *
  * @example
  * import { textStyle } from 'pss'

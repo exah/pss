@@ -8,7 +8,12 @@ import { overflow } from './overflow'
 import { position } from './position'
 import { ratio } from './ratio'
 import { textStyle } from './text-style'
-import { utility } from './utility'
+import { outline } from './outline'
+import { opacity } from './opacity'
+import { radius } from './radius'
+import { cursor } from './cursor'
+import { transition } from './transition'
+import { transform } from './transform'
 
 /**
  * ```js
@@ -30,6 +35,10 @@ import { utility } from './utility'
  *   - {@link ratio}
  *   - {@link textStyle}
  *   - {@link transition}
+ *
+ * Related: {@link combine}.
+ *
+ * @param {Object} props
  *
  * @example
  * import { system } from 'pss'
@@ -66,13 +75,18 @@ const system = combine(
   base,
   border,
   boxStyle,
+  cursor,
   display,
   float,
+  opacity,
+  outline,
   overflow,
   position,
+  radius,
   ratio,
   textStyle,
-  utility
+  transform,
+  transition
 )
 
 export {

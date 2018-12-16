@@ -15,7 +15,9 @@ import { boolValue } from '../values'
  * `textAlign`    | `text-align`     | `String`           | ✓     | —                  | —
  * `whiteSpace`   | `white-space`    | `String`           | ✓     | —                  | —
  *
- * Related: {@link fontFamily}, {@link ellipsis}.
+ * Related: {@link fontFamily}, {@link ellipsis}, {@link rule}, {@link boolValue}.
+ *
+ * @param {Object} props
  *
  * @example
  * import { textHelpers } from 'pss'

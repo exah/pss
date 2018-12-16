@@ -29,61 +29,87 @@ import {
 /**
  * ```js
  * import pss from 'pss'
+ * import { createStyles } from 'pss'
  * ```
  *
- * Function that accepts Object with keys that represents component `prop` and
+ * Create styles from {@link Object} with keys that represents component `prop` and
  * the value is a `style` that will be applied.
  *
- * If value is function it accepts following parameters:
+ * ```js
+ * { [prop]: style | (input, props, mediaKey) => style }
+ * ```
+ *
  * - `input` - prop value
  * - `props` {@link Object} - component props, including `theme`
- * - `mediaKey` {@link Object} - key in `theme.media` used as prop value
+ * - `mediaKey` {@link Object} - key in `theme.media`
  *
- * By default styles applied without media query.
- * But if you use object with `key` in `theme.media` as prop value, style will be applied in matched media.
+ *
+ * In component prop accepts values:
+ *
+ * - {@link Boolean} — enable / disable default style value
+ *
+ *    ```js
+ *    const Comp = styled.div(createStyles({ red: { color: 'red' } }))
+ *
+ *    <Comp red={true} /> // → color: red
+ *    <Comp red={false} /> // → 🤷‍♂️
+ *    ```
+ *
+ * - {@link String}, {@link Number} or {@link Array} — handled in functional styles
+ *
+ *    ```js
+ *    const Comp = styled.div(createStyles({ width: (input) => ({ width: input } })))
+ *
+ *    <Comp width='100px' /> // → width: 100px
+ *    ```
+ *
+ * - {@link Object} with keys defined in `theme.media` to define values for different screen sizes
+ *
+ *    ```js
+ *    <Comp width={{ all: '100px', sm: '50px' }} /> // → width: 100px; @media (max-width: 600px) { width: 50px }
+ *    ```
+ *
+ *
  *
  * @param {Object} [styles = {}]
- * @return {Function} for styled components.
+ * @return {Function} `(props) => styles`
  *
  * @example
- * import pss from 'pss'
+ * import { createStyles } from 'pss'
  *
- * // Create prop styles
- * const myPropStyle = pss({
+ * const styles = createStyles({
  *   display: value => ({ display: value }),
- *   flex: { display: 'flex' },
- *   inline: { display: 'inline-block' },
  *   hide: { display: 'none' },
- *   size: (value, props, mediaKey) => ({
+ *   width: (value, props, mediaKey) => ({
  *     width: mediaKey === 'sm' && value === true ? '100%' : value
  *   })
  * })
  *
- * // Add to component
  * const Box = styled.div`
- *   ${myPropStyle}
+ *   ${styles}
  * `
  *
- * // Use in component
- * <Box flex /> // .css { display: 'flex' }
- * <Box inline /> // .css { display: inline-block }
- * <Box display='inline-flex' /> // .css { display: inline-flex }
+ * Box.propTypes = {
+ *   ...styles.propTypes
+ * }
+ *
+ * @example
+ * <Box display='inline-flex' /> // → display: inline-flex
+ * <Box hide /> // → display: none
  *
  *
  * @example
- * import { ThemeProvider } from 'emotion-theming'
- *
- * // Create theme with media queries
+ * // Add media queries
  * const theme = {
  *   media: {
  *     sm: '(max-width: 600px)'
  *   }
  * }
  *
- * // Add theme to ThemeProvider
+ * <Box theme={theme} width={{ all: '100px', sm: true }} /> // → width: 100px; @media (max-width: 600px) { width: 100% }
+ *
  * <ThemeProvider theme={theme}>
  *   <Box display='flex' hide={{ sm: true }} /> // → display: flex; @media (max-width: 600px) { display: none }
- *   <Box size={{ all: '100px', sm: true }} /> // → width: 100px; @media (max-width: 600px) { width: 100% }
  * </ThemeProvider>
  */
 

@@ -26,6 +26,10 @@ import { boolValue } from '../values'
  * [clear-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/clear
  * [clearfix-url]: https://css-tricks.com/snippets/css/clear-fix/
  *
+ * Related: {@link rule}, {@link boolValue}.
+ *
+ * @param {Object} props
+ *
  * @example
  * import { float } from 'pss'
  *

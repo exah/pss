@@ -20,6 +20,10 @@ import { createVariant } from '../core'
  * }
  * ```
  *
+ * Related: {@link createVariant}.
+ *
+ * @param {Object} props
+ *
  * @example
  * import { fontFamily } from 'pss'
  *

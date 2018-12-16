@@ -9,6 +9,11 @@ import { createStyles, rule } from '../core'
  * :------------|:----------------|:---------------------|:------|:-----------|:--------
  * `transition` | `transition`    | `String`             | ✓     | —         | —
  *
+ *
+ * Related: {@link rule}.
+ *
+ * @param {Object} props
+ *
  * @example
  * import { transition } from 'pss'
  *

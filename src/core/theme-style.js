@@ -9,7 +9,7 @@ import { everyMedia } from './every-media'
  *
  * Use styles defined in `theme[themeKey]`. Useful for creating global shared styles.
  *
- * Related {@link textStyle}.
+ * Related: {@link textStyle}.
  *
  * @param {Object} [options = {}]
  * @param {String} options.themeKey

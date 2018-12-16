@@ -25,12 +25,12 @@ import { colorValue } from '../values'
  *
  * **`Boolean` values:**
  *
- * - `false` sets default value for CSS prop (i.e. `transparent` for `background-color`)
  * - `true` is different in each prop (takes specified value in `theme.palette[theme.default.palette]`)
  *   - `bg` → `theme.palette.default.bg`
  *   - `fg` → `theme.palette.default.fg`
  *   - `tm` → `theme.palette.default.fg`, `theme.palette.default.bg`
  *
+ * Related: {@link colorValue}, {@link rule}.
  *
  * Examples use this `theme`:
  *
@@ -48,8 +48,7 @@ import { colorValue } from '../values'
  *     default: { // currently active
  *       bg: '#ffffff',
  *       fg: '#222222',
- *       accent: '#ff0000',
- *       shadow: 'rgba(0, 0, 0, 0.2)'
+ *       accent: '#ff0000'
  *     },
  *     inverted: {
  *       bg: '#222222',
@@ -59,6 +58,8 @@ import { colorValue } from '../values'
  *   }
  * }
  * ```
+ *
+ * @param {Object} props
  *
  * @example
  * import { colors } from 'pss'

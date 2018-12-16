@@ -17,6 +17,10 @@ import { boolValue } from '../values'
  * `ovtouch` | `-webkit-overflow-scrolling`     | `true`              | —     | `touch`                | —
  *
  *
+ * Related: {@link rule}, {@link boolValue}.
+ *
+ * @param {Object} props
+ *
  * @example
  * import { overflow } from 'pss'
  *

@@ -12,6 +12,11 @@ import { createVariant } from '../core'
  *
  * ⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
  *
+ *
+ * Related: {@link createVariant}.
+ *
+ * @param {Object} props
+ *
  * @example
  * import { radius } from 'pss'
  *

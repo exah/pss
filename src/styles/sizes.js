@@ -56,6 +56,8 @@ import { sizeValue, boolValue } from '../values'
  * }
  * ```
  *
+ * @param {Object} props
+ *
  * @example
  * import { sizes } from 'pss'
  *

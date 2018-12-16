@@ -13,6 +13,10 @@ import { ellipsis } from './ellipsis'
  *   - {@link fontFamily}
  *   - {@link ellipsis}
  *
+ * Related: {@link combine}, {@link textStyle}.
+ *
+ * @param {Object} props
+ *
  * @example
  * import { typography } from 'pss'
  *

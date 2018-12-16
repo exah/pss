@@ -10,26 +10,29 @@ toc:
       - space
       - sizes
       - colors
+      - border
       - boxStyle
+      - cssProp
+      - cursor
+      - display
+      - ellipsis
       - flex
       - flexItem
-      - display
-      - position
       - float
-      - overflow
-      - border
       - fontFamily
-      - textStyle
-      - textHelpers
-      - ellipsis
-      - outline
       - opacity
+      - outline
+      - overflow
+      - position
       - radius
-      - cursor
-      - transition
-      - transform
-      - cssProp
       - ratio
+      - textHelpers
+      - textStyle
+      - transform
+      - transition
+
+  - name: Combinations
+    children:
       - base
       - typography
       - system

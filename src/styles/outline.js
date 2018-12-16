@@ -16,6 +16,10 @@ const randomHexColor = () =>
  *
  * ⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
  *
+ * Related: {@link rule}.
+ *
+ * @param {Object} props
+ *
  * @example
  * import { outline } from 'pss'
  *

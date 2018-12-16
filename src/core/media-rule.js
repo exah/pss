@@ -10,7 +10,7 @@ import { wrapIfMedia } from '../utils'
  *
  * Create style wrapped in `theme.media`.
  *
- * Related {@link display}.
+ * Related: {@link display}.
  *
  * @param {string} cssProp
  * @param {string} value

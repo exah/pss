@@ -10,6 +10,8 @@ import { floor } from '../utils'
  * [Aspect Ratio Box](https://css-tricks.com/aspect-ratio-boxes/) prop style
  * with pseudo elements.
  *
+ * @param {Object} props
+ *
  * @example
  * import { ratio } from 'pss'
  *

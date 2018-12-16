@@ -8,6 +8,8 @@ import { createVariant } from '../core'
  *
  * Global box styles system, like in [Sketch](https://sketchapp.com/docs/styling/shared-styles/).
  *
+ * Related: {@link createVariant}.
+ *
  * Add `boxStyle` to `theme`:
  *
  * ```js
@@ -23,6 +25,8 @@ import { createVariant } from '../core'
  *   }
  * }
  * ```
+ *
+ * @param {Object} props
  *
  * @example
  * import { boxStyle } from 'pss'

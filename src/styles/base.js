@@ -13,6 +13,10 @@ import { colors } from './colors'
  *   - {@link sizes}
  *   - {@link colors}
  *
+ * Related: {@link combine}.
+ *
+ * @param {Object} props
+ *
  * @example
  * import { base } from 'pss'
  *

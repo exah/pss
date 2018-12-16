@@ -17,8 +17,11 @@ const directionValue = sizeValue(boolValue(0, 'auto'))
  * `bottom`   | `bottom`                   | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
  * `zIndex`   | `z-index`                  | `String`, `Number`, `Boolean` | ✓     | `1`        | `auto`
  *
- *
  * [position-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
+ *
+ * Related: {@link rule}, {@link boolValue}, {@link sizeValue}.
+ *
+ * @param {Object} props
  *
  * @example
  * import { position } from 'pss'

@@ -13,6 +13,10 @@ import { boolValue } from '../values'
  *
  * [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
  *
+ * Related: {@link boolValue}, {@link rule}, {@link mediaRule}.
+ *
+ * @param {Object} props
+ *
  * @example
  * import { display } from 'pss'
  *

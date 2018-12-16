@@ -6,7 +6,11 @@ import { boolValue } from '../values'
  * import { ellipsis } from 'pss'
  * ```
  *
- * Add [ellipsis](https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow) to text.
+ * Info: [text-overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow).
+ *
+ * Related: {@link boolValue}, {@link rule}.
+ *
+ * @param {Object} props
  *
  * @example
  * import { ellipsis } from 'pss'

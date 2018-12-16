@@ -72,6 +72,8 @@ export const padding = createStyles({
  *
  * Related: {@link spaceValue}, {@link sizes}.
  *
+ * @param {Object} props
+ *
  * @example
  * import { space } from 'pss'
  *

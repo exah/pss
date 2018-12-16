@@ -16,6 +16,9 @@ import { boolValue, sizeValue } from '../values'
  * `alignContent`   | `align-content`   | `String`            | ✓     | —               | —
  * `justifyContent` | `justify-content` | `String`            | ✓     | `space-between` | `normal`
  *
+ * Related: {@link rule}, {@link boolValue}.
+ *
+ * @param {Object} props
  *
  * @example
  * import { flex } from 'pss'
@@ -48,13 +51,15 @@ const flex = createStyles({
  * [Flex item](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#Properties_applied_to_flex_items) prop styles.
  *
  *
- * prop        | css           | type                          | value | true    | false
- * :-----------|:--------------|:------------------------------|:------|:------- |:--------
- * `flex`      | `flex`        | `String`, `Boolean`           | ✓     | `1 1 0` | `0 1 auto`
- * `order`     | `order`       | `Number`, `Boolean`           | ✓     | `1`     | `0`
- * `alignSelf` | `align-self`  | `String`                      | ✓     | —       | —
+ * prop        | css           | type                 | value | true    | false
+ * :-----------|:--------------|:---------------------|:------|:------- |:--------
+ * `flex`      | `flex`        | `String`, `Boolean`  | ✓     | `1 1 0` | `0 1 auto`
+ * `order`     | `order`       | `Number`, `Boolean`  | ✓     | `1`     | `0`
+ * `alignSelf` | `align-self`  | `String`             | ✓     | —       | —
  *
  * ⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `order`), so you may need to provide custom prop filtering.
+ *
+ * Related: {@link rule}, {@link boolValue}, {@link sizeValue}.
  *
  * @example
  * import { flexItem } from 'pss'

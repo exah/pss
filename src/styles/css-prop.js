@@ -17,6 +17,8 @@ import { cssPropPropType } from '../prop-types'
  * })
  * ```
  *
+ * @param {Object} props
+ *
  * @example
  * import { cssProp } from 'pss'
  *

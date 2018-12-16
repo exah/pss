@@ -12,6 +12,10 @@ import { boolValue } from '../values'
  *
  * ⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
  *
+ * Related: {@link rule}, {@link boolValue}.
+ *
+ * @param {Object} props
+ *
  * @example
  * import { opacity } from 'pss'
  *

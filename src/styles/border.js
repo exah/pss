@@ -13,12 +13,12 @@ const sizeRule = (name) => rule(name, themeValue({
  * import { border } from 'pss'
  * ```
  *
- * Set border with values from theme, created with {@link sizeValue} and {@link colorValue}.
+ * Set border with values from theme, created with {@link themeValue} and {@link colorValue}.
  *
- * prop       | css            | type                | value | true            | false
- * :----------|:---------------|:--------------------|:------|:----------------|:--------
- * `bdc`      | `border-color` | String              | ✓     | Default color** | —
- * `bd{dir}`* | `border-{dir}` <br /> `border-{dir}` | `Number`, `Boolean`, `String` | ✓ | `1px` <br /> `solid` | `0px` <br /> `none`
+ * prop       | css            | type                | value | true                   | false
+ * :----------|:---------------|:--------------------|:------|:-----------------------|:--------
+ * `bdc`      | `border-color` | `String`, `Boolean` | ✓     | `theme.palette.default.border` | —
+ * `bd{dir}`* | `border-{dir}` | `String`            | ✓     | `theme.border.default` | —
  *
  * \* Directions:
  *
@@ -29,10 +29,9 @@ const sizeRule = (name) => rule(name, themeValue({
  * - `x` → `left`, `right`
  * - `y` → `top`, `bottom`
  *
- * \** Default color:
+ * Related: {@link colorValue}, {@link themeValue}, {@link rule},
  *
- * `theme.palette[theme.default.palette].border`
- *
+ * @param {Object} props
  *
  * @example
  * import { border } from 'pss'
