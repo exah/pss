@@ -2,103 +2,150 @@
 
 ### Table of Contents
 
--   [Prop Styles][1]
+-   [Styles][1]
     -   [space][2]
-        -   [Examples][3]
-    -   [sizes][4]
-        -   [Examples][5]
-    -   [colors][6]
+        -   [Parameters][3]
+        -   [Examples][4]
+    -   [sizes][5]
+        -   [Parameters][6]
         -   [Examples][7]
-    -   [flex][8]
-        -   [Examples][9]
-    -   [flexItem][10]
-        -   [Examples][11]
-    -   [display][12]
+    -   [colors][8]
+        -   [Parameters][9]
+        -   [Examples][10]
+    -   [border][11]
+        -   [Parameters][12]
         -   [Examples][13]
-    -   [position][14]
-        -   [Examples][15]
-    -   [float][16]
-        -   [Examples][17]
-    -   [overflow][18]
+    -   [boxStyle][14]
+        -   [Parameters][15]
+        -   [Examples][16]
+    -   [cssProp][17]
+        -   [Parameters][18]
         -   [Examples][19]
-    -   [border][20]
-        -   [Examples][21]
-    -   [textStyle][22]
-        -   [Examples][23]
-    -   [fontFamily][24]
+    -   [cursor][20]
+        -   [Parameters][21]
+        -   [Examples][22]
+    -   [display][23]
+        -   [Parameters][24]
         -   [Examples][25]
-    -   [text][26]
-        -   [Examples][27]
-    -   [typography][28]
-        -   [Examples][29]
-    -   [utility][30]
+    -   [ellipsis][26]
+        -   [Parameters][27]
+        -   [Examples][28]
+    -   [flex][29]
+        -   [Parameters][30]
         -   [Examples][31]
-    -   [ratio][32]
+    -   [flexItem][32]
         -   [Examples][33]
-    -   [base][34]
-        -   [Examples][35]
-    -   [system][36]
-        -   [Examples][37]
--   [Creating Prop Styles][38]
-    -   [createPropStyles][39]
-        -   [Parameters][40]
-        -   [Examples][41]
-    -   [createSizeProp][42]
-        -   [Parameters][43]
-        -   [Examples][44]
-    -   [createSpaceProps][45]
-        -   [Parameters][46]
-        -   [Examples][47]
-    -   [createSpaceStyle][48]
-        -   [Parameters][49]
-        -   [Examples][50]
-    -   [createColorProp][51]
-        -   [Parameters][52]
-        -   [Examples][53]
-    -   [createPaletteProp][54]
-        -   [Parameters][55]
-        -   [Examples][56]
-    -   [createStyleFromTheme][57]
-        -   [Parameters][58]
-        -   [Examples][59]
-    -   [propStylesInTheme][60]
-        -   [Parameters][61]
-        -   [Examples][62]
--   [Misc][63]
-    -   [cssProp][64]
-        -   [Examples][65]
-    -   [propSelector][66]
-        -   [Parameters][67]
-        -   [Examples][68]
-    -   [mediaPropSelector][69]
-        -   [Parameters][70]
-        -   [Examples][71]
-    -   [combineSelectors][72]
-        -   [Parameters][73]
-        -   [Examples][74]
-    -   [themeSelector][75]
-        -   [Parameters][76]
-        -   [Examples][77]
--   [Types][78]
-    -   [PropStylesObj][79]
-        -   [Examples][80]
-    -   [PropStyleFn][81]
+    -   [float][34]
+        -   [Parameters][35]
+        -   [Examples][36]
+    -   [fontFamily][37]
+        -   [Parameters][38]
+        -   [Examples][39]
+    -   [opacity][40]
+        -   [Parameters][41]
+        -   [Examples][42]
+    -   [outline][43]
+        -   [Parameters][44]
+        -   [Examples][45]
+    -   [overflow][46]
+        -   [Parameters][47]
+        -   [Examples][48]
+    -   [position][49]
+        -   [Parameters][50]
+        -   [Examples][51]
+    -   [radius][52]
+        -   [Parameters][53]
+        -   [Examples][54]
+    -   [ratio][55]
+        -   [Parameters][56]
+        -   [Examples][57]
+    -   [text][58]
+        -   [Parameters][59]
+        -   [Examples][60]
+    -   [textStyle][61]
+        -   [Parameters][62]
+        -   [Examples][63]
+    -   [transform][64]
+        -   [Parameters][65]
+        -   [Examples][66]
+    -   [transition][67]
+        -   [Parameters][68]
+        -   [Examples][69]
+-   [Combinations][70]
+    -   [base][71]
+        -   [Parameters][72]
+        -   [Examples][73]
+    -   [typography][74]
+        -   [Parameters][75]
+        -   [Examples][76]
+    -   [system][77]
+        -   [Parameters][78]
+        -   [Examples][79]
+-   [Custom Styles][80]
+    -   [createStyles][81]
         -   [Parameters][82]
+        -   [Examples][83]
+    -   [rule][84]
+        -   [Parameters][85]
+        -   [Examples][86]
+    -   [boolValue][87]
+        -   [Parameters][88]
+        -   [Examples][89]
+    -   [sizeValue][90]
+        -   [Parameters][91]
+        -   [Examples][92]
+    -   [spaceValue][93]
+        -   [Parameters][94]
+        -   [Examples][95]
+    -   [colorValue][96]
+        -   [Parameters][97]
+        -   [Examples][98]
+    -   [themeValue][99]
+        -   [Parameters][100]
+        -   [Examples][101]
+    -   [mediaRule][102]
+        -   [Parameters][103]
+        -   [Examples][104]
+    -   [themeStyle][105]
+        -   [Parameters][106]
+        -   [Examples][107]
+    -   [createVariant][108]
+        -   [Parameters][109]
+        -   [Examples][110]
+-   [Selectors][111]
+    -   [propSelector][112]
+        -   [Parameters][113]
+        -   [Examples][114]
+    -   [themeSelector][115]
+        -   [Parameters][116]
+        -   [Examples][117]
+    -   [combineSelectors][118]
+        -   [Parameters][119]
+        -   [Examples][120]
+-   [Getters][121]
+    -   [themePath][122]
+        -   [Parameters][123]
+        -   [Examples][124]
+    -   [mq][125]
+        -   [Parameters][126]
+        -   [Examples][127]
+-   [Utils][128]
+    -   [combine][129]
+        -   [Parameters][130]
+        -   [Examples][131]
 
-## Prop Styles
+## Styles
 
 
 
 
 ### space
 
-Alias **`spacePropStyles`**, **`marginPropStyles`**, **`paddingPropStyles`**
-
 ```js
 import { space } from 'pss'
 ```
 
-Consistent `space` system for setting `margin` or `padding`. Created with [createSpaceProps][45].
+Consistent `space` system for setting `margin` or `padding`. Created with [spaceValue][93].
 
 **Component props:**
 
@@ -129,61 +176,99 @@ Consistent `space` system for setting `margin` or `padding`. Created with [creat
 
 **`String` values:**
 
--   Used as plain CSS value (like `'10%'`, `'1em'` or `'100vh'`)
+Treated same way as in [size][132].
 
-<br /> Examples use this `theme`:
+-   Get value by path in `theme.size` or in top level `theme` object
+-   If value in `theme.sizes` is an `Object` with media keys (like in `theme.media`) value is responsive
+-   Other `String` values is passed as raw CSS value (like `'10%'` or `'100vh'`).
 
-```js
-const theme = {
-  media: {
-    M: `(max-width: 600px)`
-  },
-  space: {
-    default: [ 0, 10, 20, 40, 80 ],
-    M: [ 0, 8, 16, 32, 64 ],
-  }
-}
-```
+Related: [spaceValue][93], [sizes][5].
+
+#### Parameters
+
+-   `props` **[Object][133]** 
 
 #### Examples
 
 ```js
-import styled from 'react-emotion'
 import { space } from 'pss'
 
-const Box = styled.div(space)
+const Box = styled.div`
+  ${space}
+`
 ```
 
 ```js
-<Box mg /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
-<Box mgl /> // .css { margin-left: 10px; @media (max-width: 600px) { margin-left: 8px } }
-<Box mgt /> // .css { margin-top: 10px; @media (max-width: 600px) { margin-top: 8px } }
-<Box mgx='auto' /> // .css { margin-left: auto; margin-right: auto }
-<Box mgy={2} /> // .css { margin-top: 20px; margin-bottom: 20px; @media (max-width: 600px) { margin-top: 16px; margin-bottom: 16px } }
-<Box mg={-2} /> // .css { margin: -20px; @media (max-width: 600px) { margin: -16px; } }
-<Box mg={0} /> // .css { margin: 0 }
-<Box mgrM={-1} /> // @media (max-width: 600px) { .css { margin-right: -8px } }
-<Box mgr={2} mgrM={-1} /> // .css { margin-right: 20px; @media (max-width: 600px) { margin-right: -8px } }
+const theme = {
+  media: { sm: '(max-width: 600px)' },
+  space: [ 0, 8, 16, 32, 65 ]
+}
+
+// `theme.space[1]`
+<Box mg={1} /> // → margin: 8px;
+<Box mgl={1} /> // → margin-left: 8px;
+<Box mgt={true} /> // → margin-top: 8px;
+
+// `theme.space[2]`
+<Box mgy={2} /> // → margin-top: 16px; margin-bottom: 16px;
+<Box mg={-2} /> // → margin: -16px;
+
+// `theme.space[0]`
+<Box mg={0} /> // → margin: 0;
+
+// Responsive
+<Box mgr={{ sm: -1 }} /> // → @media (max-width: 600px) { margin-right: -8px }
+<Box mgr={{ all: 2, sm: -1 }} /> // → margin-right: 16px; @media (max-width: 600px) { margin-right: -8px }
+
+// Custom values
+<Box mgx='auto' /> // → margin-left: auto; margin-right: auto
+<Box mgy='100px' /> // → margin-top: 100px; margin-bootom: 100px
+```
+
+```js
+const theme = {
+  media: {
+    sm: '(max-width: 600px)'
+  },
+  space: {
+    all: [ 0, 10, 20, 40, 80 ],
+    sm: [ 0, 8, 16, 32, 64 ],
+  }
+}
+
+// `theme.space.default[1]` and `theme.space.sm[1]`
+<Box mg={1} /> // → margin: 10px; @media (max-width: 600px) { margin: 8px }
+<Box mgl={1} /> // → margin-left: 10px; @media (max-width: 600px) { margin-left: 8px }
+<Box mgt={true} /> // → margin-top: 10px; @media (max-width: 600px) { margin-top: 8px }
+
+// `theme.space.default[2]` and `theme.space.sm[2]`
+<Box mgy={2} /> // → margin-top: 20px; margin-bottom: 20px; @media (max-width: 600px) { margin-top: 16px; margin-bottom: 16px }
+<Box mg={-2} /> // → margin: -20px; @media (max-width: 600px) { margin: -16px; }
+
+// `theme.space.default[0]` and `theme.space.sm[0]`
+<Box mg={0} /> // → margin: 0; @media (max-width: 600px) { margin: 0 }
+
+// Responsive
+<Box mgr={{ sm: -1 }} /> // → @media (max-width: 600px) { margin-right: -8px }
+<Box mgr={{ all: 2, sm: -1 }} /> // → margin-right: 20px; @media (max-width: 600px) { margin-right: -8px }
 ```
 
 ### sizes
-
-Alias **`createSizePropsStyles`**
 
 ```js
 import { sizes } from 'pss'
 ```
 
-Consistent `sizes` system for `width`, `height`. Created with [createSizeProp][42].
+Consistent `sizes` system for `width`, `height`. Created with [sizeValue][90].
 
 **Component props:**
 
--   `wd` → `width`
--   `maxWd` → `max-width`
--   `minWd` → `min-width`
--   `ht` → `height`
--   `maxHt` → `max-height`
--   `minHt` → `min-height`
+-   `width` → `width`
+-   `maxWidth` → `max-width`
+-   `minWidth` → `min-width`
+-   `height` → `height`
+-   `maxHeight` → `max-height`
+-   `minHeight` → `min-height`
 
 **`String` values:**
 
@@ -201,68 +286,67 @@ Consistent `sizes` system for `width`, `height`. Created with [createSizeProp][4
 -   `true` is `100%`
 -   `false` is `0`.
 
+Related: [sizeValue][90], [space][2].
+
 Examples use this `theme`:
 
 ```js
 const theme = {
   media: {
-    M: `(max-width: 600px)`
+    sm: `(max-width: 600px)`
   },
   size: {
     small: '10px',
     medium: '20px',
-    block: {
-      default: '500px',
-      M: '300px'
+    card: {
+      all: '500px',
+      sm: '300px'
     }
-  },
-  site: {
-    width: '1300px'
   }
 }
 ```
 
+#### Parameters
+
+-   `props` **[Object][133]** 
+
 #### Examples
 
 ```js
-import styled from 'react-emotion'
 import { sizes } from 'pss'
 
-const Box = styled.div(sizes)
+const Box = styled.div`
+  ${sizes}
+`
 ```
 
 ```js
-// theme.size.small
-<Box ht='small' /> // height: 10px
+// `theme.size.small`
+<Box height='small' /> // → height: 10px
 
-// `theme.size.card.default` and `theme.size.card.M`
-<Box wd='card' /> // width: 500px; @media (max-width: 600px) { margin-left: 300px }
+// `theme.size.card.default` and `theme.size.card.sm`
+<Box width='card' /> // → width: 500px; @media (max-width: 600px) { margin-left: 300px }
 
-// only `theme.size.card.M`
-<Box wdM='card' /> // @media (max-width: 600px) { margin-left: 300px }
-
-// `theme.site.width`
-<Box maxWd='site.width' /> // max-width: 1300px
+// only `theme.size.card.sm`
+<Box width={{ sm: 'card' }} /> // → @media (max-width: 600px) { margin-left: 300px }
 
 // Smaller that or equal to `1` is percentage value
-<Box maxWd={(1 / 2)} /> // max-width: 50%
+<Box maxWidth={(1 / 2)} /> // → max-width: 50%
 
-// By default `false` is `0`
-<Box ht={false} /> // height: 0
+// `false` is `0`
+<Box height={false} /> // → height: 0
 
 // Convert to px
-<Box minWd={500} /> // max-width: 500px
+<Box minWidth={500} /> // → max-width: 500px
 ```
 
 ### colors
-
-Alias **`colorsPropStyles`**
 
 ```js
 import { colors } from 'pss'
 ```
 
-Prop styles for getting current `palette` or `color` value from `theme`. Created with [createColorProp][51] and [createPaletteProp][54].
+Prop styles for getting current `palette` or `color` value from `theme`. Created with [colorValue][96].
 
 Result can be changed in nested components with setting other key in `theme.default.palette`.
 
@@ -281,11 +365,12 @@ Result can be changed in nested components with setting other key in `theme.defa
 
 **`Boolean` values:**
 
--   `false` sets default value for CSS prop (i.e. `transparent` for `background-color`)
 -   `true` is different in each prop (takes specified value in `theme.palette[theme.default.palette]`)
     -   `bg` → `theme.palette.default.bg`
     -   `fg` → `theme.palette.default.fg`
     -   `tm` → `theme.palette.default.fg`, `theme.palette.default.bg`
+
+Related: [colorValue][96], [rule][84].
 
 Examples use this `theme`:
 
@@ -303,8 +388,7 @@ const theme = {
     default: { // currently active
       bg: '#ffffff',
       fg: '#222222',
-      accent: '#ff0000',
-      shadow: 'rgba(0, 0, 0, 0.2)'
+      accent: '#ff0000'
     },
     inverted: {
       bg: '#222222',
@@ -315,13 +399,18 @@ const theme = {
 }
 ```
 
+#### Parameters
+
+-   `props` **[Object][133]** 
+
 #### Examples
 
 ```js
-import styled from 'react-emotion'
 import { colors } from 'pss'
 
-const Box = styled.div(colors)
+const Box = styled.div`
+  ${colors}
+`
 ```
 
 ```js
@@ -344,150 +433,306 @@ const Box = styled.div(colors)
 <Box bg="#ffff00" /> // background-color: #ffff00
 ```
 
-### flex
+### border
 
-Alias **`flexPropStyles`**
+```js
+import { border } from 'pss'
+```
+
+Set border with values from theme, created with [themeValue][99] and [colorValue][96].
+
+| prop        | css            | type                | value | true                           | false |
+| :---------- | :------------- | :------------------ | :---- | :----------------------------- | :---- |
+| `bdc`       | `border-color` | `String`, `Boolean` | ✓     | `theme.palette.default.border` | —     |
+| `bd{dir}`\* | `border-{dir}` | `String`            | ✓     | `theme.border.default`         | —     |
+
+\* Directions:
+
+-   `l` → `left`
+-   `r` → `right`
+-   `t` → `top`
+-   `b` → `bottom`
+-   `x` → `left`, `right`
+-   `y` → `top`, `bottom`
+
+Related: [colorValue][96], [themeValue][99], [rule][84],
+
+#### Parameters
+
+-   `props` **[Object][133]** 
+
+#### Examples
+
+```js
+import { border } from 'pss'
+
+const Box = styled.div`
+  ${border}
+`
+```
+
+```js
+// border-left: 1px dotted; border-color: red
+<Box bdl='1px dotted' bdc='red' />
+```
+
+### boxStyle
+
+```js
+import { boxStyle } from 'pss'
+```
+
+Global box styles system, like in [Sketch][134].
+
+Related: [createVariant][108].
+
+Add `boxStyle` to `theme`:
+
+```js
+const theme = {
+  boxStyle: {
+    red: {
+      backgroundColor: 'red',
+      color: 'white'
+    },
+    shadow: {
+      boxShadow: '0 0 20px 0 rgba(0, 0, 0, .3)'
+    }
+  }
+}
+```
+
+#### Parameters
+
+-   `props` **[Object][133]** 
+
+#### Examples
+
+```js
+import { boxStyle } from 'pss'
+
+const Box = styled.div`
+  ${boxStyle}
+`
+```
+
+```js
+<Box boxStyle='red' /> // → background-color: red; color: white;
+<Box boxStyle={[ 'red', 'shadow' ]} /> // → background-color: red; color: white; box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
+```
+
+### cssProp
+
+```js
+import { cssProp } from 'pss'
+```
+
+Dynamic CSS prop like in [glamorous][135].
+You don't need this if your CSS-in-JS library of choice support it.
+
+Implementation:
+
+```js
+const cssProp = createStyles({
+  css: (val) => ({ ...val })
+})
+```
+
+#### Parameters
+
+-   `props` **[Object][133]** 
+
+#### Examples
+
+```js
+import { cssProp } from 'pss'
+
+const Box = styled.div`
+  ${cssProp}
+`
+```
+
+```js
+<Box css={{ color: 'red', display: 'flex' }} /> // → color: red; display: flex
+<Box css={(props) => ({ color: props.theme.color.red })} /> // → color: #ff0000
+```
+
+### cursor
+
+```js
+import { cursor } from 'pss'
+```
+
+| prop     | css      | type     | value | true | false |
+| :------- | :------- | :------- | :---- | :--- | :---- |
+| `cursor` | `cursor` | `String` | ✓     | —    | —     |
+
+⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
+
+Related: [rule][84].
+
+#### Parameters
+
+-   `props` **[Object][133]** 
+
+#### Examples
+
+```js
+import { cursor } from 'pss'
+
+const Box = styled.div`
+  ${cursor}
+`
+```
+
+```js
+<Box cursor='pointer' /> // → cursor: pointer
+```
+
+### display
+
+```js
+import { display } from 'pss'
+```
+
+| prop      | css                      | type                 | value    | true      | false  |
+| :-------- | :----------------------- | :------------------- | :------- | :-------- | :----- |
+| `display` | [`display`][display-url] | `String`, `Boolean`  | ✓        | `initial` | `none` |
+| `hideOn`  | `display: none`          | one of `theme.media` | mediaKey | —         | —      |
+
+[display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
+
+Related: [boolValue][87], [rule][84], [mediaRule][102].
+
+#### Parameters
+
+-   `props` **[Object][133]** 
+
+#### Examples
+
+```js
+import { display } from 'pss'
+
+const Box = styled.div`
+  ${display}
+`
+```
+
+```js
+<Box display='inline-block' hideOn='sm' />
+// display: inline-block; @media (max-width: 600px) { display: none }
+```
+
+### ellipsis
+
+```js
+import { ellipsis } from 'pss'
+```
+
+Info: [text-overflow][136].
+
+Related: [boolValue][87], [rule][84].
+
+#### Parameters
+
+-   `props` **[Object][133]** 
+
+#### Examples
+
+```js
+import { ellipsis } from 'pss'
+
+const Text = styled.p`
+  ${ellipsis}
+`
+```
+
+```js
+<Text ellipsis /> // → white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+```
+
+### flex
 
 ```js
 import { flex } from 'pss'
 ```
 
-[Flex container][83] prop styles
+[Flex container][137] prop styles.
 
-| prop                        | css               | type                | value | true            | false    |
-| :-------------------------- | :---------------- | :------------------ | :---- | :-------------- | :------- |
-| `flexWrap`, `wrap`          | `flex-wrap`       | `String`, `Boolean` | ✓     | `wrap`          | `nowrap` |
-| `flexDirection`             | `flex-direction`  | `String`            | ✓     | —               | —        |
-| `alignItems`, `align`       | `align-items`     | `String`            | ✓     | —               | —        |
-| `alignContent`              | `align-content`   | `String`            | ✓     | —               | —        |
-| `justifyContent`, `justify` | `justify-content` | `String`            | ✓     | `space-between` | `normal` |
-| `inline`                    | `display`         | `true`              | —     | `inline-flex`   | —        |
-| `column`                    | `flex-direction`  | `true`              | —     | `column`        | —        |
-| `row`                       | `flex-direction`  | `true`              | —     | `row`           | —        |
+| prop             | css               | type                | value | true            | false    |
+| :--------------- | :---------------- | :------------------ | :---- | :-------------- | :------- |
+| `flexWrap`       | `flex-wrap`       | `String`, `Boolean` | ✓     | `wrap`          | `nowrap` |
+| `flexDirection`  | `flex-direction`  | `String`            | ✓     | —               | —        |
+| `alignItems`     | `align-items`     | `String`            | ✓     | —               | —        |
+| `alignContent`   | `align-content`   | `String`            | ✓     | —               | —        |
+| `justifyContent` | `justify-content` | `String`            | ✓     | `space-between` | `normal` |
+
+Related: [rule][84], [boolValue][87].
+
+#### Parameters
+
+-   `props` **[Object][133]** 
 
 #### Examples
 
 ```js
 import { flex } from 'pss'
-import styled from 'react-emotion'
 
-const FlexBox = styled('div')({ display: 'flex' }, flex)
+const FlexBox = styled.div`
+  display: flex;
+  ${flex}
+`
 ```
 
-    <FlexBox align='center' wrap> // display: flex; flex-wrap: wrap; align-items: center
+    <FlexBox alignItems='center' flexWrap={true}> // display: flex; flex-wrap: wrap; align-items: center
       <div>1</div>
       <div>2</div>
     </FlexBox>
 
 ### flexItem
 
-Alias **`flexItemPropStyles`**
-
 ```js
 import { flexItem } from 'pss'
 ```
 
-[Flex item][84] prop styles
+[Flex item][138] prop styles.
+
+| prop        | css          | type                | value | true    | false      |
+| :---------- | :----------- | :------------------ | :---- | :------ | :--------- |
+| `flex`      | `flex`       | `String`, `Boolean` | ✓     | `1 1 0` | `0 1 auto` |
+| `order`     | `order`      | `Number`, `Boolean` | ✓     | `1`     | `0`        |
+| `alignSelf` | `align-self` | `String`            | ✓     | —       | —          |
 
 ⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `order`), so you may need to provide custom prop filtering.
 
-| prop     | css           | type                          | value | true    | false      |
-| :------- | :------------ | :---------------------------- | :---- | :------ | :--------- |
-| `flex`   | `flex`        | `String`, `Boolean`           | ✓     | `1 1 0` | `0 1 auto` |
-| `grow`   | `flex-grow`   | `Number`, `Boolean`           | ✓     | `1`     | `0`        |
-| `shrink` | `flex-shrink` | `Number`, `Boolean`           | ✓     | `1`     | `0`        |
-| `basis`  | `flex-basis`  | `String`, `Number`, `Boolean` | ✓     | `auto`  | —          |
-| `order`  | `order`       | `Number`, `Boolean`           | ✓     | `1`     | `0`        |
-| `align`  | `align-self`  | `String`                      | ✓     | —       | —          |
+Related: [rule][84], [boolValue][87], [sizeValue][90].
 
 #### Examples
 
 ```js
 import { flexItem } from 'pss'
-import styled from 'react-emotion'
 
-const FlexBoxItem = styled('div')(flexItem)
+const FlexBoxItem = styled.div`
+  ${flexItem}
+`
 ```
 
     <FlexBox> // display: flex
-      <FlexBoxItem grow>2</FlexBoxItem> // flex-grow: 1
+      <FlexBoxItem flex='1 1'>2</FlexBoxItem> // flex: 1 1
       <FlexBoxItem order={-1}>1</FlexBoxItem> // order: -1
     </FlexBox>
 
-### display
-
-Alias **`displayPropStyles`**
-
-```js
-import { display } from 'pss'
-```
-
-| prop      | css                      | type                | value | true      | false  |
-| :-------- | :----------------------- | :------------------ | :---- | :-------- | :----- |
-| `display` | [`display`][display-url] | `String`, `Boolean` | ✓     | `initial` | `none` |
-| `hide`    | `display`                | `true`              | —     | `none`    | —      |
-
-[display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
-
-#### Examples
-
-```js
-import { display } from 'pss'
-import styled from 'react-emotion'
-
-const Box = styled('div')(display)
-```
-
-```js
-<Box display='inline-block' hideM />
-// display: inline-block; @media (max-width: 600px) { display: none }
-```
-
-### position
-
-Alias **`positionPropStyles`**
-
-```js
-import { position } from 'pss'
-```
-
-| prop       | css                        | type                          | value | true     | false    |
-| :--------- | :------------------------- | :---------------------------- | :---- | :------- | :------- |
-| `position` | [`position`][position-url] | `String`, `Boolean`           | ✓     | `static` | `static` |
-| `left`     | `left`                     | `String`, `Number`, `Boolean` | ✓     | `0`      | `auto`   |
-| `right`    | `right`                    | `String`, `Number`, `Boolean` | ✓     | `0`      | `auto`   |
-| `top`      | `top`                      | `String`, `Number`, `Boolean` | ✓     | `0`      | `auto`   |
-| `bottom`   | `bottom`                   | `String`, `Number`, `Boolean` | ✓     | `0`      | `auto`   |
-| `zIndex`   | `z-index`                  | `String`, `Number`, `Boolean` | ✓     | `1`      | `auto`   |
-
-[position-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
-
-#### Examples
-
-```js
-import { position } from 'pss'
-import styled from 'react-emotion'
-
-const Box = styled('div')(position)
-```
-
-```js
-<Box position='absolute' top={0.2} left={0} /> // position: absolute; top: 20%; left: 0
-```
-
 ### float
-
-Alias **`floatPropStyles`**
 
 ```js
 import { float } from 'pss'
 ```
 
-| prop       | css                      | type                | value | true         | false  |
-| :--------- | :----------------------- | :------------------ | :---- | :----------- | :----- |
-| `float`    | [`float`][float-url]     | `String`            | ✓     | —            | —      |
-| `clear`    | [`clear`][clear-url]     | `String`, `Boolean` | ✓     | `both`       | `none` |
-| `clearFix` | [Clearfix][clearfix-url] | `true`              | —     | [styles][85] | —      |
+| prop       | css                      | type                | value | true          | false  |
+| :--------- | :----------------------- | :------------------ | :---- | :------------ | :----- |
+| `float`    | [`float`][float-url]     | `String`            | ✓     | —             | —      |
+| `clear`    | [`clear`][clear-url]     | `String`, `Boolean` | ✓     | `both`        | `none` |
+| `clearFix` | [Clearfix][clearfix-url] | `true`              | —     | [styles][139] | —      |
 
 <span id="clearfix-styles">Clearfix styles</span>
 
@@ -505,134 +750,24 @@ import { float } from 'pss'
 
 [clearfix-url]: https://css-tricks.com/snippets/css/clear-fix/
 
+Related: [rule][84], [boolValue][87].
+
+#### Parameters
+
+-   `props` **[Object][133]** 
+
 #### Examples
 
 ```js
 import { float } from 'pss'
-import styled from 'react-emotion'
 
-const Box = styled('div')(float)
+const Box = styled.div`
+  ${float}
+`
 ```
 
 ```js
 <Box float='left' /> // float: left
-```
-
-### overflow
-
-Alias **`overflowPropStyles`**
-
-```js
-import { overflow } from 'pss'
-```
-
-| prop      | css                              | type                | value | true                   | false     |
-| :-------- | :------------------------------- | :------------------ | :---- | :--------------------- | :-------- |
-| `ov`      | `overflow`                       | `String`, `Boolean` | ✓     | `auto`                 | `visible` |
-| `ovx`     | `overflow-x`                     | `String`, `Boolean` | ✓     | `auto`                 | `visible` |
-| `ovh`     | `overflow`                       | `true`              | —     | `hidden`               | —         |
-| `ovtouch` | `-webkit-overflow-scrolling`     | `true`              | —     | `touch`                | —         |
-| `ovsx`    | `overflow-x` <br /> `overflow-y` | `true`              | —     | `auto` <br /> `hidden` | —         |
-| `ovsy`    | `overflow-x` <br /> `overflow-y` | `true`              | —     | `hidden` <br /> `auto` | —         |
-
-#### Examples
-
-```js
-import { overflow } from 'pss'
-import styled from 'react-emotion'
-
-const Box = styled('div')(overflow)
-```
-
-```js
-<Box ovh /> // overflow: hidden
-```
-
-### border
-
-Alias **`borderPropStyles`**
-
-```js
-import { border } from 'pss'
-```
-
-Set border with values from theme, created with [createSizeProp][42] and [createColorProp][51].
-
-| prop        | css                                              | type                          | value | true                 | false               |
-| :---------- | :----------------------------------------------- | :---------------------------- | :---- | :------------------- | :------------------ |
-| `bdc`       | `border-color`                                   | String                        | ✓     | Default color\*\*    | `transparent`       |
-| `bd{dir}`\* | `border-{dir}-width` <br /> `border-{dir}-style` | `Number`, `Boolean`, `String` | ✓     | `1px` <br /> `solid` | `0px` <br /> `none` |
-
-\* Directions:
-
--   `l` → `left`
--   `r` → `right`
--   `t` → `top`
--   `b` → `bottom`
--   `x` → `left`, `right`
--   `y` → `top`, `bottom`
-
-\*\* Default color:
-
-`theme.palette[theme.default.palette].border`
-
-#### Examples
-
-```js
-import { border } from 'pss'
-import styled from 'react-emotion'
-
-const Box = styled('p')(border)
-```
-
-```js
-// border-width: 1px; border-style: solid; border-color: #eee
-<Box bd bdc />
-
-// border-left-width: 1px; border-left-style: dotted; border-color: red
-<Box bdl='1px dotted' bdc='red' />
-```
-
-### textStyle
-
-```js
-import { textStyle } from 'pss'
-```
-
-Global text styles system, like in [Sketch][86].
-Add `textStyle` to `theme`:
-
-```js
-const theme = {
-  textStyle: {
-    default: {
-      fontSize: '16px',
-      lineHeight: 1.2,
-      fontWeight: normal,
-      fontFamily: 'system-ui'
-    },
-    heading: {
-      fontSize: '2rem',
-      lineHeight: 1.2,
-      fontWeight: 'bold',
-      fontFamily: 'system-ui'
-    }
-  }
-}
-```
-
-#### Examples
-
-```js
-import { textStyle } from 'pss'
-import styled from 'react-emotion'
-
-const Text = styled('span')(textStyle)
-```
-
-```js
-<Text textStyle={true} /> // → `theme.textStyle.default`
-<Text textStyle='heading' /> // → `theme.textStyle.heading`
 ```
 
 ### fontFamily
@@ -655,149 +790,225 @@ const theme = {
 }
 ```
 
+Related: [createVariant][108].
+
+#### Parameters
+
+-   `props` **[Object][133]** 
+
 #### Examples
 
 ```js
 import { fontFamily } from 'pss'
-import styled from 'react-emotion'
 
-const Text = styled('span')(fontFamily)
+const Text = styled.p`
+  ${fontFamily}
+`
 ```
 
 ```js
 <Text fontFamily={true} /> // → font-family: Helvetica
 <Text fontFamily='ui' /> // → font-family: Helvetica
-<Text fontFamily='serif' /> // → font-family: Times
+<Text fontFamily='heading' /> // → font-family: Times
 <Text fontFamily='Comic Sans' /> // → font-family: Comic Sans
 ```
 
-### text
+### opacity
 
 ```js
-import { text } from 'pss'
+import { opacity } from 'pss'
 ```
 
-⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `size`), so you may need to provide custom prop filtering.
+| prop      | css       | type               | value | true | false |
+| :-------- | :-------- | :----------------- | :---- | :--- | :---- |
+| `opacity` | `opacity` | `0...1`, `Boolean` | ✓     | `1`  | `0`   |
 
-| prop            | css                         | type               | value | true                                | false    |
-| :-------------- | :-------------------------- | :----------------- | :---- | :---------------------------------- | :------- |
-| `fontFamily`    | `font-family`               | `String`           | ✓     | key from `theme.default.fontFamily` | —        |
-| `fontSize`      | `font-size`                 | `String`, `Number` | ✓     | `1rem`                              | `medium` |
-| `fontWeight`    | `font-weight`               | `String`           | ✓     | —                                   | —        |
-| `lineHeight`    | `line-height`               | `String`, `Number` | ✓     | `normal`                            | —        |
-| `letterSpacing` | `letter-spacing`            | `String`, `Number` | ✓     | `normal`                            | —        |
-| `textAlign`     | `text-align`                | `String`           | ✓     | —                                   | —        |
-| `whiteSpace`    | `white-space`               | `String`           | ✓     | —                                   | —        |
-| `ellipsis`      | [Ellipsis...][ellipsis-url] | `true`             | —     | [styles][87]                        | —        |
+⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
 
-<span id="ellipsis-styles">Ellipsis styles</span>
+Related: [rule][84], [boolValue][87].
 
-```css
-{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-```
+#### Parameters
 
-[ellipsis-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
+-   `props` **[Object][133]** 
 
 #### Examples
 
 ```js
-import { text } from 'pss'
-import styled from 'react-emotion'
+import { opacity } from 'pss'
 
-const Text = styled('span')(text)
+const Box = styled.div`
+  ${opacity}
+`
 ```
 
 ```js
-<Text textAlign='center' /> // text-align: center
+<Box opacity='1' /> // → opacity: 1
+<Box opacity={0.5} /> // → opacity: 0.5
+<Box opacity={true} /> // → opacity: 1
+<Box opacity={false} /> // → opacity: 0
 ```
 
-### typography
+### outline
 
 ```js
-import { typography } from 'pss'
+import { outline } from 'pss'
 ```
 
-Combination of
-
--   [textStyle][22]
--   [text][26]
-
-#### Examples
-
-```js
-import styled from 'react-emotion'
-import { typography } from 'pss'
-
-const Text = styled('div')(typography)
-```
-
-```js
-<Text textStyle='heading' ellipsis />
-```
-
-    .css {
-       font-size: 16px;
-       line-height: 1.2;
-       font-weight: normal;
-    .   font-family: system-ui;
-    }
-
-### utility
-
-Alias **`utilityPropStyles`**
-
-```js
-import { utility } from 'pss'
-```
-
-⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `opacity`), so you may need to provide custom prop filtering.
-
-| prop         | css             | type                  | value | true      | false  |
-| :----------- | :-------------- | :-------------------- | :---- | :-------- | :----- |
-| `opacity`    | `opacity`       | `0...1`, `Boolean`    | ✓     | `1`       | `0`    |
-| `radius`     | `border-radius` | `Number`              | ✓     | —         | —      |
-| `transform`  | `transform`     | `String`              | ✓     | —         | —      |
-| `transition` | `transition`    | `String`, `Boolean`   | ✓     | `all .3s` | `none` |
-| `outline`    | `outline`       | `String`, `'debug'`\* | ✓     | —         | —      |
-| `cursor`     | `cursor`        | `String`              | ✓     | —         | —      |
+| prop      | css       | type                  | value | true | false |
+| :-------- | :-------- | :-------------------- | :---- | :--- | :---- |
+| `outline` | `outline` | `String`, `'debug'`\* | ✓     | —    | —     |
 
 \* Random hex color, useful for debugging layout
 
+⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
+
+Related: [rule][84].
+
+#### Parameters
+
+-   `props` **[Object][133]** 
+
 #### Examples
 
 ```js
-import { utility } from 'pss'
-import styled from 'react-emotion'
+import { outline } from 'pss'
 
-const Box = styled('div')(utility)
+const Box = styled.div`
+  ${outline}
+`
 ```
 
 ```js
-<Box opacity={0.4} /> // opacity: 0.4
+<Box outline='1px solid red' /> // → outline: 1px solid red
+```
+
+### overflow
+
+```js
+import { overflow } from 'pss'
+```
+
+| prop      | css                              | type                | value | true                   | false     |
+| :-------- | :------------------------------- | :------------------ | :---- | :--------------------- | :-------- |
+| `ov`      | `overflow`                       | `String`, `Boolean` | ✓     | `auto`                 | `visible` |
+| `ovx`     | `overflow-x`                     | `String`, `Boolean` | ✓     | `auto`                 | `visible` |
+| `ovy`     | `overflow-y`                     | `String`, `Boolean` | ✓     | `auto`                 | `visible` |
+| `ovh`     | `overflow`                       | `true`              | —     | `hidden`               | —         |
+| `ovsx`    | `overflow-x` <br /> `overflow-y` | `true`              | —     | `auto` <br /> `hidden` | —         |
+| `ovsy`    | `overflow-x` <br /> `overflow-y` | `true`              | —     | `hidden` <br /> `auto` | —         |
+| `ovtouch` | `-webkit-overflow-scrolling`     | `true`              | —     | `touch`                | —         |
+
+Related: [rule][84], [boolValue][87].
+
+#### Parameters
+
+-   `props` **[Object][133]** 
+
+#### Examples
+
+```js
+import { overflow } from 'pss'
+
+const Box = styled.div`
+  ${overflow}
+`
+```
+
+```js
+<Box ovh /> // overflow: hidden
+```
+
+### position
+
+```js
+import { position } from 'pss'
+```
+
+| prop       | css                        | type                          | value | true | false  |
+| :--------- | :------------------------- | :---------------------------- | :---- | :--- | :----- |
+| `position` | [`position`][position-url] | `String`, `Boolean`           | ✓     | —    | —      |
+| `left`     | `left`                     | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
+| `right`    | `right`                    | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
+| `top`      | `top`                      | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
+| `bottom`   | `bottom`                   | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
+| `zIndex`   | `z-index`                  | `String`, `Number`, `Boolean` | ✓     | `1`  | `auto` |
+
+[position-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
+
+Related: [rule][84], [boolValue][87], [sizeValue][90].
+
+#### Parameters
+
+-   `props` **[Object][133]** 
+
+#### Examples
+
+```js
+import { position } from 'pss'
+
+const Box = styled.div`
+  ${position}
+`
+```
+
+```js
+<Box position='absolute' top={0.2} left={0} /> // position: absolute; top: 20%; left: 0
+```
+
+### radius
+
+```js
+import { radius } from 'pss'
+```
+
+| prop     | css             | type     | value | true | false |
+| :------- | :-------------- | :------- | :---- | :--- | :---- |
+| `radius` | `border-radius` | `Number` | ✓     | —    | —     |
+
+⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
+
+Related: [createVariant][108].
+
+#### Parameters
+
+-   `props` **[Object][133]** 
+
+#### Examples
+
+```js
+import { radius } from 'pss'
+
+const Box = styled.div`
+  ${radius}
+`
+```
+
+```js
+<Box radius='5px' /> // → border-radius: 5px
+<Box radius='round' /> // → `theme.radius.round` → border-radius: 9999px
 ```
 
 ### ratio
 
-Alias **`ratioPropStyles`**
-
 ```js
 import { ratio } from 'pss'
 ```
 
-[Aspect Ratio Box][88] prop style
+[Aspect Ratio Box][140] prop style
 with pseudo elements.
+
+#### Parameters
+
+-   `props` **[Object][133]** 
 
 #### Examples
 
 ```js
-import styled from 'react-emotion'
 import { ratio } from 'pss'
 
-const Box = styled.div(ratio)
+const Box = styled.div`
+  ${ratio}
+`
 ```
 
     <Box ratio={(16 / 9)} />
@@ -819,9 +1030,160 @@ const Box = styled.div(ratio)
 }
 ```
 
-### base
+### text
 
-Alias **`basePropStyles`**
+```js
+import { text } from 'pss'
+```
+
+| prop            | css              | type               | value | true     | false    |
+| :-------------- | :--------------- | :----------------- | :---- | :------- | :------- |
+| `fontSize`      | `font-size`      | `String`, `Number` | ✓     | `1rem`   | `medium` |
+| `fontWeight`    | `font-weight`    | `String`           | ✓     | —        | —        |
+| `lineHeight`    | `line-height`    | `String`, `Number` | ✓     | `normal` | —        |
+| `letterSpacing` | `letter-spacing` | `String`, `Number` | ✓     | `normal` | —        |
+| `textAlign`     | `text-align`     | `String`           | ✓     | —        | —        |
+| `whiteSpace`    | `white-space`    | `String`           | ✓     | —        | —        |
+
+Related: [fontFamily][37], [ellipsis][26], [rule][84], [boolValue][87].
+
+#### Parameters
+
+-   `props` **[Object][133]** 
+
+#### Examples
+
+```js
+import { text } from 'pss'
+
+const Text = styled.p`
+  ${text}
+`
+```
+
+```js
+<Text textAlign='center' /> // text-align: center
+<Text lineHeight /> // line-height: normal
+```
+
+### textStyle
+
+```js
+import { textStyle } from 'pss'
+```
+
+Global text styles system, like in [Sketch][141].
+
+Related: [createVariant][108], [typography][74].
+
+Add `textStyle` to `theme`:
+
+```js
+const theme = {
+  textStyle: {
+    default: {
+      fontSize: '16px',
+      lineHeight: 1.2,
+      fontWeight: normal,
+      fontFamily: 'system-ui'
+    },
+    heading: {
+      fontSize: '2rem',
+      lineHeight: 1.2,
+      fontWeight: 'bold',
+      fontFamily: 'system-ui'
+    }
+  }
+}
+```
+
+#### Parameters
+
+-   `props` **[Object][133]** 
+
+#### Examples
+
+```js
+import { textStyle } from 'pss'
+
+const Text = styled.p`
+  ${textStyle}
+`
+```
+
+```js
+<Text textStyle={true} /> // → `theme.textStyle.default`
+<Text textStyle='heading' /> // → `theme.textStyle.heading`
+```
+
+### transform
+
+```js
+import { transform } from 'pss'
+```
+
+| prop        | css         | type     | value | true | false |
+| :---------- | :---------- | :------- | :---- | :--- | :---- |
+| `transform` | `transform` | `String` | ✓     | —    | —     |
+
+⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
+
+Related: [rule][84].
+
+#### Parameters
+
+-   `props` **[Object][133]** 
+
+#### Examples
+
+```js
+import { transform } from 'pss'
+
+const Box = styled.div`
+  ${transform}
+`
+```
+
+```js
+<Box transform='rotate(90deg)' /> // → transform: rotate(90deg)
+```
+
+### transition
+
+```js
+import { transition } from 'pss'
+```
+
+| prop         | css          | type     | value | true | false |
+| :----------- | :----------- | :------- | :---- | :--- | :---- |
+| `transition` | `transition` | `String` | ✓     | —    | —     |
+
+Related: [rule][84].
+
+#### Parameters
+
+-   `props` **[Object][133]** 
+
+#### Examples
+
+```js
+import { transition } from 'pss'
+
+const Box = styled.div`
+  ${transition}
+`
+```
+
+```js
+<Box transition='all .3s' /> // → transition: all .3s
+```
+
+## Combinations
+
+
+
+
+### base
 
 ```js
 import { base } from 'pss'
@@ -830,20 +1192,27 @@ import { base } from 'pss'
 Combination of
 
 -   [space][2]
--   [sizes][4]
--   [colors][6].
+-   [sizes][5]
+-   [colors][8]
+
+Related: [combine][129].
+
+#### Parameters
+
+-   `props` **[Object][133]** 
 
 #### Examples
 
 ```js
-import styled from 'react-emotion'
 import { base } from 'pss'
 
-const Box = styled('div')(base)
+const Box = styled.div`
+  ${base}
+`
 ```
 
 ```js
-<Box tm='inverted' minHt='200px' maxWd='site.width' mgx='auto' pd={2} />
+<Box tm='inverted' minHeight='200px' maxWidth='site' mgx='auto' pd={2} />
 ```
 
     .css {
@@ -860,9 +1229,50 @@ const Box = styled('div')(base)
       }
     }
 
-### system
+### typography
 
-Alias **`system`**
+```js
+import { typography } from 'pss'
+```
+
+Combination of
+
+-   [text][58]
+-   [fontFamily][37]
+-   [ellipsis][26]
+
+Related: [combine][129], [textStyle][61].
+
+#### Parameters
+
+-   `props` **[Object][133]** 
+
+#### Examples
+
+```js
+import { typography } from 'pss'
+
+const Text = styled.p`
+  ${typography}
+`
+```
+
+```js
+<Text fontSize={24} lineHeight={1.2} letterSpacing='0.12em' ellipsis />
+```
+
+```css
+.css {
+   font-size: 14px;
+   line-height: 1.2;
+   letterSpacing: 0.12em;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+```
+
+### system
 
 ```js
 import { system } from 'pss'
@@ -870,27 +1280,40 @@ import { system } from 'pss'
 
 Combination of
 
--   [base][34]
--   [border][20]
--   [position][14]
--   [display][12]
--   [ratio][32]
--   [float][16]
--   [overflow][18]
--   [utility][30]
+-   [base][71]
+-   [border][11]
+-   [boxStyle][14]
+-   [cursor][20]
+-   [display][23]
+-   [float][34]
+-   [opacity][40]
+-   [outline][43]
+-   [overflow][46]
+-   [position][49]
+-   [radius][52]
+-   [ratio][55]
+-   [textStyle][61]
+-   [transition][67]
+
+Related: [combine][129].
+
+#### Parameters
+
+-   `props` **[Object][133]** 
 
 #### Examples
 
 ```js
-import styled from 'react-emotion'
 import { system } from 'pss'
 
-const Box = styled('div')(system)
+const Box = styled.div`
+  ${system}
+`
 ```
 
 ```js
-<Box prl ht='300px' wd='300px' mgx='auto'>
-  <Box pab t={0} l={0} bg='red' ht='20px' wd='20px' />
+<Box position='relative' height='300px' width='300px' mgx='auto'>
+  <Box position='absolute' top={0} left={0} bg='red' height='20px' width='20px' />
 </Box>
 ```
 
@@ -913,298 +1336,438 @@ const Box = styled('div')(system)
 }
 ```
 
-## Creating Prop Styles
+## Custom Styles
 
 
 
 
-### createPropStyles
+### createStyles
 
 ```js
-import { createPropStyles } from 'pss'
+import pss from 'pss'
+import { createStyles } from 'pss'
 ```
 
-Function that accepts Object (see [PropStylesObj][79]) with keys that
-represents component `prop` and the value is a `style` that will be applied.
+Create styles from [Object][142] with keys that represents component `prop` and
+the value is a `style` that will be applied.
 
-Returns Function (see [DynamicStyleFn][89]) that you add to
-components created with CSS-in-JS libraries.
+```js
+{ [prop]: style | (input, props, mediaKey) => style }
+```
 
-When `theme` with `media` is provided to components, any styles can be changed
-in media query with media name suffix (key in `theme.media`).
+-   `input` - prop value
+-   `props` [Object][142] - component props, including `theme`
+-   `mediaKey` [Object][142] - key in `theme.media`
+
+In component prop accepts values:
+
+-   [Boolean][143] — enable / disable default style value
+
+    ```js
+    const Comp = styled.div(createStyles({ red: { color: 'red' } }))
+
+    <Comp red={true} /> // → color: red
+    <Comp red={false} /> // → 🤷‍♂️
+    ```
+
+-   [String][144], [Number][145] or [Array][146] — handled in functional styles
+
+    ```js
+    const Comp = styled.div(createStyles({ width: (input) => ({ width: input } })))
+
+    <Comp width='100px' /> // → width: 100px
+    ```
+
+-   [Object][142] with keys defined in `theme.media` to define values for different screen sizes
+
+    ```js
+    <Comp width={{ all: '100px', sm: '50px' }} /> // → width: 100px; @media (max-width: 600px) { width: 50px }
+    ```
 
 #### Parameters
 
--   `propStyles` **[PropStylesObj][90]**  (optional, default `{}`)
--   `options` **{isMediaProps: [boolean][91]}**  (optional, default `{isMediaProps:true}`)
+-   `styles` **[Object][133]**  (optional, default `{}`)
 
 #### Examples
 
 ```js
-import styled from 'react-emotion'
-import { createPropStyles } from 'pss'
+import { createStyles } from 'pss'
 
-// Create prop styles
-const myPropStyle = createPropStyles({
+const styles = createStyles({
   display: value => ({ display: value }),
-  flex: { display: 'flex' },
-  inline: { display: 'inline-block' },
-  hide: { display: 'none' }
+  hide: { display: 'none' },
+  width: (value, props, mediaKey) => ({
+    width: mediaKey === 'sm' && value === true ? '100%' : value
+  })
 })
 
-// Add to component
-const Box = styled.div(myPropStyle)
+const Box = styled.div`
+  ${styles}
+`
 
-// Use in component
-<Box flex /> // .css { display: 'flex' }
-<Box inline /> // .css { display: inline-block }
-<Box display='inline-flex' /> // .css { display: inline-flex }
+Box.propTypes = {
+  ...styles.propTypes
+}
 ```
 
 ```js
-import { ThemeProvider } from 'emotion-theming'
+<Box display='inline-flex' /> // → display: inline-flex
+<Box hide /> // → display: none
+```
 
-// Create theme with media queries
+```js
+// Add media queries
 const theme = {
   media: {
-    M: '(max-width: 600px)'
+    sm: '(max-width: 600px)'
   }
 }
 
-// Add theme to ThemeProvider
+<Box theme={theme} width={{ all: '100px', sm: true }} /> // → width: 100px; @media (max-width: 600px) { width: 100% }
+
 <ThemeProvider theme={theme}>
-  <Box hideM /> // @media (max-width: 600px) { display: none }
+  <Box display='flex' hide={{ sm: true }} /> // → display: flex; @media (max-width: 600px) { display: none }
 </ThemeProvider>
 ```
 
-Returns **DynamicStyleFn** 
+Returns **[Function][147]** `(props) => styles`
 
-### createSizeProp
+### rule
 
 ```js
-import { createSizeProp } from 'pss'
+import { rule } from 'pss'
 ```
+
+Create style rule. Must be used with [createStyles][81].
 
 #### Parameters
 
--   `cssProp` **CSSProp** — Any CSS prop like `width`, `height`, `left`, ...
--   `trueVal` **CSSVal**  (optional, default `'100%'`)
--   `falseVal` **CSSVal**  (optional, default `0`)
--   `toPx` **[boolean][91]** — Add `px` unit to `number` result (optional, default `true`)
+-   `cssProp` **[string][148]** 
+-   `getValue` **[Function][147]**  (optional, default `identity`)
 
 #### Examples
 
 ```js
-import styled from 'react-emotion'
-import { createSizeProp, createPropStyles } from 'pss'
+import pss, { rule } from 'pss'
 
-const mySizes = createPropStyles({
-  w: createSizeProp('width', '100%', 0, true), // this is default
-  h: createSizeProp('height'), // same as above
-  l: createSizeProp('left', 0, 'auto'),
-  r: createSizeProp('right', 0, 'auto')
+const Box = styled.div(pss({
+  display: rule('display')
+}))
+```
+
+```js
+// Add theme to ThemeProvider
+<ThemeProvider theme={theme}>
+  <Box display='flex' /> // → display: flex
+</ThemeProvider>
+```
+
+Returns **[Function][147]** 
+
+### boolValue
+
+```js
+import { boolValue } from 'pss'
+```
+
+Get value for rule based boolean condition, other values passed without modification.
+Must be used with [rule][84].
+
+#### Parameters
+
+-   `trueVal`  
+-   `falseVal`  
+
+#### Examples
+
+```js
+import pss, { rule, boolValue } from 'pss'
+
+const Box = styled.div(pss({
+  opacity: rule('opacity', boolValue(1, 0))
+}))
+```
+
+```js
+<Box opacity={true} /> // → opacity: 1
+<Box opacity={false} /> // → opacity: 0
+<Box opacity={0.5} /> // → opacity: 0.5
+```
+
+### sizeValue
+
+```js
+import { sizeValue } from 'pss'
+```
+
+Sizes system for any css prop. Default behaviour described in [sizes][5].
+Must be used with [rule][84].
+
+Related: [sizes][5], [rule][84], [spaceValue][93].
+
+#### Parameters
+
+-   `transformValue` **[Function][147]**  (optional, default `boolValue('100%',0)`)
+
+#### Examples
+
+```js
+import pss, { rule, sizeValue, boolValue } from 'pss'
+
+const sizes = pss({
+  h: rule('height', sizeValue())
+  w: rule('width', sizeValue(),
+  l: rule('left', sizeValue(boolValue(0, 'auto'))),
+  r: rule('right', sizeValue(boolValue(0, 'auto')))
 })
 
-const Box = styled.div(mySizes)
+const Box = styled.div`
+  ${sizes}
+`
 ```
 
 ```js
-<Box w /> // width: 100%
-<Box w={false} /> // width: 0
-<Box wM={(1 / 2)} /> // @media (max-width: 600px) { width: 50% }
-<Box h='300px' /> // height: 300px
-<Box l lM='auto' /> // left: 0; @media (max-width: 600px) { left: auto }
-<Box l={20} r={10} /> // left: 20px; right: 10px
+<Box w={1} /> // → width: 100%
+<Box w={0} /> // → width: 0
+<Box w={{ sm: (1 / 2) }} /> // → @media (max-width: 600px) { width: 50% }
+<Box h='300px' /> // → height: 300px
+<Box l={{ all: 0, sm: 'auto' }} /> // → left: 0; @media (max-width: 600px) { left: auto }
+<Box l={20} r={10} /> // → left: 20px; right: 10px
+<Box l r /> // → left: 0; right: 0
 ```
 
-Returns **[PropStyleFn][92]** 
+Returns **[Function][147]** that must be used in [rule][84]
 
-### createSpaceProps
+### spaceValue
 
 ```js
-import { createSpaceProps } from 'pss'
+import { spaceValue } from 'pss'
 ```
 
-Create space props for `margin`, `padding` or any CSS prop that have similiar signature.
-Result is props for [createPropStyles][39] with specified prop prefix.
+Spacing system for `margin`, `padding`. Default behaviour described in [space][2].
+Must be used with [rule][84].
 
--   `{compProp}` → `{cssProp}`
--   `{compProp}l` → `{cssProp}-left`
--   `{compProp}r` → `{cssProp}-right`
--   `{compProp}t` → `{cssProp}-top`
--   `{compProp}b` → `{cssProp}-bottom`
--   `{compProp}x` → `{cssProp}-left`, `{cssProp}-right`
--   `{compProp}y` → `{cssProp}-top`, `{cssProp}-bottom`
+Related: [space][2], [sizes][5], [rule][84], [sizeValue][90].
 
 #### Parameters
 
--   `cssProp` **CSSProp** — Usually is `margin` or `padding`
--   `compProp` **CompPropName** — Prop name that will be used in component
--   `getSpaceValue` **[Function][93]** — Custom getter from theme, default to get values from `theme.space`
+-   `defaultValue`  — Fallback value used when prop value is [String][144] or nothing returned. (optional, default `sizeValue(identity)`)
 
 #### Examples
 
 ```js
-import styled from 'react-emotion'
-import { createSpaceProps, createPropStyles } from 'pss'
+import pss, { rule, spaceValue } from 'pss'
 
-// Create `margin` space prop styles with `mg` prefix
-const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
+const spaceRule = (name) => rule(name, spaceValue())
 
-// Add to component
-const Box = styled.div(marginPropStyles)
+const margin = pss({
+  mg: spaceRule('margin'),
+  mgl: spaceRule('marginLeft'),
+  mgr: spaceRule('marginRight'),
+  mgt: spaceRule('marginTop'),
+  mgb: spaceRule('marginBottom'),
+  mgx: [ spaceRule('marginLeft'), spaceRule('marginRight') ],
+  mgy: [ spaceRule('marginTop'), spaceRule('marginBottom') ]
+})
 
-// Result
-<Box mg /> // .css { margin: 10px; @media (max-width: 600px) { margin: 8px } }
+const Box = styled.div`
+  ${margin}
+`
 ```
-
-Returns **[PropStylesObj][90]** 
-
-### createSpaceStyle
 
 ```js
-import { createSpaceStyle } from 'pss'
+const theme = {
+  media: {
+    sm: '(max-width: 600px)' // optional
+  },
+  space: [ 0, 8, 16, 32, 64 ]
+}
+
+<ThemeProvider theme={theme}>
+  <Box mg={1} /> // → margin: 8px;
+  <Box mgx={2} /> // → margin-left: 16px; margin-right: 16px
+  <Box mg={{ sm: 1 }} /> // → @media (max-width: 600px) { margin: 8px }
+</ThemeProvider>
 ```
 
-Similar to [createSpaceProps][45], but creates style function instead of prop styles,
-that can be used inside CSS-in-JS components with `theme` prop.
+```js
+const theme = {
+  media: {
+    sm: '(max-width: 600px)'
+  },
+  space: {
+    all: [ 0, 8, 16, 32, 64 ],
+    sm: [ 0, 4, 8, 16, 32 ]
+  }
+}
 
-For example if `cssProp` = `margin` result is [DynamicStyleFn][89] with API:
+<ThemeProvider theme={theme}>
+  <Box mg={1} /> // → margin: 8px; @media (max-width: 600px) { margin: 4px }
+  <Box mgx={2} /> // → margin-left: 16px; margin-right: 16px; @media (max-width: 600px) { margin-left: 8px; margin-right: 8px; }
+  <Box mg={{ sm: 1 }} /> // → @media (max-width: 600px) { margin: 4px }
+</ThemeProvider>
+```
 
--   `fn(step)` → `margin`
--   `fn.l(step)` → `margin-left`
--   `fn.r(step)` → `margin-right`
--   `fn.t(step)` → `margin-top`
--   `fn.b(step)` → `margin-bottom`
--   `fn.x(step)` → `margin-left`, `margin-right`
--   `fn.y(step)` → `margin-top`, `margin-bottom`
+Returns **[Function][147]** that must be used in [rule][84]
+
+### colorValue
+
+```js
+import { colorValue } from 'pss'
+```
+
+Get color from theme and apply it to css prop. Must be used with [rule][84].
 
 #### Parameters
 
--   `cssProp` **CSSProp** — Usually is `margin` or `padding`
--   `getSpaceValue` **[Function][93]** — Custom getter from theme, default to get values from `theme.space`
+-   `key` **[string][148]** — Key in `theme.color` or in `theme.palette[theme.default.palette]`
+-   `transformValue` **[Function][147]** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default `identity`)
 
 #### Examples
 
 ```js
-import styled from 'react-emotion'
-import { createSpaceStyle, createPropStyles } from 'pss'
+import pss, { rule, colorValue } from 'pss'
 
-const marginFn = createSpaceStyle('margin')
-
-const Box = styled.div(marginFn.x(2))
-const OtherBox = styled.div({ display: 'flex' }, marginFn.l(1))
-```
-
-```js
-// margin-left: 20px; margin-right: 20px;
-// @media (max-width: 600px) { margin-left: 16px; margin-right: 16px }
-<Box />
-
-// display: flex; margin-left: 10px;
-// @media (max-width: 600px) { margin-left: 10px }
-<OtherBox />
-```
-
-Returns **DynamicStyleFn** 
-
-### createColorProp
-
-Alias **`colorProp`**
-
-```js
-import { createColorProp } from 'pss'
-```
-
-Get color from theme and apply it to css prop.
-
-#### Parameters
-
--   `cssProp` **CSSProp** — Any CSS prop like `backgroundColor`, `color`, `borderColor`, ...
--   `colorKey` **ThemeKey** — Key in `theme.color` or in `theme.palette[theme.default.palette]`
--   `getCssValue` **function (color: [string][94], props: Props): CSSVal** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default to result color)
-
-#### Examples
-
-```js
-import styled from 'react-emotion'
-import { createColorProp, createPropStyles } from 'pss'
-
-const myColors = createPropStyles({
-  color: createColorProp('color', 'fg'),
-  shadow: createColorProp('boxShadow', 'shadow', (color) => `0 0 20px 0 ${color}`)
+const colors = pss({
+  fg: rule('color', colorValue('fg')),
+  bg: rule('backgroundColor', colorValue('bg')),
+  shadow: rule('boxShadow', colorValue('shadow', (color) => `0 0 20px 0 ${color}`)),
+  tm: [
+     rule('color', colorValue('fg')),
+     rule('backgroundColor', colorValue('bg'))
+  ]
 })
 
 // Add to component
-const Box = styled.div(myColors)
+const Box = styled.div`
+  ${colors}
+`
 ```
 
 ```js
 // theme.palette.default.fg
-<Box color /> // background-color: #222222
+<Box fg={true} /> // background-color: #222222
 
 // theme.colors.black
-<Box color='black' /> // color: #222222
+<Box fg='black' /> // color: #222222
 
 // theme.palette.default.accent
-<Box color='accent' /> // color: #ff0000
+<Box fg='accent' /> // color: #ff0000
 
 // theme.palette.default.shadow
-<Box shadow /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
+<Box shadow={true} /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
+
+// theme.palette.default.fg, theme.palette.default.bg
+<Box tm='default' /> // color: #222222; background-color: #ffffff
 ```
 
-Returns **[PropStyleFn][92]** 
+Returns **[Function][147]** 
 
-### createPaletteProp
-
-Alias **`themeProp`**
+### themeValue
 
 ```js
-import { createPaletteProp } from 'pss'
+import { themeValue } from 'pss'
 ```
 
-Set both `background-color` and `color` for selected `theme.palette`.
+Use values defined in `theme[themeKey]`.
+
+See [fontFamily][37], [radius][52].
 
 #### Parameters
 
--   `bgKey` **[string][94]** — is key in `theme.palette[val]` for CSS `background-color` prop (optional, default `'background'`)
--   `fgKey` **[string][94]** — is key in `theme.palette[val]` for CSS `color` prop (optional, default `'foreground'`)
+-   `options` **[Object][133]**  (optional, default `{}`)
+    -   `options.themeKey` **[String][148]** 
+    -   `options.transformValue` **[Function][147]**  (optional, default `identity`)
+    -   `options.themeGetter` **[Function][147]**  (optional, default `getThemeValue(themeKey,transformValue)`)
 
 #### Examples
 
 ```js
-import styled from 'react-emotion'
-import { createPaletteProp, createPropStyles } from 'pss'
-
-const myColors = createPropStyles({
-  tm: createPaletteProp('bg', 'fg')
-})
-
-const Box = styled.div(myColors)
+const theme = {
+  font: {
+    heading: 'Times New Roman, serif',
+    ui: 'system-ui, Helvetica, sans-serif'
+  }
+}
 ```
 
 ```js
-// theme.palette.default.bg, theme.palette.default.fg
-<Box tm /> // background-color: #ffffff; color: #222222
+import pss, { themeValue } from 'pss'
 
-// theme.palette.inverted.bg, theme.palette.inverted.fg
-<Box tm='inverted' /> // background-color: #222222; color: #fffffff
+const Text = styled.div(pss({
+  fontFamily: rule('fontFamily', themeValue({ themeKey: 'font' }))
+}))
+
+<ThemeProvider theme={theme}>
+  <Text fontFamily='ui'>
+    Hello World!
+  </Text>
+</ThemeProvider>
 ```
 
-Returns **[PropStyleFn][92]** 
+```css
+.css {
+  font-family: system-ui, Helvetica, sans-serif;
+}
+```
 
-### createStyleFromTheme
+Returns **[Function][147]** 
+
+### mediaRule
 
 ```js
-import { createStyleFromTheme } from 'pss'
+import { mediaRule } from 'pss'
 ```
 
-Create global styles directly inside `theme[themeKey]`.
-Useful for creating text or buttons styles. See [textStyle][22].
+Create style wrapped in `theme.media`.
+
+Related: [display][23].
 
 #### Parameters
 
--   `options` **{themeKey: ThemeKey?, themeGetter: [Function][93]??, getStyle: [Function][93]?}** 
+-   `cssProp` **[string][148]** 
+-   `value` **[string][148]** 
+-   `transformValue` **[Function][147]**  (optional, default `identity`)
+
+#### Examples
+
+```js
+import pss, { mediaRule } from 'pss'
+
+const Box = styled.div(pss({
+  hideOn: mediaRule('display', 'none')
+}))
+```
+
+```js
+// Create theme with media queries
+const theme = {
+  media: {
+    sm: '(max-width: 600px)'
+  }
+}
+
+<ThemeProvider theme={theme}>
+  <Box hideOn='sm' /> // @media (max-width: 600px) { display: 'none' }
+</ThemeProvider>
+```
+
+### themeStyle
+
+```js
+import { themeStyle } from 'pss'
+```
+
+Use styles defined in `theme[themeKey]`. Useful for creating global shared styles.
+
+Related: [textStyle][61].
+
+#### Parameters
+
+-   `options` **[Object][133]**  (optional, default `{}`)
+    -   `options.themeKey` **[String][148]** 
+    -   `options.transformValue` **[Function][147]**  (optional, default `identity`)
+    -   `options.themeGetter` **[Function][147]**  (optional, default `getThemeValue(themeKey,transformValue)`)
 
 #### Examples
 
@@ -1227,15 +1790,14 @@ const theme = {
 ```
 
 ```js
-import styled from 'react-emotion'
-import { createPropStyles, createStyleFromTheme } from 'pss'
+import pss, { themeStyle } from 'pss'
 
-const Text = styled.div(createPropStyles({
-  ts: createStyleFromTheme({ themeKey: 'textStyle' })
+const Text = styled.div(pss({
+  textStyle: themeStyle({ themeKey: 'textStyle' })
 }))
 
 <ThemeProvider theme={theme}>
-  <Text ts='heading'>
+  <Text textStyle='heading'>
     Hello World!
   </Text>
 </ThemeProvider>
@@ -1250,105 +1812,62 @@ const Text = styled.div(createPropStyles({
 }
 ```
 
-Returns **[PropStyleFn][92]** 
+Returns **[Function][147]** 
 
-### propStylesInTheme
+### createVariant
 
-```js
-import { propStylesInTheme } from 'pss'
-```
+Create `variant` from styles defined directly in `theme`.
+Inspired by [`styled-system`][149].
 
-Create prop styles using styles defined directly inside `theme[themeKey]`. Useful for creating shared text or buttons styles. Styles is used as flags `<Comp styleKey1 styleKey2 />`.
+Related: [themeValue][99], [themeStyle][105].
 
 #### Parameters
 
--   `themeKey` **ThemeKey** 
--   `propName` **CompPropName?** 
--   `themeGetter` **[Function][93]?** 
+-   `options` **[Object][133]** 
+    -   `options.themeKey`  
+    -   `options.prop`   (optional, default `'variant'`)
+    -   `options.cssProp`   (optional, default `false`)
+    -   `options.transformValue`   (optional, default `identity`)
+    -   `options.themeGetter`   (optional, default `getThemeValue(themeKey,transformValue)`)
 
 #### Examples
+
+```js
+import { createVariant } from 'pss'
+
+const Text = styled.p`
+  ${createVariant({ themeKey: 'textStyle' })}
+`
+```
 
 ```js
 const theme = {
-  textStyleFlags: {
-    caps: {
-      textTransform: 'uppercase'
+  textStyle: {
+    default: {
+      fontSize: '16px',
+      lineHeight: 1.2,
+      fontWeight: normal,
+      fontFamily: 'system-ui'
     },
-    underline: {
-      borderBottom: '1px solid'
+    heading: {
+      fontSize: '2rem',
+      lineHeight: 1.2,
+      fontWeight: 'bold',
+      fontFamily: 'system-ui'
     }
   }
 }
+
+<Text variant='default' /> // → `theme.textStyle.default`
+<Text variant='heading' /> // → `theme.textStyle.heading`
 ```
 
-```js
-import styled from 'react-emotion'
-import { propStylesInTheme } from 'pss'
-
-const Text = styled.div(propStylesInTheme('textStyleFlags'))
-
-<ThemeProvider theme={theme}>
-  <Text caps underline>
-    Hello World!
-  </Text>
-</ThemeProvider>
-```
-
-```css
-.css {
-  text-transform: uppercase;
-  border-bottom: 1px solid;
-}
-```
-
-Returns **DynamicStyleFn** 
-
-## Misc
+## Selectors
 
 
 
-
-### cssProp
-
-```js
-import { cssProp } from 'pss'
-```
-
-Dynamic CSS prop like in [glamorous][95].
-You don't need it if yours CSS-in-JS library support it natively.
-
-Simple implementation:
-
-```js
-const cssProp = createPropStyles({
-  css: (val) => ({ ...val })
-})
-```
-
-#### Examples
-
-```js
-import styled from 'react-emotion'
-import { cssProp } from 'pss'
-
-const Box = styled.div(cssProp)
-```
-
-```js
-<Box
-  css={{ color: 'red', display: 'flex' }}
-  cssM={{ color: 'yellow' }}
-/>
-// color: red; display: flex
-// @media (max-width: 600px) { color: yellow }
-
-<Box css={(props) => ({ color: props.color.red })} />
-// color: #ff0000
-```
 
 ### propSelector
-
-Alias **`ps`**
 
 ```js
 import { ps } from 'pss'
@@ -1358,16 +1877,17 @@ Wrap result of prop style in custom CSS selector.
 
 #### Parameters
 
--   `name` **[string][94]?** — CSS selector, like `&:first-child`, `& + &`
--   `value` **PropStyleVal?** — prop value
+-   `name` **[string][148]?** — CSS selector, like `&:first-child`, `& + &`
+-   `value` **PropStyleValue?** — prop value
 
 #### Examples
 
 ```js
-import styled from 'react-emotion'
 import { space } from 'pss'
 
-const Box = styled.div(space)
+const Box = styled.div`
+  ${space}
+`
 ```
 
 ```js
@@ -1378,51 +1898,40 @@ import { ps } from 'pss'
 
 ```css
 .css + .css { margin-top: 10px }
+@media (max-width: 600px) { .css + .css { margin-top: 8px } }
 ```
 
-### mediaPropSelector
-
-Alias **`mps`**
+### themeSelector
 
 ```js
-import { mps } from 'pss'
+import { ts, themePath } from 'pss'
 ```
 
-Wrap result of prop style in media query from `theme.media` by key.
+Get value from `theme` directly in prop
 
 #### Parameters
 
--   `mediaKeyAndQuery` **[string][94]?** — key in `theme.media`
--   `value` **PropStyleVal?** — prop value
+-   `fn`  
+-   `transformValue`   (optional, default `px`)
 
 #### Examples
 
 ```js
-import styled from 'react-emotion'
-import { mps, space } from 'pss'
+const Box = styled.div`
+  ${sizes}
+`
 
-const Box = styled.div(space)
-```
-
-```js
-<Box mgt={mps('M', 1)} />
-```
-
-```js
-const mobile = mps('M')
-
-<Box mgt={mobile(1)} />
+<Box width={ts((theme) => theme.myValue)}
+<Box width={ts(themePath('site.width'))}
 ```
 
 ### combineSelectors
-
-Alias **`cs`**
 
 ```js
 import { cs } from 'pss'
 ```
 
-Combine any number of [propSelector][66]s.
+Combine any number of [propSelector][112]s.
 
 #### Parameters
 
@@ -1431,10 +1940,11 @@ Combine any number of [propSelector][66]s.
 #### Examples
 
 ```js
-import styled from 'react-emotion'
 import { space } from 'pss'
 
-const Box = styled.div(space)
+const Box = styled.div`
+  ${space}
+`
 ```
 
 ```js
@@ -1454,258 +1964,393 @@ import { cs, ps } from 'pss'
 }
 ```
 
-### themeSelector
+## Getters
 
-Alias **`ts`**
+
+
+
+### themePath
 
 ```js
-import { sizes, ts } from 'pss'
+import { themePath } from 'pss'
 ```
 
-Get value from `theme` directly in prop
-
-const Box = styled.div(sizes, ts)
+Get value from theme.
 
 #### Parameters
 
--   `fn`  
+-   `input`  
+-   `defaultValue`  
 
 #### Examples
 
 ```js
-<Box wd={ts((theme) => theme.myValue)}
+import { themePath } from 'pss'
+
+const Box = styled.div`
+  width: ${themePath('size.card')};
+  background-color: ${themePath('color.red', 'hotpink')};
+`
+
+<Box /> // → { width: 200px; background-color: hotpink; }
 ```
 
-## Types
+### mq
 
+```js
+import { mq } from 'pss'
+```
 
+Get value from theme.
 
+#### Parameters
 
-### PropStylesObj
-
-Object with keys that represents component `prop` and
-the value is a `style` that will be applied (or [PropStyleFn][81]).
-
-Type: [Object][96]
+-   `mediaKey`  — key in `theme.media`
 
 #### Examples
 
 ```js
-{
-  hide: { display: 'none' },
-  width: (value) => ({ width: value })
-}
+import { mq, themePath } from 'pss'
+
+const Box = styled.div`
+  ${mq('sm')} {
+    background-color: ${themePath('color.red', 'hotpink')};
+  }
+`
+
+<Box /> // → @media (max-width: 600px) { background-color: red; }
 ```
 
-```js
-{
-  size: (value, props) => ({ height: props.theme.size[value] }),
-  color: (value, props) => ({ color: props.theme.color[value] })
-}
-```
+## Utils
 
-### PropStyleFn
 
-[Function][97] that returns style that will be applied to component when prop is used.
 
-Type: function (value: PropStyleVal, props: Props, mediaKey: ([string][94] | null)): StyleObj
+
+### combine
+
+Combine multiple styles together
 
 #### Parameters
 
--   `value`  — this prop value
--   `props`  — other component props, including `theme`
--   `mediaKey`  — is prop suffix, same as key in `theme.media`, resulted style is wrapped in matched media query
+-   `fns` **...any** 
 
-[1]: #prop-styles
+#### Examples
+
+```js
+import { combine } from 'pss'
+```
+
+```js
+import { combine, margin, padding } from 'pss'
+
+const space = combine(
+  margin,
+  padding
+)
+
+const Space = styled.div`
+  ${space}
+`
+
+Space.propTypes = {
+  ...space.propTypes
+}
+```
+
+[1]: #styles
 
 [2]: #space
 
-[3]: #examples
+[3]: #parameters
 
-[4]: #sizes
+[4]: #examples
 
-[5]: #examples-1
+[5]: #sizes
 
-[6]: #colors
+[6]: #parameters-1
 
-[7]: #examples-2
+[7]: #examples-1
 
-[8]: #flex
+[8]: #colors
 
-[9]: #examples-3
+[9]: #parameters-2
 
-[10]: #flexitem
+[10]: #examples-2
 
-[11]: #examples-4
+[11]: #border
 
-[12]: #display
+[12]: #parameters-3
 
-[13]: #examples-5
+[13]: #examples-3
 
-[14]: #position
+[14]: #boxstyle
 
-[15]: #examples-6
+[15]: #parameters-4
 
-[16]: #float
+[16]: #examples-4
 
-[17]: #examples-7
+[17]: #cssprop
 
-[18]: #overflow
+[18]: #parameters-5
 
-[19]: #examples-8
+[19]: #examples-5
 
-[20]: #border
+[20]: #cursor
 
-[21]: #examples-9
+[21]: #parameters-6
 
-[22]: #textstyle
+[22]: #examples-6
 
-[23]: #examples-10
+[23]: #display
 
-[24]: #fontfamily
+[24]: #parameters-7
 
-[25]: #examples-11
+[25]: #examples-7
 
-[26]: #text
+[26]: #ellipsis
 
-[27]: #examples-12
+[27]: #parameters-8
 
-[28]: #typography
+[28]: #examples-8
 
-[29]: #examples-13
+[29]: #flex
 
-[30]: #utility
+[30]: #parameters-9
 
-[31]: #examples-14
+[31]: #examples-9
 
-[32]: #ratio
+[32]: #flexitem
 
-[33]: #examples-15
+[33]: #examples-10
 
-[34]: #base
+[34]: #float
 
-[35]: #examples-16
+[35]: #parameters-10
 
-[36]: #system
+[36]: #examples-11
 
-[37]: #examples-17
+[37]: #fontfamily
 
-[38]: #creating-prop-styles
+[38]: #parameters-11
 
-[39]: #createpropstyles
+[39]: #examples-12
 
-[40]: #parameters
+[40]: #opacity
 
-[41]: #examples-18
+[41]: #parameters-12
 
-[42]: #createsizeprop
+[42]: #examples-13
 
-[43]: #parameters-1
+[43]: #outline
 
-[44]: #examples-19
+[44]: #parameters-13
 
-[45]: #createspaceprops
+[45]: #examples-14
 
-[46]: #parameters-2
+[46]: #overflow
 
-[47]: #examples-20
+[47]: #parameters-14
 
-[48]: #createspacestyle
+[48]: #examples-15
 
-[49]: #parameters-3
+[49]: #position
 
-[50]: #examples-21
+[50]: #parameters-15
 
-[51]: #createcolorprop
+[51]: #examples-16
 
-[52]: #parameters-4
+[52]: #radius
 
-[53]: #examples-22
+[53]: #parameters-16
 
-[54]: #createpaletteprop
+[54]: #examples-17
 
-[55]: #parameters-5
+[55]: #ratio
 
-[56]: #examples-23
+[56]: #parameters-17
 
-[57]: #createstylefromtheme
+[57]: #examples-18
 
-[58]: #parameters-6
+[58]: #text
 
-[59]: #examples-24
+[59]: #parameters-18
 
-[60]: #propstylesintheme
+[60]: #examples-19
 
-[61]: #parameters-7
+[61]: #textstyle
 
-[62]: #examples-25
+[62]: #parameters-19
 
-[63]: #misc
+[63]: #examples-20
 
-[64]: #cssprop
+[64]: #transform
 
-[65]: #examples-26
+[65]: #parameters-20
 
-[66]: #propselector
+[66]: #examples-21
 
-[67]: #parameters-8
+[67]: #transition
 
-[68]: #examples-27
+[68]: #parameters-21
 
-[69]: #mediapropselector
+[69]: #examples-22
 
-[70]: #parameters-9
+[70]: #combinations
 
-[71]: #examples-28
+[71]: #base
 
-[72]: #combineselectors
+[72]: #parameters-22
 
-[73]: #parameters-10
+[73]: #examples-23
 
-[74]: #examples-29
+[74]: #typography
 
-[75]: #themeselector
+[75]: #parameters-23
 
-[76]: #parameters-11
+[76]: #examples-24
 
-[77]: #examples-30
+[77]: #system
 
-[78]: #types
+[78]: #parameters-24
 
-[79]: #propstylesobj
+[79]: #examples-25
 
-[80]: #examples-31
+[80]: #custom-styles
 
-[81]: #propstylefn
+[81]: #createstyles
 
-[82]: #parameters-12
+[82]: #parameters-25
 
-[83]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container
+[83]: #examples-26
 
-[84]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#Properties_applied_to_flex_items
+[84]: #rule
 
-[85]: #clearfix-styles
+[85]: #parameters-26
 
-[86]: https://sketchapp.com/docs/text/text-styles
+[86]: #examples-27
 
-[87]: #ellipsis-styles
+[87]: #boolvalue
 
-[88]: https://css-tricks.com/aspect-ratio-boxes/
+[88]: #parameters-27
 
-[89]: DynamicStyleFn
+[89]: #examples-28
 
-[90]: #propstylesobj
+[90]: #sizevalue
 
-[91]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[91]: #parameters-28
 
-[92]: #propstylefn
+[92]: #examples-29
 
-[93]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[93]: #spacevalue
 
-[94]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[94]: #parameters-29
 
-[95]: https://glamorous.rocks
+[95]: #examples-30
 
-[96]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[96]: #colorvalue
 
-[97]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[97]: #parameters-30
+
+[98]: #examples-31
+
+[99]: #themevalue
+
+[100]: #parameters-31
+
+[101]: #examples-32
+
+[102]: #mediarule
+
+[103]: #parameters-32
+
+[104]: #examples-33
+
+[105]: #themestyle
+
+[106]: #parameters-33
+
+[107]: #examples-34
+
+[108]: #createvariant
+
+[109]: #parameters-34
+
+[110]: #examples-35
+
+[111]: #selectors
+
+[112]: #propselector
+
+[113]: #parameters-35
+
+[114]: #examples-36
+
+[115]: #themeselector
+
+[116]: #parameters-36
+
+[117]: #examples-37
+
+[118]: #combineselectors
+
+[119]: #parameters-37
+
+[120]: #examples-38
+
+[121]: #getters
+
+[122]: #themepath
+
+[123]: #parameters-38
+
+[124]: #examples-39
+
+[125]: #mq
+
+[126]: #parameters-39
+
+[127]: #examples-40
+
+[128]: #utils
+
+[129]: #combine
+
+[130]: #parameters-40
+
+[131]: #examples-41
+
+[132]: size
+
+[133]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[134]: https://sketchapp.com/docs/styling/shared-styles/
+
+[135]: https://glamorous.rocks
+
+[136]: https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
+
+[137]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container
+
+[138]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#Properties_applied_to_flex_items
+
+[139]: #clearfix-styles
+
+[140]: https://css-tricks.com/aspect-ratio-boxes/
+
+[141]: https://sketchapp.com/docs/text/text-styles
+
+[142]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+
+[143]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+
+[144]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[145]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+
+[146]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+
+[147]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+
+[148]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[149]: https://github.com/jxnblk/styled-system

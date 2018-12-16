@@ -1,6 +1,6 @@
 {
   "name": "pss",
-  "version": "2.6.0",
+  "version": "3.0.0-6",
   "description": "Prop styles system for styled components",
   "author": "John Grishin <hi@johngrish.in>",
   "license": "MIT",
@@ -28,12 +28,11 @@
     "build:cjs": "cross-env NODE_ENV=production MODULES=cjs babel src -d cjs",
     "build:docs": "documentation build -c ./.documentation.yml src/** -f md -o docs/api.md",
     "prebuild": "npm run cleanup",
-    "watch": "run-p \"build:* -- -w\" \"test:unit -- -w\"",
+    "watch": "run-p \"build:* -- -w\" \"test:unit -- --watchAll\"",
     "prewatch": "npm run cleanup",
     "test": "run-s test:*",
+    "test:unit": "jest",
     "test:lint": "eslint src test",
-    "test:unit": "ava test",
-    "test:types": "flow check",
     "deploy": "np --no-cleanup",
     "cleanup": "rimraf cjs esm",
     "version": "auto-changelog -p && git add CHANGELOG.md",
@@ -50,62 +49,58 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "extends": [
-      "standard",
-      "plugin:flowtype/recommended"
-    ],
-    "plugins": [
-      "flowtype"
-    ],
+    "extends": "standard",
     "rules": {
       "no-shadow": 2
     }
   },
   "auto-changelog": {
     "unreleased": true,
-    "commitLimit": 20,
+    "commitLimit": false,
+    "tagPattern": "^\\d+\\.\\d+.\\d+$",
     "template": ".changelog.hbs"
   },
-  "ava": {
-    "verbose": true,
-    "require": [
-      "@babel/register"
+  "jest": {
+    "testMatch": [
+      "**/test/*.js"
     ]
   },
   "devDependencies": {
-    "@babel/cli": "^7.1.5",
-    "@babel/core": "^7.1.5",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
-    "@babel/preset-env": "^7.1.5",
-    "@babel/preset-flow": "^7.0.0",
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
     "@babel/register": "^7.0.0",
-    "auto-changelog": "^1.9.0",
-    "ava": "1.0.0-beta.8",
+    "@emotion/core": "^10.0.5",
+    "@emotion/styled": "^10.0.5",
+    "auto-changelog": "^1.10.2",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
     "cross-env": "5.2.0",
-    "documentation": "^8.1.2",
-    "emotion": "^9.2.12",
-    "eslint": "^5.9.0",
+    "documentation": "^9.0.0",
+    "eslint": "^5.10.0",
     "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-flowtype": "^3.2.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "flow-bin": "^0.86.0",
-    "husky": "^1.1.3",
-    "lint-staged": "^8.0.4",
-    "np": "3.0.4",
-    "npm-run-all": "^4.1.3",
-    "ramda": "^0.25.0",
-    "react": "^16.6.1",
-    "react-dom": "^16.6.1",
-    "react-emotion": "^9.2.12",
-    "react-test-renderer": "^16.6.1",
+    "expect": "^23.6.0",
+    "husky": "^1.2.1",
+    "jest": "^23.6.0",
+    "jest-emotion": "^10.0.5",
+    "jest-styled-components": "^6.3.1",
+    "lint-staged": "^8.1.0",
+    "np": "3.1.0",
+    "npm-run-all": "^4.1.5",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-test-renderer": "^16.6.3",
     "rimraf": "^2.6.2",
-    "styled-components": "^4.0.3"
+    "styled-components": "^4.1.2"
   },
   "dependencies": {
-    "@exah/utils": "^1.7.0"
+    "@exah/utils": "^2.0.0",
+    "prop-types": "^15.6.2"
   }
 }

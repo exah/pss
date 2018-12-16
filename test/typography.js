@@ -1,41 +1,23 @@
-import test from 'ava'
-
-import {
-  DEFAULT_KEY,
-  MEDIA_KEY,
-  TEXT_STYLE_KEY,
-  FONT_KEY
-} from '../src/constants'
-
-import {
-  typography,
-  textStyle
-} from '../src'
-
+import { typography } from '../src'
 import { toStyles } from './_helpers'
 
 const theme = {
-  [DEFAULT_KEY]: {
-    [FONT_KEY]: 'ui'
+  default: {
+    fontFamily: 'ui'
   },
-  [MEDIA_KEY]: {
-    D: '(min-width: 1025px)',
+  media: {
     M: '(max-width: 600px)'
   },
-  [FONT_KEY]: {
+  fontFamily: {
     heading: 'Times New Roman, serif',
-    ui: 'Helivetica, system-ui'
-  },
-  [TEXT_STYLE_KEY]: {
-    heading: {
-      fontSize: 32,
-      lineHeight: 1.1,
-      fontWeight: 'bold'
+    ui: 'Helivetica, system-ui',
+    responsive: {
+      M: 'Times New Roman, serif'
     }
   }
 }
 
-test('props -> set defaults', (t) => {
+test('defaults', () => {
   const result = toStyles(typography({
     theme,
     fontFamily: true,
@@ -44,7 +26,7 @@ test('props -> set defaults', (t) => {
     letterSpacing: true
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     fontFamily: 'Helivetica, system-ui',
     fontSize: '1rem',
     lineHeight: 'normal',
@@ -52,30 +34,45 @@ test('props -> set defaults', (t) => {
   })
 })
 
-test('props -> use text helpers', (t) => {
+test('text helpers', () => {
   const result = toStyles(typography({
     theme,
     fontFamily: 'heading',
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+    whiteSpace: 'nowrap'
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     fontFamily: 'Times New Roman, serif',
     fontWeight: 'bold',
-    textAlign: 'center'
+    textAlign: 'center',
+    whiteSpace: 'nowrap'
   })
 })
 
-test('props -> set text style', (t) => {
-  const result = toStyles(textStyle({
+test('ellipsis', () => {
+  const result = toStyles(typography({
     theme,
-    textStyle: 'heading'
+    ellipsis: true
   }))
 
-  t.deepEqual(result, {
-    fontSize: 32,
-    lineHeight: 1.1,
-    fontWeight: 'bold'
+  expect(result).toEqual({
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
+  })
+})
+
+test('responsive fontFamily', () => {
+  const result = toStyles(typography({
+    theme,
+    fontFamily: 'responsive'
+  }))
+
+  expect(result).toEqual({
+    '@media (max-width: 600px)': {
+      fontFamily: 'Times New Roman, serif'
+    }
   })
 })

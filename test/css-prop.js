@@ -1,16 +1,14 @@
-import test from 'ava'
-import { MEDIA_KEY } from '../src/constants'
 import { cssProp } from '../src'
 import { toStyles } from './_helpers'
 
 const theme = {
-  [MEDIA_KEY]: {
+  media: {
     M: '(max-width: 600px)'
   },
   myColor: 'blue'
 }
 
-test('props: css', (t) => {
+test('default', () => {
   const result = cssProp({
     theme,
     css: {
@@ -19,28 +17,17 @@ test('props: css', (t) => {
     }
   })
 
-  t.deepEqual(toStyles(result), {
+  expect(toStyles(result)).toEqual({
     backgroundColor: 'red',
     display: 'flex'
   })
 })
 
-test('props: css (responsive)', (t) => {
-  const result1 = cssProp({
+test('responsive', () => {
+  const result = cssProp({
     theme,
     css: {
-      backgroundColor: 'blue'
-    },
-    cssM: {
-      backgroundColor: 'red',
-      display: 'flex'
-    }
-  })
-
-  const result2 = cssProp({
-    theme,
-    css: {
-      default: {
+      all: {
         backgroundColor: 'blue'
       },
       M: {
@@ -58,11 +45,10 @@ test('props: css (responsive)', (t) => {
     }
   }
 
-  t.deepEqual(toStyles(result1), expected)
-  t.deepEqual(toStyles(result2), expected)
+  expect(toStyles(result)).toEqual(expected)
 })
 
-test('props: css (callback)', (t) => {
+test('callback', () => {
   const result = cssProp({
     theme,
     css: (props) => ({
@@ -70,7 +56,7 @@ test('props: css (callback)', (t) => {
     })
   })
 
-  t.deepEqual(toStyles(result), {
+  expect(toStyles(result)).toEqual({
     color: theme.myColor
   })
 })

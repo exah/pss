@@ -1,6 +1,5 @@
-import test from 'ava'
 import { border } from '../src'
-import { toStyles } from './_helpers'
+import { toStyles, testValue } from './_helpers'
 
 const theme = {
   palette: {
@@ -10,30 +9,35 @@ const theme = {
   }
 }
 
-test('props: border', (t) => {
+test('bd', () => {
   const result = border({
     theme,
-    bd: true,
+    bd: '1px solid',
     bdc: true
   })
 
-  t.deepEqual(toStyles(result), {
-    borderWidth: '1px',
-    borderStyle: 'solid',
+  expect(toStyles(result)).toEqual({
+    border: '1px solid',
     borderColor: '#eee'
   })
 })
 
-test('props: border (left)', (t) => {
+test('bdc', testValue({
+  fn: border,
+  prop: 'bdc',
+  cssProp: 'borderColor',
+  values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ]
+}))
+
+test('bdl custom', () => {
   const result = border({
     theme,
     bdl: '5px dotted',
     bdc: true
   })
 
-  t.deepEqual(toStyles(result), {
-    borderLeftWidth: '5px',
-    borderLeftStyle: 'dotted',
+  expect(toStyles(result)).toEqual({
+    borderLeft: '5px dotted',
     borderColor: '#eee'
   })
 })

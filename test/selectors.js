@@ -1,61 +1,49 @@
-import test from 'ava'
-import { MEDIA_KEY, SPACE_KEY } from '../src/constants'
 
 import {
-  createPropStyles,
-  createSpaceProps,
-  positionPropStyles,
+  space,
+  position,
   themePath,
   ts,
   ps,
-  cs,
-  mps
+  cs
 } from '../src'
 
 import { toStyles } from './_helpers'
 
 const theme = {
-  [MEDIA_KEY]: {
-    D: '(min-width: 1025px)',
-    T: '(min-width: 601px) and (max-width: 1024px)',
+  media: {
     M: '(max-width: 600px)'
   },
-  [SPACE_KEY]: {
-    default: [ 0, 10, 20, 30, 60 ],
+  space: {
+    all: [ 0, 10, 20, 30, 60 ],
     M: [ 0, 5, 10, 20, 20 ]
   },
   myValue: 100
 }
 
-const marginPropStyles = createPropStyles(createSpaceProps('margin', 'mg'))
-
-test('add margin-top to &:first-child', (t) => {
-  const result = toStyles(marginPropStyles({
+test('add margin-top to &:first-child', () => {
+  const result = toStyles(space({
     theme,
     mgt: ps('&:first-child', 1)
   }))
 
-  t.deepEqual(result, {
-    '&:first-child': [
-      {
-        marginTop: '10px'
-      },
-      {
-        '@media (max-width: 600px)': {
-          marginTop: '5px'
-        }
+  expect(result).toEqual({
+    '&:first-child': {
+      marginTop: '10px',
+      '@media (max-width: 600px)': {
+        marginTop: '5px'
       }
-    ]
+    }
   })
 })
 
-test('add margin to & + & element on mobile', (t) => {
-  const result = toStyles(marginPropStyles({
+test('add margin to & + & element on mobile', () => {
+  const result = toStyles(space({
     theme,
-    mgM: ps('& + &', 2)
+    mg: { M: ps('& + &', 2) }
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     '@media (max-width: 600px)': {
       '& + &': {
         margin: '10px'
@@ -64,14 +52,14 @@ test('add margin to & + & element on mobile', (t) => {
   })
 })
 
-test('add different top value to &:last-child and &:first-child', (t) => {
-  const result = toStyles(positionPropStyles({
+test('add different top value to &:last-child and &:first-child', () => {
+  const result = toStyles(position({
     theme,
-    prl: true,
-    t: cs(50, ps('&:last-child', 10), ps('&:first-child', 20))
+    position: 'relative',
+    top: cs(50, ps('&:last-child', 10), ps('&:first-child', 20))
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     position: 'relative',
     top: '50px',
     '&:first-child': {
@@ -83,16 +71,29 @@ test('add different top value to &:last-child and &:first-child', (t) => {
   })
 })
 
-test('themeSelector → position', (t) => {
-  const result = toStyles(positionPropStyles({
+test('change media query on M in propSelector but keep value', () => {
+  const result = toStyles(space({
     theme,
-    t: ts((tm) => tm.myValue),
-    b: ts(themePath('myValue')),
-    l: ts(themePath('noneExistentProp', 5)),
-    r: ts(themePath('notPercentage', 1))
+    mg: ps('@media (max-width: 1024px)', 2, 'M')
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
+    '@media (max-width: 1024px)': {
+      margin: '10px'
+    }
+  })
+})
+
+test('themeSelector: position', () => {
+  const result = toStyles(position({
+    theme,
+    top: ts((tm) => tm.myValue),
+    bottom: ts(themePath('myValue')),
+    left: ts(themePath('noneExistentProp', 5)),
+    right: ts(themePath('notPercentage', 1))
+  }))
+
+  expect(result).toEqual({
     top: '100px',
     bottom: '100px',
     left: '5px',
@@ -100,72 +101,17 @@ test('themeSelector → position', (t) => {
   })
 })
 
-test('themeSelector → space', (t) => {
-  const result = toStyles(marginPropStyles({
+test('themeSelector: space', () => {
+  const result = toStyles(space({
     theme,
     mg: ts((tm) => tm.myValue),
     mgb: ts(themePath('myValue')),
     mgr: ts(themePath('notPercentage', 1))
   }))
 
-  t.deepEqual(result, {
+  expect(result).toEqual({
     margin: '100px',
     marginBottom: '100px',
     marginRight: '1px'
-  })
-})
-
-test('add margin on mobile with mediaPropSelector', (t) => {
-  const result = toStyles(marginPropStyles({
-    theme,
-    mg: mps('M', 2)
-  }))
-
-  t.deepEqual(result, {
-    '@media (max-width: 600px)': {
-      margin: '10px'
-    }
-  })
-})
-
-test('add margin & + & element on mobile with mediaPropSelector', (t) => {
-  const result = toStyles(marginPropStyles({
-    theme,
-    mg: mps('M', ps('& + &', 2))
-  }))
-
-  t.deepEqual(result, {
-    '@media (max-width: 600px)': {
-      '& + &': {
-        margin: '10px'
-      }
-    }
-  })
-})
-
-test('change media query in mediaPropSelector but keep value', (t) => {
-  const result = toStyles(marginPropStyles({
-    theme,
-    mg: mps([ 'M', '(max-width: 1024px)' ], 2)
-  }))
-
-  t.deepEqual(result, {
-    '@media (max-width: 1024px)': {
-      margin: '10px'
-    }
-  })
-})
-
-test('use mediaPropSelector with combineSelectors', (t) => {
-  const result = toStyles(positionPropStyles({
-    theme,
-    position: cs('relative', mps('M', 'absolute'))
-  }))
-
-  t.deepEqual(result, {
-    position: 'relative',
-    '@media (max-width: 600px)': {
-      position: 'absolute'
-    }
   })
 })

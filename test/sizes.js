@@ -1,87 +1,51 @@
-import test from 'ava'
-import { MEDIA_KEY, SIZES_KEY } from '../src/constants'
-
-import {
-  createPropStyles,
-  createSizeProp,
-  createSizeStyle,
-  onMedia
-} from '../src'
-
+import { sizes } from '../src'
 import { toStyles } from './_helpers'
 
 const theme = {
-  [MEDIA_KEY]: {
+  media: {
     D: '(min-width: 1025px)',
     M: '(max-width: 600px)'
   },
-  [SIZES_KEY]: {
+  size: {
     nudge: {
-      default: 2,
-      'M': 1
+      all: 2,
+      M: 1
     },
     xl: 100
-  },
-  custom: {
-    'my-value': '1000px'
   }
 }
 
-const sizesPropStyles = createPropStyles({
-  ht: createSizeProp('height'),
-  wd: createSizeProp('width'),
-  maxWd: createSizeProp('maxWidth'),
-  maxHt: createSizeProp('maxHeight'),
-  minHt: createSizeProp('minHeight'),
-  minWd: createSizeProp('minWidth')
-})
-
-test('props -> sizes relative value', (t) => {
-  const result = toStyles(sizesPropStyles({
+test('sizes relative value', () => {
+  const props = {
     theme,
-    ht: true,
-    wd: 1,
-    minWd: 0,
-    maxWd: false,
-    minHt: (3 / 4),
-    maxHt: 'auto'
-  }))
+    height: true,
+    width: 1,
+    minWidth: 0,
+    maxWidth: false,
+    minHeight: (3 / 4),
+    maxHeight: 'auto'
+  }
 
-  t.deepEqual(result, {
+  const expected = {
     height: '100%',
     width: '100%',
     minWidth: 0,
     maxWidth: 0,
     minHeight: '75%',
     maxHeight: 'auto'
-  })
+  }
+
+  expect(toStyles(sizes(props))).toEqual(expected)
 })
 
-test('props -> sizes path from theme', (t) => {
-  const result = toStyles(sizesPropStyles({
+test('sizes theme values', () => {
+  const props = {
     theme,
-    ht: 'custom.my-value'
-  }))
-
-  t.deepEqual(result, {
-    height: '1000px'
-  })
-})
-
-test('props -> sizes theme values', (t) => {
-  const result1 = toStyles(sizesPropStyles({
-    theme,
-    minWd: 'nudge',
-    maxWdM: 'xl'
-  }))
-
-  const result2 = toStyles(sizesPropStyles({
-    theme,
-    minWd: 'nudge',
-    maxWd: {
+    minWidth: 'nudge',
+    maxWidth: {
       M: 'xl'
     }
-  }))
+  }
 
   const expected = {
     minWidth: '2px',
@@ -91,28 +55,20 @@ test('props -> sizes theme values', (t) => {
     }
   }
 
-  t.deepEqual(result1, expected)
-  t.deepEqual(result2, expected)
+  expect(toStyles(sizes(props))).toEqual(expected)
 })
 
-test('props -> sizes custom values', (t) => {
-  const result1 = toStyles(sizesPropStyles({
+test('sizes custom values', () => {
+  const props = {
     theme,
-    ht: '100px',
-    wdM: '20px',
-    minHtM: '300px'
-  }))
-
-  const result2 = toStyles(sizesPropStyles({
-    theme,
-    ht: '100px',
-    wd: {
+    height: '100px',
+    width: {
       M: '20px'
     },
-    minHt: {
+    minHeight: {
       M: '300px'
     }
-  }))
+  }
 
   const expected = {
     height: '100px',
@@ -122,32 +78,5 @@ test('props -> sizes custom values', (t) => {
     }
   }
 
-  t.deepEqual(result1, expected)
-  t.deepEqual(result2, expected)
-})
-
-test('style -> set height', (t) => {
-  const height = createSizeStyle('height')
-  const percent = toStyles(height()({ theme }))
-
-  t.deepEqual(percent, {
-    height: '100%'
-  })
-
-  const nudge = toStyles(height('nudge')({ theme }))
-
-  t.deepEqual(nudge, {
-    height: '2px',
-    '@media (max-width: 600px)': {
-      height: '1px'
-    }
-  })
-
-  const nudgeOnMobile = toStyles(onMedia('M', height('nudge'))({ theme }))
-
-  t.deepEqual(nudgeOnMobile, {
-    '@media (max-width: 600px)': {
-      height: '1px'
-    }
-  })
+  expect(toStyles(sizes(props))).toEqual(expected)
 })

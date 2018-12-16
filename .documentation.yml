@@ -3,49 +3,64 @@ hljs:
   languages:
     - css
     - js
-toc:
 
-  - name: Prop Styles
+toc:
+  - name: Styles
     children:
       - space
       - sizes
       - colors
+      - border
+      - boxStyle
+      - cssProp
+      - cursor
+      - display
+      - ellipsis
       - flex
       - flexItem
-      - display
-      - position
       - float
-      - overflow
-      - border
-      - textStyle
       - fontFamily
-      - text
-      - typography
-      - utility
+      - opacity
+      - outline
+      - overflow
+      - position
+      - radius
       - ratio
+      - text
+      - textStyle
+      - transform
+      - transition
+
+  - name: Combinations
+    children:
       - base
+      - typography
       - system
 
-  - name: Creating Prop Styles
+  - name: Custom Styles
     children:
-      - createPropStyles
-      - createSizeProp
-      - createSpaceProps
-      - createSpaceStyle
-      - createColorProp
-      - createPaletteProp
-      - createStyleFromTheme
-      - propStylesInTheme
+      - createStyles
+      - rule
+      - boolValue
+      - sizeValue
+      - spaceValue
+      - colorValue
+      - themeValue
+      - mediaRule
+      - themeStyle
+      - createVariant
 
-  - name: Misc
+  - name: Selectors
     children:
-      - cssProp
       - propSelector
-      - mediaPropSelector
-      - combineSelectors
       - themeSelector
+      - combineSelectors
 
-  - name: Types
+  - name: Getters
     children:
-      - PropStylesObj
-      - PropStyleFn
+      - themePath
+      - mq
+
+  - name: Utils
+    children:
+      - combine
