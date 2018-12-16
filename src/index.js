@@ -43,8 +43,7 @@ export {
   textStyle,
   transform,
   transition,
-  typography,
-  utility
+  typography
 } from './styles'
 
 export {
