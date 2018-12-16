@@ -4,7 +4,7 @@ import { combine } from '../utils'
 
 const spaceRule = (name) => rule(name, spaceValue(sizeValue()))
 
-const margin = createStyles({
+export const margin = createStyles({
   mg: spaceRule('margin'),
   mgl: spaceRule('marginLeft'),
   mgr: spaceRule('marginRight'),
@@ -14,7 +14,7 @@ const margin = createStyles({
   mgy: [ spaceRule('marginTop'), spaceRule('marginBottom') ]
 })
 
-const padding = createStyles({
+export const padding = createStyles({
   pd: spaceRule('padding'),
   pdl: spaceRule('paddingLeft'),
   pdr: spaceRule('paddingRight'),

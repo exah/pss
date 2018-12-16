@@ -32,6 +32,8 @@ export {
   ratio,
   sizes,
   space,
+  margin,
+  padding,
   system,
   textHelpers,
   textStyle,
