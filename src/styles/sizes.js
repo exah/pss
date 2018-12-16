@@ -48,7 +48,7 @@ import { sizeValue, boolValue } from '../values'
  *   size: {
  *     small: '10px',
  *     medium: '20px',
- *     block: {
+ *     card: {
  *       all: '500px',
  *       sm: '300px'
  *     }

@@ -201,7 +201,7 @@ const theme = {
     sm: '(max-width: 600px)'
   },
   space: {
-    default: [ 0, 10, 20, 40, 80 ],
+    all: [ 0, 10, 20, 40, 80 ],
     sm: [ 0, 8, 16, 32, 64 ],
   }
 }
@@ -268,7 +268,7 @@ const theme = {
   size: {
     small: '10px',
     medium: '20px',
-    block: {
+    card: {
       all: '500px',
       sm: '300px'
     }
@@ -1133,6 +1133,7 @@ Combination of
 -   [position][16]
 -   [radius][36]
 -   [ratio][46]
+-   [textStyle][26]
 -   [transition][40]
 
 #### Examples

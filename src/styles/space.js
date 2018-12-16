@@ -110,7 +110,7 @@ export const padding = createStyles({
  *     sm: '(max-width: 600px)'
  *   },
  *   space: {
- *     default: [ 0, 10, 20, 40, 80 ],
+ *     all: [ 0, 10, 20, 40, 80 ],
  *     sm: [ 0, 8, 16, 32, 64 ],
  *   }
  * }

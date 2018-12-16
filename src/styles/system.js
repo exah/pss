@@ -7,6 +7,7 @@ import { float } from './float'
 import { overflow } from './overflow'
 import { position } from './position'
 import { ratio } from './ratio'
+import { textStyle } from './text-style'
 import { utility } from './utility'
 
 /**
@@ -27,6 +28,7 @@ import { utility } from './utility'
  *   - {@link position}
  *   - {@link radius}
  *   - {@link ratio}
+ *   - {@link textStyle}
  *   - {@link transition}
  *
  * @example
@@ -69,6 +71,7 @@ const system = combine(
   overflow,
   position,
   ratio,
+  textStyle,
   utility
 )
 
