@@ -7,6 +7,7 @@ export const SIZES_KEY = 'size'
 export const SPACE_KEY = 'space'
 export const RADIUS_KEY = 'radius'
 export const TEXT_STYLE_KEY = 'textStyle'
+export const BOX_STYLE_KEY = 'boxStyle'
 export const FONT_KEY = 'fontFamily'
 export const DEFAULT_MEDIA_KEY = 'all'
 

@@ -10,6 +10,7 @@ toc:
       - space
       - sizes
       - colors
+      - boxStyle
       - flex
       - flexItem
       - display

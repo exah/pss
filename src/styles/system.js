@@ -1,11 +1,12 @@
 import { combine } from '../utils'
 import { base } from './base'
-import { position } from './position'
 import { border } from './border'
+import { boxStyle } from './box-style'
 import { display } from './display'
 import { float } from './float'
-import { ratio } from './ratio'
 import { overflow } from './overflow'
+import { position } from './position'
+import { ratio } from './ratio'
 import { utility } from './utility'
 
 /**
@@ -16,15 +17,16 @@ import { utility } from './utility'
  * Combination of
  *   - {@link base}
  *   - {@link border}
- *   - {@link position}
- *   - {@link display}
- *   - {@link ratio}
- *   - {@link float}
- *   - {@link overflow}
- *   - {@link outline}
- *   - {@link opacity}
- *   - {@link radius}
+ *   - {@link boxStyle}
  *   - {@link cursor}
+ *   - {@link display}
+ *   - {@link float}
+ *   - {@link opacity}
+ *   - {@link outline}
+ *   - {@link overflow}
+ *   - {@link position}
+ *   - {@link radius}
+ *   - {@link ratio}
  *   - {@link transition}
  *
  * @example
@@ -61,10 +63,11 @@ import { utility } from './utility'
 const system = combine(
   base,
   border,
-  position,
+  boxStyle,
   display,
   float,
   overflow,
+  position,
   ratio,
   utility
 )

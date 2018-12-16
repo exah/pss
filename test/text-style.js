@@ -48,3 +48,19 @@ test('textStyle responsive', () => {
     }
   })
 })
+
+test('textStyle all', () => {
+  const result = toStyles(textStyle({
+    theme,
+    textStyle: [ 'responsive', 'heading' ]
+  }))
+
+  expect(result).toEqual({
+    fontSize: 32,
+    lineHeight: 1.1,
+    fontWeight: 'bold',
+    '@media (max-width: 600px)': {
+      fontSize: 12
+    }
+  })
+})
