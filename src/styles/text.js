@@ -3,7 +3,7 @@ import { boolValue } from '../values'
 
 /**
  * ```js
- * import { textHelpers } from 'pss'
+ * import { text } from 'pss'
  * ```
  *
  * prop           | css              | type               | value | true               | false
@@ -20,10 +20,10 @@ import { boolValue } from '../values'
  * @param {Object} props
  *
  * @example
- * import { textHelpers } from 'pss'
+ * import { text } from 'pss'
  *
  * const Text = styled.p`
- *   ${textHelpers}
+ *   ${text}
  * `
  *
  * @example
@@ -31,7 +31,7 @@ import { boolValue } from '../values'
  * <Text lineHeight /> // line-height: normal
  */
 
-export const textHelpers = createStyles({
+export const text = createStyles({
   fontSize: rule('fontSize', boolValue('1rem')),
   fontWeight: rule('fontWeight'),
   lineHeight: rule('lineHeight', boolValue('normal')),

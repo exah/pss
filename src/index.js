@@ -39,7 +39,7 @@ export {
   sizes,
   space,
   system,
-  textHelpers,
+  text,
   textStyle,
   transform,
   transition,

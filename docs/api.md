@@ -59,7 +59,7 @@
     -   [ratio][55]
         -   [Parameters][56]
         -   [Examples][57]
-    -   [textHelpers][58]
+    -   [text][58]
         -   [Parameters][59]
         -   [Examples][60]
     -   [textStyle][61]
@@ -1030,10 +1030,10 @@ const Box = styled.div`
 }
 ```
 
-### textHelpers
+### text
 
 ```js
-import { textHelpers } from 'pss'
+import { text } from 'pss'
 ```
 
 | prop            | css              | type               | value | true     | false    |
@@ -1054,10 +1054,10 @@ Related: [fontFamily][37], [ellipsis][26], [rule][84], [boolValue][87].
 #### Examples
 
 ```js
-import { textHelpers } from 'pss'
+import { text } from 'pss'
 
 const Text = styled.p`
-  ${textHelpers}
+  ${text}
 `
 ```
 
@@ -1237,7 +1237,7 @@ import { typography } from 'pss'
 
 Combination of
 
--   [textHelpers][58]
+-   [text][58]
 -   [fontFamily][37]
 -   [ellipsis][26]
 
@@ -2171,7 +2171,7 @@ Space.propTypes = {
 
 [57]: #examples-18
 
-[58]: #texthelpers
+[58]: #text
 
 [59]: #parameters-18
 

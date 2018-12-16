@@ -1,8 +1,8 @@
-import { textHelpers } from '../src'
+import { text } from '../src'
 import { testValue } from './_helpers'
 
 test('fontSize', testValue({
-  fn: textHelpers,
+  fn: text,
   prop: 'fontSize',
   cssProp: 'fontSize',
   value: [ 16, '10rem' ],
@@ -10,14 +10,14 @@ test('fontSize', testValue({
 }))
 
 test('fontWeight', testValue({
-  fn: textHelpers,
+  fn: text,
   prop: 'fontWeight',
   cssProp: 'fontWeight',
   value: [ 300, 'bold', 'normal' ]
 }))
 
 test('lineHeight', testValue({
-  fn: textHelpers,
+  fn: text,
   prop: 'lineHeight',
   cssProp: 'lineHeight',
   value: [ 1, '1.5em', 0 ],
@@ -25,7 +25,7 @@ test('lineHeight', testValue({
 }))
 
 test('letterSpacing', testValue({
-  fn: textHelpers,
+  fn: text,
   prop: 'letterSpacing',
   cssProp: 'letterSpacing',
   value: [ 0.15, '0.5em' ],
@@ -33,14 +33,14 @@ test('letterSpacing', testValue({
 }))
 
 test('textAlign', testValue({
-  fn: textHelpers,
+  fn: text,
   prop: 'textAlign',
   cssProp: 'textAlign',
   value: [ 'left', 'center', 'right', 'justify' ]
 }))
 
 test('whiteSpace', testValue({
-  fn: textHelpers,
+  fn: text,
   prop: 'whiteSpace',
   cssProp: 'whiteSpace',
   value: [ 'normal', 'nowrap', 'pre' ]
