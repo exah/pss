@@ -1,5 +1,6 @@
 import {
   isFn,
+  isObj,
   toArr,
   reduceObj,
   mapObj
@@ -16,15 +17,13 @@ import {
 } from '../getters'
 
 import {
-  keys,
   wrapIfMedia,
-  handlePropStyle,
-  hasMediaKeys
+  handlePropStyle
 } from '../utils'
 
 import {
-  styleValuePropType
-} from '../prop-types'
+  propType
+} from '../prop-type'
 
 /**
  * ```js
@@ -133,7 +132,7 @@ export function createStyles (styles) {
       }
 
       // value with `theme.media` keys: { all: 0, M: 1 }
-      if (hasMediaKeys(media, keys(input))) {
+      if (isObj(input)) {
         return mapObj((key, value) => (
           mapPropStyles(value, key, style)
         ), input)
@@ -156,7 +155,7 @@ export function createStyles (styles) {
     )
   }
 
-  const propTypes = mapObj((key) => ({ [key]: styleValuePropType }), styles)
+  const propTypes = mapObj((key) => ({ [key]: propType }), styles)
 
   return Object.assign(propStyles, { propTypes })
 }
