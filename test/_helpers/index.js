@@ -10,20 +10,6 @@ const THEME = {
 const toStyles = (styles) => deepMerge(...flatten(toArr(styles)))
 const wrapInMedia = (style) => ({ [`@media ${THEME.media.M}`]: style })
 
-const throwConsoleErrors = () => {
-  const original = console.error
-
-  console.error = (message) => {
-    throw new Error(message)
-  }
-
-  const restore = () => {
-    console.error = original
-  }
-
-  return restore
-}
-
 const testValue = ({
   fn,
   prop,
@@ -47,6 +33,5 @@ export {
   THEME as theme,
   toStyles,
   wrapInMedia,
-  throwConsoleErrors,
   testValue
 }
