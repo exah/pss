@@ -1,5 +1,4 @@
-import { path, identity, mapObj } from '@exah/utils'
-import { hasMediaKeys, keys } from '../utils'
+import { path, identity, isObj, isFn, mapObj } from '@exah/utils'
 
 import {
   DEFAULT_KEY,
@@ -68,33 +67,34 @@ export const getMedia = (input, media) => media
   ? path(input)(media)
   : (props) => path(input)(getThemeMedia(props))
 
-export const getThemeValue = (
-  themeDataKey,
-  transformValue = identity
-) => (
-  input,
-  defaultValue,
-  defaultMediaKey
-) => (props) => {
-  const themeKey = input === true
-    ? getDefault(themeDataKey)(props)
-    : input
+export function getThemeValue (themeDataKey, transformValue) {
+  const isTransformValue = isFn(transformValue)
 
-  const themeData = themePath(themeDataKey)(props)
-  const themeValue = path(themeKey)(themeData)
-
-  if (Object(themeValue).hasOwnProperty(defaultMediaKey)) {
-    return transformValue(themeValue[defaultMediaKey])
+  if (!isTransformValue) {
+    transformValue = identity
   }
 
-  if (hasMediaKeys(getThemeMedia(props), keys(themeValue))) {
-    return mapObj(
-      (key, value) => ({ [key]: transformValue(themeValue[key]) }),
-      themeValue
-    )
-  }
+  return (input, defaultValue, mediaKey) => (props) => {
+    const themeKey = input === true
+      ? getDefault(themeDataKey)(props)
+      : input
 
-  return themeValue == null
-    ? defaultValue
-    : transformValue(themeValue)
+    const themeData = themePath(themeDataKey)(props)
+    const themeValue = path(themeKey)(themeData)
+
+    if (Object(themeValue).hasOwnProperty(mediaKey)) {
+      return transformValue(themeValue[mediaKey])
+    }
+
+    if (isTransformValue && isObj(themeValue)) {
+      return mapObj(
+        (key, value) => ({ [key]: transformValue(themeValue[key]) }),
+        themeValue
+      )
+    }
+
+    return themeValue == null
+      ? defaultValue
+      : transformValue(themeValue)
+  }
 }

@@ -1,6 +1,6 @@
 import {
   isFn,
-  isObj,
+  isPlainObj,
   toArr,
   reduceObj,
   mapObj
@@ -132,7 +132,7 @@ export function createStyles (styles) {
       }
 
       // value with `theme.media` keys: { all: 0, M: 1 }
-      if (isObj(input)) {
+      if (isPlainObj(input)) {
         return mapObj((key, value) => (
           mapPropStyles(value, key, style)
         ), input)

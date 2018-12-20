@@ -1,4 +1,3 @@
-import { identity } from '@exah/utils'
 import { getThemeValue } from '../getters'
 import { themeValue } from '../values/theme-value'
 import { createStyles } from './create-styles'
@@ -46,8 +45,8 @@ function createVariant ({
   themeKey,
   prop = 'variant',
   cssProp = false,
-  transformValue = identity,
-  themeGetter = getThemeValue(themeKey, transformValue)
+  transformValue,
+  themeGetter = getThemeValue(themeKey)
 }) {
   const style = cssProp === false
     ? themeStyle({ themeKey, transformValue, themeGetter })
