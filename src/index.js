@@ -2,7 +2,6 @@ export * from './constants'
 
 export {
   createStyles as default,
-  createVariant as variant,
   createVariant,
   createStyles,
   themeStyle,
