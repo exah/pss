@@ -9,7 +9,7 @@ import { rule } from './rule'
  * Create `variant` from styles defined directly in `theme`.
  * Inspired by [`styled-system`](https://github.com/jxnblk/styled-system).
  *
- * Related: {@link themeValue}, {@link themeStyle}.
+ * Related: {@link textStyle}, {@link boxStyle}, {@link rule}, {@link themeValue}, {@link themeStyle}.
  *
  * @param {Object} options
  *
