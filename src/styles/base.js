@@ -1,4 +1,4 @@
-import { combine } from '../utils'
+import { combineStyles } from '../core'
 import { space } from './space'
 import { sizes } from './sizes'
 import { colors } from './colors'
@@ -13,7 +13,7 @@ import { colors } from './colors'
  *   - {@link sizes}
  *   - {@link colors}
  *
- * Related: {@link combine}.
+ * Related: {@link combineStyles}.
  *
  * @param {Object} props
  *
@@ -43,7 +43,7 @@ import { colors } from './colors'
  * }
  */
 
-const base = combine(
+const base = combineStyles(
   space,
   sizes,
   colors

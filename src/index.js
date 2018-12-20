@@ -1,6 +1,7 @@
 export * from './constants'
 
 export {
+  combineStyles,
   createStyles as default,
   createVariant,
   createStyles,
@@ -64,7 +65,5 @@ export {
 } from './values'
 
 export {
-  wrap,
-  wrapIfMedia,
-  combine
+  wrap
 } from './utils'

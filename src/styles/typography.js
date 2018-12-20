@@ -1,4 +1,4 @@
-import { combine } from '../utils'
+import { combineStyles } from '../core'
 import { text } from './text'
 import { fontFamily } from './font-family'
 import { ellipsis } from './ellipsis'
@@ -13,7 +13,7 @@ import { ellipsis } from './ellipsis'
  *   - {@link fontFamily}
  *   - {@link ellipsis}
  *
- * Related: {@link combine}, {@link textStyle}.
+ * Related: {@link combineStyles}, {@link textStyle}.
  *
  * @param {Object} props
  *
@@ -38,7 +38,7 @@ import { ellipsis } from './ellipsis'
  * }
  */
 
-const typography = combine(
+const typography = combineStyles(
   text,
   fontFamily,
   ellipsis

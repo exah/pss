@@ -1,6 +1,5 @@
-import { createStyles, rule } from '../core'
+import { createStyles, rule, combineStyles } from '../core'
 import { spaceValue, sizeValue } from '../values'
-import { combine } from '../utils'
 
 const spaceRule = (name) => rule(name, spaceValue(sizeValue()))
 
@@ -134,4 +133,4 @@ export const padding = createStyles({
  * <Box mgr={{ all: 2, sm: -1 }} /> // → margin-right: 20px; @media (max-width: 600px) { margin-right: -8px }
  */
 
-export const space = combine(margin, padding)
+export const space = combineStyles(margin, padding)

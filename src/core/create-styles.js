@@ -153,6 +153,7 @@ export function createStyles (styles) {
   }
 
   return Object.assign(getStyles, {
-    propTypes: mapObj((key) => ({ [key]: propType }), styles)
+    propTypes: mapObj((key) => ({ [key]: propType }), styles),
+    styles
   })
 }
