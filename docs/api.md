@@ -127,9 +127,9 @@
         -   [Parameters][123]
         -   [Examples][124]
 -   [Utils][125]
-    -   [combine][126]
-        -   [Parameters][127]
-        -   [Examples][128]
+-   [combineStyles][126]
+    -   [Parameters][127]
+    -   [Examples][128]
 
 ## Styles
 
@@ -1156,7 +1156,7 @@ Combination of
 -   [sizes][5]
 -   [colors][8]
 
-Related: [combine][126].
+Related: [combineStyles][126].
 
 #### Parameters
 
@@ -1202,7 +1202,7 @@ Combination of
 -   [fontFamily][34]
 -   [ellipsis][23]
 
-Related: [combine][126], [textStyle][58].
+Related: [combineStyles][126], [textStyle][58].
 
 #### Parameters
 
@@ -1256,7 +1256,7 @@ Combination of
 -   [textStyle][58]
 -   [transition][64]
 
-Related: [combine][126].
+Related: [combineStyles][126].
 
 #### Parameters
 
@@ -1986,24 +1986,24 @@ const Box = styled.div`
 
 
 
-### combine
+## combineStyles
 
 Combine multiple styles together
 
-#### Parameters
+### Parameters
 
 -   `fns` **...any** 
 
-#### Examples
+### Examples
 
 ```js
-import { combine } from 'pss'
+import { combineStyles } from 'pss'
 ```
 
 ```js
-import { combine, margin, padding } from 'pss'
+import { combineStyles, margin, padding } from 'pss'
 
-const space = combine(
+const space = combineStyles(
   margin,
   padding
 )
@@ -2267,7 +2267,7 @@ Space.propTypes = {
 
 [125]: #utils
 
-[126]: #combine
+[126]: #combinestyles
 
 [127]: #parameters-39
 

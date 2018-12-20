@@ -1,4 +1,4 @@
-import { combine } from '../utils'
+import { combineStyles } from '../core'
 import { base } from './base'
 import { border } from './border'
 import { boxStyle } from './box-style'
@@ -36,7 +36,7 @@ import { transform } from './transform'
  *   - {@link textStyle}
  *   - {@link transition}
  *
- * Related: {@link combine}.
+ * Related: {@link combineStyles}.
  *
  * @param {Object} props
  *
@@ -71,7 +71,7 @@ import { transform } from './transform'
  * }
  */
 
-const system = combine(
+const system = combineStyles(
   base,
   border,
   boxStyle,

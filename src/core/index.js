@@ -1,3 +1,4 @@
+export * from './combine-styles'
 export * from './create-styles'
 export * from './create-variant'
 export * from './every-media'
