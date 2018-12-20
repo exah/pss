@@ -40,22 +40,11 @@ function rule (cssProp, getValue = identity) {
     return isFn(value) ? getStyle(value, input, props, mediaKey) : value
   }
 
-  return (
-    input,
+  return (input, props, mediaKey) => everyMedia(
     props,
-    mediaKey,
-    isRawValue
-  ) => {
-    if (isRawValue === true) {
-      return css(input)
-    }
-
-    return everyMedia(
-      props,
-      getStyle(getValue, input, props, mediaKey),
-      css
-    )
-  }
+    getStyle(getValue, input, props, mediaKey),
+    css
+  )
 }
 
 export {

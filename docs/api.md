@@ -1873,7 +1873,6 @@ Get value from `theme` directly in prop
 #### Parameters
 
 -   `fn`  
--   `transformValue`   (optional, default `px`)
 
 #### Examples
 

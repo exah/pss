@@ -17,13 +17,25 @@ import {
 } from '../getters'
 
 import {
-  wrapIfMedia,
-  handlePropStyle
+  wrapIfMedia
 } from '../utils'
 
 import {
   propType
 } from '../prop-type'
+
+function handleStyle (style, input, props, mediaKey) {
+  // selector
+  if (isFn(input)) {
+    return input(props, (value) => handleStyle(style, value, props, mediaKey))
+  }
+
+  if (isFn(style)) {
+    return style(input, props, mediaKey)
+  }
+
+  return input === true ? style : null
+}
 
 /**
  * ```js
@@ -113,49 +125,34 @@ import {
  */
 
 export function createStyles (styles) {
-  function propStyles (props) {
+  function getStyles (props) {
     const media = getThemeMedia(props)
     const defaultMediaKey = getDefault(MEDIA_KEY)(props)
 
-    function mapPropStyles (input, mediaKey, style) {
-      const mediaQuery = getMedia(
-        mediaKey === undefined ? defaultMediaKey : mediaKey,
-        media
-      )
-
-      // selectors
-      if (isFn(input)) {
-        return wrapIfMedia(
-          mediaQuery,
-          input(props, mediaKey, style)
-        )
-      }
-
+    function mapStyles (input, mediaKey, style) {
       // value with `theme.media` keys: { all: 0, M: 1 }
       if (isPlainObj(input)) {
-        return mapObj((key, value) => (
-          mapPropStyles(value, key, style)
-        ), input)
+        return mapObj((key, value) => mapStyles(value, key, style), input)
       }
 
       // general prop style
       return wrapIfMedia(
-        mediaQuery,
-        handlePropStyle(style, input, props, mediaKey)
+        getMedia(mediaKey === undefined ? defaultMediaKey : mediaKey, media),
+        handleStyle(style, input, props, mediaKey)
       )
     }
 
     return reduceObj(
       (acc, propName, propValue) => acc.concat(
         toArr(styles[propName])
-          .map((style) => mapPropStyles(propValue, undefined, style) || [])
+          .map((style) => mapStyles(propValue, undefined, style) || [])
       ),
       [],
       props
     )
   }
 
-  const propTypes = mapObj((key) => ({ [key]: propType }), styles)
-
-  return Object.assign(propStyles, { propTypes })
+  return Object.assign(getStyles, {
+    propTypes: mapObj((key) => ({ [key]: propType }), styles)
+  })
 }

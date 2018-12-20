@@ -1,5 +1,5 @@
-import { isFn, curryN, identity } from '@exah/utils'
-import { handlePropStyle, wrap, px } from '../utils'
+import { curryN } from '@exah/utils'
+import { wrap, px } from '../utils'
 
 /**
  * ```js
@@ -28,10 +28,9 @@ import { handlePropStyle, wrap, px } from '../utils'
  * \@media (max-width: 600px) { .css + .css { margin-top: 8px } }
  */
 
-const propSelector = curryN(2, (name, value, mediaKey) => (props, propMediaKey, style) => wrap(
-  name,
-  handlePropStyle(style, value, props, mediaKey || propMediaKey)
-))
+const propSelector = curryN(2, (name, value) => (props, style) =>
+  wrap(name, style(value))
+)
 
 /**
  * ```js
@@ -49,16 +48,7 @@ const propSelector = curryN(2, (name, value, mediaKey) => (props, propMediaKey, 
  * <Box width={ts(themePath('site.width'))}
  */
 
-const themeSelector = (
-  fn,
-  transformValue = px
-) => (props, mediaKey, style = identity) => handlePropStyle(
-  style,
-  transformValue(fn(props.theme)),
-  props,
-  mediaKey,
-  true
-)
+const themeSelector = (fn) => (props, style) => style(px(fn(props.theme)))
 
 /**
  * ```js
@@ -90,10 +80,8 @@ const themeSelector = (
  * }
  */
 
-const combineSelectors = (...selectors) => (props, mediaKey, style) => selectors.map(
-  (selectorOrValue) => isFn(selectorOrValue)
-    ? selectorOrValue(props, mediaKey, style)
-    : handlePropStyle(style, selectorOrValue, props, mediaKey)
+const combineSelectors = (...selectors) => (props, style) => selectors.map(
+  (selectorOrValue) => style(selectorOrValue)
 )
 
 export {
