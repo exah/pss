@@ -1,8 +1,10 @@
 
 import {
-  space,
-  position,
+  createStyles,
   themePath,
+  position,
+  space,
+  sizes,
   ts,
   ps,
   cs
@@ -21,97 +23,129 @@ const theme = {
   myValue: 100
 }
 
-test('add margin-top to &:first-child', () => {
-  const result = toStyles(space({
-    theme,
-    mgt: ps('&:first-child', 1)
-  }))
+describe('propSelector', () => {
+  test('add margin-top to &:first-child', () => {
+    const result = toStyles(space({
+      theme,
+      mgt: ps('&:first-child', 1)
+    }))
 
-  expect(result).toEqual({
-    '&:first-child': {
-      marginTop: '10px',
+    expect(result).toEqual({
+      '&:first-child': {
+        marginTop: '10px',
+        '@media (max-width: 600px)': {
+          marginTop: '5px'
+        }
+      }
+    })
+  })
+
+  test('add margin to & + & element on mobile', () => {
+    const result = toStyles(space({
+      theme,
+      mg: { M: ps('& + &', 2) }
+    }))
+
+    expect(result).toEqual({
       '@media (max-width: 600px)': {
-        marginTop: '5px'
+        '& + &': {
+          margin: '10px'
+        }
       }
-    }
+    })
   })
 })
 
-test('add margin to & + & element on mobile', () => {
-  const result = toStyles(space({
-    theme,
-    mg: { M: ps('& + &', 2) }
-  }))
+describe('themeSelector', () => {
+  test('position', () => {
+    const result = toStyles(position({
+      theme,
+      top: ts((tm) => tm.myValue),
+      bottom: ts(themePath('myValue')),
+      left: ts(themePath('noneExistentProp', 5)),
+      right: ts(themePath('notPercentage', 1))
+    }))
 
-  expect(result).toEqual({
-    '@media (max-width: 600px)': {
-      '& + &': {
-        margin: '10px'
+    expect(result).toEqual({
+      top: '100px',
+      bottom: '100px',
+      left: '5px',
+      right: '1px'
+    })
+  })
+
+  test('space', () => {
+    const result = toStyles(space({
+      theme,
+      mg: ts((tm) => tm.myValue),
+      mgb: ts(themePath('myValue')),
+      mgr: ts(themePath('notPercentage', 1))
+    }))
+
+    expect(result).toEqual({
+      margin: '100px',
+      marginBottom: '100px',
+      marginRight: '1px'
+    })
+  })
+})
+
+describe('combineSelectors', () => {
+  test('add different top value to &:last-child and &:first-child', () => {
+    const result = toStyles(position({
+      theme,
+      position: 'relative',
+      top: cs(50, ps('&:last-child', 10), ps('&:first-child', 20))
+    }))
+
+    expect(result).toEqual({
+      position: 'relative',
+      top: '50px',
+      '&:first-child': {
+        top: '20px'
+      },
+      '&:last-child': {
+        top: '10px'
       }
-    }
+    })
   })
-})
 
-test('add different top value to &:last-child and &:first-child', () => {
-  const result = toStyles(position({
-    theme,
-    position: 'relative',
-    top: cs(50, ps('&:last-child', 10), ps('&:first-child', 20))
-  }))
+  describe('themeSelector', () => {
+    test('rule', () => {
+      const result = toStyles(sizes({
+        theme,
+        height: cs(1),
+        width: cs(ts(themePath('______', 1)), ps('& + &', ts(themePath('______', 0.5))))
+      }))
 
-  expect(result).toEqual({
-    position: 'relative',
-    top: '50px',
-    '&:first-child': {
-      top: '20px'
-    },
-    '&:last-child': {
-      top: '10px'
-    }
-  })
-})
+      expect(result).toEqual({
+        height: '100%',
+        width: '1px',
+        '& + &': {
+          width: '0.5px'
+        }
+      })
+    })
 
-test('change media query on M in propSelector but keep value', () => {
-  const result = toStyles(space({
-    theme,
-    mg: ps('@media (max-width: 1024px)', 2, 'M')
-  }))
+    test('styles', () => {
+      const styles = createStyles({
+        h: { height: '100vh' },
+        w: (input) => ({ width: input })
+      })
 
-  expect(result).toEqual({
-    '@media (max-width: 1024px)': {
-      margin: '10px'
-    }
-  })
-})
+      const result = toStyles(styles({
+        theme,
+        h: cs(ts(themePath('______', true)), ps('& + &', ts(themePath('______', 1)))),
+        w: cs(ts(themePath('______', 1)), ps('& + &', ts(themePath('______', 1))))
+      }))
 
-test('themeSelector: position', () => {
-  const result = toStyles(position({
-    theme,
-    top: ts((tm) => tm.myValue),
-    bottom: ts(themePath('myValue')),
-    left: ts(themePath('noneExistentProp', 5)),
-    right: ts(themePath('notPercentage', 1))
-  }))
-
-  expect(result).toEqual({
-    top: '100px',
-    bottom: '100px',
-    left: '5px',
-    right: '1px'
-  })
-})
-
-test('themeSelector: space', () => {
-  const result = toStyles(space({
-    theme,
-    mg: ts((tm) => tm.myValue),
-    mgb: ts(themePath('myValue')),
-    mgr: ts(themePath('notPercentage', 1))
-  }))
-
-  expect(result).toEqual({
-    margin: '100px',
-    marginBottom: '100px',
-    marginRight: '1px'
+      expect(result).toEqual({
+        height: '100vh',
+        width: '1px',
+        '& + &': {
+          width: '1px'
+        }
+      })
+    })
   })
 })
