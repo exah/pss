@@ -1788,8 +1788,8 @@ Related: [textStyle][58], [boxStyle][14], [rule][81], [themeValue][96], [themeSt
     -   `options.themeKey`  
     -   `options.prop`   (optional, default `'variant'`)
     -   `options.cssProp`   (optional, default `false`)
-    -   `options.transformValue`   (optional, default `identity`)
-    -   `options.themeGetter`   (optional, default `getThemeValue(themeKey,transformValue)`)
+    -   `options.transformValue`  
+    -   `options.themeGetter`   (optional, default `getThemeValue(themeKey)`)
 
 #### Examples
 

@@ -1,4 +1,4 @@
-import { identity, toArr } from '@exah/utils'
+import { toArr } from '@exah/utils'
 import { getThemeValue } from '../getters'
 import { everyMedia } from './every-media'
 
@@ -58,7 +58,7 @@ import { everyMedia } from './every-media'
 
 function themeStyle ({
   themeKey,
-  transformValue = identity,
+  transformValue,
   themeGetter = getThemeValue(themeKey, transformValue)
 } = {}) {
   return (inputs, props, mediaKey) => toArr(inputs).reduce((acc, input) => ({

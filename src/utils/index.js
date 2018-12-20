@@ -1,7 +1,6 @@
-import { isFn, isNum, isObj, toArr, curryN } from '@exah/utils'
+import { isFn, isNum, isStr, curryN } from '@exah/utils'
 
-export const toUnit = curryN(2, (unit, n) => isNum(n) && n !== 0 ? n + unit : n)
-export const px = toUnit('px')
+export const px = (n) => isNum(n) && n !== 0 ? `${n}px` : n
 export const percent = (n) => (n <= 0 || n > 1 || !isNum(n)) ? n : `${n * 100}%`
 
 export const wrap = curryN(2, (name, value) => value != null
@@ -18,20 +17,11 @@ export const handlePropStyle = (style, input, props, mediaKey) => isFn(style)
   ? style(input, props, mediaKey)
   : input === true ? style : null
 
-export const getNumber = (str) => parseFloat(str, 10)
+const parseUnit = (str) => str.replace(/([\d.]+)(\D+)?$/, '$2').trim()
 
-export const getUnit = (str) => String(str)
-  .replace(/([\d.]+)(\D+)?$/, '$2')
-  .trim()
-
-export const splitUnit = (str) => [ getNumber(str), getUnit(str) ]
-
-export const keys = (obj) => isObj(obj) ? Object.keys(Object(obj)) : []
-
-export const hasMediaKeys = (media, val) => {
-  const mediaKeys = keys(media)
-  return toArr(val).some((key) => mediaKeys.includes(key))
-}
+export const splitUnit = (input) => isStr(input)
+  ? [ parseFloat(input, 10), parseUnit(input) ]
+  : [ input, '' ]
 
 /**
  * Combine multiple styles together

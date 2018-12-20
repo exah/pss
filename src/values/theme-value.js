@@ -1,4 +1,3 @@
-import { identity } from '@exah/utils'
 import { getThemeValue } from '../getters'
 
 /**
@@ -45,7 +44,7 @@ import { getThemeValue } from '../getters'
 
 function themeValue ({
   themeKey,
-  transformValue = identity,
+  transformValue,
   themeGetter = getThemeValue(themeKey, transformValue)
 } = {}) {
   return (input, props, mediaKey) => themeGetter(input, input, mediaKey)(props)

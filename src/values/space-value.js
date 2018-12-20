@@ -9,7 +9,7 @@ import {
 } from '@exah/utils'
 
 import { DEFAULT_MEDIA_KEY, DEFAULT_THEME_SPACE, SPACE_KEY } from '../constants'
-import { px, splitUnit, toUnit } from '../utils'
+import { px, splitUnit } from '../utils'
 import { themePath } from '../getters'
 
 const getSpaceStep = (input, spaces = []) => {
@@ -20,7 +20,7 @@ const getSpaceStep = (input, spaces = []) => {
     return null
   } else if (isStr(value)) {
     const [ number, unit ] = splitUnit(value)
-    return toUnit(unit, Number(number) * coeficent)
+    return (number * coeficent) + unit
   }
 
   return (value * coeficent)
