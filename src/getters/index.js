@@ -3,7 +3,7 @@ import { path, identity, isObj, isFn, mapObj } from '@exah/utils'
 import {
   DEFAULT_KEY,
   MEDIA_KEY,
-  DEFAULT_THEME_MEDIA
+  DEFAULT_MEDIA_KEY
 } from '../constants'
 
 export const getTheme = (props) => (props && props.theme) || Object(props)
@@ -50,18 +50,23 @@ export const themePath = (input, defaultValue) => (props) =>
  * <Box /> // → @media (max-width: 600px) { background-color: red; }
  */
 
-export const mq = (mediaKey = 'default') =>
-  (props) => `@media ${getMedia(mediaKey)(props)}`
-
-export const getThemeMedia = (props) => ({
-  ...DEFAULT_THEME_MEDIA,
-  ...path(MEDIA_KEY)(getTheme(props))
-})
+export const mq = (mediaKey = DEFAULT_MEDIA_KEY) =>
+  (props) => `@media ${getMedia(mediaKey)(props) || 'all'}`
 
 export const getDefault = (input, defaultValue = DEFAULT_KEY) => themePath(
   [ DEFAULT_KEY, input ],
   defaultValue
 )
+
+export const getDefaultMedia = getDefault(
+  MEDIA_KEY,
+  DEFAULT_MEDIA_KEY
+)
+
+export const getThemeMedia = (props) => ({
+  [getDefaultMedia(props)]: null,
+  ...path(MEDIA_KEY)(getTheme(props))
+})
 
 export const getMedia = (input, media) => media
   ? path(input)(media)
