@@ -127,9 +127,9 @@
         -   [Parameters][123]
         -   [Examples][124]
 -   [Utils][125]
--   [combineStyles][126]
-    -   [Parameters][127]
-    -   [Examples][128]
+    -   [combineStyles][126]
+        -   [Parameters][127]
+        -   [Examples][128]
 
 ## Styles
 
@@ -1986,15 +1986,15 @@ const Box = styled.div`
 
 
 
-## combineStyles
+### combineStyles
 
 Combine multiple styles together
 
-### Parameters
+#### Parameters
 
 -   `fns` **...any** 
 
-### Examples
+#### Examples
 
 ```js
 import { combineStyles } from 'pss'
