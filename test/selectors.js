@@ -135,7 +135,7 @@ describe('combineSelectors', () => {
 
       const result = toStyles(styles({
         theme,
-        h: cs(ts(themePath('______', true)), ps('& + &', ts(themePath('______', 1)))),
+        h: cs(ts(themePath('______', true)), ps('& + &', ts(themePath('______', true)))),
         w: cs(ts(themePath('______', 1)), ps('& + &', ts(themePath('______', 1))))
       }))
 
@@ -143,6 +143,7 @@ describe('combineSelectors', () => {
         height: '100vh',
         width: '1px',
         '& + &': {
+          height: '100vh',
           width: '1px'
         }
       })
