@@ -81,7 +81,7 @@ const themeSelector = (fn) => (props, style) => style(px(fn(props.theme)))
  */
 
 const combineSelectors = (...selectors) => (props, style) => selectors.map(
-  (selectorOrValue) => style(selectorOrValue)
+  (value) => style(value)
 )
 
 export {
