@@ -10,9 +10,3 @@ export const TEXT_STYLE_KEY = 'textStyle'
 export const BOX_STYLE_KEY = 'boxStyle'
 export const FONT_KEY = 'fontFamily'
 export const DEFAULT_MEDIA_KEY = 'all'
-
-export const DEFAULT_THEME_MEDIA = {
-  [DEFAULT_MEDIA_KEY]: null
-}
-
-export const DEFAULT_THEME_SPACE = [ 0 ]
