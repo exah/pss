@@ -62,4 +62,4 @@ toc:
 
   - name: Utils
     children:
-      - combine
+      - combineStyles
