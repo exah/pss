@@ -11,7 +11,7 @@ import { createStyles, rule } from '../core'
  *
  * [position-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
  *
- * Related: {@link rule}, {@link boolValue}, {@link sizeValue}.
+ * Related: {@link rule}, {@link direction}.
  *
  * @param {Object} props
  *

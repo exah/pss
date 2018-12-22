@@ -9,7 +9,7 @@ import { boolValue } from '../values'
  * prop       | css                      | type                 | value    | true      | false
  * :----------|:-------------------------|:---------------------|:---------|:--------- |:--------
  * `display`  | [`display`][display-url] | `String`, `Boolean`  | ✓        | `initial` | `none`
- * `hideOn`   | `display: none`          | one of `theme.media` | mediaKey | —         | —
+ * `hideOn`   | `display: none`          | key in `theme.media` | mediaKey | —         | —
  *
  * [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
  *

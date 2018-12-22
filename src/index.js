@@ -3,11 +3,11 @@ export * from './constants'
 export {
   combineStyles,
   createStyles as default,
-  createVariant,
   createStyles,
-  themeStyle,
+  createVariant,
   mediaStyle,
-  rule
+  rule,
+  themeStyle
 } from './core'
 
 export {
