@@ -120,7 +120,7 @@
     -   [themeValue][116]
         -   [Parameters][117]
         -   [Examples][118]
-    -   [mediaRule][119]
+    -   [mediaStyle][119]
         -   [Parameters][120]
         -   [Examples][121]
     -   [themeStyle][122]
@@ -618,7 +618,7 @@ import { display } from 'pss'
 
 [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
 
-Related: [boolValue][104], [rule][101], [mediaRule][119].
+Related: [boolValue][104], [rule][101], [mediaStyle][119].
 
 #### Parameters
 
@@ -1243,7 +1243,7 @@ import { atomicDisplay } from 'pss'
 | `d`    | [`display`][display-url] | `String`, `Boolean`  | ✓        | `initial` | `none` |
 | `hide` | `display: none`          | one of `theme.media` | mediaKey | —         | —      |
 
-Related: [display][23], [boolValue][104], [rule][101], [mediaRule][119].
+Related: [display][23], [boolValue][104], [rule][101], [mediaStyle][119].
 
 ##### Parameters
 
@@ -1270,11 +1270,11 @@ const Box = styled.div`
 import { atomicFlexItem } from 'pss'
 ```
 
-| prop    | css          | type                | value | true    | false      |
-| :------ | :----------- | :------------------ | :---- | :------ | :--------- |
-| `f`     | `flex`       | `String`, `Boolean` | ✓     | `1 1 0` | `0 1 auto` |
-| `o`     | `order`      | `Number`, `Boolean` | ✓     | `1`     | `0`        |
-| `align` | `align-self` | `String`            | ✓     | —       | —          |
+| prop | css          | type                | value | true    | false      |
+| :--- | :----------- | :------------------ | :---- | :------ | :--------- |
+| `f`  | `flex`       | `String`, `Boolean` | ✓     | `1 1 0` | `0 1 auto` |
+| `o`  | `order`      | `Number`, `Boolean` | ✓     | `1`     | `0`        |
+| `a`  | `align-self` | `String`            | ✓     | —       | —          |
 
 Related: [flexItem][32], [rule][101], [boolValue][104], [sizeValue][107].
 
@@ -1917,10 +1917,10 @@ const Text = styled.div(pss({
 
 Returns **[Function][163]** 
 
-### mediaRule
+### mediaStyle
 
 ```js
-import { mediaRule } from 'pss'
+import { mediaStyle } from 'pss'
 ```
 
 Create style wrapped in `theme.media`.
@@ -1929,17 +1929,15 @@ Related: [display][23].
 
 #### Parameters
 
--   `cssProp` **[string][164]** 
--   `value` **[string][164]** 
--   `transformValue` **[Function][163]**  (optional, default `identity`)
+-   `style`  
 
 #### Examples
 
 ```js
-import pss, { mediaRule } from 'pss'
+import pss, { mediaStyle } from 'pss'
 
 const Box = styled.div(pss({
-  hideOn: mediaRule('display', 'none')
+  hideOn: mediaStyle({ display: 'none' })
 }))
 ```
 
@@ -2496,7 +2494,7 @@ Space.propTypes = {
 
 [118]: #examples-37
 
-[119]: #mediarule
+[119]: #mediastyle
 
 [120]: #parameters-37
 

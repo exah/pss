@@ -1,9 +1,9 @@
-import { createStyles, mediaRule } from '../src'
+import { createStyles, mediaStyle } from '../src'
 import { theme, toStyles } from './_helpers'
 
 test('return style', () => {
   const style = createStyles({
-    hideOn: mediaRule('display', 'none')
+    hideOn: mediaStyle({ display: 'none' })
   })
 
   const expected = {
@@ -18,7 +18,7 @@ test('return style', () => {
 
 test('multiple media', () => {
   const style = createStyles({
-    hideOn: mediaRule('display', 'none')
+    hideOn: mediaStyle({ display: 'none' })
   })
 
   const expected = {
@@ -35,7 +35,7 @@ test('multiple media', () => {
 
 test('return nothing', () => {
   const style = createStyles({
-    hideOn: mediaRule('display', 'none')
+    hideOn: mediaStyle({ display: 'none' })
   })
 
   expect(toStyles(style({ theme, hideOn: 'default' }))).toEqual({})

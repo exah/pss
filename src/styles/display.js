@@ -1,4 +1,4 @@
-import { createStyles, rule, mediaRule } from '../core'
+import { createStyles, rule, mediaStyle } from '../core'
 import { boolValue } from '../values'
 
 /**
@@ -13,7 +13,7 @@ import { boolValue } from '../values'
  *
  * [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
  *
- * Related: {@link boolValue}, {@link rule}, {@link mediaRule}.
+ * Related: {@link boolValue}, {@link rule}, {@link mediaStyle}.
  *
  * @param {Object} props
  *
@@ -31,7 +31,7 @@ import { boolValue } from '../values'
 
 const display = createStyles({
   display: rule('display', boolValue('initial', 'none')),
-  hideOn: mediaRule('display', 'none')
+  hideOn: mediaStyle({ display: 'none' })
 })
 
 export {

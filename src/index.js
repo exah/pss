@@ -6,7 +6,7 @@ export {
   createVariant,
   createStyles,
   themeStyle,
-  mediaRule,
+  mediaStyle,
   rule
 } from './core'
 
