@@ -1467,6 +1467,7 @@ Combination of
 -   [boxStyle][14]
 -   [cursor][17]
 -   [display][23]
+-   [flexItem][32]
 -   [float][34]
 -   [opacity][40]
 -   [outline][43]

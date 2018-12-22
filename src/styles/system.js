@@ -2,19 +2,20 @@ import { combineStyles } from '../core'
 import { base } from './base'
 import { border } from './border'
 import { boxStyle } from './box-style'
+import { cursor } from './cursor'
+import { direction } from './direction'
 import { display } from './display'
+import { flexItem } from './flex'
 import { float } from './float'
+import { opacity } from './opacity'
+import { outline } from './outline'
 import { overflow } from './overflow'
 import { position } from './position'
-import { direction } from './direction'
+import { radius } from './radius'
 import { ratio } from './ratio'
 import { textStyle } from './text-style'
-import { outline } from './outline'
-import { opacity } from './opacity'
-import { radius } from './radius'
-import { cursor } from './cursor'
-import { transition } from './transition'
 import { transform } from './transform'
+import { transition } from './transition'
 
 /**
  * ```js
@@ -27,6 +28,7 @@ import { transform } from './transform'
  *   - {@link boxStyle}
  *   - {@link cursor}
  *   - {@link display}
+ *   - {@link flexItem}
  *   - {@link float}
  *   - {@link opacity}
  *   - {@link outline}
@@ -77,8 +79,9 @@ const system = combineStyles(
   border,
   boxStyle,
   cursor,
-  display,
   direction,
+  display,
+  flexItem,
   float,
   opacity,
   outline,
