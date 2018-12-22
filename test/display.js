@@ -12,8 +12,7 @@ test('display', testValue({
 
 test('hideOn', () => {
   expect(toStyles(display({ theme, hideOn: { M: true } }))).toEqual({ '@media (max-width: 600px)': { display: 'none' } })
-
   expect(toStyles(display({ theme, hideOn: 'M' }))).toEqual({ '@media (max-width: 600px)': { display: 'none' } })
-
   expect(toStyles(display({ theme, hideOn: { M: false } }))).toEqual({})
+  expect(toStyles(display({ theme, hideOn: true }))).toEqual({ display: 'none' })
 })

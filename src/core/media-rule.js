@@ -52,6 +52,7 @@ export const mediaRule = (
   const mediaKey = input === true ? DEFAULT_MEDIA_KEY : input
   const media = getMedia(mediaKey)(props)
 
-  if (!media) return null
+  if (media == null && input !== true) return null
+
   return wrapIfMedia(media, style)
 }

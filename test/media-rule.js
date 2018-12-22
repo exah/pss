@@ -39,7 +39,7 @@ test('return nothing', () => {
   })
 
   expect(toStyles(style({ theme, hideOn: 'default' }))).toEqual({})
-  expect(toStyles(style({ theme, hideOn: true }))).toEqual({})
+  expect(toStyles(style({ theme, hideOn: true }))).toEqual({ display: 'none' })
   expect(toStyles(style({ theme, hideOn: 'wrong' }))).toEqual({})
   expect(toStyles(style({ theme, hideOn: false }))).toEqual({})
   expect(toStyles(style({ theme, hideOn: null }))).toEqual({})
