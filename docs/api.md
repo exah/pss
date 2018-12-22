@@ -614,7 +614,7 @@ import { display } from 'pss'
 | prop      | css                      | type                 | value    | true      | false  |
 | :-------- | :----------------------- | :------------------- | :------- | :-------- | :----- |
 | `display` | [`display`][display-url] | `String`, `Boolean`  | ✓        | `initial` | `none` |
-| `hideOn`  | `display: none`          | one of `theme.media` | mediaKey | —         | —      |
+| `hideOn`  | `display: none`          | key in `theme.media` | mediaKey | —         | —      |
 
 [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
 
@@ -946,7 +946,7 @@ import { position } from 'pss'
 
 [position-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
 
-Related: [rule][101], [boolValue][104], [sizeValue][107].
+Related: [rule][101], [direction][20].
 
 #### Parameters
 
@@ -1241,7 +1241,7 @@ import { atomicDisplay } from 'pss'
 | prop   | css                      | type                 | value    | true      | false  |
 | :----- | :----------------------- | :------------------- | :------- | :-------- | :----- |
 | `d`    | [`display`][display-url] | `String`, `Boolean`  | ✓        | `initial` | `none` |
-| `hide` | `display: none`          | one of `theme.media` | mediaKey | —         | —      |
+| `hide` | `display: none`          | key in `theme.media` | mediaKey | —         | —      |
 
 Related: [display][23], [boolValue][104], [rule][101], [mediaStyle][119].
 
@@ -1297,15 +1297,15 @@ const FlexBoxItem = styled.div`
 import { atomicPosition } from 'pss'
 ```
 
-| prop  | css        | type      | value | true       | false |
-| :---- | :--------- | :-------- | :---- | :--------- | :---- |
-| `prl` | `position` | `Boolean` | —     | `relative` | —     |
-| `pab` | `position` | `Boolean` | —     | `absolute` | —     |
-| `pfx` | `position` | `Boolean` | —     | `fixed`    | —     |
-| `psy` | `position` | `Boolean` | —     | `sticky`   | —     |
-| `pst` | `position` | `Boolean` | —     | `static`   | —     |
+| prop  | css        | type                            | value    | true       | false |
+| :---- | :--------- | :------------------------------ | :------- | :--------- | :---- |
+| `prl` | `position` | `Boolean`, key in `theme.media` | mediaKey | `relative` | —     |
+| `pab` | `position` | `Boolean`, key in `theme.media` | mediaKey | `absolute` | —     |
+| `pfx` | `position` | `Boolean`, key in `theme.media` | mediaKey | `fixed`    | —     |
+| `psy` | `position` | `Boolean`, key in `theme.media` | mediaKey | `sticky`   | —     |
+| `pst` | `position` | `Boolean`, key in `theme.media` | mediaKey | `static`   | —     |
 
-Related: [position][49], [rule][101], [boolValue][104], [sizeValue][107].
+Related: [position][49], [mediaStyle][119].
 
 ##### Parameters
 

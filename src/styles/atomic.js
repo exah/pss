@@ -48,15 +48,15 @@ export const atomicSizes = createStyles({
  * import { atomicPosition } from 'pss'
  * ```
  *
- * prop  | css                        | type                          | value | true       | false
- * :-----|:---------------------------|:------------------------------|:------|:-----------|:--------
- * `prl` | `position`                 | `Boolean`                     | —     | `relative` | —
- * `pab` | `position`                 | `Boolean`                     | —     | `absolute` | —
- * `pfx` | `position`                 | `Boolean`                     | —     | `fixed`    | —
- * `psy` | `position`                 | `Boolean`                     | —     | `sticky`   | —
- * `pst` | `position`                 | `Boolean`                     | —     | `static`   | —
+ * prop  | css          | type                            | value    | true       | false
+ * :-----|:-------------|:--------------------------------|:---------|:-----------|:--------
+ * `prl` | `position`   | `Boolean`, key in `theme.media` | mediaKey | `relative` | —
+ * `pab` | `position`   | `Boolean`, key in `theme.media` | mediaKey | `absolute` | —
+ * `pfx` | `position`   | `Boolean`, key in `theme.media` | mediaKey | `fixed`    | —
+ * `psy` | `position`   | `Boolean`, key in `theme.media` | mediaKey | `sticky`   | —
+ * `pst` | `position`   | `Boolean`, key in `theme.media` | mediaKey | `static`   | —
  *
- * Related: {@link position}, {@link rule}, {@link boolValue}, {@link sizeValue}.
+ * Related: {@link position}, {@link mediaStyle}.
  *
  * @param {Object} props
  *
@@ -130,7 +130,7 @@ export const atomicDirection = createStyles({
  * prop   | css                      | type                 | value    | true      | false
  * :------|:-------------------------|:---------------------|:---------|:--------- |:--------
  * `d`    | [`display`][display-url] | `String`, `Boolean`  | ✓        | `initial` | `none`
- * `hide` | `display: none`          | one of `theme.media` | mediaKey | —         | —
+ * `hide` | `display: none`          | key in `theme.media` | mediaKey | —         | —
  *
  * Related: {@link display}, {@link boolValue}, {@link rule}, {@link mediaStyle}.
  *
