@@ -30,12 +30,20 @@ toc:
       - textStyle
       - transform
       - transition
+      - name: atomic
+        children:
+          - atomicDirection
+          - atomicDisplay
+          - atomicFlexItem
+          - atomicPosition
+          - atomicSizes
 
   - name: Combinations
     children:
       - base
       - typography
       - system
+      - atomic
 
   - name: Custom Styles
     children:

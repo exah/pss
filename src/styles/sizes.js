@@ -1,6 +1,9 @@
 import { createStyles, rule } from '../core'
 import { sizeValue, boolValue } from '../values'
 
+export const sizeRule = (cssProp, trueVal = '100%', falseVal = 0) =>
+  rule(cssProp, sizeValue(boolValue(trueVal, falseVal)))
+
 /**
  * ```js
  * import { sizes } from 'pss'
@@ -86,12 +89,12 @@ import { sizeValue, boolValue } from '../values'
  */
 
 const sizes = createStyles({
-  height: rule('height', sizeValue(boolValue('100%', 0))),
-  width: rule('width', sizeValue(boolValue('100%', 0))),
-  maxWidth: rule('maxWidth', sizeValue(boolValue('100%', 0))),
-  maxHeight: rule('maxHeight', sizeValue(boolValue('100%', 0))),
-  minHeight: rule('minHeight', sizeValue(boolValue('100%', 0))),
-  minWidth: rule('minWidth', sizeValue(boolValue('100%', 0)))
+  height: sizeRule('height'),
+  width: sizeRule('width'),
+  maxWidth: sizeRule('maxWidth'),
+  maxHeight: sizeRule('maxHeight'),
+  minHeight: sizeRule('minHeight'),
+  minWidth: sizeRule('minWidth')
 })
 
 export {

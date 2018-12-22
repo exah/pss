@@ -1,27 +1,20 @@
 import { createStyles, rule, combineStyles } from '../core'
 import { spaceValue, sizeValue } from '../values'
 
-const spaceRule = (name) => rule(name, spaceValue(sizeValue()))
+export const spaceRule = (name) => rule(name, spaceValue(sizeValue()))
 
-export const margin = createStyles({
-  mg: spaceRule('margin'),
-  mgl: spaceRule('marginLeft'),
-  mgr: spaceRule('marginRight'),
-  mgt: spaceRule('marginTop'),
-  mgb: spaceRule('marginBottom'),
-  mgx: [ spaceRule('marginLeft'), spaceRule('marginRight') ],
-  mgy: [ spaceRule('marginTop'), spaceRule('marginBottom') ]
+export const createSpaceStyles = (prop, cssProp) => createStyles({
+  [prop]: spaceRule(cssProp),
+  [prop + 'l']: spaceRule(cssProp + 'Left'),
+  [prop + 'r']: spaceRule(cssProp + 'Right'),
+  [prop + 't']: spaceRule(cssProp + 'Top'),
+  [prop + 'b']: spaceRule(cssProp + 'Bottom'),
+  [prop + 'x']: [ spaceRule(cssProp + 'Left'), spaceRule(cssProp + 'Right') ],
+  [prop + 'y']: [ spaceRule(cssProp + 'Top'), spaceRule(cssProp + 'Bottom') ]
 })
 
-export const padding = createStyles({
-  pd: spaceRule('padding'),
-  pdl: spaceRule('paddingLeft'),
-  pdr: spaceRule('paddingRight'),
-  pdt: spaceRule('paddingTop'),
-  pdb: spaceRule('paddingBottom'),
-  pdx: [ spaceRule('paddingLeft'), spaceRule('paddingRight') ],
-  pdy: [ spaceRule('paddingTop'), spaceRule('paddingBottom') ]
-})
+export const margin = createSpaceStyles('mg', 'margin')
+export const padding = createSpaceStyles('pd', 'padding')
 
 /**
  * ```js
