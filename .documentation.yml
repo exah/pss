@@ -54,7 +54,7 @@ toc:
       - spaceValue
       - colorValue
       - themeValue
-      - mediaRule
+      - mediaStyle
       - themeStyle
       - createVariant
 

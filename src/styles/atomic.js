@@ -1,4 +1,4 @@
-import { rule, createStyles, combineStyles, mediaRule } from '../core'
+import { rule, createStyles, combineStyles, mediaStyle } from '../core'
 import { boolValue } from '../values'
 import { border } from './border'
 import { colors } from './colors'
@@ -73,11 +73,11 @@ export const atomicSizes = createStyles({
  */
 
 export const atomicPosition = createStyles({
-  pab: mediaRule('position', 'absolute'),
-  prl: mediaRule('position', 'relative'),
-  pfx: mediaRule('position', 'fixed'),
-  psy: mediaRule('position', 'sticky'),
-  pst: mediaRule('position', 'static')
+  pab: mediaStyle({ position: 'absolute' }),
+  prl: mediaStyle({ position: 'relative' }),
+  pfx: mediaStyle({ position: 'fixed' }),
+  psy: mediaStyle({ position: 'sticky' }),
+  pst: mediaStyle({ position: 'static' })
 })
 
 /**
@@ -132,7 +132,7 @@ export const atomicDirection = createStyles({
  * `d`    | [`display`][display-url] | `String`, `Boolean`  | ✓        | `initial` | `none`
  * `hide` | `display: none`          | one of `theme.media` | mediaKey | —         | —
  *
- * Related: {@link display}, {@link boolValue}, {@link rule}, {@link mediaRule}.
+ * Related: {@link display}, {@link boolValue}, {@link rule}, {@link mediaStyle}.
  *
  * @param {Object} props
  *
@@ -150,7 +150,7 @@ export const atomicDirection = createStyles({
 
 export const atomicDisplay = createStyles({
   d: rule('display', boolValue('initial', 'none')),
-  hide: mediaRule('display', 'none')
+  hide: mediaStyle({ display: 'none' })
 })
 
 /**
@@ -158,11 +158,11 @@ export const atomicDisplay = createStyles({
  * import { atomicFlexItem } from 'pss'
  * ```
  *
- * prop    | css           | type                 | value | true    | false
- * :------ |:--------------|:---------------------|:------|:------- |:--------
- * `f`     | `flex`        | `String`, `Boolean`  | ✓     | `1 1 0` | `0 1 auto`
- * `o`     | `order`       | `Number`, `Boolean`  | ✓     | `1`     | `0`
- * `align` | `align-self`  | `String`             | ✓     | —       | —
+ * prop | css           | type                 | value | true    | false
+ * :----|:--------------|:---------------------|:------|:------- |:--------
+ * `f`  | `flex`        | `String`, `Boolean`  | ✓     | `1 1 0` | `0 1 auto`
+ * `o`  | `order`       | `Number`, `Boolean`  | ✓     | `1`     | `0`
+ * `a`  | `align-self`  | `String`             | ✓     | —       | —
  *
  * Related: {@link flexItem}, {@link rule}, {@link boolValue}, {@link sizeValue}.
  *
@@ -181,7 +181,7 @@ export const atomicDisplay = createStyles({
 export const atomicFlexItem = createStyles({
   f: sizeRule('flex', '1 1 0', '0 1 auto'),
   o: rule('order', boolValue(1, 0)),
-  align: rule('alignSelf')
+  a: rule('alignSelf')
 })
 
 /**

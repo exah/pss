@@ -1,26 +1,21 @@
-import { identity } from '@exah/utils'
 import { DEFAULT_MEDIA_KEY } from '../constants'
 import { getMedia } from '../getters'
 import { wrapIfMedia } from '../utils'
 
 /**
  * ```js
- * import { mediaRule } from 'pss'
+ * import { mediaStyle } from 'pss'
  * ```
  *
  * Create style wrapped in `theme.media`.
  *
  * Related: {@link display}.
  *
- * @param {string} cssProp
- * @param {string} value
- * @param {Function} [transformValue = identity]
- *
  * @example
- * import pss, { mediaRule } from 'pss'
+ * import pss, { mediaStyle } from 'pss'
  *
  * const Box = styled.div(pss({
- *   hideOn: mediaRule('display', 'none')
+ *   hideOn: mediaStyle({ display: 'none' })
  * }))
  *
  * @example
@@ -36,16 +31,8 @@ import { wrapIfMedia } from '../utils'
  * </ThemeProvider>
  */
 
-export const mediaRule = (
-  cssProp,
-  value,
-  transformValue = identity
-) => (input, props, propMediaKey) => {
+export const mediaStyle = (style) => (input, props, propMediaKey) => {
   if (!input) return null
-
-  const style = {
-    [cssProp]: transformValue(value, props)
-  }
 
   if (propMediaKey != null && input === true) return style
 
