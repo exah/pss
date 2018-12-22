@@ -13,6 +13,7 @@ toc:
       - border
       - boxStyle
       - cursor
+      - direction
       - display
       - ellipsis
       - flex

@@ -1,21 +1,13 @@
 import { createStyles, rule } from '../core'
-import { boolValue, sizeValue } from '../values'
-
-const directionValue = sizeValue(boolValue(0, 'auto'))
 
 /**
  * ```js
  * import { position } from 'pss'
  * ```
  *
- * prop       | css                        | type                          | value | true       | false
- * :----------|:---------------------------|:------------------------------|:------|:-----------|:--------
- * `position` | [`position`][position-url] | `String`, `Boolean`           | ✓     | —          | —
- * `left`     | `left`                     | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
- * `right`    | `right`                    | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
- * `top`      | `top`                      | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
- * `bottom`   | `bottom`                   | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
- * `zIndex`   | `z-index`                  | `String`, `Number`, `Boolean` | ✓     | `1`        | `auto`
+ * prop       | css                        | type      | value | true    | false
+ * :----------|:---------------------------|:----------|:------|:--------|:--------
+ * `position` | [`position`][position-url] | `String`  | ✓     | —       | —
  *
  * [position-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
  *
@@ -35,12 +27,7 @@ const directionValue = sizeValue(boolValue(0, 'auto'))
  */
 
 const position = createStyles({
-  position: rule('position'),
-  top: rule('top', directionValue),
-  left: rule('left', directionValue),
-  right: rule('right', directionValue),
-  bottom: rule('bottom', directionValue),
-  zIndex: rule('zIndex', boolValue(1, 'auto'))
+  position: rule('position')
 })
 
 export {
