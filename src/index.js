@@ -15,36 +15,7 @@ export {
   themePath
 } from './getters'
 
-export {
-  base,
-  border,
-  boxStyle,
-  colors,
-  cssProp,
-  cursor,
-  display,
-  ellipsis,
-  flex,
-  flexItem,
-  float,
-  fontFamily,
-  margin,
-  opacity,
-  outline,
-  overflow,
-  padding,
-  position,
-  radius,
-  ratio,
-  sizes,
-  space,
-  system,
-  text,
-  textStyle,
-  transform,
-  transition,
-  typography
-} from './styles'
+export * from './styles'
 
 export {
   combineSelectors as cs,
@@ -64,6 +35,4 @@ export {
   spaceValue
 } from './values'
 
-export {
-  wrap
-} from './utils'
+export { wrap } from './utils'

@@ -2,7 +2,7 @@
 import {
   createStyles,
   themePath,
-  position,
+  direction,
   space,
   sizes,
   ts,
@@ -57,8 +57,8 @@ describe('propSelector', () => {
 })
 
 describe('themeSelector', () => {
-  test('position', () => {
-    const result = toStyles(position({
+  test('direction', () => {
+    const result = toStyles(direction({
       theme,
       top: ts((tm) => tm.myValue),
       bottom: ts(themePath('myValue')),
@@ -92,14 +92,12 @@ describe('themeSelector', () => {
 
 describe('combineSelectors', () => {
   test('add different top value to &:last-child and &:first-child', () => {
-    const result = toStyles(position({
+    const result = toStyles(direction({
       theme,
-      position: 'relative',
       top: cs(50, ps('&:last-child', 10), ps('&:first-child', 20))
     }))
 
     expect(result).toEqual({
-      position: 'relative',
       top: '50px',
       '&:first-child': {
         top: '20px'

@@ -6,6 +6,7 @@ import { display } from './display'
 import { float } from './float'
 import { overflow } from './overflow'
 import { position } from './position'
+import { direction } from './direction'
 import { ratio } from './ratio'
 import { textStyle } from './text-style'
 import { outline } from './outline'
@@ -77,6 +78,7 @@ const system = combineStyles(
   boxStyle,
   cursor,
   display,
+  direction,
   float,
   opacity,
   outline,
