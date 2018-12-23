@@ -1,6 +1,4 @@
-import { isBool, isFn, identity } from '@exah/utils'
-import { everyMedia } from '../core/every-media'
-import { wrap } from '../utils'
+import { style } from './style'
 
 /**
  * ```js
@@ -10,7 +8,7 @@ import { wrap } from '../utils'
  * Create style rule. Must be used with {@link createStyles}.
  *
  * @param {string} cssProp
- * @param {Function} [getValue = identity]
+ * @param {Function} [value = identity]
  * @return {Function}
  *
  * @example
@@ -27,24 +25,11 @@ import { wrap } from '../utils'
  * </ThemeProvider>
  */
 
-function rule (cssProp, getValue = identity) {
-  const css = wrap(cssProp)
-
-  function getStyle (get, input, props, mediaKey) {
-    const value = get(input, props, mediaKey)
-
-    if (isBool(value)) {
-      return null
-    }
-
-    return isFn(value) ? getStyle(value, input, props, mediaKey) : value
-  }
-
-  return (input, props, mediaKey) => everyMedia(
-    props,
-    getStyle(getValue, input, props, mediaKey),
-    css
-  )
+function rule (cssProp, getValue) {
+  return style({
+    cssProp,
+    getValue
+  })
 }
 
 export {

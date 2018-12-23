@@ -30,7 +30,7 @@ toc:
       - textStyle
       - transform
       - transition
-      - name: atomic
+      - name: Atomic Styles
         children:
           - atomicDirection
           - atomicDisplay
@@ -54,6 +54,7 @@ toc:
       - spaceValue
       - colorValue
       - themeValue
+      - style
       - mediaStyle
       - themeStyle
       - createVariant

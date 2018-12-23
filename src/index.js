@@ -1,21 +1,14 @@
-export * from './constants'
-
 export {
   combineStyles,
   createStyles as default,
   createStyles,
   createVariant,
+  everyMedia,
   mediaStyle,
   rule,
+  style,
   themeStyle
 } from './core'
-
-export {
-  mq,
-  themePath
-} from './getters'
-
-export * from './styles'
 
 export {
   combineSelectors as cs,
@@ -27,7 +20,9 @@ export {
 } from './selectors'
 
 export {
+  createColorValue,
   createSizeValue,
+  createSpaceValue,
   sizeValue,
   colorValue,
   boolValue,
@@ -35,4 +30,7 @@ export {
   spaceValue
 } from './values'
 
-export { wrap } from './utils'
+export * from './constants'
+export * from './getters'
+export * from './styles'
+export * from './utils'
