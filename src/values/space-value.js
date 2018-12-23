@@ -2,6 +2,7 @@ import {
   isStr,
   isBool,
   isNum,
+  identity,
   fallbackTo,
   isArr,
   pipe,
@@ -27,12 +28,14 @@ const getSpaceStep = (input, spaces = []) => {
 }
 
 export function createSpaceValue ({
-  transformValue = pipe(getSpaceStep, px),
+  transformValue = identity,
   themeKey = SPACE_KEY,
   defaultSpace = [ 0 ],
-  getter = themePath(SPACE_KEY, defaultSpace),
+  getter = themePath(themeKey, defaultSpace),
   scale = null
 } = {}) {
+  const transform = pipe(getSpaceStep, transformValue)
+
   return (defaultValue) => (
     input,
     props,
@@ -42,18 +45,18 @@ export function createSpaceValue ({
       const spaces = scale || getter(props)
 
       if (isArr(spaces)) {
-        return transformValue(input, spaces)
+        return transform(input, spaces)
       }
 
       if (mediaKey != null) {
-        return transformValue(input, fallbackTo(
+        return transform(input, fallbackTo(
           spaces[mediaKey],
           spaces[DEFAULT_MEDIA_KEY]
         ))
       }
 
       return mapObj(
-        (key, value) => ({ [key]: transformValue(input, value) }),
+        (key, value) => ({ [key]: transform(input, value) }),
         spaces
       )
     }
@@ -126,4 +129,6 @@ export function createSpaceValue ({
  * </ThemeProvider>
  */
 
-export const spaceValue = createSpaceValue()
+export const spaceValue = createSpaceValue({
+  transformValue: px
+})
