@@ -1,7 +1,7 @@
 import { isNum, isStr, curryN } from '@exah/utils'
 
 export const px = (n) => isNum(n) && n !== 0 ? `${n}px` : n
-export const percent = (n) => (n <= 0 || n > 1 || !isNum(n)) ? n : `${n * 100}%`
+export const percent = (n) => (n > 0 && n <= 1) ? `${n * 100}%` : n
 
 export const wrap = curryN(2, (name, value) => value != null
   ? (name ? { [name]: value } : value)
