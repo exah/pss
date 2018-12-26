@@ -49,22 +49,21 @@ describe('mixin', () => {
   `
 
   test('prop', () => {
-    const tree = toJSON(h(Box, { theme, bg: 'red' }))
+    const tree = toJSON(h(Box, { theme, bg: 'red', fg: 'red' }))
     expect(tree).toHaveStyleRule('background-color', 'red')
+    expect(tree).toHaveStyleRule('color', 'red')
+    expect(tree).not.toHaveStyleRule('border-color')
   })
 
   test('mq', () => {
-    const tree = toJSON(h(Box, { theme, bg: 'red' }))
+    const tree = toJSON(h(Box, { theme }))
     expect(tree).toHaveStyleRule('background-color', 'black', { media: theme.media.sm })
   })
 
-  test('themePath', () => {
-    expect(toJSON(h(Box, { theme, fg: 'red' }))).toHaveStyleRule('color', 'red')
-  })
-
   test('fallbacks', () => {
-    expect(toJSON(h(Box, { theme }))).toHaveStyleRule('background-color', 'blue')
-    expect(toJSON(h(Box, { theme }))).toHaveStyleRule('color', '#0000FF')
-    expect(toJSON(h(Box, { theme }))).toMatchSnapshot()
+    const tree = toJSON(h(Box, { theme }))
+    expect(tree).toHaveStyleRule('background-color', 'blue')
+    expect(tree).toHaveStyleRule('color', '#0000FF')
+    expect(tree).toMatchSnapshot()
   })
 })
