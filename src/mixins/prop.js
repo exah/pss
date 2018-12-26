@@ -10,7 +10,7 @@ import { isFn } from '@exah/utils'
  *
  * const Box = styled.div`
  *  background-color: ${prop('bg')};
- *  color: ${prop('color', themePath('colors.primary'))};
+ *  color: ${prop('color', themePath('color.primary'))};
  *  border-color: ${prop('borderColor', 'black')};
  * `
  *
