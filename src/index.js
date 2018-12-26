@@ -32,5 +32,6 @@ export {
 
 export * from './constants'
 export * from './getters'
+export * from './mixins'
 export * from './styles'
 export * from './utils'

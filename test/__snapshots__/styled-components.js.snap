@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic 1`] = `
+exports[`base 1`] = `
 .c0 {
   margin: 8px;
   width: 100%;
@@ -17,5 +17,22 @@ exports[`basic 1`] = `
 <div
   className="c0"
   width={true}
+/>
+`;
+
+exports[`mixin fallbacks 1`] = `
+.c0 {
+  background-color: blue;
+  color: #0000FF;
+}
+
+@media (max-width:600px) {
+  .c0 {
+    background-color: black;
+  }
+}
+
+<div
+  className="c0"
 />
 `;

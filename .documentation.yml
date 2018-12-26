@@ -68,7 +68,11 @@ toc:
   - name: Getters
     children:
       - themePath
+
+  - name: Mixins
+    children:
       - mq
+      - prop
 
   - name: Utils
     children:
