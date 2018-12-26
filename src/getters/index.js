@@ -23,7 +23,7 @@ export const getTheme = (props) => (props && props.theme) || Object(props)
  *   background-color: ${themePath('color.red', 'hotpink')};
  * `
  *
- * <Box /> // → { width: 200px; background-color: hotpink; }
+ * <Box /> // → width: 200px; background-color: hotpink;
  */
 
 export const themePath = (input, defaultValue) => (props) =>

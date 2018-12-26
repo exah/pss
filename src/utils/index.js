@@ -1,5 +1,21 @@
 import { isNum, isStr, curryN } from '@exah/utils'
 
+/**
+ * Convert number to rem
+ *
+ * @example
+ * import { rem } form 'pss'
+ *
+ * rem() // → 1rem
+ * rem(16) // → 1rem
+ * rem(20) // → 1.25rem
+ * rem('20px') // → 1.25rem
+ * rem(20, 20) // → 1rem
+ */
+
+export const rem = (input = 16, base = 16) =>
+  /rem$/.test(input) ? input : `${parseFloat(input, 10) / base}rem`
+
 export const px = (n) => isNum(n) && n !== 0 ? `${n}px` : n
 export const percent = (n) => (n > 0 && n <= 1) ? `${n * 100}%` : n
 

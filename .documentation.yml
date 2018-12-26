@@ -65,15 +65,13 @@ toc:
       - themeSelector
       - combineSelectors
 
-  - name: Getters
-    children:
-      - themePath
-
   - name: Mixins
     children:
+      - themePath
       - mq
       - prop
 
   - name: Utils
     children:
       - combineStyles
+      - rem
