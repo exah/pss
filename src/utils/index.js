@@ -28,11 +28,11 @@ export const wrapIfMedia = (query, style) => wrap(
   style
 )
 
-const parseUnit = (str) => str.replace(/([\d.]+)(\D+)?$/, '$2').trim()
+const parseUnit = (str) => str.replace(/([\d.]+)(\D+)?$/, '$2').trim() || undefined
 
 export const splitUnit = (input) => isStr(input)
-  ? [ parseFloat(input, 10), parseUnit(input) || undefined ]
-  : [ input, undefined ]
+  ? [ parseFloat(input, 10), parseUnit(input) ]
+  : (isNum(input) ? [ input, undefined ] : [])
 
 export const floor = (number, precision = 0) => {
   const factor = Math.pow(10, precision)
