@@ -1,14 +1,14 @@
-import { isNum, isStr, path, identity, compose } from '@exah/utils'
+import { isStr, path, identity, compose } from '@exah/utils'
 import { SIZES_KEY } from '../constants'
+import { px } from '../utils'
 import { getThemeValue } from '../getters'
-import { percent, px } from '../utils'
+import { createPercentageValue } from './percentage-value'
 
 const scaleGetter = (scale, transformValue = identity) =>
   (input, fallback) => transformValue(path(input, fallback)(scale))
 
 export function createSizeValue ({
-  transformValue = px,
-  transformInput = compose(transformValue, percent),
+  transformValue = identity,
   themeKey = SIZES_KEY,
   scale = null,
   getter = scale
@@ -20,9 +20,7 @@ export function createSizeValue ({
     props,
     mediaKey
   ) => {
-    if (isNum(input)) {
-      return transformInput(input)
-    } else if (isStr(input)) {
+    if (isStr(input)) {
       return getter(input, input, mediaKey)(props)
     }
 
@@ -67,4 +65,7 @@ export function createSizeValue ({
  * <Box l r /> // → left: 0; right: 0
  */
 
-export const sizeValue = createSizeValue()
+export const sizeValue = compose(
+  createSizeValue({ transformValue: px }),
+  createPercentageValue({ transformValue: px })
+)

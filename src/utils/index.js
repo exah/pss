@@ -17,7 +17,6 @@ export const rem = (input = 16, base = 16) =>
   /rem$/.test(input) ? input : `${parseFloat(input, 10) / base}rem`
 
 export const px = (n) => isNum(n) && n !== 0 ? `${n}px` : n
-export const percent = (n) => (n > 0 && n <= 1) ? `${n * 100}%` : n
 
 export const wrap = curryN(2, (name, value) => value != null
   ? (name ? { [name]: value } : value)
