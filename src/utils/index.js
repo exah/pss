@@ -16,7 +16,19 @@ import { isNum, isStr, curryN } from '@exah/utils'
 export const rem = (input = 16, base = 16) =>
   /rem$/.test(input) ? input : `${parseFloat(input, 10) / base}rem`
 
-export const px = (n) => isNum(n) && n !== 0 ? `${n}px` : n
+/**
+ * Convert numbers to pixels
+ *
+ * @example
+ * import { px } from 'pss'
+ *
+ * px(30) // → '30px'
+ * px(0) // → 0
+ * px('100px') // → '100px'
+ * px('100rem') // → '100rem'
+ */
+
+export const px = (num) => isNum(num) && num !== 0 ? `${num}px` : num
 
 export const wrap = curryN(2, (name, value) => value != null
   ? (name ? { [name]: value } : value)
@@ -29,6 +41,13 @@ export const wrapIfMedia = (query, style) => wrap(
 )
 
 const parseUnit = (str) => str.replace(/([\d.]+)(\D+)?$/, '$2').trim() || undefined
+
+/**
+ * @example
+ * import { splitUnit } from 'pss'
+ *
+ * const [ value, unit ] = splitUnit('30px') // → [ 30, 'px' ]
+ */
 
 export const splitUnit = (input) => isStr(input)
   ? [ parseFloat(input, 10), parseUnit(input) ]

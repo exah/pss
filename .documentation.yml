@@ -51,6 +51,7 @@ toc:
       - rule
       - boolValue
       - sizeValue
+      - percentageValue
       - spaceValue
       - colorValue
       - themeValue
@@ -75,3 +76,5 @@ toc:
     children:
       - combineStyles
       - rem
+      - px
+      - splitUnit
