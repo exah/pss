@@ -20,7 +20,7 @@ const getSpaceStep = (input, spaces = []) => {
   if (value === undefined) {
     return null
   } else if (isStr(value)) {
-    const [ number, unit ] = splitUnit(value)
+    const [ number, unit = 'px' ] = splitUnit(value)
     return (number * coeficent) + unit
   }
 
@@ -30,9 +30,8 @@ const getSpaceStep = (input, spaces = []) => {
 export function createSpaceValue ({
   transformValue = identity,
   themeKey = SPACE_KEY,
-  defaultSpace = [ 0 ],
-  getter = themePath(themeKey, defaultSpace),
-  scale = null
+  scale = [ 0 ],
+  getter = themePath(themeKey, scale)
 } = {}) {
   const transform = pipe(getSpaceStep, transformValue)
 
@@ -42,7 +41,7 @@ export function createSpaceValue ({
     mediaKey
   ) => {
     if (isNum(input) || isBool(input)) {
-      const spaces = scale || getter(props)
+      const spaces = getter(props)
 
       if (isArr(spaces)) {
         return transform(input, spaces)
