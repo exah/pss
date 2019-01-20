@@ -36,7 +36,7 @@ export function createSizeValue ({
  * Sizes system for any css prop. Default behaviour described in {@link sizes}.
  * Must be used with {@link rule}.
  *
- * Related: {@link sizes}, {@link rule}, {@link spaceValue}.
+ * Related: {@link sizes}, {@link rule}, {@link percentageValue}, {@link spaceValue}.
  *
  * @param {Function} [transformValue = boolValue('100%', 0)]
  * @return {Function} - that must be used in {@link rule}
@@ -46,7 +46,7 @@ export function createSizeValue ({
  *
  * const sizes = pss({
  *   h: rule('height', sizeValue())
- *   w: rule('width', sizeValue(),
+ *   w: rule('width', sizeValue()),
  *   l: rule('left', sizeValue(boolValue(0, 'auto'))),
  *   r: rule('right', sizeValue(boolValue(0, 'auto')))
  * })

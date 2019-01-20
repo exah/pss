@@ -21,6 +21,5 @@ import { isBool } from '@exah/utils'
  * <Box opacity={0.5} /> // → opacity: 0.5
  */
 
-export const boolValue = (trueVal, falseVal) =>
-  (input, props, mediaKey) =>
-    isBool(input) ? (input === true ? trueVal : falseVal) : input
+export const boolValue = (trueValue, falseValue, defaultValue) => (input) =>
+  isBool(input) ? (input === true ? trueValue : falseValue) : defaultValue

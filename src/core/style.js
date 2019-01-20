@@ -1,4 +1,4 @@
-import { isBool, isFn, identity } from '@exah/utils'
+import { isBool, isNum, isFn, identity, isStr } from '@exah/utils'
 import { everyMedia } from '../core/every-media'
 import { wrap } from '../utils'
 
@@ -40,6 +40,10 @@ function style ({
 
     if (isBool(result)) {
       return null
+    }
+
+    if (result === undefined && (isStr(input) || isNum(input))) {
+      return input
     }
 
     return isFn(result) ? getValues(result, input, props, mediaKey) : result

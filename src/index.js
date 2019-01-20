@@ -23,11 +23,12 @@ export {
   createColorValue,
   createSizeValue,
   createSpaceValue,
-  sizeValue,
-  colorValue,
   boolValue,
-  themeValue,
-  spaceValue
+  colorValue,
+  percentageValue,
+  sizeValue,
+  spaceValue,
+  themeValue
 } from './values'
 
 export * from './constants'

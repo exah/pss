@@ -44,8 +44,7 @@ export function createColorValue ({
 
       return fallbackTo(
         isStr(color) ? transformValue(color, props) : color,
-        defaultValue,
-        input
+        defaultValue
       )
     }
   }
