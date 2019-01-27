@@ -1,5 +1,6 @@
-import { createStyles, rule } from '../core'
+import { createStyles, combineStyles, rule } from '../core'
 import { boolValue, sizeValue } from '../values'
+import { order } from './order'
 
 /**
  * ```js
@@ -75,11 +76,13 @@ const flex = createStyles({
  * </FlexBox>
  */
 
-const flexItem = createStyles({
-  flex: rule('flex', sizeValue(boolValue('1 1 0', '0 1 auto'))),
-  order: rule('order', boolValue(1, 0)),
-  alignSelf: rule('alignSelf')
-})
+const flexItem = combineStyles(
+  createStyles({
+    flex: rule('flex', sizeValue(boolValue('1 1 0', '0 1 auto'))),
+    alignSelf: rule('alignSelf') // COMPAT
+  }),
+  order // COMPAT
+)
 
 export {
   flex,

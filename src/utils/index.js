@@ -25,7 +25,7 @@ export const rem = (input = 16, base = 16) =>
  * px(30) // → '30px'
  * px(0) // → 0
  * px('100px') // → '100px'
- * px('100rem') // → '100rem'
+ * px('100rem') // → '100rem' (nothing changed)
  */
 
 export const px = (num) => isNum(num) && num !== 0 ? `${num}px` : num

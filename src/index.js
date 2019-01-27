@@ -31,6 +31,7 @@ export {
   themeValue
 } from './values'
 
+export * from './rules'
 export * from './constants'
 export * from './getters'
 export * from './mixins'

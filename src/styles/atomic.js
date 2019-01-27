@@ -1,10 +1,9 @@
 import { rule, createStyles, combineStyles, mediaStyle } from '../core'
+import { directionRule, sizeRule } from '../rules'
 import { boolValue } from '../values'
 import { border } from './border'
 import { colors } from './colors'
 import { space } from './space'
-import { sizeRule } from './sizes'
-import { directionRule } from './direction'
 
 /**
  * ```js

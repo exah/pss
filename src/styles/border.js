@@ -3,7 +3,7 @@ import { BORDER_KEY } from '../constants'
 import { themeValue, colorValue } from '../values'
 import { px } from '../utils'
 
-const sizeRule = (name) => rule(name, themeValue({
+const borderRule = (name) => rule(name, themeValue({
   themeKey: BORDER_KEY,
   transformValue: px
 }))
@@ -46,13 +46,13 @@ const sizeRule = (name) => rule(name, themeValue({
  */
 
 const border = createStyles({
-  bd: sizeRule('border'),
-  bdl: sizeRule('borderLeft'),
-  bdr: sizeRule('borderRight'),
-  bdt: sizeRule('borderTop'),
-  bdb: sizeRule('borderBottom'),
-  bdx: [ sizeRule('borderLeft'), sizeRule('borderRight') ],
-  bdy: [ sizeRule('borderTop'), sizeRule('borderBottom') ],
+  bd: borderRule('border'),
+  bdl: borderRule('borderLeft'),
+  bdr: borderRule('borderRight'),
+  bdt: borderRule('borderTop'),
+  bdb: borderRule('borderBottom'),
+  bdx: [ borderRule('borderLeft'), borderRule('borderRight') ],
+  bdy: [ borderRule('borderTop'), borderRule('borderBottom') ],
   bdc: rule('borderColor', colorValue('border'))
 })
 

@@ -20,6 +20,8 @@ toc:
       - flexItem
       - float
       - fontFamily
+      - grid
+      - gridItem
       - opacity
       - outline
       - overflow

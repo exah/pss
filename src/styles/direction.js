@@ -1,7 +1,6 @@
 import { createStyles, rule } from '../core'
-import { boolValue, sizeValue } from '../values'
-
-export const directionRule = (cssProp) => rule(cssProp, sizeValue(boolValue(0, 'auto')))
+import { boolValue } from '../values'
+import { directionRule } from '../rules'
 
 /**
  * ```js
