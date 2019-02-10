@@ -11,12 +11,6 @@ export const createSpaceStyles = (prop, cssProp) => createStyles({
   [prop + 'y']: [ spaceRule(cssProp + 'Top'), spaceRule(cssProp + 'Bottom') ]
 })
 
-export const gap = createStyles({
-  gap: [ spaceRule('gridGap'), spaceRule('gap') ],
-  columnGap: [ spaceRule('gridColumnGap'), spaceRule('columnGap') ],
-  rowGap: [ spaceRule('gridRowGap'), spaceRule('rowGap') ]
-})
-
 export const margin = createSpaceStyles('mg', 'margin')
 export const padding = createSpaceStyles('pd', 'padding')
 
@@ -45,8 +39,6 @@ export const padding = createSpaceStyles('pd', 'padding')
  * - `pdx` → `padding-left`, `padding-right`
  * - `pdy` → `padding-top`, `padding-bottom`
  * - `gap` → `grid-gap`, `gap`
- * - `columnGap` → `grid-column-gap`, `column-gap`
- * - `rowGap` → `grid-row-gap`, `row-gap`
  *
  *
  * **`Number` values:**
@@ -133,4 +125,4 @@ export const padding = createSpaceStyles('pd', 'padding')
  * <Box mgr={{ all: 2, sm: -1 }} /> // → margin-right: 20px; @media (max-width: 600px) { margin-right: -8px }
  */
 
-export const space = combineStyles(gap, margin, padding)
+export const space = combineStyles(margin, padding)
