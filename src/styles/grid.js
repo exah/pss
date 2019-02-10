@@ -1,14 +1,42 @@
 import { createStyles, combineStyles, rule } from '../core'
-import { boolValue } from '../values'
+import { contentAlignment, itemsAlignment, selfAlignment } from './alignment'
 import { order } from './order'
+import { addPrefix } from '../utils'
+
+export const createGridStyle = (prefix) => createStyles({
+  [addPrefix('autoFlow', prefix)]: rule('gridAutoFlow'),
+  [addPrefix('autoCols', prefix)]: rule('gridAutoColumns'),
+  [addPrefix('autoRows', prefix)]: rule('gridAutoRows'),
+  [addPrefix('templateCols', prefix)]: rule('gridTemplateColumns'),
+  [addPrefix('templateRows', prefix)]: rule('gridTemplateRows'),
+  [addPrefix('templateAreas', prefix)]: rule('gridTemplateAreas')
+})
+
+export const createGridItemStyle = (prefix) => createStyles({
+  [addPrefix('col', prefix)]: rule('gridCol'),
+  [addPrefix('row', prefix)]: rule('gridRow'),
+  [addPrefix('area', prefix)]: rule('gridArea')
+})
 
 /**
  * ```js
  * import { grid } from 'pss'
  * ```
  *
- * prop             | css               | type                | value | true            | false
- * :----------------|:----------------- |:--------------------|:------|:----------------|:--------
+ * Styles for [Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout).
+ *
+ * prop                | css                     | type      | value | true   | false
+ * :------------------ |:------------------------|:----------|:------|:-------|:--------
+ * `gridAutoFlow`      | `grid-auto-flow`        | `String`  | ✓     | —      | —
+ * `gridAutoCols`      | `grid-auto-cols`        | `String`  | ✓     | —      | —
+ * `gridAutoRows`      | `grid-auto-rows`        | `String`  | ✓     | —      | —
+ * `gridTemplateCols`  | `grid-template-columns` | `String`  | ✓     | —      | —
+ * `gridTemplateRows`  | `grid-template-rows`    | `String`  | ✓     | —      | —
+ * `gridTemplateAreas` | `grid-template-areas`   | `String`  | ✓     | —      | —
+ * `alignItems`        | `align-items`           | `String`  | ✓     | —      | —
+ * `justifyItems`      | `justify-items`         | `String`  | ✓     | —      | —
+ * `alignContent`      | `align-content`         | `String`  | ✓     | —      | —
+ * `justifyContent`    | `justify-content`       | `String`  | ✓     | —      | —
  *
  * Related: {@link rule}, {@link boolValue}.
  *
@@ -29,31 +57,25 @@ import { order } from './order'
  * </Grid>
  */
 
-export const grid = createStyles({
-  gridAutoFlow: rule('gridAutoFlow'),
-  gridAutoCols: rule('gridAutoColumns'),
-  gridAutoRows: rule('gridAutoRows'),
-
-  gridTemplateColumns: rule('gridTemplateColumns'),
-  gridTemplateRows: rule('gridTemplateRows'),
-  gridTemplateAreas: rule('gridTemplateAreas'),
-
-  placeItems: rule('placeItems'),
-  alignItems: rule('alignItems'),
-  justifyItems: rule('justifyItems'),
-
-  placeContent: rule('placeContent'),
-  alignContent: rule('alignContent'),
-  justifyContent: rule('justifyContent', boolValue('space-between', 'normal'))
-})
+export const grid = combineStyles(
+  createGridStyle('grid'),
+  contentAlignment, // COMPAT
+  itemsAlignment // COMPAT
+)
 
 /**
  * ```js
  * import { gridItem } from 'pss'
  * ```
  *
- * prop        | css           | type                 | value | true    | false
- * :-----------|:--------------|:---------------------|:------|:------- |:--------
+ * prop          | css            | type                 | value | true    | false
+ * :-------------|:---------------|:---------------------|:------|:------- |:--------
+ * `gridColumn`  | `grid-column`  | `String`             | ✓     | —       | —
+ * `gridRow`     | `grid-row`     | `String`             | ✓     | —       | —
+ * `gridArea`    | `grod-area`    | `String`             | ✓     | —       | —
+ * `justifySelf` | `justify-self` | `String`             | ✓     | —       | —
+ * `alignSelf`   | `align-self`   | `String`             | ✓     | —       | —
+ * `order`       | `order`        | `Number`, `Boolean`  | ✓     | `1`     | `0`
  *
  * Related: {@link rule}, {@link boolValue}, {@link sizeValue}.
  *
@@ -72,13 +94,7 @@ export const grid = createStyles({
  */
 
 export const gridItem = combineStyles(
-  createStyles({
-    gridColumn: rule('gridColumn'),
-    gridRow: rule('gridRow'),
-    gridArea: rule('gridArea'),
-    placeSelf: rule('placeSelf'), // COMPAT
-    justifySelf: rule('justifySelf'), // COMPAT
-    alignSelf: rule('alignSelf') // COMPAT
-  }),
+  createGridItemStyle('grid'),
+  selfAlignment, // COMPAT
   order // COMPAT
 )

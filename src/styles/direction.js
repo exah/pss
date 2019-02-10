@@ -1,6 +1,6 @@
-import { createStyles, rule } from '../core'
-import { boolValue } from '../values'
+import { createStyles, combineStyles } from '../core'
 import { directionRule } from '../rules'
+import { zIndex } from './z-index'
 
 /**
  * ```js
@@ -32,13 +32,15 @@ import { directionRule } from '../rules'
  * <Box top={0.2} left={0} /> // position: relative; top: 20%; left: 0
  */
 
-const direction = createStyles({
-  top: directionRule('top'),
-  left: directionRule('left'),
-  right: directionRule('right'),
-  bottom: directionRule('bottom'),
-  zIndex: rule('zIndex', boolValue(1, 'auto'))
-})
+const direction = combineStyles(
+  createStyles({
+    top: directionRule('top'),
+    left: directionRule('left'),
+    right: directionRule('right'),
+    bottom: directionRule('bottom')
+  }),
+  zIndex // COMPAT
+)
 
 export {
   direction

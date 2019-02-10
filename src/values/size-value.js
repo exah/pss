@@ -67,5 +67,5 @@ export function createSizeValue ({
 
 export const sizeValue = compose(
   createSizeValue({ transformValue: px }),
-  createPercentageValue({ transformValue: px })
+  createPercentageValue({ transformValue: px }) // COMPAT
 )

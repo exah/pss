@@ -1,13 +1,20 @@
 import { createStyles, combineStyles, rule } from '../core'
 import { boolValue, sizeValue } from '../values'
+import { addPrefix } from '../utils'
+import { contentAlignment, itemsAlignment, selfAlignment } from './alignment'
 import { order } from './order'
+
+const createFlexStyle = (prefix) => createStyles({
+  [addPrefix('wrap', prefix)]: rule('flexWrap', boolValue('wrap', 'nowrap')),
+  [addPrefix('direction', prefix)]: rule('flexDirection')
+})
 
 /**
  * ```js
  * import { flex } from 'pss'
  * ```
  *
- * [Flex container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container) prop styles.
+ * Styles for [Flexible Layout container](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container).
  *
  * prop             | css               | type                | value | true            | false
  * :----------------|:----------------- |:--------------------|:------|:----------------|:--------
@@ -15,7 +22,7 @@ import { order } from './order'
  * `flexDirection`  | `flex-direction`  | `String`            | ✓     | —               | —
  * `alignItems`     | `align-items`     | `String`            | ✓     | —               | —
  * `alignContent`   | `align-content`   | `String`            | ✓     | —               | —
- * `justifyContent` | `justify-content` | `String`            | ✓     | `space-between` | `normal`
+ * `justifyContent` | `justify-content` | `String`, `Boolean` | ✓     | `space-between` | `normal`
  *
  * Related: {@link rule}, {@link boolValue}.
  *
@@ -36,13 +43,11 @@ import { order } from './order'
  * </FlexBox>
  */
 
-const flex = createStyles({
-  flexWrap: rule('flexWrap', boolValue('wrap', 'nowrap')),
-  flexDirection: rule('flexDirection'),
-  alignItems: rule('alignItems'),
-  alignContent: rule('alignContent'),
-  justifyContent: rule('justifyContent', boolValue('space-between', 'normal'))
-})
+const flex = combineStyles( // TODO rename to `flexBox`
+  createFlexStyle('flex'),
+  contentAlignment, // COMPAT
+  itemsAlignment // COMPAT
+)
 
 /**
  * ```js
@@ -55,8 +60,8 @@ const flex = createStyles({
  * prop        | css           | type                 | value | true    | false
  * :-----------|:--------------|:---------------------|:------|:------- |:--------
  * `flex`      | `flex`        | `String`, `Boolean`  | ✓     | `1 1 0` | `0 1 auto`
- * `order`     | `order`       | `Number`, `Boolean`  | ✓     | `1`     | `0`
  * `alignSelf` | `align-self`  | `String`             | ✓     | —       | —
+ * `order`     | `order`       | `Number`, `Boolean`  | ✓     | `1`     | `0`
  *
  * ⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `order`), so you may need to provide custom prop filtering.
  *
@@ -78,9 +83,9 @@ const flex = createStyles({
 
 const flexItem = combineStyles(
   createStyles({
-    flex: rule('flex', sizeValue(boolValue('1 1 0', '0 1 auto'))),
-    alignSelf: rule('alignSelf') // COMPAT
+    flex: rule('flex', sizeValue(boolValue('1 1 0', '0 1 auto')))
   }),
+  selfAlignment,
   order // COMPAT
 )
 

@@ -44,14 +44,14 @@ export const padding = createSpaceStyles('pd', 'padding')
  * - `pdb` → `padding-bottom`
  * - `pdx` → `padding-left`, `padding-right`
  * - `pdy` → `padding-top`, `padding-bottom`
- * - `gap` → `gap`
- * - `columnGap` → `column-gap`
- * - `rowGap` → `row-gap`
+ * - `gap` → `grid-gap`, `gap`
+ * - `columnGap` → `grid-column-gap`, `column-gap`
+ * - `rowGap` → `grid-row-gap`, `row-gap`
  *
  *
  * **`Number` values:**
  *
- * - Value from `theme.space[mediaKey]`, `theme.space.default` or `theme.space` `Array` by index
+ * - Value from `theme.space[mediaKey]`, `theme.space.all` or `theme.space` `Array` by index
  * - Negative value for negative margins
  *
  *
@@ -116,16 +116,16 @@ export const padding = createSpaceStyles('pd', 'padding')
  *   }
  * }
  *
- * // `theme.space.default[1]` and `theme.space.sm[1]`
+ * // `theme.space.all[1]` and `theme.space.sm[1]`
  * <Box mg={1} /> // → margin: 10px; @media (max-width: 600px) { margin: 8px }
  * <Box mgl={1} /> // → margin-left: 10px; @media (max-width: 600px) { margin-left: 8px }
  * <Box mgt={true} /> // → margin-top: 10px; @media (max-width: 600px) { margin-top: 8px }
  *
- * // `theme.space.default[2]` and `theme.space.sm[2]`
+ * // `theme.space.all[2]` and `theme.space.sm[2]`
  * <Box mgy={2} /> // → margin-top: 20px; margin-bottom: 20px; @media (max-width: 600px) { margin-top: 16px; margin-bottom: 16px }
  * <Box mg={-2} /> // → margin: -20px; @media (max-width: 600px) { margin: -16px; }
  *
- * // `theme.space.default[0]` and `theme.space.sm[0]`
+ * // `theme.space.all[0]` and `theme.space.sm[0]`
  * <Box mg={0} /> // → margin: 0; @media (max-width: 600px) { margin: 0 }
  *
  * // Responsive
