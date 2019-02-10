@@ -4,6 +4,8 @@ import { sizes } from './sizes'
 import { colors } from './colors'
 
 /**
+ * @private DEPRECATED
+ *
  * ```js
  * import { base } from 'pss'
  * ```

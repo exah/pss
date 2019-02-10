@@ -4,6 +4,8 @@ import { fontFamily } from './font-family'
 import { ellipsis } from './ellipsis'
 
 /**
+ * @private DEPRECATED
+ *
  * ```js
  * import { typography } from 'pss'
  * ```
