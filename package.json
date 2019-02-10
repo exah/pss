@@ -33,7 +33,7 @@
     "test": "run-s test:*",
     "test:unit": "jest",
     "test:lint": "eslint src test",
-    "deploy": "np --no-cleanup",
+    "release": "np --no-cleanup",
     "cleanup": "rimraf cjs esm",
     "version": "auto-changelog -p && git add CHANGELOG.md",
     "preversion": "npm run build",
