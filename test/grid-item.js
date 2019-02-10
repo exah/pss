@@ -1,10 +1,10 @@
 import { gridItem } from '../src'
 import { testValue } from './_helpers'
 
-test('gridCol', testValue({
+test('gridColumn', testValue({
   fn: gridItem,
-  prop: 'gridCol',
-  cssProp: 'gridCol',
+  prop: 'gridColumn',
+  cssProp: 'gridColumn',
   values: [ '1', '1 / 3' ]
 }))
 

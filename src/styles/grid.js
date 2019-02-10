@@ -3,17 +3,23 @@ import { boxContentAlignment, boxItemsAlignment, boxSelfAlignment } from './box-
 import { order } from './order'
 import { addPrefix } from '../utils'
 
-export const createGridStyle = (prefix) => createStyles({
+export const createGridStyle = ({
+  prefix,
+  isShortPropNames = false
+} = {}) => createStyles({
   [addPrefix('autoFlow', prefix)]: rule('gridAutoFlow'),
-  [addPrefix('autoCols', prefix)]: rule('gridAutoColumns'),
   [addPrefix('autoRows', prefix)]: rule('gridAutoRows'),
-  [addPrefix('templateCols', prefix)]: rule('gridTemplateColumns'),
+  [addPrefix(isShortPropNames ? 'autoCols' : 'autoColumns', prefix)]: rule('gridAutoColumns'),
   [addPrefix('templateRows', prefix)]: rule('gridTemplateRows'),
+  [addPrefix(isShortPropNames ? 'templateCols' : 'templateColumns', prefix)]: rule('gridTemplateColumns'),
   [addPrefix('templateAreas', prefix)]: rule('gridTemplateAreas')
 })
 
-export const createGridItemStyle = (prefix) => createStyles({
-  [addPrefix('col', prefix)]: rule('gridCol'),
+export const createGridItemStyle = ({
+  prefix,
+  isShortPropNames = false
+} = {}) => createStyles({
+  [addPrefix(isShortPropNames ? 'col' : 'column', prefix)]: rule('gridColumn'),
   [addPrefix('row', prefix)]: rule('gridRow'),
   [addPrefix('area', prefix)]: rule('gridArea')
 })
@@ -25,20 +31,20 @@ export const createGridItemStyle = (prefix) => createStyles({
  *
  * Styles for [Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout).
  *
- * prop                | css                     | type      | value | true   | false
- * :------------------ |:------------------------|:----------|:------|:-------|:--------
- * `gridAutoFlow`      | `grid-auto-flow`        | `String`  | ✓     | —      | —
- * `gridAutoCols`      | `grid-auto-cols`        | `String`  | ✓     | —      | —
- * `gridAutoRows`      | `grid-auto-rows`        | `String`  | ✓     | —      | —
- * `gridTemplateCols`  | `grid-template-columns` | `String`  | ✓     | —      | —
- * `gridTemplateRows`  | `grid-template-rows`    | `String`  | ✓     | —      | —
- * `gridTemplateAreas` | `grid-template-areas`   | `String`  | ✓     | —      | —
- * `alignItems`        | `align-items`           | `String`  | ✓     | —      | —
- * `justifyItems`      | `justify-items`         | `String`  | ✓     | —      | —
- * `alignContent`      | `align-content`         | `String`  | ✓     | —      | —
- * `justifyContent`    | `justify-content`       | `String`  | ✓     | —      | —
+ * prop                  | css                     | type      | value | true   | false
+ * :------------------ --|:------------------------|:----------|:------|:-------|:--------
+ * `gridAutoFlow`        | `grid-auto-flow`        | `String`  | ✓     | —      | —
+ * `gridAutoColumns`     | `grid-auto-columns`     | `String`  | ✓     | —      | —
+ * `gridAutoRows`        | `grid-auto-rows`        | `String`  | ✓     | —      | —
+ * `gridTemplateColumns` | `grid-template-columns` | `String`  | ✓     | —      | —
+ * `gridTemplateRows`    | `grid-template-rows`    | `String`  | ✓     | —      | —
+ * `gridTemplateAreas`   | `grid-template-areas`   | `String`  | ✓     | —      | —
+ * `alignItems`          | `align-items`           | `String`  | ✓     | —      | —
+ * `justifyItems`        | `justify-items`         | `String`  | ✓     | —      | —
+ * `alignContent`        | `align-content`         | `String`  | ✓     | —      | —
+ * `justifyContent`      | `justify-content`       | `String`  | ✓     | —      | —
  *
- * Related: {@link rule}, {@link boolValue}.
+ * Related: {@link gap}, {@link flex}, {@link rule}, {@link boolValue}.
  *
  * @param {Object} props
  *
@@ -58,7 +64,7 @@ export const createGridItemStyle = (prefix) => createStyles({
  */
 
 export const grid = combineStyles(
-  createGridStyle('grid'),
+  createGridStyle({ prefix: 'grid' }),
   boxContentAlignment, // COMPAT
   boxItemsAlignment // COMPAT
 )
@@ -94,7 +100,7 @@ export const grid = combineStyles(
  */
 
 export const gridItem = combineStyles(
-  createGridItemStyle('grid'),
+  createGridItemStyle({ prefix: 'grid' }),
   boxSelfAlignment, // COMPAT
   order // COMPAT
 )

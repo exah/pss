@@ -8,9 +8,9 @@ test('gridAutoFlow', testValue({
   values: [ 'row', 'column', 'dense' ]
 }))
 
-test('gridAutoCols', testValue({
+test('gridAutoColumns', testValue({
   fn: grid,
-  prop: 'gridAutoCols',
+  prop: 'gridAutoColumns',
   cssProp: 'gridAutoColumns',
   values: [ 'auto', '1fr', 'min-content' ]
 }))
@@ -22,9 +22,9 @@ test('gridAutoRows', testValue({
   values: [ 'auto', '50px', 'min-content' ]
 }))
 
-test('gridTemplateCols', testValue({
+test('gridTemplateColumns', testValue({
   fn: grid,
-  prop: 'gridTemplateCols',
+  prop: 'gridTemplateColumns',
   cssProp: 'gridTemplateColumns',
   values: [ '60px 60px', '1fr 50px', '50px auto' ]
 }))
