@@ -1,6 +1,7 @@
 export * from './atomic'
 export * from './base'
 export * from './border'
+export * from './box-alignment'
 export * from './box-style'
 export * from './colors'
 export * from './cursor'

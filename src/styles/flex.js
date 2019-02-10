@@ -1,7 +1,7 @@
 import { createStyles, combineStyles, rule } from '../core'
 import { boolValue, sizeValue } from '../values'
 import { addPrefix } from '../utils'
-import { contentAlignment, itemsAlignment, selfAlignment } from './alignment'
+import { boxContentAlignment, boxItemsAlignment, boxSelfAlignment } from './box-alignment'
 import { order } from './order'
 
 const createFlexStyle = (prefix) => createStyles({
@@ -45,8 +45,8 @@ const createFlexStyle = (prefix) => createStyles({
 
 const flex = combineStyles( // TODO rename to `flexBox`
   createFlexStyle('flex'),
-  contentAlignment, // COMPAT
-  itemsAlignment // COMPAT
+  boxContentAlignment, // COMPAT
+  boxItemsAlignment // COMPAT
 )
 
 /**
@@ -85,7 +85,7 @@ const flexItem = combineStyles(
   createStyles({
     flex: rule('flex', sizeValue(boolValue('1 1 0', '0 1 auto')))
   }),
-  selfAlignment,
+  boxSelfAlignment,
   order // COMPAT
 )
 

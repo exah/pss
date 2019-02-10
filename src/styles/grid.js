@@ -1,5 +1,5 @@
 import { createStyles, combineStyles, rule } from '../core'
-import { contentAlignment, itemsAlignment, selfAlignment } from './alignment'
+import { boxContentAlignment, boxItemsAlignment, boxSelfAlignment } from './box-alignment'
 import { order } from './order'
 import { addPrefix } from '../utils'
 
@@ -59,8 +59,8 @@ export const createGridItemStyle = (prefix) => createStyles({
 
 export const grid = combineStyles(
   createGridStyle('grid'),
-  contentAlignment, // COMPAT
-  itemsAlignment // COMPAT
+  boxContentAlignment, // COMPAT
+  boxItemsAlignment // COMPAT
 )
 
 /**
@@ -95,6 +95,6 @@ export const grid = combineStyles(
 
 export const gridItem = combineStyles(
   createGridItemStyle('grid'),
-  selfAlignment, // COMPAT
+  boxSelfAlignment, // COMPAT
   order // COMPAT
 )

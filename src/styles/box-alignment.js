@@ -5,7 +5,7 @@ import { boolValue } from '../values'
  * @private
  *
  * ```js
- * import { contentAlignment } from 'pss'
+ * import { boxContentAlignment } from 'pss'
  * ```
  *
  * prop             | css               | type                | value | true            | false
@@ -18,11 +18,11 @@ import { boolValue } from '../values'
  * @param {Object} props
  *
  * @example
- * import { contentAlignment } from 'pss'
+ * import { boxContentAlignment } from 'pss'
  *
  * const Grid = styled.div`
  *   display: grid;
- *   ${contentAlignment}
+ *   ${boxContentAlignment}
  * `
  *
  * @example
@@ -32,7 +32,7 @@ import { boolValue } from '../values'
  * </Grid>
  */
 
-export const contentAlignment = createStyles({
+export const boxContentAlignment = createStyles({
   alignContent: rule('alignContent'),
   justifyContent: rule('justifyContent', boolValue('space-between', 'normal')) // COMPAT
 })
@@ -41,7 +41,7 @@ export const contentAlignment = createStyles({
  * @private
  *
  * ```js
- * import { itemsAlignment } from 'pss'
+ * import { boxItemsAlignment } from 'pss'
  * ```
  *
  * prop             | css               | type      | value | true  | false
@@ -54,11 +54,11 @@ export const contentAlignment = createStyles({
  * @param {Object} props
  *
  * @example
- * import { itemsAlignment } from 'pss'
+ * import { boxItemsAlignment } from 'pss'
  *
  * const Grid = styled.div`
  *   display: grid;
- *   ${itemsAlignment}
+ *   ${boxItemsAlignment}
  * `
  *
  * @example
@@ -68,7 +68,7 @@ export const contentAlignment = createStyles({
  * </Grid>
  */
 
-export const itemsAlignment = createStyles({
+export const boxItemsAlignment = createStyles({
   alignItems: rule('alignItems'),
   justifyItems: rule('justifyItems')
 })
@@ -77,7 +77,7 @@ export const itemsAlignment = createStyles({
  * @private
  *
  * ```js
- * import { selfAlignment } from 'pss'
+ * import { boxSelfAlignment } from 'pss'
  * ```
  *
  * prop          | css            | type      | value | true    | false
@@ -90,10 +90,10 @@ export const itemsAlignment = createStyles({
  * @param {Object} props
  *
  * @example
- * import { selfAlignment } from 'pss'
+ * import { boxSelfAlignment } from 'pss'
  *
  * const Box = styled.div`
- *   ${selfAlignment}
+ *   ${boxSelfAlignment}
  * `
  *
  * @example
@@ -102,7 +102,7 @@ export const itemsAlignment = createStyles({
  * </Grid>
  */
 
-export const selfAlignment = createStyles({
+export const boxSelfAlignment = createStyles({
   justifySelf: rule('justifySelf'),
   alignSelf: rule('alignSelf')
 })
