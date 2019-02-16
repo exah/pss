@@ -16,6 +16,9 @@ toc:
   - name: Styles
     children:
       - border
+      - boxContentAlignment
+      - boxItemsAlignment
+      - boxSelfAlignment
       - cursor
       - direction
       - display

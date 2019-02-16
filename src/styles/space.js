@@ -19,7 +19,7 @@ export const padding = createSpaceStyles('pd', 'padding')
  * import { space } from 'pss'
  * ```
  *
- * Consistent `space` system for setting `margin`, `padding` or `gap`. Created with {@link spaceValue}.
+ * Consistent `space` system for setting `margin`, or `padding`. Created with {@link spaceValue}.
  *
  *
  * **Component props:**
@@ -38,8 +38,6 @@ export const padding = createSpaceStyles('pd', 'padding')
  * - `pdb` → `padding-bottom`
  * - `pdx` → `padding-left`, `padding-right`
  * - `pdy` → `padding-top`, `padding-bottom`
- * - `gap` → `grid-gap`, `gap`
- *
  *
  * **`Number` values:**
  *

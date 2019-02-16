@@ -2,8 +2,6 @@ import { createStyles, rule } from '../core'
 import { boolValue } from '../values'
 
 /**
- * @private
- *
  * ```js
  * import { boxContentAlignment } from 'pss'
  * ```
@@ -11,7 +9,7 @@ import { boolValue } from '../values'
  * prop             | css               | type                | value | true            | false
  * :----------------|:------------------|:--------------------|:------|:----------------|:--------
  * `alignContent`   | `align-content`   | `String`            | ✓     | —               | —
- * `justifyContent` | `justify-content` | `String`, `Boolean` | ✓     | `space-between` | `normal
+ * `justifyContent` | `justify-content` | `String`, `Boolean` | ✓     | `space-between` | `normal`
  *
  * Related: {@link rule}, {@link boolValue}.
  *
@@ -38,8 +36,6 @@ export const boxContentAlignment = createStyles({
 })
 
 /**
- * @private
- *
  * ```js
  * import { boxItemsAlignment } from 'pss'
  * ```
@@ -74,8 +70,6 @@ export const boxItemsAlignment = createStyles({
 })
 
 /**
- * @private
- *
  * ```js
  * import { boxSelfAlignment } from 'pss'
  * ```
