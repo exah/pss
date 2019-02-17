@@ -31,7 +31,7 @@ import { boolValue } from '../values'
 
 const display = createStyles({
   display: rule('display', boolValue('initial', 'none')),
-  hideOn: mediaStyle({ display: 'none' })
+  hideOn: mediaStyle({ display: 'none' }) // COMPAT
 })
 
 export {

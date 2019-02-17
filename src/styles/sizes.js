@@ -1,8 +1,5 @@
-import { createStyles, rule } from '../core'
-import { sizeValue, boolValue } from '../values'
-
-export const sizeRule = (cssProp, trueVal = '100%', falseVal = 0) =>
-  rule(cssProp, sizeValue(boolValue(trueVal, falseVal)))
+import { createStyles } from '../core'
+import { sizeRule } from '../rules'
 
 /**
  * ```js

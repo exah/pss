@@ -44,7 +44,7 @@ import { boolValue } from '../values'
 const float = createStyles({
   float: rule('float'),
   clear: rule('clear', boolValue('both', 'none')),
-  clearFix: {
+  clearFix: { // COMPAT
     '&::after': {
       content: '""',
       display: 'block',

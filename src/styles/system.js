@@ -18,6 +18,8 @@ import { transform } from './transform'
 import { transition } from './transition'
 
 /**
+ * @private DEPRECATED
+ *
  * ```js
  * import { system } from 'pss'
  * ```

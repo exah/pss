@@ -25,10 +25,13 @@ export const rem = (input = 16, base = 16) =>
  * px(30) // → '30px'
  * px(0) // → 0
  * px('100px') // → '100px'
- * px('100rem') // → '100rem'
+ * px('100rem') // → '100rem' (nothing changed)
  */
 
 export const px = (num) => isNum(num) && num !== 0 ? `${num}px` : num
+
+export const cap = (input = '') => input.replace(/^\w/, c => c.toUpperCase())
+export const addPrefix = (input = '', prefix) => prefix ? prefix + cap(input) : input
 
 export const wrap = curryN(2, (name, value) => value != null
   ? (name ? { [name]: value } : value)

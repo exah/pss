@@ -36,13 +36,13 @@ import { createVariant } from '../core'
  * @example
  * import { textStyle } from 'pss'
  *
- * const Text = styled.p`
+ * const Box = styled.div`
  *   ${textStyle}
  * `
  *
  * @example
- * <Text textStyle={true} /> // → `theme.textStyle.default`
- * <Text textStyle='heading' /> // → `theme.textStyle.heading`
+ * <Box textStyle={true} /> // → `theme.textStyle.default`
+ * <Box textStyle='heading' /> // → `theme.textStyle.heading`
  */
 
 const textStyle = createVariant({

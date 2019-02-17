@@ -1,7 +1,5 @@
-import { createStyles, rule, combineStyles } from '../core'
-import { spaceValue, sizeValue } from '../values'
-
-export const spaceRule = (name) => rule(name, spaceValue(sizeValue()))
+import { createStyles, combineStyles } from '../core'
+import { spaceRule } from '../rules'
 
 export const createSpaceStyles = (prop, cssProp) => createStyles({
   [prop]: spaceRule(cssProp),
@@ -21,7 +19,7 @@ export const padding = createSpaceStyles('pd', 'padding')
  * import { space } from 'pss'
  * ```
  *
- * Consistent `space` system for setting `margin` or `padding`. Created with {@link spaceValue}.
+ * Consistent `space` system for setting `margin`, or `padding`. Created with {@link spaceValue}.
  *
  *
  * **Component props:**
@@ -41,10 +39,9 @@ export const padding = createSpaceStyles('pd', 'padding')
  * - `pdx` → `padding-left`, `padding-right`
  * - `pdy` → `padding-top`, `padding-bottom`
  *
- *
  * **`Number` values:**
  *
- * - Value from `theme.space[mediaKey]`, `theme.space.default` or `theme.space` `Array` by index
+ * - Value from `theme.space[mediaKey]`, `theme.space.all` or `theme.space` `Array` by index
  * - Negative value for negative margins
  *
  *
@@ -109,16 +106,16 @@ export const padding = createSpaceStyles('pd', 'padding')
  *   }
  * }
  *
- * // `theme.space.default[1]` and `theme.space.sm[1]`
+ * // `theme.space.all[1]` and `theme.space.sm[1]`
  * <Box mg={1} /> // → margin: 10px; @media (max-width: 600px) { margin: 8px }
  * <Box mgl={1} /> // → margin-left: 10px; @media (max-width: 600px) { margin-left: 8px }
  * <Box mgt={true} /> // → margin-top: 10px; @media (max-width: 600px) { margin-top: 8px }
  *
- * // `theme.space.default[2]` and `theme.space.sm[2]`
+ * // `theme.space.all[2]` and `theme.space.sm[2]`
  * <Box mgy={2} /> // → margin-top: 20px; margin-bottom: 20px; @media (max-width: 600px) { margin-top: 16px; margin-bottom: 16px }
  * <Box mg={-2} /> // → margin: -20px; @media (max-width: 600px) { margin: -16px; }
  *
- * // `theme.space.default[0]` and `theme.space.sm[0]`
+ * // `theme.space.all[0]` and `theme.space.sm[0]`
  * <Box mg={0} /> // → margin: 0; @media (max-width: 600px) { margin: 0 }
  *
  * // Responsive

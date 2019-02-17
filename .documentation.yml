@@ -5,13 +5,20 @@ hljs:
     - js
 
 toc:
-  - name: Styles
+  - name: Systems
     children:
       - space
       - sizes
       - colors
-      - border
       - boxStyle
+      - textStyle
+
+  - name: Styles
+    children:
+      - border
+      - boxContentAlignment
+      - boxItemsAlignment
+      - boxSelfAlignment
       - cursor
       - direction
       - display
@@ -20,30 +27,27 @@ toc:
       - flexItem
       - float
       - fontFamily
+      - gap
+      - grid
+      - gridItem
       - opacity
       - outline
-      - overflow
       - position
       - radius
       - ratio
       - text
-      - textStyle
       - transform
       - transition
-      - name: Atomic Styles
-        children:
-          - atomicDirection
-          - atomicDisplay
-          - atomicFlexItem
-          - atomicPosition
-          - atomicSizes
+      - zIndex
 
-  - name: Combinations
+  - name: Atomic Styles
     children:
-      - base
-      - typography
-      - system
       - atomic
+      - atomicDirection
+      - atomicDisplay
+      - atomicFlexItem
+      - atomicPosition
+      - atomicSizes
 
   - name: Custom Styles
     children:

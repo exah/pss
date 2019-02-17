@@ -2,6 +2,8 @@ import { createStyles, rule } from '../core'
 import { boolValue } from '../values'
 
 /**
+ * @private DEPRECATED
+ *
  * ```js
  * import { overflow } from 'pss'
  * ```
