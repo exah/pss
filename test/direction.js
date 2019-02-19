@@ -13,22 +13,14 @@ test('direction', () => {
     top: true,
     bottom: false,
     left: 1 / 2,
-    right: 0,
-    zIndex: {
-      all: 50,
-      sm: 100
-    }
+    right: 0
   })
 
   const expected = {
     top: 0,
     bottom: 'auto',
     left: '50%',
-    right: 0,
-    zIndex: 50,
-    [`@media ${theme.media.sm}`]: {
-      zIndex: 100
-    }
+    right: 0
   }
 
   expect(toStyles(result)).toEqual(expected)

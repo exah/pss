@@ -753,13 +753,12 @@ const Box = styled.div`
 import { direction } from 'pss'
 ```
 
-| prop     | css       | type                          | value | true | false  |
-| :------- | :-------- | :---------------------------- | :---- | :--- | :----- |
-| `left`   | `left`    | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
-| `right`  | `right`   | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
-| `top`    | `top`     | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
-| `bottom` | `bottom`  | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
-| `zIndex` | `z-index` | `String`, `Number`, `Boolean` | ✓     | `1`  | `auto` |
+| prop     | css      | type                          | value | true | false  |
+| :------- | :------- | :---------------------------- | :---- | :--- | :----- |
+| `left`   | `left`   | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
+| `right`  | `right`  | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
+| `top`    | `top`    | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
+| `bottom` | `bottom` | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
 
 Related: [position][65], [rule][107], [boolValue][110], [sizeValue][113].
 
