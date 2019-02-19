@@ -47,9 +47,7 @@ test('justifyContent', testValue({
   fn: grid,
   prop: 'justifyContent',
   cssProp: 'justifyContent',
-  values: [ 'start', 'center', 'space-between' ],
-  trueValue: 'space-between',
-  falseValue: 'normal'
+  values: [ 'start', 'center', 'space-between' ]
 }))
 
 test('alignItems', testValue({

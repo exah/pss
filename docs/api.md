@@ -622,10 +622,10 @@ const Box = styled.div`
 import { boxContentAlignment } from 'pss'
 ```
 
-| prop             | css               | type                | value | true            | false    |
-| :--------------- | :---------------- | :------------------ | :---- | :-------------- | :------- |
-| `alignContent`   | `align-content`   | `String`            | ✓     | —               | —        |
-| `justifyContent` | `justify-content` | `String`, `Boolean` | ✓     | `space-between` | `normal` |
+| prop             | css               | type     | value | true | false |
+| :--------------- | :---------------- | :------- | :---- | :--- | :---- |
+| `alignContent`   | `align-content`   | `String` | ✓     | —    | —     |
+| `justifyContent` | `justify-content` | `String` | ✓     | —    | —     |
 
 Related: [rule][107], [boolValue][110].
 

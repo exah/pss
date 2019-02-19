@@ -1,15 +1,14 @@
 import { createStyles, rule } from '../core'
-import { boolValue } from '../values'
 
 /**
  * ```js
  * import { boxContentAlignment } from 'pss'
  * ```
  *
- * prop             | css               | type                | value | true            | false
- * :----------------|:------------------|:--------------------|:------|:----------------|:--------
- * `alignContent`   | `align-content`   | `String`            | ✓     | —               | —
- * `justifyContent` | `justify-content` | `String`, `Boolean` | ✓     | `space-between` | `normal`
+ * prop             | css               | type     | value | true            | false
+ * :----------------|:------------------|:---------|:------|:----------------|:--------
+ * `alignContent`   | `align-content`   | `String` | ✓     | —               | —
+ * `justifyContent` | `justify-content` | `String` | ✓     | — | —
  *
  * Related: {@link rule}, {@link boolValue}.
  *
@@ -32,7 +31,7 @@ import { boolValue } from '../values'
 
 export const boxContentAlignment = createStyles({
   alignContent: rule('alignContent'),
-  justifyContent: rule('justifyContent', boolValue('space-between', 'normal')) // COMPAT
+  justifyContent: rule('justifyContent')
 })
 
 /**

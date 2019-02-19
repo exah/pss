@@ -35,7 +35,5 @@ test('justifyContent', testValue({
   fn: flex,
   prop: 'justifyContent',
   cssProp: 'justifyContent',
-  values: [ 'center', 'flex-start', 'flex-end' ],
-  trueValue: 'space-between',
-  falseValue: 'normal'
+  values: [ 'center', 'flex-start', 'flex-end' ]
 }))
