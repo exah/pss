@@ -1,14 +1,13 @@
 import { createStyles, rule } from '../core'
-import { boolValue } from '../values'
 
 /**
  * ```js
  * import { display } from 'pss'
  * ```
  *
- * prop       | css                      | type                 | value    | true      | false
- * :----------|:-------------------------|:---------------------|:---------|:--------- |:--------
- * `display`  | [`display`][display-url] | `String`, `Boolean`  | ✓        | `initial` | `none`
+ * prop       | css                      | type     | value    | true      | false
+ * :----------|:-------------------------|:---------|:---------|:--------- |:--------
+ * `display`  | [`display`][display-url] | `String` | ✓        | —         | —
  *
  * [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
  *
@@ -28,7 +27,7 @@ import { boolValue } from '../values'
  */
 
 const display = createStyles({
-  display: rule('display', boolValue('initial', 'none'))
+  display: rule('display')
 })
 
 export {

@@ -1,14 +1,13 @@
 import { createStyles, rule } from '../core'
-import { boolValue } from '../values'
 
 /**
  * ```js
  * import { opacity } from 'pss'
  * ```
  *
- * prop         | css             | type                 | value | true       | false
- * :------------|:----------------|:---------------------|:------|:-----------|:--------
- * `opacity`    | `opacity`       | `0...1`, `Boolean`   | ✓     | `1`        | `0`
+ * prop         | css             | type    | value | true     | false
+ * :------------|:----------------|:------- |:------|:---------|:--------
+ * `opacity`    | `opacity`       | `0...1` | ✓     | —        | —
  *
  * ⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
  *
@@ -31,5 +30,5 @@ import { boolValue } from '../values'
  */
 
 export const opacity = createStyles({
-  opacity: rule('opacity', boolValue(1, 0))
+  opacity: rule('opacity')
 })

@@ -869,9 +869,9 @@ const Box = styled.div`
 import { display } from 'pss'
 ```
 
-| prop      | css                      | type                | value | true      | false  |
-| :-------- | :----------------------- | :------------------ | :---- | :-------- | :----- |
-| `display` | [`display`][display-url] | `String`, `Boolean` | ✓     | `initial` | `none` |
+| prop      | css                      | type     | value | true | false |
+| :-------- | :----------------------- | :------- | :---- | :--- | :---- |
+| `display` | [`display`][display-url] | `String` | ✓     | —    | —     |
 
 [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
 
@@ -1146,9 +1146,9 @@ const Box = styled.div`
 import { opacity } from 'pss'
 ```
 
-| prop      | css       | type               | value | true | false |
-| :-------- | :-------- | :----------------- | :---- | :--- | :---- |
-| `opacity` | `opacity` | `0...1`, `Boolean` | ✓     | `1`  | `0`   |
+| prop      | css       | type    | value | true | false |
+| :-------- | :-------- | :------ | :---- | :--- | :---- |
+| `opacity` | `opacity` | `0...1` | ✓     | —    | —     |
 
 ⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
 
@@ -1448,9 +1448,9 @@ const Box = styled.div`
 import { zIndex } from 'pss'
 ```
 
-| prop     | css       | type                          | value | true | false  |
-| :------- | :-------- | :---------------------------- | :---- | :--- | :----- |
-| `zIndex` | `z-index` | `String`, `Number`, `Boolean` | ✓     | `1`  | `auto` |
+| prop     | css       | type                          | value | true | false |
+| :------- | :-------- | :---------------------------- | :---- | :--- | :---- |
+| `zIndex` | `z-index` | `String`, `Number`, `Boolean` | ✓     | —    | –     |
 
 Related: [position][73], [rule][115], [boolValue][118], [sizeValue][121].
 

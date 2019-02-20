@@ -5,7 +5,5 @@ test('display', testValue({
   fn: display,
   prop: 'display',
   cssProp: 'display',
-  values: [ 'block', 'flex', 'grid' ],
-  trueValue: 'initial',
-  falseValue: 'none'
+  values: [ 'block', 'flex', 'grid' ]
 }))

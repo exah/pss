@@ -20,9 +20,7 @@ test('opacity', testValue({
   fn: opacity,
   prop: 'opacity',
   cssProp: 'opacity',
-  values: [ 0.5 ],
-  trueValue: 1,
-  falseValue: 0
+  values: [ 0.5 ]
 }))
 
 test('radius', testValue({

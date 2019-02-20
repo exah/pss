@@ -1,5 +1,4 @@
 import { createStyles, rule } from '../core'
-import { boolValue } from '../values'
 
 /**
  * ```js
@@ -8,7 +7,7 @@ import { boolValue } from '../values'
  *
  * prop       | css       | type                          | value | true   | false
  * :----------|:----------|:------------------------------|:------|:-------|:--------
- * `zIndex`   | `z-index` | `String`, `Number`, `Boolean` | ✓     | `1`    | `auto`
+ * `zIndex`   | `z-index` | `String`, `Number`, `Boolean` | ✓     | —      | –
  *
  *
  * Related: {@link position}, {@link rule}, {@link boolValue}, {@link sizeValue}.
@@ -28,7 +27,7 @@ import { boolValue } from '../values'
  */
 
 const zIndex = createStyles({
-  zIndex: rule('zIndex', boolValue(1, 'auto'))
+  zIndex: rule('zIndex')
 })
 
 export {
