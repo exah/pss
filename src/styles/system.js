@@ -13,7 +13,6 @@ import { float } from './float'
 import { opacity } from './opacity'
 import { order } from './order'
 import { outline } from './outline'
-import { overflow } from './overflow'
 import { position } from './position'
 import { radius } from './radius'
 import { ratio } from './ratio'
@@ -38,7 +37,6 @@ import { transition } from './transition'
  *   - {@link float}
  *   - {@link opacity}
  *   - {@link outline}
- *   - {@link overflow}
  *   - {@link position}
  *   - {@link radius}
  *   - {@link ratio}
@@ -95,7 +93,6 @@ const system = combineStyles(
   opacity,
   order,
   outline,
-  overflow,
   position,
   radius,
   ratio,
