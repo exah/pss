@@ -21,17 +21,3 @@ test('gridArea', testValue({
   cssProp: 'gridArea',
   values: [ '2 / 1 / 3', 'a' ]
 }))
-
-test('alignSelf', testValue({
-  fn: gridItem,
-  prop: 'alignSelf',
-  cssProp: 'alignSelf',
-  values: [ 'start', 'center' ]
-}))
-
-test('justifySelf', testValue({
-  fn: gridItem,
-  prop: 'justifySelf',
-  cssProp: 'justifySelf',
-  values: [ 'start', 'center' ]
-}))

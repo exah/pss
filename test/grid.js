@@ -35,31 +35,3 @@ test('gridTemplateAreas', testValue({
   cssProp: 'gridTemplateAreas',
   values: [ '1 / 1 / 4 / 2' ]
 }))
-
-test('alignContent', testValue({
-  fn: grid,
-  prop: 'alignContent',
-  cssProp: 'alignContent',
-  values: [ 'start', 'center', 'space-between' ]
-}))
-
-test('justifyContent', testValue({
-  fn: grid,
-  prop: 'justifyContent',
-  cssProp: 'justifyContent',
-  values: [ 'start', 'center', 'space-between' ]
-}))
-
-test('alignItems', testValue({
-  fn: grid,
-  prop: 'alignItems',
-  cssProp: 'alignItems',
-  values: [ 'start', 'center', 'space-between' ]
-}))
-
-test('justifyItems', testValue({
-  fn: grid,
-  prop: 'justifyItems',
-  cssProp: 'justifyItems',
-  values: [ 'start', 'center', 'space-between' ]
-}))

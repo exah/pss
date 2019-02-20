@@ -1031,10 +1031,6 @@ Styles for [Grid Layout][182].
 | `gridTemplateColumns` | `grid-template-columns` | `String` | ✓     | —    | —     |
 | `gridTemplateRows`    | `grid-template-rows`    | `String` | ✓     | —    | —     |
 | `gridTemplateAreas`   | `grid-template-areas`   | `String` | ✓     | —    | —     |
-| `alignItems`          | `align-items`           | `String` | ✓     | —    | —     |
-| `justifyItems`        | `justify-items`         | `String` | ✓     | —    | —     |
-| `alignContent`        | `align-content`         | `String` | ✓     | —    | —     |
-| `justifyContent`      | `justify-content`       | `String` | ✓     | —    | —     |
 
 Related: [gap][53], [flex][42], [rule][109], [boolValue][112].
 
@@ -1053,7 +1049,7 @@ const Grid = styled.div`
 `
 ```
 
-    <Grid>
+    <Grid gridTemplateColumns='repeat(12, 1fr)'> // display: grid; grid-template-columns: repeat(12, 1fr)
       <div>1</div>
       <div>2</div>
     </Grid>
@@ -1064,14 +1060,11 @@ const Grid = styled.div`
 import { gridItem } from 'pss'
 ```
 
-| prop          | css            | type                | value | true | false |
-| :------------ | :------------- | :------------------ | :---- | :--- | :---- |
-| `gridColumn`  | `grid-column`  | `String`            | ✓     | —    | —     |
-| `gridRow`     | `grid-row`     | `String`            | ✓     | —    | —     |
-| `gridArea`    | `grod-area`    | `String`            | ✓     | —    | —     |
-| `justifySelf` | `justify-self` | `String`            | ✓     | —    | —     |
-| `alignSelf`   | `align-self`   | `String`            | ✓     | —    | —     |
-| `order`       | `order`        | `Number`, `Boolean` | ✓     | `1`  | `0`   |
+| prop         | css           | type     | value | true | false |
+| :----------- | :------------ | :------- | :---- | :--- | :---- |
+| `gridColumn` | `grid-column` | `String` | ✓     | —    | —     |
+| `gridRow`    | `grid-row`    | `String` | ✓     | —    | —     |
+| `gridArea`   | `grod-area`   | `String` | ✓     | —    | —     |
 
 Related: [rule][109], [boolValue][112], [sizeValue][115].
 
@@ -1086,8 +1079,8 @@ const GridItem = styled.div`
 ```
 
     <Grid> // display: grid
-      <GridItem>2</GridItem>
-      <GridItem>1</GridItem>
+      <GridItem gridRow='1' girdColumn='2'>1</GridItem>
+      <GridItem gridRow='2' gridColumn='1'>2</GridItem>
     </Grid>
 
 ### opacity

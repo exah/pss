@@ -1,6 +1,4 @@
-import { createStyles, combineStyles, rule } from '../core'
-import { boxContentAlignment, boxItemsAlignment, boxSelfAlignment } from './box-alignment'
-import { order } from './order'
+import { createStyles, rule } from '../core'
 import { addPrefix } from '../utils'
 
 export const createGridStyle = ({
@@ -39,10 +37,6 @@ export const createGridItemStyle = ({
  * `gridTemplateColumns` | `grid-template-columns` | `String`  | ✓     | —      | —
  * `gridTemplateRows`    | `grid-template-rows`    | `String`  | ✓     | —      | —
  * `gridTemplateAreas`   | `grid-template-areas`   | `String`  | ✓     | —      | —
- * `alignItems`          | `align-items`           | `String`  | ✓     | —      | —
- * `justifyItems`        | `justify-items`         | `String`  | ✓     | —      | —
- * `alignContent`        | `align-content`         | `String`  | ✓     | —      | —
- * `justifyContent`      | `justify-content`       | `String`  | ✓     | —      | —
  *
  * Related: {@link gap}, {@link flex}, {@link rule}, {@link boolValue}.
  *
@@ -57,31 +51,24 @@ export const createGridItemStyle = ({
  * `
  *
  * @example
- * <Grid>
+ * <Grid gridTemplateColumns='repeat(12, 1fr)'> // display: grid; grid-template-columns: repeat(12, 1fr)
  *   <div>1</div>
  *   <div>2</div>
  * </Grid>
  */
 
-export const grid = combineStyles(
-  createGridStyle({ prefix: 'grid' }),
-  boxContentAlignment, // COMPAT
-  boxItemsAlignment // COMPAT
-)
+export const grid = createGridStyle({ prefix: 'grid' })
 
 /**
  * ```js
  * import { gridItem } from 'pss'
  * ```
  *
- * prop          | css            | type                 | value | true    | false
- * :-------------|:---------------|:---------------------|:------|:------- |:--------
- * `gridColumn`  | `grid-column`  | `String`             | ✓     | —       | —
- * `gridRow`     | `grid-row`     | `String`             | ✓     | —       | —
- * `gridArea`    | `grod-area`    | `String`             | ✓     | —       | —
- * `justifySelf` | `justify-self` | `String`             | ✓     | —       | —
- * `alignSelf`   | `align-self`   | `String`             | ✓     | —       | —
- * `order`       | `order`        | `Number`, `Boolean`  | ✓     | `1`     | `0`
+ * prop          | css            | type     | value | true    | false
+ * :-------------|:---------------|:---------|:------|:------- |:--------
+ * `gridColumn`  | `grid-column`  | `String` | ✓     | —       | —
+ * `gridRow`     | `grid-row`     | `String` | ✓     | —       | —
+ * `gridArea`    | `grod-area`    | `String` | ✓     | —       | —
  *
  * Related: {@link rule}, {@link boolValue}, {@link sizeValue}.
  *
@@ -94,13 +81,9 @@ export const grid = combineStyles(
  *
  * @example
  * <Grid> // display: grid
- *   <GridItem>2</GridItem>
- *   <GridItem>1</GridItem>
+ *   <GridItem gridRow='1' girdColumn='2'>1</GridItem>
+ *   <GridItem gridRow='2' gridColumn='1'>2</GridItem>
  * </Grid>
  */
 
-export const gridItem = combineStyles(
-  createGridItemStyle({ prefix: 'grid' }),
-  boxSelfAlignment, // COMPAT
-  order // COMPAT
-)
+export const gridItem = createGridItemStyle({ prefix: 'grid' })
