@@ -1,39 +1,33 @@
 import { flex } from '../src'
-import { testValue } from './_helpers'
+import { toStyles, testValue } from './_helpers'
 
-test('flexWrap', testValue({
+test('flex', testValue({
   fn: flex,
-  prop: 'flexWrap',
-  cssProp: 'flexWrap',
-  values: [ 'wrap', 'nowrap', 'wrap-reverse' ],
-  trueValue: 'wrap',
-  falseValue: 'nowrap'
+  prop: 'flex',
+  cssProp: 'flex',
+  values: [ '1', '1 1', 0, '0', '100', '100px', 'auto' ]
 }))
 
-test('flexDirection', testValue({
-  fn: flex,
-  prop: 'flexDirection',
-  cssProp: 'flexDirection',
-  values: [ 'column', 'column-reverse', 'row', 'row-reverse' ]
-}))
+const theme = {
+  media: {
+    M: '(max-width: 600px)'
+  },
+  size: {
+    site: 1000,
+    card: {
+      all: 200,
+      M: 100
+    }
+  }
+}
 
-test('alignItems', testValue({
-  fn: flex,
-  prop: 'alignItems',
-  cssProp: 'alignItems',
-  values: [ 'center', 'flex-start', 'flex-end' ]
-}))
+const mobStyle = (style) => ({ [`@media ${theme.media.M}`]: style })
 
-test('alignContent', testValue({
-  fn: flex,
-  prop: 'alignContent',
-  cssProp: 'alignContent',
-  values: [ 'center', 'flex-start', 'flex-end' ]
-}))
-
-test('justifyContent', testValue({
-  fn: flex,
-  prop: 'justifyContent',
-  cssProp: 'justifyContent',
-  values: [ 'center', 'flex-start', 'flex-end' ]
-}))
+test('flex (sizes)', () => {
+  expect(toStyles(flex({ flex: 1 }))).toEqual({ flex: '100%' })
+  expect(toStyles(flex({ flex: (1 / 2) }))).toEqual({ flex: '50%' })
+  expect(toStyles(flex({ flex: 10 }))).toEqual({ flex: '10px' })
+  expect(toStyles(flex({ flex: null }))).toEqual({})
+  expect(toStyles(flex({ theme, flex: 'site' }))).toEqual({ flex: '1000px' })
+  expect(toStyles(flex({ theme, flex: { M: '0' } }))).toEqual(mobStyle({ flex: '0' }))
+})

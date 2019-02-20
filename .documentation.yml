@@ -24,13 +24,14 @@ toc:
       - display
       - ellipsis
       - flex
-      - flexItem
+      - flexBox
       - float
       - fontFamily
       - gap
       - grid
       - gridItem
       - opacity
+      - order
       - outline
       - position
       - radius

@@ -1,13 +1,15 @@
 import { combineStyles } from '../core'
 import { base } from './base'
 import { border } from './border'
+import { boxSelfAlignment } from './box-alignment'
 import { boxStyle } from './box-style'
 import { cursor } from './cursor'
 import { direction } from './direction'
 import { display } from './display'
-import { flexItem } from './flex'
+import { flex } from './flex'
 import { float } from './float'
 import { opacity } from './opacity'
+import { order } from './order'
 import { outline } from './outline'
 import { overflow } from './overflow'
 import { position } from './position'
@@ -30,7 +32,7 @@ import { transition } from './transition'
  *   - {@link boxStyle}
  *   - {@link cursor}
  *   - {@link display}
- *   - {@link flexItem}
+ *   - {@link flex}
  *   - {@link float}
  *   - {@link opacity}
  *   - {@link outline}
@@ -79,13 +81,15 @@ import { transition } from './transition'
 const system = combineStyles(
   base,
   border,
+  boxSelfAlignment,
   boxStyle,
   cursor,
   direction,
   display,
-  flexItem,
+  flex,
   float,
   opacity,
+  order,
   outline,
   overflow,
   position,

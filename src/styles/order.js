@@ -1,6 +1,30 @@
 import { createStyles, rule } from '../core'
-import { boolValue } from '../values'
+
+/**
+ * ```js
+ * import { order } from 'pss'
+ * ```
+ *
+ * prop          | css            | type                 | value | true    | false
+ * :-------------|:---------------|:---------------------|:------|:------- |:--------
+ * `order`       | `order`        | `Number`, `String`   | ✓     | —       | —
+ *
+ * Related: {@link rule}, {@link boolValue}, {@link sizeValue}.
+ *
+ * @example
+ * import { order } from 'pss'
+ *
+ * const Box = styled.div`
+ *   ${order}
+ * `
+ *
+ * @example
+ * <FlexBox> // display: flex
+ *   <Box>2</Box>
+ *   <Box order={1}>1</Box>
+ * </FlexBox>
+ */
 
 export const order = createStyles({
-  order: rule('order', boolValue(1, 0)) // COMPAT: Remove boolValue
+  order: rule('order')
 })
