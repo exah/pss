@@ -1,4 +1,4 @@
-import { createStyles, rule, sizeValue, spaceValue, boolValue } from '../src'
+import { createStyles, rule, sizeValue, spaceValue, boolValue, percentageValue } from '../src'
 import { toStyles } from './_helpers'
 
 const theme = {
@@ -22,9 +22,9 @@ const theme = {
   }
 }
 
-test('sizeValue: 100%', () => {
+test('percentageValue: 100%', () => {
   const style = createStyles({
-    height: rule('height', sizeValue(boolValue('100%')))
+    height: rule('height', percentageValue(boolValue('100%')))
   })
 
   const expected = {

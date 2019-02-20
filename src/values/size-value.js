@@ -1,8 +1,7 @@
-import { isStr, path, identity, compose } from '@exah/utils'
+import { isStr, path, identity } from '@exah/utils'
 import { SIZES_KEY } from '../constants'
 import { px } from '../utils'
 import { getThemeValue } from '../getters'
-import { createPercentageValue } from './percentage-value'
 
 const scaleGetter = (scale, transformValue = identity) =>
   (input, fallback) => transformValue(path(input, fallback)(scale))
@@ -15,7 +14,7 @@ export function createSizeValue ({
     ? scaleGetter(scale, transformValue)
     : getThemeValue(themeKey, transformValue)
 } = {}) {
-  return (defaultValue) => (
+  return (defaultValue = transformValue) => (
     input,
     props,
     mediaKey
@@ -36,7 +35,7 @@ export function createSizeValue ({
  * Sizes system for any css prop. Default behaviour described in {@link sizes}.
  * Must be used with {@link rule}.
  *
- * Related: {@link sizes}, {@link rule}, {@link percentageValue}, {@link spaceValue}.
+ * Related: {@link sizes}, {@link rule}, {@link spaceValue}.
  *
  * @param {Function} [transformValue = boolValue('100%', 0)]
  * @return {Function} - that must be used in {@link rule}
@@ -56,16 +55,11 @@ export function createSizeValue ({
  * `
  *
  * @example
- * <Box w={1} /> // → width: 100%
  * <Box w={0} /> // → width: 0
- * <Box w={{ sm: (1 / 2) }} /> // → @media (max-width: 600px) { width: 50% }
  * <Box h='300px' /> // → height: 300px
  * <Box l={{ all: 0, sm: 'auto' }} /> // → left: 0; @media (max-width: 600px) { left: auto }
  * <Box l={20} r={10} /> // → left: 20px; right: 10px
  * <Box l r /> // → left: 0; right: 0
  */
 
-export const sizeValue = compose(
-  createSizeValue({ transformValue: px }),
-  createPercentageValue({ transformValue: px }) // COMPAT
-)
+export const sizeValue = createSizeValue({ transformValue: px })

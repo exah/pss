@@ -24,8 +24,7 @@ const theme = {
 const mobStyle = (style) => ({ [`@media ${theme.media.M}`]: style })
 
 test('flex (sizes)', () => {
-  expect(toStyles(flex({ flex: 1 }))).toEqual({ flex: '100%' })
-  expect(toStyles(flex({ flex: (1 / 2) }))).toEqual({ flex: '50%' })
+  expect(toStyles(flex({ flex: 1 }))).toEqual({ flex: '1px' })
   expect(toStyles(flex({ flex: 10 }))).toEqual({ flex: '10px' })
   expect(toStyles(flex({ flex: null }))).toEqual({})
   expect(toStyles(flex({ theme, flex: 'site' }))).toEqual({ flex: '1000px' })
