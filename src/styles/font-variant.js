@@ -3,7 +3,7 @@ import { createVariant } from '../core'
 
 /**
  * ```js
- * import { fontFamily } from 'pss'
+ * import { fontVariant } from 'pss'
  * ```
  *
  * Set `fontFamly` from `theme`:
@@ -11,9 +11,9 @@ import { createVariant } from '../core'
  * ```js
  * const theme = {
  *   default: {
- *     fontFamily: 'ui'
+ *     font: 'ui'
  *   },
- *   fontFamily: {
+ *   font: {
  *     heading: 'Times',
  *     ui: 'Helvetica'
  *   }
@@ -25,25 +25,25 @@ import { createVariant } from '../core'
  * @param {Object} props
  *
  * @example
- * import { fontFamily } from 'pss'
+ * import { fontVariant } from 'pss'
  *
  * const Text = styled.p`
- *   ${fontFamily}
+ *   ${fontVariant}
  * `
  *
  * @example
- * <Text fontFamily={true} /> // → font-family: Helvetica
- * <Text fontFamily='ui' /> // → font-family: Helvetica
- * <Text fontFamily='heading' /> // → font-family: Times
- * <Text fontFamily='Comic Sans' /> // → font-family: Comic Sans
+ * <Text font={true} /> // → font-family: Helvetica
+ * <Text font='ui' /> // → font-family: Helvetica
+ * <Text font='heading' /> // → font-family: Times
+ * <Text font='Comic Sans' /> // → font-family: Comic Sans
  */
 
-const fontFamily = createVariant({
+const fontVariant = createVariant({
   themeKey: FONT_KEY,
-  prop: 'fontFamily',
+  prop: 'font',
   cssProp: 'fontFamily'
 })
 
 export {
-  fontFamily
+  fontVariant
 }

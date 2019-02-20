@@ -12,6 +12,7 @@ toc:
       - colors
       - boxStyle
       - textStyle
+      - fontVariant
 
   - name: Styles
     children:
@@ -27,7 +28,6 @@ toc:
       - flex
       - flexBox
       - float
-      - fontFamily
       - gap
       - grid
       - gridItem

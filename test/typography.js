@@ -3,12 +3,12 @@ import { toStyles } from './_helpers'
 
 const theme = {
   default: {
-    fontFamily: 'ui'
+    font: 'ui'
   },
   media: {
     M: '(max-width: 600px)'
   },
-  fontFamily: {
+  font: {
     heading: 'Times New Roman, serif',
     ui: 'Helivetica, system-ui',
     responsive: {
@@ -20,7 +20,7 @@ const theme = {
 test('defaults', () => {
   const result = toStyles(typography({
     theme,
-    fontFamily: true
+    font: true
   }))
 
   expect(result).toEqual({
@@ -31,7 +31,7 @@ test('defaults', () => {
 test('text helpers', () => {
   const result = toStyles(typography({
     theme,
-    fontFamily: 'heading',
+    font: 'heading',
     fontWeight: 'bold',
     textAlign: 'center',
     whiteSpace: 'nowrap'
@@ -58,10 +58,10 @@ test('ellipsis', () => {
   })
 })
 
-test('responsive fontFamily', () => {
+test('responsive font', () => {
   const result = toStyles(typography({
     theme,
-    fontFamily: 'responsive'
+    font: 'responsive'
   }))
 
   expect(result).toEqual({

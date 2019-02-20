@@ -1,6 +1,6 @@
 import { combineStyles } from '../core'
 import { text } from './text'
-import { fontFamily } from './font-family'
+import { fontVariant } from './font-variant'
 import { ellipsis } from './ellipsis'
 
 /**
@@ -12,7 +12,7 @@ import { ellipsis } from './ellipsis'
  *
  * Combination of
  *   - {@link text}
- *   - {@link fontFamily}
+ *   - {@link fontVariant}
  *   - {@link ellipsis}
  *
  * Related: {@link combineStyles}, {@link textStyle}.
@@ -42,7 +42,7 @@ import { ellipsis } from './ellipsis'
 
 const typography = combineStyles(
   text,
-  fontFamily,
+  fontVariant,
   ellipsis
 )
 

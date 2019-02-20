@@ -7,7 +7,7 @@ import { createStyles, rule } from '../core'
  *
  * prop           | css              | type               | value | true   | false
  * :--------------|:-----------------|:-------------------|:------|:-------|:--------
- * `fontSize`     | `font-size`      | `String`, `Number` | ✓     | —      | `medium`
+ * `fontSize`     | `font-size`      | `String`, `Number` | ✓     | —      | —
  * `fontWeight`   | `font-weight`    | `String`           | ✓     | —      | —
  * `lineHeight`   | `line-height`    | `String`, `Number` | ✓     | —      | —
  * `letterSpacing`| `letter-spacing` | `String`, `Number` | ✓     | —      | —
