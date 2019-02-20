@@ -9,11 +9,11 @@ const theme = {
   }
 }
 
-test('bd', () => {
+test('border', () => {
   const result = border({
     theme,
-    bd: '1px solid',
-    bdc: true
+    border: '1px solid',
+    borderColor: true
   })
 
   expect(toStyles(result)).toEqual({
@@ -22,9 +22,9 @@ test('bd', () => {
   })
 })
 
-test('bdc', testValue({
+test('borderColor', testValue({
   fn: border,
-  prop: 'bdc',
+  prop: 'borderColor',
   cssProp: 'borderColor',
   values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ]
 }))
@@ -32,8 +32,8 @@ test('bdc', testValue({
 test('bdl custom', () => {
   const result = border({
     theme,
-    bdl: '5px dotted',
-    bdc: true
+    borderLeft: '5px dotted',
+    borderColor: true
   })
 
   expect(toStyles(result)).toEqual({

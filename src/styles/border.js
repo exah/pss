@@ -15,19 +15,15 @@ const borderRule = (name) => rule(name, themeValue({
  *
  * Set border with values from theme, created with {@link themeValue} and {@link colorValue}.
  *
- * prop       | css            | type                | value | true                   | false
- * :----------|:---------------|:--------------------|:------|:-----------------------|:--------
- * `bdc`      | `border-color` | `String`, `Boolean` | ✓     | `theme.palette.default.border` | —
- * `bd{dir}`* | `border-{dir}` | `String`            | ✓     | `theme.border.default` | —
+ * prop           | css             | type                | value | true                           | false
+ * :--------------|:----------------|:--------------------|:------|:-------------------------------|:--------
+ * `borderColor`  | `border-color ` | `String`, `Boolean` | ✓     | `theme.palette.default.border` | —
+ * `border`       | `border`        | `String`            | ✓     | `theme.border.default`         | —
+ * `borderLeft`   | `border-left`   | `String`            | ✓     | `theme.border.default`         | —
+ * `borderRight`  | `border-right`  | `String`            | ✓     | `theme.border.default`         | —
+ * `borderTop`    | `border-top`    | `String`            | ✓     | `theme.border.default`         | —
+ * `borderBottom` | `border-bottom` | `String`            | ✓     | `theme.border.default`         | —
  *
- * \* Directions:
- *
- * - `l` → `left`
- * - `r` → `right`
- * - `t` → `top`
- * - `b` → `bottom`
- * - `x` → `left`, `right`
- * - `y` → `top`, `bottom`
  *
  * Related: {@link colorValue}, {@link themeValue}, {@link rule},
  *
@@ -42,18 +38,16 @@ const borderRule = (name) => rule(name, themeValue({
  *
  * @example
  * // border-left: 1px dotted; border-color: red
- * <Box bdl='1px dotted' bdc='red' />
+ * <Box borderLeft='1px dotted' borderColor='red' />
  */
 
 const border = createStyles({
-  bd: borderRule('border'),
-  bdl: borderRule('borderLeft'),
-  bdr: borderRule('borderRight'),
-  bdt: borderRule('borderTop'),
-  bdb: borderRule('borderBottom'),
-  bdx: [ borderRule('borderLeft'), borderRule('borderRight') ],
-  bdy: [ borderRule('borderTop'), borderRule('borderBottom') ],
-  bdc: rule('borderColor', colorValue('border'))
+  border: borderRule('border'),
+  borderLeft: borderRule('borderLeft'),
+  borderRight: borderRule('borderRight'),
+  borderTop: borderRule('borderTop'),
+  borderBottom: borderRule('borderBottom'),
+  borderColor: rule('borderColor', colorValue('border'))
 })
 
 export {

@@ -589,19 +589,14 @@ import { border } from 'pss'
 
 Set border with values from theme, created with [themeValue][132] and [colorValue][129].
 
-| prop        | css            | type                | value | true                           | false |
-| :---------- | :------------- | :------------------ | :---- | :----------------------------- | :---- |
-| `bdc`       | `border-color` | `String`, `Boolean` | ✓     | `theme.palette.default.border` | —     |
-| `bd{dir}`\* | `border-{dir}` | `String`            | ✓     | `theme.border.default`         | —     |
-
-\* Directions:
-
--   `l` → `left`
--   `r` → `right`
--   `t` → `top`
--   `b` → `bottom`
--   `x` → `left`, `right`
--   `y` → `top`, `bottom`
+| prop           | css             | type                | value | true                           | false |
+| :------------- | :-------------- | :------------------ | :---- | :----------------------------- | :---- |
+| `borderColor`  | `border-color`  | `String`, `Boolean` | ✓     | `theme.palette.default.border` | —     |
+| `border`       | `border`        | `String`            | ✓     | `theme.border.default`         | —     |
+| `borderLeft`   | `border-left`   | `String`            | ✓     | `theme.border.default`         | —     |
+| `borderRight`  | `border-right`  | `String`            | ✓     | `theme.border.default`         | —     |
+| `borderTop`    | `border-top`    | `String`            | ✓     | `theme.border.default`         | —     |
+| `borderBottom` | `border-bottom` | `String`            | ✓     | `theme.border.default`         | —     |
 
 Related: [colorValue][129], [themeValue][132], [rule][115],
 
@@ -621,7 +616,7 @@ const Box = styled.div`
 
 ```js
 // border-left: 1px dotted; border-color: red
-<Box bdl='1px dotted' bdc='red' />
+<Box borderLeft='1px dotted' borderColor='red' />
 ```
 
 ### boxContentAlignment
