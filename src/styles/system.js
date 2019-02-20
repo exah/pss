@@ -1,5 +1,7 @@
 import { combineStyles } from '../core'
-import { base } from './base'
+import { space } from './space'
+import { sizes } from './sizes'
+import { colors } from './colors'
 import { border } from './border'
 import { boxSelfAlignment } from './box-alignment'
 import { boxStyle } from './box-style'
@@ -79,7 +81,9 @@ import { transition } from './transition'
  */
 
 const system = combineStyles(
-  base,
+  space,
+  sizes,
+  colors,
   border,
   boxSelfAlignment,
   boxStyle,
