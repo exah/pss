@@ -1,30 +1,17 @@
 import { createStyles, rule } from '../core'
-import { boolValue } from '../values'
 
 /**
  * ```js
  * import { float } from 'pss'
  * ```
  *
- * prop       | css                      | type                | value | true                       | false
- * :----------|:-------------------------|:--------------------|:------|:---------------------------|:--------
- * `float`    | [`float`][float-url]     | `String`            | ✓     | —                          | —
- * `clear`    | [`clear`][clear-url]     | `String`, `Boolean` | ✓     | `both`                     | `none`
- * `clearFix` | [Clearfix][clearfix-url] | `true`              | —     | [styles](#clearfix-styles) | —
- *
- * <span id="clearfix-styles">Clearfix styles</span>
- *
- * ```css
- * &::after {
- *   content ' ';
- *   display: block;
- *   clear: both
- * }
- * ```
+ * prop    | css                  | type     | value | true   | false
+ * :-------|:---------------------|:---------|:------|:-------|:--------
+ * `float` | [`float`][float-url] | `String` | ✓     | —      | —
+ * `clear` | [`clear`][clear-url] | `String` | ✓     | `both` | `none`
  *
  * [float-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/float
  * [clear-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/clear
- * [clearfix-url]: https://css-tricks.com/snippets/css/clear-fix/
  *
  * Related: {@link rule}, {@link boolValue}.
  *
@@ -43,14 +30,7 @@ import { boolValue } from '../values'
 
 const float = createStyles({
   float: rule('float'),
-  clear: rule('clear', boolValue('both', 'none')),
-  clearFix: { // COMPAT
-    '&::after': {
-      content: '""',
-      display: 'block',
-      clear: 'both'
-    }
-  }
+  clear: rule('clear')
 })
 
 export {

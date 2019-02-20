@@ -19,6 +19,7 @@ toc:
       - boxContentAlignment
       - boxItemsAlignment
       - boxSelfAlignment
+      - clearFix
       - cursor
       - direction
       - display
