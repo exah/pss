@@ -1,4 +1,4 @@
-import { createStyles, rule, mediaStyle } from '../core'
+import { createStyles, rule } from '../core'
 import { boolValue } from '../values'
 
 /**
@@ -9,11 +9,10 @@ import { boolValue } from '../values'
  * prop       | css                      | type                 | value    | true      | false
  * :----------|:-------------------------|:---------------------|:---------|:--------- |:--------
  * `display`  | [`display`][display-url] | `String`, `Boolean`  | ✓        | `initial` | `none`
- * `hideOn`   | `display: none`          | key in `theme.media` | mediaKey | —         | —
  *
  * [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
  *
- * Related: {@link boolValue}, {@link rule}, {@link mediaStyle}.
+ * Related: {@link hideOn}, {@link boolValue}, {@link rule}.
  *
  * @param {Object} props
  *
@@ -25,13 +24,11 @@ import { boolValue } from '../values'
  * `
  *
  * @example
- * <Box display='inline-block' hideOn='sm' />
- * // display: inline-block; @media (max-width: 600px) { display: none }
+ * <Box display='inline-block' /> // display: inline-block;
  */
 
 const display = createStyles({
-  display: rule('display', boolValue('initial', 'none')),
-  hideOn: mediaStyle({ display: 'none' }) // COMPAT
+  display: rule('display', boolValue('initial', 'none'))
 })
 
 export {

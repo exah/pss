@@ -30,6 +30,7 @@ toc:
       - gap
       - grid
       - gridItem
+      - hideOn
       - opacity
       - order
       - outline
