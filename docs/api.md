@@ -1351,6 +1351,7 @@ import { text } from 'pss'
 
 | prop            | css              | type               | value | true | false |
 | :-------------- | :--------------- | :----------------- | :---- | :--- | :---- |
+| `fontFamily`    | `font-family`    | `String`           | ✓     | —    | —     |
 | `fontSize`      | `font-size`      | `String`, `Number` | ✓     | —    | —     |
 | `fontWeight`    | `font-weight`    | `String`           | ✓     | —    | —     |
 | `lineHeight`    | `line-height`    | `String`, `Number` | ✓     | —    | —     |
@@ -1358,7 +1359,7 @@ import { text } from 'pss'
 | `textAlign`     | `text-align`     | `String`           | ✓     | —    | —     |
 | `whiteSpace`    | `white-space`    | `String`           | ✓     | —    | —     |
 
-Related: [fontFamily][189], [ellipsis][45], [rule][115], [boolValue][118].
+Related: [fontVariant][17], [ellipsis][45], [rule][115], [boolValue][118].
 
 #### Parameters
 
@@ -1581,7 +1582,7 @@ import { atomicFlexItem } from 'pss'
 | `o`  | `order`      | `Number`, `Boolean` | ✓     | `1`     | `0`        |
 | `a`  | `align-self` | `String`            | ✓     | —       | —          |
 
-Related: [flexItem][190], [rule][115], [boolValue][118], [sizeValue][121].
+Related: [flexItem][189], [rule][115], [boolValue][118], [sizeValue][121].
 
 #### Examples
 
@@ -1677,7 +1678,7 @@ import pss from 'pss'
 import { createStyles } from 'pss'
 ```
 
-Create styles from [Object][191] with keys that represents component `prop` and
+Create styles from [Object][190] with keys that represents component `prop` and
 the value is a `style` that will be applied.
 
 ```js
@@ -1685,12 +1686,12 @@ the value is a `style` that will be applied.
 ```
 
 -   `input` - prop value
--   `props` [Object][191] - component props, including `theme`
--   `mediaKey` [Object][191] - key in `theme.media`
+-   `props` [Object][190] - component props, including `theme`
+-   `mediaKey` [Object][190] - key in `theme.media`
 
 In component prop accepts values:
 
--   [Boolean][192] — enable / disable default style value
+-   [Boolean][191] — enable / disable default style value
 
     ```js
     const Comp = styled.div(createStyles({ red: { color: 'red' } }))
@@ -1699,7 +1700,7 @@ In component prop accepts values:
     <Comp red={false} /> // → 🤷‍♂️
     ```
 
--   [String][193], [Number][194] or [Array][195] — handled in functional styles
+-   [String][192], [Number][193] or [Array][194] — handled in functional styles
 
     ```js
     const Comp = styled.div(createStyles({ width: (input) => ({ width: input } })))
@@ -1707,7 +1708,7 @@ In component prop accepts values:
     <Comp width='100px' /> // → width: 100px
     ```
 
--   [Object][191] with keys defined in `theme.media` to define values for different screen sizes
+-   [Object][190] with keys defined in `theme.media` to define values for different screen sizes
 
     ```js
     <Comp width={{ all: '100px', sm: '50px' }} /> // → width: 100px; @media (max-width: 600px) { width: 50px }
@@ -1759,7 +1760,7 @@ const theme = {
 </ThemeProvider>
 ```
 
-Returns **[Function][196]** `(props) => styles`
+Returns **[Function][195]** `(props) => styles`
 
 ### rule
 
@@ -1771,9 +1772,9 @@ Create style rule. Must be used with [createStyles][112].
 
 #### Parameters
 
--   `cssProp` **[string][197]** 
+-   `cssProp` **[string][196]** 
 -   `getValue`  
--   `value` **[Function][196]**  (optional, default `identity`)
+-   `value` **[Function][195]**  (optional, default `identity`)
 
 #### Examples
 
@@ -1792,7 +1793,7 @@ const Box = styled.div(pss({
 </ThemeProvider>
 ```
 
-Returns **[Function][196]** 
+Returns **[Function][195]** 
 
 ### boolValue
 
@@ -1838,7 +1839,7 @@ Related: [sizes][5], [rule][115], [spaceValue][126].
 
 #### Parameters
 
--   `transformValue` **[Function][196]**  (optional, default `boolValue('100%',0)`)
+-   `transformValue` **[Function][195]**  (optional, default `boolValue('100%',0)`)
 
 #### Examples
 
@@ -1865,7 +1866,7 @@ const Box = styled.div`
 <Box l r /> // → left: 0; right: 0
 ```
 
-Returns **[Function][196]** that must be used in [rule][115]
+Returns **[Function][195]** that must be used in [rule][115]
 
 ### percentageValue
 
@@ -1896,7 +1897,7 @@ const Box = styled.div`
 <Box w={100} /> // → width: 100px
 ```
 
-Returns **[Function][196]** that must be used in [rule][115]
+Returns **[Function][195]** that must be used in [rule][115]
 
 ### spaceValue
 
@@ -1911,7 +1912,7 @@ Related: [space][2], [sizes][5], [rule][115], [sizeValue][121].
 
 #### Parameters
 
--   `defaultValue`  — Fallback value used when prop value is [String][193] or nothing returned. (optional, default `sizeValue(identity)`)
+-   `defaultValue`  — Fallback value used when prop value is [String][192] or nothing returned. (optional, default `sizeValue(identity)`)
 
 #### Examples
 
@@ -1968,7 +1969,7 @@ const theme = {
 </ThemeProvider>
 ```
 
-Returns **[Function][196]** that must be used in [rule][115]
+Returns **[Function][195]** that must be used in [rule][115]
 
 ### colorValue
 
@@ -1980,8 +1981,8 @@ Get color from theme and apply it to css prop. Must be used with [rule][115].
 
 #### Parameters
 
--   `key` **[string][197]** — Key in `theme.color` or in `theme.palette[theme.default.palette]`
--   `transformValue` **[Function][196]** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default `identity`)
+-   `key` **[string][196]** — Key in `theme.color` or in `theme.palette[theme.default.palette]`
+-   `transformValue` **[Function][195]** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default `identity`)
 
 #### Examples
 
@@ -2021,7 +2022,7 @@ const Box = styled.div`
 <Box tm='default' /> // color: #222222; background-color: #ffffff
 ```
 
-Returns **[Function][196]** 
+Returns **[Function][195]** 
 
 ### themeValue
 
@@ -2031,14 +2032,14 @@ import { themeValue } from 'pss'
 
 Use values defined in `theme[themeKey]`.
 
-See [fontFamily][189], [radius][76].
+See [fontFamily][197], [radius][76].
 
 #### Parameters
 
 -   `options` **[Object][181]**  (optional, default `{}`)
-    -   `options.themeKey` **[String][197]** 
-    -   `options.transformValue` **[Function][196]**  (optional, default `identity`)
-    -   `options.themeGetter` **[Function][196]**  (optional, default `getThemeValue(themeKey,transformValue)`)
+    -   `options.themeKey` **[String][196]** 
+    -   `options.transformValue` **[Function][195]**  (optional, default `identity`)
+    -   `options.themeGetter` **[Function][195]**  (optional, default `getThemeValue(themeKey,transformValue)`)
 
 #### Examples
 
@@ -2071,7 +2072,7 @@ const Text = styled.div(pss({
 }
 ```
 
-Returns **[Function][196]** 
+Returns **[Function][195]** 
 
 ### style
 
@@ -2160,9 +2161,9 @@ Related: [textStyle][14].
 #### Parameters
 
 -   `options` **[Object][181]**  (optional, default `{}`)
-    -   `options.themeKey` **[String][197]** 
-    -   `options.transformValue` **[Function][196]**  (optional, default `identity`)
-    -   `options.themeGetter` **[Function][196]**  (optional, default `getThemeValue(themeKey,transformValue)`)
+    -   `options.themeKey` **[String][196]** 
+    -   `options.transformValue` **[Function][195]**  (optional, default `identity`)
+    -   `options.themeGetter` **[Function][195]**  (optional, default `getThemeValue(themeKey,transformValue)`)
 
 #### Examples
 
@@ -2207,7 +2208,7 @@ const Text = styled.div(pss({
 }
 ```
 
-Returns **[Function][196]** 
+Returns **[Function][195]** 
 
 ### createVariant
 
@@ -2272,7 +2273,7 @@ Wrap result of prop style in custom CSS selector.
 
 #### Parameters
 
--   `name` **[string][197]?** — CSS selector, like `&:first-child`, `& + &`
+-   `name` **[string][196]?** — CSS selector, like `&:first-child`, `& + &`
 -   `value` **PropStyleValue?** — prop value
 
 #### Examples
@@ -2906,22 +2907,22 @@ const [ value, unit ] = splitUnit('30px') // → [ 30, 'px' ]
 
 [188]: https://css-tricks.com/aspect-ratio-boxes/
 
-[189]: fontFamily
+[189]: flexItem
 
-[190]: flexItem
+[190]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[191]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[191]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 
-[192]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[192]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[193]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[193]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
 
-[194]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[194]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
 
-[195]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[195]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[196]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[196]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[197]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[197]: fontFamily
 
 [198]: https://github.com/jxnblk/styled-system

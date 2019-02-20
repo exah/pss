@@ -1,6 +1,13 @@
 import { text } from '../src'
 import { testValue } from './_helpers'
 
+test('fontFamily', testValue({
+  fn: text,
+  prop: 'fontFamily',
+  cssProp: 'fontFamily',
+  value: [ 'system-ui', 'sans-serif' ]
+}))
+
 test('fontSize', testValue({
   fn: text,
   prop: 'fontSize',

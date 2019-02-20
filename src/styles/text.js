@@ -7,6 +7,7 @@ import { createStyles, rule } from '../core'
  *
  * prop           | css              | type               | value | true   | false
  * :--------------|:-----------------|:-------------------|:------|:-------|:--------
+ * `fontFamily`   | `font-family`    | `String`           | ✓     | —      | —
  * `fontSize`     | `font-size`      | `String`, `Number` | ✓     | —      | —
  * `fontWeight`   | `font-weight`    | `String`           | ✓     | —      | —
  * `lineHeight`   | `line-height`    | `String`, `Number` | ✓     | —      | —
@@ -14,7 +15,7 @@ import { createStyles, rule } from '../core'
  * `textAlign`    | `text-align`     | `String`           | ✓     | —      | —
  * `whiteSpace`   | `white-space`    | `String`           | ✓     | —      | —
  *
- * Related: {@link fontFamily}, {@link ellipsis}, {@link rule}, {@link boolValue}.
+ * Related: {@link fontVariant}, {@link ellipsis}, {@link rule}, {@link boolValue}.
  *
  * @param {Object} props
  *
@@ -31,6 +32,7 @@ import { createStyles, rule } from '../core'
  */
 
 export const text = createStyles({
+  fontFamily: rule('fontFamily'),
   fontSize: rule('fontSize'),
   fontWeight: rule('fontWeight'),
   lineHeight: rule('lineHeight'),
