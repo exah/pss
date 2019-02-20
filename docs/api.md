@@ -1349,14 +1349,14 @@ const Box = styled.div`
 import { text } from 'pss'
 ```
 
-| prop            | css              | type               | value | true     | false    |
-| :-------------- | :--------------- | :----------------- | :---- | :------- | :------- |
-| `fontSize`      | `font-size`      | `String`, `Number` | ✓     | `1rem`   | `medium` |
-| `fontWeight`    | `font-weight`    | `String`           | ✓     | —        | —        |
-| `lineHeight`    | `line-height`    | `String`, `Number` | ✓     | `normal` | —        |
-| `letterSpacing` | `letter-spacing` | `String`, `Number` | ✓     | `normal` | —        |
-| `textAlign`     | `text-align`     | `String`           | ✓     | —        | —        |
-| `whiteSpace`    | `white-space`    | `String`           | ✓     | —        | —        |
+| prop            | css              | type               | value | true | false    |
+| :-------------- | :--------------- | :----------------- | :---- | :--- | :------- |
+| `fontSize`      | `font-size`      | `String`, `Number` | ✓     | —    | `medium` |
+| `fontWeight`    | `font-weight`    | `String`           | ✓     | —    | —        |
+| `lineHeight`    | `line-height`    | `String`, `Number` | ✓     | —    | —        |
+| `letterSpacing` | `letter-spacing` | `String`, `Number` | ✓     | —    | —        |
+| `textAlign`     | `text-align`     | `String`           | ✓     | —    | —        |
+| `whiteSpace`    | `white-space`    | `String`           | ✓     | —    | —        |
 
 Related: [fontFamily][53], [ellipsis][42], [rule][115], [boolValue][118].
 

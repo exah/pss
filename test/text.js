@@ -5,8 +5,7 @@ test('fontSize', testValue({
   fn: text,
   prop: 'fontSize',
   cssProp: 'fontSize',
-  value: [ 16, '10rem' ],
-  trueValue: '1rem'
+  value: [ 16, '10rem' ]
 }))
 
 test('fontWeight', testValue({
@@ -20,16 +19,14 @@ test('lineHeight', testValue({
   fn: text,
   prop: 'lineHeight',
   cssProp: 'lineHeight',
-  value: [ 1, '1.5em', 0 ],
-  trueValue: 'normal'
+  value: [ 1, '1.5em', 0 ]
 }))
 
 test('letterSpacing', testValue({
   fn: text,
   prop: 'letterSpacing',
   cssProp: 'letterSpacing',
-  value: [ 0.15, '0.5em' ],
-  trueValue: 'normal'
+  value: [ 0.15, '0.5em' ]
 }))
 
 test('textAlign', testValue({

@@ -20,17 +20,11 @@ const theme = {
 test('defaults', () => {
   const result = toStyles(typography({
     theme,
-    fontFamily: true,
-    fontSize: true,
-    lineHeight: true,
-    letterSpacing: true
+    fontFamily: true
   }))
 
   expect(result).toEqual({
-    fontFamily: 'Helivetica, system-ui',
-    fontSize: '1rem',
-    lineHeight: 'normal',
-    letterSpacing: 'normal'
+    fontFamily: 'Helivetica, system-ui'
   })
 })
 
