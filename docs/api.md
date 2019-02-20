@@ -544,7 +544,7 @@ const theme = {
     default: {
       fontSize: '16px',
       lineHeight: 1.2,
-      fontWeight: normal,
+      fontWeight: 'normal',
       fontFamily: 'system-ui'
     },
     heading: {
@@ -767,9 +767,9 @@ const Box = styled.div`
 import { clearFix } from 'pss'
 ```
 
-| prop       | css                      | type   | value | true             | false |
-| :--------- | :----------------------- | :----- | :---- | :--------------- | :---- |
-| `clearFix` | [Clearfix][clearfix-url] | `true` | —     | Clear fix styles | —     |
+| prop       | css                       | type   | value | true             | false |
+| :--------- | :------------------------ | :----- | :---- | :--------------- | :---- |
+| `clearFix` | styles for clear fix hack | `true` | —     | Clear fix styles | —     |
 
 Related: [float][53].
 
@@ -1171,8 +1171,6 @@ const Box = styled.div`
 ```js
 <Box opacity='1' /> // → opacity: 1
 <Box opacity={0.5} /> // → opacity: 0.5
-<Box opacity={true} /> // → opacity: 1
-<Box opacity={false} /> // → opacity: 0
 ```
 
 ### order
@@ -1377,7 +1375,7 @@ const Text = styled.p`
 
 ```js
 <Text textAlign='center' /> // text-align: center
-<Text lineHeight /> // line-height: normal
+<Text lineHeight='normal' /> // line-height: normal
 ```
 
 ### transform
@@ -1488,7 +1486,6 @@ Combination of
 
 -   [space][2]
 -   [colors][8]
--   [border][21]
 -   [atomicSizes][108]
 -   [atomicPosition][105]
 -   [atomicDisplay][100]

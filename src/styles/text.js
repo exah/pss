@@ -28,7 +28,7 @@ import { createStyles, rule } from '../core'
  *
  * @example
  * <Text textAlign='center' /> // text-align: center
- * <Text lineHeight /> // line-height: normal
+ * <Text lineHeight='normal' /> // line-height: normal
  */
 
 export const text = createStyles({

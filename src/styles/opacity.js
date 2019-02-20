@@ -25,8 +25,6 @@ import { createStyles, rule } from '../core'
  * @example
  * <Box opacity='1' /> // → opacity: 1
  * <Box opacity={0.5} /> // → opacity: 0.5
- * <Box opacity={true} /> // → opacity: 1
- * <Box opacity={false} /> // → opacity: 0
  */
 
 export const opacity = createStyles({

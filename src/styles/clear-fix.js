@@ -5,9 +5,9 @@ import { createStyles } from '../core'
  * import { clearFix } from 'pss'
  * ```
  *
- * prop       | css                      | type    | value | true             | false
- * :----------|:-------------------------|:--------|:------|:-----------------|:--------
- * `clearFix` | [Clearfix][clearfix-url] | `true`  | —     | Clear fix styles | —
+ * prop       | css                       | type    | value | true             | false
+ * :----------|:--------------------------|:--------|:------|:-----------------|:--------
+ * `clearFix` | styles for clear fix hack | `true`  | —     | Clear fix styles | —
  *
  * Related: {@link float}.
  *

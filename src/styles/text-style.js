@@ -18,7 +18,7 @@ import { createVariant } from '../core'
  *     default: {
  *       fontSize: '16px',
  *       lineHeight: 1.2,
- *       fontWeight: normal,
+ *       fontWeight: 'normal',
  *       fontFamily: 'system-ui'
  *     },
  *     heading: {

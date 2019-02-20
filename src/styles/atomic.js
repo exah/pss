@@ -190,7 +190,6 @@ export const atomicFlexItem = createStyles({
  * Combination of
  *   - {@link space}
  *   - {@link colors}
- *   - {@link border}
  *   - {@link atomicSizes}
  *   - {@link atomicPosition}
  *   - {@link atomicDisplay}
