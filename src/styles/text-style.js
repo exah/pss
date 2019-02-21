@@ -8,7 +8,7 @@ import { createVariant } from '../core'
  *
  * Global text styles system, like in [Sketch](https://sketchapp.com/docs/text/text-styles).
  *
- * Related: {@link createVariant}, {@link typography}.
+ * Related: {@link createVariant}, {@link text}.
  *
  * Add `textStyle` to `theme`:
  *

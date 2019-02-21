@@ -11,6 +11,8 @@ import { createStyles, rule } from '../core'
  *
  * Related: {@link rule}, {@link boolValue}, {@link sizeValue}.
  *
+ * @param {Object} props
+ *
  * @example
  * import { order } from 'pss'
  *
