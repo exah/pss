@@ -23,12 +23,13 @@
     "css"
   ],
   "scripts": {
-    "build": "run-s build:*",
+    "build": "run-s build:* docs",
     "build:esm": "cross-env NODE_ENV=production babel src -d esm",
     "build:cjs": "cross-env NODE_ENV=production MODULES=cjs babel src -d cjs",
-    "build:docs": "documentation build -c ./.documentation.yml src/** -f md -o docs/api.md",
+    "docs": "run-s docs:*",
+    "docs:api": "documentation build -c ./.documentation.yml src/** -f md -o docs/api.md",
     "prebuild": "npm run cleanup",
-    "watch": "run-p \"build:* -- -w\" \"test:unit -- --watchAll\"",
+    "watch": "run-p \"build:* -- -w\" \"docs:* -- -w\" \"test:unit -- --watchAll\"",
     "prewatch": "npm run cleanup",
     "test": "run-s test:*",
     "test:unit": "jest",
