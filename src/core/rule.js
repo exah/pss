@@ -1,4 +1,4 @@
-import { style } from './style'
+import { createRule } from './create-rule'
 
 /**
  * ```js
@@ -26,7 +26,7 @@ import { style } from './style'
  */
 
 function rule (cssProp, getValue) {
-  return style({
+  return createRule({
     cssProp,
     getValue
   })

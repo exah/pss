@@ -62,9 +62,9 @@ toc:
       - spaceValue
       - colorValue
       - themeValue
-      - style
       - mediaStyle
       - themeStyle
+      - createRule
       - createVariant
 
   - name: Selectors

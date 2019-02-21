@@ -4,7 +4,7 @@ import { wrap } from '../utils'
 
 /**
  * ```js
- * import { style } from 'pss'
+ * import { createRule } from 'pss'
  * ```
  *
  * Create style from value. Must be used with {@link createStyles}.
@@ -14,10 +14,10 @@ import { wrap } from '../utils'
  * @param {Object} options
  *
  * @example
- * import pss, { style, spaceValue } from 'pss'
+ * import pss, { createRule, spaceValue } from 'pss'
  *
  * const Box = styled.div(pss({
- *   gap: style({
+ *   gap: createRule({
  *     getStyle: (val) => ({ margin: val, padding: val }),
  *     getValue: spaceValue()
  *   })
@@ -30,7 +30,7 @@ import { wrap } from '../utils'
  * </ThemeProvider>
  */
 
-function style ({
+function createRule ({
   cssProp,
   getStyle = wrap(cssProp),
   getValue = identity
@@ -57,5 +57,5 @@ function style ({
 }
 
 export {
-  style
+  createRule
 }

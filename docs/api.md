@@ -136,13 +136,13 @@
     -   [themeValue][132]
         -   [Parameters][133]
         -   [Examples][134]
-    -   [style][135]
+    -   [mediaStyle][135]
         -   [Parameters][136]
         -   [Examples][137]
-    -   [mediaStyle][138]
+    -   [themeStyle][138]
         -   [Parameters][139]
         -   [Examples][140]
-    -   [themeStyle][141]
+    -   [createRule][141]
         -   [Parameters][142]
         -   [Examples][143]
     -   [createVariant][144]
@@ -1115,7 +1115,7 @@ import { hideOn } from 'pss'
 | :------- | :-------------- | :------------------- | :------- | :--- | :---- |
 | `hideOn` | `display: none` | key in `theme.media` | mediaKey | —    | —     |
 
-Related: [display][42], [mediaStyle][138].
+Related: [display][42], [mediaStyle][135].
 
 #### Parameters
 
@@ -1546,7 +1546,7 @@ import { atomicDisplay } from 'pss'
 | `d`    | [`display`][display-url] | `String`, `Boolean`  | ✓        | `initial` | `none` |
 | `hide` | `display: none`          | key in `theme.media` | mediaKey | —         | —      |
 
-Related: [display][42], [boolValue][118], [rule][115], [mediaStyle][138].
+Related: [display][42], [boolValue][118], [rule][115], [mediaStyle][135].
 
 #### Parameters
 
@@ -1608,7 +1608,7 @@ import { atomicPosition } from 'pss'
 | `psy` | `position` | `Boolean`, key in `theme.media` | mediaKey | `sticky`   | —     |
 | `pst` | `position` | `Boolean`, key in `theme.media` | mediaKey | `static`   | —     |
 
-Related: [position][73], [mediaStyle][138].
+Related: [position][73], [mediaStyle][135].
 
 #### Parameters
 
@@ -2071,43 +2071,6 @@ const Text = styled.div(pss({
 
 Returns **[Function][195]** 
 
-### style
-
-```js
-import { style } from 'pss'
-```
-
-Create style from value. Must be used with [createStyles][112].
-
-Related: [rule][115].
-
-#### Parameters
-
--   `options` **[Object][181]** 
-    -   `options.cssProp`  
-    -   `options.getStyle`   (optional, default `wrap(cssProp)`)
-    -   `options.getValue`   (optional, default `identity`)
-
-#### Examples
-
-```js
-import pss, { style, spaceValue } from 'pss'
-
-const Box = styled.div(pss({
-  gap: style({
-    getStyle: (val) => ({ margin: val, padding: val }),
-    getValue: spaceValue()
-  })
-}))
-```
-
-```js
-// Add theme to ThemeProvider
-<ThemeProvider theme={theme}>
-  <Box gap={1} /> // → margin: 8px; padding: 8px;
-</ThemeProvider>
-```
-
 ### mediaStyle
 
 ```js
@@ -2207,12 +2170,49 @@ const Text = styled.div(pss({
 
 Returns **[Function][195]** 
 
+### createRule
+
+```js
+import { createRule } from 'pss'
+```
+
+Create style from value. Must be used with [createStyles][112].
+
+Related: [rule][115].
+
+#### Parameters
+
+-   `options` **[Object][181]** 
+    -   `options.cssProp`  
+    -   `options.getStyle`   (optional, default `wrap(cssProp)`)
+    -   `options.getValue`   (optional, default `identity`)
+
+#### Examples
+
+```js
+import pss, { createRule, spaceValue } from 'pss'
+
+const Box = styled.div(pss({
+  gap: createRule({
+    getStyle: (val) => ({ margin: val, padding: val }),
+    getValue: spaceValue()
+  })
+}))
+```
+
+```js
+// Add theme to ThemeProvider
+<ThemeProvider theme={theme}>
+  <Box gap={1} /> // → margin: 8px; padding: 8px;
+</ThemeProvider>
+```
+
 ### createVariant
 
 Create `variant` from styles defined directly in `theme`.
 Inspired by [`styled-system`][198].
 
-Related: [textStyle][14], [boxStyle][11], [rule][115], [themeValue][132], [themeStyle][141].
+Related: [textStyle][14], [boxStyle][11], [rule][115], [themeValue][132], [themeStyle][138].
 
 #### Parameters
 
@@ -2796,19 +2796,19 @@ const [ value, unit ] = splitUnit('30px') // → [ 30, 'px' ]
 
 [134]: #examples-43
 
-[135]: #style
+[135]: #mediastyle
 
 [136]: #parameters-40
 
 [137]: #examples-44
 
-[138]: #mediastyle
+[138]: #themestyle
 
 [139]: #parameters-41
 
 [140]: #examples-45
 
-[141]: #themestyle
+[141]: #createrule
 
 [142]: #parameters-42
 
