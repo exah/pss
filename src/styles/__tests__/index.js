@@ -12,7 +12,13 @@ import {
   order,
   outline,
   radius,
-  text,
+  fontFamily,
+  fontSize,
+  fontWeight,
+  lineHeight,
+  letterSpacing,
+  textAlign,
+  whiteSpace,
   transform,
   transition,
   zIndex
@@ -153,49 +159,49 @@ test('zIndex', testValue({
 }))
 
 test('fontFamily', testValue({
-  fn: text,
+  fn: fontFamily,
   prop: 'fontFamily',
   cssProp: 'fontFamily',
   value: [ 'system-ui', 'sans-serif' ]
 }))
 
 test('fontSize', testValue({
-  fn: text,
+  fn: fontSize,
   prop: 'fontSize',
   cssProp: 'fontSize',
   value: [ 16, '10rem' ]
 }))
 
 test('fontWeight', testValue({
-  fn: text,
+  fn: fontWeight,
   prop: 'fontWeight',
   cssProp: 'fontWeight',
   value: [ 300, 'bold', 'normal' ]
 }))
 
 test('lineHeight', testValue({
-  fn: text,
+  fn: lineHeight,
   prop: 'lineHeight',
   cssProp: 'lineHeight',
   value: [ 1, '1.5em', 0 ]
 }))
 
 test('letterSpacing', testValue({
-  fn: text,
+  fn: letterSpacing,
   prop: 'letterSpacing',
   cssProp: 'letterSpacing',
   value: [ 0.15, '0.5em' ]
 }))
 
 test('textAlign', testValue({
-  fn: text,
+  fn: textAlign,
   prop: 'textAlign',
   cssProp: 'textAlign',
   value: [ 'left', 'center', 'right', 'justify' ]
 }))
 
 test('whiteSpace', testValue({
-  fn: text,
+  fn: whiteSpace,
   prop: 'whiteSpace',
   cssProp: 'whiteSpace',
   value: [ 'normal', 'nowrap', 'pre' ]

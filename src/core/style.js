@@ -1,5 +1,5 @@
 import { createStyles } from './create-styles'
-import { createRule } from './rule'
+import { createRule } from './create-rule'
 
 export const style = ({
   prop,

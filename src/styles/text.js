@@ -1,21 +1,27 @@
-import { createStyles, rule } from '../core'
+import { combineStyles } from '../core'
+import { fontFamily } from './font-family'
+import { fontSize } from './font-size'
+import { fontWeight } from './font-weight'
+import { letterSpacing } from './letter-spacing'
+import { lineHeight } from './line-height'
+import { textAlign } from './text-align'
+import { whiteSpace } from './white-space'
 
 /**
  * ```js
  * import { text } from 'pss'
  * ```
  *
- * prop           | css              | type               | value | true   | false
- * :--------------|:-----------------|:-------------------|:------|:-------|:--------
- * `fontFamily`   | `font-family`    | `String`           | ✓     | —      | —
- * `fontSize`     | `font-size`      | `String`, `Number` | ✓     | —      | —
- * `fontWeight`   | `font-weight`    | `String`           | ✓     | —      | —
- * `lineHeight`   | `line-height`    | `String`, `Number` | ✓     | —      | —
- * `letterSpacing`| `letter-spacing` | `String`, `Number` | ✓     | —      | —
- * `textAlign`    | `text-align`     | `String`           | ✓     | —      | —
- * `whiteSpace`   | `white-space`    | `String`           | ✓     | —      | —
+ * Combination of
+ *   - {@link fontFamily}
+ *   - {@link fontSize}
+ *   - {@link fontWeight}
+ *   - {@link letterSpacing}
+ *   - {@link lineHeight}
+ *   - {@link textAlign}
+ *   - {@link whiteSpace}
  *
- * Related: {@link fontVariant}, {@link ellipsis}, {@link rule}, {@link boolValue}.
+ * Related: {@link textStyle}, {@link combineStyles}.
  *
  * @param {Object} props
  *
@@ -31,12 +37,12 @@ import { createStyles, rule } from '../core'
  * <Text lineHeight='normal' /> // line-height: normal
  */
 
-export const text = createStyles({
-  fontFamily: rule('fontFamily'),
-  fontSize: rule('fontSize'),
-  fontWeight: rule('fontWeight'),
-  lineHeight: rule('lineHeight'),
-  letterSpacing: rule('letterSpacing'),
-  textAlign: rule('textAlign'),
-  whiteSpace: rule('whiteSpace')
-})
+export const text = combineStyles(
+  fontFamily,
+  fontSize,
+  fontWeight,
+  letterSpacing,
+  lineHeight,
+  textAlign,
+  whiteSpace
+)

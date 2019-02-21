@@ -1,4 +1,4 @@
-import { fontVariant } from '../..'
+import { fontFamily } from '../..'
 import { toStyles } from '../../../test-helpers'
 
 const theme = {
@@ -18,9 +18,9 @@ const theme = {
 }
 
 test('defaults', () => {
-  const result = toStyles(fontVariant({
+  const result = toStyles(fontFamily({
     theme,
-    font: true
+    fontFamily: true
   }))
 
   expect(result).toEqual({
@@ -29,9 +29,9 @@ test('defaults', () => {
 })
 
 test('key', () => {
-  const result = toStyles(fontVariant({
+  const result = toStyles(fontFamily({
     theme,
-    font: 'heading'
+    fontFamily: 'heading'
   }))
 
   expect(result).toEqual({
@@ -40,9 +40,9 @@ test('key', () => {
 })
 
 test('responsive', () => {
-  const result = toStyles(fontVariant({
+  const result = toStyles(fontFamily({
     theme,
-    font: 'responsive'
+    fontFamily: 'responsive'
   }))
 
   expect(result).toEqual({

@@ -12,7 +12,7 @@ toc:
       - colors
       - boxStyle
       - textStyle
-      - fontVariant
+      - text
 
   - name: Styles
     children:
@@ -28,19 +28,25 @@ toc:
       - flex
       - flexBox
       - float
+      - fontFamily
+      - fontSize
+      - fontWeight
       - gap
       - grid
       - gridItem
       - hideOn
+      - letterSpacing
+      - lineHeight
       - opacity
       - order
       - outline
       - position
       - radius
       - ratio
-      - text
+      - textAlign
       - transform
       - transition
+      - whiteSpace
       - zIndex
 
   - name: Atomic Styles
