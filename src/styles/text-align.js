@@ -24,4 +24,4 @@ import { style } from '../core'
  * <Text textAlign='center' /> // text-align: center
  */
 
-export const textAlign = style({ prop: 'textAlign' })
+export const textAlign = style({ cssProp: 'textAlign' })

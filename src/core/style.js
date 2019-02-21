@@ -2,9 +2,9 @@ import { createStyles } from './create-styles'
 import { createRule } from './create-rule'
 
 export const style = ({
-  prop,
+  cssProp,
   getValue,
-  cssProp = prop,
+  prop = cssProp,
   rule = createRule({ cssProp, getValue })
 }) => createStyles({
   [prop]: rule

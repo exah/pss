@@ -24,4 +24,4 @@ import { style } from '../core'
  * <Text lineHeight={1.5} /> // line-height: 1.5
  */
 
-export const lineHeight = style({ prop: 'lineHeight' })
+export const lineHeight = style({ cssProp: 'lineHeight' })
