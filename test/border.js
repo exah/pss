@@ -2,17 +2,31 @@ import { border } from '../src'
 import { toStyles, testValue } from './_helpers'
 
 const theme = {
+  border: {
+    default: '1px solid',
+    thick: '5px solid'
+  },
   palette: {
     default: {
       border: '#eee'
+    },
+    inverted: {
+      border: '#333'
     }
   }
 }
 
-test('border', () => {
+test('color', testValue({
+  fn: border,
+  prop: 'borderColor',
+  cssProp: 'borderColor',
+  values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ]
+}))
+
+test('default', () => {
   const result = border({
     theme,
-    border: '1px solid',
+    border: true,
     borderColor: true
   })
 
@@ -22,22 +36,28 @@ test('border', () => {
   })
 })
 
-test('borderColor', testValue({
-  fn: border,
-  prop: 'borderColor',
-  cssProp: 'borderColor',
-  values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ]
-}))
+test('theme', () => {
+  const result = border({
+    theme,
+    borderLeft: 'thick',
+    borderColor: 'inverted'
+  })
 
-test('bdl custom', () => {
+  expect(toStyles(result)).toEqual({
+    borderLeft: '5px solid',
+    borderColor: '#333'
+  })
+})
+
+test('custom', () => {
   const result = border({
     theme,
     borderLeft: '5px dotted',
-    borderColor: true
+    borderColor: 'red'
   })
 
   expect(toStyles(result)).toEqual({
     borderLeft: '5px dotted',
-    borderColor: '#eee'
+    borderColor: 'red'
   })
 })
