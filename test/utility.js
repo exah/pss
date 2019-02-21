@@ -4,7 +4,8 @@ import {
   radius,
   transform,
   transition,
-  outline
+  outline,
+  zIndex
 } from '../src'
 
 import { toStyles, testValue } from './_helpers'
@@ -44,13 +45,22 @@ test('transition', testValue({
   values: [ 'any', 'none' ]
 }))
 
-test('outline', testValue({
-  fn: outline,
-  prop: 'outline',
-  cssProp: 'outline',
-  values: [ '1px solid red', 'none' ]
-}))
+describe('outline', () => {
+  test('values', testValue({
+    fn: outline,
+    prop: 'outline',
+    cssProp: 'outline',
+    values: [ '1px solid red', 'none' ]
+  }))
 
-test('outline: debug', () => {
-  expect(toStyles(outline({ outline: 'debug' })).outline.indexOf('1px solid')).toBe(0)
+  test('debug', () => {
+    expect(toStyles(outline({ outline: 'debug' })).outline.indexOf('1px solid')).toBe(0)
+  })
 })
+
+test('zIndex', testValue({
+  fn: zIndex,
+  prop: 'zIndex',
+  cssProp: 'zIndex',
+  values: [ 1, 100, 300 ]
+}))
