@@ -32,7 +32,7 @@
     "prewatch": "npm run cleanup",
     "test": "run-s test:*",
     "test:unit": "jest",
-    "test:lint": "eslint src test",
+    "test:lint": "eslint src",
     "release": "np --no-cleanup",
     "cleanup": "rimraf cjs esm",
     "version": "auto-changelog -p && git add CHANGELOG.md",
@@ -62,7 +62,7 @@
   },
   "jest": {
     "testMatch": [
-      "**/test/*.js"
+      "**/__tests__/*.js"
     ]
   },
   "devDependencies": {
