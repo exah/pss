@@ -57,3 +57,38 @@ toc:
       - atomicFlexItem
       - atomicPosition
       - atomicSizes
+
+  - name: Custom Styles
+    children:
+      - createStyles
+      - rule
+      - boolValue
+      - sizeValue
+      - percentageValue
+      - spaceValue
+      - colorValue
+      - themeValue
+      - mediaStyle
+      - themeStyle
+      - createRule
+      - createVariant
+      - style
+
+  - name: Selectors
+    children:
+      - propSelector
+      - themeSelector
+      - combineSelectors
+
+  - name: Mixins
+    children:
+      - themePath
+      - mq
+      - prop
+
+  - name: Utils
+    children:
+      - combineStyles
+      - rem
+      - px
+      - splitUnit

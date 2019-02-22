@@ -31,8 +31,6 @@ Because css-in-js and design systems are all the hype right now! But seriously, 
 
 ## 📖 [API](./docs/api.md)
 
-## 📖 [Styles](./docs/styles.md)
-
 ## 🔗 Links
 
 ### Sites
