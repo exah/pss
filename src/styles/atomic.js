@@ -153,37 +153,6 @@ export const atomicDisplay = createStyles({
 
 /**
  * ```js
- * import { atomicFlexItem } from 'pss'
- * ```
- *
- * prop | css           | type                 | value | true    | false
- * :----|:--------------|:---------------------|:------|:------- |:--------
- * `f`  | `flex`        | `String`, `Boolean`  | ✓     | `1 1 0` | `0 1 auto`
- * `o`  | `order`       | `Number`, `Boolean`  | ✓     | `1`     | `0`
- * `a`  | `align-self`  | `String`             | ✓     | —       | —
- *
- * Related: {@link flexItem}, {@link rule}, {@link boolValue}, {@link sizeValue}.
- *
- * @example
- * import { atomicFlexItem } from 'pss'
- *
- * const FlexBoxItem = styled.div`
- *   ${atomicFlexItem}
- * `
- *
- * @example
- * <FlexBoxItem f='1 1'>2</FlexBoxItem> // flex: 1 1
- * <FlexBoxItem o={-1}>1</FlexBoxItem> // order: -1
- */
-
-export const atomicFlexItem = createStyles({
-  f: sizeRule('flex', '1 1 0', '0 1 auto'),
-  o: rule('order', boolValue(1, 0)),
-  a: rule('alignSelf')
-})
-
-/**
- * ```js
  * import { atomic } from 'pss'
  * ```
  *
@@ -205,6 +174,5 @@ export const atomic = combineStyles(
   colors,
   atomicSizes,
   atomicPosition,
-  atomicDisplay,
-  atomicFlexItem
+  atomicDisplay
 )

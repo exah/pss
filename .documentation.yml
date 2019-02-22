@@ -55,7 +55,6 @@ toc:
       - atomic
       - atomicDirection
       - atomicDisplay
-      - atomicFlexItem
       - atomicPosition
       - atomicSizes
 
