@@ -16,10 +16,11 @@ import { createStyles, rule } from '../core'
  * @param {Object} props
  *
  * @example
- * import { position } from 'pss'
+ * import { position, direction } from 'pss'
  *
  * const Box = styled.div`
  *   ${position}
+ *   ${direction}
  * `
  *
  * @example

@@ -1504,10 +1504,11 @@ Related: [rule][172], [direction][42].
 #### Examples
 
 ```js
-import { position } from 'pss'
+import { position, direction } from 'pss'
 
 const Box = styled.div`
   ${position}
+  ${direction}
 `
 ```
 

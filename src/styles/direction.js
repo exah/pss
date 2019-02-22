@@ -19,7 +19,7 @@ import { directionRule } from '../rules'
  * @param {Object} props
  *
  * @example
- * import { position, direction } from 'pss'
+ * import { direction } from 'pss'
  *
  * const Box = styled.div`
  *   position: relative;
