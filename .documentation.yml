@@ -10,9 +10,10 @@ toc:
       - space
       - sizes
       - colors
+      - box
       - boxStyle
-      - textStyle
       - text
+      - textStyle
 
   - name: Styles
     children:
@@ -58,22 +59,6 @@ toc:
       - atomicPosition
       - atomicSizes
 
-  - name: Custom Styles
-    children:
-      - createStyles
-      - rule
-      - boolValue
-      - sizeValue
-      - percentageValue
-      - spaceValue
-      - colorValue
-      - themeValue
-      - mediaStyle
-      - themeStyle
-      - createRule
-      - createVariant
-      - style
-
   - name: Selectors
     children:
       - propSelector
@@ -92,3 +77,19 @@ toc:
       - rem
       - px
       - splitUnit
+
+  - name: Custom Styles
+    children:
+      - createStyles
+      - rule
+      - boolValue
+      - sizeValue
+      - percentageValue
+      - spaceValue
+      - colorValue
+      - themeValue
+      - mediaStyle
+      - themeStyle
+      - createRule
+      - createVariant
+      - style
