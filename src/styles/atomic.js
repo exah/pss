@@ -1,5 +1,5 @@
 import { rule, createStyles, combineStyles, mediaStyle } from '../core'
-import { directionRule, sizeRule } from '../rules'
+import { positionRule, sizeRule } from '../rules'
 import { boolValue } from '../values'
 import { colors } from './colors'
 import { space } from './space'
@@ -80,7 +80,7 @@ export const atomicPosition = createStyles({
 
 /**
  * ```js
- * import { atomicDirection } from 'pss'
+ * import { atomicPositionOffset } from 'pss'
  * ```
  *
  * prop  | css                        | type                          | value | true       | false
@@ -93,16 +93,16 @@ export const atomicPosition = createStyles({
  * `y`   | `top`, `bottom`            | `String`, `Number`, `Boolean` | ✓     | `0`        | `auto`
  * `z`   | `z-index`                  | `String`, `Number`, `Boolean` | ✓     | `1`        | `auto`
  *
- * Related: {@link direction}, {@link rule}, {@link boolValue}, {@link sizeValue}.
+ * Related: {@link rule}, {@link boolValue}, {@link sizeValue}.
  *
  * @param {Object} props
  *
  * @example
- * import { atomicDirection } from 'pss'
+ * import { atomicPositionOffset } from 'pss'
  *
  * const Box = styled.div`
  *   position: absolute;
- *   ${atomicDirection}
+ *   ${atomicPositionOffset}
  * `
  *
  * @example
@@ -110,13 +110,13 @@ export const atomicPosition = createStyles({
  * <Box x y /> // position: absolute; top: 0; left: 0; right: 0; bottom: 0;
  */
 
-export const atomicDirection = createStyles({
-  t: directionRule('top'),
-  l: directionRule('left'),
-  r: directionRule('right'),
-  b: directionRule('bottom'),
-  x: [ directionRule('left'), directionRule('right') ],
-  y: [ directionRule('top'), directionRule('bottom') ],
+export const atomicPositionOffset = createStyles({
+  t: positionRule('top'),
+  l: positionRule('left'),
+  r: positionRule('right'),
+  b: positionRule('bottom'),
+  x: [ positionRule('left'), positionRule('right') ],
+  y: [ positionRule('top'), positionRule('bottom') ],
   z: rule('zIndex', boolValue(1, 'auto'))
 })
 
@@ -161,6 +161,7 @@ export const atomicDisplay = createStyles({
  *   - {@link colors}
  *   - {@link atomicSizes}
  *   - {@link atomicPosition}
+ *   - {@link atomicPositionOffset}
  *   - {@link atomicDisplay}
  *   - {@link atomicFlexItem}
  *
@@ -174,5 +175,6 @@ export const atomic = combineStyles(
   colors,
   atomicSizes,
   atomicPosition,
+  atomicPositionOffset,
   atomicDisplay
 )

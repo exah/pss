@@ -3,7 +3,7 @@
 import {
   createStyles,
   themePath,
-  direction,
+  positionOffset,
   space,
   sizes,
   ts,
@@ -58,8 +58,8 @@ describe('propSelector', () => {
 })
 
 describe('themeSelector', () => {
-  test('direction', () => {
-    const result = toStyles(direction({
+  test('positionOffset', () => {
+    const result = toStyles(positionOffset({
       theme,
       top: ts((tm) => tm.myValue),
       bottom: ts(themePath('myValue')),
@@ -93,7 +93,7 @@ describe('themeSelector', () => {
 
 describe('combineSelectors', () => {
   test('add different top value to &:last-child and &:first-child', () => {
-    const result = toStyles(direction({
+    const result = toStyles(positionOffset({
       theme,
       top: cs(50, ps('&:last-child', 10), ps('&:first-child', 20))
     }))

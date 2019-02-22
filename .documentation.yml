@@ -23,7 +23,6 @@ toc:
       - boxSelfAlignment
       - clearFix
       - cursor
-      - direction
       - display
       - ellipsis
       - flex
@@ -42,6 +41,7 @@ toc:
       - order
       - outline
       - position
+      - positionOffset
       - radius
       - ratio
       - textAlign
@@ -53,9 +53,9 @@ toc:
   - name: Atomic Styles
     children:
       - atomic
-      - atomicDirection
       - atomicDisplay
       - atomicPosition
+      - atomicPositionOffset
       - atomicSizes
 
   - name: Selectors

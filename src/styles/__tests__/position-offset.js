@@ -1,4 +1,4 @@
-import { direction } from '../..'
+import { positionOffset } from '../..'
 import { toStyles } from '../../../test-helpers'
 
 const theme = {
@@ -7,8 +7,8 @@ const theme = {
   }
 }
 
-test('direction', () => {
-  const result = direction({
+test('positionOffset', () => {
+  const result = positionOffset({
     theme,
     top: true,
     bottom: false,

@@ -8,7 +8,7 @@ import { display } from './display'
 import { flex } from './flex'
 import { boxSelfAlignment } from './box-alignment'
 import { position } from './position'
-import { direction } from './direction'
+import { positionOffset } from './position-offset'
 import { zIndex } from './z-index'
 
 /**
@@ -26,7 +26,7 @@ import { zIndex } from './z-index'
  *   - {@link flex}
  *   - {@link boxSelfAlignment}
  *   - {@link position}
- *   - {@link direction}
+ *   - {@link positionOffset}
  *   - {@link zIndex}
  *
  * Related: {@link boxStyle}, {@link combineStyles}.
@@ -55,6 +55,6 @@ export const box = combineStyles(
   flex,
   boxSelfAlignment,
   position,
-  direction,
+  positionOffset,
   zIndex
 )

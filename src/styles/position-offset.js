@@ -1,9 +1,9 @@
 import { createStyles } from '../core'
-import { directionRule } from '../rules'
+import { positionRule } from '../rules'
 
 /**
  * ```js
- * import { direction } from 'pss'
+ * import { positionOffset } from 'pss'
  * ```
  *
  * prop       | css       | type                          | value | true   | false
@@ -19,24 +19,24 @@ import { directionRule } from '../rules'
  * @param {Object} props
  *
  * @example
- * import { direction } from 'pss'
+ * import { positionOffset } from 'pss'
  *
  * const Box = styled.div`
  *   position: relative;
- *   ${direction}
+ *   ${positionOffset}
  * `
  *
  * @example
  * <Box top={0.2} left={0} /> // position: relative; top: 20%; left: 0
  */
 
-const direction = createStyles({
-  top: directionRule('top'),
-  left: directionRule('left'),
-  right: directionRule('right'),
-  bottom: directionRule('bottom')
+const positionOffset = createStyles({
+  top: positionRule('top'),
+  left: positionRule('left'),
+  right: positionRule('right'),
+  bottom: positionRule('bottom')
 })
 
 export {
-  direction
+  positionOffset
 }

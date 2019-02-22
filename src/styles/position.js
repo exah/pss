@@ -11,16 +11,16 @@ import { createStyles, rule } from '../core'
  *
  * [position-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
  *
- * Related: {@link rule}, {@link direction}.
+ * Related: {@link rule}, {@link positionOffset}.
  *
  * @param {Object} props
  *
  * @example
- * import { position, direction } from 'pss'
+ * import { position, positionOffset } from 'pss'
  *
  * const Box = styled.div`
  *   ${position}
- *   ${direction}
+ *   ${positionOffset}
  * `
  *
  * @example

@@ -43,59 +43,59 @@
     -   [cursor][39]
         -   [Parameters][40]
         -   [Examples][41]
-    -   [direction][42]
+    -   [display][42]
         -   [Parameters][43]
         -   [Examples][44]
-    -   [display][45]
+    -   [ellipsis][45]
         -   [Parameters][46]
         -   [Examples][47]
-    -   [ellipsis][48]
-        -   [Parameters][49]
-        -   [Examples][50]
-    -   [flex][51]
+    -   [flex][48]
+        -   [Examples][49]
+    -   [flexBox][50]
+        -   [Parameters][51]
         -   [Examples][52]
-    -   [flexBox][53]
+    -   [float][53]
         -   [Parameters][54]
         -   [Examples][55]
-    -   [float][56]
+    -   [fontFamily][56]
         -   [Parameters][57]
         -   [Examples][58]
-    -   [fontFamily][59]
+    -   [fontSize][59]
         -   [Parameters][60]
         -   [Examples][61]
-    -   [fontSize][62]
+    -   [fontWeight][62]
         -   [Parameters][63]
         -   [Examples][64]
-    -   [fontWeight][65]
+    -   [gap][65]
         -   [Parameters][66]
         -   [Examples][67]
-    -   [gap][68]
+    -   [grid][68]
         -   [Parameters][69]
         -   [Examples][70]
-    -   [grid][71]
-        -   [Parameters][72]
-        -   [Examples][73]
-    -   [gridItem][74]
+    -   [gridItem][71]
+        -   [Examples][72]
+    -   [hideOn][73]
+        -   [Parameters][74]
         -   [Examples][75]
-    -   [hideOn][76]
+    -   [letterSpacing][76]
         -   [Parameters][77]
         -   [Examples][78]
-    -   [letterSpacing][79]
+    -   [lineHeight][79]
         -   [Parameters][80]
         -   [Examples][81]
-    -   [lineHeight][82]
+    -   [opacity][82]
         -   [Parameters][83]
         -   [Examples][84]
-    -   [opacity][85]
+    -   [order][85]
         -   [Parameters][86]
         -   [Examples][87]
-    -   [order][88]
+    -   [outline][88]
         -   [Parameters][89]
         -   [Examples][90]
-    -   [outline][91]
+    -   [position][91]
         -   [Parameters][92]
         -   [Examples][93]
-    -   [position][94]
+    -   [positionOffset][94]
         -   [Parameters][95]
         -   [Examples][96]
     -   [radius][97]
@@ -122,13 +122,13 @@
 -   [Atomic Styles][118]
     -   [atomic][119]
         -   [Parameters][120]
-    -   [atomicDirection][121]
+    -   [atomicDisplay][121]
         -   [Parameters][122]
         -   [Examples][123]
-    -   [atomicDisplay][124]
+    -   [atomicPosition][124]
         -   [Parameters][125]
         -   [Examples][126]
-    -   [atomicPosition][127]
+    -   [atomicPositionOffset][127]
         -   [Parameters][128]
         -   [Examples][129]
     -   [atomicSizes][130]
@@ -518,12 +518,12 @@ Combination of
 -   [sizes][5]
 -   [colors][8]
 -   [border][24]
--   [outline][91]
--   [display][45]
--   [flex][51]
+-   [outline][88]
+-   [display][42]
+-   [flex][48]
 -   [boxSelfAlignment][33]
--   [position][94]
--   [direction][42]
+-   [position][91]
+-   [positionOffset][94]
 -   [zIndex][115]
 
 Related: [boxStyle][14], [combineStyles][154].
@@ -600,11 +600,11 @@ import { text } from 'pss'
 
 Combination of
 
--   [fontFamily][59]
--   [fontSize][62]
--   [fontWeight][65]
--   [letterSpacing][79]
--   [lineHeight][82]
+-   [fontFamily][56]
+-   [fontSize][59]
+-   [fontWeight][62]
+-   [letterSpacing][76]
+-   [lineHeight][79]
 -   [textAlign][103]
 -   [whiteSpace][112]
 
@@ -831,7 +831,7 @@ import { clearFix } from 'pss'
 | :--------- | :------------------------ | :----- | :---- | :--------------- | :---- |
 | `clearFix` | styles for clear fix hack | `true` | —     | Clear fix styles | —     |
 
-Related: [float][56].
+Related: [float][53].
 
 #### Parameters
 
@@ -889,40 +889,6 @@ const Box = styled.div`
 <Box cursor='pointer' /> // → cursor: pointer
 ```
 
-### direction
-
-```js
-import { direction } from 'pss'
-```
-
-| prop     | css      | type                          | value | true | false  |
-| :------- | :------- | :---------------------------- | :---- | :--- | :----- |
-| `left`   | `left`   | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
-| `right`  | `right`  | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
-| `top`    | `top`    | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
-| `bottom` | `bottom` | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
-
-Related: [position][94], [rule][170], [boolValue][173], [sizeValue][176].
-
-#### Parameters
-
--   `props` **[Object][206]** 
-
-#### Examples
-
-```js
-import { direction } from 'pss'
-
-const Box = styled.div`
-  position: relative;
-  ${direction}
-`
-```
-
-```js
-<Box top={0.2} left={0} /> // position: relative; top: 20%; left: 0
-```
-
 ### display
 
 ```js
@@ -935,7 +901,7 @@ import { display } from 'pss'
 
 [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
 
-Related: [hideOn][76], [boolValue][173], [rule][170].
+Related: [hideOn][73], [boolValue][173], [rule][170].
 
 #### Parameters
 
@@ -1136,7 +1102,7 @@ import { fontSize } from 'pss'
 | :--------- | :---------- | :----------------- | :---- | :--- | :---- |
 | `fontSize` | `font-size` | `String`, `Number` | ✓     | —    | —     |
 
-Related: [text][17], [ellipsis][48], [rule][170], [boolValue][173].
+Related: [text][17], [ellipsis][45], [rule][170], [boolValue][173].
 
 #### Parameters
 
@@ -1166,7 +1132,7 @@ import { fontWeight } from 'pss'
 | :----------- | :------------ | :------- | :---- | :--- | :---- |
 | `fontWeight` | `font-weight` | `String` | ✓     | —    | —     |
 
-Related: [text][17], [ellipsis][48], [rule][170], [boolValue][173].
+Related: [text][17], [ellipsis][45], [rule][170], [boolValue][173].
 
 #### Parameters
 
@@ -1192,7 +1158,7 @@ const Text = styled.p`
 import { gap } from 'pss'
 ```
 
-Same as [space][2], but for [grid][71] and [flex][51].
+Same as [space][2], but for [grid][68] and [flex][48].
 
 **Component props:**
 
@@ -1237,7 +1203,7 @@ Styles for [Grid Layout][211].
 | `gridTemplateRows`    | `grid-template-rows`    | `String` | ✓     | —    | —     |
 | `gridTemplateAreas`   | `grid-template-areas`   | `String` | ✓     | —    | —     |
 
-Related: [gap][68], [flex][51], [rule][170], [boolValue][173].
+Related: [gap][65], [flex][48], [rule][170], [boolValue][173].
 
 #### Parameters
 
@@ -1298,7 +1264,7 @@ import { hideOn } from 'pss'
 | :------- | :-------------- | :------------------- | :------- | :--- | :---- |
 | `hideOn` | `display: none` | key in `theme.media` | mediaKey | —    | —     |
 
-Related: [display][45], [mediaStyle][190].
+Related: [display][42], [mediaStyle][190].
 
 #### Parameters
 
@@ -1333,7 +1299,7 @@ import { letterSpacing } from 'pss'
 | :-------------- | :--------------- | :----------------- | :---- | :--- | :---- |
 | `letterSpacing` | `letter-spacing` | `String`, `Number` | ✓     | —    | —     |
 
-Related: [text][17], [ellipsis][48], [rule][170], [boolValue][173].
+Related: [text][17], [ellipsis][45], [rule][170], [boolValue][173].
 
 #### Parameters
 
@@ -1363,7 +1329,7 @@ import { lineHeight } from 'pss'
 | :----------- | :------------ | :----------------- | :---- | :--- | :---- |
 | `lineHeight` | `line-height` | `String`, `Number` | ✓     | —    | —     |
 
-Related: [text][17], [ellipsis][48], [rule][170], [boolValue][173].
+Related: [text][17], [ellipsis][45], [rule][170], [boolValue][173].
 
 #### Parameters
 
@@ -1493,7 +1459,7 @@ import { position } from 'pss'
 
 [position-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
 
-Related: [rule][170], [direction][42].
+Related: [rule][170], [positionOffset][94].
 
 #### Parameters
 
@@ -1502,16 +1468,50 @@ Related: [rule][170], [direction][42].
 #### Examples
 
 ```js
-import { position, direction } from 'pss'
+import { position, positionOffset } from 'pss'
 
 const Box = styled.div`
   ${position}
-  ${direction}
+  ${positionOffset}
 `
 ```
 
 ```js
 <Box position='absolute' top={0.2} left={0} /> // position: absolute; top: 20%; left: 0
+```
+
+### positionOffset
+
+```js
+import { positionOffset } from 'pss'
+```
+
+| prop     | css      | type                          | value | true | false  |
+| :------- | :------- | :---------------------------- | :---- | :--- | :----- |
+| `left`   | `left`   | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
+| `right`  | `right`  | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
+| `top`    | `top`    | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
+| `bottom` | `bottom` | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
+
+Related: [position][91], [rule][170], [boolValue][173], [sizeValue][176].
+
+#### Parameters
+
+-   `props` **[Object][206]** 
+
+#### Examples
+
+```js
+import { positionOffset } from 'pss'
+
+const Box = styled.div`
+  position: relative;
+  ${positionOffset}
+`
+```
+
+```js
+<Box top={0.2} left={0} /> // position: relative; top: 20%; left: 0
 ```
 
 ### radius
@@ -1599,7 +1599,7 @@ import { textAlign } from 'pss'
 | :---------- | :----------- | :------- | :---- | :--- | :---- |
 | `textAlign` | `text-align` | `String` | ✓     | —    | —     |
 
-Related: [text][17], [ellipsis][48], [rule][170], [boolValue][173].
+Related: [text][17], [ellipsis][45], [rule][170], [boolValue][173].
 
 #### Parameters
 
@@ -1691,7 +1691,7 @@ import { whiteSpace } from 'pss'
 | :----------- | :------------ | :------- | :---- | :--- | :---- |
 | `whiteSpace` | `white-space` | `String` | ✓     | —    | —     |
 
-Related: [text][17], [ellipsis][48], [rule][170], [boolValue][173].
+Related: [text][17], [ellipsis][45], [rule][170], [boolValue][173].
 
 #### Parameters
 
@@ -1721,7 +1721,7 @@ import { zIndex } from 'pss'
 | :------- | :-------- | :---------------------------- | :---- | :--- | :---- |
 | `zIndex` | `z-index` | `String`, `Number`, `Boolean` | ✓     | —    | –     |
 
-Related: [position][94], [rule][170], [boolValue][173], [sizeValue][176].
+Related: [position][91], [rule][170], [boolValue][173], [sizeValue][176].
 
 #### Parameters
 
@@ -1758,8 +1758,9 @@ Combination of
 -   [space][2]
 -   [colors][8]
 -   [atomicSizes][130]
--   [atomicPosition][127]
--   [atomicDisplay][124]
+-   [atomicPosition][124]
+-   [atomicPositionOffset][127]
+-   [atomicDisplay][121]
 -   [atomicFlexItem][213]
 
 Related: [combineStyles][154].
@@ -1767,44 +1768,6 @@ Related: [combineStyles][154].
 #### Parameters
 
 -   `props` **[Object][206]** 
-
-### atomicDirection
-
-```js
-import { atomicDirection } from 'pss'
-```
-
-| prop | css             | type                          | value | true | false  |
-| :--- | :-------------- | :---------------------------- | :---- | :--- | :----- |
-| `l`  | `left`          | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
-| `r`  | `right`         | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
-| `t`  | `top`           | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
-| `b`  | `bottom`        | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
-| `x`  | `left`, `right` | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
-| `y`  | `top`, `bottom` | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
-| `z`  | `z-index`       | `String`, `Number`, `Boolean` | ✓     | `1`  | `auto` |
-
-Related: [direction][42], [rule][170], [boolValue][173], [sizeValue][176].
-
-#### Parameters
-
--   `props` **[Object][206]** 
-
-#### Examples
-
-```js
-import { atomicDirection } from 'pss'
-
-const Box = styled.div`
-  position: absolute;
-  ${atomicDirection}
-`
-```
-
-```js
-<Box t={0.2} l={0} /> // position: absolute; top: 20%; left: 0
-<Box x y /> // position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-```
 
 ### atomicDisplay
 
@@ -1817,7 +1780,7 @@ import { atomicDisplay } from 'pss'
 | `d`    | [`display`][display-url] | `String`, `Boolean`  | ✓        | `initial` | `none` |
 | `hide` | `display: none`          | key in `theme.media` | mediaKey | —         | —      |
 
-Related: [display][45], [boolValue][173], [rule][170], [mediaStyle][190].
+Related: [display][42], [boolValue][173], [rule][170], [mediaStyle][190].
 
 #### Parameters
 
@@ -1852,7 +1815,7 @@ import { atomicPosition } from 'pss'
 | `psy` | `position` | `Boolean`, key in `theme.media` | mediaKey | `sticky`   | —     |
 | `pst` | `position` | `Boolean`, key in `theme.media` | mediaKey | `static`   | —     |
 
-Related: [position][94], [mediaStyle][190].
+Related: [position][91], [mediaStyle][190].
 
 #### Parameters
 
@@ -1871,6 +1834,44 @@ const Box = styled.div`
 ```js
 <Box prl /> // position: relative;
 <Box pab='sm' /> // @media (max-width: 600px) { position: absolute; }
+```
+
+### atomicPositionOffset
+
+```js
+import { atomicPositionOffset } from 'pss'
+```
+
+| prop | css             | type                          | value | true | false  |
+| :--- | :-------------- | :---------------------------- | :---- | :--- | :----- |
+| `l`  | `left`          | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
+| `r`  | `right`         | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
+| `t`  | `top`           | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
+| `b`  | `bottom`        | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
+| `x`  | `left`, `right` | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
+| `y`  | `top`, `bottom` | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
+| `z`  | `z-index`       | `String`, `Number`, `Boolean` | ✓     | `1`  | `auto` |
+
+Related: [rule][170], [boolValue][173], [sizeValue][176].
+
+#### Parameters
+
+-   `props` **[Object][206]** 
+
+#### Examples
+
+```js
+import { atomicPositionOffset } from 'pss'
+
+const Box = styled.div`
+  position: absolute;
+  ${atomicPositionOffset}
+`
+```
+
+```js
+<Box t={0.2} l={0} /> // position: absolute; top: 20%; left: 0
+<Box x y /> // position: absolute; top: 0; left: 0; right: 0; bottom: 0;
 ```
 
 ### atomicSizes
@@ -2546,7 +2547,7 @@ import { themeValue } from 'pss'
 
 Use values defined in `theme[themeKey]`.
 
-See [fontFamily][59], [radius][97].
+See [fontFamily][56], [radius][97].
 
 #### Parameters
 
@@ -2596,7 +2597,7 @@ import { mediaStyle } from 'pss'
 
 Create style wrapped in `theme.media`.
 
-Related: [display][45].
+Related: [display][42].
 
 #### Parameters
 
@@ -2889,111 +2890,111 @@ const Box = styled.div`
 
 [41]: #examples-12
 
-[42]: #direction
+[42]: #display
 
 [43]: #parameters-13
 
 [44]: #examples-13
 
-[45]: #display
+[45]: #ellipsis
 
 [46]: #parameters-14
 
 [47]: #examples-14
 
-[48]: #ellipsis
+[48]: #flex
 
-[49]: #parameters-15
+[49]: #examples-15
 
-[50]: #examples-15
+[50]: #flexbox
 
-[51]: #flex
+[51]: #parameters-15
 
 [52]: #examples-16
 
-[53]: #flexbox
+[53]: #float
 
 [54]: #parameters-16
 
 [55]: #examples-17
 
-[56]: #float
+[56]: #fontfamily
 
 [57]: #parameters-17
 
 [58]: #examples-18
 
-[59]: #fontfamily
+[59]: #fontsize
 
 [60]: #parameters-18
 
 [61]: #examples-19
 
-[62]: #fontsize
+[62]: #fontweight
 
 [63]: #parameters-19
 
 [64]: #examples-20
 
-[65]: #fontweight
+[65]: #gap
 
 [66]: #parameters-20
 
 [67]: #examples-21
 
-[68]: #gap
+[68]: #grid
 
 [69]: #parameters-21
 
 [70]: #examples-22
 
-[71]: #grid
+[71]: #griditem
 
-[72]: #parameters-22
+[72]: #examples-23
 
-[73]: #examples-23
+[73]: #hideon
 
-[74]: #griditem
+[74]: #parameters-22
 
 [75]: #examples-24
 
-[76]: #hideon
+[76]: #letterspacing
 
 [77]: #parameters-23
 
 [78]: #examples-25
 
-[79]: #letterspacing
+[79]: #lineheight
 
 [80]: #parameters-24
 
 [81]: #examples-26
 
-[82]: #lineheight
+[82]: #opacity
 
 [83]: #parameters-25
 
 [84]: #examples-27
 
-[85]: #opacity
+[85]: #order
 
 [86]: #parameters-26
 
 [87]: #examples-28
 
-[88]: #order
+[88]: #outline
 
 [89]: #parameters-27
 
 [90]: #examples-29
 
-[91]: #outline
+[91]: #position
 
 [92]: #parameters-28
 
 [93]: #examples-30
 
-[94]: #position
+[94]: #positionoffset
 
 [95]: #parameters-29
 
@@ -3047,19 +3048,19 @@ const Box = styled.div`
 
 [120]: #parameters-37
 
-[121]: #atomicdirection
+[121]: #atomicdisplay
 
 [122]: #parameters-38
 
 [123]: #examples-39
 
-[124]: #atomicdisplay
+[124]: #atomicposition
 
 [125]: #parameters-39
 
 [126]: #examples-40
 
-[127]: #atomicposition
+[127]: #atomicpositionoffset
 
 [128]: #parameters-40
 
