@@ -1,7 +1,7 @@
 import { createStyles, rule } from '../core'
 import { addPrefix } from '../utils'
 
-export const createFlexBoxStyle = (prefix) => createStyles({
+export const createFlexBoxStyle = ({ prefix } = {}) => createStyles({
   [addPrefix('wrap', prefix)]: rule('flexWrap'),
   [addPrefix('direction', prefix)]: rule('flexDirection')
 })
@@ -39,4 +39,4 @@ export const createFlexBoxStyle = (prefix) => createStyles({
  * </FlexBox>
  */
 
-export const flexBox = createFlexBoxStyle('flex')
+export const flexBox = createFlexBoxStyle({ prefix: 'flex' })
