@@ -1094,9 +1094,9 @@ Set `font-family` from `theme`:
 ```js
 const theme = {
   default: {
-    font: 'ui'
+    fontFamily: 'ui'
   },
-  font: {
+  fontFamily: {
     heading: 'Times',
     ui: 'Helvetica'
   }

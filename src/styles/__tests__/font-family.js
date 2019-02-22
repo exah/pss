@@ -3,12 +3,12 @@ import { toStyles } from '../../../test-helpers'
 
 const theme = {
   default: {
-    font: 'ui'
+    fontFamily: 'ui'
   },
   media: {
     M: '(max-width: 600px)'
   },
-  font: {
+  fontFamily: {
     heading: 'Times New Roman, serif',
     ui: 'Helivetica, system-ui',
     responsive: {

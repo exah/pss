@@ -11,9 +11,9 @@ import { createVariant } from '../core'
  * ```js
  * const theme = {
  *   default: {
- *     font: 'ui'
+ *     fontFamily: 'ui'
  *   },
- *   font: {
+ *   fontFamily: {
  *     heading: 'Times',
  *     ui: 'Helvetica'
  *   }
