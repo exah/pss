@@ -9,8 +9,6 @@ import { createStyles, rule } from '../core'
  * :------------|:----------------|:---------------------|:------|:-----------|:--------
  * `transform` | `transform`      | `String`             | ✓     | —         | —
  *
- * ⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
- *
  * Related: {@link rule}.
  *
  * @param {Object} props

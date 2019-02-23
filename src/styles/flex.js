@@ -10,8 +10,6 @@ import { sizeValue } from '../values'
  * :-------|:------- |:---------|:------|:------- |:--------
  * `flex`  | `flex`  | `String` | ✓     | —       | —
  *
- * ⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `order`), so you may need to provide custom prop filtering.
- *
  * Related: {@link rule}, {@link boolValue}, {@link sizeValue}.
  *
  * @example

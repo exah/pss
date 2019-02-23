@@ -959,8 +959,6 @@ import { flex } from 'pss'
 | :----- | :----- | :------- | :---- | :--- | :---- |
 | `flex` | `flex` | `String` | ✓     | —    | —     |
 
-⚠️ Some of this props may not be filtered by CSS-in-JS libraries (like `order`), so you may need to provide custom prop filtering.
-
 Related: [rule][170], [boolValue][173], [sizeValue][176].
 
 #### Examples
@@ -1359,8 +1357,6 @@ import { opacity } from 'pss'
 | :-------- | :-------- | :------ | :---- | :--- | :---- |
 | `opacity` | `opacity` | `0...1` | ✓     | —    | —     |
 
-⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
-
 Related: [rule][170], [boolValue][173].
 
 #### Parameters
@@ -1424,8 +1420,6 @@ import { outline } from 'pss'
 | `outline` | `outline` | `String`, `'debug'`\* | ✓     | —    | —     |
 
 \* Random hex color, useful for debugging layout
-
-⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
 
 Related: [rule][170].
 
@@ -1523,8 +1517,6 @@ import { radius } from 'pss'
 | prop     | css             | type     | value | true | false |
 | :------- | :-------------- | :------- | :---- | :--- | :---- |
 | `radius` | `border-radius` | `Number` | ✓     | —    | —     |
-
-⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
 
 Related: [createVariant][199].
 
@@ -1628,8 +1620,6 @@ import { transform } from 'pss'
 | prop        | css         | type     | value | true | false |
 | :---------- | :---------- | :------- | :---- | :--- | :---- |
 | `transform` | `transform` | `String` | ✓     | —    | —     |
-
-⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
 
 Related: [rule][170].
 

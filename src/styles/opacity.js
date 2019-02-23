@@ -9,8 +9,6 @@ import { createStyles, rule } from '../core'
  * :------------|:----------------|:------- |:------|:---------|:--------
  * `opacity`    | `opacity`       | `0...1` | ✓     | —        | —
  *
- * ⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
- *
  * Related: {@link rule}, {@link boolValue}.
  *
  * @param {Object} props

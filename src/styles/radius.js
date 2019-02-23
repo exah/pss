@@ -10,8 +10,6 @@ import { createVariant } from '../core'
  * :------------|:----------------|:---------------------|:------|:-----------|:--------
  * `radius`     | `border-radius` | `Number`             | ✓     | —         | —
  *
- * ⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
- *
  *
  * Related: {@link createVariant}.
  *
