@@ -514,16 +514,17 @@ import { box } from 'pss'
 
 Combination of
 
--   [space][2]
--   [sizes][5]
--   [colors][8]
 -   [border][24]
--   [outline][88]
+-   [boxSelfAlignment][33]
+-   [colors][8]
 -   [display][42]
 -   [flex][48]
--   [boxSelfAlignment][33]
--   [position][91]
+-   [order][85]
+-   [outline][88]
 -   [positionOffset][94]
+-   [position][91]
+-   [sizes][5]
+-   [space][2]
 -   [zIndex][115]
 
 Related: [boxStyle][14], [combineStyles][154].

@@ -1,14 +1,15 @@
 import { combineStyles } from '../core'
-import { space } from './space'
-import { sizes } from './sizes'
-import { colors } from './colors'
 import { border } from './border'
-import { outline } from './outline'
+import { boxSelfAlignment } from './box-alignment'
+import { colors } from './colors'
 import { display } from './display'
 import { flex } from './flex'
-import { boxSelfAlignment } from './box-alignment'
+import { order } from './order'
+import { outline } from './outline'
 import { position } from './position'
 import { positionOffset } from './position-offset'
+import { sizes } from './sizes'
+import { space } from './space'
 import { zIndex } from './z-index'
 
 /**
@@ -17,16 +18,17 @@ import { zIndex } from './z-index'
  * ```
  *
  * Combination of
- *   - {@link space}
- *   - {@link sizes}
- *   - {@link colors}
  *   - {@link border}
- *   - {@link outline}
+ *   - {@link boxSelfAlignment}
+ *   - {@link colors}
  *   - {@link display}
  *   - {@link flex}
- *   - {@link boxSelfAlignment}
- *   - {@link position}
+ *   - {@link order}
+ *   - {@link outline}
  *   - {@link positionOffset}
+ *   - {@link position}
+ *   - {@link sizes}
+ *   - {@link space}
  *   - {@link zIndex}
  *
  * Related: {@link boxStyle}, {@link combineStyles}.
@@ -46,15 +48,16 @@ import { zIndex } from './z-index'
  */
 
 export const box = combineStyles(
-  space,
-  sizes,
-  colors,
   border,
-  outline,
+  boxSelfAlignment,
+  colors,
   display,
   flex,
-  boxSelfAlignment,
+  order,
+  outline,
   position,
   positionOffset,
+  sizes,
+  space,
   zIndex
 )
