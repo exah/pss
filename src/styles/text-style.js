@@ -43,6 +43,14 @@ import { createVariant } from '../core'
  * @example
  * <Box textStyle={true} /> // → `theme.textStyle.default`
  * <Box textStyle='heading' /> // → `theme.textStyle.heading`
+ *
+ * @example
+ * const Text = styled.div`
+ *   ${textStyle.variant}
+ * `
+ *
+ * <Text variant={true} /> // → `theme.textStyle.default`
+ * <Text variant='heading' /> // → `theme.textStyle.heading`
  */
 
 const textStyle = createVariant({

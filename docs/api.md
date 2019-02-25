@@ -593,6 +593,15 @@ const Box = styled.div`
 <Box boxStyle={[ 'red', 'shadow' ]} /> // → background-color: red; color: white; box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
 ```
 
+```js
+const Box = styled.div`
+  ${boxStyle.variant}
+`
+
+<Box variant='red' /> // → background-color: red; color: white;
+<Box variant={[ 'red', 'shadow' ]} /> // → background-color: red; color: white; box-shadow: 0 0 20px 0 rgba(0, 0,
+```
+
 ### text
 
 ```js
@@ -678,6 +687,15 @@ const Box = styled.div`
 ```js
 <Box textStyle={true} /> // → `theme.textStyle.default`
 <Box textStyle='heading' /> // → `theme.textStyle.heading`
+```
+
+```js
+const Text = styled.div`
+  ${textStyle.variant}
+`
+
+<Text variant={true} /> // → `theme.textStyle.default`
+<Text variant='heading' /> // → `theme.textStyle.heading`
 ```
 
 ## Styles
@@ -2727,7 +2745,7 @@ Related: [textStyle][20], [boxStyle][14], [rule][170], [themeValue][187], [theme
 
 -   `options` **[Object][206]** 
     -   `options.themeKey`  
-    -   `options.prop`   (optional, default `'variant'`)
+    -   `options.prop`   (optional, default `VARIANT`)
     -   `options.cssProp`   (optional, default `false`)
     -   `options.transformValue`  
     -   `options.themeGetter`   (optional, default `getThemeValue(themeKey)`)
@@ -2737,8 +2755,12 @@ Related: [textStyle][20], [boxStyle][14], [rule][170], [themeValue][187], [theme
 ```js
 import { createVariant } from 'pss'
 
+const variant = createVariant({
+  themeKey: 'textStyle'
+})
+
 const Text = styled.p`
-  ${createVariant({ themeKey: 'textStyle' })}
+  ${variant}
 `
 ```
 

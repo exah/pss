@@ -1,3 +1,4 @@
+import { VARIANT } from '../constants'
 import { getThemeValue } from '../getters'
 import { themeValue } from '../values/theme-value'
 import { createStyles } from './create-styles'
@@ -15,8 +16,12 @@ import { rule } from './rule'
  * @example
  * import { createVariant } from 'pss'
  *
+ * const variant = createVariant({
+ *   themeKey: 'textStyle'
+ * })
+ *
  * const Text = styled.p`
- *   ${createVariant({ themeKey: 'textStyle' })}
+ *   ${variant}
  * `
  *
  * @example
@@ -43,7 +48,7 @@ import { rule } from './rule'
 
 function createVariant ({
   themeKey,
-  prop = 'variant',
+  prop = VARIANT,
   cssProp = false,
   transformValue,
   themeGetter = getThemeValue(themeKey)
@@ -52,9 +57,17 @@ function createVariant ({
     ? themeStyle({ themeKey, transformValue, themeGetter })
     : rule(cssProp, themeValue({ themeKey, transformValue, themeGetter }))
 
-  return createStyles({
+  const mixin = createStyles({
     [prop]: style
   })
+
+  if (prop !== VARIANT) {
+    mixin[VARIANT] = createStyles({
+      [VARIANT]: style
+    })
+  }
+
+  return mixin
 }
 
 export {

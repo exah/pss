@@ -22,7 +22,7 @@ const theme = {
   }
 }
 
-test('textStyle', () => {
+test('default', () => {
   const result = toStyles(textStyle({
     theme,
     textStyle: 'heading'
@@ -35,7 +35,7 @@ test('textStyle', () => {
   })
 })
 
-test('textStyle responsive', () => {
+test('responsive', () => {
   const result = toStyles(textStyle({
     theme,
     textStyle: 'responsive'
@@ -49,10 +49,26 @@ test('textStyle responsive', () => {
   })
 })
 
-test('textStyle all', () => {
+test('all', () => {
   const result = toStyles(textStyle({
     theme,
     textStyle: [ 'responsive', 'heading' ]
+  }))
+
+  expect(result).toEqual({
+    fontSize: 32,
+    lineHeight: 1.1,
+    fontWeight: 'bold',
+    '@media (max-width: 600px)': {
+      fontSize: 12
+    }
+  })
+})
+
+test('variant', () => {
+  const result = toStyles(textStyle.variant({
+    theme,
+    variant: [ 'responsive', 'heading' ]
   }))
 
   expect(result).toEqual({

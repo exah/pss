@@ -16,7 +16,7 @@ const theme = {
   }
 }
 
-test('boxStyle', () => {
+test('default', () => {
   expect(toStyles(boxStyle({
     theme,
     boxStyle: 'red'
@@ -33,10 +33,23 @@ test('boxStyle', () => {
   })
 })
 
-test('boxStyle all', () => {
+test('red, shadow', () => {
   const result = toStyles(boxStyle({
     theme,
     boxStyle: [ 'red', 'shadow' ]
+  }))
+
+  expect(result).toEqual({
+    backgroundColor: 'red',
+    color: 'white',
+    boxShadow: '0 0 20px 0 rgba(0, 0, 0, .3)'
+  })
+})
+
+test('variant', () => {
+  const result = toStyles(boxStyle.variant({
+    theme,
+    variant: [ 'red', 'shadow' ]
   }))
 
   expect(result).toEqual({
