@@ -1,4 +1,4 @@
-import { positionOffset } from '../..'
+import { positionOffsets } from '../..'
 import { toStyles } from '../../../test-helpers'
 
 const theme = {
@@ -7,8 +7,8 @@ const theme = {
   }
 }
 
-test('positionOffset', () => {
-  const result = positionOffset({
+test('positionOffsets', () => {
+  const result = positionOffsets({
     theme,
     top: true,
     bottom: false,

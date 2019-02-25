@@ -41,7 +41,7 @@ toc:
       - order
       - outline
       - position
-      - positionOffset
+      - positionOffsets
       - radius
       - ratio
       - textAlign

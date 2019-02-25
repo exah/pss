@@ -95,7 +95,7 @@
     -   [position][91]
         -   [Parameters][92]
         -   [Examples][93]
-    -   [positionOffset][94]
+    -   [positionOffsets][94]
         -   [Parameters][95]
         -   [Examples][96]
     -   [radius][97]
@@ -521,7 +521,7 @@ Combination of
 -   [flex][48]
 -   [order][85]
 -   [outline][88]
--   [positionOffset][94]
+-   [positionOffsets][94]
 -   [position][91]
 -   [sizes][5]
 -   [space][2]
@@ -1472,7 +1472,7 @@ import { position } from 'pss'
 
 [position-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
 
-Related: [rule][170], [positionOffset][94].
+Related: [rule][170], [positionOffsets][94].
 
 #### Parameters
 
@@ -1481,11 +1481,11 @@ Related: [rule][170], [positionOffset][94].
 #### Examples
 
 ```js
-import { position, positionOffset } from 'pss'
+import { position, positionOffsets } from 'pss'
 
 const Box = styled.div`
   ${position}
-  ${positionOffset}
+  ${positionOffsets}
 `
 ```
 
@@ -1493,10 +1493,10 @@ const Box = styled.div`
 <Box position='absolute' top={0.2} left={0} /> // position: absolute; top: 20%; left: 0
 ```
 
-### positionOffset
+### positionOffsets
 
 ```js
-import { positionOffset } from 'pss'
+import { positionOffsets } from 'pss'
 ```
 
 | prop     | css      | type                          | value | true | false  |
@@ -1515,11 +1515,11 @@ Related: [position][91], [rule][170], [boolValue][173], [sizeValue][176].
 #### Examples
 
 ```js
-import { positionOffset } from 'pss'
+import { positionOffsets } from 'pss'
 
 const Box = styled.div`
   position: relative;
-  ${positionOffset}
+  ${positionOffsets}
 `
 ```
 
@@ -3007,7 +3007,7 @@ const Box = styled.div`
 
 [93]: #examples-30
 
-[94]: #positionoffset
+[94]: #positionoffsets
 
 [95]: #parameters-29
 

@@ -3,7 +3,7 @@ import { positionRule } from '../rules'
 
 /**
  * ```js
- * import { positionOffset } from 'pss'
+ * import { positionOffsets } from 'pss'
  * ```
  *
  * prop       | css       | type                          | value | true   | false
@@ -19,18 +19,18 @@ import { positionRule } from '../rules'
  * @param {Object} props
  *
  * @example
- * import { positionOffset } from 'pss'
+ * import { positionOffsets } from 'pss'
  *
  * const Box = styled.div`
  *   position: relative;
- *   ${positionOffset}
+ *   ${positionOffsets}
  * `
  *
  * @example
  * <Box top={0.2} left={0} /> // position: relative; top: 20%; left: 0
  */
 
-const positionOffset = createStyles({
+const positionOffsets = createStyles({
   top: positionRule('top'),
   left: positionRule('left'),
   right: positionRule('right'),
@@ -38,5 +38,5 @@ const positionOffset = createStyles({
 })
 
 export {
-  positionOffset
+  positionOffsets
 }
