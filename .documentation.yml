@@ -21,6 +21,7 @@ toc:
       - boxContentAlignment
       - boxItemsAlignment
       - boxSelfAlignment
+      - boxShadow
       - clearFix
       - cursor
       - display
