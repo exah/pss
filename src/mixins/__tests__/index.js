@@ -31,16 +31,20 @@ describe('mixin', () => {
     background-color: ${prop('bg', 'blue')};
     color: ${prop('fg', themePath('color.blue'))};
     border-color: ${prop('borderColor')};
+    width: ${prop('width', '100%')};
 
     @media ${mq('sm')} {
       background-color: black;
+      width: ${prop('width.sm')};
     }
   `
 
   test('prop', () => {
-    const tree = toJSON(h(Box, { theme, bg: 'red', fg: 'red' }))
+    const tree = toJSON(h(Box, { theme, bg: 'red', fg: 'red', width: { sm: '50px' } }))
     expect(tree).toHaveStyleRule('background-color', 'red')
     expect(tree).toHaveStyleRule('color', 'red')
+    expect(tree).toHaveStyleRule('width', '100%')
+    expect(tree).toHaveStyleRule('width', '50px', { media: theme.media.sm })
     expect(tree).not.toHaveStyleRule('border-color')
   })
 
@@ -53,6 +57,7 @@ describe('mixin', () => {
     const tree = toJSON(h(Box, { theme }))
     expect(tree).toHaveStyleRule('background-color', 'blue')
     expect(tree).toHaveStyleRule('color', '#0000FF')
+    expect(tree).toHaveStyleRule('width', '100%')
     expect(tree).toMatchSnapshot()
   })
 })

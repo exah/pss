@@ -4,6 +4,7 @@ exports[`mixin fallbacks 1`] = `
 .c0 {
   background-color: blue;
   color: #0000FF;
+  width: 100%;
 }
 
 @media (max-width:600px) {

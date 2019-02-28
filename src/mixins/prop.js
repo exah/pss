@@ -1,4 +1,4 @@
-import { isFn } from '@exah/utils'
+import { isFn, path, isNum, isStr } from '@exah/utils'
 
 /**
  * ```js
@@ -6,24 +6,29 @@ import { isFn } from '@exah/utils'
  * ```
  *
  * @example
- * import { prop, themePath } from 'pss'
+ * import { prop, themePath, mq } from 'pss'
  *
  * const Box = styled.div`
  *  background-color: ${prop('bg')};
  *  color: ${prop('color', themePath('color.primary'))};
  *  border-color: ${prop('borderColor', 'black')};
+ *  width: ${prop('width', '100%')};
+ *
+ *  \@media ${mq('sm')} {
+ *    width: ${prop('width.sm'};
+ *  }
  * `
  *
  * <Box bg='red' /> // → background-color: red; color: #0000FF; border-color: black;
  * <Box color='blue' /> // → color: blue; border-color: black;
  */
 
-export const prop = (propName, fallback) => (props) => {
-  const input = props[propName]
+export const prop = (key, fallback) => (props) => {
+  const input = path(key)(props)
 
-  if (input == null) {
-    return isFn(fallback) ? fallback(props) : fallback
+  if (isNum(input) || isStr(input)) {
+    return input
   }
 
-  return input
+  return isFn(fallback) ? fallback(props) : fallback
 }

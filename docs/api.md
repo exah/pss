@@ -922,8 +922,6 @@ import { cursor } from 'pss'
 | :------- | :------- | :------- | :---- | :--- | :---- |
 | `cursor` | `cursor` | `String` | ✓     | —    | —     |
 
-⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
-
 Related: [rule][173].
 
 #### Parameters
@@ -2118,18 +2116,23 @@ import { prop } from 'pss'
 
 #### Parameters
 
--   `propName`  
+-   `key`  
 -   `fallback`  
 
 #### Examples
 
 ```js
-import { prop, themePath } from 'pss'
+import { prop, themePath, mq } from 'pss'
 
 const Box = styled.div`
  background-color: ${prop('bg')};
  color: ${prop('color', themePath('color.primary'))};
  border-color: ${prop('borderColor', 'black')};
+ width: ${prop('width', '100%')};
+
+ @media ${mq('sm')} {
+   width: ${prop('width.sm'};
+ }
 `
 
 <Box bg='red' /> // → background-color: red; color: #0000FF; border-color: black;
