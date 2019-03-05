@@ -1,8 +1,8 @@
 import { isStr } from '@exah/utils'
 import { style } from '../core'
 
-const notTouch = (item) => item !== 'touch'
 const touchStyle = { WebkitOverflowScrolling: 'touch' }
+const notTouch = (item) => item !== 'touch'
 
 /**
  * ```js

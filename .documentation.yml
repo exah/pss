@@ -41,6 +41,7 @@ toc:
       - opacity
       - order
       - outline
+      - overflow
       - position
       - positionOffsets
       - radius
