@@ -7,6 +7,7 @@ import { display } from './display'
 import { flex } from './flex'
 import { order } from './order'
 import { outline } from './outline'
+import { overflow } from './overflow'
 import { position } from './position'
 import { positionOffsets } from './position-offsets'
 import { sizes } from './sizes'
@@ -27,6 +28,7 @@ import { zIndex } from './z-index'
  *   - {@link flex}
  *   - {@link order}
  *   - {@link outline}
+ *   - {@link overflow}
  *   - {@link positionOffsets}
  *   - {@link position}
  *   - {@link sizes}
@@ -58,6 +60,7 @@ export const box = combineStyles(
   flex,
   order,
   outline,
+  overflow,
   position,
   positionOffsets,
   sizes,
