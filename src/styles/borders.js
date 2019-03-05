@@ -10,10 +10,10 @@ const borderRule = (name) => rule(name, themeValue({
 
 /**
  * ```js
- * import { border } from 'pss'
+ * import { borders } from 'pss'
  * ```
  *
- * Set border with values from theme.
+ * Set borders with values from theme.
  *
  * prop           | css             | type                          | value | true                   | false
  * :--------------|:----------------|:------------------------------|:------|:-----------------------|:--------
@@ -29,10 +29,10 @@ const borderRule = (name) => rule(name, themeValue({
  * @param {Object} props
  *
  * @example
- * import { border } from 'pss'
+ * import { borders } from 'pss'
  *
  * const Box = styled.div`
- *   ${border}
+ *   ${borders}
  * `
  *
  * @example
@@ -40,7 +40,7 @@ const borderRule = (name) => rule(name, themeValue({
  * <Box borderBottom='divider' /> // border-bottom: 1px dotted #f5f5f5;
  */
 
-const border = createStyles({
+const borders = createStyles({
   border: borderRule('border'),
   borderLeft: borderRule('borderLeft'),
   borderRight: borderRule('borderRight'),
@@ -49,5 +49,5 @@ const border = createStyles({
 })
 
 export {
-  border
+  borders
 }

@@ -6,8 +6,6 @@ import { colorValue } from '../values'
  * import { borderColor } from 'pss'
  * ```
  *
- * Set border with values from theme, created with {@link themeValue} and {@link colorValue}.
- *
  * prop           | css             | type                | value | true                           | false
  * :--------------|:----------------|:--------------------|:------|:-------------------------------|:--------
  * `borderColor`  | `border-color ` | `String`, `Boolean` | ✓     | `theme.palette.default.border` | —
@@ -18,10 +16,10 @@ import { colorValue } from '../values'
  * @param {Object} props
  *
  * @example
- * import { border, borderColor } from 'pss'
+ * import { borders, borderColor } from 'pss'
  *
  * const Box = styled.div`
- *   ${border}
+ *   ${borders}
  *   ${borderColor}
  * `
  *

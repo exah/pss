@@ -25,7 +25,7 @@
         -   [Parameters][21]
         -   [Examples][22]
 -   [Styles][23]
-    -   [border][24]
+    -   [borders][24]
         -   [Parameters][25]
         -   [Examples][26]
     -   [borderColor][27]
@@ -523,7 +523,7 @@ import { box } from 'pss'
 
 Combination of
 
--   [border][24]
+-   [borders][24]
 -   [borderColor][27]
 -   [borderRadius][30]
 -   [boxSelfAlignment][39]
@@ -716,13 +716,13 @@ const Text = styled.div`
 
 
 
-### border
+### borders
 
 ```js
-import { border } from 'pss'
+import { borders } from 'pss'
 ```
 
-Set border with values from theme.
+Set borders with values from theme.
 
 | prop           | css             | type                          | value | true                   | false |
 | :------------- | :-------------- | :---------------------------- | :---- | :--------------------- | :---- |
@@ -741,10 +741,10 @@ Related: [themeValue][196], [rule][179],
 #### Examples
 
 ```js
-import { border } from 'pss'
+import { borders } from 'pss'
 
 const Box = styled.div`
-  ${border}
+  ${borders}
 `
 ```
 
@@ -759,8 +759,6 @@ const Box = styled.div`
 import { borderColor } from 'pss'
 ```
 
-Set border with values from theme, created with [themeValue][196] and [colorValue][193].
-
 | prop          | css            | type                | value | true                           | false |
 | :------------ | :------------- | :------------------ | :---- | :----------------------------- | :---- |
 | `borderColor` | `border-color` | `String`, `Boolean` | ✓     | `theme.palette.default.border` | —     |
@@ -774,10 +772,10 @@ Related: [colorValue][193], [style][211],
 #### Examples
 
 ```js
-import { border, borderColor } from 'pss'
+import { borders, borderColor } from 'pss'
 
 const Box = styled.div`
-  ${border}
+  ${borders}
   ${borderColor}
 `
 ```
@@ -2977,7 +2975,7 @@ const Box = styled.div`
 
 [23]: #styles
 
-[24]: #border
+[24]: #borders
 
 [25]: #parameters-7
 
