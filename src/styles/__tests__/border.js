@@ -1,63 +1,42 @@
 import { border } from '../..'
-import { toStyles, testValue } from '../../../test-helpers'
+import { toStyles } from '../../../test-helpers'
 
 const theme = {
   border: {
     default: '1px solid',
     thick: '5px solid'
-  },
-  palette: {
-    default: {
-      border: '#eee'
-    },
-    inverted: {
-      border: '#333'
-    }
   }
 }
-
-test('color', testValue({
-  fn: border,
-  prop: 'borderColor',
-  cssProp: 'borderColor',
-  values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ]
-}))
 
 test('default', () => {
   const result = border({
     theme,
-    border: true,
-    borderColor: true
+    border: true
   })
 
   expect(toStyles(result)).toEqual({
-    border: '1px solid',
-    borderColor: '#eee'
+    border: '1px solid'
   })
 })
 
 test('theme', () => {
   const result = border({
     theme,
-    borderLeft: 'thick',
-    borderColor: 'inverted'
+    borderLeft: 'thick'
   })
 
   expect(toStyles(result)).toEqual({
-    borderLeft: '5px solid',
-    borderColor: '#333'
+    borderLeft: '5px solid'
   })
 })
 
 test('custom', () => {
   const result = border({
     theme,
-    borderLeft: '5px dotted',
-    borderColor: 'red'
+    borderLeft: '5px dotted'
   })
 
   expect(toStyles(result)).toEqual({
-    borderLeft: '5px dotted',
-    borderColor: 'red'
+    borderLeft: '5px dotted'
   })
 })

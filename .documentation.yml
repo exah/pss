@@ -18,6 +18,7 @@ toc:
   - name: Styles
     children:
       - border
+      - borderColor
       - borderRadius
       - boxContentAlignment
       - boxItemsAlignment

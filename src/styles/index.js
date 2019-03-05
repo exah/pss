@@ -1,5 +1,6 @@
 export * from './atomic'
 export * from './border'
+export * from './border-color'
 export * from './border-radius'
 export * from './box'
 export * from './box-alignment'

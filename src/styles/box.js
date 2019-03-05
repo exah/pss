@@ -1,5 +1,6 @@
 import { combineStyles } from '../core'
 import { border } from './border'
+import { borderColor } from './border-color'
 import { borderRadius } from './border-radius'
 import { boxSelfAlignment } from './box-alignment'
 import { boxShadow } from './box-shadow'
@@ -22,6 +23,7 @@ import { zIndex } from './z-index'
  *
  * Combination of
  *   - {@link border}
+ *   - {@link borderColor}
  *   - {@link borderRadius}
  *   - {@link boxSelfAlignment}
  *   - {@link boxShadow}
@@ -31,8 +33,8 @@ import { zIndex } from './z-index'
  *   - {@link order}
  *   - {@link outline}
  *   - {@link overflow}
- *   - {@link positionOffsets}
  *   - {@link position}
+ *   - {@link positionOffsets}
  *   - {@link sizes}
  *   - {@link space}
  *   - {@link zIndex}
@@ -55,6 +57,7 @@ import { zIndex } from './z-index'
 
 export const box = combineStyles(
   border,
+  borderColor,
   borderRadius,
   boxSelfAlignment,
   boxShadow,
