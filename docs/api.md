@@ -28,83 +28,83 @@
     -   [border][24]
         -   [Parameters][25]
         -   [Examples][26]
-    -   [boxContentAlignment][27]
+    -   [borderRadius][27]
         -   [Parameters][28]
         -   [Examples][29]
-    -   [boxItemsAlignment][30]
+    -   [boxContentAlignment][30]
         -   [Parameters][31]
         -   [Examples][32]
-    -   [boxSelfAlignment][33]
+    -   [boxItemsAlignment][33]
         -   [Parameters][34]
         -   [Examples][35]
-    -   [boxShadow][36]
+    -   [boxSelfAlignment][36]
         -   [Parameters][37]
         -   [Examples][38]
-    -   [clearFix][39]
+    -   [boxShadow][39]
         -   [Parameters][40]
         -   [Examples][41]
-    -   [cursor][42]
+    -   [clearFix][42]
         -   [Parameters][43]
         -   [Examples][44]
-    -   [display][45]
+    -   [cursor][45]
         -   [Parameters][46]
         -   [Examples][47]
-    -   [ellipsis][48]
+    -   [display][48]
         -   [Parameters][49]
         -   [Examples][50]
-    -   [flex][51]
-        -   [Examples][52]
-    -   [flexBox][53]
-        -   [Parameters][54]
+    -   [ellipsis][51]
+        -   [Parameters][52]
+        -   [Examples][53]
+    -   [flex][54]
         -   [Examples][55]
-    -   [float][56]
+    -   [flexBox][56]
         -   [Parameters][57]
         -   [Examples][58]
-    -   [fontFamily][59]
+    -   [float][59]
         -   [Parameters][60]
         -   [Examples][61]
-    -   [fontSize][62]
+    -   [fontFamily][62]
         -   [Parameters][63]
         -   [Examples][64]
-    -   [fontWeight][65]
+    -   [fontSize][65]
         -   [Parameters][66]
         -   [Examples][67]
-    -   [gap][68]
+    -   [fontWeight][68]
         -   [Parameters][69]
         -   [Examples][70]
-    -   [grid][71]
+    -   [gap][71]
         -   [Parameters][72]
         -   [Examples][73]
-    -   [gridItem][74]
-        -   [Examples][75]
-    -   [hideOn][76]
-        -   [Parameters][77]
+    -   [grid][74]
+        -   [Parameters][75]
+        -   [Examples][76]
+    -   [gridItem][77]
         -   [Examples][78]
-    -   [letterSpacing][79]
+    -   [hideOn][79]
         -   [Parameters][80]
         -   [Examples][81]
-    -   [lineHeight][82]
+    -   [letterSpacing][82]
         -   [Parameters][83]
         -   [Examples][84]
-    -   [opacity][85]
+    -   [lineHeight][85]
         -   [Parameters][86]
         -   [Examples][87]
-    -   [order][88]
+    -   [opacity][88]
         -   [Parameters][89]
         -   [Examples][90]
-    -   [outline][91]
+    -   [order][91]
         -   [Parameters][92]
         -   [Examples][93]
-    -   [overflow][94]
+    -   [outline][94]
         -   [Parameters][95]
         -   [Examples][96]
-    -   [position][97]
+    -   [overflow][97]
         -   [Parameters][98]
         -   [Examples][99]
-    -   [positionOffsets][100]
+    -   [position][100]
         -   [Parameters][101]
         -   [Examples][102]
-    -   [radius][103]
+    -   [positionOffsets][103]
         -   [Parameters][104]
         -   [Examples][105]
     -   [ratio][106]
@@ -521,16 +521,17 @@ import { box } from 'pss'
 Combination of
 
 -   [border][24]
--   [boxSelfAlignment][33]
--   [boxShadow][36]
+-   [borderRadius][27]
+-   [boxSelfAlignment][36]
+-   [boxShadow][39]
 -   [colors][8]
--   [display][45]
--   [flex][51]
--   [order][88]
--   [outline][91]
--   [overflow][94]
--   [positionOffsets][100]
--   [position][97]
+-   [display][48]
+-   [flex][54]
+-   [order][91]
+-   [outline][94]
+-   [overflow][97]
+-   [positionOffsets][103]
+-   [position][100]
 -   [sizes][5]
 -   [space][2]
 -   [zIndex][121]
@@ -618,11 +619,11 @@ import { text } from 'pss'
 
 Combination of
 
--   [fontFamily][59]
--   [fontSize][62]
--   [fontWeight][65]
--   [letterSpacing][79]
--   [lineHeight][82]
+-   [fontFamily][62]
+-   [fontSize][65]
+-   [fontWeight][68]
+-   [letterSpacing][82]
+-   [lineHeight][85]
 -   [textAlign][109]
 -   [whiteSpace][118]
 
@@ -747,6 +748,37 @@ const Box = styled.div`
 ```js
 // border-left: 1px dotted; border-color: red
 <Box borderLeft='1px dotted' borderColor='red' />
+```
+
+### borderRadius
+
+```js
+import { borderRadius } from 'pss'
+```
+
+| prop           | css             | type                                | value | true | false |
+| :------------- | :-------------- | :---------------------------------- | :---- | :--- | :---- |
+| `borderRadius` | `border-radius` | `Number`, `theme.borderRadius[key]` | ✓     | —    | —     |
+
+Related: [createVariant][205].
+
+#### Parameters
+
+-   `props` **[Object][212]** 
+
+#### Examples
+
+```js
+import { borderRadius } from 'pss'
+
+const Box = styled.div`
+  ${borderRadius}
+`
+```
+
+```js
+<Box borderRadius='5px' /> // → border-radius: 5px
+<Box borderRadius='round' /> // → `theme.borderRadius.round` → border-radius: 9999px
 ```
 
 ### boxContentAlignment
@@ -890,7 +922,7 @@ import { clearFix } from 'pss'
 | :--------- | :------------------------ | :----- | :---- | :--------------- | :---- |
 | `clearFix` | styles for clear fix hack | `true` | —     | Clear fix styles | —     |
 
-Related: [float][56].
+Related: [float][59].
 
 #### Parameters
 
@@ -958,7 +990,7 @@ import { display } from 'pss'
 
 [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
 
-Related: [hideOn][76], [boolValue][179], [rule][176].
+Related: [hideOn][79], [boolValue][179], [rule][176].
 
 #### Parameters
 
@@ -1040,14 +1072,14 @@ import { flexBox } from 'pss'
 
 Styles for [Flexible Box Layout][216].
 
-For alignment styles import [boxContentAlignment][27], [boxItemsAlignment][30].
+For alignment styles import [boxContentAlignment][30], [boxItemsAlignment][33].
 
 | prop            | css              | type     | value | true | false |
 | :-------------- | :--------------- | :------- | :---- | :--- | :---- |
 | `flexWrap`      | `flex-wrap`      | `String` | ✓     | —    | —     |
 | `flexDirection` | `flex-direction` | `String` | ✓     | —    | —     |
 
-Related: [boxContentAlignment][27], [boxItemsAlignment][30], [rule][176], [boolValue][179].
+Related: [boxContentAlignment][30], [boxItemsAlignment][33], [rule][176], [boolValue][179].
 
 #### Parameters
 
@@ -1157,7 +1189,7 @@ import { fontSize } from 'pss'
 | :--------- | :---------- | :----------------- | :---- | :--- | :---- |
 | `fontSize` | `font-size` | `String`, `Number` | ✓     | —    | —     |
 
-Related: [text][17], [ellipsis][48], [rule][176], [boolValue][179].
+Related: [text][17], [ellipsis][51], [rule][176], [boolValue][179].
 
 #### Parameters
 
@@ -1187,7 +1219,7 @@ import { fontWeight } from 'pss'
 | :----------- | :------------ | :------- | :---- | :--- | :---- |
 | `fontWeight` | `font-weight` | `String` | ✓     | —    | —     |
 
-Related: [text][17], [ellipsis][48], [rule][176], [boolValue][179].
+Related: [text][17], [ellipsis][51], [rule][176], [boolValue][179].
 
 #### Parameters
 
@@ -1213,7 +1245,7 @@ const Text = styled.p`
 import { gap } from 'pss'
 ```
 
-Same as [space][2], but for [grid][71] and [flex][51].
+Same as [space][2], but for [grid][74] and [flex][54].
 
 **Component props:**
 
@@ -1258,7 +1290,7 @@ Styles for [Grid Layout][217].
 | `gridTemplateRows`    | `grid-template-rows`    | `String` | ✓     | —    | —     |
 | `gridTemplateAreas`   | `grid-template-areas`   | `String` | ✓     | —    | —     |
 
-Related: [gap][68], [flex][51], [rule][176], [boolValue][179].
+Related: [gap][71], [flex][54], [rule][176], [boolValue][179].
 
 #### Parameters
 
@@ -1319,7 +1351,7 @@ import { hideOn } from 'pss'
 | :------- | :-------------- | :------------------- | :------- | :--- | :---- |
 | `hideOn` | `display: none` | key in `theme.media` | mediaKey | —    | —     |
 
-Related: [display][45], [mediaStyle][196].
+Related: [display][48], [mediaStyle][196].
 
 #### Parameters
 
@@ -1354,7 +1386,7 @@ import { letterSpacing } from 'pss'
 | :-------------- | :--------------- | :----------------- | :---- | :--- | :---- |
 | `letterSpacing` | `letter-spacing` | `String`, `Number` | ✓     | —    | —     |
 
-Related: [text][17], [ellipsis][48], [rule][176], [boolValue][179].
+Related: [text][17], [ellipsis][51], [rule][176], [boolValue][179].
 
 #### Parameters
 
@@ -1384,7 +1416,7 @@ import { lineHeight } from 'pss'
 | :----------- | :------------ | :----------------- | :---- | :--- | :---- |
 | `lineHeight` | `line-height` | `String`, `Number` | ✓     | —    | —     |
 
-Related: [text][17], [ellipsis][48], [rule][176], [boolValue][179].
+Related: [text][17], [ellipsis][51], [rule][176], [boolValue][179].
 
 #### Parameters
 
@@ -1505,6 +1537,7 @@ import { overflow } from 'pss'
 ```
 
 Shorthand for `overflow-x`, `overflow-y` and `-webkit-overflow-scrolling`.
+
 Related: [style][208].
 
 #### Parameters
@@ -1539,7 +1572,7 @@ import { position } from 'pss'
 
 [position-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
 
-Related: [rule][176], [positionOffsets][100].
+Related: [rule][176], [positionOffsets][103].
 
 #### Parameters
 
@@ -1573,7 +1606,7 @@ import { positionOffsets } from 'pss'
 | `top`    | `top`    | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
 | `bottom` | `bottom` | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
 
-Related: [position][97], [rule][176], [boolValue][179], [sizeValue][182].
+Related: [position][100], [rule][176], [boolValue][179], [sizeValue][182].
 
 #### Parameters
 
@@ -1592,37 +1625,6 @@ const Box = styled.div`
 
 ```js
 <Box top={0.2} left={0} /> // position: relative; top: 20%; left: 0
-```
-
-### radius
-
-```js
-import { radius } from 'pss'
-```
-
-| prop     | css             | type     | value | true | false |
-| :------- | :-------------- | :------- | :---- | :--- | :---- |
-| `radius` | `border-radius` | `Number` | ✓     | —    | —     |
-
-Related: [createVariant][205].
-
-#### Parameters
-
--   `props` **[Object][212]** 
-
-#### Examples
-
-```js
-import { radius } from 'pss'
-
-const Box = styled.div`
-  ${radius}
-`
-```
-
-```js
-<Box radius='5px' /> // → border-radius: 5px
-<Box radius='round' /> // → `theme.radius.round` → border-radius: 9999px
 ```
 
 ### ratio
@@ -1677,7 +1679,7 @@ import { textAlign } from 'pss'
 | :---------- | :----------- | :------- | :---- | :--- | :---- |
 | `textAlign` | `text-align` | `String` | ✓     | —    | —     |
 
-Related: [text][17], [ellipsis][48], [rule][176], [boolValue][179].
+Related: [text][17], [ellipsis][51], [rule][176], [boolValue][179].
 
 #### Parameters
 
@@ -1767,7 +1769,7 @@ import { whiteSpace } from 'pss'
 | :----------- | :------------ | :------- | :---- | :--- | :---- |
 | `whiteSpace` | `white-space` | `String` | ✓     | —    | —     |
 
-Related: [text][17], [ellipsis][48], [rule][176], [boolValue][179].
+Related: [text][17], [ellipsis][51], [rule][176], [boolValue][179].
 
 #### Parameters
 
@@ -1797,7 +1799,7 @@ import { zIndex } from 'pss'
 | :------- | :-------- | :---------------------------- | :---- | :--- | :---- |
 | `zIndex` | `z-index` | `String`, `Number`, `Boolean` | ✓     | —    | –     |
 
-Related: [position][97], [rule][176], [boolValue][179], [sizeValue][182].
+Related: [position][100], [rule][176], [boolValue][179], [sizeValue][182].
 
 #### Parameters
 
@@ -1856,7 +1858,7 @@ import { atomicDisplay } from 'pss'
 | `d`    | [`display`][display-url] | `String`, `Boolean`  | ✓        | `initial` | `none` |
 | `hide` | `display: none`          | key in `theme.media` | mediaKey | —         | —      |
 
-Related: [display][45], [boolValue][179], [rule][176], [mediaStyle][196].
+Related: [display][48], [boolValue][179], [rule][176], [mediaStyle][196].
 
 #### Parameters
 
@@ -1891,7 +1893,7 @@ import { atomicPosition } from 'pss'
 | `psy` | `position` | `Boolean`, key in `theme.media` | mediaKey | `sticky`   | —     |
 | `pst` | `position` | `Boolean`, key in `theme.media` | mediaKey | `static`   | —     |
 
-Related: [position][97], [mediaStyle][196].
+Related: [position][100], [mediaStyle][196].
 
 #### Parameters
 
@@ -2628,7 +2630,7 @@ import { themeValue } from 'pss'
 
 Use values defined in `theme[themeKey]`.
 
-See [fontFamily][59], [radius][103].
+See [fontFamily][62], [radius][227].
 
 #### Parameters
 
@@ -2678,7 +2680,7 @@ import { mediaStyle } from 'pss'
 
 Create style wrapped in `theme.media`.
 
-Related: [display][45].
+Related: [display][48].
 
 #### Parameters
 
@@ -2809,7 +2811,7 @@ const Box = styled.div(pss({
 ### createVariant
 
 Create `variant` from styles defined directly in `theme`.
-Inspired by [`styled-system`][227].
+Inspired by [`styled-system`][228].
 
 Related: [textStyle][20], [boxStyle][14], [rule][176], [themeValue][193], [themeStyle][199].
 
@@ -2945,159 +2947,159 @@ const Box = styled.div`
 
 [26]: #examples-7
 
-[27]: #boxcontentalignment
+[27]: #borderradius
 
 [28]: #parameters-8
 
 [29]: #examples-8
 
-[30]: #boxitemsalignment
+[30]: #boxcontentalignment
 
 [31]: #parameters-9
 
 [32]: #examples-9
 
-[33]: #boxselfalignment
+[33]: #boxitemsalignment
 
 [34]: #parameters-10
 
 [35]: #examples-10
 
-[36]: #boxshadow
+[36]: #boxselfalignment
 
 [37]: #parameters-11
 
 [38]: #examples-11
 
-[39]: #clearfix
+[39]: #boxshadow
 
 [40]: #parameters-12
 
 [41]: #examples-12
 
-[42]: #cursor
+[42]: #clearfix
 
 [43]: #parameters-13
 
 [44]: #examples-13
 
-[45]: #display
+[45]: #cursor
 
 [46]: #parameters-14
 
 [47]: #examples-14
 
-[48]: #ellipsis
+[48]: #display
 
 [49]: #parameters-15
 
 [50]: #examples-15
 
-[51]: #flex
+[51]: #ellipsis
 
-[52]: #examples-16
+[52]: #parameters-16
 
-[53]: #flexbox
+[53]: #examples-16
 
-[54]: #parameters-16
+[54]: #flex
 
 [55]: #examples-17
 
-[56]: #float
+[56]: #flexbox
 
 [57]: #parameters-17
 
 [58]: #examples-18
 
-[59]: #fontfamily
+[59]: #float
 
 [60]: #parameters-18
 
 [61]: #examples-19
 
-[62]: #fontsize
+[62]: #fontfamily
 
 [63]: #parameters-19
 
 [64]: #examples-20
 
-[65]: #fontweight
+[65]: #fontsize
 
 [66]: #parameters-20
 
 [67]: #examples-21
 
-[68]: #gap
+[68]: #fontweight
 
 [69]: #parameters-21
 
 [70]: #examples-22
 
-[71]: #grid
+[71]: #gap
 
 [72]: #parameters-22
 
 [73]: #examples-23
 
-[74]: #griditem
+[74]: #grid
 
-[75]: #examples-24
+[75]: #parameters-23
 
-[76]: #hideon
+[76]: #examples-24
 
-[77]: #parameters-23
+[77]: #griditem
 
 [78]: #examples-25
 
-[79]: #letterspacing
+[79]: #hideon
 
 [80]: #parameters-24
 
 [81]: #examples-26
 
-[82]: #lineheight
+[82]: #letterspacing
 
 [83]: #parameters-25
 
 [84]: #examples-27
 
-[85]: #opacity
+[85]: #lineheight
 
 [86]: #parameters-26
 
 [87]: #examples-28
 
-[88]: #order
+[88]: #opacity
 
 [89]: #parameters-27
 
 [90]: #examples-29
 
-[91]: #outline
+[91]: #order
 
 [92]: #parameters-28
 
 [93]: #examples-30
 
-[94]: #overflow
+[94]: #outline
 
 [95]: #parameters-29
 
 [96]: #examples-31
 
-[97]: #position
+[97]: #overflow
 
 [98]: #parameters-30
 
 [99]: #examples-32
 
-[100]: #positionoffsets
+[100]: #position
 
 [101]: #parameters-31
 
 [102]: #examples-33
 
-[103]: #radius
+[103]: #positionoffsets
 
 [104]: #parameters-32
 
@@ -3345,4 +3347,6 @@ const Box = styled.div`
 
 [226]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[227]: https://github.com/jxnblk/styled-system
+[227]: radius
+
+[228]: https://github.com/jxnblk/styled-system

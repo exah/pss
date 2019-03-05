@@ -18,6 +18,7 @@ toc:
   - name: Styles
     children:
       - border
+      - borderRadius
       - boxContentAlignment
       - boxItemsAlignment
       - boxSelfAlignment
@@ -44,7 +45,6 @@ toc:
       - overflow
       - position
       - positionOffsets
-      - radius
       - ratio
       - textAlign
       - transform

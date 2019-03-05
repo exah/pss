@@ -11,7 +11,7 @@ import {
   opacity,
   order,
   outline,
-  radius,
+  borderRadius,
   fontFamily,
   fontSize,
   fontWeight,
@@ -117,9 +117,9 @@ test('opacity', testValue({
   values: [ 0.5 ]
 }))
 
-test('radius', testValue({
-  fn: radius,
-  prop: 'radius',
+test('borderRadius', testValue({
+  fn: borderRadius,
+  prop: 'borderRadius',
   cssProp: 'borderRadius',
   values: [ '9999px' ]
 }))
