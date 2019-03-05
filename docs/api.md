@@ -1829,9 +1829,9 @@ const Text = styled.p`
 import { zIndex } from 'pss'
 ```
 
-| prop     | css       | type                          | value | true | false |
-| :------- | :-------- | :---------------------------- | :---- | :--- | :---- |
-| `zIndex` | `z-index` | `String`, `Number`, `Boolean` | ✓     | —    | –     |
+| prop     | css       | type                                    | value | true | false |
+| :------- | :-------- | :-------------------------------------- | :---- | :--- | :---- |
+| `zIndex` | `z-index` | `String`, `Number`, `theme.zIndex[key]` | ✓     | —    | –     |
 
 Related: [position][103], [rule][179], [boolValue][182], [sizeValue][185].
 
@@ -1852,6 +1852,7 @@ const Box = styled.div`
 
 ```js
 <Box zIndex={10} /> // position: relative; z-index: 10;
+<Box zIndex='modal' /> // position: relative; z-index: 100;
 ```
 
 ## Atomic Styles

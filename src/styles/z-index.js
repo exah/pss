@@ -1,13 +1,13 @@
-import { createStyles, rule } from '../core'
+import { createVariant } from '../core'
 
 /**
  * ```js
  * import { zIndex } from 'pss'
  * ```
  *
- * prop       | css       | type                          | value | true   | false
- * :----------|:----------|:------------------------------|:------|:-------|:--------
- * `zIndex`   | `z-index` | `String`, `Number`, `Boolean` | ✓     | —      | –
+ * prop       | css       | type                                    | value | true   | false
+ * :----------|:----------|:----------------------------------------|:------|:-------|:--------
+ * `zIndex`   | `z-index` | `String`, `Number`, `theme.zIndex[key]` | ✓     | —      | –
  *
  *
  * Related: {@link position}, {@link rule}, {@link boolValue}, {@link sizeValue}.
@@ -24,10 +24,13 @@ import { createStyles, rule } from '../core'
  *
  * @example
  * <Box zIndex={10} /> // position: relative; z-index: 10;
+ * <Box zIndex='modal' /> // position: relative; z-index: 100;
  */
 
-const zIndex = createStyles({
-  zIndex: rule('zIndex')
+const zIndex = createVariant({
+  prop: 'zIndex',
+  cssProp: 'zIndex',
+  themeKey: 'zIndex'
 })
 
 export {
