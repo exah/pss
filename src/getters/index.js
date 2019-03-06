@@ -60,8 +60,8 @@ export function getThemeValue ({ themeKey, transformValue, scale }) {
       ? getDefault(themeKey)(props)
       : input
 
-    const themeData = themePath(themeKey, scale)(props)
-    const themeValue = path(valueKey)(themeData)
+    const themeScale = themePath(themeKey, scale)(props)
+    const themeValue = path(valueKey)(themeScale)
 
     if (Object(themeValue).hasOwnProperty(mediaKey)) {
       return transformValue(themeValue[mediaKey])

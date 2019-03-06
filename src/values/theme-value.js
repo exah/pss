@@ -48,7 +48,9 @@ function themeValue ({
   scale,
   getter = getThemeValue({ themeKey, transformValue, scale })
 } = {}) {
-  return (input, props, mediaKey) => getter(input, input, mediaKey)(props)
+  return (defaultValue = transformValue) =>
+    (input, props, mediaKey) =>
+      getter(input, defaultValue, mediaKey)(props)
 }
 
 export {

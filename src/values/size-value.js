@@ -1,26 +1,6 @@
-import { isStr, identity } from '@exah/utils'
-import { SIZES_KEY } from '../constants'
 import { px } from '../utils'
-import { getThemeValue } from '../getters'
-
-export function createSizeValue ({
-  transformValue = identity,
-  themeKey = SIZES_KEY,
-  scale,
-  getter = getThemeValue({ themeKey, transformValue, scale })
-} = {}) {
-  return (defaultValue = transformValue) => (
-    input,
-    props,
-    mediaKey
-  ) => {
-    if (isStr(input)) {
-      return getter(input, input, mediaKey)(props)
-    }
-
-    return defaultValue
-  }
-}
+import { SIZES_KEY } from '../constants'
+import { themeValue } from './theme-value'
 
 /**
  * ```js
@@ -57,4 +37,7 @@ export function createSizeValue ({
  * <Box l r /> // → left: 0; right: 0
  */
 
-export const sizeValue = createSizeValue({ transformValue: px })
+export const sizeValue = themeValue({
+  transformValue: px,
+  themeKey: SIZES_KEY
+})
