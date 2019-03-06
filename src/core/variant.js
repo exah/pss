@@ -12,9 +12,9 @@ import { createRule } from './create-rule'
  * @param {Object} options
  *
  * @example
- * import { createVariant } from 'pss'
+ * import { variant } from 'pss'
  *
- * const variant = createVariant({
+ * const variant = variant({
  *   themeKey: 'textStyle'
  * })
  *
@@ -44,7 +44,7 @@ import { createRule } from './create-rule'
  * <Text variant='heading' /> // → `theme.textStyle.heading`
  */
 
-function createVariant ({
+function variant ({
   prop = VARIANT,
   themeKey,
   transformValue,
@@ -69,5 +69,5 @@ function createVariant ({
 }
 
 export {
-  createVariant
+  variant
 }

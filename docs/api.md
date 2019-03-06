@@ -206,7 +206,7 @@
     -   [createRule][202]
         -   [Parameters][203]
         -   [Examples][204]
-    -   [createVariant][205]
+    -   [variant][205]
         -   [Parameters][206]
         -   [Examples][207]
     -   [style][208]
@@ -566,7 +566,7 @@ import { boxStyle } from 'pss'
 
 Global box styles system, like in [Sketch][213].
 
-Related: [createVariant][205].
+Related: [variant][205].
 
 Add `boxStyle` to `theme`:
 
@@ -657,7 +657,7 @@ import { textStyle } from 'pss'
 
 Global text styles system, like in [Sketch][214].
 
-Related: [createVariant][205], [text][17].
+Related: [variant][205], [text][17].
 
 Add `textStyle` to `theme`:
 
@@ -2779,7 +2779,7 @@ const Box = styled.div(pss({
 </ThemeProvider>
 ```
 
-### createVariant
+### variant
 
 Create `variant` from styles defined directly in `theme`.
 Inspired by [`styled-system`][228].
@@ -2798,9 +2798,9 @@ Related: [textStyle][20], [boxStyle][14], [rule][179], [themeValue][196].
 #### Examples
 
 ```js
-import { createVariant } from 'pss'
+import { variant } from 'pss'
 
-const variant = createVariant({
+const variant = variant({
   themeKey: 'textStyle'
 })
 
@@ -3279,7 +3279,7 @@ const Box = styled.div`
 
 [204]: #examples-65
 
-[205]: #createvariant
+[205]: #variant
 
 [206]: #parameters-64
 

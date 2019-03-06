@@ -1,5 +1,5 @@
 import { TEXT_STYLE_KEY } from '../constants'
-import { createVariant } from '../core'
+import { variant } from '../core'
 
 /**
  * ```js
@@ -8,7 +8,7 @@ import { createVariant } from '../core'
  *
  * Global text styles system, like in [Sketch](https://sketchapp.com/docs/text/text-styles).
  *
- * Related: {@link createVariant}, {@link text}.
+ * Related: {@link variant}, {@link text}.
  *
  * Add `textStyle` to `theme`:
  *
@@ -53,7 +53,7 @@ import { createVariant } from '../core'
  * <Text variant='heading' /> // → `theme.textStyle.heading`
  */
 
-const textStyle = createVariant({
+const textStyle = variant({
   themeKey: TEXT_STYLE_KEY,
   prop: 'textStyle'
 })

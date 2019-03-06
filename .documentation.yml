@@ -92,5 +92,5 @@ toc:
       - themeValue
       - mediaStyle
       - createRule
-      - createVariant
+      - variant
       - style
