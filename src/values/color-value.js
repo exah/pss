@@ -5,8 +5,10 @@ import { themePath, getDefault } from '../getters'
 export function createColorValue ({
   themeColorKey = COLORS_KEY,
   themePaletteKey = PALETTE_KEY,
-  colorsGetter = themePath(themeColorKey, {}),
-  paletteGetter = themePath(themePaletteKey, {})
+  colorsScale = {},
+  paletteScale = {},
+  colorsGetter = themePath(themeColorKey, colorsScale),
+  paletteGetter = themePath(themePaletteKey, paletteScale)
 } = {}) {
   const getColor = (defaultColorName) => (colorName) => (props) => {
     const colors = colorsGetter(props)

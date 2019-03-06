@@ -12,9 +12,6 @@ import { everyMedia } from './every-media'
  * Related: {@link textStyle}.
  *
  * @param {Object} [options = {}]
- * @param {String} options.themeKey
- * @param {Function} [options.transformValue = identity]
- * @param {Function} [options.themeGetter = getThemeValue(themeKey, transformValue)]
  * @return {Function}
  *
  * @example
@@ -59,11 +56,12 @@ import { everyMedia } from './every-media'
 function themeStyle ({
   themeKey,
   transformValue,
-  themeGetter = getThemeValue(themeKey, transformValue)
+  scale,
+  getter = getThemeValue({ themeKey, transformValue, scale })
 } = {}) {
   return (inputs, props, mediaKey) => toArr(inputs).reduce((acc, input) => ({
     ...acc,
-    ...everyMedia(props, themeGetter(input, null, mediaKey)(props))
+    ...everyMedia(props, getter(input, null, mediaKey)(props))
   }), {})
 }
 

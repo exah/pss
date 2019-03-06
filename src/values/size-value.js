@@ -1,18 +1,13 @@
-import { isStr, path, identity } from '@exah/utils'
+import { isStr, identity } from '@exah/utils'
 import { SIZES_KEY } from '../constants'
 import { px } from '../utils'
 import { getThemeValue } from '../getters'
 
-const scaleGetter = (scale, transformValue = identity) =>
-  (input, fallback) => transformValue(path(input, fallback)(scale))
-
 export function createSizeValue ({
   transformValue = identity,
   themeKey = SIZES_KEY,
-  scale = null,
-  getter = scale
-    ? scaleGetter(scale, transformValue)
-    : getThemeValue(themeKey, transformValue)
+  scale,
+  getter = getThemeValue({ themeKey, transformValue, scale })
 } = {}) {
   return (defaultValue = transformValue) => (
     input,

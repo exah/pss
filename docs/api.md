@@ -2673,6 +2673,8 @@ See [fontFamily][65], [radius][230].
     -   `options.themeKey` **[String][223]** 
     -   `options.transformValue` **[Function][229]**  (optional, default `identity`)
     -   `options.themeGetter` **[Function][229]**  (optional, default `getThemeValue(themeKey,transformValue)`)
+    -   `options.scale`  
+    -   `options.getter`   (optional, default `getThemeValue({themeKey,transformValue,scale})`)
 
 #### Examples
 
@@ -2757,9 +2759,10 @@ Related: [textStyle][20].
 #### Parameters
 
 -   `options` **[Object][215]**  (optional, default `{}`)
-    -   `options.themeKey` **[String][223]** 
-    -   `options.transformValue` **[Function][229]**  (optional, default `identity`)
-    -   `options.themeGetter` **[Function][229]**  (optional, default `getThemeValue(themeKey,transformValue)`)
+    -   `options.themeKey`  
+    -   `options.transformValue`  
+    -   `options.scale`  
+    -   `options.getter`   (optional, default `getThemeValue({themeKey,transformValue,scale})`)
 
 #### Examples
 
@@ -2853,11 +2856,12 @@ Related: [textStyle][20], [boxStyle][14], [rule][179], [themeValue][196], [theme
 #### Parameters
 
 -   `options` **[Object][215]** 
-    -   `options.themeKey`  
     -   `options.prop`   (optional, default `VARIANT`)
     -   `options.cssProp`   (optional, default `false`)
+    -   `options.scale`  
+    -   `options.themeKey`  
     -   `options.transformValue`  
-    -   `options.themeGetter`   (optional, default `getThemeValue(themeKey)`)
+    -   `options.getter`  
 
 #### Examples
 

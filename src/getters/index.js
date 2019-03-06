@@ -48,7 +48,7 @@ export const getMedia = (input, media) => media
   ? path(input)(media)
   : (props) => path(input)(getThemeMedia(props))
 
-export function getThemeValue (themeKey, transformValue) {
+export function getThemeValue ({ themeKey, transformValue, scale }) {
   const isTransformValue = isFn(transformValue)
 
   if (!isTransformValue) {
@@ -60,7 +60,7 @@ export function getThemeValue (themeKey, transformValue) {
       ? getDefault(themeKey)(props)
       : input
 
-    const themeData = themePath(themeKey)(props)
+    const themeData = themePath(themeKey, scale)(props)
     const themeValue = path(valueKey)(themeData)
 
     if (Object(themeValue).hasOwnProperty(mediaKey)) {

@@ -45,9 +45,10 @@ import { getThemeValue } from '../getters'
 function themeValue ({
   themeKey,
   transformValue,
-  themeGetter = getThemeValue(themeKey, transformValue)
+  scale,
+  getter = getThemeValue({ themeKey, transformValue, scale })
 } = {}) {
-  return (input, props, mediaKey) => themeGetter(input, input, mediaKey)(props)
+  return (input, props, mediaKey) => getter(input, input, mediaKey)(props)
 }
 
 export {

@@ -1,5 +1,4 @@
 import { VARIANT } from '../constants'
-import { getThemeValue } from '../getters'
 import { themeValue } from '../values/theme-value'
 import { createStyles } from './create-styles'
 import { themeStyle } from './theme-style'
@@ -47,15 +46,16 @@ import { rule } from './rule'
  */
 
 function createVariant ({
-  themeKey,
   prop = VARIANT,
   cssProp = false,
+  scale,
+  themeKey,
   transformValue,
-  themeGetter = getThemeValue(themeKey)
+  getter
 }) {
   const style = cssProp === false
-    ? themeStyle({ themeKey, transformValue, themeGetter })
-    : rule(cssProp, themeValue({ themeKey, transformValue, themeGetter }))
+    ? themeStyle({ themeKey, transformValue, scale, getter })
+    : rule(cssProp, themeValue({ themeKey, transformValue, scale, getter }))
 
   const mixin = createStyles({
     [prop]: style
