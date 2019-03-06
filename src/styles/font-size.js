@@ -24,4 +24,6 @@ import { style } from '../core'
  * <Text fontSize='1rem' /> // font-size: 1rem
  */
 
-export const fontSize = style({ cssProp: 'fontSize' })
+export const fontSize = style({
+  cssProp: 'fontSize'
+})

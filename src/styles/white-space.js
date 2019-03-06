@@ -24,4 +24,6 @@ import { style } from '../core'
  * <Text whiteSpace='nowrap' /> // white-space: nowrap
  */
 
-export const whiteSpace = style({ cssProp: 'whiteSpace' })
+export const whiteSpace = style({
+  cssProp: 'whiteSpace'
+})

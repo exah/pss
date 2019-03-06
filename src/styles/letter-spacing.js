@@ -24,4 +24,6 @@ import { style } from '../core'
  * <Text letterSpacing='-0.15em' /> // letter-spacing: -0.15em
  */
 
-export const letterSpacing = style({ cssProp: 'letterSpacing' })
+export const letterSpacing = style({
+  cssProp: 'letterSpacing'
+})

@@ -93,8 +93,8 @@ const colors = createStyles({
     rule('backgroundColor', colorValue('bg')),
     rule('color', colorValue('fg'))
   ],
-  fg: rule('color', colorValue('fg')),
-  bg: rule('backgroundColor', colorValue('bg'))
+  bg: rule('backgroundColor', colorValue('bg')),
+  fg: rule('color', colorValue('fg'))
 })
 
 export {

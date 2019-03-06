@@ -1,4 +1,4 @@
-import { createStyles, rule } from '../core'
+import { style } from '../core'
 
 /**
  * ```js
@@ -27,8 +27,8 @@ import { createStyles, rule } from '../core'
  * <Box position='absolute' top={0.2} left={0} /> // position: absolute; top: 20%; left: 0
  */
 
-const position = createStyles({
-  position: rule('position')
+const position = style({
+  cssProp: 'position'
 })
 
 export {

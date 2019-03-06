@@ -989,7 +989,7 @@ import { cursor } from 'pss'
 | :------- | :------- | :------- | :---- | :--- | :---- |
 | `cursor` | `cursor` | `String` | ✓     | —    | —     |
 
-Related: [rule][179].
+Related: [style][208].
 
 #### Parameters
 

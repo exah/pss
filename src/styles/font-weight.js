@@ -24,4 +24,6 @@ import { style } from '../core'
  * <Text fontWeight='bold' /> // font-weight: bold
  */
 
-export const fontWeight = style({ cssProp: 'fontWeight' })
+export const fontWeight = style({
+  cssProp: 'fontWeight'
+})

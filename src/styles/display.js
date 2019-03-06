@@ -1,4 +1,4 @@
-import { createStyles, rule } from '../core'
+import { style } from '../core'
 
 /**
  * ```js
@@ -26,8 +26,8 @@ import { createStyles, rule } from '../core'
  * <Box display='inline-block' /> // display: inline-block;
  */
 
-const display = createStyles({
-  display: rule('display')
+const display = style({
+  cssProp: 'display'
 })
 
 export {

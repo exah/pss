@@ -1,4 +1,4 @@
-import { createStyles, rule } from '../core'
+import { style } from '../core'
 
 /**
  * ```js
@@ -27,6 +27,6 @@ import { createStyles, rule } from '../core'
  * </FlexBox>
  */
 
-export const order = createStyles({
-  order: rule('order')
+export const order = style({
+  cssProp: 'order'
 })

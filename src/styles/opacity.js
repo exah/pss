@@ -1,4 +1,4 @@
-import { createStyles, rule } from '../core'
+import { style } from '../core'
 
 /**
  * ```js
@@ -25,6 +25,6 @@ import { createStyles, rule } from '../core'
  * <Box opacity={0.5} /> // → opacity: 0.5
  */
 
-export const opacity = createStyles({
-  opacity: rule('opacity')
+export const opacity = style({
+  cssProp: 'opacity'
 })

@@ -1,4 +1,4 @@
-import { createStyles, rule } from '../core'
+import { style } from '../core'
 
 /**
  * ```js
@@ -25,6 +25,6 @@ import { createStyles, rule } from '../core'
  * <Box transition='all .3s' /> // → transition: all .3s
  */
 
-export const transition = createStyles({
-  transition: rule('transition')
+export const transition = style({
+  cssProp: 'transition'
 })

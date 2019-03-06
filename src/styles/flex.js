@@ -1,4 +1,4 @@
-import { createStyles, rule } from '../core'
+import { style } from '../core'
 import { sizeValue } from '../values'
 
 /**
@@ -25,6 +25,7 @@ import { sizeValue } from '../values'
  * </FlexBox>
  */
 
-export const flex = createStyles({
-  flex: rule('flex', sizeValue())
+export const flex = style({
+  cssProp: 'flex',
+  getValue: sizeValue()
 })
