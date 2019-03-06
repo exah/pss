@@ -1,4 +1,4 @@
-import { boxStyle } from '../..'
+import { boxStyle, cs } from '../..'
 import { toStyles } from '../../../test-helpers'
 
 const theme = {
@@ -36,7 +36,7 @@ test('default', () => {
 test('red, shadow', () => {
   const result = toStyles(boxStyle({
     theme,
-    boxStyle: [ 'red', 'shadow' ]
+    boxStyle: cs('red', 'shadow')
   }))
 
   expect(result).toEqual({
@@ -49,7 +49,7 @@ test('red, shadow', () => {
 test('variant', () => {
   const result = toStyles(boxStyle.variant({
     theme,
-    variant: [ 'red', 'shadow' ]
+    variant: cs('red', 'shadow')
   }))
 
   expect(result).toEqual({

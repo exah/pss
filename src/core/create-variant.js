@@ -1,14 +1,13 @@
 import { VARIANT } from '../constants'
 import { themeValue } from '../values/theme-value'
 import { createStyles } from './create-styles'
-import { themeStyle } from './theme-style'
-import { rule } from './rule'
+import { createRule } from './create-rule'
 
 /**
  * Create `variant` from styles defined directly in `theme`.
  * Inspired by [`styled-system`](https://github.com/jxnblk/styled-system).
  *
- * Related: {@link textStyle}, {@link boxStyle}, {@link rule}, {@link themeValue}, {@link themeStyle}.
+ * Related: {@link textStyle}, {@link boxStyle}, {@link rule}, {@link themeValue}.
  *
  * @param {Object} options
  *
@@ -47,23 +46,24 @@ import { rule } from './rule'
 
 function createVariant ({
   prop = VARIANT,
-  cssProp = false,
+  cssProp,
   scale,
   themeKey,
   transformValue,
   getter
 }) {
-  const style = cssProp === false
-    ? themeStyle({ themeKey, transformValue, scale, getter })
-    : rule(cssProp, themeValue({ themeKey, transformValue, scale, getter }))
+  const rule = createRule({
+    cssProp,
+    getValue: themeValue({ themeKey, transformValue, scale, getter })
+  })
 
   const mixin = createStyles({
-    [prop]: style
+    [prop]: rule
   })
 
   if (prop !== VARIANT) {
     mixin[VARIANT] = createStyles({
-      [VARIANT]: style
+      [VARIANT]: rule
     })
   }
 

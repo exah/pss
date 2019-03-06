@@ -1,4 +1,4 @@
-import { textStyle } from '../..'
+import { textStyle, cs } from '../..'
 import { toStyles } from '../../../test-helpers'
 
 const theme = {
@@ -52,7 +52,7 @@ test('responsive', () => {
 test('all', () => {
   const result = toStyles(textStyle({
     theme,
-    textStyle: [ 'responsive', 'heading' ]
+    textStyle: cs('responsive', 'heading')
   }))
 
   expect(result).toEqual({
@@ -68,7 +68,7 @@ test('all', () => {
 test('variant', () => {
   const result = toStyles(textStyle.variant({
     theme,
-    variant: [ 'responsive', 'heading' ]
+    variant: cs('responsive', 'heading')
   }))
 
   expect(result).toEqual({

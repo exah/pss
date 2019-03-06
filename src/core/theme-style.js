@@ -3,6 +3,8 @@ import { getThemeValue } from '../getters'
 import { everyMedia } from './every-media'
 
 /**
+ * @private
+ *
  * ```js
  * import { themeStyle } from 'pss'
  * ```

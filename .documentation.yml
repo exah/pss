@@ -91,7 +91,6 @@ toc:
       - colorValue
       - themeValue
       - mediaStyle
-      - themeStyle
       - createRule
       - createVariant
       - style
