@@ -34,13 +34,8 @@ export const getDefault = (input, defaultValue = DEFAULT_KEY) => themePath(
   defaultValue
 )
 
-export const getDefaultMedia = getDefault(
-  MEDIA_KEY,
-  DEFAULT_MEDIA_KEY
-)
-
 export const getThemeMedia = (props) => ({
-  [getDefaultMedia(props)]: null,
+  [DEFAULT_MEDIA_KEY]: null,
   ...path(MEDIA_KEY)(getTheme(props))
 })
 

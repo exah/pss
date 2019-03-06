@@ -7,12 +7,11 @@ import {
 } from '@exah/utils'
 
 import {
-  MEDIA_KEY
+  DEFAULT_MEDIA_KEY
 } from '../constants'
 
 import {
   getMedia,
-  getDefault,
   getThemeMedia
 } from '../getters'
 
@@ -127,7 +126,6 @@ function handleStyle (style, input, props, mediaKey) {
 export function createStyles (styles) {
   function getStyles (props) {
     const media = getThemeMedia(props)
-    const defaultMediaKey = getDefault(MEDIA_KEY)(props)
 
     function mapStyles (input, mediaKey, style) {
       // value with `theme.media` keys: { all: 0, M: 1 }
@@ -137,7 +135,7 @@ export function createStyles (styles) {
 
       // general prop style
       return wrapIfMedia(
-        getMedia(mediaKey === undefined ? defaultMediaKey : mediaKey, media),
+        getMedia(mediaKey === undefined ? DEFAULT_MEDIA_KEY : mediaKey, media),
         handleStyle(style, input, props, mediaKey)
       )
     }
