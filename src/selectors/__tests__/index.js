@@ -61,7 +61,7 @@ describe('themeSelector', () => {
   test('positionOffsets', () => {
     const result = toStyles(positionOffsets({
       theme,
-      top: ts((tm) => tm.myValue),
+      top: ts((props) => props.theme.myValue),
       bottom: ts(themePath('myValue')),
       left: ts(themePath('noneExistentProp', 5)),
       right: ts(themePath('notPercentage', 1))
@@ -78,7 +78,7 @@ describe('themeSelector', () => {
   test('space', () => {
     const result = toStyles(space({
       theme,
-      mg: ts((tm) => tm.myValue),
+      mg: ts((props) => props.theme.myValue),
       mgb: ts(themePath('myValue')),
       mgr: ts(themePath('notPercentage', 1))
     }))

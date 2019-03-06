@@ -1,12 +1,5 @@
 import { compose, path, identity, isObj, isFn, mapObj } from '@exah/utils'
-
-import {
-  DEFAULT_KEY,
-  MEDIA_KEY,
-  DEFAULT_MEDIA_KEY
-} from '../constants'
-
-export const getTheme = (props) => (props && props.theme) || Object(props)
+import { DEFAULT_KEY, MEDIA_KEY } from '../constants'
 
 /**
  * ```js
@@ -26,23 +19,14 @@ export const getTheme = (props) => (props && props.theme) || Object(props)
  * <Box /> // → width: 200px; background-color: hotpink;
  */
 
-export const themePath = (input, defaultValue) => (props) =>
-  path(input, defaultValue)(getTheme(props))
+export const themePath = (input, defaultValue) =>
+  (props = {}) => path(input, defaultValue)(props.theme)
 
-export const getDefault = (input, defaultValue = DEFAULT_KEY) => themePath(
-  [ DEFAULT_KEY, input ],
-  defaultValue
-)
+export const getDefault = (input, defaultValue = DEFAULT_KEY) =>
+  themePath([ DEFAULT_KEY, input ], defaultValue)
 
-export const getThemeMedia = (props) => ({
-  [DEFAULT_MEDIA_KEY]: null,
-  ...path(MEDIA_KEY)(getTheme(props))
-})
-
-export const getMedia = (input) => compose(
-  path(input),
-  getThemeMedia
-)
+export const getThemeMedia = themePath(MEDIA_KEY, {})
+export const getMedia = (input) => compose(path(input), getThemeMedia)
 
 export function getThemeValue ({ themeKey, transformValue, scale }) {
   const isTransformValue = isFn(transformValue)
@@ -51,21 +35,21 @@ export function getThemeValue ({ themeKey, transformValue, scale }) {
     transformValue = identity
   }
 
-  return (input, defaultValue, mediaKey) => (props) => {
-    const valueKey = input === true
+  return (input, defaultValue, defaultMediaKey) => (props) => {
+    const key = input === true
       ? getDefault(themeKey)(props)
       : input
 
     const themeScale = themePath(themeKey, scale)(props)
-    const themeValue = path(valueKey)(themeScale)
+    const themeValue = path(key)(themeScale)
 
-    if (Object(themeValue).hasOwnProperty(mediaKey)) {
-      return transformValue(themeValue[mediaKey])
+    if (Object(themeValue).hasOwnProperty(defaultMediaKey)) {
+      return transformValue(themeValue[defaultMediaKey])
     }
 
     if (isTransformValue && isObj(themeValue)) {
       return mapObj(
-        (key, value) => ({ [key]: transformValue(themeValue[key]) }),
+        (mediaKey, value) => ({ [mediaKey]: transformValue(value) }),
         themeValue
       )
     }

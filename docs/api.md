@@ -2079,7 +2079,7 @@ const Box = styled.div`
   ${sizes}
 `
 
-<Box width={ts((theme) => theme.myValue)}
+<Box width={ts((props.theme) => props.theme.myValue)}
 <Box width={ts(themePath('site.width'))}
 ```
 

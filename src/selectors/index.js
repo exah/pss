@@ -44,11 +44,11 @@ const propSelector = curryN(2, (name, value) => (props, style) =>
  *   ${sizes}
  * `
  *
- * <Box width={ts((theme) => theme.myValue)}
+ * <Box width={ts((props.theme) => props.theme.myValue)}
  * <Box width={ts(themePath('site.width'))}
  */
 
-const themeSelector = (fn) => (props, style) => style(px(fn(props.theme)))
+const themeSelector = (fn) => (props, style) => style(px(fn(props)))
 
 /**
  * ```js
