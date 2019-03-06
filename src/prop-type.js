@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types'
 
-export const propType = PropTypes.oneOfType([
+export const valuePropType = PropTypes.oneOfType([
   PropTypes.bool,
   PropTypes.string,
   PropTypes.number,
   PropTypes.func,
-  PropTypes.array,
-  PropTypes.object
+  PropTypes.arrayOf(PropTypes.string)
+])
+
+export const propType = PropTypes.oneOfType([
+  valuePropType,
+  PropTypes.objectOf(valuePropType)
 ])
