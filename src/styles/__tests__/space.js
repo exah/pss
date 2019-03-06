@@ -86,7 +86,7 @@ test('set margin to "30px" on mobile', () => {
   expect(toStyles(space({ theme, mg: { all: '10px', M: '30px' } }))).toEqual(expected)
 })
 
-test('without theme', () => {
-  expect(toStyles(space({ mg: 1 }))).toEqual({})
+test('without theme should use default scale', () => {
+  expect(toStyles(space({ mg: 1 }))).toEqual({ margin: '4px' })
   expect(toStyles(space({ mg: 0 }))).toEqual({ margin: 0 })
 })

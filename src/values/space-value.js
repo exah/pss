@@ -9,7 +9,7 @@ import {
   mapObj
 } from '@exah/utils'
 
-import { DEFAULT_MEDIA_KEY, SPACE_KEY } from '../constants'
+import { DEFAULT_MEDIA_KEY, DEFAULT_SPACE_SCALE, SPACE_KEY } from '../constants'
 import { px, splitUnit } from '../utils'
 import { themePath } from '../getters'
 
@@ -30,7 +30,7 @@ const getSpaceStep = (input, spaces = []) => {
 export function createSpaceValue ({
   transformValue = identity,
   themeKey = SPACE_KEY,
-  scale = [ 0 ],
+  scale = DEFAULT_SPACE_SCALE,
   getter = themePath(themeKey, scale)
 } = {}) {
   const transform = pipe(getSpaceStep, transformValue)

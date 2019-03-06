@@ -12,3 +12,4 @@ export const BOX_SHADOW_KEY = 'boxShadow'
 export const FONT_KEY = 'fontFamily'
 export const DEFAULT_MEDIA_KEY = 'all'
 export const VARIANT = 'variant'
+export const DEFAULT_SPACE_SCALE = [ 0, 4, 8, 16, 32, 64, 128, 256 ]
