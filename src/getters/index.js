@@ -1,4 +1,4 @@
-import { path, identity, isObj, isFn, mapObj } from '@exah/utils'
+import { compose, path, identity, isObj, isFn, mapObj } from '@exah/utils'
 
 import {
   DEFAULT_KEY,
@@ -39,9 +39,10 @@ export const getThemeMedia = (props) => ({
   ...path(MEDIA_KEY)(getTheme(props))
 })
 
-export const getMedia = (input, media) => media
-  ? path(input)(media)
-  : (props) => path(input)(getThemeMedia(props))
+export const getMedia = (input) => compose(
+  path(input),
+  getThemeMedia
+)
 
 export function getThemeValue ({ themeKey, transformValue, scale }) {
   const isTransformValue = isFn(transformValue)

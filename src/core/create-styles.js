@@ -1,27 +1,16 @@
 import {
   isFn,
+  path,
   isPlainObj,
   toArr,
   reduceObj,
   mapObj
 } from '@exah/utils'
 
-import {
-  DEFAULT_MEDIA_KEY
-} from '../constants'
-
-import {
-  getMedia,
-  getThemeMedia
-} from '../getters'
-
-import {
-  wrapIfMedia
-} from '../utils'
-
-import {
-  propType
-} from '../prop-type'
+import { DEFAULT_MEDIA_KEY } from '../constants'
+import { getThemeMedia } from '../getters'
+import { wrapIfMedia } from '../utils'
+import { propType } from '../prop-type'
 
 function handleStyle (style, input, props, mediaKey) {
   // selector
@@ -135,7 +124,7 @@ export function createStyles (styles) {
 
       // general prop style
       return wrapIfMedia(
-        getMedia(mediaKey === undefined ? DEFAULT_MEDIA_KEY : mediaKey, media),
+        path(mediaKey === undefined ? DEFAULT_MEDIA_KEY : mediaKey)(media),
         handleStyle(style, input, props, mediaKey)
       )
     }
