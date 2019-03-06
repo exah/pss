@@ -791,7 +791,7 @@ import { borderRadius } from 'pss'
 | :------------- | :-------------- | :---------------------------------- | :---- | :--- | :---- |
 | `borderRadius` | `border-radius` | `Number`, `theme.borderRadius[key]` | ✓     | —    | —     |
 
-Related: [createVariant][205].
+Related: [style][208].
 
 #### Parameters
 
@@ -1187,7 +1187,7 @@ const theme = {
 }
 ```
 
-Related: [createVariant][205].
+Related: [style][208].
 
 #### Parameters
 
@@ -2667,11 +2667,10 @@ See [fontFamily][65], [radius][227].
 #### Parameters
 
 -   `options` **[Object][212]**  (optional, default `{}`)
-    -   `options.themeKey` **[String][220]** 
-    -   `options.transformValue` **[Function][226]**  (optional, default `identity`)
-    -   `options.themeGetter` **[Function][226]**  (optional, default `getThemeValue(themeKey,transformValue)`)
+    -   `options.themeKey`  
+    -   `options.transformValue`  
     -   `options.scale`  
-    -   `options.getter`   (optional, default `getThemeValue({themeKey,transformValue,scale})`)
+    -   `options.getter`   (optional, default `get({themeKey,transformValue,scale})`)
 
 #### Examples
 
@@ -2791,10 +2790,9 @@ Related: [textStyle][20], [boxStyle][14], [rule][179], [themeValue][196].
 
 -   `options` **[Object][212]** 
     -   `options.prop`   (optional, default `VARIANT`)
-    -   `options.cssProp`  
-    -   `options.scale`  
     -   `options.themeKey`  
     -   `options.transformValue`  
+    -   `options.scale`  
     -   `options.getter`  
 
 #### Examples
@@ -2841,13 +2839,18 @@ import { style } from 'pss'
 
 Create style for single prop.
 Combines [createStyles][176] and [createRule][202] in single function.
+Inspired by [`styled-system`][228].
 
 #### Parameters
 
 -   `options` **[Object][212]** 
     -   `options.cssProp`  
-    -   `options.getValue`  
+    -   `options.themeKey`  
+    -   `options.transformValue`  
+    -   `options.scale`  
+    -   `options.getter`  
     -   `options.prop`   (optional, default `cssProp`)
+    -   `options.getValue`   (optional, default `themeKey?themeValue({themeKey,transformValue,scale,getter}):undefined`)
     -   `options.rule`   (optional, default `createRule({cssProp,getValue})`)
 
 #### Examples

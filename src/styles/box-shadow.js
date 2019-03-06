@@ -1,6 +1,5 @@
 import { style } from '../core'
 import { BOX_SHADOW_KEY } from '../constants'
-import { themeValue } from '../values'
 
 /**
  * ```js
@@ -30,5 +29,5 @@ import { themeValue } from '../values'
 
 export const boxShadow = style({
   cssProp: 'boxShadow',
-  getValue: themeValue({ themeKey: BOX_SHADOW_KEY })
+  themeKey: BOX_SHADOW_KEY
 })

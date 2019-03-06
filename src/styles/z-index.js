@@ -1,4 +1,4 @@
-import { createVariant } from '../core'
+import { style } from '../core'
 
 /**
  * ```js
@@ -27,8 +27,7 @@ import { createVariant } from '../core'
  * <Box zIndex='modal' /> // position: relative; z-index: 100;
  */
 
-const zIndex = createVariant({
-  prop: 'zIndex',
+const zIndex = style({
   cssProp: 'zIndex',
   themeKey: 'zIndex'
 })

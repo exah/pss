@@ -46,14 +46,12 @@ import { createRule } from './create-rule'
 
 function createVariant ({
   prop = VARIANT,
-  cssProp,
-  scale,
   themeKey,
   transformValue,
+  scale,
   getter
 }) {
   const rule = createRule({
-    cssProp,
     getValue: themeValue({ themeKey, transformValue, scale, getter })
   })
 

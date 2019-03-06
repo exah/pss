@@ -1,5 +1,5 @@
 import { BORDER_RADIUS_KEY } from '../constants'
-import { createVariant } from '../core'
+import { style } from '../core'
 
 /**
  * ```js
@@ -11,7 +11,7 @@ import { createVariant } from '../core'
  * `borderRadius` | `border-radius` | `Number`, `theme.borderRadius[key]` | ✓     | —         | —
  *
  *
- * Related: {@link createVariant}.
+ * Related: {@link style}.
  *
  * @param {Object} props
  *
@@ -27,8 +27,7 @@ import { createVariant } from '../core'
  * <Box borderRadius='round' /> // → `theme.borderRadius.round` → border-radius: 9999px
  */
 
-export const borderRadius = createVariant({
+export const borderRadius = style({
   themeKey: BORDER_RADIUS_KEY,
-  prop: 'borderRadius',
   cssProp: 'borderRadius'
 })

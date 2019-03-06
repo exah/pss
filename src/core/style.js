@@ -1,3 +1,4 @@
+import { themeValue } from '../values/theme-value'
 import { createStyles } from './create-styles'
 import { createRule } from './create-rule'
 
@@ -8,6 +9,7 @@ import { createRule } from './create-rule'
  *
  * Create style for single prop.
  * Combines {@link createStyles} and {@link createRule} in single function.
+ * Inspired by [`styled-system`](https://github.com/jxnblk/styled-system).
  *
  * @param {Object} options
  *
@@ -28,8 +30,12 @@ import { createRule } from './create-rule'
 
 export const style = ({
   cssProp,
-  getValue,
+  themeKey,
+  transformValue,
+  scale,
+  getter,
   prop = cssProp,
+  getValue = themeKey ? themeValue({ themeKey, transformValue, scale, getter }) : undefined,
   rule = createRule({ cssProp, getValue })
 }) => createStyles({
   [prop]: rule

@@ -1,4 +1,4 @@
-import { createStyles, themeStyle } from '../..'
+import { createStyles, themeValue, createRule } from '../..'
 import { theme as helperTheme, toStyles } from '../../../test-helpers'
 
 const theme = {
@@ -30,7 +30,7 @@ const theme = {
 }
 
 const customProps = createStyles({
-  is: themeStyle({ themeKey: 'customStyles' })
+  is: createRule({ getValue: themeValue({ themeKey: 'customStyles' }) })
 })
 
 test('default', () => {
