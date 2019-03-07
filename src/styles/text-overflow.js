@@ -1,5 +1,4 @@
 import { createStyles, rule } from '../core'
-import { boolValue } from '../values'
 
 /**
  * ```js
@@ -13,23 +12,23 @@ import { boolValue } from '../values'
  * @param {Object} props
  *
  * @example
- * import { ellipsis } from 'pss'
+ * import { textOverflow } from 'pss'
  *
  * const Text = styled.p`
- *   ${ellipsis}
+ *   ${textOverflow}
  * `
  *
  * @example
- * <Text ellipsis /> // → white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+ * <Text textOverflow='ellipsis' /> // → white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
  */
 
-const ellipsis = createStyles({
-  ellipsis: [
+const textOverflow = createStyles({
+  textOverflow: [
     { whiteSpace: 'nowrap', overflow: 'hidden' },
-    rule('textOverflow', boolValue('ellipsis'))
+    rule('textOverflow')
   ]
 })
 
 export {
-  ellipsis
+  textOverflow
 }

@@ -26,7 +26,6 @@ toc:
       - boxShadow
       - cursor
       - display
-      - ellipsis
       - flex
       - flexBox
       - fontFamily
@@ -46,6 +45,7 @@ toc:
       - positionOffsets
       - ratio
       - textAlign
+      - textOverflow
       - transform
       - transition
       - whiteSpace

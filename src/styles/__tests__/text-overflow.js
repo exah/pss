@@ -1,9 +1,9 @@
-import { ellipsis } from '../..'
+import { textOverflow } from '../..'
 import { toStyles } from '../../../test-helpers'
 
-test('ellipsis', () => {
-  const result = toStyles(ellipsis({
-    ellipsis: true
+test('textOverflow', () => {
+  const result = toStyles(textOverflow({
+    textOverflow: 'ellipsis'
   }))
 
   expect(result).toEqual({

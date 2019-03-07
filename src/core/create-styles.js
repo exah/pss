@@ -21,7 +21,7 @@ function handleStyle (style, input, props, mediaKey) {
     return style(input, props, mediaKey)
   }
 
-  return input === true ? style : null
+  return input ? style : null
 }
 
 /**
