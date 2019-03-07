@@ -5,7 +5,6 @@ import {
   cursor,
   display,
   flexBox,
-  float,
   grid,
   gridItem,
   opacity,
@@ -94,20 +93,6 @@ test('flexDirection', testValue({
   prop: 'flexDirection',
   cssProp: 'flexDirection',
   values: [ 'column', 'column-reverse', 'row', 'row-reverse' ]
-}))
-
-test('float', testValue({
-  fn: float,
-  prop: 'float',
-  cssProp: 'float',
-  values: [ 'left', 'right', 'none' ]
-}))
-
-test('clear', testValue({
-  fn: float,
-  prop: 'clear',
-  cssProp: 'clear',
-  values: [ 'left', 'right', 'none', 'both' ]
 }))
 
 test('opacity', testValue({
