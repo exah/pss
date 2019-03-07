@@ -1,10 +1,9 @@
 import { createStyles, rule } from '../core'
-import { BORDER_KEY } from '../constants'
 import { themeValue } from '../values'
 import { px } from '../utils'
 
 const borderRule = (name) => rule(name, themeValue({
-  themeKey: BORDER_KEY,
+  themeKey: 'border',
   transformValue: px
 }))
 

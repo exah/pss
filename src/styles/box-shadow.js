@@ -1,5 +1,4 @@
 import { style } from '../core'
-import { BOX_SHADOW_KEY } from '../constants'
 
 /**
  * ```js
@@ -29,5 +28,5 @@ import { BOX_SHADOW_KEY } from '../constants'
 
 export const boxShadow = style({
   cssProp: 'boxShadow',
-  themeKey: BOX_SHADOW_KEY
+  themeKey: 'boxShadow'
 })

@@ -1,4 +1,3 @@
-import { BOX_STYLE_KEY } from '../constants'
 import { variant } from '../core'
 
 /**
@@ -49,7 +48,7 @@ import { variant } from '../core'
  */
 
 const boxStyle = variant({
-  themeKey: BOX_STYLE_KEY,
+  themeKey: 'boxStyle',
   prop: 'boxStyle'
 })
 

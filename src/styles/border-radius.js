@@ -1,4 +1,3 @@
-import { BORDER_RADIUS_KEY } from '../constants'
 import { style } from '../core'
 
 /**
@@ -28,6 +27,6 @@ import { style } from '../core'
  */
 
 export const borderRadius = style({
-  themeKey: BORDER_RADIUS_KEY,
+  themeKey: 'borderRadius',
   cssProp: 'borderRadius'
 })

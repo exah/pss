@@ -1,7 +1,8 @@
-import { VARIANT } from '../constants'
 import { themeValue } from '../values/theme-value'
 import { createStyles } from './create-styles'
 import { createRule } from './create-rule'
+
+const VARIANT_PROP = 'variant'
 
 /**
  * Create `variant` from styles defined directly in `theme`.
@@ -10,6 +11,7 @@ import { createRule } from './create-rule'
  * Related: {@link textStyle}, {@link boxStyle}, {@link rule}, {@link themeValue}.
  *
  * @param {Object} options
+ * @param {String} [options.prop = 'variant']
  *
  * @example
  * import { variant } from 'pss'
@@ -45,7 +47,7 @@ import { createRule } from './create-rule'
  */
 
 function variant ({
-  prop = VARIANT,
+  prop = VARIANT_PROP,
   themeKey,
   transformValue,
   scale,
@@ -59,9 +61,9 @@ function variant ({
     [prop]: rule
   })
 
-  if (prop !== VARIANT) {
-    mixin[VARIANT] = createStyles({
-      [VARIANT]: rule
+  if (prop !== VARIANT_PROP) {
+    mixin[VARIANT_PROP] = createStyles({
+      [VARIANT_PROP]: rule
     })
   }
 

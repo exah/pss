@@ -1,10 +1,9 @@
 import { identity, fallbackTo, isStr, isArr, path } from '@exah/utils'
-import { PALETTE_KEY, COLORS_KEY } from '../constants'
 import { themePath, getDefault } from '../getters'
 
 export function createColorValue ({
-  themeColorKey = COLORS_KEY,
-  themePaletteKey = PALETTE_KEY,
+  themeColorKey = 'color',
+  themePaletteKey = 'palette',
   colorsScale = {},
   paletteScale = {},
   colorsGetter = themePath(themeColorKey, colorsScale),

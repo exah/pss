@@ -1,5 +1,5 @@
 import { compose, path } from '@exah/utils'
-import { DEFAULT_KEY, MEDIA_KEY } from '../constants'
+import { DEFAULT_KEY, THEME_MEDIA_KEY } from '../constants'
 
 /**
  * ```js
@@ -25,5 +25,5 @@ export const themePath = (input, defaultValue) =>
 export const getDefault = (input, defaultValue = DEFAULT_KEY) =>
   themePath([ DEFAULT_KEY, input ], defaultValue)
 
-export const getThemeMedia = themePath(MEDIA_KEY, {})
+export const getThemeMedia = themePath(THEME_MEDIA_KEY, {})
 export const getMedia = (input) => compose(path(input), getThemeMedia)

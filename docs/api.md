@@ -2789,7 +2789,7 @@ Related: [textStyle][20], [boxStyle][14], [rule][179], [themeValue][196].
 #### Parameters
 
 -   `options` **[Object][212]** 
-    -   `options.prop`   (optional, default `VARIANT`)
+    -   `options.prop` **[String][220]**  (optional, default `'variant'`)
     -   `options.themeKey`  
     -   `options.transformValue`  
     -   `options.scale`  

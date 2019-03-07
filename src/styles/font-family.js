@@ -1,4 +1,3 @@
-import { FONT_KEY } from '../constants'
 import { style } from '../core'
 
 /**
@@ -39,7 +38,7 @@ import { style } from '../core'
  */
 
 const fontFamily = style({
-  themeKey: FONT_KEY,
+  themeKey: 'fontFamily',
   cssProp: 'fontFamily'
 })
 

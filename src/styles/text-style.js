@@ -1,4 +1,3 @@
-import { TEXT_STYLE_KEY } from '../constants'
 import { variant } from '../core'
 
 /**
@@ -54,7 +53,7 @@ import { variant } from '../core'
  */
 
 const textStyle = variant({
-  themeKey: TEXT_STYLE_KEY,
+  themeKey: 'textStyle',
   prop: 'textStyle'
 })
 

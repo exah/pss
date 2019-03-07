@@ -1,5 +1,4 @@
 import { px } from '../utils'
-import { SIZES_KEY } from '../constants'
 import { themeValue } from './theme-value'
 
 /**
@@ -39,5 +38,5 @@ import { themeValue } from './theme-value'
 
 export const sizeValue = themeValue({
   transformValue: px,
-  themeKey: SIZES_KEY
+  themeKey: 'size'
 })
