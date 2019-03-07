@@ -35,8 +35,7 @@ export const style = ({
   scale,
   getter,
   prop = cssProp,
-  getValue = themeKey ? themeValue({ themeKey, transformValue, scale, getter }) : undefined,
-  rule = createRule({ cssProp, getValue })
+  getValue = themeKey ? themeValue({ themeKey, transformValue, scale, getter }) : undefined
 }) => createStyles({
-  [prop]: rule
+  [prop]: createRule({ cssProp, getValue })
 })
