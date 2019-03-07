@@ -1,9 +1,9 @@
-import { isBool, isNum, isFn, identity, isStr, mapObj, isObj } from '@exah/utils'
+import { isBool, isNum, isFn, identity, isStr, mapObj, isObj, toArr } from '@exah/utils'
 import { wrap, wrapIfMedia, getThemeMedia } from '../utils'
 
 const has = (a, b) => b.some((key) => a.includes(key))
 
-function everyMedia (props, value, wrapper = identity) {
+function everyMedia (props, value, wrapper) {
   const media = getThemeMedia(props)
 
   if (isObj(value) && has(Object.keys(media), Object.keys(value))) {
@@ -60,11 +60,14 @@ function createRule ({
     return isFn(result) ? getValues(result, input, props, mediaKey) : result
   }
 
-  return (input, props, mediaKey) => everyMedia(
-    props,
-    getValues(getValue, input, props, mediaKey),
-    (result) => getStyle(result, input, props, mediaKey)
-  )
+  return (inputs, props, mediaKey) => toArr(inputs).reduce((acc, input) => ({
+    ...acc,
+    ...everyMedia(
+      props,
+      getValues(getValue, input, props, mediaKey),
+      (result) => getStyle(result, input, props, mediaKey)
+    )
+  }), {})
 }
 
 export {
