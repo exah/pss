@@ -2851,7 +2851,6 @@ Inspired by [`styled-system`][228].
     -   `options.getter`  
     -   `options.prop`   (optional, default `cssProp`)
     -   `options.getValue`   (optional, default `themeKey?themeValue({themeKey,transformValue,scale,getter}):undefined`)
-    -   `options.rule`   (optional, default `createRule({cssProp,getValue})`)
 
 #### Examples
 

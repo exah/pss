@@ -1,5 +1,5 @@
 import { path, identity, isObj, isFn, mapObj } from '@exah/utils'
-import { getDefault, themePath } from '../getters'
+import { getDefault, themePath } from '../utils'
 
 function get ({ themeKey, transformValue, scale }) {
   const isTransformValue = isFn(transformValue)

@@ -8,8 +8,7 @@ import {
 } from '@exah/utils'
 
 import { DEFAULT_MEDIA_KEY } from '../constants'
-import { getThemeMedia } from '../getters'
-import { wrapIfMedia } from '../utils'
+import { wrapIfMedia, getThemeMedia } from '../utils'
 import { propType } from '../prop-type'
 
 function handleStyle (style, input, props, mediaKey) {

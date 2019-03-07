@@ -10,7 +10,6 @@ export {
 
 export * from './constants'
 export * from './core'
-export * from './getters'
 export * from './mixins'
 export * from './rules'
 export * from './selectors'

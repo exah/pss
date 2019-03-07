@@ -1,6 +1,5 @@
 import { DEFAULT_MEDIA_KEY } from '../constants'
-import { getMedia } from '../getters'
-import { wrapIfMedia } from '../utils'
+import { wrapIfMedia, getMedia } from '../utils'
 
 /**
  * ```js

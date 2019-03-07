@@ -1,6 +1,5 @@
 import { isBool, isNum, isFn, identity, isStr, mapObj, isObj } from '@exah/utils'
-import { wrap, wrapIfMedia } from '../utils'
-import { getThemeMedia } from '../getters'
+import { wrap, wrapIfMedia, getThemeMedia } from '../utils'
 
 const has = (a, b) => b.some((key) => a.includes(key))
 

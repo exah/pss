@@ -1,4 +1,4 @@
-import { getMedia } from '../getters'
+import { getMedia } from '../utils'
 
 /**
  * ```js

@@ -10,8 +10,7 @@ import {
 } from '@exah/utils'
 
 import { DEFAULT_MEDIA_KEY } from '../constants'
-import { px, splitUnit } from '../utils'
-import { themePath } from '../getters'
+import { px, splitUnit, themePath } from '../utils'
 
 const getSpaceStep = (input, spaces = []) => {
   const value = spaces[Math.abs(input)]

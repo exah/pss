@@ -1,5 +1,5 @@
 import { identity, fallbackTo, isStr, isArr, path } from '@exah/utils'
-import { themePath, getDefault } from '../getters'
+import { themePath, getDefault } from '../utils'
 
 export function createColorValue ({
   themeColorKey = 'color',
