@@ -1111,11 +1111,30 @@ const Text = styled.p`
 import { fontSize } from 'pss'
 ```
 
-| prop       | css         | type               | value | true | false |
-| :--------- | :---------- | :----------------- | :---- | :--- | :---- |
-| `fontSize` | `font-size` | `String`, `Number` | ✓     | —    | —     |
+| prop       | css         | type               | theme      | value | true | false |
+| :--------- | :---------- | :----------------- | :--------- | :---- | :--- | :---- |
+| `fontSize` | `font-size` | `String`, `Number` | `fontSize` | ✓     | —    | —     |
 
 Related: [text][17], [ellipsis][210], [rule][173], [boolValue][176].
+
+```js
+const theme = {
+  default: {
+    fontSize: 'root'
+  },
+  media: {
+    sm: '(max-width: 600px)'
+  },
+  fontSize: {
+    root: 16,
+    heading: 22,
+    caption: {
+      all: 12,
+      sm: 14
+    }
+  }
+}
+```
 
 #### Parameters
 
@@ -1132,7 +1151,9 @@ const Text = styled.p`
 ```
 
 ```js
-<Text fontSize='1rem' /> // font-size: 1rem
+<Text fontSize='1rem' /> // → font-size: 1rem
+<Text fontSize='root' /> // → theme.fontSize.root // → font-size: 1rem
+<Text fontSize='heading' /> // → theme.fontSize.heading // → font-size: 1.5rem
 ```
 
 ### fontWeight
