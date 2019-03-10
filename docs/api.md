@@ -1710,9 +1710,9 @@ const Box = styled.div`
 import { transition } from 'pss'
 ```
 
-| prop         | css          | type     | value | true | false |
-| :----------- | :----------- | :------- | :---- | :--- | :---- |
-| `transition` | `transition` | `String` | ✓     | —    | —     |
+| prop         | css          |   type   | theme | value | true | false |
+| :----------- | :----------- | :------: | ----- | :---- | :--- | :---- |
+| `transition` | `transition` | `String` | —     | ✓     | —    | —     |
 
 Related: [rule][173].
 
