@@ -90,3 +90,51 @@ test('without theme should use default scale', () => {
   expect(toStyles(space({ mg: 1 }))).toEqual({ margin: '4px' })
   expect(toStyles(space({ mg: 0 }))).toEqual({ margin: 0 })
 })
+
+describe('selectors', () => {
+  test('add margin-top to &:first-child', () => {
+    const result = toStyles(space({
+      theme,
+      mgt: { '&:first-child': 1 }
+    }))
+
+    expect(result).toEqual({
+      '&:first-child': {
+        marginTop: '10px',
+        '@media (max-width: 600px)': {
+          marginTop: '5px'
+        }
+      }
+    })
+  })
+
+  test('add margin to & + & element on mobile', () => {
+    const result = toStyles(space({
+      theme,
+      mg: { M: { '& + &': 2 } }
+    }))
+
+    expect(result).toEqual({
+      '@media (max-width: 600px)': {
+        '& + &': {
+          margin: '10px'
+        }
+      }
+    })
+  })
+
+  test('add margin to & + & element on mobile', () => {
+    const result = toStyles(space({
+      theme,
+      mg: { '& + &': { M: 2 } }
+    }))
+
+    expect(result).toEqual({
+      '@media (max-width: 600px)': {
+        '& + &': {
+          margin: '10px'
+        }
+      }
+    })
+  })
+})

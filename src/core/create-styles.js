@@ -8,21 +8,8 @@ import {
 } from '@exah/utils'
 
 import { DEFAULT_MEDIA_KEY } from '../constants'
-import { wrapIfMedia, getThemeMedia } from '../utils'
+import { wrapIfMedia, wrap, getThemeMedia } from '../utils'
 import { propType } from '../prop-type'
-
-function handleStyle (style, input, props, mediaKey) {
-  // selector
-  if (isFn(input)) {
-    return input(props, (value) => handleStyle(style, value, props, mediaKey))
-  }
-
-  if (isFn(style)) {
-    return style(input, props, mediaKey)
-  }
-
-  return input ? style : null
-}
 
 /**
  * ```js
@@ -113,25 +100,43 @@ function handleStyle (style, input, props, mediaKey) {
 
 export function createStyles (styles) {
   function getStyles (props) {
-    const media = getThemeMedia(props)
+    const themeMedia = getThemeMedia(props)
 
-    function mapStyles (input, mediaKey, style) {
-      // value with `theme.media` keys: { all: 0, M: 1 }
-      if (isPlainObj(input)) {
-        return mapObj((key, value) => mapStyles(value, key, style), input)
-      }
-
-      // general prop style
+    function getStyle ({ input, selector, style, mediaKey }) {
       return wrapIfMedia(
-        path(mediaKey === undefined ? DEFAULT_MEDIA_KEY : mediaKey)(media),
-        handleStyle(style, input, props, mediaKey)
+        path([ mediaKey ])(themeMedia),
+        wrap(
+          selector,
+          isFn(style)
+            ? style(input, props, mediaKey)
+            : input ? style : null
+        )
       )
     }
 
+    function mapStyles ({ input, style, selector, mediaKey }) {
+      // value with `theme.media` keys: { all: 0, M: 1 }
+      if (isPlainObj(input)) {
+        return mapObj((key, value) => {
+          if (key in themeMedia || key === DEFAULT_MEDIA_KEY) {
+            return mapStyles({ input: value, style, selector, mediaKey: key })
+          }
+
+          return mapStyles({ input: value, style, selector: key, mediaKey })
+        }, input)
+      }
+
+      return getStyle({
+        input,
+        selector,
+        style,
+        mediaKey
+      })
+    }
+
     return reduceObj(
-      (acc, propName, propValue) => acc.concat(
-        toArr(styles[propName])
-          .map((style) => mapStyles(propValue, undefined, style) || [])
+      (acc, name, input) => acc.concat(
+        toArr(styles[name]).map((style) => mapStyles({ input, style }))
       ),
       [],
       props

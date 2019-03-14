@@ -59,12 +59,6 @@ toc:
       - atomicPositionOffset
       - atomicSizes
 
-  - name: Selectors
-    children:
-      - propSelector
-      - themeSelector
-      - combineSelectors
-
   - name: Mixins
     children:
       - themePath
