@@ -108,33 +108,51 @@ describe('selectors', () => {
     })
   })
 
-  test('add margin to & + & element on mobile', () => {
-    const result = toStyles(space({
-      theme,
-      mg: { M: { '& + &': 2 } }
-    }))
+  describe('add margin to & + & element on mobile', () => {
+    test('selector nested in media', () => {
+      const result = toStyles(space({
+        theme,
+        mg: { M: { '& + &': 2 } }
+      }))
 
-    expect(result).toEqual({
-      '@media (max-width: 600px)': {
-        '& + &': {
-          margin: '10px'
+      expect(result).toEqual({
+        '@media (max-width: 600px)': {
+          '& + &': {
+            margin: '10px'
+          }
         }
-      }
+      })
     })
-  })
 
-  test('add margin to & + & element on mobile', () => {
-    const result = toStyles(space({
-      theme,
-      mg: { '& + &': { M: 2 } }
-    }))
+    test('media nested in selector', () => {
+      const result = toStyles(space({
+        theme,
+        mg: { '& + &': { M: 2 } }
+      }))
 
-    expect(result).toEqual({
-      '@media (max-width: 600px)': {
-        '& + &': {
-          margin: '10px'
+      expect(result).toEqual({
+        '@media (max-width: 600px)': {
+          '& + &': {
+            margin: '10px'
+          }
         }
-      }
+      })
+    })
+
+    test('with other media', () => {
+      const result = toStyles(space({
+        theme,
+        mg: { '& + &': { M: 2 }, all: 3 }
+      }))
+
+      expect(result).toEqual({
+        margin: '3rem',
+        '@media (max-width: 600px)': {
+          '& + &': {
+            margin: '10px'
+          }
+        }
+      })
     })
   })
 })

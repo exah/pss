@@ -66,10 +66,7 @@ export const wrap = curryN(2, (name, value) => value != null
   : null
 )
 
-export const wrapIfMedia = (query, style) => wrap(
-  query ? `@media ${query}` : null,
-  style
-)
+export const wrapIfMedia = (query, ...args) => wrap(query && `@media ${query}`, ...args)
 
 const parseUnit = (str) => str.replace(/([\d.]+)(\D+)?$/, '$2').trim() || undefined
 

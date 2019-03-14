@@ -103,15 +103,15 @@ export function createStyles (styles) {
     const themeMedia = getThemeMedia(props)
 
     function getStyle ({ input, selector, style, mediaKey }) {
-      return wrapIfMedia(
-        path([ mediaKey ])(themeMedia),
-        wrap(
-          selector,
-          isFn(style)
-            ? style(input, props, mediaKey)
-            : input ? style : null
-        )
-      )
+      const media = wrapIfMedia(path([ mediaKey ])(themeMedia))
+
+      if (isFn(style)) {
+        return media(wrap(selector, style(input, props, mediaKey)))
+      }
+
+      if (input) {
+        return media(wrap(selector, style))
+      }
     }
 
     function mapStyles ({ input, style, selector, mediaKey }) {
