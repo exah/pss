@@ -8,8 +8,7 @@ import {
   mapObj
 } from '@exah/utils'
 
-import { DEFAULT_MEDIA_KEY } from '../constants'
-import { wrapIfMedia, wrap, getThemeMedia } from '../utils'
+import { wrapIfMedia, wrap, getThemeMedia, isMediaKey } from '../utils'
 import { propType } from '../prop-type'
 
 /**
@@ -109,7 +108,7 @@ export function createStyles (stylesMap) {
       if (isPlainObj(input)) {
         return mapObj(
           (key, value) => (
-            (key in themeMedia || key === DEFAULT_MEDIA_KEY)
+            isMediaKey(key, themeMedia)
               ? mapStyles({ input: value, rule, selector, mediaKey: key })
               : mapStyles({ input: value, rule, selector: key, mediaKey })
           ),

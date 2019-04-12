@@ -1,17 +1,5 @@
 import { isBool, isNum, isFn, identity, isStr, mapObj, isObj, toArr } from '@exah/utils'
-import { wrap, wrapIfMedia, getThemeMedia } from '../utils'
-
-const has = (a, b) => b.some((key) => a.includes(key))
-
-function everyMedia (props, value, wrapper) {
-  const media = getThemeMedia(props)
-
-  if (isObj(value) && has(Object.keys(media), Object.keys(value))) {
-    return mapObj((k, v) => wrapIfMedia(media[k], wrapper(v)), value)
-  }
-
-  return wrapper(value)
-}
+import { wrap, wrapIfMedia, getThemeMedia, isMediaKey } from '../utils'
 
 /**
  * ```js
@@ -41,7 +29,7 @@ function everyMedia (props, value, wrapper) {
  * </ThemeProvider>
  */
 
-function createRule ({
+export function createRule ({
   cssProp,
   getStyle = wrap(cssProp),
   getValue = identity
@@ -60,16 +48,31 @@ function createRule ({
     return isFn(result) ? getValues(result, input, props, mediaKey) : result
   }
 
-  return (inputs, props, mediaKey) => toArr(inputs).reduce((acc, input) => ({
-    ...acc,
-    ...everyMedia(
-      props,
-      getValues(getValue, input, props, mediaKey),
-      (result) => getStyle(result, input, props, mediaKey)
-    )
-  }), {})
-}
+  return (inputs, props, mediaKey) => {
+    const wrapper = (...args) => getStyle(...args, props, mediaKey)
+    const themeMedia = getThemeMedia(props)
 
-export {
-  createRule
+    return toArr(inputs)
+      .reduce((acc, input) => {
+        const result = getValues(getValue, input, props, mediaKey)
+
+        if (isObj(result) && isMediaKey(Object.keys(result)[0], themeMedia)) {
+          return {
+            ...acc,
+            ...mapObj(
+              (key, value) => wrapIfMedia(
+                themeMedia[key],
+                wrapper(value, input)
+              ),
+              result
+            )
+          }
+        }
+
+        return {
+          ...acc,
+          ...wrapper(result, input)
+        }
+      }, {})
+  }
 }

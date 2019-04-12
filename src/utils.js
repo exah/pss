@@ -1,5 +1,5 @@
 import { compose, path, isNum, isStr, curryN } from '@exah/utils'
-import { DEFAULT_KEY, THEME_MEDIA_KEY } from './constants'
+import { DEFAULT_KEY, THEME_MEDIA_KEY, DEFAULT_MEDIA_KEY } from './constants'
 
 /**
  * ```js
@@ -27,6 +27,7 @@ export const getDefault = (input, defaultValue = DEFAULT_KEY) =>
 
 export const getThemeMedia = themePath(THEME_MEDIA_KEY, {})
 export const getMedia = (input) => compose(path(input), getThemeMedia)
+export const isMediaKey = (key, media) => (key in media || key === DEFAULT_MEDIA_KEY)
 
 /**
  * Convert number to rem
