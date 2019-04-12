@@ -39,3 +39,16 @@ test('docs/api @example (with theme)', () => {
     }
   })
 })
+
+test('styles should be wrapped in selector', () => {
+  expect(toStyles(example({ theme, size: { '& + &': '100px', sm: { '&:first-child': true } } }))).toEqual({
+    '& + &': {
+      width: '100px'
+    },
+    '@media (max-width: 600px)': {
+      '&:first-child': {
+        width: '100%'
+      }
+    }
+  })
+})
