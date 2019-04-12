@@ -1,6 +1,7 @@
 import {
   isFn,
   path,
+  compose,
   isPlainObj,
   toArr,
   reduceObj,
@@ -56,7 +57,7 @@ import { propType } from '../prop-type'
  *
  *
  *
- * @param {Object} [styles = {}]
+ * @param {Object} stylesMap
  * @return {Function} `(props) => styles`
  *
  * @example
@@ -98,45 +99,41 @@ import { propType } from '../prop-type'
  * </ThemeProvider>
  */
 
-export function createStyles (styles) {
+export function createStyles (stylesMap) {
   function getStyles (props) {
     const themeMedia = getThemeMedia(props)
 
-    function getStyle ({ input, selector, style, mediaKey }) {
-      const media = wrapIfMedia(path([ mediaKey ])(themeMedia))
-
-      if (isFn(style)) {
-        return media(wrap(selector, style(input, props, mediaKey)))
-      }
-
-      if (input) {
-        return media(wrap(selector, style))
-      }
-    }
-
-    function mapStyles ({ input, style, selector, mediaKey }) {
+    function mapStyles ({ input, rule, selector, mediaKey }) {
       // value with `theme.media` keys: { all: 0, M: 1 }
+      // or selector { '&:first-child': 1 }
       if (isPlainObj(input)) {
-        return mapObj((key, value) => {
-          if (key in themeMedia || key === DEFAULT_MEDIA_KEY) {
-            return mapStyles({ input: value, style, selector, mediaKey: key })
-          }
-
-          return mapStyles({ input: value, style, selector: key, mediaKey })
-        }, input)
+        return mapObj(
+          (key, value) => (
+            (key in themeMedia || key === DEFAULT_MEDIA_KEY)
+              ? mapStyles({ input: value, rule, selector, mediaKey: key })
+              : mapStyles({ input: value, rule, selector: key, mediaKey })
+          ),
+          input
+        )
       }
 
-      return getStyle({
-        input,
-        selector,
-        style,
-        mediaKey
-      })
+      const wrapper = compose(
+        wrapIfMedia(path([ mediaKey ])(themeMedia)),
+        wrap(selector)
+      )
+
+      if (isFn(rule)) {
+        return wrapper(rule(input, props, mediaKey))
+      }
+
+      if (input != null && input !== false) {
+        return wrapper(rule)
+      }
     }
 
     return reduceObj(
       (acc, name, input) => acc.concat(
-        toArr(styles[name]).map((style) => mapStyles({ input, style }))
+        toArr(stylesMap[name]).map((rule) => mapStyles({ input, rule }))
       ),
       [],
       props
@@ -144,7 +141,7 @@ export function createStyles (styles) {
   }
 
   return Object.assign(getStyles, {
-    propTypes: mapObj((key) => ({ [key]: propType }), styles),
-    styles
+    propTypes: mapObj((key) => ({ [key]: propType }), stylesMap),
+    styles: stylesMap
   })
 }

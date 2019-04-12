@@ -2179,7 +2179,7 @@ In component prop accepts values:
 
 #### Parameters
 
--   `styles` **[Object][196]**  (optional, default `{}`)
+-   `stylesMap` **[Object][196]** 
 
 #### Examples
 
