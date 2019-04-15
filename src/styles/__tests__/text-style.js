@@ -2,6 +2,9 @@ import { textStyle } from '../..'
 import { toStyles } from '../../../test-helpers'
 
 const theme = {
+  default: {
+    textStyle: 'responsive'
+  },
   media: {
     M: '(max-width: 600px)'
   },
@@ -22,7 +25,7 @@ const theme = {
   }
 }
 
-test('default', () => {
+test(' apply sepcified styles from theme', () => {
   const result = toStyles(textStyle({
     theme,
     textStyle: 'heading'
@@ -49,34 +52,47 @@ test('responsive', () => {
   })
 })
 
-test('all', () => {
+describe('should apply default styles', () => {
+  const expected = {
+    fontSize: 16,
+    '@media (max-width: 600px)': {
+      fontSize: 12
+    }
+  }
+
+  it('with `auto` keyword', () => {
+    const result = toStyles(textStyle({
+      theme,
+      textStyle: 'auto'
+    }))
+
+    expect(result).toEqual(expected)
+  })
+})
+
+test('should apply default styles with `auto`', () => {
   const result = toStyles(textStyle({
-    theme,
-    textStyle: [ 'responsive', 'heading' ]
+    theme: { default: { textStyle: 'responsive' }, ...theme },
+    textStyle: 'auto'
   }))
 
   expect(result).toEqual({
-    fontSize: 32,
-    lineHeight: 1.1,
-    fontWeight: 'bold',
+    fontSize: 16,
     '@media (max-width: 600px)': {
       fontSize: 12
     }
   })
 })
 
-test('variant', () => {
+test('should contain `variant` prop', () => {
   const result = toStyles(textStyle.variant({
     theme,
-    variant: [ 'responsive', 'heading' ]
+    variant: 'heading'
   }))
 
   expect(result).toEqual({
     fontSize: 32,
     lineHeight: 1.1,
-    fontWeight: 'bold',
-    '@media (max-width: 600px)': {
-      fontSize: 12
-    }
+    fontWeight: 'bold'
   })
 })

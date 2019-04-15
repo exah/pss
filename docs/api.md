@@ -2501,9 +2501,10 @@ See [fontFamily][56], [radius][211].
 
 -   `options` **[Object][196]**  (optional, default `{}`)
     -   `options.themeKey`  
-    -   `options.transformValue`  
-    -   `options.scale`  
-    -   `options.getter`   (optional, default `get({themeKey,transformValue,scale})`)
+    -   `options.transformValue`   (optional, default `identity`)
+    -   `options.keyword`   (optional, default `true`)
+    -   `options.fallback`  
+    -   `options.scale`   (optional, default `{}`)
 
 #### Examples
 
@@ -2623,6 +2624,7 @@ Related: [textStyle][20], [boxStyle][14], [rule][163], [themeValue][180].
 
 -   `options` **[Object][196]** 
     -   `options.prop` **[String][210]**  (optional, default `'variant'`)
+    -   `options.keyword` **[String][210]**  (optional, default `'auto'`)
     -   `options.themeKey`  
     -   `options.transformValue`  
     -   `options.scale`  
@@ -2662,6 +2664,17 @@ const theme = {
 
 <Text variant='default' /> // → `theme.textStyle.default`
 <Text variant='heading' /> // → `theme.textStyle.heading`
+```
+
+```js
+const themeWithDefault = {
+  default: {
+     textStyle: 'default',
+  },
+  ...theme,
+}
+
+<Text variant='auto' /> // → `theme.textStyle.default`
 ```
 
 ### style

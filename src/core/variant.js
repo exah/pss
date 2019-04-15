@@ -3,6 +3,7 @@ import { createStyles } from './create-styles'
 import { createRule } from './create-rule'
 
 const VARIANT_PROP = 'variant'
+const VARIANT_AUTO = 'auto'
 
 /**
  * Create `variant` from styles defined directly in `theme`.
@@ -12,6 +13,7 @@ const VARIANT_PROP = 'variant'
  *
  * @param {Object} options
  * @param {String} [options.prop = 'variant']
+ * @param {String} [options.keyword = 'auto']
  *
  * @example
  * import { variant } from 'pss'
@@ -44,17 +46,34 @@ const VARIANT_PROP = 'variant'
  *
  * <Text variant='default' /> // → `theme.textStyle.default`
  * <Text variant='heading' /> // → `theme.textStyle.heading`
+ *
+ * @example
+ * const themeWithDefault = {
+ *   default: {
+ *      textStyle: 'default',
+ *   },
+ *   ...theme,
+ * }
+ *
+ * <Text variant='auto' /> // → `theme.textStyle.default`
  */
 
 function variant ({
   prop = VARIANT_PROP,
+  keyword = VARIANT_AUTO,
   themeKey,
   transformValue,
   scale,
   getter
 }) {
   const rule = createRule({
-    getValue: themeValue({ themeKey, transformValue, scale, getter })
+    getValue: themeValue({
+      keyword,
+      themeKey,
+      transformValue,
+      scale,
+      getter
+    })
   })
 
   const mixin = createStyles({

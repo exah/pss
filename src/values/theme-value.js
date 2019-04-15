@@ -1,37 +1,5 @@
-import { path, identity, isObj, isFn, mapObj } from '@exah/utils'
+import { path, identity, isObj, mapObj } from '@exah/utils'
 import { getDefault, themePath } from '../utils'
-
-function get ({ themeKey, transformValue, scale }) {
-  const isTransformValue = isFn(transformValue)
-
-  if (!isTransformValue) {
-    transformValue = identity
-  }
-
-  return (input, defaultValue, defaultMediaKey) => (props) => {
-    const valueKey = input === true
-      ? getDefault(themeKey)(props)
-      : input
-
-    const themeScale = themePath(themeKey, scale)(props)
-    const value = path(valueKey)(themeScale)
-
-    if (Object(value).hasOwnProperty(defaultMediaKey)) {
-      return transformValue(value[defaultMediaKey])
-    }
-
-    if (isTransformValue && isObj(value)) {
-      return mapObj(
-        (mediaKey, subValue) => ({ [mediaKey]: transformValue(subValue) }),
-        value
-      )
-    }
-
-    return value == null
-      ? defaultValue
-      : transformValue(value)
-  }
-}
 
 /**
  * ```js
@@ -74,13 +42,32 @@ function get ({ themeKey, transformValue, scale }) {
 
 function themeValue ({
   themeKey,
-  transformValue,
-  scale,
-  getter = get({ themeKey, transformValue, scale })
+  transformValue = identity,
+  keyword = true,
+  fallback,
+  scale = {}
 } = {}) {
-  return (defaultValue = transformValue) =>
-    (input, props, mediaKey) =>
-      getter(input, defaultValue, mediaKey)(props)
+  return (defaultValue = fallback) => (input, props, mediaKey) => {
+    const valueKey = input === keyword
+      ? getDefault(themeKey)(props)
+      : input
+
+    const themeScale = themePath(themeKey, scale)(props)
+    const value = path(valueKey, defaultValue)(themeScale)
+
+    if (Object(value).hasOwnProperty(mediaKey)) {
+      return transformValue(value[mediaKey])
+    }
+
+    if (isObj(value)) {
+      return mapObj(
+        (key, val) => ({ [key]: transformValue(val) }),
+        value
+      )
+    }
+
+    return transformValue(value)
+  }
 }
 
 export {

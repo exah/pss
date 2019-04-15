@@ -16,7 +16,19 @@ const theme = {
   }
 }
 
-test('default', () => {
+test('should apply default styles with `auto`', () => {
+  const result = toStyles(boxStyle({
+    theme: { default: { boxStyle: 'red' }, ...theme },
+    boxStyle: 'auto'
+  }))
+
+  expect(result).toEqual({
+    backgroundColor: 'red',
+    color: 'white'
+  })
+})
+
+test('should apply sepcified styles from theme', () => {
   expect(toStyles(boxStyle({
     theme,
     boxStyle: 'red'
@@ -33,28 +45,14 @@ test('default', () => {
   })
 })
 
-test('red, shadow', () => {
-  const result = toStyles(boxStyle({
-    theme,
-    boxStyle: [ 'red', 'shadow' ]
-  }))
-
-  expect(result).toEqual({
-    backgroundColor: 'red',
-    color: 'white',
-    boxShadow: '0 0 20px 0 rgba(0, 0, 0, .3)'
-  })
-})
-
-test('variant', () => {
+test('should contain `variant` prop', () => {
   const result = toStyles(boxStyle.variant({
     theme,
-    variant: [ 'red', 'shadow' ]
+    variant: 'red'
   }))
 
   expect(result).toEqual({
     backgroundColor: 'red',
-    color: 'white',
-    boxShadow: '0 0 20px 0 rgba(0, 0, 0, .3)'
+    color: 'white'
   })
 })
