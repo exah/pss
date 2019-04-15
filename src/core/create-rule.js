@@ -1,4 +1,4 @@
-import { isBool, isNum, isFn, identity, isStr, mapObj, isObj, toArr } from '@exah/utils'
+import { isBool, isNum, isFn, identity, isStr, mapObj, isObj } from '@exah/utils'
 import { wrap, wrapIfMedia, getThemeMedia, isMediaKey } from '../utils'
 
 /**
@@ -48,31 +48,21 @@ export function createRule ({
     return isFn(result) ? getValues(result, input, props, mediaKey) : result
   }
 
-  return (inputs, props, mediaKey) => {
-    const wrapper = (...args) => getStyle(...args, props, mediaKey)
+  return (input, props, mediaKey) => {
+    const wrapper = (value) => getStyle(value, input, props, mediaKey)
     const themeMedia = getThemeMedia(props)
+    const result = getValues(getValue, input, props, mediaKey)
 
-    return toArr(inputs)
-      .reduce((acc, input) => {
-        const result = getValues(getValue, input, props, mediaKey)
+    if (isObj(result) && isMediaKey(Object.keys(result)[0], themeMedia)) {
+      return mapObj(
+        (key, value) => wrapIfMedia(
+          themeMedia[key],
+          wrapper(value)
+        ),
+        result
+      )
+    }
 
-        if (isObj(result) && isMediaKey(Object.keys(result)[0], themeMedia)) {
-          return {
-            ...acc,
-            ...mapObj(
-              (key, value) => wrapIfMedia(
-                themeMedia[key],
-                wrapper(value, input)
-              ),
-              result
-            )
-          }
-        }
-
-        return {
-          ...acc,
-          ...wrapper(result, input)
-        }
-      }, {})
+    return wrapper(result)
   }
 }

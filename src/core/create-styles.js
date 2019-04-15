@@ -2,7 +2,7 @@ import {
   isFn,
   path,
   compose,
-  isPlainObj,
+  isObj,
   toArr,
   reduceObj,
   mapObj
@@ -31,7 +31,7 @@ import { propType } from '../prop-type'
  *
  * In component prop accepts values:
  *
- * - {@link Boolean} — enable / disable default style value
+ * - {@link Boolean} — enable / disable simple styles or default {@link variant}
  *
  *    ```js
  *    const Comp = styled.div(createStyles({ red: { color: 'red' } }))
@@ -40,7 +40,7 @@ import { propType } from '../prop-type'
  *    <Comp red={false} /> // → 🤷‍♂️
  *    ```
  *
- * - {@link String}, {@link Number} or {@link Array} — handled in functional styles
+ * - {@link Boolean}, {@link String}, {@link Number} — handled in functional styles
  *
  *    ```js
  *    const Comp = styled.div(createStyles({ width: (input) => ({ width: input } })))
@@ -105,7 +105,7 @@ export function createStyles (stylesMap) {
     function mapStyles ({ input, rule, selector, mediaKey }) {
       // value with `theme.media` keys: { all: 0, M: 1 }
       // or selector { '&:first-child': 1 }
-      if (isPlainObj(input)) {
+      if (isObj(input)) {
         return mapObj(
           (key, value) => (
             isMediaKey(key, themeMedia)

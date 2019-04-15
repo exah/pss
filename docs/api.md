@@ -2154,7 +2154,7 @@ the value is a `style` that will be applied.
 
 In component prop accepts values:
 
--   [Boolean][206] — enable / disable default style value
+-   [Boolean][206] — enable / disable simple styles or default [variant][189]
 
     ```js
     const Comp = styled.div(createStyles({ red: { color: 'red' } }))
@@ -2163,7 +2163,7 @@ In component prop accepts values:
     <Comp red={false} /> // → 🤷‍♂️
     ```
 
--   [String][207], [Number][208] or [Array][209] — handled in functional styles
+-   [Boolean][206], [String][207], [Number][208] — handled in functional styles
 
     ```js
     const Comp = styled.div(createStyles({ width: (input) => ({ width: input } })))
@@ -2223,7 +2223,7 @@ const theme = {
 </ThemeProvider>
 ```
 
-Returns **[Function][210]** `(props) => styles`
+Returns **[Function][209]** `(props) => styles`
 
 ### rule
 
@@ -2235,9 +2235,9 @@ Create style rule. Must be used with [createStyles][160].
 
 #### Parameters
 
--   `cssProp` **[string][211]** 
+-   `cssProp` **[string][210]** 
 -   `getValue`  
--   `value` **[Function][210]**  (optional, default `identity`)
+-   `value` **[Function][209]**  (optional, default `identity`)
 
 #### Examples
 
@@ -2256,7 +2256,7 @@ const Box = styled.div(pss({
 </ThemeProvider>
 ```
 
-Returns **[Function][210]** 
+Returns **[Function][209]** 
 
 ### boolValue
 
@@ -2302,7 +2302,7 @@ Related: [sizes][5], [rule][163], [spaceValue][174].
 
 #### Parameters
 
--   `transformValue` **[Function][210]**  (optional, default `boolValue('100%',0)`)
+-   `transformValue` **[Function][209]**  (optional, default `boolValue('100%',0)`)
 
 #### Examples
 
@@ -2329,7 +2329,7 @@ const Box = styled.div`
 <Box l r /> // → left: 0; right: 0
 ```
 
-Returns **[Function][210]** that must be used in [rule][163]
+Returns **[Function][209]** that must be used in [rule][163]
 
 ### percentageValue
 
@@ -2360,7 +2360,7 @@ const Box = styled.div`
 <Box w={100} /> // → width: 100px
 ```
 
-Returns **[Function][210]** that must be used in [rule][163]
+Returns **[Function][209]** that must be used in [rule][163]
 
 ### spaceValue
 
@@ -2432,7 +2432,7 @@ const theme = {
 </ThemeProvider>
 ```
 
-Returns **[Function][210]** that must be used in [rule][163]
+Returns **[Function][209]** that must be used in [rule][163]
 
 ### colorValue
 
@@ -2444,8 +2444,8 @@ Get color from theme and apply it to css prop. Must be used with [rule][163].
 
 #### Parameters
 
--   `key` **[string][211]** — Key in `theme.color` or in `theme.palette[theme.default.palette]`
--   `transformValue` **[Function][210]** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default `identity`)
+-   `key` **[string][210]** — Key in `theme.color` or in `theme.palette[theme.default.palette]`
+-   `transformValue` **[Function][209]** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default `identity`)
 
 #### Examples
 
@@ -2485,7 +2485,7 @@ const Box = styled.div`
 <Box tm='default' /> // color: #222222; background-color: #ffffff
 ```
 
-Returns **[Function][210]** 
+Returns **[Function][209]** 
 
 ### themeValue
 
@@ -2495,7 +2495,7 @@ import { themeValue } from 'pss'
 
 Use values defined in `theme[themeKey]`.
 
-See [fontFamily][56], [radius][212].
+See [fontFamily][56], [radius][211].
 
 #### Parameters
 
@@ -2536,7 +2536,7 @@ const Text = styled.div(pss({
 }
 ```
 
-Returns **[Function][210]** 
+Returns **[Function][209]** 
 
 ### mediaStyle
 
@@ -2615,14 +2615,14 @@ const Box = styled.div(pss({
 ### variant
 
 Create `variant` from styles defined directly in `theme`.
-Inspired by [`styled-system`][213].
+Inspired by [`styled-system`][212].
 
 Related: [textStyle][20], [boxStyle][14], [rule][163], [themeValue][180].
 
 #### Parameters
 
 -   `options` **[Object][196]** 
-    -   `options.prop` **[String][211]**  (optional, default `'variant'`)
+    -   `options.prop` **[String][210]**  (optional, default `'variant'`)
     -   `options.themeKey`  
     -   `options.transformValue`  
     -   `options.scale`  
@@ -2672,7 +2672,7 @@ import { style } from 'pss'
 
 Create style for single prop.
 Combines [createStyles][160] and [createRule][186] in single function.
-Inspired by [`styled-system`][213].
+Inspired by [`styled-system`][212].
 
 #### Parameters
 
@@ -3119,12 +3119,10 @@ const Box = styled.div`
 
 [208]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
 
-[209]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array
+[209]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[210]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[210]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[211]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[211]: radius
 
-[212]: radius
-
-[213]: https://github.com/jxnblk/styled-system
+[212]: https://github.com/jxnblk/styled-system
