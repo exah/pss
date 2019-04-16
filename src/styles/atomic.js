@@ -4,6 +4,8 @@ import { boolValue } from '../values'
 import { colors } from './colors'
 import { space } from './space'
 
+const atomicPositionRule = (name) => positionRule(name, boolValue(0))
+
 /**
  * ```js
  * import { atomicSizes } from 'pss'
@@ -111,13 +113,13 @@ export const atomicPosition = createStyles({
  */
 
 export const atomicPositionOffset = createStyles({
-  t: positionRule('top'),
-  l: positionRule('left'),
-  r: positionRule('right'),
-  b: positionRule('bottom'),
-  x: [ positionRule('left'), positionRule('right') ],
-  y: [ positionRule('top'), positionRule('bottom') ],
-  z: rule('zIndex', boolValue(1, 'auto'))
+  t: atomicPositionRule('top'),
+  l: atomicPositionRule('left'),
+  r: atomicPositionRule('right'),
+  b: atomicPositionRule('bottom'),
+  x: [ atomicPositionRule('left'), atomicPositionRule('right') ],
+  y: [ atomicPositionRule('top'), positionRule('bottom') ],
+  z: rule('zIndex', boolValue(1))
 })
 
 /**

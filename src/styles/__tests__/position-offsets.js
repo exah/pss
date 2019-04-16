@@ -10,8 +10,8 @@ const theme = {
 test('positionOffsets', () => {
   const result = positionOffsets({
     theme,
-    top: true,
-    bottom: false,
+    top: 0,
+    bottom: 'auto',
     left: 1 / 2,
     right: 0
   })

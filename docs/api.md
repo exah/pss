@@ -1536,12 +1536,12 @@ const Box = styled.div`
 import { positionOffsets } from 'pss'
 ```
 
-| prop     | css      | type                          | value | true | false  |
-| :------- | :------- | :---------------------------- | :---- | :--- | :----- |
-| `left`   | `left`   | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
-| `right`  | `right`  | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
-| `top`    | `top`    | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
-| `bottom` | `bottom` | `String`, `Number`, `Boolean` | ✓     | `0`  | `auto` |
+| prop     | css      | type                          | value | true | false |
+| :------- | :------- | :---------------------------- | :---- | :--- | :---- |
+| `left`   | `left`   | `String`, `Number`, `Boolean` | ✓     | —    | —     |
+| `right`  | `right`  | `String`, `Number`, `Boolean` | ✓     | —    | —     |
+| `top`    | `top`    | `String`, `Number`, `Boolean` | ✓     | —    | —     |
+| `bottom` | `bottom` | `String`, `Number`, `Boolean` | ✓     | —    | —     |
 
 Related: [position][94], [rule][163], [boolValue][166], [sizeValue][169].
 
@@ -1561,7 +1561,7 @@ const Box = styled.div`
 ```
 
 ```js
-<Box top={0.2} left={0} /> // position: relative; top: 20%; left: 0
+<Box top={1 / 5} left={0} /> // position: relative; top: 20%; left: 0
 ```
 
 ### ratio

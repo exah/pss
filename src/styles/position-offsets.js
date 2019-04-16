@@ -8,10 +8,10 @@ import { positionRule } from '../rules'
  *
  * prop       | css       | type                          | value | true   | false
  * :----------|:----------|:------------------------------|:------|:-------|:--------
- * `left`     | `left`    | `String`, `Number`, `Boolean` | ✓     | `0`    | `auto`
- * `right`    | `right`   | `String`, `Number`, `Boolean` | ✓     | `0`    | `auto`
- * `top`      | `top`     | `String`, `Number`, `Boolean` | ✓     | `0`    | `auto`
- * `bottom`   | `bottom`  | `String`, `Number`, `Boolean` | ✓     | `0`    | `auto`
+ * `left`     | `left`    | `String`, `Number`, `Boolean` | ✓     | —      | —
+ * `right`    | `right`   | `String`, `Number`, `Boolean` | ✓     | —      | —
+ * `top`      | `top`     | `String`, `Number`, `Boolean` | ✓     | —      | —
+ * `bottom`   | `bottom`  | `String`, `Number`, `Boolean` | ✓     | —      | —
  *
  *
  * Related: {@link position}, {@link rule}, {@link boolValue}, {@link sizeValue}.
@@ -27,7 +27,7 @@ import { positionRule } from '../rules'
  * `
  *
  * @example
- * <Box top={0.2} left={0} /> // position: relative; top: 20%; left: 0
+ * <Box top={1 / 5} left={0} /> // position: relative; top: 20%; left: 0
  */
 
 const positionOffsets = createStyles({
