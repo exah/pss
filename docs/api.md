@@ -510,16 +510,12 @@ Combination of
 -   [boxSelfAlignment][39]
 -   [boxShadow][42]
 -   [colors][8]
--   [display][48]
 -   [flex][51]
 -   [order][85]
 -   [outline][88]
 -   [overflow][91]
--   [position][94]
--   [positionOffsets][97]
 -   [sizes][5]
 -   [space][2]
--   [zIndex][118]
 
 Related: [boxStyle][14], [combineStyles][147].
 
@@ -538,8 +534,9 @@ const Box = styled.p`
 ```
 
 ```js
-<Box mgx='auto' /> // marginLeft: auto; marginRight: auto
-<Box display='none' /> // display: none
+<Box mgx='auto' /> // → marginLeft: auto; marginRight: auto
+<Box flex='1 1 0' /> // → flex: 1 1 0
+<Box width={1 / 2} /> // → width: 50%
 ```
 
 ### boxStyle
