@@ -34,7 +34,7 @@ toc:
       - gap
       - grid
       - gridItem
-      - hideOn
+      - hide
       - letterSpacing
       - lineHeight
       - opacity

@@ -74,7 +74,7 @@
         -   [Examples][70]
     -   [gridItem][71]
         -   [Examples][72]
-    -   [hideOn][73]
+    -   [hide][73]
         -   [Parameters][74]
         -   [Examples][75]
     -   [letterSpacing][76]
@@ -969,7 +969,7 @@ import { display } from 'pss'
 
 [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
 
-Related: [hideOn][73], [boolValue][166], [rule][163].
+Related: [hide][73], [boolValue][166], [rule][163].
 
 #### Parameters
 
@@ -1278,15 +1278,15 @@ const GridItem = styled.div`
       <GridItem gridRow='2' gridColumn='1'>2</GridItem>
     </Grid>
 
-### hideOn
+### hide
 
 ```js
-import { hideOn } from 'pss'
+import { hide } from 'pss'
 ```
 
-| prop     | css             | type                 | value    | true | false |
-| :------- | :-------------- | :------------------- | :------- | :--- | :---- |
-| `hideOn` | `display: none` | key in `theme.media` | mediaKey | —    | —     |
+| prop   | css             | type                 | value    | true | false |
+| :----- | :-------------- | :------------------- | :------- | :--- | :---- |
+| `hide` | `display: none` | key in `theme.media` | mediaKey | —    | —     |
 
 Related: [display][48], [mediaStyle][183].
 
@@ -1297,20 +1297,23 @@ Related: [display][48], [mediaStyle][183].
 #### Examples
 
 ```js
-import { hideOn } from 'pss'
+import { hide } from 'pss'
 
 const Box = styled.div`
-  ${hideOn}
+  ${hide}
 `
 ```
 
 ```js
-<Box hideOn='sm' />
-// @media (max-width: 600px) { display: none }
+<Box hide />
+// → display: none
 
-<Box hideOn={{ sm: true, md: true }} />
-// @media (max-width: 600px) { display: none }
-// @media (min-width: 601px) and (max-width: 1024px) { display: none }
+<Box hide='sm' />
+// → @media (max-width: 600px) { display: none }
+
+<Box hide={{ sm: true, md: true }} />
+// → @media (max-width: 600px) { display: none }
+// → @media (min-width: 601px) and (max-width: 1024px) { display: none }
 ```
 
 ### letterSpacing
@@ -2559,7 +2562,7 @@ Related: [display][48].
 import pss, { mediaStyle } from 'pss'
 
 const Box = styled.div(pss({
-  hideOn: mediaStyle({ display: 'none' })
+  hide: mediaStyle({ display: 'none' })
 }))
 ```
 
@@ -2572,7 +2575,7 @@ const theme = {
 }
 
 <ThemeProvider theme={theme}>
-  <Box hideOn='sm' /> // @media (max-width: 600px) { display: 'none' }
+  <Box hide='sm' /> // @media (max-width: 600px) { display: 'none' }
 </ThemeProvider>
 ```
 
@@ -2860,7 +2863,7 @@ const Box = styled.div`
 
 [72]: #examples-23
 
-[73]: #hideon
+[73]: #hide
 
 [74]: #parameters-22
 

@@ -14,7 +14,7 @@ import { wrapIfMedia, getMedia } from '../utils'
  * import pss, { mediaStyle } from 'pss'
  *
  * const Box = styled.div(pss({
- *   hideOn: mediaStyle({ display: 'none' })
+ *   hide: mediaStyle({ display: 'none' })
  * }))
  *
  * @example
@@ -26,7 +26,7 @@ import { wrapIfMedia, getMedia } from '../utils'
  * }
  *
  * <ThemeProvider theme={theme}>
- *   <Box hideOn='sm' /> // @media (max-width: 600px) { display: 'none' }
+ *   <Box hide='sm' /> // @media (max-width: 600px) { display: 'none' }
  * </ThemeProvider>
  */
 

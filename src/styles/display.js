@@ -11,7 +11,7 @@ import { style } from '../core'
  *
  * [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
  *
- * Related: {@link hideOn}, {@link boolValue}, {@link rule}.
+ * Related: {@link hide}, {@link boolValue}, {@link rule}.
  *
  * @param {Object} props
  *
