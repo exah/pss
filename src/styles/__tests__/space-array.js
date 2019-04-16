@@ -18,20 +18,6 @@ test('set one step space', () => {
   })
 })
 
-test('set bool space value', () => {
-  const result = toStyles(space({ theme, mg: true, mgx: { M: false } }))
-
-  const expected = {
-    margin: '10px',
-    '@media (max-width: 600px)': {
-      marginLeft: 0,
-      marginRight: 0
-    }
-  }
-
-  expect(result).toEqual(expected)
-})
-
 test('override one step space on mobile and tablet', () => {
   const expected = {
     margin: '10px',

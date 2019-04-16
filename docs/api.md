@@ -232,11 +232,6 @@ Consistent `space` system for setting `margin`, or `padding`. Created with [spac
 -   Value from `theme.space[mediaKey]`, `theme.space.all` or `theme.space` `Array` by index
 -   Negative value for negative margins
 
-**`Boolean` values:**
-
--   `true` value is equal to `1` index in space `Array`
--   `false` value is equal to `0` index in space `Array`
-
 **`String` values:**
 
 Treated same way as in [size][195].
@@ -270,7 +265,6 @@ const theme = {
 // `theme.space[1]`
 <Box mg={1} /> // → margin: 8px;
 <Box mgl={1} /> // → margin-left: 8px;
-<Box mgt={true} /> // → margin-top: 8px;
 
 // `theme.space[2]`
 <Box mgy={2} /> // → margin-top: 16px; margin-bottom: 16px;
@@ -302,7 +296,6 @@ const theme = {
 // `theme.space.all[1]` and `theme.space.sm[1]`
 <Box mg={1} /> // → margin: 10px; @media (max-width: 600px) { margin: 8px }
 <Box mgl={1} /> // → margin-left: 10px; @media (max-width: 600px) { margin-left: 8px }
-<Box mgt={true} /> // → margin-top: 10px; @media (max-width: 600px) { margin-top: 8px }
 
 // `theme.space.all[2]` and `theme.space.sm[2]`
 <Box mgy={2} /> // → margin-top: 20px; margin-bottom: 20px; @media (max-width: 600px) { margin-top: 16px; margin-bottom: 16px }

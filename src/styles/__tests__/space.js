@@ -27,17 +27,6 @@ test('set one step space for every media', () => {
   })
 })
 
-test('set bool space value', () => {
-  expect(toStyles(space({ theme, mg: true, mgx: { M: false } }))).toEqual({
-    margin: '10px',
-    '@media (max-width: 600px)': {
-      margin: '5px',
-      marginLeft: 0,
-      marginRight: 0
-    }
-  })
-})
-
 test('set one step space on desktop and 2 on mobile', () => {
   expect(toStyles(space({ theme, mg: { all: 1, M: 3 } }))).toEqual({
     margin: '10px',
