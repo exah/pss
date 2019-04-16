@@ -344,11 +344,6 @@ Consistent `sizes` system for `width`, `height`. Created with [sizeValue][169].
 -   From 0-1 it is converted to percentage widths
 -   Greater than 1 are converted to pixel values.
 
-**`Boolean` values:**
-
--   `true` is `100%`
--   `false` is `0`.
-
 Related: [sizeValue][169], [space][2].
 
 Examples use this `theme`:
@@ -393,14 +388,15 @@ const Box = styled.div`
 // only `theme.size.card.sm`
 <Box width={{ sm: 'card' }} /> // → @media (max-width: 600px) { margin-left: 300px }
 
-// Smaller that or equal to `1` is percentage value
+// Numbers smaller that or equal to `1` is percentage value
 <Box maxWidth={(1 / 2)} /> // → max-width: 50%
+<Box width={1} /> // → width: 100%
 
-// `false` is `0`
-<Box height={false} /> // → height: 0
+// Convert numbers bigger that `1` to px
+<Box minWidth={500} /> // → min-width: 500px
 
-// Convert to px
-<Box minWidth={500} /> // → max-width: 500px
+// Literal string values
+<Box minHeight='1px' /> // → max-height: 1px
 ```
 
 ### colors
@@ -1543,7 +1539,7 @@ import { positionOffsets } from 'pss'
 | `top`    | `top`    | `String`, `Number`, `Boolean` | ✓     | —    | —     |
 | `bottom` | `bottom` | `String`, `Number`, `Boolean` | ✓     | —    | —     |
 
-Related: [position][94], [rule][163], [boolValue][166], [sizeValue][169].
+Related: [position][94], [rule][163], [sizeValue][169].
 
 #### Parameters
 
@@ -2312,8 +2308,8 @@ import pss, { rule, sizeValue, boolValue } from 'pss'
 const sizes = pss({
   h: rule('height', sizeValue())
   w: rule('width', sizeValue()),
-  l: rule('left', sizeValue(boolValue(0, 'auto'))),
-  r: rule('right', sizeValue(boolValue(0, 'auto')))
+  l: rule('left', sizeValue(boolValue(0))),
+  r: rule('right', sizeValue(boolValue(0)))
 })
 
 const Box = styled.div`

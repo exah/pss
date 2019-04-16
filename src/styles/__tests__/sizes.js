@@ -18,16 +18,16 @@ const theme = {
 test('sizes relative value', () => {
   const props = {
     theme,
-    height: true,
+    height: '1px',
     width: 1,
     minWidth: 0,
-    maxWidth: false,
+    maxWidth: 0,
     minHeight: (3 / 4),
     maxHeight: 'auto'
   }
 
   const expected = {
-    height: '100%',
+    height: '1px',
     width: '100%',
     minWidth: 0,
     maxWidth: 0,

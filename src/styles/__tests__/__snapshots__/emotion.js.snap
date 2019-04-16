@@ -16,6 +16,6 @@ exports[`basic 1`] = `
 
 <div
   className="emotion-0"
-  width={true}
+  width={1}
 />
 `;

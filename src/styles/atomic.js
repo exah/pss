@@ -1,10 +1,11 @@
 import { rule, createStyles, combineStyles, mediaStyle } from '../core'
-import { positionRule, sizeRule } from '../rules'
+import { sizeRule } from '../rules'
 import { boolValue } from '../values'
 import { colors } from './colors'
 import { space } from './space'
 
-const atomicPositionRule = (name) => positionRule(name, boolValue(0))
+const atomicPositionRule = (name) => sizeRule(name, boolValue(0))
+const atomicSizeRule = (name) => sizeRule(name, boolValue('100%'))
 
 /**
  * ```js
@@ -35,12 +36,12 @@ const atomicPositionRule = (name) => positionRule(name, boolValue(0))
  */
 
 export const atomicSizes = createStyles({
-  h: sizeRule('height'),
-  w: sizeRule('width'),
-  maxw: sizeRule('maxWidth'),
-  maxh: sizeRule('maxHeight'),
-  minh: sizeRule('minHeight'),
-  minw: sizeRule('minWidth')
+  h: atomicSizeRule('height'),
+  w: atomicSizeRule('width'),
+  maxw: atomicSizeRule('maxWidth'),
+  maxh: atomicSizeRule('maxHeight'),
+  minh: atomicSizeRule('minHeight'),
+  minw: atomicSizeRule('minWidth')
 })
 
 /**
@@ -118,7 +119,7 @@ export const atomicPositionOffset = createStyles({
   r: atomicPositionRule('right'),
   b: atomicPositionRule('bottom'),
   x: [ atomicPositionRule('left'), atomicPositionRule('right') ],
-  y: [ atomicPositionRule('top'), positionRule('bottom') ],
+  y: [ atomicPositionRule('top'), atomicPositionRule('bottom') ],
   z: rule('zIndex', boolValue(1))
 })
 

@@ -31,6 +31,6 @@ test('base', () => {
     ${colors}
   `
 
-  const tree = toJSON(h(Box, { theme, width: true, tm: true, mg: { all: true, sm: 0 } }))
+  const tree = toJSON(h(Box, { theme, width: 1, tm: true, mg: { all: 1, sm: 0 } }))
   expect(tree).toMatchSnapshot()
 })

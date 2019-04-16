@@ -20,8 +20,8 @@ import { themeValue } from './theme-value'
  * const sizes = pss({
  *   h: rule('height', sizeValue())
  *   w: rule('width', sizeValue()),
- *   l: rule('left', sizeValue(boolValue(0, 'auto'))),
- *   r: rule('right', sizeValue(boolValue(0, 'auto')))
+ *   l: rule('left', sizeValue(boolValue(0))),
+ *   r: rule('right', sizeValue(boolValue(0)))
  * })
  *
  * const Box = styled.div`

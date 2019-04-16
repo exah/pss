@@ -1,5 +1,5 @@
 import { createStyles } from '../core'
-import { positionRule } from '../rules'
+import { sizeRule } from '../rules'
 
 /**
  * ```js
@@ -14,7 +14,7 @@ import { positionRule } from '../rules'
  * `bottom`   | `bottom`  | `String`, `Number`, `Boolean` | ✓     | —      | —
  *
  *
- * Related: {@link position}, {@link rule}, {@link boolValue}, {@link sizeValue}.
+ * Related: {@link position}, {@link rule}, {@link sizeValue}.
  *
  * @param {Object} props
  *
@@ -31,10 +31,10 @@ import { positionRule } from '../rules'
  */
 
 const positionOffsets = createStyles({
-  top: positionRule('top'),
-  left: positionRule('left'),
-  right: positionRule('right'),
-  bottom: positionRule('bottom')
+  top: sizeRule('top'),
+  left: sizeRule('left'),
+  right: sizeRule('right'),
+  bottom: sizeRule('bottom')
 })
 
 export {

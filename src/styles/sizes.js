@@ -30,12 +30,6 @@ import { sizeRule } from '../rules'
  * - From 0-1 it is converted to percentage widths
  * - Greater than 1 are converted to pixel values.
  *
- *
- * **`Boolean` values:**
- *
- * - `true` is `100%`
- * - `false` is `0`.
- *
  * Related: {@link sizeValue}, {@link space}.
  *
  * Examples use this `theme`:
@@ -75,14 +69,15 @@ import { sizeRule } from '../rules'
  * // only `theme.size.card.sm`
  * <Box width={{ sm: 'card' }} /> // → @media (max-width: 600px) { margin-left: 300px }
  *
- * // Smaller that or equal to `1` is percentage value
+ * // Numbers smaller that or equal to `1` is percentage value
  * <Box maxWidth={(1 / 2)} /> // → max-width: 50%
+ * <Box width={1} /> // → width: 100%
  *
- * // `false` is `0`
- * <Box height={false} /> // → height: 0
+ * // Convert numbers bigger that `1` to px
+ * <Box minWidth={500} /> // → min-width: 500px
  *
- * // Convert to px
- * <Box minWidth={500} /> // → max-width: 500px
+ * // Literal string values
+ * <Box minHeight='1px' /> // → max-height: 1px
  */
 
 const sizes = createStyles({
