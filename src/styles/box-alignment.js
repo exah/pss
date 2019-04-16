@@ -5,12 +5,12 @@ import { createStyles, rule } from '../core'
  * import { boxContentAlignment } from 'pss'
  * ```
  *
- * prop             | css               | type     | value | true            | false
- * :----------------|:------------------|:---------|:------|:----------------|:--------
- * `alignContent`   | `align-content`   | `String` | ✓     | —               | —
- * `justifyContent` | `justify-content` | `String` | ✓     | — | —
+ * prop             | css               | type     | value | true    | false
+ * :----------------|:------------------|:---------|:------|:--------|:--------
+ * `alignContent`   | `align-content`   | `String` | ✓     | —       | —
+ * `justifyContent` | `justify-content` | `String` | ✓     | —       | —
  *
- * Related: {@link rule}, {@link boolValue}.
+ * Related: {@link rule}
  *
  * @param {Object} props
  *

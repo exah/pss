@@ -10,7 +10,7 @@ import { sizeValue } from '../values'
  * :-------|:------- |:---------|:------|:------- |:--------
  * `flex`  | `flex`  | `String` | ✓     | —       | —
  *
- * Related: {@link rule}, {@link boolValue}, {@link sizeValue}.
+ * Related: {@link rule}, {@link sizeValue}.
  *
  * @example
  * import { flex } from 'pss'

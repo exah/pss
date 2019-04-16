@@ -10,7 +10,7 @@ import { px } from '../utils'
  * :----------|:------------|:------------------ |:-----------|:------|:-------|:--------
  * `fontSize` | `font-size` | `String`, `Number` | `fontSize` | ✓     | —      | —
  *
- * Related: {@link text}, {@link ellipsis}, {@link rule}, {@link boolValue}.
+ * Related: {@link text}, {@link ellipsis}, {@link rule}.
  *
  * ```js
  * const theme = {

@@ -7,7 +7,7 @@ import { createStyles, rule } from '../core'
  *
  * Info: [text-overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow).
  *
- * Related: {@link boolValue}, {@link rule}.
+ * Related: {@link rule}.
  *
  * @param {Object} props
  *

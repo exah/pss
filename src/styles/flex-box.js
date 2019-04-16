@@ -20,7 +20,7 @@ export const createFlexBoxStyle = ({ prefix } = {}) => createStyles({
  * `flexWrap`       | `flex-wrap`       | `String` | ✓     | —      | —
  * `flexDirection`  | `flex-direction`  | `String` | ✓     | —      | —
  *
- * Related: {@link boxContentAlignment}, {@link boxItemsAlignment}, {@link rule}, {@link boolValue}.
+ * Related: {@link boxContentAlignment}, {@link boxItemsAlignment}, {@link rule}.
  *
  * @param {Object} props
  *

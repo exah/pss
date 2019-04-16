@@ -10,7 +10,7 @@ import { style } from '../core'
  * `zIndex`   | `z-index` | `String`, `Number`, `theme.zIndex[key]` | ✓     | —      | –
  *
  *
- * Related: {@link position}, {@link rule}, {@link boolValue}, {@link sizeValue}.
+ * Related: {@link position}, {@link rule}, {@link style}.
  *
  * @param {Object} props
  *

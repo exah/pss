@@ -9,7 +9,7 @@ import { style } from '../core'
  * :------------|:----------------|:------- |:------|:---------|:--------
  * `opacity`    | `opacity`       | `0...1` | ✓     | —        | —
  *
- * Related: {@link rule}, {@link boolValue}.
+ * Related: {@link rule}.
  *
  * @param {Object} props
  *

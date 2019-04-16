@@ -11,7 +11,7 @@ import { themeValue } from './theme-value'
  *
  * Related: {@link sizes}, {@link rule}, {@link spaceValue}.
  *
- * @param {Function} [transformValue = boolValue('100%', 0)]
+ * @param {Function} [defaultValue]
  * @return {Function} - that must be used in {@link rule}
  *
  * @example

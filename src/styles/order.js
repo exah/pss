@@ -9,7 +9,7 @@ import { style } from '../core'
  * :-------------|:---------------|:---------------------|:------|:------- |:--------
  * `order`       | `order`        | `Number`, `String`   | ✓     | —       | —
  *
- * Related: {@link rule}, {@link boolValue}, {@link sizeValue}.
+ * Related: {@link rule}, {@link sizeValue}.
  *
  * @param {Object} props
  *

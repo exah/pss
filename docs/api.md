@@ -804,7 +804,7 @@ import { boxContentAlignment } from 'pss'
 | `alignContent`   | `align-content`   | `String` | ✓     | —    | —     |
 | `justifyContent` | `justify-content` | `String` | ✓     | —    | —     |
 
-Related: [rule][163], [boolValue][166].
+Related: [rule][163]
 
 #### Parameters
 
@@ -966,7 +966,7 @@ import { display } from 'pss'
 
 [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
 
-Related: [hide][73], [boolValue][166], [rule][163].
+Related: [hide][73], [rule][163].
 
 #### Parameters
 
@@ -996,7 +996,7 @@ import { flex } from 'pss'
 | :----- | :----- | :------- | :---- | :--- | :---- |
 | `flex` | `flex` | `String` | ✓     | —    | —     |
 
-Related: [rule][163], [boolValue][166], [sizeValue][169].
+Related: [rule][163], [sizeValue][169].
 
 #### Examples
 
@@ -1027,7 +1027,7 @@ For alignment styles import [boxContentAlignment][33], [boxItemsAlignment][36].
 | `flexWrap`      | `flex-wrap`      | `String` | ✓     | —    | —     |
 | `flexDirection` | `flex-direction` | `String` | ✓     | —    | —     |
 
-Related: [boxContentAlignment][33], [boxItemsAlignment][36], [rule][163], [boolValue][166].
+Related: [boxContentAlignment][33], [boxItemsAlignment][36], [rule][163].
 
 #### Parameters
 
@@ -1102,7 +1102,7 @@ import { fontSize } from 'pss'
 | :--------- | :---------- | :----------------- | :--------- | :---- | :--- | :---- |
 | `fontSize` | `font-size` | `String`, `Number` | `fontSize` | ✓     | —    | —     |
 
-Related: [text][17], [ellipsis][200], [rule][163], [boolValue][166].
+Related: [text][17], [ellipsis][200], [rule][163].
 
 ```js
 const theme = {
@@ -1153,7 +1153,7 @@ import { fontWeight } from 'pss'
 | :----------- | :------------ | :------- | :---- | :--- | :---- |
 | `fontWeight` | `font-weight` | `String` | ✓     | —    | —     |
 
-Related: [text][17], [ellipsis][200], [rule][163], [boolValue][166].
+Related: [text][17], [ellipsis][200], [rule][163]
 
 #### Parameters
 
@@ -1224,7 +1224,7 @@ Styles for [Grid Layout][201].
 | `gridTemplateRows`    | `grid-template-rows`    | `String` | ✓     | —    | —     |
 | `gridTemplateAreas`   | `grid-template-areas`   | `String` | ✓     | —    | —     |
 
-Related: [gap][65], [flex][51], [rule][163], [boolValue][166].
+Related: [gap][65], [flex][51], [rule][163]
 
 #### Parameters
 
@@ -1258,7 +1258,7 @@ import { gridItem } from 'pss'
 | `gridRow`    | `grid-row`    | `String` | ✓     | —    | —     |
 | `gridArea`   | `grod-area`   | `String` | ✓     | —    | —     |
 
-Related: [rule][163], [boolValue][166], [sizeValue][169].
+Related: [rule][163], [sizeValue][169].
 
 #### Examples
 
@@ -1323,7 +1323,7 @@ import { letterSpacing } from 'pss'
 | :-------------- | :--------------- | :----------------- | :---- | :--- | :---- |
 | `letterSpacing` | `letter-spacing` | `String`, `Number` | ✓     | —    | —     |
 
-Related: [text][17], [ellipsis][200], [rule][163], [boolValue][166].
+Related: [text][17], [ellipsis][200], [rule][163].
 
 #### Parameters
 
@@ -1353,7 +1353,7 @@ import { lineHeight } from 'pss'
 | :----------- | :------------ | :----------------- | :---- | :--- | :---- |
 | `lineHeight` | `line-height` | `String`, `Number` | ✓     | —    | —     |
 
-Related: [text][17], [ellipsis][200], [rule][163], [boolValue][166].
+Related: [text][17], [ellipsis][200], [rule][163].
 
 #### Parameters
 
@@ -1383,7 +1383,7 @@ import { opacity } from 'pss'
 | :-------- | :-------- | :------ | :---- | :--- | :---- |
 | `opacity` | `opacity` | `0...1` | ✓     | —    | —     |
 
-Related: [rule][163], [boolValue][166].
+Related: [rule][163].
 
 #### Parameters
 
@@ -1414,7 +1414,7 @@ import { order } from 'pss'
 | :------ | :------ | :----------------- | :---- | :--- | :---- |
 | `order` | `order` | `Number`, `String` | ✓     | —    | —     |
 
-Related: [rule][163], [boolValue][166], [sizeValue][169].
+Related: [rule][163], [sizeValue][169].
 
 #### Parameters
 
@@ -1616,7 +1616,7 @@ import { textAlign } from 'pss'
 | :---------- | :----------- | :------- | :---- | :--- | :---- |
 | `textAlign` | `text-align` | `String` | ✓     | —    | —     |
 
-Related: [text][17], [ellipsis][200], [rule][163], [boolValue][166].
+Related: [text][17], [ellipsis][200], [rule][163].
 
 #### Parameters
 
@@ -1644,7 +1644,7 @@ import { ellipsis } from 'pss'
 
 Info: [text-overflow][203].
 
-Related: [boolValue][166], [rule][163].
+Related: [rule][163].
 
 #### Parameters
 
@@ -1734,7 +1734,7 @@ import { whiteSpace } from 'pss'
 | :----------- | :------------ | :------- | :---- | :--- | :---- |
 | `whiteSpace` | `white-space` | `String` | ✓     | —    | —     |
 
-Related: [text][17], [ellipsis][200], [rule][163], [boolValue][166].
+Related: [text][17], [ellipsis][200], [style][192].
 
 #### Parameters
 
@@ -1764,7 +1764,7 @@ import { zIndex } from 'pss'
 | :------- | :-------- | :-------------------------------------- | :---- | :--- | :---- |
 | `zIndex` | `z-index` | `String`, `Number`, `theme.zIndex[key]` | ✓     | —    | –     |
 
-Related: [position][94], [rule][163], [boolValue][166], [sizeValue][169].
+Related: [position][94], [rule][163], [style][192].
 
 #### Parameters
 
@@ -2302,7 +2302,7 @@ Related: [sizes][5], [rule][163], [spaceValue][174].
 
 #### Parameters
 
--   `transformValue` **[Function][209]**  (optional, default `boolValue('100%',0)`)
+-   `defaultValue` **[Function][209]?** 
 
 #### Examples
 

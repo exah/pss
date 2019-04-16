@@ -38,7 +38,7 @@ export const createGridItemStyle = ({
  * `gridTemplateRows`    | `grid-template-rows`    | `String`  | ✓     | —      | —
  * `gridTemplateAreas`   | `grid-template-areas`   | `String`  | ✓     | —      | —
  *
- * Related: {@link gap}, {@link flex}, {@link rule}, {@link boolValue}.
+ * Related: {@link gap}, {@link flex}, {@link rule}
  *
  * @param {Object} props
  *
@@ -70,7 +70,7 @@ export const grid = createGridStyle({ prefix: 'grid' })
  * `gridRow`     | `grid-row`     | `String` | ✓     | —       | —
  * `gridArea`    | `grod-area`    | `String` | ✓     | —       | —
  *
- * Related: {@link rule}, {@link boolValue}, {@link sizeValue}.
+ * Related: {@link rule}, {@link sizeValue}.
  *
  * @example
  * import { gridItem } from 'pss'

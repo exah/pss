@@ -9,7 +9,7 @@ import { style } from '../core'
  * :--------------|:-----------------|:----------|:------|:-------|:--------
  * `fontWeight`   | `font-weight`    | `String`  | ✓     | —      | —
  *
- * Related: {@link text}, {@link ellipsis}, {@link rule}, {@link boolValue}.
+ * Related: {@link text}, {@link ellipsis}, {@link rule}
  *
  * @param {Object} props
  *
