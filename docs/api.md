@@ -28,13 +28,13 @@
     -   [backgroundColor][24]
         -   [Parameters][25]
         -   [Examples][26]
-    -   [borderColor][27]
+    -   [border][27]
         -   [Parameters][28]
         -   [Examples][29]
-    -   [borderRadius][30]
+    -   [borderColor][30]
         -   [Parameters][31]
         -   [Examples][32]
-    -   [borders][33]
+    -   [borderRadius][33]
         -   [Parameters][34]
         -   [Examples][35]
     -   [boxContentAlignment][36]
@@ -495,9 +495,9 @@ import { box } from 'pss'
 
 Combination of
 
--   [borders][33]
--   [borderColor][27]
--   [borderRadius][30]
+-   [border][27]
+-   [borderColor][30]
+-   [borderRadius][33]
 -   [boxSelfAlignment][42]
 -   [boxShadow][45]
 -   [colors][8]
@@ -756,6 +756,43 @@ const Box = styled.div`
 <Box backgroundColor="#ffff00" /> // → background-color: #ffff00
 ```
 
+### border
+
+```js
+import { border } from 'pss'
+```
+
+Set border with values from theme.
+
+| prop           | css             | theme    | value | default                |
+| :------------- | :-------------- | :------- | :---- | :--------------------- |
+| `border`       | `border`        | `border` | ✓     | `theme.border.default` |
+| `borderLeft`   | `border-left`   | `border` | ✓     | `theme.border.default` |
+| `borderRight`  | `border-right`  | `border` | ✓     | `theme.border.default` |
+| `borderTop`    | `border-top`    | `border` | ✓     | `theme.border.default` |
+| `borderBottom` | `border-bottom` | `border` | ✓     | `theme.border.default` |
+
+Related: [themeValue][180], [rule][163],
+
+#### Parameters
+
+-   `props` **[Object][196]** 
+
+#### Examples
+
+```js
+import { border } from 'pss'
+
+const Box = styled.div`
+  ${border}
+`
+```
+
+```js
+<Box border='1px dotted red' /> // → border: 1px dotted red
+<Box borderBottom='divider' /> // → theme.border.divider // → border-bottom: 1px dotted #f5f5f5
+```
+
 ### borderColor
 
 ```js
@@ -775,10 +812,10 @@ Related: [colorValue][177], [style][192],
 #### Examples
 
 ```js
-import { borders, borderColor } from 'pss'
+import { border, borderColor } from 'pss'
 
 const Box = styled.div`
-  ${borders}
+  ${border}
   ${borderColor}
 `
 ```
@@ -816,43 +853,6 @@ const Box = styled.div`
 ```js
 <Box borderRadius='5px' /> // → border-radius: 5px
 <Box borderRadius='round' /> // → `theme.borderRadius.round` → border-radius: 9999px
-```
-
-### borders
-
-```js
-import { borders } from 'pss'
-```
-
-Set borders with values from theme.
-
-| prop           | css             | theme    | value | default                |
-| :------------- | :-------------- | :------- | :---- | :--------------------- |
-| `border`       | `border`        | `border` | ✓     | `theme.border.default` |
-| `borderLeft`   | `border-left`   | `border` | ✓     | `theme.border.default` |
-| `borderRight`  | `border-right`  | `border` | ✓     | `theme.border.default` |
-| `borderTop`    | `border-top`    | `border` | ✓     | `theme.border.default` |
-| `borderBottom` | `border-bottom` | `border` | ✓     | `theme.border.default` |
-
-Related: [themeValue][180], [rule][163],
-
-#### Parameters
-
--   `props` **[Object][196]** 
-
-#### Examples
-
-```js
-import { borders } from 'pss'
-
-const Box = styled.div`
-  ${borders}
-`
-```
-
-```js
-<Box border='1px dotted red' /> // → border: 1px dotted red
-<Box borderBottom='divider' /> // → theme.border.divider // → border-bottom: 1px dotted #f5f5f5
 ```
 
 ### boxContentAlignment
@@ -2887,19 +2887,19 @@ const Box = styled.div`
 
 [26]: #examples-7
 
-[27]: #bordercolor
+[27]: #border
 
 [28]: #parameters-8
 
 [29]: #examples-8
 
-[30]: #borderradius
+[30]: #bordercolor
 
 [31]: #parameters-9
 
 [32]: #examples-9
 
-[33]: #borders
+[33]: #borderradius
 
 [34]: #parameters-10
 

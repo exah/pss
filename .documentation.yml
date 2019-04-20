@@ -18,9 +18,9 @@ toc:
   - name: Styles
     children:
       - backgroundColor
+      - border
       - borderColor
       - borderRadius
-      - borders
       - boxContentAlignment
       - boxItemsAlignment
       - boxSelfAlignment

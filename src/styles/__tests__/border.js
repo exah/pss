@@ -1,4 +1,4 @@
-import { borders } from '../..'
+import { border } from '../..'
 import { toStyles } from '../../../test-helpers'
 
 const theme = {
@@ -9,7 +9,7 @@ const theme = {
 }
 
 test('default', () => {
-  const result = borders({
+  const result = border({
     theme,
     border: 'auto'
   })
@@ -20,7 +20,7 @@ test('default', () => {
 })
 
 test('theme', () => {
-  const result = borders({
+  const result = border({
     theme,
     borderLeft: 'thick'
   })
@@ -31,7 +31,7 @@ test('theme', () => {
 })
 
 test('custom', () => {
-  const result = borders({
+  const result = border({
     theme,
     borderLeft: '5px dotted'
   })

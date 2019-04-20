@@ -1,5 +1,5 @@
 import { combineStyles } from '../core'
-import { borders } from './borders'
+import { border } from './border'
 import { borderColor } from './border-color'
 import { borderRadius } from './border-radius'
 import { boxSelfAlignment } from './box-alignment'
@@ -18,7 +18,7 @@ import { space } from './space'
  * ```
  *
  * Combination of
- *   - {@link borders}
+ *   - {@link border}
  *   - {@link borderColor}
  *   - {@link borderRadius}
  *   - {@link boxSelfAlignment}
@@ -49,7 +49,7 @@ import { space } from './space'
  */
 
 export const box = combineStyles(
-  borders,
+  border,
   borderColor,
   borderRadius,
   boxSelfAlignment,

@@ -16,10 +16,10 @@ import { colorValue } from '../values'
  * @param {Object} props
  *
  * @example
- * import { borders, borderColor } from 'pss'
+ * import { border, borderColor } from 'pss'
  *
  * const Box = styled.div`
- *   ${borders}
+ *   ${border}
  *   ${borderColor}
  * `
  *
