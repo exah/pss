@@ -212,13 +212,13 @@ Consistent `space` system for setting `margin`, or `padding`. Created with [spac
 
 **Component props:**
 
--   `mg` → `margin`
--   `mgl` → `margin-left`
--   `mgr` → `margin-right`
--   `mgt` → `margin-top`
--   `mgb` → `margin-bottom`
--   `mgx` → `margin-left`, `margin-right`
--   `mgy` → `margin-top`, `margin-bottom`
+-   `m` → `margin`
+-   `ml` → `margin-left`
+-   `mr` → `margin-right`
+-   `mt` → `margin-top`
+-   `mb` → `margin-bottom`
+-   `mx` → `margin-left`, `margin-right`
+-   `my` → `margin-top`, `margin-bottom`
 -   `pd` → `padding`
 -   `pdl` → `padding-left`
 -   `pdr` → `padding-right`
@@ -263,23 +263,23 @@ const theme = {
 }
 
 // `theme.space[1]`
-<Box mg={1} /> // → margin: 8px;
-<Box mgl={1} /> // → margin-left: 8px;
+<Box m={1} /> // → margin: 8px;
+<Box ml={1} /> // → margin-left: 8px;
 
 // `theme.space[2]`
-<Box mgy={2} /> // → margin-top: 16px; margin-bottom: 16px;
-<Box mg={-2} /> // → margin: -16px;
+<Box my={2} /> // → margin-top: 16px; margin-bottom: 16px;
+<Box m={-2} /> // → margin: -16px;
 
 // `theme.space[0]`
-<Box mg={0} /> // → margin: 0;
+<Box m={0} /> // → margin: 0;
 
 // Responsive
-<Box mgr={{ sm: -1 }} /> // → @media (max-width: 600px) { margin-right: -8px }
-<Box mgr={{ all: 2, sm: -1 }} /> // → margin-right: 16px; @media (max-width: 600px) { margin-right: -8px }
+<Box mr={{ sm: -1 }} /> // → @media (max-width: 600px) { margin-right: -8px }
+<Box mr={{ all: 2, sm: -1 }} /> // → margin-right: 16px; @media (max-width: 600px) { margin-right: -8px }
 
 // Custom values
-<Box mgx='auto' /> // → margin-left: auto; margin-right: auto
-<Box mgy='100px' /> // → margin-top: 100px; margin-bootom: 100px
+<Box mx='auto' /> // → margin-left: auto; margin-right: auto
+<Box my='100px' /> // → margin-top: 100px; margin-bootom: 100px
 ```
 
 ```js
@@ -294,19 +294,19 @@ const theme = {
 }
 
 // `theme.space.all[1]` and `theme.space.sm[1]`
-<Box mg={1} /> // → margin: 10px; @media (max-width: 600px) { margin: 8px }
-<Box mgl={1} /> // → margin-left: 10px; @media (max-width: 600px) { margin-left: 8px }
+<Box m={1} /> // → margin: 10px; @media (max-width: 600px) { margin: 8px }
+<Box ml={1} /> // → margin-left: 10px; @media (max-width: 600px) { margin-left: 8px }
 
 // `theme.space.all[2]` and `theme.space.sm[2]`
-<Box mgy={2} /> // → margin-top: 20px; margin-bottom: 20px; @media (max-width: 600px) { margin-top: 16px; margin-bottom: 16px }
-<Box mg={-2} /> // → margin: -20px; @media (max-width: 600px) { margin: -16px; }
+<Box my={2} /> // → margin-top: 20px; margin-bottom: 20px; @media (max-width: 600px) { margin-top: 16px; margin-bottom: 16px }
+<Box m={-2} /> // → margin: -20px; @media (max-width: 600px) { margin: -16px; }
 
 // `theme.space.all[0]` and `theme.space.sm[0]`
-<Box mg={0} /> // → margin: 0; @media (max-width: 600px) { margin: 0 }
+<Box m={0} /> // → margin: 0; @media (max-width: 600px) { margin: 0 }
 
 // Responsive
-<Box mgr={{ sm: -1 }} /> // → @media (max-width: 600px) { margin-right: -8px }
-<Box mgr={{ all: 2, sm: -1 }} /> // → margin-right: 20px; @media (max-width: 600px) { margin-right: -8px }
+<Box mr={{ sm: -1 }} /> // → @media (max-width: 600px) { margin-right: -8px }
+<Box mr={{ all: 2, sm: -1 }} /> // → margin-right: 20px; @media (max-width: 600px) { margin-right: -8px }
 ```
 
 ### sizes
@@ -523,7 +523,7 @@ const Box = styled.p`
 ```
 
 ```js
-<Box mgx='auto' /> // → marginLeft: auto; marginRight: auto
+<Box mx='auto' /> // → marginLeft: auto; marginRight: auto
 <Box flex='1 1 0' /> // → flex: 1 1 0
 <Box width={1 / 2} /> // → width: 50%
 ```
@@ -2482,13 +2482,13 @@ import pss, { rule, spaceValue } from 'pss'
 const spaceRule = (name) => rule(name, spaceValue())
 
 const margin = pss({
-  mg: spaceRule('margin'),
-  mgl: spaceRule('marginLeft'),
-  mgr: spaceRule('marginRight'),
-  mgt: spaceRule('marginTop'),
-  mgb: spaceRule('marginBottom'),
-  mgx: [ spaceRule('marginLeft'), spaceRule('marginRight') ],
-  mgy: [ spaceRule('marginTop'), spaceRule('marginBottom') ]
+  m: spaceRule('margin'),
+  ml: spaceRule('marginLeft'),
+  mr: spaceRule('marginRight'),
+  mt: spaceRule('marginTop'),
+  mb: spaceRule('marginBottom'),
+  mx: [ spaceRule('marginLeft'), spaceRule('marginRight') ],
+  my: [ spaceRule('marginTop'), spaceRule('marginBottom') ]
 })
 
 const Box = styled.div`
@@ -2505,9 +2505,9 @@ const theme = {
 }
 
 <ThemeProvider theme={theme}>
-  <Box mg={1} /> // → margin: 8px;
-  <Box mgx={2} /> // → margin-left: 16px; margin-right: 16px
-  <Box mg={{ sm: 1 }} /> // → @media (max-width: 600px) { margin: 8px }
+  <Box m={1} /> // → margin: 8px;
+  <Box mx={2} /> // → margin-left: 16px; margin-right: 16px
+  <Box m={{ sm: 1 }} /> // → @media (max-width: 600px) { margin: 8px }
 </ThemeProvider>
 ```
 
@@ -2523,9 +2523,9 @@ const theme = {
 }
 
 <ThemeProvider theme={theme}>
-  <Box mg={1} /> // → margin: 8px; @media (max-width: 600px) { margin: 4px }
-  <Box mgx={2} /> // → margin-left: 16px; margin-right: 16px; @media (max-width: 600px) { margin-left: 8px; margin-right: 8px; }
-  <Box mg={{ sm: 1 }} /> // → @media (max-width: 600px) { margin: 4px }
+  <Box m={1} /> // → margin: 8px; @media (max-width: 600px) { margin: 4px }
+  <Box mx={2} /> // → margin-left: 16px; margin-right: 16px; @media (max-width: 600px) { margin-left: 8px; margin-right: 8px; }
+  <Box m={{ sm: 1 }} /> // → @media (max-width: 600px) { margin: 4px }
 </ThemeProvider>
 ```
 

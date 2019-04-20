@@ -43,7 +43,7 @@ import { space } from './space'
  * `
  *
  * @example
- * <Box mgx='auto' /> // → marginLeft: auto; marginRight: auto
+ * <Box mx='auto' /> // → marginLeft: auto; marginRight: auto
  * <Box flex='1 1 0' /> // → flex: 1 1 0
  * <Box width={1 / 2} /> // → width: 50%
  */

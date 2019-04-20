@@ -81,30 +81,30 @@ test('sizeValue: 0', () => {
 
 test('spaceValue', () => {
   const style = createStyles({
-    mg: rule('margin', spaceValue(sizeValue())),
-    mgl: rule('marginLeft', spaceValue()),
-    mgr: rule('marginRight', spaceValue()),
-    mgt: rule('marginTop', spaceValue()),
-    mgb: rule('marginBottom', spaceValue()),
-    mgx: [ rule('marginLeft', spaceValue()), rule('marginRight', spaceValue()) ],
-    mgy: [ rule('marginTop', spaceValue()), rule('marginBottom', spaceValue()) ]
+    m: rule('margin', spaceValue(sizeValue())),
+    ml: rule('marginLeft', spaceValue()),
+    mr: rule('marginRight', spaceValue()),
+    mt: rule('marginTop', spaceValue()),
+    mb: rule('marginBottom', spaceValue()),
+    mx: [ rule('marginLeft', spaceValue()), rule('marginRight', spaceValue()) ],
+    my: [ rule('marginTop', spaceValue()), rule('marginBottom', spaceValue()) ]
   })
 
-  expect(toStyles(style({ theme, mg: 1 }))).toEqual({
+  expect(toStyles(style({ theme, m: 1 }))).toEqual({
     margin: '8px',
     '@media (max-width: 600px)': {
       margin: '4px'
     }
   })
 
-  expect(toStyles(style({ theme, mg: { all: 2, sm: 1 } }))).toEqual({
+  expect(toStyles(style({ theme, m: { all: 2, sm: 1 } }))).toEqual({
     margin: '16px',
     '@media (max-width: 600px)': {
       margin: '4px'
     }
   })
 
-  expect(toStyles(style({ theme, mgx: { all: 2, sm: 1 }, mgy: 3 }))).toEqual({
+  expect(toStyles(style({ theme, mx: { all: 2, sm: 1 }, my: 3 }))).toEqual({
     marginTop: '32px',
     marginBottom: '32px',
     marginLeft: '16px',
@@ -117,26 +117,26 @@ test('spaceValue', () => {
     }
   })
 
-  expect(toStyles(style({ theme, mg: { sm: 1 } }))).toEqual({
+  expect(toStyles(style({ theme, m: { sm: 1 } }))).toEqual({
     '@media (max-width: 600px)': {
       margin: '4px'
     }
   })
 
-  expect(toStyles(style({ theme, mg: { all: 2 } }))).toEqual({
+  expect(toStyles(style({ theme, m: { all: 2 } }))).toEqual({
     margin: '16px'
   })
 
-  expect(toStyles(style({ theme, mg: 'xl' }))).toEqual({
+  expect(toStyles(style({ theme, m: 'xl' }))).toEqual({
     margin: '100px'
   })
 
-  expect(toStyles(style({ theme, mg: 'nudge' }))).toEqual({
+  expect(toStyles(style({ theme, m: 'nudge' }))).toEqual({
     margin: '2px',
     '@media (max-width: 600px)': {
       margin: '1px'
     }
   })
 
-  expect(toStyles(style({ theme, mg: 0.5 }))).toEqual({})
+  expect(toStyles(style({ theme, m: 0.5 }))).toEqual({})
 })

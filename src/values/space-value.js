@@ -81,13 +81,13 @@ export function createSpaceValue ({
  * const spaceRule = (name) => rule(name, spaceValue())
  *
  * const margin = pss({
- *   mg: spaceRule('margin'),
- *   mgl: spaceRule('marginLeft'),
- *   mgr: spaceRule('marginRight'),
- *   mgt: spaceRule('marginTop'),
- *   mgb: spaceRule('marginBottom'),
- *   mgx: [ spaceRule('marginLeft'), spaceRule('marginRight') ],
- *   mgy: [ spaceRule('marginTop'), spaceRule('marginBottom') ]
+ *   m: spaceRule('margin'),
+ *   ml: spaceRule('marginLeft'),
+ *   mr: spaceRule('marginRight'),
+ *   mt: spaceRule('marginTop'),
+ *   mb: spaceRule('marginBottom'),
+ *   mx: [ spaceRule('marginLeft'), spaceRule('marginRight') ],
+ *   my: [ spaceRule('marginTop'), spaceRule('marginBottom') ]
  * })
  *
  * const Box = styled.div`
@@ -103,9 +103,9 @@ export function createSpaceValue ({
  * }
  *
  * <ThemeProvider theme={theme}>
- *   <Box mg={1} /> // → margin: 8px;
- *   <Box mgx={2} /> // → margin-left: 16px; margin-right: 16px
- *   <Box mg={{ sm: 1 }} /> // → @media (max-width: 600px) { margin: 8px }
+ *   <Box m={1} /> // → margin: 8px;
+ *   <Box mx={2} /> // → margin-left: 16px; margin-right: 16px
+ *   <Box m={{ sm: 1 }} /> // → @media (max-width: 600px) { margin: 8px }
  * </ThemeProvider>
  *
  * @example
@@ -120,9 +120,9 @@ export function createSpaceValue ({
  * }
  *
  * <ThemeProvider theme={theme}>
- *   <Box mg={1} /> // → margin: 8px; @media (max-width: 600px) { margin: 4px }
- *   <Box mgx={2} /> // → margin-left: 16px; margin-right: 16px; @media (max-width: 600px) { margin-left: 8px; margin-right: 8px; }
- *   <Box mg={{ sm: 1 }} /> // → @media (max-width: 600px) { margin: 4px }
+ *   <Box m={1} /> // → margin: 8px; @media (max-width: 600px) { margin: 4px }
+ *   <Box mx={2} /> // → margin-left: 16px; margin-right: 16px; @media (max-width: 600px) { margin-left: 8px; margin-right: 8px; }
+ *   <Box m={{ sm: 1 }} /> // → @media (max-width: 600px) { margin: 4px }
  * </ThemeProvider>
  */
 

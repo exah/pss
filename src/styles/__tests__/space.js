@@ -21,21 +21,21 @@ const theme = {
 }
 
 test('set one step space for every media', () => {
-  expect(toStyles(space({ theme, mg: 1 }))).toEqual({
+  expect(toStyles(space({ theme, m: 1 }))).toEqual({
     margin: '10px',
     '@media (max-width: 600px)': { margin: '5px' }
   })
 })
 
 test('set one step space on desktop and 2 on mobile', () => {
-  expect(toStyles(space({ theme, mg: { all: 1, M: 3 } }))).toEqual({
+  expect(toStyles(space({ theme, m: { all: 1, M: 3 } }))).toEqual({
     margin: '10px',
     '@media (max-width: 600px)': { margin: '2rem' }
   })
 })
 
 test('override one step space on mobile and tablet', () => {
-  expect(toStyles(space({ theme, mg: 1, mgl: { M: 3 }, mgx: { T: 0 } }))).toEqual({
+  expect(toStyles(space({ theme, m: 1, ml: { M: 3 }, mx: { T: 0 } }))).toEqual({
     margin: '10px',
     '@media (max-width: 600px)': { margin: '5px', marginLeft: '2rem' },
     '@media (min-width: 601px) and (max-width: 1024px)': {
@@ -46,7 +46,7 @@ test('override one step space on mobile and tablet', () => {
 })
 
 test('set margin to sizes responsive "nudge" value', () => {
-  const result = toStyles(space({ theme, mg: 'nudge' }))
+  const result = toStyles(space({ theme, m: 'nudge' }))
 
   expect(result).toEqual({
     margin: '2px',
@@ -55,13 +55,13 @@ test('set margin to sizes responsive "nudge" value', () => {
 })
 
 test('set margin to sizes "xl" value', () => {
-  expect(toStyles(space({ theme, mg: 'xl' }))).toEqual({
+  expect(toStyles(space({ theme, m: 'xl' }))).toEqual({
     margin: '100px'
   })
 })
 
 test('set margin to "auto"', () => {
-  expect(toStyles(space({ theme, mg: 'auto' }))).toEqual({
+  expect(toStyles(space({ theme, m: 'auto' }))).toEqual({
     margin: 'auto'
   })
 })
@@ -72,19 +72,19 @@ test('set margin to "30px" on mobile', () => {
     '@media (max-width: 600px)': { margin: '30px' }
   }
 
-  expect(toStyles(space({ theme, mg: { all: '10px', M: '30px' } }))).toEqual(expected)
+  expect(toStyles(space({ theme, m: { all: '10px', M: '30px' } }))).toEqual(expected)
 })
 
 test('without theme should use default scale', () => {
-  expect(toStyles(space({ mg: 1 }))).toEqual({ margin: '4px' })
-  expect(toStyles(space({ mg: 0 }))).toEqual({ margin: 0 })
+  expect(toStyles(space({ m: 1 }))).toEqual({ margin: '4px' })
+  expect(toStyles(space({ m: 0 }))).toEqual({ margin: 0 })
 })
 
 describe('selectors', () => {
   test('add margin-top to &:first-child', () => {
     const result = toStyles(space({
       theme,
-      mgt: { '&:first-child': 1 }
+      mt: { '&:first-child': 1 }
     }))
 
     expect(result).toEqual({
@@ -101,7 +101,7 @@ describe('selectors', () => {
     test('selector nested in media', () => {
       const result = toStyles(space({
         theme,
-        mg: { M: { '& + &': 2 } }
+        m: { M: { '& + &': 2 } }
       }))
 
       expect(result).toEqual({
@@ -116,7 +116,7 @@ describe('selectors', () => {
     test('media nested in selector', () => {
       const result = toStyles(space({
         theme,
-        mg: { '& + &': { M: 2 } }
+        m: { '& + &': { M: 2 } }
       }))
 
       expect(result).toEqual({
@@ -131,7 +131,7 @@ describe('selectors', () => {
     test('with other media', () => {
       const result = toStyles(space({
         theme,
-        mg: { '& + &': { M: 2 }, all: 3 }
+        m: { '& + &': { M: 2 }, all: 3 }
       }))
 
       expect(result).toEqual({

@@ -11,7 +11,7 @@ const theme = {
 }
 
 test('set one step space', () => {
-  const result = toStyles(space({ theme, mg: 1 }))
+  const result = toStyles(space({ theme, m: 1 }))
 
   expect(result).toEqual({
     margin: '10px'
@@ -28,5 +28,5 @@ test('override one step space on mobile and tablet', () => {
     }
   }
 
-  expect(toStyles(space({ theme, mg: 1, mgl: { M: 3 }, mgx: { T: 0 } }))).toEqual(expected)
+  expect(toStyles(space({ theme, m: 1, ml: { M: 3 }, mx: { T: 0 } }))).toEqual(expected)
 })
