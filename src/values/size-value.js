@@ -9,7 +9,17 @@ import { themeValue } from './theme-value'
  * Sizes system for any css prop. Default behaviour described in {@link sizes}.
  * Must be used with {@link rule}.
  *
- * Related: {@link sizes}, {@link rule}, {@link spaceValue}.
+ * Created with {@link themeValue}:
+ *
+ * ```js
+ * const sizeValue = themeValue({
+ *   transformValue: px,
+ *   fallback: (input) => px(input),
+ *   themeKey: 'size'
+ * })
+ * ```
+ *
+ * Related: {@link sizes}, {@link rule}, {@link spaceValue}, {@link px}.
  *
  * @param {Function} [defaultValue]
  * @return {Function} - that must be used in {@link rule}

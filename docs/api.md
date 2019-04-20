@@ -2395,7 +2395,17 @@ import { sizeValue } from 'pss'
 Sizes system for any css prop. Default behaviour described in [sizes][5].
 Must be used with [rule][163].
 
-Related: [sizes][5], [rule][163], [spaceValue][174].
+Created with [themeValue][180]:
+
+```js
+const sizeValue = themeValue({
+  transformValue: px,
+  fallback: (input) => px(input),
+  themeKey: 'size'
+})
+```
+
+Related: [sizes][5], [rule][163], [spaceValue][174], [px][153].
 
 #### Parameters
 
