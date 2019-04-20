@@ -1,5 +1,5 @@
 import { deepMerge } from '@exah/utils'
-import { colors, createStyles, rule, colorValue } from '../..'
+import { colors, backgroundColor, textColor, createStyles, rule, colorValue } from '../..'
 import { toStyles, testValue } from '../../../test-helpers'
 
 const COLOR_WHITE = '#ffffff'
@@ -74,10 +74,28 @@ test('fg', testValue({
   trueValue: COLOR_BLACK
 }))
 
+test('textColor', testValue({
+  theme,
+  fn: textColor,
+  prop: 'color',
+  cssProp: 'color',
+  values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ],
+  trueValue: COLOR_BLACK
+}))
+
 test('bg', testValue({
   theme,
   fn: colors,
   prop: 'bg',
+  cssProp: 'backgroundColor',
+  values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ],
+  trueValue: COLOR_WHITE
+}))
+
+test('backgroundColor', testValue({
+  theme,
+  fn: backgroundColor,
+  prop: 'backgroundColor',
   cssProp: 'backgroundColor',
   values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ],
   trueValue: COLOR_WHITE

@@ -4,6 +4,7 @@ import { fontSize } from './font-size'
 import { fontWeight } from './font-weight'
 import { letterSpacing } from './letter-spacing'
 import { lineHeight } from './line-height'
+import { textColor } from './text-color'
 import { textAlign } from './text-align'
 import { whiteSpace } from './white-space'
 
@@ -19,6 +20,7 @@ import { whiteSpace } from './white-space'
  *   - {@link letterSpacing}
  *   - {@link lineHeight}
  *   - {@link textAlign}
+ *   - {@link textColor}
  *   - {@link whiteSpace}
  *
  * Related: {@link textStyle}, {@link combineStyles}.
@@ -44,5 +46,6 @@ export const text = combineStyles(
   letterSpacing,
   lineHeight,
   textAlign,
+  textColor,
   whiteSpace
 )

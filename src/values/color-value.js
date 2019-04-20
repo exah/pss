@@ -34,7 +34,7 @@ export function createColorValue ({
   return (key, transformValue = identity, defaultValue) => {
     const getValue = getColor(key)
 
-    return (input = true, props) => {
+    return (input, props) => {
       let color = getValue(input)(props)
 
       if (isArr(color)) {

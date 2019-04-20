@@ -17,6 +17,7 @@ toc:
 
   - name: Styles
     children:
+      - backgroundColor
       - borders
       - borderColor
       - borderRadius
@@ -45,6 +46,7 @@ toc:
       - positionOffsets
       - ratio
       - textAlign
+      - textColor
       - textOverflow
       - transform
       - transition
