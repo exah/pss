@@ -11,7 +11,7 @@ const theme = {
 test('default', () => {
   const result = borders({
     theme,
-    border: true
+    border: 'auto'
   })
 
   expect(toStyles(result)).toEqual({

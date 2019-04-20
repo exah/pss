@@ -2577,6 +2577,7 @@ const Box = styled.div`
 
 ```js
 // theme.palette.default.fg
+<Box fg='auto' /> // background-color: #222222
 <Box fg={true} /> // background-color: #222222
 
 // theme.colors.black
@@ -2586,6 +2587,7 @@ const Box = styled.div`
 <Box fg='accent' /> // color: #ff0000
 
 // theme.palette.default.shadow
+<Box shadow='auto' /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
 <Box shadow={true} /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
 
 // theme.palette.default.fg, theme.palette.default.bg
@@ -2609,9 +2611,9 @@ See [fontFamily][59], [radius][210].
 -   `options` **[Object][196]**  (optional, default `{}`)
     -   `options.themeKey`  
     -   `options.transformValue`   (optional, default `identity`)
-    -   `options.keyword`   (optional, default `true`)
     -   `options.fallback`  
     -   `options.scale`   (optional, default `{}`)
+    -   `options.keyword`   (optional, default `'auto'`)
 
 #### Examples
 
@@ -2632,16 +2634,10 @@ const Text = styled.div(pss({
 }))
 
 <ThemeProvider theme={theme}>
-  <Text fontFamily='ui'>
+  <Text fontFamily='ui'> // → font-family: system-ui, Helvetica, sans-serif
     Hello World!
   </Text>
 </ThemeProvider>
-```
-
-```css
-.css {
-  font-family: system-ui, Helvetica, sans-serif;
-}
 ```
 
 Returns **[Function][208]** 
@@ -2731,7 +2727,7 @@ Related: [textStyle][20], [boxStyle][14], [rule][163], [themeValue][180].
 
 -   `options` **[Object][196]** 
     -   `options.prop` **[String][209]**  (optional, default `'variant'`)
-    -   `options.keyword` **[String][209]**  (optional, default `'auto'`)
+    -   `options.keyword`  
     -   `options.themeKey`  
     -   `options.transformValue`  
     -   `options.scale`  
@@ -2782,6 +2778,7 @@ const themeWithDefault = {
 }
 
 <Text variant='auto' /> // → `theme.textStyle.default`
+<Text variant={true} /> // → `theme.textStyle.default`
 ```
 
 ### style

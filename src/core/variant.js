@@ -3,7 +3,6 @@ import { createStyles } from './create-styles'
 import { createRule } from './create-rule'
 
 const VARIANT_PROP = 'variant'
-const VARIANT_AUTO = 'auto'
 
 /**
  * Create `variant` from styles defined directly in `theme`.
@@ -13,7 +12,6 @@ const VARIANT_AUTO = 'auto'
  *
  * @param {Object} options
  * @param {String} [options.prop = 'variant']
- * @param {String} [options.keyword = 'auto']
  *
  * @example
  * import { variant } from 'pss'
@@ -56,11 +54,12 @@ const VARIANT_AUTO = 'auto'
  * }
  *
  * <Text variant='auto' /> // → `theme.textStyle.default`
+ * <Text variant={true} /> // → `theme.textStyle.default`
  */
 
 function variant ({
   prop = VARIANT_PROP,
-  keyword = VARIANT_AUTO,
+  keyword,
   themeKey,
   transformValue,
   scale,

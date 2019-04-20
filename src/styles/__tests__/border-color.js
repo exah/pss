@@ -22,7 +22,7 @@ test('borderColor', testValue({
 test('default', () => {
   const result = borderColor({
     theme,
-    borderColor: true
+    borderColor: 'auto'
   })
 
   expect(toStyles(result)).toEqual({

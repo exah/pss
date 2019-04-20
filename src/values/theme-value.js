@@ -29,26 +29,23 @@ import { getDefault, themePath } from '../utils'
  * }))
  *
  * <ThemeProvider theme={theme}>
- *   <Text fontFamily='ui'>
+ *   <Text fontFamily='ui'> // → font-family: system-ui, Helvetica, sans-serif
  *     Hello World!
  *   </Text>
  * </ThemeProvider>
- *
- * @example
- * .css {
- *   font-family: system-ui, Helvetica, sans-serif;
- * }
  */
 
 function themeValue ({
   themeKey,
   transformValue = identity,
-  keyword = true,
   fallback,
-  scale = {}
+  scale = {},
+  keyword = 'auto'
 } = {}) {
   return (defaultValue = fallback) => (input, props, mediaKey) => {
-    const valueKey = input === keyword
+    const isAutoValue = input === true || (keyword != null && input === keyword)
+
+    const valueKey = isAutoValue
       ? getDefault(themeKey)(props)
       : input
 

@@ -20,7 +20,7 @@ const theme = {
 test('defaults', () => {
   const result = toStyles(fontFamily({
     theme,
-    fontFamily: true
+    fontFamily: 'auto'
   }))
 
   expect(result).toEqual({

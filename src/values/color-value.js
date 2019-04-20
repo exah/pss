@@ -7,7 +7,8 @@ export function createColorValue ({
   colorsScale = {},
   paletteScale = {},
   colorsGetter = themePath(themeColorKey, colorsScale),
-  paletteGetter = themePath(themePaletteKey, paletteScale)
+  paletteGetter = themePath(themePaletteKey, paletteScale),
+  keyword = 'auto'
 } = {}) {
   const getColor = (defaultColorName) => (colorName) => (props) => {
     const colors = colorsGetter(props)
@@ -19,7 +20,7 @@ export function createColorValue ({
       ...colors
     }
 
-    const color = colorName === true
+    const color = colorName === true || colorName === keyword
       ? path(defaultColorName)(activeColors)
       : isStr(colorName) ? path(colorName)(activeColors) : null
 
@@ -83,6 +84,7 @@ export function createColorValue ({
  *
  * @example
  * // theme.palette.default.fg
+ * <Box fg='auto' /> // background-color: #222222
  * <Box fg={true} /> // background-color: #222222
  *
  * // theme.colors.black
@@ -92,6 +94,7 @@ export function createColorValue ({
  * <Box fg='accent' /> // color: #ff0000
  *
  * // theme.palette.default.shadow
+ * <Box shadow='auto' /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
  * <Box shadow={true} /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
  *
  * // theme.palette.default.fg, theme.palette.default.bg

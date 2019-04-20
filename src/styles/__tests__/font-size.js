@@ -21,7 +21,7 @@ const theme = {
 test('defaults', () => {
   const result = toStyles(fontSize({
     theme,
-    fontSize: true
+    fontSize: 'auto'
   }))
 
   expect(result).toEqual({

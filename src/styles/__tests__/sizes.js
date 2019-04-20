@@ -2,6 +2,9 @@ import { sizes } from '../..'
 import { toStyles } from '../../../test-helpers'
 
 const theme = {
+  default: {
+    size: 'xl'
+  },
   media: {
     D: '(min-width: 1025px)',
     M: '(max-width: 600px)'

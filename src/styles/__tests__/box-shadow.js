@@ -10,7 +10,7 @@ const theme = {
 test('default', () => {
   const result = boxShadow({
     theme,
-    boxShadow: true
+    boxShadow: 'auto'
   })
 
   expect(toStyles(result)).toEqual({

@@ -26,6 +26,6 @@ expect.addSnapshotSerializer(serializer)
 test('basic', () => {
   const Box = styled('div')(space, sizes, colors)
 
-  const tree = toJSON(h(Box, { theme, width: 1, tm: true, m: { all: 1, M: 0 } }))
+  const tree = toJSON(h(Box, { theme, width: 1, tm: 'auto', m: { all: 1, M: 0 } }))
   expect(tree).toMatchSnapshot()
 })

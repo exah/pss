@@ -49,5 +49,6 @@ import { themeValue } from './theme-value'
 export const sizeValue = themeValue({
   transformValue: px,
   fallback: (input) => px(input),
-  themeKey: 'size'
+  themeKey: 'size',
+  keyword: null
 })

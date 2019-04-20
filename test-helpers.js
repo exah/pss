@@ -20,11 +20,10 @@ const testValue = ({
   cssProp,
   theme = THEME,
   values = [],
-  trueValue,
-  falseValue
+  autoValue
 }) => () => {
-  expect(toStyles(fn({ theme, [prop]: true }))).toEqual(trueValue != null ? { [cssProp]: trueValue } : {})
-  expect(toStyles(fn({ theme, [prop]: false }))).toEqual(falseValue != null ? { [cssProp]: falseValue } : {})
+  expect(toStyles(fn({ theme, [prop]: true }))).toEqual(autoValue != null ? { [cssProp]: autoValue } : {})
+  expect(toStyles(fn({ theme, [prop]: 'auto' }))).toEqual(autoValue != null ? { [cssProp]: autoValue } : { [cssProp]: 'auto' })
   expect(toStyles(fn({ theme, [prop]: null }))).toEqual({})
 
   values.forEach((val) => {

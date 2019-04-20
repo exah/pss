@@ -71,7 +71,7 @@ test('fg', testValue({
   prop: 'fg',
   cssProp: 'color',
   values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ],
-  trueValue: COLOR_BLACK
+  autoValue: COLOR_BLACK
 }))
 
 test('textColor', testValue({
@@ -80,7 +80,7 @@ test('textColor', testValue({
   prop: 'color',
   cssProp: 'color',
   values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ],
-  trueValue: COLOR_BLACK
+  autoValue: COLOR_BLACK
 }))
 
 test('bg', testValue({
@@ -89,7 +89,7 @@ test('bg', testValue({
   prop: 'bg',
   cssProp: 'backgroundColor',
   values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ],
-  trueValue: COLOR_WHITE
+  autoValue: COLOR_WHITE
 }))
 
 test('backgroundColor', testValue({
@@ -98,7 +98,7 @@ test('backgroundColor', testValue({
   prop: 'backgroundColor',
   cssProp: 'backgroundColor',
   values: [ 'inherit', 'currentColor', 'custom', 'hotpink' ],
-  trueValue: COLOR_WHITE
+  autoValue: COLOR_WHITE
 }))
 
 test('theme.color as array', () => {
@@ -124,7 +124,7 @@ test('theme.color as object', () => {
 test('set theme colors and override text color on mobile', () => {
   const props = {
     theme,
-    tm: true,
+    tm: 'auto',
     fg: { M: 'accent' }
   }
 
@@ -142,7 +142,7 @@ test('set theme colors and override text color on mobile', () => {
 test('change default theme to "inverted"', () => {
   const props = {
     theme: themeInverted,
-    tm: true
+    tm: 'auto'
   }
 
   const expected = {
@@ -169,14 +169,14 @@ test('use palette name to set default color in prop', () => {
 })
 
 test('transform color value', () => {
-  const props = { theme, shadow: true }
+  const props = { theme, shadow: 'auto' }
   const expected = { boxShadow: `0 0 20px 0 ${COLOR_SHADOW}` }
 
   expect(toStyles(shadow(props))).toEqual(expected)
 })
 
 test('custom color combination', () => {
-  expect(toStyles(shadow({ theme, tm: true }))).toEqual({
+  expect(toStyles(shadow({ theme, tm: 'auto' }))).toEqual({
     color: COLOR_BLACK,
     backgroundColor: COLOR_WHITE,
     borderColor: COLOR_BLACK,
