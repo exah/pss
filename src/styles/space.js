@@ -88,13 +88,13 @@ export const padding = createSpaceStyles('padding')
  * - `mb` → `margin-bottom`
  * - `mx` → `margin-left`, `margin-right`
  * - `my` → `margin-top`, `margin-bottom`
- * - `pd` → `padding`
- * - `pdl` → `padding-left`
- * - `pdr` → `padding-right`
- * - `pdt` → `padding-top`
- * - `pdb` → `padding-bottom`
- * - `pdx` → `padding-left`, `padding-right`
- * - `pdy` → `padding-top`, `padding-bottom`
+ * - `p` → `padding`
+ * - `pl` → `padding-left`
+ * - `pr` → `padding-right`
+ * - `pt` → `padding-top`
+ * - `pb` → `padding-bottom`
+ * - `px` → `padding-left`, `padding-right`
+ * - `py` → `padding-top`, `padding-bottom`
  *
  * **`Number` values:**
  *
@@ -174,5 +174,5 @@ export const padding = createSpaceStyles('padding')
 
 export const space = combineStyles(
   createAliasSpaceStyles('m', 'margin'),
-  createAliasSpaceStyles('pd', 'padding')
+  createAliasSpaceStyles('p', 'padding')
 )
