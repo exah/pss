@@ -4,6 +4,27 @@ import { style } from '../core'
 const touchStyle = { WebkitOverflowScrolling: 'touch' }
 const notTouch = (item) => item !== 'touch'
 
+export function overflowValue (input) {
+  if (isStr(input)) {
+    const parsed = input.split(/\s+/)
+    const values = parsed.filter(notTouch)
+    const isTouch = parsed.length !== values.length
+
+    if (values.length === 1) {
+      return {
+        overflow: values[0],
+        ...isTouch && touchStyle
+      }
+    }
+
+    return {
+      overflowX: values[0],
+      overflowY: values[1],
+      ...isTouch && touchStyle
+    }
+  }
+}
+
 /**
  * ```js
  * import { overflow } from 'pss'
@@ -30,24 +51,5 @@ const notTouch = (item) => item !== 'touch'
 
 export const overflow = style({
   prop: 'overflow',
-  getValue (input) {
-    if (isStr(input)) {
-      const parsed = input.split(/\s+/)
-      const values = parsed.filter(notTouch)
-      const isTouch = parsed.length !== values.length
-
-      if (values.length === 1) {
-        return {
-          overflow: values[0],
-          ...isTouch && touchStyle
-        }
-      }
-
-      return {
-        overflowX: values[0],
-        overflowY: values[1],
-        ...isTouch && touchStyle
-      }
-    }
-  }
+  getValue: overflowValue
 })

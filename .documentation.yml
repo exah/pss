@@ -50,14 +50,7 @@ toc:
       - transition
       - whiteSpace
       - zIndex
-
-  - name: Atomic Styles
-    children:
       - atomic
-      - atomicDisplay
-      - atomicPosition
-      - atomicPositionOffset
-      - atomicSizes
 
   - name: Mixins
     children:
