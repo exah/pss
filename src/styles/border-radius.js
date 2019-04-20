@@ -5,9 +5,9 @@ import { style } from '../core'
  * import { borderRadius } from 'pss'
  * ```
  *
- * prop           | css             | type                                | value | true       | false
- * :--------------|:----------------|:------------------------------------|:------|:-----------|:--------
- * `borderRadius` | `border-radius` | `Number`, `theme.borderRadius[key]` | ✓     | —         | —
+ * prop           | css             | type                                | value | true
+ * :--------------|:----------------|:------------------------------------|:------|:----------
+ * `borderRadius` | `border-radius` | `Number`, `theme.borderRadius[key]` | ✓     | —
  *
  *
  * Related: {@link style}.

@@ -5,9 +5,9 @@ import { createStyles, mediaStyle } from '../core'
  * import { hide } from 'pss'
  * ```
  *
- * prop       | css              | type                 | value    | true      | false
- * :----------|:-----------------|:---------------------|:---------|:--------- |:--------
- * `hide`   | `display: none`  | key in `theme.media` | mediaKey | —         | —
+ * prop    | css              | type                 | value    | true
+ * :-------|:-----------------|:---------------------|:---------|:--------
+ * `hide`  | `display: none`  | key in `theme.media` | mediaKey | —
  *
  * Related: {@link display}, {@link mediaStyle}.
  *

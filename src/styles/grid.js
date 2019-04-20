@@ -29,14 +29,14 @@ export const createGridItemStyle = ({
  *
  * Styles for [Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout).
  *
- * prop                  | css                     | type      | value | true   | false
- * :------------------ --|:------------------------|:----------|:------|:-------|:--------
- * `gridAutoFlow`        | `grid-auto-flow`        | `String`  | ✓     | —      | —
- * `gridAutoColumns`     | `grid-auto-columns`     | `String`  | ✓     | —      | —
- * `gridAutoRows`        | `grid-auto-rows`        | `String`  | ✓     | —      | —
- * `gridTemplateColumns` | `grid-template-columns` | `String`  | ✓     | —      | —
- * `gridTemplateRows`    | `grid-template-rows`    | `String`  | ✓     | —      | —
- * `gridTemplateAreas`   | `grid-template-areas`   | `String`  | ✓     | —      | —
+ * prop                  | css                     | type      | value | true
+ * :------------------ --|:------------------------|:----------|:------|:-------
+ * `gridAutoFlow`        | `grid-auto-flow`        | `String`  | ✓     | —
+ * `gridAutoColumns`     | `grid-auto-columns`     | `String`  | ✓     | —
+ * `gridAutoRows`        | `grid-auto-rows`        | `String`  | ✓     | —
+ * `gridTemplateColumns` | `grid-template-columns` | `String`  | ✓     | —
+ * `gridTemplateRows`    | `grid-template-rows`    | `String`  | ✓     | —
+ * `gridTemplateAreas`   | `grid-template-areas`   | `String`  | ✓     | —
  *
  * Related: {@link gap}, {@link flex}, {@link rule}
  *
@@ -64,11 +64,11 @@ export const grid = createGridStyle({ prefix: 'grid' })
  * import { gridItem } from 'pss'
  * ```
  *
- * prop          | css            | type     | value | true    | false
- * :-------------|:---------------|:---------|:------|:------- |:--------
- * `gridColumn`  | `grid-column`  | `String` | ✓     | —       | —
- * `gridRow`     | `grid-row`     | `String` | ✓     | —       | —
- * `gridArea`    | `grod-area`    | `String` | ✓     | —       | —
+ * prop          | css            | type     | value | true
+ * :-------------|:---------------|:---------|:------|:-------
+ * `gridColumn`  | `grid-column`  | `String` | ✓     | —
+ * `gridRow`     | `grid-row`     | `String` | ✓     | —
+ * `gridArea`    | `grod-area`    | `String` | ✓     | —
  *
  * Related: {@link rule}, {@link sizeValue}.
  *

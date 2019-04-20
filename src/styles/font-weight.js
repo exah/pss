@@ -5,9 +5,9 @@ import { style } from '../core'
  * import { fontWeight } from 'pss'
  * ```
  *
- * prop           | css              | type      | value | true   | false
- * :--------------|:-----------------|:----------|:------|:-------|:--------
- * `fontWeight`   | `font-weight`    | `String`  | ✓     | —      | —
+ * prop           | css              | type      | value | true
+ * :--------------|:-----------------|:----------|:------|:-------
+ * `fontWeight`   | `font-weight`    | `String`  | ✓     | —
  *
  * Related: {@link text}, {@link ellipsis}, {@link rule}
  *

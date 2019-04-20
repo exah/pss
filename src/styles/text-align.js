@@ -5,9 +5,9 @@ import { style } from '../core'
  * import { textAlign } from 'pss'
  * ```
  *
- * prop        | css           | type      | value | true   | false
- * :-----------|:--------------|:----------|:------|:-------|:--------
- * `textAlign` | `text-align`  | `String`  | ✓     | —      | —
+ * prop        | css           | type      | value | true
+ * :-----------|:--------------|:----------|:------|:-------
+ * `textAlign` | `text-align`  | `String`  | ✓     | —
  *
  * Related: {@link text}, {@link ellipsis}, {@link rule}.
  *

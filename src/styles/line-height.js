@@ -5,9 +5,9 @@ import { style } from '../core'
  * import { lineHeight } from 'pss'
  * ```
  *
- * prop           | css              | type               | value | true   | false
- * :--------------|:-----------------|:-------------------|:------|:-------|:--------
- * `lineHeight`   | `line-height`    | `String`, `Number` | ✓     | —      | —
+ * prop           | css              | type               | value | true
+ * :--------------|:-----------------|:-------------------|:------|:-------
+ * `lineHeight`   | `line-height`    | `String`, `Number` | ✓     | —
  *
  * Related: {@link text}, {@link ellipsis}, {@link rule}.
  *

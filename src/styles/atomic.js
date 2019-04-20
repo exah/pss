@@ -16,30 +16,30 @@ const atomicSizeRule = (name) => sizeRule(name, boolValue('100%'))
  * But sometimes it can be useful to have short variants and can speed-up development process.
  *
  *
- * prop  | css                | type                           | value  | theme   | true       | false
- * :-----|:-------------------|:-------------------------------|:-------|:--------|:-----------|:--------
- * `d`   | `display`          | `String`, `Boolean`            | ✓      | —       | `initial`  | `none`
- * `f`   | `flex`             | `String`                       | ✓      | —       | —          | —
- * `o`   | `order`            | `String`                       | ✓      | —       | —          | —
- * `prl` | `position`         | `String`, `Boolean`            | ✓      | `media` | `relative` | —
- * `pab` | `position`         | `String`, `Boolean`            | ✓      | `media` | `absolute` | —
- * `pfx` | `position`         | `String`, `Boolean`            | ✓      | `media` | `fixed`    | —
- * `psy` | `position`         | `String`, `Boolean`            | ✓      | `media` | `sticky`   | —
- * `pst` | `position`         | `String`, `Boolean`            | ✓      | `media` | `static`   | —
- * `l`   | `left`             | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `0`        | —
- * `r`   | `right`            | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `0`        | —
- * `t`   | `top`              | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `0`        | —
- * `b`   | `bottom`           | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `0`        | —
- * `x`   | `left`, `right`    | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `0`        | —
- * `y`   | `top`, `bottom`    | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `0`        | —
- * `z`   | `z-index`          | `String`, `Number`, `Boolean`  | ✓      | `zIndex`| `1`        | `auto`
- * `w`   | `width`            | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `100%`     | —
- * `h`   | `height`           | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `100%`     | —
- * `minw`| `min-width`        | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `100%`     | —
- * `minh`| `min-height`       | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `100%`     | —
- * `maxw`| `max-width`        | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `100%`     | —
- * `maxh`| `max-height`       | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `100%`     | —
- * `ov`  | {@link overflow}   | `String`, `Boolean`            | ✓      | —       | `auto`     | `hidden`
+ * prop  | css                | type                           | value  | theme   | true
+ * :-----|:-------------------|:-------------------------------|:-------|:--------|:-----------
+ * `d`   | `display`          | `String`, `Boolean`            | ✓      | —       | `initial`
+ * `f`   | `flex`             | `String`                       | ✓      | —       | —
+ * `o`   | `order`            | `String`                       | ✓      | —       | —
+ * `prl` | `position`         | `String`, `Boolean`            | ✓      | `media` | `relative`
+ * `pab` | `position`         | `String`, `Boolean`            | ✓      | `media` | `absolute`
+ * `pfx` | `position`         | `String`, `Boolean`            | ✓      | `media` | `fixed`
+ * `psy` | `position`         | `String`, `Boolean`            | ✓      | `media` | `sticky`
+ * `pst` | `position`         | `String`, `Boolean`            | ✓      | `media` | `static`
+ * `l`   | `left`             | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `0`
+ * `r`   | `right`            | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `0`
+ * `t`   | `top`              | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `0`
+ * `b`   | `bottom`           | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `0`
+ * `x`   | `left`, `right`    | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `0`
+ * `y`   | `top`, `bottom`    | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `0`
+ * `z`   | `z-index`          | `String`, `Number`, `Boolean`  | ✓      | `zIndex`| `1`
+ * `w`   | `width`            | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `100%`
+ * `h`   | `height`           | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `100%`
+ * `minw`| `min-width`        | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `100%`
+ * `minh`| `min-height`       | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `100%`
+ * `maxw`| `max-width`        | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `100%`
+ * `maxh`| `max-height`       | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `100%`
+ * `ov`  | {@link overflow}   | `String`, `Boolean`            | ✓      | —       | `auto`
  *
  * Related {@link space}, {@link colors}, {@link hide}.
  *
@@ -82,7 +82,7 @@ const atomicSizeRule = (name) => sizeRule(name, boolValue('100%'))
  */
 
 export const atomic = createStyles({
-  d: rule('display', boolValue('initial', 'none')),
+  d: rule('display', boolValue('initial', null)),
   f: rule('flex'),
   o: rule('order'),
   pab: mediaStyle({ position: 'absolute' }),
@@ -96,12 +96,12 @@ export const atomic = createStyles({
   b: atomicPositionRule('bottom'),
   x: [ atomicPositionRule('left'), atomicPositionRule('right') ],
   y: [ atomicPositionRule('top'), atomicPositionRule('bottom') ],
-  z: rule('zIndex', boolValue(1, 'auto', themeValue({ themeKey: 'zIndex' }))),
+  z: rule('zIndex', boolValue(1, null, themeValue({ themeKey: 'zIndex' }))),
   w: atomicSizeRule('width'),
   h: atomicSizeRule('height'),
   minw: atomicSizeRule('minWidth'),
   minh: atomicSizeRule('minHeight'),
   maxw: atomicSizeRule('maxWidth'),
   maxh: atomicSizeRule('maxHeight'),
-  ov: createRule({ getValue: boolValue('auto', 'hidden', overflowValue) })
+  ov: createRule({ getValue: boolValue('auto', null, overflowValue) })
 })

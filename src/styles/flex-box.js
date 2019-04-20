@@ -15,10 +15,10 @@ export const createFlexBoxStyle = ({ prefix } = {}) => createStyles({
  *
  * For alignment styles import {@link boxContentAlignment}, {@link boxItemsAlignment}.
  *
- * prop             | css               | type     | value | true   | false
- * :----------------|:----------------- |:---------|:------|:-------|:--------
- * `flexWrap`       | `flex-wrap`       | `String` | ✓     | —      | —
- * `flexDirection`  | `flex-direction`  | `String` | ✓     | —      | —
+ * prop             | css               | type     | value | true
+ * :----------------|:----------------- |:---------|:------|:-------
+ * `flexWrap`       | `flex-wrap`       | `String` | ✓     | —
+ * `flexDirection`  | `flex-direction`  | `String` | ✓     | —
  *
  * Related: {@link boxContentAlignment}, {@link boxItemsAlignment}, {@link rule}.
  *
@@ -33,7 +33,7 @@ export const createFlexBoxStyle = ({ prefix } = {}) => createStyles({
  * `
  *
  * @example
- * <FlexBox flexDirection='column' flexWrap={true}> // display: flex; flex-direction: column; flex-wrap: wrap;
+ * <FlexBox flexDirection='column' flexWrap='wrap'> // display: flex; flex-direction: column; flex-wrap: wrap;
  *   <div>1</div>
  *   <div>2</div>
  * </FlexBox>

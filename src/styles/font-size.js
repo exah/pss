@@ -6,9 +6,9 @@ import { px } from '../utils'
  * import { fontSize } from 'pss'
  * ```
  *
- * prop       | css         | type               | theme      | value | true   | false
- * :----------|:------------|:------------------ |:-----------|:------|:-------|:--------
- * `fontSize` | `font-size` | `String`, `Number` | `fontSize` | ✓     | —      | —
+ * prop       | css         | type               | theme      | value | true
+ * :----------|:------------|:------------------ |:-----------|:------|:-------
+ * `fontSize` | `font-size` | `String`, `Number` | `fontSize` | ✓     | —
  *
  * Related: {@link text}, {@link ellipsis}, {@link rule}.
  *

@@ -5,9 +5,9 @@ import { style } from '../core'
  * import { cursor } from 'pss'
  * ```
  *
- * prop         | css             | type                 | value | true       | false
- * :------------|:----------------|:---------------------|:------|:-----------|:--------
- * `cursor`     | `cursor`        | `String`             | ✓     | —         | —
+ * prop         | css             | type                 | value | true
+ * :------------|:----------------|:---------------------|:------|:----------
+ * `cursor`     | `cursor`        | `String`             | ✓     | —
  *
  * Related: {@link style}.
  *

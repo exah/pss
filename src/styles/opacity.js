@@ -5,9 +5,9 @@ import { style } from '../core'
  * import { opacity } from 'pss'
  * ```
  *
- * prop         | css             | type    | value | true     | false
- * :------------|:----------------|:------- |:------|:---------|:--------
- * `opacity`    | `opacity`       | `0...1` | ✓     | —        | —
+ * prop         | css             | type    | value | true
+ * :------------|:----------------|:------- |:------|:---------
+ * `opacity`    | `opacity`       | `0...1` | ✓     | —
  *
  * Related: {@link rule}.
  *

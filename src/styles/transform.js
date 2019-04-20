@@ -5,9 +5,9 @@ import { style } from '../core'
  * import { transform } from 'pss'
  * ```
  *
- * prop         | css             | type                 | value | true       | false
- * :------------|:----------------|:---------------------|:------|:-----------|:--------
- * `transform` | `transform`      | `String`             | ✓     | —         | —
+ * prop        | css             | type                 | value | true
+ * :-----------|:----------------|:---------------------|:------|:----------
+ * `transform` | `transform`     | `String`             | ✓     | —
  *
  * Related: {@link rule}.
  *

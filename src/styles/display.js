@@ -5,9 +5,9 @@ import { style } from '../core'
  * import { display } from 'pss'
  * ```
  *
- * prop       | css                      | type     | value    | true      | false
- * :----------|:-------------------------|:---------|:---------|:--------- |:--------
- * `display`  | [`display`][display-url] | `String` | ✓        | —         | —
+ * prop       | css                      | type     | value    | true
+ * :----------|:-------------------------|:---------|:---------|:---------
+ * `display`  | [`display`][display-url] | `String` | ✓        | —
  *
  * [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
  *

@@ -5,9 +5,9 @@ import { colorValue } from '../values'
  * ```js
  * import { textColor } from 'pss'
  * ```
- * prop     | css    | type                | value | theme              | true           | false
- * :-------|:--------|:--------------------|:------|:-------------------|:---------------|:--------
- * `color` | `color` | `String`, `Boolean` | ✓     | `color`, `palette` | `palette.*.fg` | —
+ * prop     | css    | type                | value | theme              | true
+ * :-------|:--------|:--------------------|:------|:-------------------|:---------------
+ * `color` | `color` | `String`, `Boolean` | ✓     | `color`, `palette` | `palette.*.fg`
  *
  * Related: {@link backgroundColor}, {@link colors}, {@link style}, {@link colorValue}.
  *

@@ -5,9 +5,9 @@ import { style } from '../core'
  * import { boxShadow } from 'pss'
  * ```
  *
- * prop        | css           | type      | value | true                      | false
- * :-----------|:--------------|:----------|:------|:--------------------------|:--------
- * `boxShadow` | `box-shadow`  | `String`  | ✓     | `theme.boxShadow.default` | —
+ * prop        | css           | type      | value | true
+ * :-----------|:--------------|:----------|:------|:--------------------------
+ * `boxShadow` | `box-shadow`  | `String`  | ✓     | `theme.boxShadow.default`
  *
  * Related: {@link box}, {@link style}, {@link themeValue}.
  *

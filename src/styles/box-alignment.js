@@ -5,10 +5,10 @@ import { createStyles, rule } from '../core'
  * import { boxContentAlignment } from 'pss'
  * ```
  *
- * prop             | css               | type     | value | true    | false
- * :----------------|:------------------|:---------|:------|:--------|:--------
- * `alignContent`   | `align-content`   | `String` | ✓     | —       | —
- * `justifyContent` | `justify-content` | `String` | ✓     | —       | —
+ * prop             | css               | type     | value | true
+ * :----------------|:------------------|:---------|:------|:------
+ * `alignContent`   | `align-content`   | `String` | ✓     | —
+ * `justifyContent` | `justify-content` | `String` | ✓     | —
  *
  * Related: {@link rule}
  *
@@ -39,10 +39,10 @@ export const boxContentAlignment = createStyles({
  * import { boxItemsAlignment } from 'pss'
  * ```
  *
- * prop             | css               | type      | value | true  | false
- * :----------------|:------------------|:----------|:------|:------|:--------
- * `alignItems`     | `align-items`     | `String`  | ✓     | —     | —
- * `justifyItems`   | `justify-items`   | `String`  | ✓     | —     | —
+ * prop             | css               | type      | value | true
+ * :----------------|:------------------|:----------|:------|:------
+ * `alignItems`     | `align-items`     | `String`  | ✓     | —
+ * `justifyItems`   | `justify-items`   | `String`  | ✓     | —
  *
  * Related: {@link rule}
  *
@@ -73,10 +73,10 @@ export const boxItemsAlignment = createStyles({
  * import { boxSelfAlignment } from 'pss'
  * ```
  *
- * prop          | css            | type      | value | true    | false
- * :-------------|:---------------|:----------|:------|:--------|:--------
- * `alignSelf`   | `align-self`   | `String`  | ✓     | —       | —
- * `justifySelf` | `justify-self` | `String`  | ✓     | —       | —
+ * prop          | css            | type      | value | true
+ * :-------------|:---------------|:----------|:------|:--------
+ * `alignSelf`   | `align-self`   | `String`  | ✓     | —
+ * `justifySelf` | `justify-self` | `String`  | ✓     | —
  *
  * Related: {@link rule}
  *

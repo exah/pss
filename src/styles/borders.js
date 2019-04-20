@@ -14,13 +14,13 @@ const borderRule = (name) => rule(name, themeValue({
  *
  * Set borders with values from theme.
  *
- * prop           | css             | type                          | value | true                   | false
- * :--------------|:----------------|:------------------------------|:------|:-----------------------|:--------
- * `border`       | `border`        | `String`, `theme.border[key]` | ✓     | `theme.border.default` | —
- * `borderLeft`   | `border-left`   | `String`, `theme.border[key]` | ✓     | `theme.border.default` | —
- * `borderRight`  | `border-right`  | `String`, `theme.border[key]` | ✓     | `theme.border.default` | —
- * `borderTop`    | `border-top`    | `String`, `theme.border[key]` | ✓     | `theme.border.default` | —
- * `borderBottom` | `border-bottom` | `String`, `theme.border[key]` | ✓     | `theme.border.default` | —
+ * prop           | css             | type                          | value | true
+ * :--------------|:----------------|:------------------------------|:------|:-----------------------
+ * `border`       | `border`        | `String`, `theme.border[key]` | ✓     | `theme.border.default`
+ * `borderLeft`   | `border-left`   | `String`, `theme.border[key]` | ✓     | `theme.border.default`
+ * `borderRight`  | `border-right`  | `String`, `theme.border[key]` | ✓     | `theme.border.default`
+ * `borderTop`    | `border-top`    | `String`, `theme.border[key]` | ✓     | `theme.border.default`
+ * `borderBottom` | `border-bottom` | `String`, `theme.border[key]` | ✓     | `theme.border.default`
  *
  *
  * Related: {@link themeValue}, {@link rule},

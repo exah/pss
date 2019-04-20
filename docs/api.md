@@ -690,9 +690,9 @@ const Text = styled.div`
 import { backgroundColor } from 'pss'
 ```
 
-| prop              | css               | type                | value | theme              | true           | false |
-| :---------------- | :---------------- | :------------------ | :---- | :----------------- | :------------- | :---- |
-| `backgroundColor` | `backgroundColor` | `String`, `Boolean` | ✓     | `color`, `palette` | `palette.*.bg` | —     |
+| prop              | css               | type                | value | theme              | true           |
+| :---------------- | :---------------- | :------------------ | :---- | :----------------- | :------------- |
+| `backgroundColor` | `backgroundColor` | `String`, `Boolean` | ✓     | `color`, `palette` | `palette.*.bg` |
 
 Related: [textColor][115], [colors][8], [style][192], [colorValue][177].
 
@@ -755,9 +755,9 @@ const Box = styled.div`
 import { borderColor } from 'pss'
 ```
 
-| prop          | css            | type                | value | true                           | false |
-| :------------ | :------------- | :------------------ | :---- | :----------------------------- | :---- |
-| `borderColor` | `border-color` | `String`, `Boolean` | ✓     | `theme.palette.default.border` | —     |
+| prop          | css            | type                | value | true                           |
+| :------------ | :------------- | :------------------ | :---- | :----------------------------- |
+| `borderColor` | `border-color` | `String`, `Boolean` | ✓     | `theme.palette.default.border` |
 
 Related: [colorValue][177], [style][192],
 
@@ -786,9 +786,9 @@ const Box = styled.div`
 import { borderRadius } from 'pss'
 ```
 
-| prop           | css             | type                                | value | true | false |
-| :------------- | :-------------- | :---------------------------------- | :---- | :--- | :---- |
-| `borderRadius` | `border-radius` | `Number`, `theme.borderRadius[key]` | ✓     | —    | —     |
+| prop           | css             | type                                | value | true |
+| :------------- | :-------------- | :---------------------------------- | :---- | :--- |
+| `borderRadius` | `border-radius` | `Number`, `theme.borderRadius[key]` | ✓     | —    |
 
 Related: [style][192].
 
@@ -819,13 +819,13 @@ import { borders } from 'pss'
 
 Set borders with values from theme.
 
-| prop           | css             | type                          | value | true                   | false |
-| :------------- | :-------------- | :---------------------------- | :---- | :--------------------- | :---- |
-| `border`       | `border`        | `String`, `theme.border[key]` | ✓     | `theme.border.default` | —     |
-| `borderLeft`   | `border-left`   | `String`, `theme.border[key]` | ✓     | `theme.border.default` | —     |
-| `borderRight`  | `border-right`  | `String`, `theme.border[key]` | ✓     | `theme.border.default` | —     |
-| `borderTop`    | `border-top`    | `String`, `theme.border[key]` | ✓     | `theme.border.default` | —     |
-| `borderBottom` | `border-bottom` | `String`, `theme.border[key]` | ✓     | `theme.border.default` | —     |
+| prop           | css             | type                          | value | true                   |
+| :------------- | :-------------- | :---------------------------- | :---- | :--------------------- |
+| `border`       | `border`        | `String`, `theme.border[key]` | ✓     | `theme.border.default` |
+| `borderLeft`   | `border-left`   | `String`, `theme.border[key]` | ✓     | `theme.border.default` |
+| `borderRight`  | `border-right`  | `String`, `theme.border[key]` | ✓     | `theme.border.default` |
+| `borderTop`    | `border-top`    | `String`, `theme.border[key]` | ✓     | `theme.border.default` |
+| `borderBottom` | `border-bottom` | `String`, `theme.border[key]` | ✓     | `theme.border.default` |
 
 Related: [themeValue][180], [rule][163],
 
@@ -854,10 +854,10 @@ const Box = styled.div`
 import { boxContentAlignment } from 'pss'
 ```
 
-| prop             | css               | type     | value | true | false |
-| :--------------- | :---------------- | :------- | :---- | :--- | :---- |
-| `alignContent`   | `align-content`   | `String` | ✓     | —    | —     |
-| `justifyContent` | `justify-content` | `String` | ✓     | —    | —     |
+| prop             | css               | type     | value | true |
+| :--------------- | :---------------- | :------- | :---- | :--- |
+| `alignContent`   | `align-content`   | `String` | ✓     | —    |
+| `justifyContent` | `justify-content` | `String` | ✓     | —    |
 
 Related: [rule][163]
 
@@ -887,10 +887,10 @@ const Grid = styled.div`
 import { boxItemsAlignment } from 'pss'
 ```
 
-| prop           | css             | type     | value | true | false |
-| :------------- | :-------------- | :------- | :---- | :--- | :---- |
-| `alignItems`   | `align-items`   | `String` | ✓     | —    | —     |
-| `justifyItems` | `justify-items` | `String` | ✓     | —    | —     |
+| prop           | css             | type     | value | true |
+| :------------- | :-------------- | :------- | :---- | :--- |
+| `alignItems`   | `align-items`   | `String` | ✓     | —    |
+| `justifyItems` | `justify-items` | `String` | ✓     | —    |
 
 Related: [rule][163]
 
@@ -920,10 +920,10 @@ const Grid = styled.div`
 import { boxSelfAlignment } from 'pss'
 ```
 
-| prop          | css            | type     | value | true | false |
-| :------------ | :------------- | :------- | :---- | :--- | :---- |
-| `alignSelf`   | `align-self`   | `String` | ✓     | —    | —     |
-| `justifySelf` | `justify-self` | `String` | ✓     | —    | —     |
+| prop          | css            | type     | value | true |
+| :------------ | :------------- | :------- | :---- | :--- |
+| `alignSelf`   | `align-self`   | `String` | ✓     | —    |
+| `justifySelf` | `justify-self` | `String` | ✓     | —    |
 
 Related: [rule][163]
 
@@ -953,9 +953,9 @@ const Box = styled.div`
 import { boxShadow } from 'pss'
 ```
 
-| prop        | css          | type     | value | true                      | false |
-| :---------- | :----------- | :------- | :---- | :------------------------ | :---- |
-| `boxShadow` | `box-shadow` | `String` | ✓     | `theme.boxShadow.default` | —     |
+| prop        | css          | type     | value | true                      |
+| :---------- | :----------- | :------- | :---- | :------------------------ |
+| `boxShadow` | `box-shadow` | `String` | ✓     | `theme.boxShadow.default` |
 
 Related: [box][11], [style][192], [themeValue][180].
 
@@ -985,9 +985,9 @@ const Box = styled.p`
 import { cursor } from 'pss'
 ```
 
-| prop     | css      | type     | value | true | false |
-| :------- | :------- | :------- | :---- | :--- | :---- |
-| `cursor` | `cursor` | `String` | ✓     | —    | —     |
+| prop     | css      | type     | value | true |
+| :------- | :------- | :------- | :---- | :--- |
+| `cursor` | `cursor` | `String` | ✓     | —    |
 
 Related: [style][192].
 
@@ -1015,9 +1015,9 @@ const Box = styled.div`
 import { display } from 'pss'
 ```
 
-| prop      | css                      | type     | value | true | false |
-| :-------- | :----------------------- | :------- | :---- | :--- | :---- |
-| `display` | [`display`][display-url] | `String` | ✓     | —    | —     |
+| prop      | css                      | type     | value | true |
+| :-------- | :----------------------- | :------- | :---- | :--- |
+| `display` | [`display`][display-url] | `String` | ✓     | —    |
 
 [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
 
@@ -1047,9 +1047,9 @@ const Box = styled.div`
 import { flex } from 'pss'
 ```
 
-| prop   | css    | type     | value | true | false |
-| :----- | :----- | :------- | :---- | :--- | :---- |
-| `flex` | `flex` | `String` | ✓     | —    | —     |
+| prop   | css    | type     | value | true |
+| :----- | :----- | :------- | :---- | :--- |
+| `flex` | `flex` | `String` | ✓     | —    |
 
 Related: [rule][163], [sizeValue][169].
 
@@ -1077,10 +1077,10 @@ Styles for [Flexible Box Layout][199].
 
 For alignment styles import [boxContentAlignment][36], [boxItemsAlignment][39].
 
-| prop            | css              | type     | value | true | false |
-| :-------------- | :--------------- | :------- | :---- | :--- | :---- |
-| `flexWrap`      | `flex-wrap`      | `String` | ✓     | —    | —     |
-| `flexDirection` | `flex-direction` | `String` | ✓     | —    | —     |
+| prop            | css              | type     | value | true |
+| :-------------- | :--------------- | :------- | :---- | :--- |
+| `flexWrap`      | `flex-wrap`      | `String` | ✓     | —    |
+| `flexDirection` | `flex-direction` | `String` | ✓     | —    |
 
 Related: [boxContentAlignment][36], [boxItemsAlignment][39], [rule][163].
 
@@ -1099,7 +1099,7 @@ const FlexBox = styled.div`
 `
 ```
 
-    <FlexBox flexDirection='column' flexWrap={true}> // display: flex; flex-direction: column; flex-wrap: wrap;
+    <FlexBox flexDirection='column' flexWrap='wrap'> // display: flex; flex-direction: column; flex-wrap: wrap;
       <div>1</div>
       <div>2</div>
     </FlexBox>
@@ -1153,9 +1153,9 @@ const Text = styled.p`
 import { fontSize } from 'pss'
 ```
 
-| prop       | css         | type               | theme      | value | true | false |
-| :--------- | :---------- | :----------------- | :--------- | :---- | :--- | :---- |
-| `fontSize` | `font-size` | `String`, `Number` | `fontSize` | ✓     | —    | —     |
+| prop       | css         | type               | theme      | value | true |
+| :--------- | :---------- | :----------------- | :--------- | :---- | :--- |
+| `fontSize` | `font-size` | `String`, `Number` | `fontSize` | ✓     | —    |
 
 Related: [text][17], [ellipsis][200], [rule][163].
 
@@ -1204,9 +1204,9 @@ const Text = styled.p`
 import { fontWeight } from 'pss'
 ```
 
-| prop         | css           | type     | value | true | false |
-| :----------- | :------------ | :------- | :---- | :--- | :---- |
-| `fontWeight` | `font-weight` | `String` | ✓     | —    | —     |
+| prop         | css           | type     | value | true |
+| :----------- | :------------ | :------- | :---- | :--- |
+| `fontWeight` | `font-weight` | `String` | ✓     | —    |
 
 Related: [text][17], [ellipsis][200], [rule][163]
 
@@ -1270,14 +1270,14 @@ import { grid } from 'pss'
 
 Styles for [Grid Layout][201].
 
-| prop                  | css                     | type     | value | true | false |
-| :-------------------- | :---------------------- | :------- | :---- | :--- | :---- |
-| `gridAutoFlow`        | `grid-auto-flow`        | `String` | ✓     | —    | —     |
-| `gridAutoColumns`     | `grid-auto-columns`     | `String` | ✓     | —    | —     |
-| `gridAutoRows`        | `grid-auto-rows`        | `String` | ✓     | —    | —     |
-| `gridTemplateColumns` | `grid-template-columns` | `String` | ✓     | —    | —     |
-| `gridTemplateRows`    | `grid-template-rows`    | `String` | ✓     | —    | —     |
-| `gridTemplateAreas`   | `grid-template-areas`   | `String` | ✓     | —    | —     |
+| prop                  | css                     | type     | value | true |
+| :-------------------- | :---------------------- | :------- | :---- | :--- |
+| `gridAutoFlow`        | `grid-auto-flow`        | `String` | ✓     | —    |
+| `gridAutoColumns`     | `grid-auto-columns`     | `String` | ✓     | —    |
+| `gridAutoRows`        | `grid-auto-rows`        | `String` | ✓     | —    |
+| `gridTemplateColumns` | `grid-template-columns` | `String` | ✓     | —    |
+| `gridTemplateRows`    | `grid-template-rows`    | `String` | ✓     | —    |
+| `gridTemplateAreas`   | `grid-template-areas`   | `String` | ✓     | —    |
 
 Related: [gap][68], [flex][54], [rule][163]
 
@@ -1307,11 +1307,11 @@ const Grid = styled.div`
 import { gridItem } from 'pss'
 ```
 
-| prop         | css           | type     | value | true | false |
-| :----------- | :------------ | :------- | :---- | :--- | :---- |
-| `gridColumn` | `grid-column` | `String` | ✓     | —    | —     |
-| `gridRow`    | `grid-row`    | `String` | ✓     | —    | —     |
-| `gridArea`   | `grod-area`   | `String` | ✓     | —    | —     |
+| prop         | css           | type     | value | true |
+| :----------- | :------------ | :------- | :---- | :--- |
+| `gridColumn` | `grid-column` | `String` | ✓     | —    |
+| `gridRow`    | `grid-row`    | `String` | ✓     | —    |
+| `gridArea`   | `grod-area`   | `String` | ✓     | —    |
 
 Related: [rule][163], [sizeValue][169].
 
@@ -1336,9 +1336,9 @@ const GridItem = styled.div`
 import { hide } from 'pss'
 ```
 
-| prop   | css             | type                 | value    | true | false |
-| :----- | :-------------- | :------------------- | :------- | :--- | :---- |
-| `hide` | `display: none` | key in `theme.media` | mediaKey | —    | —     |
+| prop   | css             | type                 | value    | true |
+| :----- | :-------------- | :------------------- | :------- | :--- |
+| `hide` | `display: none` | key in `theme.media` | mediaKey | —    |
 
 Related: [display][51], [mediaStyle][183].
 
@@ -1374,9 +1374,9 @@ const Box = styled.div`
 import { letterSpacing } from 'pss'
 ```
 
-| prop            | css              | type               | value | true | false |
-| :-------------- | :--------------- | :----------------- | :---- | :--- | :---- |
-| `letterSpacing` | `letter-spacing` | `String`, `Number` | ✓     | —    | —     |
+| prop            | css              | type               | value | true |
+| :-------------- | :--------------- | :----------------- | :---- | :--- |
+| `letterSpacing` | `letter-spacing` | `String`, `Number` | ✓     | —    |
 
 Related: [text][17], [ellipsis][200], [rule][163].
 
@@ -1404,9 +1404,9 @@ const Text = styled.p`
 import { lineHeight } from 'pss'
 ```
 
-| prop         | css           | type               | value | true | false |
-| :----------- | :------------ | :----------------- | :---- | :--- | :---- |
-| `lineHeight` | `line-height` | `String`, `Number` | ✓     | —    | —     |
+| prop         | css           | type               | value | true |
+| :----------- | :------------ | :----------------- | :---- | :--- |
+| `lineHeight` | `line-height` | `String`, `Number` | ✓     | —    |
 
 Related: [text][17], [ellipsis][200], [rule][163].
 
@@ -1464,9 +1464,9 @@ const Box = styled.div`
 import { opacity } from 'pss'
 ```
 
-| prop      | css       | type    | value | true | false |
-| :-------- | :-------- | :------ | :---- | :--- | :---- |
-| `opacity` | `opacity` | `0...1` | ✓     | —    | —     |
+| prop      | css       | type    | value | true |
+| :-------- | :-------- | :------ | :---- | :--- |
+| `opacity` | `opacity` | `0...1` | ✓     | —    |
 
 Related: [rule][163].
 
@@ -1495,9 +1495,9 @@ const Box = styled.div`
 import { order } from 'pss'
 ```
 
-| prop    | css     | type               | value | true | false |
-| :------ | :------ | :----------------- | :---- | :--- | :---- |
-| `order` | `order` | `Number`, `String` | ✓     | —    | —     |
+| prop    | css     | type               | value | true |
+| :------ | :------ | :----------------- | :---- | :--- |
+| `order` | `order` | `Number`, `String` | ✓     | —    |
 
 Related: [rule][163], [sizeValue][169].
 
@@ -1526,9 +1526,9 @@ const Box = styled.div`
 import { outline } from 'pss'
 ```
 
-| prop      | css       | type                  | value | true | false |
-| :-------- | :-------- | :-------------------- | :---- | :--- | :---- |
-| `outline` | `outline` | `String`, `'debug'`\* | ✓     | —    | —     |
+| prop      | css       | type                  | value | true |
+| :-------- | :-------- | :-------------------- | :---- | :--- |
+| `outline` | `outline` | `String`, `'debug'`\* | ✓     | —    |
 
 \* Random hex color, useful for debugging layout
 
@@ -1618,9 +1618,9 @@ const Box = styled.div`
 import { position } from 'pss'
 ```
 
-| prop       | css                        | type     | value | true | false |
-| :--------- | :------------------------- | :------- | :---- | :--- | :---- |
-| `position` | [`position`][position-url] | `String` | ✓     | —    | —     |
+| prop       | css                        | type     | value | true |
+| :--------- | :------------------------- | :------- | :---- | :--- |
+| `position` | [`position`][position-url] | `String` | ✓     | —    |
 
 [position-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
 
@@ -1651,12 +1651,12 @@ const Box = styled.div`
 import { positionOffsets } from 'pss'
 ```
 
-| prop     | css      | type                          | value | true | false |
-| :------- | :------- | :---------------------------- | :---- | :--- | :---- |
-| `left`   | `left`   | `String`, `Number`, `Boolean` | ✓     | —    | —     |
-| `right`  | `right`  | `String`, `Number`, `Boolean` | ✓     | —    | —     |
-| `top`    | `top`    | `String`, `Number`, `Boolean` | ✓     | —    | —     |
-| `bottom` | `bottom` | `String`, `Number`, `Boolean` | ✓     | —    | —     |
+| prop     | css      | type                          | value | true |
+| :------- | :------- | :---------------------------- | :---- | :--- |
+| `left`   | `left`   | `String`, `Number`, `Boolean` | ✓     | —    |
+| `right`  | `right`  | `String`, `Number`, `Boolean` | ✓     | —    |
+| `top`    | `top`    | `String`, `Number`, `Boolean` | ✓     | —    |
+| `bottom` | `bottom` | `String`, `Number`, `Boolean` | ✓     | —    |
 
 Related: [position][103], [rule][163], [sizeValue][169].
 
@@ -1727,9 +1727,9 @@ const Box = styled.div`
 import { textAlign } from 'pss'
 ```
 
-| prop        | css          | type     | value | true | false |
-| :---------- | :----------- | :------- | :---- | :--- | :---- |
-| `textAlign` | `text-align` | `String` | ✓     | —    | —     |
+| prop        | css          | type     | value | true |
+| :---------- | :----------- | :------- | :---- | :--- |
+| `textAlign` | `text-align` | `String` | ✓     | —    |
 
 Related: [text][17], [ellipsis][200], [rule][163].
 
@@ -1757,9 +1757,9 @@ const Text = styled.p`
 import { textColor } from 'pss'
 ```
 
-| prop    | css     | type                | value | theme              | true           | false |
-| :------ | :------ | :------------------ | :---- | :----------------- | :------------- | :---- |
-| `color` | `color` | `String`, `Boolean` | ✓     | `color`, `palette` | `palette.*.fg` | —     |
+| prop    | css     | type                | value | theme              | true           |
+| :------ | :------ | :------------------ | :---- | :----------------- | :------------- |
+| `color` | `color` | `String`, `Boolean` | ✓     | `color`, `palette` | `palette.*.fg` |
 
 Related: [backgroundColor][24], [colors][8], [style][192], [colorValue][177].
 
@@ -1850,9 +1850,9 @@ const Text = styled.p`
 import { transform } from 'pss'
 ```
 
-| prop        | css         | type     | value | true | false |
-| :---------- | :---------- | :------- | :---- | :--- | :---- |
-| `transform` | `transform` | `String` | ✓     | —    | —     |
+| prop        | css         | type     | value | true |
+| :---------- | :---------- | :------- | :---- | :--- |
+| `transform` | `transform` | `String` | ✓     | —    |
 
 Related: [rule][163].
 
@@ -1880,9 +1880,9 @@ const Box = styled.div`
 import { transition } from 'pss'
 ```
 
-| prop         | css          |   type   | theme | value | true | false |
-| :----------- | :----------- | :------: | ----- | :---- | :--- | :---- |
-| `transition` | `transition` | `String` | —     | ✓     | —    | —     |
+| prop         | css          |   type   | theme | value | true |
+| :----------- | :----------- | :------: | ----- | :---- | :--- |
+| `transition` | `transition` | `String` | —     | ✓     | —    |
 
 Related: [rule][163].
 
@@ -1910,9 +1910,9 @@ const Box = styled.div`
 import { whiteSpace } from 'pss'
 ```
 
-| prop         | css           | type     | value | true | false |
-| :----------- | :------------ | :------- | :---- | :--- | :---- |
-| `whiteSpace` | `white-space` | `String` | ✓     | —    | —     |
+| prop         | css           | type     | value | true |
+| :----------- | :------------ | :------- | :---- | :--- |
+| `whiteSpace` | `white-space` | `String` | ✓     | —    |
 
 Related: [text][17], [ellipsis][200], [style][192].
 
@@ -1940,9 +1940,9 @@ const Text = styled.p`
 import { zIndex } from 'pss'
 ```
 
-| prop     | css       | type                                    | value | true | false |
-| :------- | :-------- | :-------------------------------------- | :---- | :--- | :---- |
-| `zIndex` | `z-index` | `String`, `Number`, `theme.zIndex[key]` | ✓     | —    | –     |
+| prop     | css       | type                                    | value | true |
+| :------- | :-------- | :-------------------------------------- | :---- | :--- |
+| `zIndex` | `z-index` | `String`, `Number`, `theme.zIndex[key]` | ✓     | —    |
 
 Related: [position][103], [rule][163], [style][192].
 
@@ -1976,30 +1976,30 @@ First version of `pss` is different, most of the styles applied with short flags
 Now this variants considered as bad practice as it introduce new syntax to rembember.
 But sometimes it can be useful to have short variants and can speed-up development process.
 
-| prop   | css             | type                          | value | theme    | true       | false    |
-| :----- | :-------------- | :---------------------------- | :---- | :------- | :--------- | :------- |
-| `d`    | `display`       | `String`, `Boolean`           | ✓     | —        | `initial`  | `none`   |
-| `f`    | `flex`          | `String`                      | ✓     | —        | —          | —        |
-| `o`    | `order`         | `String`                      | ✓     | —        | —          | —        |
-| `prl`  | `position`      | `String`, `Boolean`           | ✓     | `media`  | `relative` | —        |
-| `pab`  | `position`      | `String`, `Boolean`           | ✓     | `media`  | `absolute` | —        |
-| `pfx`  | `position`      | `String`, `Boolean`           | ✓     | `media`  | `fixed`    | —        |
-| `psy`  | `position`      | `String`, `Boolean`           | ✓     | `media`  | `sticky`   | —        |
-| `pst`  | `position`      | `String`, `Boolean`           | ✓     | `media`  | `static`   | —        |
-| `l`    | `left`          | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `0`        | —        |
-| `r`    | `right`         | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `0`        | —        |
-| `t`    | `top`           | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `0`        | —        |
-| `b`    | `bottom`        | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `0`        | —        |
-| `x`    | `left`, `right` | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `0`        | —        |
-| `y`    | `top`, `bottom` | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `0`        | —        |
-| `z`    | `z-index`       | `String`, `Number`, `Boolean` | ✓     | `zIndex` | `1`        | `auto`   |
-| `w`    | `width`         | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `100%`     | —        |
-| `h`    | `height`        | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `100%`     | —        |
-| `minw` | `min-width`     | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `100%`     | —        |
-| `minh` | `min-height`    | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `100%`     | —        |
-| `maxw` | `max-width`     | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `100%`     | —        |
-| `maxh` | `max-height`    | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `100%`     | —        |
-| `ov`   | [overflow][97]  | `String`, `Boolean`           | ✓     | —        | `auto`     | `hidden` |
+| prop   | css             | type                          | value | theme    | true       |
+| :----- | :-------------- | :---------------------------- | :---- | :------- | :--------- |
+| `d`    | `display`       | `String`, `Boolean`           | ✓     | —        | `initial`  |
+| `f`    | `flex`          | `String`                      | ✓     | —        | —          |
+| `o`    | `order`         | `String`                      | ✓     | —        | —          |
+| `prl`  | `position`      | `String`, `Boolean`           | ✓     | `media`  | `relative` |
+| `pab`  | `position`      | `String`, `Boolean`           | ✓     | `media`  | `absolute` |
+| `pfx`  | `position`      | `String`, `Boolean`           | ✓     | `media`  | `fixed`    |
+| `psy`  | `position`      | `String`, `Boolean`           | ✓     | `media`  | `sticky`   |
+| `pst`  | `position`      | `String`, `Boolean`           | ✓     | `media`  | `static`   |
+| `l`    | `left`          | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `0`        |
+| `r`    | `right`         | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `0`        |
+| `t`    | `top`           | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `0`        |
+| `b`    | `bottom`        | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `0`        |
+| `x`    | `left`, `right` | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `0`        |
+| `y`    | `top`, `bottom` | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `0`        |
+| `z`    | `z-index`       | `String`, `Number`, `Boolean` | ✓     | `zIndex` | `1`        |
+| `w`    | `width`         | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `100%`     |
+| `h`    | `height`        | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `100%`     |
+| `minw` | `min-width`     | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `100%`     |
+| `minh` | `min-height`    | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `100%`     |
+| `maxw` | `max-width`     | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `100%`     |
+| `maxh` | `max-height`    | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `100%`     |
+| `ov`   | [overflow][97]  | `String`, `Boolean`           | ✓     | —        | `auto`     |
 
 Related [space][2], [colors][8], [hide][76].
 

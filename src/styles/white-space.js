@@ -5,9 +5,9 @@ import { style } from '../core'
  * import { whiteSpace } from 'pss'
  * ```
  *
- * prop        | css           | type      | value | true   | false
- * :-----------|:--------------|:----------|:------|:-------|:--------
- * `whiteSpace` | `white-space`  | `String`  | ✓     | —      | —
+ * prop         | css            | type      | value | true
+ * :------------|:---------------|:----------|:------|:-------
+ * `whiteSpace` | `white-space`  | `String`  | ✓     | —
  *
  * Related: {@link text}, {@link ellipsis}, {@link style}.
  *
