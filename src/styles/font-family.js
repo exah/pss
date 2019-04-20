@@ -4,13 +4,18 @@ import { style } from '../core'
  * ```js
  * import { fontFamily } from 'pss'
  * ```
+ * prop         | css           | theme        | value | default
+ * :------------|:--------------|:-------------|:------|:----------------------
+ * `fontFamily` | `font-family` | `fontFamily` | ✓     | `theme.fontFamily.default`
+ *
+ * Related: {@link text}, {@link ellipsis}, {@link rule}, {@link themeValue}.
  *
  * Set `font-family` from `theme`:
  *
  * ```js
  * const theme = {
  *   default: {
- *     fontFamily: 'ui'
+ *     fontFamily: 'ui' // this can be changed in runtime, default to `default`
  *   },
  *   fontFamily: {
  *     heading: 'Times',
@@ -31,7 +36,8 @@ import { style } from '../core'
  * `
  *
  * @example
- * <Text fontFamily={true} /> // → font-family: Helvetica
+ * <Text fontFamily /> // → font-family: Helvetica
+ * <Text fontFamily='auto' /> // → font-family: Helvetica
  * <Text fontFamily='ui' /> // → font-family: Helvetica
  * <Text fontFamily='heading' /> // → font-family: Times
  * <Text fontFamily='Comic Sans' /> // → font-family: Comic Sans

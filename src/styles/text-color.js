@@ -5,9 +5,9 @@ import { colorValue } from '../values'
  * ```js
  * import { textColor } from 'pss'
  * ```
- * prop     | css    | type                | value | theme              | true
- * :-------|:--------|:--------------------|:------|:-------------------|:---------------
- * `color` | `color` | `String`, `Boolean` | ✓     | `color`, `palette` | `palette.*.fg`
+ * prop     | css    | theme                   | value | default
+ * :-------|:--------|:------------------------|:------|:---------------
+ * `color` | `color` | `color`, `palette.*.fg` | ✓     | `theme.palette.default.fg`
  *
  * Related: {@link backgroundColor}, {@link colors}, {@link style}, {@link colorValue}.
  *
@@ -52,7 +52,8 @@ import { colorValue } from '../values'
  * // theme.palette.default.accent
  * <Box color='accent' /> // color: #ff0000
  *
- * // theme.palette.default.fg
+ * // Get default value from `theme.palette.default.fg`
+ * <Box color='auto' /> // color: #000000
  * <Box color /> // color: #000000
  *
  * // Valid color value

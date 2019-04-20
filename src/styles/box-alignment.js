@@ -5,10 +5,10 @@ import { createStyles, rule } from '../core'
  * import { boxContentAlignment } from 'pss'
  * ```
  *
- * prop             | css               | type     | value | true
- * :----------------|:------------------|:---------|:------|:------
- * `alignContent`   | `align-content`   | `String` | ✓     | —
- * `justifyContent` | `justify-content` | `String` | ✓     | —
+ * prop             | css               | theme   | value | default
+ * :----------------|:------------------|:--------|:------|:--------
+ * `alignContent`   | `align-content`   | —       | ✓     | —
+ * `justifyContent` | `justify-content` | —       | ✓     | —
  *
  * Related: {@link rule}
  *
@@ -39,10 +39,10 @@ export const boxContentAlignment = createStyles({
  * import { boxItemsAlignment } from 'pss'
  * ```
  *
- * prop             | css               | type      | value | true
- * :----------------|:------------------|:----------|:------|:------
- * `alignItems`     | `align-items`     | `String`  | ✓     | —
- * `justifyItems`   | `justify-items`   | `String`  | ✓     | —
+ * prop             | css               | theme | value | default
+ * :----------------|:------------------|:------|:------|:------
+ * `alignItems`     | `align-items`     | —     | ✓     | —
+ * `justifyItems`   | `justify-items`   | —     | ✓     | —
  *
  * Related: {@link rule}
  *
@@ -73,10 +73,10 @@ export const boxItemsAlignment = createStyles({
  * import { boxSelfAlignment } from 'pss'
  * ```
  *
- * prop          | css            | type      | value | true
+ * prop          | css            | theme     | value | default
  * :-------------|:---------------|:----------|:------|:--------
- * `alignSelf`   | `align-self`   | `String`  | ✓     | —
- * `justifySelf` | `justify-self` | `String`  | ✓     | —
+ * `alignSelf`   | `align-self`   | —         | ✓     | —
+ * `justifySelf` | `justify-self` | —         | ✓     | —
  *
  * Related: {@link rule}
  *

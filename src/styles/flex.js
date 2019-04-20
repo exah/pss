@@ -6,9 +6,9 @@ import { sizeValue } from '../values'
  * import { flex } from 'pss'
  * ```
  *
- * prop    | css     | type     | value | true
+ * prop    | css     | theme    | value | default
  * :-------|:------- |:---------|:------|:-------
- * `flex`  | `flex`  | `String` | ✓     | —
+ * `flex`  | `flex`  | `size`   | ✓     | —
  *
  * Related: {@link rule}, {@link sizeValue}.
  *

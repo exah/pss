@@ -16,7 +16,7 @@ import { isBool } from '@exah/utils'
  * }))
  *
  * @example
- * <Box opacity={true} /> // → opacity: 1
+ * <Box opacity /> // → opacity: 1
  * <Box opacity={false} /> // → opacity: 0
  * <Box opacity={0.5} /> // → opacity: 0.5
  */

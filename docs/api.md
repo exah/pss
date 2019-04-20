@@ -415,9 +415,9 @@ Result can be changed in nested components with setting other key in `theme.defa
     -   `black` → `theme.color.black`
     -   `accent` → `theme.palette.default.accent`
 
-**`Boolean` values:**
+**Default value with `auto` or `true`:**
 
--   `true` is different in each prop (takes specified value in `theme.palette[theme.default.palette]`)
+-   Different in each prop (take value from `theme.palette[theme.default.palette]`)
     -   `bg` → `theme.palette.default.bg`
     -   `fg` → `theme.palette.default.fg`
     -   `tm` → `theme.palette.default.fg`, `theme.palette.default.bg`
@@ -468,6 +468,7 @@ const Box = styled.div`
 ```js
 // theme.palette.default.bg
 <Box bg /> // background-color: #ffffff
+<Box bg='auto' /> // background-color: #ffffff
 
 // theme.colors.black
 <Box fg='black' /> // color: #222222
@@ -477,6 +478,7 @@ const Box = styled.div`
 
 // theme.palette.default.bg, theme.palette.default.fg
 <Box tm /> // background-color: #ffffff; color: #222222
+<Box tm='auto' /> // background-color: #ffffff; color: #222222
 
 // theme.palette.inverted.bg, theme.palette.inverted.fg
 <Box tm='inverted' /> // background-color: #222222; color: #fffffff
@@ -666,7 +668,7 @@ const Box = styled.div`
 ```
 
 ```js
-<Box textStyle={true} /> // → `theme.textStyle.default`
+<Box textStyle /> // → `theme.textStyle.default`
 <Box textStyle='heading' /> // → `theme.textStyle.heading`
 ```
 
@@ -675,7 +677,7 @@ const Text = styled.div`
   ${textStyle.variant}
 `
 
-<Text variant={true} /> // → `theme.textStyle.default`
+<Text variant /> // → `theme.textStyle.default`
 <Text variant='heading' /> // → `theme.textStyle.heading`
 ```
 
@@ -690,9 +692,9 @@ const Text = styled.div`
 import { backgroundColor } from 'pss'
 ```
 
-| prop              | css               | type                | value | theme              | true           |
-| :---------------- | :---------------- | :------------------ | :---- | :----------------- | :------------- |
-| `backgroundColor` | `backgroundColor` | `String`, `Boolean` | ✓     | `color`, `palette` | `palette.*.bg` |
+| prop              | css               | theme                   | value | default                    |
+| :---------------- | :---------------- | :---------------------- | :---- | :------------------------- |
+| `backgroundColor` | `backgroundColor` | `color`, `palette.*.bg` | ✓     | `theme.palette.default.bg` |
 
 Related: [textColor][115], [colors][8], [style][192], [colorValue][177].
 
@@ -705,16 +707,16 @@ const theme = {
   },
   color: {
     red: '#ff0000',
-    black: '#222222',
+    dark: '#222222',
     white: '#ffffff'
   },
   palette: {
     default: { // currently active
-      bg: '#000000',
+      bg: '#ffffff',
       accent: '#ff0000'
     },
     inverted: {
-      bg: '#ffffff',
+      bg: '#000000',
       accent: '#ff0000'
     }
   }
@@ -736,17 +738,22 @@ const Box = styled.div`
 ```
 
 ```js
-// theme.colors.black
-<Box color='black' /> // color: #222222
+// theme.colors.dark
+<Box backgroundColor='dark' /> // → background-color: #222222
 
 // theme.palette.default.accent
-<Box color='accent' /> // color: #ff0000
+<Box backgroundColor='accent' /> // → background-color: #ff0000
 
-// theme.palette.default.bg
-<Box color /> // color: #000000
+// Get default value from `theme.palette.default.bg`
+<Box backgroundColor='auto' /> // → background-color: #ffffff
+<Box backgroundColor /> // → background-color: #ffffff
+
+// theme.palette.inverted.bg
+<Box backgroundColor='inverted' /> // → background-color: #000000
+
 
 // Valid color value
-<Box color="#ffff00" /> // background-color: #ffff00
+<Box backgroundColor="#ffff00" /> // → background-color: #ffff00
 ```
 
 ### borderColor
@@ -755,9 +762,9 @@ const Box = styled.div`
 import { borderColor } from 'pss'
 ```
 
-| prop          | css            | type                | value | true                           |
-| :------------ | :------------- | :------------------ | :---- | :----------------------------- |
-| `borderColor` | `border-color` | `String`, `Boolean` | ✓     | `theme.palette.default.border` |
+| prop          | css            | theme                | value | default                        |
+| :------------ | :------------- | :------------------- | :---- | :----------------------------- |
+| `borderColor` | `border-color` | `color`, `palette.*` | ✓     | `theme.palette.default.border` |
 
 Related: [colorValue][177], [style][192],
 
@@ -786,9 +793,9 @@ const Box = styled.div`
 import { borderRadius } from 'pss'
 ```
 
-| prop           | css             | type                                | value | true |
-| :------------- | :-------------- | :---------------------------------- | :---- | :--- |
-| `borderRadius` | `border-radius` | `Number`, `theme.borderRadius[key]` | ✓     | —    |
+| prop           | css             | theme          | value | default                      |
+| :------------- | :-------------- | :------------- | :---- | :--------------------------- |
+| `borderRadius` | `border-radius` | `borderRadius` | ✓     | `theme.borderRadius.default` |
 
 Related: [style][192].
 
@@ -819,13 +826,13 @@ import { borders } from 'pss'
 
 Set borders with values from theme.
 
-| prop           | css             | type                          | value | true                   |
-| :------------- | :-------------- | :---------------------------- | :---- | :--------------------- |
-| `border`       | `border`        | `String`, `theme.border[key]` | ✓     | `theme.border.default` |
-| `borderLeft`   | `border-left`   | `String`, `theme.border[key]` | ✓     | `theme.border.default` |
-| `borderRight`  | `border-right`  | `String`, `theme.border[key]` | ✓     | `theme.border.default` |
-| `borderTop`    | `border-top`    | `String`, `theme.border[key]` | ✓     | `theme.border.default` |
-| `borderBottom` | `border-bottom` | `String`, `theme.border[key]` | ✓     | `theme.border.default` |
+| prop           | css             | theme    | value | default                |
+| :------------- | :-------------- | :------- | :---- | :--------------------- |
+| `border`       | `border`        | `border` | ✓     | `theme.border.default` |
+| `borderLeft`   | `border-left`   | `border` | ✓     | `theme.border.default` |
+| `borderRight`  | `border-right`  | `border` | ✓     | `theme.border.default` |
+| `borderTop`    | `border-top`    | `border` | ✓     | `theme.border.default` |
+| `borderBottom` | `border-bottom` | `border` | ✓     | `theme.border.default` |
 
 Related: [themeValue][180], [rule][163],
 
@@ -844,8 +851,8 @@ const Box = styled.div`
 ```
 
 ```js
-<Box border='1px dotted red' /> // border: 1px dotted red;
-<Box borderBottom='divider' /> // border-bottom: 1px dotted #f5f5f5;
+<Box border='1px dotted red' /> // → border: 1px dotted red
+<Box borderBottom='divider' /> // → theme.border.divider // → border-bottom: 1px dotted #f5f5f5
 ```
 
 ### boxContentAlignment
@@ -854,10 +861,10 @@ const Box = styled.div`
 import { boxContentAlignment } from 'pss'
 ```
 
-| prop             | css               | type     | value | true |
-| :--------------- | :---------------- | :------- | :---- | :--- |
-| `alignContent`   | `align-content`   | `String` | ✓     | —    |
-| `justifyContent` | `justify-content` | `String` | ✓     | —    |
+| prop             | css               | theme | value | default |
+| :--------------- | :---------------- | :---- | :---- | :------ |
+| `alignContent`   | `align-content`   | —     | ✓     | —       |
+| `justifyContent` | `justify-content` | —     | ✓     | —       |
 
 Related: [rule][163]
 
@@ -887,10 +894,10 @@ const Grid = styled.div`
 import { boxItemsAlignment } from 'pss'
 ```
 
-| prop           | css             | type     | value | true |
-| :------------- | :-------------- | :------- | :---- | :--- |
-| `alignItems`   | `align-items`   | `String` | ✓     | —    |
-| `justifyItems` | `justify-items` | `String` | ✓     | —    |
+| prop           | css             | theme | value | default |
+| :------------- | :-------------- | :---- | :---- | :------ |
+| `alignItems`   | `align-items`   | —     | ✓     | —       |
+| `justifyItems` | `justify-items` | —     | ✓     | —       |
 
 Related: [rule][163]
 
@@ -920,10 +927,10 @@ const Grid = styled.div`
 import { boxSelfAlignment } from 'pss'
 ```
 
-| prop          | css            | type     | value | true |
-| :------------ | :------------- | :------- | :---- | :--- |
-| `alignSelf`   | `align-self`   | `String` | ✓     | —    |
-| `justifySelf` | `justify-self` | `String` | ✓     | —    |
+| prop          | css            | theme | value | default |
+| :------------ | :------------- | :---- | :---- | :------ |
+| `alignSelf`   | `align-self`   | —     | ✓     | —       |
+| `justifySelf` | `justify-self` | —     | ✓     | —       |
 
 Related: [rule][163]
 
@@ -953,9 +960,9 @@ const Box = styled.div`
 import { boxShadow } from 'pss'
 ```
 
-| prop        | css          | type     | value | true                      |
-| :---------- | :----------- | :------- | :---- | :------------------------ |
-| `boxShadow` | `box-shadow` | `String` | ✓     | `theme.boxShadow.default` |
+| prop        | css          | theme       | value | default                   |
+| :---------- | :----------- | :---------- | :---- | :------------------------ |
+| `boxShadow` | `box-shadow` | `boxShadow` | ✓     | `theme.boxShadow.default` |
 
 Related: [box][11], [style][192], [themeValue][180].
 
@@ -975,8 +982,9 @@ const Box = styled.p`
 
 ```js
 <Box boxShadow='0 0 10px rgba(0, 0, 0, 0.1)' /> // → box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
-<Box boxShadow={true} /> // → theme.boxShadow.default
 <Box boxShadow='elevate-100' /> // → theme.boxShadow['elevate-100']
+<Box boxShadow='auto' /> // → theme.boxShadow.default
+<Box boxShadow /> // → theme.boxShadow.default
 ```
 
 ### cursor
@@ -985,9 +993,9 @@ const Box = styled.p`
 import { cursor } from 'pss'
 ```
 
-| prop     | css      | type     | value | true |
-| :------- | :------- | :------- | :---- | :--- |
-| `cursor` | `cursor` | `String` | ✓     | —    |
+| prop     | css      | theme | value | default |
+| :------- | :------- | :---- | :---- | :------ |
+| `cursor` | `cursor` | —     | ✓     | —       |
 
 Related: [style][192].
 
@@ -1015,11 +1023,9 @@ const Box = styled.div`
 import { display } from 'pss'
 ```
 
-| prop      | css                      | type     | value | true |
-| :-------- | :----------------------- | :------- | :---- | :--- |
-| `display` | [`display`][display-url] | `String` | ✓     | —    |
-
-[display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
+| prop      | css       | theme | value | default |
+| :-------- | :-------- | :---- | :---- | :------ |
+| `display` | `display` | —     | ✓     | —       |
 
 Related: [hide][76], [rule][163].
 
@@ -1047,9 +1053,9 @@ const Box = styled.div`
 import { flex } from 'pss'
 ```
 
-| prop   | css    | type     | value | true |
-| :----- | :----- | :------- | :---- | :--- |
-| `flex` | `flex` | `String` | ✓     | —    |
+| prop   | css    | theme  | value | default |
+| :----- | :----- | :----- | :---- | :------ |
+| `flex` | `flex` | `size` | ✓     | —       |
 
 Related: [rule][163], [sizeValue][169].
 
@@ -1077,10 +1083,10 @@ Styles for [Flexible Box Layout][199].
 
 For alignment styles import [boxContentAlignment][36], [boxItemsAlignment][39].
 
-| prop            | css              | type     | value | true |
-| :-------------- | :--------------- | :------- | :---- | :--- |
-| `flexWrap`      | `flex-wrap`      | `String` | ✓     | —    |
-| `flexDirection` | `flex-direction` | `String` | ✓     | —    |
+| prop            | css              | theme | value | default |
+| :-------------- | :--------------- | :---- | :---- | :------ |
+| `flexWrap`      | `flex-wrap`      | —     | ✓     | —       |
+| `flexDirection` | `flex-direction` | —     | ✓     | —       |
 
 Related: [boxContentAlignment][36], [boxItemsAlignment][39], [rule][163].
 
@@ -1110,12 +1116,18 @@ const FlexBox = styled.div`
 import { fontFamily } from 'pss'
 ```
 
+| prop         | css           | theme        | value | default                    |
+| :----------- | :------------ | :----------- | :---- | :------------------------- |
+| `fontFamily` | `font-family` | `fontFamily` | ✓     | `theme.fontFamily.default` |
+
+Related: [text][17], [ellipsis][200], [rule][163], [themeValue][180].
+
 Set `font-family` from `theme`:
 
 ```js
 const theme = {
   default: {
-    fontFamily: 'ui'
+    fontFamily: 'ui' // this can be changed in runtime, default to `default`
   },
   fontFamily: {
     heading: 'Times',
@@ -1141,7 +1153,8 @@ const Text = styled.p`
 ```
 
 ```js
-<Text fontFamily={true} /> // → font-family: Helvetica
+<Text fontFamily /> // → font-family: Helvetica
+<Text fontFamily='auto' /> // → font-family: Helvetica
 <Text fontFamily='ui' /> // → font-family: Helvetica
 <Text fontFamily='heading' /> // → font-family: Times
 <Text fontFamily='Comic Sans' /> // → font-family: Comic Sans
@@ -1153,16 +1166,16 @@ const Text = styled.p`
 import { fontSize } from 'pss'
 ```
 
-| prop       | css         | type               | theme      | value | true |
-| :--------- | :---------- | :----------------- | :--------- | :---- | :--- |
-| `fontSize` | `font-size` | `String`, `Number` | `fontSize` | ✓     | —    |
+| prop       | css         | theme      | value | default                  |
+| :--------- | :---------- | :--------- | :---- | :----------------------- |
+| `fontSize` | `font-size` | `fontSize` | ✓     | `theme.fontSize.default` |
 
-Related: [text][17], [ellipsis][200], [rule][163].
+Related: [text][17], [ellipsis][200], [rule][163], [themeValue][180].
 
 ```js
 const theme = {
   default: {
-    fontSize: 'root'
+    fontSize: 'root' // this can be changed in runtime, default to `default`
   },
   media: {
     sm: '(max-width: 600px)'
@@ -1196,6 +1209,7 @@ const Text = styled.p`
 <Text fontSize='1rem' /> // → font-size: 1rem
 <Text fontSize='root' /> // → theme.fontSize.root // → font-size: 1rem
 <Text fontSize='heading' /> // → theme.fontSize.heading // → font-size: 1.5rem
+<Text fontSize='auto' /> // → theme.fontSize.root // → font-size: 1rem
 ```
 
 ### fontWeight
@@ -1204,9 +1218,9 @@ const Text = styled.p`
 import { fontWeight } from 'pss'
 ```
 
-| prop         | css           | type     | value | true |
-| :----------- | :------------ | :------- | :---- | :--- |
-| `fontWeight` | `font-weight` | `String` | ✓     | —    |
+| prop         | css           | theme | value | default |
+| :----------- | :------------ | :---- | :---- | :------ |
+| `fontWeight` | `font-weight` | —     | ✓     | —       |
 
 Related: [text][17], [ellipsis][200], [rule][163]
 
@@ -1257,7 +1271,7 @@ const Grid = styled.div`
 `
 ```
 
-    <Grid gap={1}> // grid-gap: 8px; gap: 8px
+    <Grid gap={1}> // grid-gap: 4px; gap: 4px
      <div>1</div>
      <div>2</div>
     </Grid>
@@ -1270,14 +1284,16 @@ import { grid } from 'pss'
 
 Styles for [Grid Layout][201].
 
-| prop                  | css                     | type     | value | true |
-| :-------------------- | :---------------------- | :------- | :---- | :--- |
-| `gridAutoFlow`        | `grid-auto-flow`        | `String` | ✓     | —    |
-| `gridAutoColumns`     | `grid-auto-columns`     | `String` | ✓     | —    |
-| `gridAutoRows`        | `grid-auto-rows`        | `String` | ✓     | —    |
-| `gridTemplateColumns` | `grid-template-columns` | `String` | ✓     | —    |
-| `gridTemplateRows`    | `grid-template-rows`    | `String` | ✓     | —    |
-| `gridTemplateAreas`   | `grid-template-areas`   | `String` | ✓     | —    |
+| prop                  | css                     | theme | value | default |
+| :-------------------- | :---------------------- | :---- | :---- | :------ |
+| `grid`                | `grid`                  | —     | ✓     | —       |
+| `gridAutoFlow`        | `grid-auto-flow`        | —     | ✓     | —       |
+| `gridAutoColumns`     | `grid-auto-columns`     | —     | ✓     | —       |
+| `gridAutoRows`        | `grid-auto-rows`        | —     | ✓     | —       |
+| `gridTemplate`        | `grid-template`         | —     | ✓     | —       |
+| `gridTemplateColumns` | `grid-template-columns` | —     | ✓     | —       |
+| `gridTemplateRows`    | `grid-template-rows`    | —     | ✓     | —       |
+| `gridTemplateAreas`   | `grid-template-areas`   | —     | ✓     | —       |
 
 Related: [gap][68], [flex][54], [rule][163]
 
@@ -1307,11 +1323,11 @@ const Grid = styled.div`
 import { gridItem } from 'pss'
 ```
 
-| prop         | css           | type     | value | true |
-| :----------- | :------------ | :------- | :---- | :--- |
-| `gridColumn` | `grid-column` | `String` | ✓     | —    |
-| `gridRow`    | `grid-row`    | `String` | ✓     | —    |
-| `gridArea`   | `grod-area`   | `String` | ✓     | —    |
+| prop         | css           | theme | value | default |
+| :----------- | :------------ | :---- | :---- | :------ |
+| `gridColumn` | `grid-column` | —     | ✓     | —       |
+| `gridRow`    | `grid-row`    | —     | ✓     | —       |
+| `gridArea`   | `grod-area`   | —     | ✓     | —       |
 
 Related: [rule][163], [sizeValue][169].
 
@@ -1336,9 +1352,9 @@ const GridItem = styled.div`
 import { hide } from 'pss'
 ```
 
-| prop   | css             | type                 | value    | true |
-| :----- | :-------------- | :------------------- | :------- | :--- |
-| `hide` | `display: none` | key in `theme.media` | mediaKey | —    |
+| prop   | css             | theme   | value                  | default     |
+| :----- | :-------------- | :------ | :--------------------- | :---------- |
+| `hide` | `display: none` | `media` | key from `theme.media` | apply style |
 
 Related: [display][51], [mediaStyle][183].
 
@@ -1374,9 +1390,9 @@ const Box = styled.div`
 import { letterSpacing } from 'pss'
 ```
 
-| prop            | css              | type               | value | true |
-| :-------------- | :--------------- | :----------------- | :---- | :--- |
-| `letterSpacing` | `letter-spacing` | `String`, `Number` | ✓     | —    |
+| prop            | css              | theme | value | default |
+| :-------------- | :--------------- | :---- | :---- | :------ |
+| `letterSpacing` | `letter-spacing` | —     | ✓     | —       |
 
 Related: [text][17], [ellipsis][200], [rule][163].
 
@@ -1404,9 +1420,9 @@ const Text = styled.p`
 import { lineHeight } from 'pss'
 ```
 
-| prop         | css           | type               | value | true |
-| :----------- | :------------ | :----------------- | :---- | :--- |
-| `lineHeight` | `line-height` | `String`, `Number` | ✓     | —    |
+| prop         | css           | theme | value | default |
+| :----------- | :------------ | :---- | :---- | :------ |
+| `lineHeight` | `line-height` | —     | ✓     | —       |
 
 Related: [text][17], [ellipsis][200], [rule][163].
 
@@ -1464,9 +1480,9 @@ const Box = styled.div`
 import { opacity } from 'pss'
 ```
 
-| prop      | css       | type    | value | true |
-| :-------- | :-------- | :------ | :---- | :--- |
-| `opacity` | `opacity` | `0...1` | ✓     | —    |
+| prop      | css       | theme | value   | default |
+| :-------- | :-------- | :---- | :------ | :------ |
+| `opacity` | `opacity` | —     | `0...1` | —       |
 
 Related: [rule][163].
 
@@ -1495,9 +1511,9 @@ const Box = styled.div`
 import { order } from 'pss'
 ```
 
-| prop    | css     | type               | value | true |
-| :------ | :------ | :----------------- | :---- | :--- |
-| `order` | `order` | `Number`, `String` | ✓     | —    |
+| prop    | css     | theme | value | default |
+| :------ | :------ | :---- | :---- | :------ |
+| `order` | `order` | —     | ✓     | —       |
 
 Related: [rule][163], [sizeValue][169].
 
@@ -1526,9 +1542,9 @@ const Box = styled.div`
 import { outline } from 'pss'
 ```
 
-| prop      | css       | type                  | value | true |
-| :-------- | :-------- | :-------------------- | :---- | :--- |
-| `outline` | `outline` | `String`, `'debug'`\* | ✓     | —    |
+| prop      | css       | theme | value | default |
+| :-------- | :-------- | :---- | :---- | :------ |
+| `outline` | `outline` | —     | ✓     | —       |
 
 \* Random hex color, useful for debugging layout
 
@@ -1618,11 +1634,9 @@ const Box = styled.div`
 import { position } from 'pss'
 ```
 
-| prop       | css                        | type     | value | true |
-| :--------- | :------------------------- | :------- | :---- | :--- |
-| `position` | [`position`][position-url] | `String` | ✓     | —    |
-
-[position-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
+| prop       | css      | theme | value | default |
+| :--------- | :------- | :---- | :---- | :------ |
+| `position` | position | —     | ✓     | —       |
 
 Related: [rule][163], [positionOffsets][106].
 
@@ -1651,12 +1665,12 @@ const Box = styled.div`
 import { positionOffsets } from 'pss'
 ```
 
-| prop     | css      | type                          | value | true |
-| :------- | :------- | :---------------------------- | :---- | :--- |
-| `left`   | `left`   | `String`, `Number`, `Boolean` | ✓     | —    |
-| `right`  | `right`  | `String`, `Number`, `Boolean` | ✓     | —    |
-| `top`    | `top`    | `String`, `Number`, `Boolean` | ✓     | —    |
-| `bottom` | `bottom` | `String`, `Number`, `Boolean` | ✓     | —    |
+| prop     | css      | theme  | value | default |
+| :------- | :------- | :----- | :---- | :------ |
+| `left`   | `left`   | `size` | ✓     | —       |
+| `right`  | `right`  | `size` | ✓     | —       |
+| `top`    | `top`    | `size` | ✓     | —       |
+| `bottom` | `bottom` | `size` | ✓     | —       |
 
 Related: [position][103], [rule][163], [sizeValue][169].
 
@@ -1727,9 +1741,9 @@ const Box = styled.div`
 import { textAlign } from 'pss'
 ```
 
-| prop        | css          | type     | value | true |
-| :---------- | :----------- | :------- | :---- | :--- |
-| `textAlign` | `text-align` | `String` | ✓     | —    |
+| prop        | css          | theme | value | default |
+| :---------- | :----------- | :---- | :---- | :------ |
+| `textAlign` | `text-align` | —     | ✓     | —       |
 
 Related: [text][17], [ellipsis][200], [rule][163].
 
@@ -1757,9 +1771,9 @@ const Text = styled.p`
 import { textColor } from 'pss'
 ```
 
-| prop    | css     | type                | value | theme              | true           |
-| :------ | :------ | :------------------ | :---- | :----------------- | :------------- |
-| `color` | `color` | `String`, `Boolean` | ✓     | `color`, `palette` | `palette.*.fg` |
+| prop    | css     | theme                   | value | default                    |
+| :------ | :------ | :---------------------- | :---- | :------------------------- |
+| `color` | `color` | `color`, `palette.*.fg` | ✓     | `theme.palette.default.fg` |
 
 Related: [backgroundColor][24], [colors][8], [style][192], [colorValue][177].
 
@@ -1809,7 +1823,8 @@ const Box = styled.div`
 // theme.palette.default.accent
 <Box color='accent' /> // color: #ff0000
 
-// theme.palette.default.fg
+// Get default value from `theme.palette.default.fg`
+<Box color='auto' /> // color: #000000
 <Box color /> // color: #000000
 
 // Valid color value
@@ -1850,9 +1865,9 @@ const Text = styled.p`
 import { transform } from 'pss'
 ```
 
-| prop        | css         | type     | value | true |
-| :---------- | :---------- | :------- | :---- | :--- |
-| `transform` | `transform` | `String` | ✓     | —    |
+| prop        | css         | theme | value | default |
+| :---------- | :---------- | :---- | :---- | :------ |
+| `transform` | `transform` | —     | ✓     | —       |
 
 Related: [rule][163].
 
@@ -1880,9 +1895,9 @@ const Box = styled.div`
 import { transition } from 'pss'
 ```
 
-| prop         | css          |   type   | theme | value | true |
-| :----------- | :----------- | :------: | ----- | :---- | :--- |
-| `transition` | `transition` | `String` | —     | ✓     | —    |
+| prop         | css          | theme | value | default |
+| :----------- | :----------- | :---- | :---- | :------ |
+| `transition` | `transition` | —     | ✓     | —       |
 
 Related: [rule][163].
 
@@ -1910,9 +1925,9 @@ const Box = styled.div`
 import { whiteSpace } from 'pss'
 ```
 
-| prop         | css           | type     | value | true |
-| :----------- | :------------ | :------- | :---- | :--- |
-| `whiteSpace` | `white-space` | `String` | ✓     | —    |
+| prop         | css           | theme | value | default |
+| :----------- | :------------ | :---- | :---- | :------ |
+| `whiteSpace` | `white-space` | —     | ✓     | —       |
 
 Related: [text][17], [ellipsis][200], [style][192].
 
@@ -1940,9 +1955,9 @@ const Text = styled.p`
 import { zIndex } from 'pss'
 ```
 
-| prop     | css       | type                                    | value | true |
-| :------- | :-------- | :-------------------------------------- | :---- | :--- |
-| `zIndex` | `z-index` | `String`, `Number`, `theme.zIndex[key]` | ✓     | —    |
+| prop     | css       | theme    | value | default |
+| :------- | :-------- | :------- | :---- | :------ |
+| `zIndex` | `z-index` | `zIndex` | ✓     | —       |
 
 Related: [position][103], [rule][163], [style][192].
 
@@ -1976,30 +1991,30 @@ First version of `pss` is different, most of the styles applied with short flags
 Now this variants considered as bad practice as it introduce new syntax to rembember.
 But sometimes it can be useful to have short variants and can speed-up development process.
 
-| prop   | css             | type                          | value | theme    | true       |
-| :----- | :-------------- | :---------------------------- | :---- | :------- | :--------- |
-| `d`    | `display`       | `String`, `Boolean`           | ✓     | —        | `initial`  |
-| `f`    | `flex`          | `String`                      | ✓     | —        | —          |
-| `o`    | `order`         | `String`                      | ✓     | —        | —          |
-| `prl`  | `position`      | `String`, `Boolean`           | ✓     | `media`  | `relative` |
-| `pab`  | `position`      | `String`, `Boolean`           | ✓     | `media`  | `absolute` |
-| `pfx`  | `position`      | `String`, `Boolean`           | ✓     | `media`  | `fixed`    |
-| `psy`  | `position`      | `String`, `Boolean`           | ✓     | `media`  | `sticky`   |
-| `pst`  | `position`      | `String`, `Boolean`           | ✓     | `media`  | `static`   |
-| `l`    | `left`          | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `0`        |
-| `r`    | `right`         | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `0`        |
-| `t`    | `top`           | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `0`        |
-| `b`    | `bottom`        | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `0`        |
-| `x`    | `left`, `right` | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `0`        |
-| `y`    | `top`, `bottom` | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `0`        |
-| `z`    | `z-index`       | `String`, `Number`, `Boolean` | ✓     | `zIndex` | `1`        |
-| `w`    | `width`         | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `100%`     |
-| `h`    | `height`        | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `100%`     |
-| `minw` | `min-width`     | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `100%`     |
-| `minh` | `min-height`    | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `100%`     |
-| `maxw` | `max-width`     | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `100%`     |
-| `maxh` | `max-height`    | `String`, `Number`, `Boolean` | ✓     | `sizes`  | `100%`     |
-| `ov`   | [overflow][97]  | `String`, `Boolean`           | ✓     | —        | `auto`     |
+| prop   | css                  | theme    | value                  | default    |
+| :----- | :------------------- | :------- | :--------------------- | :--------- |
+| `d`    | `display`            | —        | ✓                      | —          |
+| `f`    | `flex`               | —        | ✓                      | —          |
+| `o`    | `order`              | —        | ✓                      | —          |
+| `prl`  | `position: relative` | `media`  | key from `theme.media` | appy style |
+| `pab`  | `position: absolute` | `media`  | key from `theme.media` | appy style |
+| `pfx`  | `position: fixed`    | `media`  | key from `theme.media` | appy style |
+| `psy`  | `position: sticky`   | `media`  | key from `theme.media` | appy style |
+| `pst`  | `position: static`   | `media`  | key from `theme.media` | appy style |
+| `l`    | `left`               | `sizes`  | ✓                      | `0`        |
+| `r`    | `right`              | `sizes`  | ✓                      | `0`        |
+| `t`    | `top`                | `sizes`  | ✓                      | `0`        |
+| `b`    | `bottom`             | `sizes`  | ✓                      | `0`        |
+| `x`    | `left`, `right`      | `sizes`  | ✓                      | `0`        |
+| `y`    | `top`, `bottom`      | `sizes`  | ✓                      | `0`        |
+| `z`    | `z-index`            | `zIndex` | ✓                      | `1`        |
+| `w`    | `width`              | `sizes`  | ✓                      | `100%`     |
+| `h`    | `height`             | `sizes`  | ✓                      | `100%`     |
+| `minw` | `min-width`          | `sizes`  | ✓                      | `100%`     |
+| `minh` | `min-height`         | `sizes`  | ✓                      | `100%`     |
+| `maxw` | `max-width`          | `sizes`  | ✓                      | `100%`     |
+| `maxh` | `max-height`         | `sizes`  | ✓                      | `100%`     |
+| `ov`   | [overflow][97]       | —        | ✓                      | `auto`     |
 
 Related [space][2], [colors][8], [hide][76].
 
@@ -2256,7 +2271,7 @@ In component prop accepts values:
     ```js
     const Comp = styled.div(createStyles({ red: { color: 'red' } }))
 
-    <Comp red={true} /> // → color: red
+    <Comp red /> // → color: red
     <Comp red={false} /> // → 🤷‍♂️
     ```
 
@@ -2381,7 +2396,7 @@ const Box = styled.div(pss({
 ```
 
 ```js
-<Box opacity={true} /> // → opacity: 1
+<Box opacity /> // → opacity: 1
 <Box opacity={false} /> // → opacity: 0
 <Box opacity={0.5} /> // → opacity: 0.5
 ```
@@ -2578,7 +2593,7 @@ const Box = styled.div`
 ```js
 // theme.palette.default.fg
 <Box fg='auto' /> // background-color: #222222
-<Box fg={true} /> // background-color: #222222
+<Box fg /> // background-color: #222222
 
 // theme.colors.black
 <Box fg='black' /> // color: #222222
@@ -2588,7 +2603,7 @@ const Box = styled.div`
 
 // theme.palette.default.shadow
 <Box shadow='auto' /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
-<Box shadow={true} /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
+<Box shadow /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
 
 // theme.palette.default.fg, theme.palette.default.bg
 <Box tm='default' /> // color: #222222; background-color: #ffffff
@@ -2778,7 +2793,7 @@ const themeWithDefault = {
 }
 
 <Text variant='auto' /> // → `theme.textStyle.default`
-<Text variant={true} /> // → `theme.textStyle.default`
+<Text variant /> // → `theme.textStyle.default`
 ```
 
 ### style

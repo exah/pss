@@ -36,7 +36,7 @@ import { propType } from '../prop-type'
  *    ```js
  *    const Comp = styled.div(createStyles({ red: { color: 'red' } }))
  *
- *    <Comp red={true} /> // → color: red
+ *    <Comp red /> // → color: red
  *    <Comp red={false} /> // → 🤷‍♂️
  *    ```
  *

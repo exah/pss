@@ -6,9 +6,9 @@ import { colorValue } from '../values'
  * import { borderColor } from 'pss'
  * ```
  *
- * prop           | css             | type                | value | true
- * :--------------|:----------------|:--------------------|:------|:-------------------------------
- * `borderColor`  | `border-color ` | `String`, `Boolean` | ✓     | `theme.palette.default.border`
+ * prop           | css             | theme                | value | default
+ * :--------------|:----------------|:---------------------|:------|:-------------------------
+ * `borderColor`  | `border-color ` | `color`, `palette.*` | ✓     | `theme.palette.default.border`
  *
  *
  * Related: {@link colorValue}, {@link style},

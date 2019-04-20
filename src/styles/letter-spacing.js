@@ -5,9 +5,9 @@ import { style } from '../core'
  * import { letterSpacing } from 'pss'
  * ```
  *
- * prop           | css              | type               | value | true
- * :--------------|:-----------------|:-------------------|:------|:-------
- * `letterSpacing`| `letter-spacing` | `String`, `Number` | ✓     | —
+ * prop           | css              | theme  | value | default
+ * :--------------|:-----------------|:-------|:------|:-------
+ * `letterSpacing`| `letter-spacing` | —      | ✓     | —
  *
  * Related: {@link text}, {@link ellipsis}, {@link rule}.
  *

@@ -25,7 +25,7 @@ import { spaceRule } from '../rules'
  * `
  *
  * @example
- * <Grid gap={1}> // grid-gap: 8px; gap: 8px
+ * <Grid gap={1}> // grid-gap: 4px; gap: 4px
  *  <div>1</div>
  *  <div>2</div>
  * </Grid>

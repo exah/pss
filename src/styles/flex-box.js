@@ -15,10 +15,10 @@ export const createFlexBoxStyle = ({ prefix } = {}) => createStyles({
  *
  * For alignment styles import {@link boxContentAlignment}, {@link boxItemsAlignment}.
  *
- * prop             | css               | type     | value | true
+ * prop             | css               | theme    | value | default
  * :----------------|:----------------- |:---------|:------|:-------
- * `flexWrap`       | `flex-wrap`       | `String` | ✓     | —
- * `flexDirection`  | `flex-direction`  | `String` | ✓     | —
+ * `flexWrap`       | `flex-wrap`       | —        | ✓     | —
+ * `flexDirection`  | `flex-direction`  | —        | ✓     | —
  *
  * Related: {@link boxContentAlignment}, {@link boxItemsAlignment}, {@link rule}.
  *

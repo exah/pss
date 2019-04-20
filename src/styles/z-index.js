@@ -5,9 +5,9 @@ import { style } from '../core'
  * import { zIndex } from 'pss'
  * ```
  *
- * prop       | css       | type                                    | value | true
- * :----------|:----------|:----------------------------------------|:------|:------
- * `zIndex`   | `z-index` | `String`, `Number`, `theme.zIndex[key]` | ✓     | —
+ * prop       | css       | theme    | value | default
+ * :----------|:----------|:---------|:------|:------
+ * `zIndex`   | `z-index` | `zIndex` | ✓     | —
  *
  *
  * Related: {@link position}, {@link rule}, {@link style}.

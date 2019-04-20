@@ -6,12 +6,12 @@ import { sizeRule } from '../rules'
  * import { positionOffsets } from 'pss'
  * ```
  *
- * prop       | css       | type                          | value | true
- * :----------|:----------|:------------------------------|:------|:-------
- * `left`     | `left`    | `String`, `Number`, `Boolean` | ✓     | —
- * `right`    | `right`   | `String`, `Number`, `Boolean` | ✓     | —
- * `top`      | `top`     | `String`, `Number`, `Boolean` | ✓     | —
- * `bottom`   | `bottom`  | `String`, `Number`, `Boolean` | ✓     | —
+ * prop       | css       | theme   | value | default
+ * :----------|:----------|:--------|:------|:-------
+ * `left`     | `left`    | `size`  | ✓     | —
+ * `right`    | `right`   | `size`  | ✓     | —
+ * `top`      | `top`     | `size`  | ✓     | —
+ * `bottom`   | `bottom`  | `size`  | ✓     | —
  *
  *
  * Related: {@link position}, {@link rule}, {@link sizeValue}.

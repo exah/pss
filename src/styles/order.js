@@ -5,9 +5,9 @@ import { style } from '../core'
  * import { order } from 'pss'
  * ```
  *
- * prop          | css            | type                 | value | true
- * :-------------|:---------------|:---------------------|:------|:-------
- * `order`       | `order`        | `Number`, `String`   | ✓     | —
+ * prop     | css      | theme | value | default
+ * :--------|:---------|:------|:------|:-------
+ * `order`  | `order`  | —     | ✓     | —
  *
  * Related: {@link rule}, {@link sizeValue}.
  *

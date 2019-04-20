@@ -6,16 +6,16 @@ import { px } from '../utils'
  * import { fontSize } from 'pss'
  * ```
  *
- * prop       | css         | type               | theme      | value | true
- * :----------|:------------|:------------------ |:-----------|:------|:-------
- * `fontSize` | `font-size` | `String`, `Number` | `fontSize` | ✓     | —
+ * prop       | css         | theme      | value | default
+ * :----------|:------------|:-----------|:------|:----------------------
+ * `fontSize` | `font-size` | `fontSize` | ✓     | `theme.fontSize.default`
  *
- * Related: {@link text}, {@link ellipsis}, {@link rule}.
+ * Related: {@link text}, {@link ellipsis}, {@link rule}, {@link themeValue}.
  *
  * ```js
  * const theme = {
  *   default: {
- *     fontSize: 'root'
+ *     fontSize: 'root' // this can be changed in runtime, default to `default`
  *   },
  *   media: {
  *     sm: '(max-width: 600px)'
@@ -44,6 +44,7 @@ import { px } from '../utils'
  * <Text fontSize='1rem' /> // → font-size: 1rem
  * <Text fontSize='root' /> // → theme.fontSize.root // → font-size: 1rem
  * <Text fontSize='heading' /> // → theme.fontSize.heading // → font-size: 1.5rem
+ * <Text fontSize='auto' /> // → theme.fontSize.root // → font-size: 1rem
  */
 
 export const fontSize = style({

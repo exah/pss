@@ -16,30 +16,30 @@ const atomicSizeRule = (name) => sizeRule(name, boolValue('100%'))
  * But sometimes it can be useful to have short variants and can speed-up development process.
  *
  *
- * prop  | css                | type                           | value  | theme   | true
- * :-----|:-------------------|:-------------------------------|:-------|:--------|:-----------
- * `d`   | `display`          | `String`, `Boolean`            | ✓      | —       | `initial`
- * `f`   | `flex`             | `String`                       | ✓      | —       | —
- * `o`   | `order`            | `String`                       | ✓      | —       | —
- * `prl` | `position`         | `String`, `Boolean`            | ✓      | `media` | `relative`
- * `pab` | `position`         | `String`, `Boolean`            | ✓      | `media` | `absolute`
- * `pfx` | `position`         | `String`, `Boolean`            | ✓      | `media` | `fixed`
- * `psy` | `position`         | `String`, `Boolean`            | ✓      | `media` | `sticky`
- * `pst` | `position`         | `String`, `Boolean`            | ✓      | `media` | `static`
- * `l`   | `left`             | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `0`
- * `r`   | `right`            | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `0`
- * `t`   | `top`              | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `0`
- * `b`   | `bottom`           | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `0`
- * `x`   | `left`, `right`    | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `0`
- * `y`   | `top`, `bottom`    | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `0`
- * `z`   | `z-index`          | `String`, `Number`, `Boolean`  | ✓      | `zIndex`| `1`
- * `w`   | `width`            | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `100%`
- * `h`   | `height`           | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `100%`
- * `minw`| `min-width`        | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `100%`
- * `minh`| `min-height`       | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `100%`
- * `maxw`| `max-width`        | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `100%`
- * `maxh`| `max-height`       | `String`, `Number`, `Boolean`  | ✓      | `sizes` | `100%`
- * `ov`  | {@link overflow}   | `String`, `Boolean`            | ✓      | —       | `auto`
+ * prop  | css                  | theme   | value                  | default
+ * :-----|:---------------------|:--------|:-----------------------|:-----------
+ * `d`   | `display`            | —       | ✓                      | —
+ * `f`   | `flex`               | —       | ✓                      | —
+ * `o`   | `order`              | —       | ✓                      | —
+ * `prl` | `position: relative` | `media` | key from `theme.media` | appy style
+ * `pab` | `position: absolute` | `media` | key from `theme.media` | appy style
+ * `pfx` | `position: fixed`    | `media` | key from `theme.media` | appy style
+ * `psy` | `position: sticky`   | `media` | key from `theme.media` | appy style
+ * `pst` | `position: static`   | `media` | key from `theme.media` | appy style
+ * `l`   | `left`               | `sizes` | ✓                      | `0`
+ * `r`   | `right`              | `sizes` | ✓                      | `0`
+ * `t`   | `top`                | `sizes` | ✓                      | `0`
+ * `b`   | `bottom`             | `sizes` | ✓                      | `0`
+ * `x`   | `left`, `right`      | `sizes` | ✓                      | `0`
+ * `y`   | `top`, `bottom`      | `sizes` | ✓                      | `0`
+ * `z`   | `z-index`            | `zIndex`| ✓                      | `1`
+ * `w`   | `width`              | `sizes` | ✓                      | `100%`
+ * `h`   | `height`             | `sizes` | ✓                      | `100%`
+ * `minw`| `min-width`          | `sizes` | ✓                      | `100%`
+ * `minh`| `min-height`         | `sizes` | ✓                      | `100%`
+ * `maxw`| `max-width`          | `sizes` | ✓                      | `100%`
+ * `maxh`| `max-height`         | `sizes` | ✓                      | `100%`
+ * `ov`  | {@link overflow}     | —       | ✓                      | `auto`
  *
  * Related {@link space}, {@link colors}, {@link hide}.
  *
@@ -82,7 +82,7 @@ const atomicSizeRule = (name) => sizeRule(name, boolValue('100%'))
  */
 
 export const atomic = createStyles({
-  d: rule('display', boolValue('initial', null)),
+  d: rule('display'),
   f: rule('flex'),
   o: rule('order'),
   pab: mediaStyle({ position: 'absolute' }),

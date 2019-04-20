@@ -5,11 +5,9 @@ import { style } from '../core'
  * import { position } from 'pss'
  * ```
  *
- * prop       | css                        | type      | value | true
- * :----------|:---------------------------|:----------|:------|:--------
- * `position` | [`position`][position-url] | `String`  | ✓     | —
- *
- * [position-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/position
+ * prop       | css      | theme | value | default
+ * :----------|:---------|:------|:------|:--------
+ * `position` | position | —     | ✓     | —
  *
  * Related: {@link rule}, {@link positionOffsets}.
  *

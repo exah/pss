@@ -14,13 +14,13 @@ const borderRule = (name) => rule(name, themeValue({
  *
  * Set borders with values from theme.
  *
- * prop           | css             | type                          | value | true
- * :--------------|:----------------|:------------------------------|:------|:-----------------------
- * `border`       | `border`        | `String`, `theme.border[key]` | ✓     | `theme.border.default`
- * `borderLeft`   | `border-left`   | `String`, `theme.border[key]` | ✓     | `theme.border.default`
- * `borderRight`  | `border-right`  | `String`, `theme.border[key]` | ✓     | `theme.border.default`
- * `borderTop`    | `border-top`    | `String`, `theme.border[key]` | ✓     | `theme.border.default`
- * `borderBottom` | `border-bottom` | `String`, `theme.border[key]` | ✓     | `theme.border.default`
+ * prop           | css            | theme    | value | default
+ * :--------------|:---------------|:---------|:------|:----------------------
+ * `border`       | `border`       | `border` | ✓     | `theme.border.default`
+ * `borderLeft`   | `border-left`  | `border` | ✓     | `theme.border.default`
+ * `borderRight`  | `border-right` | `border` | ✓     | `theme.border.default`
+ * `borderTop`    | `border-top`   | `border` | ✓     | `theme.border.default`
+ * `borderBottom` | `border-bottom`| `border` | ✓     | `theme.border.default`
  *
  *
  * Related: {@link themeValue}, {@link rule},
@@ -35,8 +35,8 @@ const borderRule = (name) => rule(name, themeValue({
  * `
  *
  * @example
- * <Box border='1px dotted red' /> // border: 1px dotted red;
- * <Box borderBottom='divider' /> // border-bottom: 1px dotted #f5f5f5;
+ * <Box border='1px dotted red' /> // → border: 1px dotted red
+ * <Box borderBottom='divider' /> // → theme.border.divider // → border-bottom: 1px dotted #f5f5f5
  */
 
 const borders = createStyles({

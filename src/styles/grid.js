@@ -1,23 +1,19 @@
 import { createStyles, rule } from '../core'
 import { addPrefix } from '../utils'
 
-export const createGridStyle = ({
-  prefix,
-  isShortPropNames = false
-} = {}) => createStyles({
+export const createGridStyle = ({ prefix } = {}) => createStyles({
+  gred: rule('grid'),
   [addPrefix('autoFlow', prefix)]: rule('gridAutoFlow'),
   [addPrefix('autoRows', prefix)]: rule('gridAutoRows'),
-  [addPrefix(isShortPropNames ? 'autoCols' : 'autoColumns', prefix)]: rule('gridAutoColumns'),
+  [addPrefix('autoColumns', prefix)]: rule('gridAutoColumns'),
+  [addPrefix('template', prefix)]: rule('gridTemplate'),
   [addPrefix('templateRows', prefix)]: rule('gridTemplateRows'),
-  [addPrefix(isShortPropNames ? 'templateCols' : 'templateColumns', prefix)]: rule('gridTemplateColumns'),
+  [addPrefix('templateColumns', prefix)]: rule('gridTemplateColumns'),
   [addPrefix('templateAreas', prefix)]: rule('gridTemplateAreas')
 })
 
-export const createGridItemStyle = ({
-  prefix,
-  isShortPropNames = false
-} = {}) => createStyles({
-  [addPrefix(isShortPropNames ? 'col' : 'column', prefix)]: rule('gridColumn'),
+export const createGridItemStyle = ({ prefix } = {}) => createStyles({
+  [addPrefix('column', prefix)]: rule('gridColumn'),
   [addPrefix('row', prefix)]: rule('gridRow'),
   [addPrefix('area', prefix)]: rule('gridArea')
 })
@@ -29,14 +25,16 @@ export const createGridItemStyle = ({
  *
  * Styles for [Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout).
  *
- * prop                  | css                     | type      | value | true
+ * prop                  | css                     | theme     | value | default
  * :------------------ --|:------------------------|:----------|:------|:-------
- * `gridAutoFlow`        | `grid-auto-flow`        | `String`  | ✓     | —
- * `gridAutoColumns`     | `grid-auto-columns`     | `String`  | ✓     | —
- * `gridAutoRows`        | `grid-auto-rows`        | `String`  | ✓     | —
- * `gridTemplateColumns` | `grid-template-columns` | `String`  | ✓     | —
- * `gridTemplateRows`    | `grid-template-rows`    | `String`  | ✓     | —
- * `gridTemplateAreas`   | `grid-template-areas`   | `String`  | ✓     | —
+ * `grid`                | `grid`                  | —         | ✓     | —
+ * `gridAutoFlow`        | `grid-auto-flow`        | —         | ✓     | —
+ * `gridAutoColumns`     | `grid-auto-columns`     | —         | ✓     | —
+ * `gridAutoRows`        | `grid-auto-rows`        | —         | ✓     | —
+ * `gridTemplate`        | `grid-template`         | —         | ✓     | —
+ * `gridTemplateColumns` | `grid-template-columns` | —         | ✓     | —
+ * `gridTemplateRows`    | `grid-template-rows`    | —         | ✓     | —
+ * `gridTemplateAreas`   | `grid-template-areas`   | —         | ✓     | —
  *
  * Related: {@link gap}, {@link flex}, {@link rule}
  *
@@ -64,11 +62,11 @@ export const grid = createGridStyle({ prefix: 'grid' })
  * import { gridItem } from 'pss'
  * ```
  *
- * prop          | css            | type     | value | true
+ * prop          | css            | theme    | value | default
  * :-------------|:---------------|:---------|:------|:-------
- * `gridColumn`  | `grid-column`  | `String` | ✓     | —
- * `gridRow`     | `grid-row`     | `String` | ✓     | —
- * `gridArea`    | `grod-area`    | `String` | ✓     | —
+ * `gridColumn`  | `grid-column`  | —        | ✓     | —
+ * `gridRow`     | `grid-row`     | —        | ✓     | —
+ * `gridArea`    | `grod-area`    | —        | ✓     | —
  *
  * Related: {@link rule}, {@link sizeValue}.
  *

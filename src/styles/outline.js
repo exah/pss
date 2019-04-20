@@ -8,9 +8,9 @@ const randomHexColor = () =>
  * import { outline } from 'pss'
  * ```
  *
- * prop         | css             | type                 | value | true
- * :------------|:----------------|:---------------------|:------|:----------
- * `outline`    | `outline`       | `String`, `'debug'`* | ✓     | —
+ * prop         | css        | theme | value | default
+ * :------------|:-----------|:------|:------|:----------
+ * `outline`    | `outline`  | —     | ✓     | —
  *
  * \* Random hex color, useful for debugging layout
  *

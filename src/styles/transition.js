@@ -5,9 +5,9 @@ import { style } from '../core'
  * import { transition } from 'pss'
  * ```
  *
- * prop         | css          | type      | theme  | value | true
- * :------------|:-------------|:---------:|------- |:------|:--------
- * `transition` | `transition` | `String`  | —      | ✓     | —
+ * prop         | css          | theme  | value | default
+ * :------------|:-------------|:-------|:------|:--------
+ * `transition` | `transition` | —      | ✓     | —
  *
  *
  * Related: {@link rule}.

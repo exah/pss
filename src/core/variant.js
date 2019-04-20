@@ -54,7 +54,7 @@ const VARIANT_PROP = 'variant'
  * }
  *
  * <Text variant='auto' /> // → `theme.textStyle.default`
- * <Text variant={true} /> // → `theme.textStyle.default`
+ * <Text variant /> // → `theme.textStyle.default`
  */
 
 function variant ({
