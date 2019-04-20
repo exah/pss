@@ -1,7 +1,15 @@
 import { createStyles, combineStyles } from '../core'
 import { spaceRule } from '../rules'
 
-export const createSpaceStyles = (prop, cssProp) => createStyles({
+export const createSpaceStyles = (prop) => createStyles({
+  [prop]: spaceRule(prop),
+  [prop + 'Left']: spaceRule(prop + 'Left'),
+  [prop + 'Right']: spaceRule(prop + 'Right'),
+  [prop + 'Top']: spaceRule(prop + 'Top'),
+  [prop + 'Bottom']: spaceRule(prop + 'Bottom')
+})
+
+export const createAliasSpaceStyles = (prop, cssProp) => createStyles({
   [prop]: spaceRule(cssProp),
   [prop + 'l']: spaceRule(cssProp + 'Left'),
   [prop + 'r']: spaceRule(cssProp + 'Right'),
@@ -11,8 +19,57 @@ export const createSpaceStyles = (prop, cssProp) => createStyles({
   [prop + 'y']: [ spaceRule(cssProp + 'Top'), spaceRule(cssProp + 'Bottom') ]
 })
 
-export const margin = createSpaceStyles('mg', 'margin')
-export const padding = createSpaceStyles('pd', 'padding')
+/**
+ * ```js
+ * import { margin } from 'pss'
+ * ```
+ *
+ * Same as {@link space} but for full margin css props.
+ *
+ * @param {Object} props
+ *
+ * @example
+ * import { margin } from 'pss'
+ *
+ * const Box = styled.div`
+ *   ${margin}
+ * `
+ *
+ * @example
+ * <Box margin={1} /> // → margin: 4px
+ * <Box marginLeft={0} /> // → margin-left: 0
+ * <Box marginRight='auto' /> // → margin-right: auto
+ * <Box marginTop='8px' /> // → margin-top: 8px
+ * <Box marginBottom={3} /> // → margin-top: 16px
+ */
+
+export const margin = createSpaceStyles('margin')
+
+/**
+ * ```js
+ * import { padding } from 'pss'
+ * ```
+ *
+ * Same as {@link space} but for full padding css props.
+ *
+ * @param {Object} props
+ *
+ * @example
+ * import { padding } from 'pss'
+ *
+ * const Box = styled.div`
+ *   ${padding}
+ * `
+ *
+ * @example
+ * <Box padding={1} /> // → padding: 4px
+ * <Box paddingLeft={0} /> // → padding-left: 0
+ * <Box paddingRight='auto' /> // → padding-right: auto
+ * <Box paddingTop='8px' /> // → padding-top: 8px
+ * <Box paddingBottom={3} /> // → padding-top: 16px
+ */
+
+export const padding = createSpaceStyles('padding')
 
 /**
  * ```js
@@ -115,4 +172,7 @@ export const padding = createSpaceStyles('pd', 'padding')
  * <Box mgr={{ all: 2, sm: -1 }} /> // → margin-right: 20px; @media (max-width: 600px) { margin-right: -8px }
  */
 
-export const space = combineStyles(margin, padding)
+export const space = combineStyles(
+  createAliasSpaceStyles('mg', 'margin'),
+  createAliasSpaceStyles('pd', 'padding')
+)

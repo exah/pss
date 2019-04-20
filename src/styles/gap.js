@@ -6,7 +6,7 @@ import { spaceRule } from '../rules'
  * import { gap } from 'pss'
  * ```
  *
- * Same as {@link space}, but for {@link grid} and {@link flex}.
+ * Same as {@link space} but for {@link grid} and {@link flex}.
  *
  * **Component props:**
  *
