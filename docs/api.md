@@ -72,7 +72,7 @@
     -   [gap][68]
         -   [Parameters][69]
         -   [Examples][70]
-    -   [grid][71]
+    -   [gridContainer][71]
         -   [Parameters][72]
         -   [Examples][73]
     -   [gridItem][74]
@@ -1246,7 +1246,7 @@ const Text = styled.p`
 import { gap } from 'pss'
 ```
 
-Same as [space][2] but for [grid][71] and [flex][54].
+Same as [space][2] but for [grid][201] and [flex][54].
 
 **Component props:**
 
@@ -1274,24 +1274,24 @@ const Grid = styled.div`
      <div>2</div>
     </Grid>
 
-### grid
+### gridContainer
 
 ```js
-import { grid } from 'pss'
+import { gridContainer } from 'pss'
 ```
 
-Styles for [Grid Layout][201].
+[Grid Layout Container][202] styles.
 
-| prop                  | css                     | theme | value | default |
-| :-------------------- | :---------------------- | :---- | :---- | :------ |
-| `grid`                | `grid`                  | —     | ✓     | —       |
-| `gridAutoFlow`        | `grid-auto-flow`        | —     | ✓     | —       |
-| `gridAutoColumns`     | `grid-auto-columns`     | —     | ✓     | —       |
-| `gridAutoRows`        | `grid-auto-rows`        | —     | ✓     | —       |
-| `gridTemplate`        | `grid-template`         | —     | ✓     | —       |
-| `gridTemplateColumns` | `grid-template-columns` | —     | ✓     | —       |
-| `gridTemplateRows`    | `grid-template-rows`    | —     | ✓     | —       |
-| `gridTemplateAreas`   | `grid-template-areas`   | —     | ✓     | —       |
+| prop                  | css                     | theme          | value | default                      |
+| :-------------------- | :---------------------- | :------------- | :---- | :--------------------------- |
+| `grid`                | `grid`                  | —              | ✓     | —                            |
+| `gridAutoFlow`        | `grid-auto-flow`        | —              | ✓     | —                            |
+| `gridAutoColumns`     | `grid-auto-columns`     | —              | ✓     | —                            |
+| `gridAutoRows`        | `grid-auto-rows`        | —              | ✓     | —                            |
+| `gridTemplate`        | `grid-template`         | `gridTemplate` | ✓     | `theme.gridTemplate.default` |
+| `gridTemplateColumns` | `grid-template-columns` | —              | ✓     | —                            |
+| `gridTemplateRows`    | `grid-template-rows`    | —              | ✓     | —                            |
+| `gridTemplateAreas`   | `grid-template-areas`   | —              | ✓     | —                            |
 
 Related: [gap][68], [flex][54], [rule][163]
 
@@ -1302,11 +1302,11 @@ Related: [gap][68], [flex][54], [rule][163]
 #### Examples
 
 ```js
-import { grid } from 'pss'
+import { gridContainer } from 'pss'
 
 const Grid = styled.div`
   display: grid;
-  ${grid}
+  ${gridContainer}
 `
 ```
 
@@ -1697,7 +1697,7 @@ const Box = styled.div`
 import { ratio } from 'pss'
 ```
 
-[Aspect Ratio Box][202] prop style
+[Aspect Ratio Box][203] prop style
 with pseudo elements.
 
 #### Parameters
@@ -1835,7 +1835,7 @@ const Box = styled.div`
 import { ellipsis } from 'pss'
 ```
 
-Info: [text-overflow][203].
+Info: [text-overflow][204].
 
 Related: [rule][163].
 
@@ -2251,7 +2251,7 @@ import pss from 'pss'
 import { createStyles } from 'pss'
 ```
 
-Create styles from [Object][204] with keys that represents component `prop` and
+Create styles from [Object][205] with keys that represents component `prop` and
 the value is a `style` that will be applied.
 
 ```js
@@ -2259,12 +2259,12 @@ the value is a `style` that will be applied.
 ```
 
 -   `input` - prop value
--   `props` [Object][204] - component props, including `theme`
--   `mediaKey` [Object][204] - key in `theme.media`
+-   `props` [Object][205] - component props, including `theme`
+-   `mediaKey` [Object][205] - key in `theme.media`
 
 In component prop accepts values:
 
--   [Boolean][205] — enable / disable simple styles or default [variant][189]
+-   [Boolean][206] — enable / disable simple styles or default [variant][189]
 
     ```js
     const Comp = styled.div(createStyles({ red: { color: 'red' } }))
@@ -2273,7 +2273,7 @@ In component prop accepts values:
     <Comp red={false} /> // → 🤷‍♂️
     ```
 
--   [Boolean][205], [String][206], [Number][207] — handled in functional styles
+-   [Boolean][206], [String][207], [Number][208] — handled in functional styles
 
     ```js
     const Comp = styled.div(createStyles({ width: (input) => ({ width: input } })))
@@ -2281,7 +2281,7 @@ In component prop accepts values:
     <Comp width='100px' /> // → width: 100px
     ```
 
--   [Object][204] with keys defined in `theme.media` to define values for different screen sizes
+-   [Object][205] with keys defined in `theme.media` to define values for different screen sizes
 
     ```js
     <Comp width={{ all: '100px', sm: '50px' }} /> // → width: 100px; @media (max-width: 600px) { width: 50px }
@@ -2333,7 +2333,7 @@ const theme = {
 </ThemeProvider>
 ```
 
-Returns **[Function][208]** `(props) => styles`
+Returns **[Function][209]** `(props) => styles`
 
 ### rule
 
@@ -2345,9 +2345,9 @@ Create style rule. Must be used with [createStyles][160].
 
 #### Parameters
 
--   `cssProp` **[string][209]** 
+-   `cssProp` **[string][210]** 
 -   `getValue`  
--   `value` **[Function][208]**  (optional, default `identity`)
+-   `value` **[Function][209]**  (optional, default `identity`)
 
 #### Examples
 
@@ -2366,7 +2366,7 @@ const Box = styled.div(pss({
 </ThemeProvider>
 ```
 
-Returns **[Function][208]** 
+Returns **[Function][209]** 
 
 ### boolValue
 
@@ -2422,7 +2422,7 @@ Related: [sizes][5], [rule][163], [spaceValue][174], [px][153].
 
 #### Parameters
 
--   `defaultValue` **[Function][208]?** 
+-   `defaultValue` **[Function][209]?** 
 
 #### Examples
 
@@ -2449,7 +2449,7 @@ const Box = styled.div`
 <Box l r /> // → left: 0; right: 0
 ```
 
-Returns **[Function][208]** that must be used in [rule][163]
+Returns **[Function][209]** that must be used in [rule][163]
 
 ### percentageValue
 
@@ -2480,7 +2480,7 @@ const Box = styled.div`
 <Box w={100} /> // → width: 100px
 ```
 
-Returns **[Function][208]** that must be used in [rule][163]
+Returns **[Function][209]** that must be used in [rule][163]
 
 ### spaceValue
 
@@ -2495,7 +2495,7 @@ Related: [space][2], [sizes][5], [rule][163], [sizeValue][169].
 
 #### Parameters
 
--   `defaultValue`  — Fallback value used when prop value is [String][206] or nothing returned. (optional, default `sizeValue(identity)`)
+-   `defaultValue`  — Fallback value used when prop value is [String][207] or nothing returned. (optional, default `sizeValue(identity)`)
 
 #### Examples
 
@@ -2552,7 +2552,7 @@ const theme = {
 </ThemeProvider>
 ```
 
-Returns **[Function][208]** that must be used in [rule][163]
+Returns **[Function][209]** that must be used in [rule][163]
 
 ### colorValue
 
@@ -2564,8 +2564,8 @@ Get color from theme and apply it to css prop. Must be used with [rule][163].
 
 #### Parameters
 
--   `key` **[string][209]** — Key in `theme.color` or in `theme.palette[theme.default.palette]`
--   `transformValue` **[Function][208]** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default `identity`)
+-   `key` **[string][210]** — Key in `theme.color` or in `theme.palette[theme.default.palette]`
+-   `transformValue` **[Function][209]** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default `identity`)
 
 #### Examples
 
@@ -2607,7 +2607,7 @@ const Box = styled.div`
 <Box tm='default' /> // color: #222222; background-color: #ffffff
 ```
 
-Returns **[Function][208]** 
+Returns **[Function][209]** 
 
 ### themeValue
 
@@ -2617,7 +2617,7 @@ import { themeValue } from 'pss'
 
 Use values defined in `theme[themeKey]`.
 
-See [fontFamily][59], [radius][210].
+See [fontFamily][59], [radius][211].
 
 #### Parameters
 
@@ -2653,7 +2653,7 @@ const Text = styled.div(pss({
 </ThemeProvider>
 ```
 
-Returns **[Function][208]** 
+Returns **[Function][209]** 
 
 ### mediaStyle
 
@@ -2732,14 +2732,14 @@ const Box = styled.div(pss({
 ### variant
 
 Create `variant` from styles defined directly in `theme`.
-Inspired by [`styled-system`][211].
+Inspired by [`styled-system`][212].
 
 Related: [textStyle][20], [boxStyle][14], [rule][163], [themeValue][180].
 
 #### Parameters
 
 -   `options` **[Object][196]** 
-    -   `options.prop` **[String][209]**  (optional, default `'variant'`)
+    -   `options.prop` **[String][210]**  (optional, default `'variant'`)
     -   `options.keyword`  
     -   `options.themeKey`  
     -   `options.transformValue`  
@@ -2802,7 +2802,7 @@ import { style } from 'pss'
 
 Create style for single prop.
 Combines [createStyles][160] and [createRule][186] in single function.
-Inspired by [`styled-system`][211].
+Inspired by [`styled-system`][212].
 
 #### Parameters
 
@@ -2973,7 +2973,7 @@ const Box = styled.div`
 
 [70]: #examples-22
 
-[71]: #grid
+[71]: #gridcontainer
 
 [72]: #parameters-22
 
@@ -3233,24 +3233,26 @@ const Box = styled.div`
 
 [200]: ellipsis
 
-[201]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
+[201]: grid
 
-[202]: https://css-tricks.com/aspect-ratio-boxes/
+[202]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
 
-[203]: https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
+[203]: https://css-tricks.com/aspect-ratio-boxes/
 
-[204]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[204]: https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
 
-[205]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[205]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[206]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[206]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 
-[207]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[207]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[208]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
+[208]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
 
-[209]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[209]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[210]: radius
+[210]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[211]: https://github.com/jxnblk/styled-system
+[211]: radius
+
+[212]: https://github.com/jxnblk/styled-system

@@ -33,7 +33,7 @@ toc:
       - fontSize
       - fontWeight
       - gap
-      - grid
+      - gridContainer
       - gridItem
       - hide
       - letterSpacing
