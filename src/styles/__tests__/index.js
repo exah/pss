@@ -4,7 +4,7 @@ import {
   boxSelfAlignment,
   cursor,
   display,
-  flexBox,
+  flexContainer,
   grid,
   gridItem,
   opacity,
@@ -82,14 +82,14 @@ test('cursor', testValue({
 }))
 
 test('flexWrap', testValue({
-  fn: flexBox,
+  fn: flexContainer,
   prop: 'flexWrap',
   cssProp: 'flexWrap',
   values: [ 'wrap', 'nowrap', 'wrap-reverse' ]
 }))
 
 test('flexDirection', testValue({
-  fn: flexBox,
+  fn: flexContainer,
   prop: 'flexDirection',
   cssProp: 'flexDirection',
   values: [ 'column', 'column-reverse', 'row', 'row-reverse' ]

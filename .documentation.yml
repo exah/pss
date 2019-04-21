@@ -28,7 +28,7 @@ toc:
       - cursor
       - display
       - flex
-      - flexBox
+      - flexContainer
       - fontFamily
       - fontSize
       - fontWeight

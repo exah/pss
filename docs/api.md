@@ -57,7 +57,7 @@
         -   [Examples][53]
     -   [flex][54]
         -   [Examples][55]
-    -   [flexBox][56]
+    -   [flexContainer][56]
         -   [Parameters][57]
         -   [Examples][58]
     -   [fontFamily][59]
@@ -1073,22 +1073,20 @@ const Box = styled.div`
       <Box flex='1 1 auto'>2</Box> // flex: 1 1 auto
     </FlexBox>
 
-### flexBox
+### flexContainer
 
 ```js
-import { flexBox } from 'pss'
+import { flexContainer } from 'pss'
 ```
 
-Styles for [Flexible Box Layout][199].
-
-For alignment styles import [boxContentAlignment][36], [boxItemsAlignment][39].
+[Flexible Box Layout Container][199] styles. For alignment use [boxContentAlignment][36], [boxItemsAlignment][39].
 
 | prop            | css              | theme | value | default |
 | :-------------- | :--------------- | :---- | :---- | :------ |
 | `flexWrap`      | `flex-wrap`      | —     | ✓     | —       |
 | `flexDirection` | `flex-direction` | —     | ✓     | —       |
 
-Related: [boxContentAlignment][36], [boxItemsAlignment][39], [rule][163].
+Related: [rule][163].
 
 #### Parameters
 
@@ -1097,18 +1095,18 @@ Related: [boxContentAlignment][36], [boxItemsAlignment][39], [rule][163].
 #### Examples
 
 ```js
-import { flexBox } from 'pss'
+import { flexContainer } from 'pss'
 
-const FlexBox = styled.div`
+const Flex = styled.div`
   display: flex;
-  ${flexBox}
+  ${flexContainer}
 `
 ```
 
-    <FlexBox flexDirection='column' flexWrap='wrap'> // display: flex; flex-direction: column; flex-wrap: wrap;
+    <Flex flexDirection='column' flexWrap='wrap'> // display: flex; flex-direction: column; flex-wrap: wrap;
       <div>1</div>
       <div>2</div>
-    </FlexBox>
+    </Flex>
 
 ### fontFamily
 
@@ -2945,7 +2943,7 @@ const Box = styled.div`
 
 [55]: #examples-17
 
-[56]: #flexbox
+[56]: #flexcontainer
 
 [57]: #parameters-17
 
