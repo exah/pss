@@ -1,4 +1,4 @@
-import { compose, path, isNum, isStr, curryN } from '@exah/utils'
+import { compose, path, isNum, isStr, curryN, isObj } from '@exah/utils'
 import { DEFAULT_KEY, THEME_MEDIA_KEY, DEFAULT_MEDIA_KEY } from './constants'
 
 /**
@@ -85,4 +85,19 @@ export const splitUnit = (input) => isStr(input)
 export const floor = (number, precision = 0) => {
   const factor = Math.pow(10, precision)
   return Math.floor(number * factor) / factor
+}
+
+export const getFirstKey = (input) => Object.keys(Object(input))[0]
+
+export const getFirst = (input) => {
+  if (isObj(input)) {
+    if (input.hasOwnProperty(DEFAULT_KEY)) {
+      return input.default
+    }
+
+    const firstKey = getFirstKey(input)
+    return firstKey && input[firstKey]
+  }
+
+  return input
 }

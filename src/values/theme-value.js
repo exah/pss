@@ -35,38 +35,36 @@ import { getDefault, themePath } from '../utils'
  * </ThemeProvider>
  */
 
-function themeValue ({
+export function themeValue ({
   themeKey,
   transformValue = identity,
   fallback,
   scale = {},
   keyword = 'auto'
 } = {}) {
-  return (defaultValue = fallback) => (input, props, mediaKey) => {
-    const isAutoValue = input === true || (keyword != null && input === keyword)
+  const getThemeScale = themePath(themeKey, scale)
 
-    const valueKey = isAutoValue
+  return (defaultValue = fallback) => (input, props, mediaKey) => {
+    const isDefaultValue = input === true || (keyword != null && input === keyword)
+
+    const valueKey = isDefaultValue
       ? getDefault(themeKey)(props)
       : input
 
-    const themeScale = themePath(themeKey, scale)(props)
-    const value = path(valueKey, defaultValue)(themeScale)
+    const themeScale = getThemeScale(props)
+    const result = path(valueKey, defaultValue)(themeScale)
 
-    if (Object(value).hasOwnProperty(mediaKey)) {
-      return transformValue(value[mediaKey])
-    }
+    if (isObj(result)) {
+      if (result.hasOwnProperty(mediaKey)) {
+        return transformValue(result[mediaKey])
+      }
 
-    if (isObj(value)) {
       return mapObj(
         (key, val) => ({ [key]: transformValue(val) }),
-        value
+        result
       )
     }
 
-    return transformValue(value)
+    return transformValue(result)
   }
-}
-
-export {
-  themeValue
 }

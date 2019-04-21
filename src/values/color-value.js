@@ -1,5 +1,5 @@
-import { identity, fallbackTo, isStr, isArr, path } from '@exah/utils'
-import { themePath, getDefault } from '../utils'
+import { identity, fallbackTo, isStr, path } from '@exah/utils'
+import { themePath, getDefault, getFirst } from '../utils'
 
 export function createColorValue ({
   themeColorKey = 'color',
@@ -10,7 +10,7 @@ export function createColorValue ({
   paletteGetter = themePath(themePaletteKey, paletteScale),
   keyword = 'auto'
 } = {}) {
-  const getColor = (defaultColorName) => (colorName) => (props) => {
+  const getColor = (defaultColorName) => (colorName, props) => {
     const colors = colorsGetter(props)
     const palettes = paletteGetter(props)
     const defaultPaletteName = getDefault(themePaletteKey)(props)
@@ -24,7 +24,9 @@ export function createColorValue ({
       ? path(defaultColorName)(activeColors)
       : isStr(colorName) ? path(colorName)(activeColors) : null
 
-    if (!colorName) return color
+    if (colorName == null) {
+      return color
+    }
 
     return fallbackTo(
       color,
@@ -36,13 +38,7 @@ export function createColorValue ({
     const getValue = getColor(key)
 
     return (input, props) => {
-      let color = getValue(input)(props)
-
-      if (isArr(color)) {
-        color = color[0]
-      } else if (color != null && color.default != null) {
-        color = color.default
-      }
+      const color = getFirst(getValue(input, props))
 
       return fallbackTo(
         isStr(color) ? transformValue(color, props) : color,

@@ -1,5 +1,10 @@
 import { isBool, isNum, isFn, identity, isStr, mapObj, isObj } from '@exah/utils'
-import { wrap, wrapIfMedia, getThemeMedia, isMediaKey } from '../utils'
+import { wrap, wrapIfMedia, getThemeMedia, getFirstKey, isMediaKey } from '../utils'
+
+function callAll (current, ...args) {
+  const next = current(...args)
+  return isFn(next) ? callAll(next, ...args) : next
+}
 
 /**
  * ```js
@@ -34,35 +39,30 @@ export function createRule ({
   getStyle = wrap(cssProp),
   getValue = identity
 }) {
-  function getValues (get, input, props, mediaKey) {
-    const result = get(input, props, mediaKey)
+  return (input, props, mediaKey) => {
+    const result = callAll(getValue, input, props, mediaKey)
 
-    if (isBool(result)) {
+    if (isObj(result)) {
+      const themeMedia = getThemeMedia(props)
+
+      if (isMediaKey(getFirstKey(result), themeMedia)) {
+        return mapObj(
+          (key, value) => wrapIfMedia(themeMedia[key], getStyle(value, props)),
+          result
+        )
+      }
+    }
+
+    // not valid result
+    if (isBool(result) || result == null) {
+      // valid input fallback
+      if (isStr(input) || isNum(input)) {
+        return getStyle(input, props)
+      }
+
       return null
     }
 
-    if (result === undefined && (isStr(input) || isNum(input))) {
-      return input
-    }
-
-    return isFn(result) ? getValues(result, input, props, mediaKey) : result
-  }
-
-  return (input, props, mediaKey) => {
-    const wrapper = (value) => getStyle(value, input, props, mediaKey)
-    const themeMedia = getThemeMedia(props)
-    const result = getValues(getValue, input, props, mediaKey)
-
-    if (isObj(result) && isMediaKey(Object.keys(result)[0], themeMedia)) {
-      return mapObj(
-        (key, value) => wrapIfMedia(
-          themeMedia[key],
-          wrapper(value)
-        ),
-        result
-      )
-    }
-
-    return wrapper(result)
+    return getStyle(result, props)
   }
 }
