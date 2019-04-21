@@ -328,8 +328,8 @@ Consistent `sizes` system for `width`, `height`. Created with [sizeValue][169].
 
 **`String` values:**
 
--   Get value by path in `theme.size` or in top level `theme` object
--   If value in `theme.sizes` is an `Object` with media keys (like in `theme.media`) value is responsive
+-   Path in `theme.size`
+-   If value in `theme.sizes` is an `Object` with media keys (like `{ all: 100, sm: 50 }`) value is responsive
 -   Other `String` values is passed as raw CSS value (like `'10%'` or `'100vh'`).
 
 **`Number` values:**
@@ -572,7 +572,7 @@ const Box = styled.div`
 
 ```js
 <Box boxStyle='red' /> // → background-color: red; color: white;
-<Box boxStyle={[ 'red', 'shadow' ]} /> // → background-color: red; color: white; box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
+<Box boxStyle='shadow' /> // → box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
 ```
 
 ```js
@@ -581,7 +581,7 @@ const Box = styled.div`
 `
 
 <Box variant='red' /> // → background-color: red; color: white;
-<Box variant={[ 'red', 'shadow' ]} /> // → background-color: red; color: white; box-shadow: 0 0 20px 0 rgba(0, 0,
+<Box variant='shadow'  /> // → box-shadow: 0 0 20px 0 rgba(0, 0,
 ```
 
 ### text
@@ -668,7 +668,7 @@ const Box = styled.div`
 ```
 
 ```js
-<Box textStyle /> // → `theme.textStyle.default`
+<Box textStyle='auto' /> // → `theme.textStyle.default`
 <Box textStyle='heading' /> // → `theme.textStyle.heading`
 ```
 
@@ -677,7 +677,7 @@ const Text = styled.div`
   ${textStyle.variant}
 `
 
-<Text variant /> // → `theme.textStyle.default`
+<Text variant='auto' /> // → `theme.textStyle.default`
 <Text variant='heading' /> // → `theme.textStyle.heading`
 ```
 

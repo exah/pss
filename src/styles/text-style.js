@@ -40,7 +40,7 @@ import { variant } from '../core'
  * `
  *
  * @example
- * <Box textStyle /> // → `theme.textStyle.default`
+ * <Box textStyle='auto' /> // → `theme.textStyle.default`
  * <Box textStyle='heading' /> // → `theme.textStyle.heading`
  *
  * @example
@@ -48,7 +48,7 @@ import { variant } from '../core'
  *   ${textStyle.variant}
  * `
  *
- * <Text variant /> // → `theme.textStyle.default`
+ * <Text variant='auto' /> // → `theme.textStyle.default`
  * <Text variant='heading' /> // → `theme.textStyle.heading`
  */
 

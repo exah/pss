@@ -36,7 +36,7 @@ import { variant } from '../core'
  *
  * @example
  * <Box boxStyle='red' /> // → background-color: red; color: white;
- * <Box boxStyle={[ 'red', 'shadow' ]} /> // → background-color: red; color: white; box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
+ * <Box boxStyle='shadow' /> // → box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
  *
  * @example
  * const Box = styled.div`
@@ -44,7 +44,7 @@ import { variant } from '../core'
  * `
  *
  * <Box variant='red' /> // → background-color: red; color: white;
- * <Box variant={[ 'red', 'shadow' ]} /> // → background-color: red; color: white; box-shadow: 0 0 20px 0 rgba(0, 0,
+ * <Box variant='shadow'  /> // → box-shadow: 0 0 20px 0 rgba(0, 0,
  */
 
 const boxStyle = variant({

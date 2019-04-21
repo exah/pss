@@ -20,8 +20,8 @@ import { sizeRule } from '../rules'
  *
  * **`String` values:**
  *
- * - Get value by path in `theme.size` or in top level `theme` object
- * - If value in `theme.sizes` is an `Object` with media keys (like in `theme.media`) value is responsive
+ * - Path in `theme.size`
+ * - If value in `theme.sizes` is an `Object` with media keys (like `{ all: 100, sm: 50 }`) value is responsive
  * - Other `String` values is passed as raw CSS value (like `'10%'` or `'100vh'`).
  *
  *
@@ -80,7 +80,7 @@ import { sizeRule } from '../rules'
  * <Box minHeight='1px' /> // → max-height: 1px
  */
 
-const sizes = createStyles({
+export const sizes = createStyles({
   height: sizeRule('height'),
   width: sizeRule('width'),
   maxWidth: sizeRule('maxWidth'),
@@ -88,7 +88,3 @@ const sizes = createStyles({
   minHeight: sizeRule('minHeight'),
   minWidth: sizeRule('minWidth')
 })
-
-export {
-  sizes
-}
