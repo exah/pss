@@ -4,13 +4,13 @@ import { addPrefix } from '../utils'
 
 export const createGridContainer = (prefix) => createStyles({
   grid: rule('grid'),
-  [addPrefix('autoFlow', prefix)]: rule('gridAutoFlow'),
-  [addPrefix('autoRows', prefix)]: rule('gridAutoRows'),
-  [addPrefix('autoColumns', prefix)]: rule('gridAutoColumns'),
-  [addPrefix('template', prefix)]: rule('gridTemplate', themeValue({ themeKey: 'gridTemplate' })),
-  [addPrefix('templateRows', prefix)]: rule('gridTemplateRows'),
-  [addPrefix('templateColumns', prefix)]: rule('gridTemplateColumns'),
-  [addPrefix('templateAreas', prefix)]: rule('gridTemplateAreas')
+  [addPrefix(prefix, 'autoFlow')]: rule('gridAutoFlow'),
+  [addPrefix(prefix, 'autoRows')]: rule('gridAutoRows'),
+  [addPrefix(prefix, 'autoColumns')]: rule('gridAutoColumns'),
+  [addPrefix(prefix, 'template')]: rule('gridTemplate', themeValue({ themeKey: 'gridTemplate' })),
+  [addPrefix(prefix, 'templateRows')]: rule('gridTemplateRows'),
+  [addPrefix(prefix, 'templateColumns')]: rule('gridTemplateColumns'),
+  [addPrefix(prefix, 'templateAreas')]: rule('gridTemplateAreas')
 })
 
 /**

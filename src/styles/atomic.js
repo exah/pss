@@ -1,5 +1,5 @@
 import { rule, createStyles, createRule, mediaStyle } from '../core'
-import { sizeRule } from '../rules'
+import { sizeRule } from '../.internal'
 import { boolValue, themeValue } from '../values'
 import { overflowValue } from './overflow'
 

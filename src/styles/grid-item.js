@@ -2,9 +2,9 @@ import { createStyles, rule } from '../core'
 import { addPrefix } from '../utils'
 
 export const createGridItem = (prefix) => createStyles({
-  [addPrefix('column', prefix)]: rule('gridColumn'),
-  [addPrefix('row', prefix)]: rule('gridRow'),
-  [addPrefix('area', prefix)]: rule('gridArea')
+  [addPrefix(prefix, 'column')]: rule('gridColumn'),
+  [addPrefix(prefix, 'row')]: rule('gridRow'),
+  [addPrefix(prefix, 'area')]: rule('gridArea')
 })
 
 /**

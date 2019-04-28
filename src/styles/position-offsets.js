@@ -1,5 +1,4 @@
-import { createStyles } from '../core'
-import { sizeRule } from '../rules'
+import { sizeRule, directionStyles } from '../.internal'
 
 /**
  * ```js
@@ -30,11 +29,8 @@ import { sizeRule } from '../rules'
  * <Box top={1 / 5} left={0} /> // position: relative; top: 20%; left: 0
  */
 
-const positionOffsets = createStyles({
-  top: sizeRule('top'),
-  left: sizeRule('left'),
-  right: sizeRule('right'),
-  bottom: sizeRule('bottom')
+const positionOffsets = directionStyles({
+  rule: sizeRule
 })
 
 export {

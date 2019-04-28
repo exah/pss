@@ -1,5 +1,5 @@
 import { createStyles } from '../core'
-import { spaceRule } from '../rules'
+import { spaceRule } from '../.internal'
 
 /**
  * ```js

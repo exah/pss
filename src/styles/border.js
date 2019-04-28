@@ -1,5 +1,6 @@
-import { createStyles, rule } from '../core'
+import { rule } from '../core'
 import { themeValue } from '../values'
+import { directionStyles } from '../.internal'
 import { px } from '../utils'
 
 const borderRule = (name) => rule(name, themeValue({
@@ -39,12 +40,9 @@ const borderRule = (name) => rule(name, themeValue({
  * <Box borderBottom='divider' /> // → theme.border.divider // → border-bottom: 1px dotted #f5f5f5
  */
 
-const border = createStyles({
-  border: borderRule('border'),
-  borderLeft: borderRule('borderLeft'),
-  borderRight: borderRule('borderRight'),
-  borderTop: borderRule('borderTop'),
-  borderBottom: borderRule('borderBottom')
+const border = directionStyles({
+  cssProp: 'border',
+  rule: borderRule
 })
 
 export {

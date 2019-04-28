@@ -2,8 +2,8 @@ import { createStyles, rule } from '../core'
 import { addPrefix } from '../utils'
 
 export const createFlexContainer = (prefix) => createStyles({
-  [addPrefix('wrap', prefix)]: rule('flexWrap'),
-  [addPrefix('direction', prefix)]: rule('flexDirection')
+  [addPrefix(prefix, 'wrap')]: rule('flexWrap'),
+  [addPrefix(prefix, 'direction')]: rule('flexDirection')
 })
 
 /**

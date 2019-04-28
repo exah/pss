@@ -71,7 +71,7 @@ export const rem = curryN(2, (base = 16, input = base) =>
 export const px = (num) => isNum(num) && num !== 0 ? `${num}px` : num
 
 export const cap = (input = '') => input.replace(/^\w/, c => c.toUpperCase())
-export const addPrefix = (input = '', prefix) => prefix ? prefix + cap(input) : input
+export const addPrefix = (prefix, input) => prefix ? prefix + cap(input) : input
 
 export const wrap = curryN(2, (name, value) => value != null
   ? (name ? { [name]: value } : value)

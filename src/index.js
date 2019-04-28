@@ -5,7 +5,6 @@ export {
 export * from './constants'
 export * from './core'
 export * from './mixins'
-export * from './rules'
 export * from './styles'
 export * from './utils'
 export * from './values'

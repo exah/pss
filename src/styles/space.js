@@ -1,23 +1,10 @@
-import { createStyles, combineStyles } from '../core'
-import { spaceRule } from '../rules'
+import { combineStyles } from '../core'
 
-export const createSpaceStyles = (prop) => createStyles({
-  [prop]: spaceRule(prop),
-  [prop + 'Left']: spaceRule(prop + 'Left'),
-  [prop + 'Right']: spaceRule(prop + 'Right'),
-  [prop + 'Top']: spaceRule(prop + 'Top'),
-  [prop + 'Bottom']: spaceRule(prop + 'Bottom')
-})
-
-export const createAliasSpaceStyles = (prop, cssProp) => createStyles({
-  [prop]: spaceRule(cssProp),
-  [prop + 'l']: spaceRule(cssProp + 'Left'),
-  [prop + 'r']: spaceRule(cssProp + 'Right'),
-  [prop + 't']: spaceRule(cssProp + 'Top'),
-  [prop + 'b']: spaceRule(cssProp + 'Bottom'),
-  [prop + 'x']: [ spaceRule(cssProp + 'Left'), spaceRule(cssProp + 'Right') ],
-  [prop + 'y']: [ spaceRule(cssProp + 'Top'), spaceRule(cssProp + 'Bottom') ]
-})
+import {
+  spaceRule,
+  directionStyles,
+  directionAliasStyles
+} from '../.internal'
 
 /**
  * ```js
@@ -43,7 +30,10 @@ export const createAliasSpaceStyles = (prop, cssProp) => createStyles({
  * <Box marginBottom={3} /> // → margin-top: 16px
  */
 
-export const margin = createSpaceStyles('margin')
+export const margin = directionStyles({
+  cssProp: 'margin',
+  rule: spaceRule
+})
 
 /**
  * ```js
@@ -69,7 +59,10 @@ export const margin = createSpaceStyles('margin')
  * <Box paddingBottom={3} /> // → padding-top: 16px
  */
 
-export const padding = createSpaceStyles('padding')
+export const padding = directionStyles({
+  cssProp: 'padding',
+  rule: spaceRule
+})
 
 /**
  * ```js
@@ -173,6 +166,14 @@ export const padding = createSpaceStyles('padding')
  */
 
 export const space = combineStyles(
-  createAliasSpaceStyles('m', 'margin'),
-  createAliasSpaceStyles('p', 'padding')
+  directionAliasStyles({
+    prop: 'm',
+    cssProp: 'margin',
+    rule: spaceRule
+  }),
+  directionAliasStyles({
+    prop: 'p',
+    cssProp: 'padding',
+    rule: spaceRule
+  })
 )
