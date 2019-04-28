@@ -4,7 +4,7 @@ import { style } from '../core'
 const touchStyle = { WebkitOverflowScrolling: 'touch' }
 const notTouch = (item) => item !== 'touch'
 
-function overflowValue (input) {
+export function overflowValue (input) {
   if (isStr(input)) {
     const parsed = input.split(/\s+/)
     const values = parsed.filter(notTouch)
