@@ -501,12 +501,19 @@ Combination of
 -   [boxSelfAlignment][42]
 -   [boxShadow][45]
 -   [colors][8]
+-   [cursor][48]
+-   [display][51]
 -   [flex][54]
+-   [hide][76]
+-   [opacity][88]
 -   [order][91]
 -   [outline][94]
 -   [overflow][97]
+-   [ratio][109]
 -   [sizes][5]
 -   [space][2]
+-   [transform][121]
+-   [transition][124]
 
 Related: [boxStyle][14], [combineStyles][147].
 
