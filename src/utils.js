@@ -38,18 +38,23 @@ export const isMediaKey = (key, media) => (key in media || key === DEFAULT_MEDIA
 /**
  * Convert number to rem
  *
+ * @param {number} [base = 16] - root font size
+ * @param {number} [input = base] - value for convertion
+ *
  * @example
  * import { rem } form 'pss'
  *
- * rem() // → 1rem
- * rem(16) // → 1rem
- * rem(20) // → 1.25rem
- * rem('20px') // → 1.25rem
- * rem(20, 20) // → 1rem
+ * rem(16, 16) // → 1rem
+ * rem(16, 20) // → 1.25rem
+ * rem(16, '20px') // → 1.25rem
+ *
+ * const myRem = rem(20)
+ * myRem(16) // → 0.8rem
  */
 
-export const rem = (input = 16, base = 16) =>
+export const rem = curryN(2, (base = 16, input = base) =>
   /rem$/.test(input) ? input : `${parseFloat(input, 10) / base}rem`
+)
 
 /**
  * Convert numbers to pixels
