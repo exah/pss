@@ -2073,20 +2073,21 @@ const Box = styled.div`
 import { themePath } from 'pss'
 ```
 
-Get value from theme.
+Get value from theme. Optionally accept fallback and / or list of transforms.
 
 #### Parameters
 
 -   `input`  
 -   `defaultValue`  
+-   `fns` **...any** 
 
 #### Examples
 
 ```js
-import { themePath } from 'pss'
+import { themePath, px } from 'pss'
 
 const Box = styled.div`
-  width: ${themePath('size.card')};
+  width: ${themePath('size.card', px)};
   background-color: ${themePath('color.red', 'hotpink')};
 `
 

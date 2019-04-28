@@ -1,26 +1,32 @@
-import { compose, path, isNum, isStr, curryN, isObj } from '@exah/utils'
+import { compose, path, isNum, isFn, isStr, curryN, isObj, pipe } from '@exah/utils'
 import { DEFAULT_KEY, THEME_MEDIA_KEY, DEFAULT_MEDIA_KEY } from './constants'
+
+const defaultTo = (fallback) => (input) => input == null ? fallback : input
 
 /**
  * ```js
  * import { themePath } from 'pss'
  * ```
  *
- * Get value from theme.
+ * Get value from theme. Optionally accept fallback and / or list of transforms.
  *
  * @example
- * import { themePath } from 'pss'
+ * import { themePath, px } from 'pss'
  *
  * const Box = styled.div`
- *   width: ${themePath('size.card')};
+ *   width: ${themePath('size.card', px)};
  *   background-color: ${themePath('color.red', 'hotpink')};
  * `
  *
  * <Box /> // → width: 200px; background-color: hotpink;
  */
 
-export const themePath = (input, defaultValue) =>
-  (props = {}) => path(input, defaultValue)(props.theme)
+export function themePath (input, defaultValue, ...fns) {
+  const toDefault = isFn(defaultValue) ? defaultValue : defaultTo(defaultValue)
+  const transform = pipe(toDefault, ...fns)
+
+  return (props) => transform(path(input)(props.theme))
+}
 
 export const getDefault = (input, defaultValue = DEFAULT_KEY) =>
   themePath([ DEFAULT_KEY, input ], defaultValue)
