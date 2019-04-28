@@ -1,6 +1,7 @@
 import {
   isStr,
   isNum,
+  isBool,
   identity,
   fallbackTo,
   isArr,
@@ -38,7 +39,7 @@ export function createSpaceValue ({
     props,
     mediaKey
   ) => {
-    if (isNum(input)) {
+    if (isNum(input) || isBool(input)) {
       const spaces = getter(props)
 
       if (isArr(spaces)) {

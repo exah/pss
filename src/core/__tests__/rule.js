@@ -108,6 +108,15 @@ describe('spaceValue', () => {
     })
   })
 
+  it('should accept boolean input and use scale from `theme.space`', () => {
+    expect(toStyles(style({ theme, m: true }))).toEqual({
+      margin: '8px',
+      '@media (max-width: 600px)': {
+        margin: '4px'
+      }
+    })
+  })
+
   it('should apply different step in space in specified medias', () => {
     expect(toStyles(style({ theme, m: { all: 2, sm: 1 } }))).toEqual({
       margin: '16px',
