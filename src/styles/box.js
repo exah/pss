@@ -1,4 +1,5 @@
 import { combineStyles } from '../core'
+import { background } from './background'
 import { border } from './border'
 import { borderColor } from './border-color'
 import { borderRadius } from './border-radius'
@@ -27,6 +28,7 @@ import { transition } from './transition'
  * ```
  *
  * Combination of
+ *   - {@link background}
  *   - {@link border}
  *   - {@link borderColor}
  *   - {@link borderRadius}
@@ -67,6 +69,7 @@ import { transition } from './transition'
  */
 
 export const box = combineStyles(
+  background,
   border,
   borderColor,
   borderRadius,

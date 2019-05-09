@@ -1,4 +1,5 @@
 import {
+  background,
   boxContentAlignment,
   boxItemsAlignment,
   boxSelfAlignment,
@@ -260,4 +261,11 @@ test('gridArea', testValue({
   prop: 'gridArea',
   cssProp: 'gridArea',
   values: [ '2 / 1 / 3', 'a' ]
+}))
+
+test('background', testValue({
+  fn: background,
+  prop: 'background',
+  cssProp: 'background',
+  values: [ 'inherit', 'currentColor', 'center / cover url(http://placekitten.com/500)' ]
 }))

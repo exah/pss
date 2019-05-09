@@ -17,6 +17,7 @@ toc:
 
   - name: Styles
     children:
+      - background
       - backgroundColor
       - border
       - borderColor

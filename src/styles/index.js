@@ -1,4 +1,5 @@
 export * from './atomic'
+export * from './background'
 export * from './background-color'
 export * from './border-color'
 export * from './border-radius'

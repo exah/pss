@@ -7,7 +7,7 @@ import { colorValue } from '../values'
  * ```
  * prop              | css                | theme                  | value  | default
  * :-----------------|:-------------------|:-----------------------|:-------|:-------------------------
- * `backgroundColor` | `backgroundColor`  | `color`, `palette.*.bg`| ✓      | `theme.palette.default.bg`
+ * `backgroundColor` | `background-color` | `color`, `palette.*.bg`| ✓      | `theme.palette.default.bg`
  *
  * Related: {@link textColor}, {@link colors}, {@link style}, {@link colorValue}.
  *
@@ -59,8 +59,7 @@ import { colorValue } from '../values'
  * // theme.palette.inverted.bg
  * <Box backgroundColor='inverted' /> // → background-color: #000000
  *
- *
- * // Valid color value
+ * // Any other value
  * <Box backgroundColor="#ffff00" /> // → background-color: #ffff00
  */
 
