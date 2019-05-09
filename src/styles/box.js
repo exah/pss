@@ -13,6 +13,8 @@ import { opacity } from './opacity'
 import { order } from './order'
 import { outline } from './outline'
 import { overflow } from './overflow'
+import { position } from './position'
+import { positionOffsets } from './position-offsets'
 import { ratio } from './ratio'
 import { sizes } from './sizes'
 import { space } from './space'
@@ -39,6 +41,8 @@ import { transition } from './transition'
  *   - {@link order}
  *   - {@link outline}
  *   - {@link overflow}
+ *   - {@link position}
+ *   - {@link positionOffsets}
  *   - {@link ratio}
  *   - {@link sizes}
  *   - {@link space}
@@ -77,6 +81,8 @@ export const box = combineStyles(
   order,
   outline,
   overflow,
+  position,
+  positionOffsets,
   ratio,
   sizes,
   space,
