@@ -2522,7 +2522,7 @@ See [fontFamily][53], [radius][207].
     -   `options.transformValue`   (optional, default `identity`)
     -   `options.fallback`  
     -   `options.scale`   (optional, default `{}`)
-    -   `options.keyword`   (optional, default `'auto'`)
+    -   `options.defaultKeyword`   (optional, default `'auto'`)
 
 #### Examples
 
@@ -2636,7 +2636,7 @@ Related: [textStyle][20], [boxStyle][14], [rule][157], [themeValue][174].
 
 -   `options` **[Object][190]** 
     -   `options.prop` **[String][206]**  (optional, default `'variant'`)
-    -   `options.keyword`  
+    -   `options.defaultKeyword`  
     -   `options.themeKey`  
     -   `options.transformValue`  
     -   `options.scale`  

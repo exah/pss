@@ -8,7 +8,7 @@ export function createColorValue ({
   paletteScale = {},
   colorsGetter = themePath(themeColorKey, colorsScale),
   paletteGetter = themePath(themePaletteKey, paletteScale),
-  keyword = 'auto'
+  defaultKeyword = 'auto'
 } = {}) {
   const getColor = (defaultColorName) => (colorName, props) => {
     const colors = colorsGetter(props)
@@ -20,7 +20,7 @@ export function createColorValue ({
       ...colors
     }
 
-    const color = colorName === true || colorName === keyword
+    const color = colorName === true || colorName === defaultKeyword
       ? path(defaultColorName)(activeColors)
       : isStr(colorName) ? path(colorName)(activeColors) : null
 

@@ -40,12 +40,12 @@ export function themeValue ({
   transformValue = identity,
   fallback,
   scale = {},
-  keyword = 'auto'
+  defaultKeyword = 'auto'
 } = {}) {
   const getThemeScale = themePath(themeKey, scale)
 
   return (defaultValue = fallback) => (input, props, mediaKey) => {
-    const isDefaultValue = input === true || (keyword != null && input === keyword)
+    const isDefaultValue = input === true || (defaultKeyword != null && input === defaultKeyword)
 
     const valueKey = isDefaultValue
       ? getDefault(themeKey)(props)

@@ -59,7 +59,7 @@ const VARIANT_PROP = 'variant'
 
 function variant ({
   prop = VARIANT_PROP,
-  keyword,
+  defaultKeyword,
   themeKey,
   transformValue,
   scale,
@@ -67,7 +67,7 @@ function variant ({
 }) {
   const rule = createRule({
     getValue: themeValue({
-      keyword,
+      defaultKeyword,
       themeKey,
       transformValue,
       scale,

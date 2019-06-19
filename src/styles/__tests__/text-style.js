@@ -60,7 +60,7 @@ describe('should apply default styles', () => {
     }
   }
 
-  it('with `auto` keyword', () => {
+  it('with `auto` defaultKeyword', () => {
     const result = toStyles(textStyle({
       theme,
       textStyle: 'auto'
