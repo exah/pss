@@ -1,9 +1,7 @@
 import {
-  background,
   boxContentAlignment,
   boxItemsAlignment,
   boxSelfAlignment,
-  cursor,
   display,
   flexContainer,
   gridContainer,
@@ -73,13 +71,6 @@ test('display', testValue({
   prop: 'display',
   cssProp: 'display',
   values: [ 'block', 'flex', 'grid' ]
-}))
-
-test('cursor', testValue({
-  fn: cursor,
-  prop: 'cursor',
-  cssProp: 'cursor',
-  values: [ 'pointer' ]
 }))
 
 test('flexWrap', testValue({
@@ -261,11 +252,4 @@ test('gridArea', testValue({
   prop: 'gridArea',
   cssProp: 'gridArea',
   values: [ '2 / 1 / 3', 'a' ]
-}))
-
-test('background', testValue({
-  fn: background,
-  prop: 'background',
-  cssProp: 'background',
-  values: [ 'inherit', 'currentColor', 'center / cover url(http://placekitten.com/500)' ]
 }))

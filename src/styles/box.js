@@ -1,12 +1,10 @@
 import { combineStyles } from '../core'
-import { background } from './background'
 import { border } from './border'
 import { borderColor } from './border-color'
 import { borderRadius } from './border-radius'
 import { boxSelfAlignment } from './box-alignment'
 import { boxShadow } from './box-shadow'
 import { colors } from './colors'
-import { cursor } from './cursor'
 import { display } from './display'
 import { flex } from './flex'
 import { hide } from './hide'
@@ -28,14 +26,12 @@ import { transition } from './transition'
  * ```
  *
  * Combination of
- *   - {@link background}
  *   - {@link border}
  *   - {@link borderColor}
  *   - {@link borderRadius}
  *   - {@link boxSelfAlignment}
  *   - {@link boxShadow}
  *   - {@link colors}
- *   - {@link cursor}
  *   - {@link display}
  *   - {@link flex}
  *   - {@link hide}
@@ -69,14 +65,12 @@ import { transition } from './transition'
  */
 
 export const box = combineStyles(
-  background,
   border,
   borderColor,
   borderRadius,
   boxSelfAlignment,
   boxShadow,
   colors,
-  cursor,
   display,
   flex,
   hide,

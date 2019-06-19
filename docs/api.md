@@ -25,180 +25,174 @@
         -   [Parameters][21]
         -   [Examples][22]
 -   [Styles][23]
-    -   [background][24]
+    -   [backgroundColor][24]
         -   [Parameters][25]
         -   [Examples][26]
-    -   [backgroundColor][27]
+    -   [border][27]
         -   [Parameters][28]
         -   [Examples][29]
-    -   [border][30]
+    -   [borderColor][30]
         -   [Parameters][31]
         -   [Examples][32]
-    -   [borderColor][33]
+    -   [borderRadius][33]
         -   [Parameters][34]
         -   [Examples][35]
-    -   [borderRadius][36]
+    -   [boxContentAlignment][36]
         -   [Parameters][37]
         -   [Examples][38]
-    -   [boxContentAlignment][39]
+    -   [boxItemsAlignment][39]
         -   [Parameters][40]
         -   [Examples][41]
-    -   [boxItemsAlignment][42]
+    -   [boxSelfAlignment][42]
         -   [Parameters][43]
         -   [Examples][44]
-    -   [boxSelfAlignment][45]
+    -   [boxShadow][45]
         -   [Parameters][46]
         -   [Examples][47]
-    -   [boxShadow][48]
+    -   [display][48]
         -   [Parameters][49]
         -   [Examples][50]
-    -   [cursor][51]
-        -   [Parameters][52]
-        -   [Examples][53]
-    -   [display][54]
-        -   [Parameters][55]
-        -   [Examples][56]
-    -   [flex][57]
+    -   [flex][51]
+        -   [Examples][52]
+    -   [flexContainer][53]
+        -   [Parameters][54]
+        -   [Examples][55]
+    -   [fontFamily][56]
+        -   [Parameters][57]
         -   [Examples][58]
-    -   [flexContainer][59]
+    -   [fontSize][59]
         -   [Parameters][60]
         -   [Examples][61]
-    -   [fontFamily][62]
+    -   [fontWeight][62]
         -   [Parameters][63]
         -   [Examples][64]
-    -   [fontSize][65]
+    -   [gap][65]
         -   [Parameters][66]
         -   [Examples][67]
-    -   [fontWeight][68]
+    -   [gridContainer][68]
         -   [Parameters][69]
         -   [Examples][70]
-    -   [gap][71]
-        -   [Parameters][72]
-        -   [Examples][73]
-    -   [gridContainer][74]
-        -   [Parameters][75]
-        -   [Examples][76]
-    -   [gridItem][77]
+    -   [gridItem][71]
+        -   [Examples][72]
+    -   [hide][73]
+        -   [Parameters][74]
+        -   [Examples][75]
+    -   [letterSpacing][76]
+        -   [Parameters][77]
         -   [Examples][78]
-    -   [hide][79]
+    -   [lineHeight][79]
         -   [Parameters][80]
         -   [Examples][81]
-    -   [letterSpacing][82]
+    -   [margin][82]
         -   [Parameters][83]
         -   [Examples][84]
-    -   [lineHeight][85]
+    -   [opacity][85]
         -   [Parameters][86]
         -   [Examples][87]
-    -   [margin][88]
+    -   [order][88]
         -   [Parameters][89]
         -   [Examples][90]
-    -   [opacity][91]
+    -   [outline][91]
         -   [Parameters][92]
         -   [Examples][93]
-    -   [order][94]
+    -   [overflow][94]
         -   [Parameters][95]
         -   [Examples][96]
-    -   [outline][97]
+    -   [padding][97]
         -   [Parameters][98]
         -   [Examples][99]
-    -   [overflow][100]
+    -   [position][100]
         -   [Parameters][101]
         -   [Examples][102]
-    -   [padding][103]
+    -   [positionOffsets][103]
         -   [Parameters][104]
         -   [Examples][105]
-    -   [position][106]
+    -   [ratio][106]
         -   [Parameters][107]
         -   [Examples][108]
-    -   [positionOffsets][109]
+    -   [textAlign][109]
         -   [Parameters][110]
         -   [Examples][111]
-    -   [ratio][112]
+    -   [textColor][112]
         -   [Parameters][113]
         -   [Examples][114]
-    -   [textAlign][115]
+    -   [textOverflow][115]
         -   [Parameters][116]
         -   [Examples][117]
-    -   [textColor][118]
+    -   [transform][118]
         -   [Parameters][119]
         -   [Examples][120]
-    -   [textOverflow][121]
+    -   [transition][121]
         -   [Parameters][122]
         -   [Examples][123]
-    -   [transform][124]
+    -   [whiteSpace][124]
         -   [Parameters][125]
         -   [Examples][126]
-    -   [transition][127]
+    -   [zIndex][127]
         -   [Parameters][128]
         -   [Examples][129]
-    -   [whiteSpace][130]
+    -   [atomic][130]
         -   [Parameters][131]
         -   [Examples][132]
-    -   [zIndex][133]
-        -   [Parameters][134]
-        -   [Examples][135]
-    -   [atomic][136]
-        -   [Parameters][137]
-        -   [Examples][138]
--   [Mixins][139]
-    -   [themePath][140]
+-   [Mixins][133]
+    -   [themePath][134]
+        -   [Parameters][135]
+        -   [Examples][136]
+    -   [mq][137]
+        -   [Parameters][138]
+        -   [Examples][139]
+    -   [prop][140]
         -   [Parameters][141]
         -   [Examples][142]
-    -   [mq][143]
-        -   [Parameters][144]
-        -   [Examples][145]
-    -   [prop][146]
-        -   [Parameters][147]
-        -   [Examples][148]
--   [Utils][149]
-    -   [combineStyles][150]
+-   [Utils][143]
+    -   [combineStyles][144]
+        -   [Parameters][145]
+        -   [Examples][146]
+    -   [rem][147]
+        -   [Parameters][148]
+        -   [Examples][149]
+    -   [px][150]
         -   [Parameters][151]
         -   [Examples][152]
-    -   [rem][153]
+    -   [splitUnit][153]
         -   [Parameters][154]
         -   [Examples][155]
-    -   [px][156]
-        -   [Parameters][157]
-        -   [Examples][158]
-    -   [splitUnit][159]
-        -   [Parameters][160]
-        -   [Examples][161]
--   [Custom Styles][162]
-    -   [createStyles][163]
+-   [Custom Styles][156]
+    -   [createStyles][157]
+        -   [Parameters][158]
+        -   [Examples][159]
+    -   [rule][160]
+        -   [Parameters][161]
+        -   [Examples][162]
+    -   [boolValue][163]
         -   [Parameters][164]
         -   [Examples][165]
-    -   [rule][166]
+    -   [sizeValue][166]
         -   [Parameters][167]
         -   [Examples][168]
-    -   [boolValue][169]
-        -   [Parameters][170]
-        -   [Examples][171]
-    -   [sizeValue][172]
-        -   [Parameters][173]
-        -   [Examples][174]
-    -   [percentageValue][175]
+    -   [percentageValue][169]
+        -   [Examples][170]
+    -   [spaceValue][171]
+        -   [Parameters][172]
+        -   [Examples][173]
+    -   [colorValue][174]
+        -   [Parameters][175]
         -   [Examples][176]
-    -   [spaceValue][177]
+    -   [themeValue][177]
         -   [Parameters][178]
         -   [Examples][179]
-    -   [colorValue][180]
+    -   [mediaStyle][180]
         -   [Parameters][181]
         -   [Examples][182]
-    -   [themeValue][183]
+    -   [createRule][183]
         -   [Parameters][184]
         -   [Examples][185]
-    -   [mediaStyle][186]
+    -   [variant][186]
         -   [Parameters][187]
         -   [Examples][188]
-    -   [createRule][189]
+    -   [style][189]
         -   [Parameters][190]
         -   [Examples][191]
-    -   [variant][192]
-        -   [Parameters][193]
-        -   [Examples][194]
-    -   [style][195]
-        -   [Parameters][196]
-        -   [Examples][197]
 
 ## Systems
 
@@ -211,7 +205,7 @@
 import { space } from 'pss'
 ```
 
-Consistent `space` system for setting `margin`, or `padding`. Created with [spaceValue][177].
+Consistent `space` system for setting `margin`, or `padding`. Created with [spaceValue][171].
 
 **Component props:**
 
@@ -237,17 +231,17 @@ Consistent `space` system for setting `margin`, or `padding`. Created with [spac
 
 **`String` values:**
 
-Treated same way as in [size][198].
+Treated same way as in [size][192].
 
 -   Get value by path in `theme.size` or in top level `theme` object
 -   If value in `theme.sizes` is an `Object` with media keys (like in `theme.media`) value is responsive
 -   Other `String` values is passed as raw CSS value (like `'10%'` or `'100vh'`).
 
-Related: [spaceValue][177], [sizes][5].
+Related: [spaceValue][171], [sizes][5].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -318,7 +312,7 @@ const theme = {
 import { sizes } from 'pss'
 ```
 
-Consistent `sizes` system for `width`, `height`. Created with [sizeValue][172].
+Consistent `sizes` system for `width`, `height`. Created with [sizeValue][166].
 
 **Component props:**
 
@@ -340,7 +334,7 @@ Consistent `sizes` system for `width`, `height`. Created with [sizeValue][172].
 -   From 0-1 it is converted to percentage widths
 -   Greater than 1 are converted to pixel values.
 
-Related: [sizeValue][172], [space][2].
+Related: [sizeValue][166], [space][2].
 
 Examples use this `theme`:
 
@@ -362,7 +356,7 @@ const theme = {
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -401,7 +395,7 @@ const Box = styled.div`
 import { colors } from 'pss'
 ```
 
-Prop styles for getting current `palette` or `color` value from `theme`. Created with [colorValue][180].
+Prop styles for getting current `palette` or `color` value from `theme`. Created with [colorValue][174].
 
 Result can be changed in nested components with setting other key in `theme.default.palette`.
 
@@ -425,7 +419,7 @@ Result can be changed in nested components with setting other key in `theme.defa
     -   `fg` → `theme.palette.default.fg`
     -   `tm` → `theme.palette.default.fg`, `theme.palette.default.bg`
 
-Related: [colorValue][180], [rule][166].
+Related: [colorValue][174], [rule][160].
 
 Examples use this `theme`:
 
@@ -456,7 +450,7 @@ const theme = {
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -498,34 +492,32 @@ import { box } from 'pss'
 
 Combination of
 
--   [background][24]
--   [border][30]
--   [borderColor][33]
--   [borderRadius][36]
--   [boxSelfAlignment][45]
--   [boxShadow][48]
+-   [border][27]
+-   [borderColor][30]
+-   [borderRadius][33]
+-   [boxSelfAlignment][42]
+-   [boxShadow][45]
 -   [colors][8]
--   [cursor][51]
--   [display][54]
--   [flex][57]
--   [hide][79]
--   [opacity][91]
--   [order][94]
--   [outline][97]
--   [overflow][100]
--   [position][106]
--   [positionOffsets][109]
--   [ratio][112]
+-   [display][48]
+-   [flex][51]
+-   [hide][73]
+-   [opacity][85]
+-   [order][88]
+-   [outline][91]
+-   [overflow][94]
+-   [position][100]
+-   [positionOffsets][103]
+-   [ratio][106]
 -   [sizes][5]
 -   [space][2]
--   [transform][124]
--   [transition][127]
+-   [transform][118]
+-   [transition][121]
 
-Related: [boxStyle][14], [combineStyles][150].
+Related: [boxStyle][14], [combineStyles][144].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -549,9 +541,9 @@ const Box = styled.p`
 import { boxStyle } from 'pss'
 ```
 
-Global box styles system, like in [Sketch][200].
+Global box styles system, like in [Sketch][194].
 
-Related: [variant][192].
+Related: [variant][186].
 
 Add `boxStyle` to `theme`:
 
@@ -571,7 +563,7 @@ const theme = {
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -605,20 +597,20 @@ import { text } from 'pss'
 
 Combination of
 
--   [fontFamily][62]
--   [fontSize][65]
--   [fontWeight][68]
--   [letterSpacing][82]
--   [lineHeight][85]
--   [textAlign][115]
--   [textColor][118]
--   [whiteSpace][130]
+-   [fontFamily][56]
+-   [fontSize][59]
+-   [fontWeight][62]
+-   [letterSpacing][76]
+-   [lineHeight][79]
+-   [textAlign][109]
+-   [textColor][112]
+-   [whiteSpace][124]
 
-Related: [textStyle][20], [combineStyles][150].
+Related: [textStyle][20], [combineStyles][144].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -641,9 +633,9 @@ const Text = styled.p`
 import { textStyle } from 'pss'
 ```
 
-Global text styles system, like in [Sketch][201].
+Global text styles system, like in [Sketch][195].
 
-Related: [variant][192], [text][17].
+Related: [variant][186], [text][17].
 
 Add `textStyle` to `theme`:
 
@@ -668,7 +660,7 @@ const theme = {
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -699,43 +691,6 @@ const Text = styled.div`
 
 
 
-### background
-
-```js
-import { background } from 'pss'
-```
-
-| prop         | css          | theme | value | default |
-| :----------- | :----------- | :---- | :---- | :------ |
-| `background` | `background` | —     | ✓     | —       |
-
-Related: [box][11], [style][195].
-
-#### Parameters
-
--   `props` **[Object][199]** 
-
-#### Examples
-
-```js
-import { background } from 'pss'
-
-const Box = styled.div`
-  ${background}
-`
-```
-
-```js
-<Box background='center / cover url(http://placekitten.com/500)' />
-// → background: center / cover url(http://placekitten.com/500)
-
-<Box background='radial-gradient(crimson, skyblue)' />
-// → background: radial-gradient(crimson, skyblue)
-
-<Box background='#ff0000' />
-// → background: #ff0000
-```
-
 ### backgroundColor
 
 ```js
@@ -746,7 +701,7 @@ import { backgroundColor } from 'pss'
 | :---------------- | :----------------- | :---------------------- | :---- | :------------------------- |
 | `backgroundColor` | `background-color` | `color`, `palette.*.bg` | ✓     | `theme.palette.default.bg` |
 
-Related: [textColor][118], [colors][8], [style][195], [colorValue][180].
+Related: [textColor][112], [colors][8], [style][189], [colorValue][174].
 
 Examples use this `theme`:
 
@@ -775,7 +730,7 @@ const theme = {
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -821,11 +776,11 @@ Set border with values from theme.
 | `borderTop`    | `border-top`    | `border` | ✓     | `theme.border.default` |
 | `borderBottom` | `border-bottom` | `border` | ✓     | `theme.border.default` |
 
-Related: [themeValue][183], [rule][166],
+Related: [themeValue][177], [rule][160],
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -852,11 +807,11 @@ import { borderColor } from 'pss'
 | :------------ | :------------- | :-------------------------- | :---- | :----------------------------- |
 | `borderColor` | `border-color` | `color`, `palette.*.border` | ✓     | `theme.palette.default.border` |
 
-Related: [colorValue][180], [style][195],
+Related: [colorValue][174], [style][189],
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -883,11 +838,11 @@ import { borderRadius } from 'pss'
 | :------------- | :-------------- | :------------- | :---- | :--------------------------- |
 | `borderRadius` | `border-radius` | `borderRadius` | ✓     | `theme.borderRadius.default` |
 
-Related: [style][195].
+Related: [style][189].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -915,11 +870,11 @@ import { boxContentAlignment } from 'pss'
 | `alignContent`   | `align-content`   | —     | ✓     | —       |
 | `justifyContent` | `justify-content` | —     | ✓     | —       |
 
-Related: [rule][166]
+Related: [rule][160]
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -948,11 +903,11 @@ import { boxItemsAlignment } from 'pss'
 | `alignItems`   | `align-items`   | —     | ✓     | —       |
 | `justifyItems` | `justify-items` | —     | ✓     | —       |
 
-Related: [rule][166]
+Related: [rule][160]
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -981,11 +936,11 @@ import { boxSelfAlignment } from 'pss'
 | `alignSelf`   | `align-self`   | —     | ✓     | —       |
 | `justifySelf` | `justify-self` | —     | ✓     | —       |
 
-Related: [rule][166]
+Related: [rule][160]
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1013,11 +968,11 @@ import { boxShadow } from 'pss'
 | :---------- | :----------- | :---------- | :---- | :------------------------ |
 | `boxShadow` | `box-shadow` | `boxShadow` | ✓     | `theme.boxShadow.default` |
 
-Related: [box][11], [style][195], [themeValue][183].
+Related: [box][11], [style][189], [themeValue][177].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1036,36 +991,6 @@ const Box = styled.p`
 <Box boxShadow /> // → theme.boxShadow.default
 ```
 
-### cursor
-
-```js
-import { cursor } from 'pss'
-```
-
-| prop     | css      | theme | value | default |
-| :------- | :------- | :---- | :---- | :------ |
-| `cursor` | `cursor` | —     | ✓     | —       |
-
-Related: [style][195].
-
-#### Parameters
-
--   `props` **[Object][199]** 
-
-#### Examples
-
-```js
-import { cursor } from 'pss'
-
-const Box = styled.div`
-  ${cursor}
-`
-```
-
-```js
-<Box cursor='pointer' /> // → cursor: pointer
-```
-
 ### display
 
 ```js
@@ -1076,11 +1001,11 @@ import { display } from 'pss'
 | :-------- | :-------- | :---- | :---- | :------ |
 | `display` | `display` | —     | ✓     | —       |
 
-Related: [hide][79], [rule][166].
+Related: [hide][73], [rule][160].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1106,7 +1031,7 @@ import { flex } from 'pss'
 | :----- | :----- | :----- | :---- | :------ |
 | `flex` | `flex` | `size` | ✓     | —       |
 
-Related: [rule][166], [sizeValue][172].
+Related: [rule][160], [sizeValue][166].
 
 #### Examples
 
@@ -1128,18 +1053,18 @@ const Box = styled.div`
 import { flexContainer } from 'pss'
 ```
 
-[Flexible Box Layout Container][202] styles. For alignment use [boxContentAlignment][39], [boxItemsAlignment][42].
+[Flexible Box Layout Container][196] styles. For alignment use [boxContentAlignment][36], [boxItemsAlignment][39].
 
 | prop            | css              | theme | value | default |
 | :-------------- | :--------------- | :---- | :---- | :------ |
 | `flexWrap`      | `flex-wrap`      | —     | ✓     | —       |
 | `flexDirection` | `flex-direction` | —     | ✓     | —       |
 
-Related: [rule][166].
+Related: [rule][160].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1167,7 +1092,7 @@ import { fontFamily } from 'pss'
 | :----------- | :------------ | :----------- | :---- | :------------------------- |
 | `fontFamily` | `font-family` | `fontFamily` | ✓     | `theme.fontFamily.default` |
 
-Related: [text][17], [ellipsis][203], [rule][166], [themeValue][183].
+Related: [text][17], [ellipsis][197], [rule][160], [themeValue][177].
 
 Set `font-family` from `theme`:
 
@@ -1183,11 +1108,11 @@ const theme = {
 }
 ```
 
-Related: [style][195].
+Related: [style][189].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1217,7 +1142,7 @@ import { fontSize } from 'pss'
 | :--------- | :---------- | :--------- | :---- | :----------------------- |
 | `fontSize` | `font-size` | `fontSize` | ✓     | `theme.fontSize.default` |
 
-Related: [text][17], [ellipsis][203], [rule][166], [themeValue][183].
+Related: [text][17], [ellipsis][197], [rule][160], [themeValue][177].
 
 ```js
 const theme = {
@@ -1240,7 +1165,7 @@ const theme = {
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1269,11 +1194,11 @@ import { fontWeight } from 'pss'
 | :----------- | :------------ | :---- | :---- | :------ |
 | `fontWeight` | `font-weight` | —     | ✓     | —       |
 
-Related: [text][17], [ellipsis][203], [rule][166]
+Related: [text][17], [ellipsis][197], [rule][160]
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1295,7 +1220,7 @@ const Text = styled.p`
 import { gap } from 'pss'
 ```
 
-Same as [space][2] but for [grid][204] and [flex][57].
+Same as [space][2] but for [grid][198] and [flex][51].
 
 **Component props:**
 
@@ -1305,7 +1230,7 @@ Same as [space][2] but for [grid][204] and [flex][57].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1329,7 +1254,7 @@ const Grid = styled.div`
 import { gridContainer } from 'pss'
 ```
 
-[Grid Layout Container][205] styles.
+[Grid Layout Container][199] styles.
 
 | prop                  | css                     | theme          | value | default                      |
 | :-------------------- | :---------------------- | :------------- | :---- | :--------------------------- |
@@ -1342,11 +1267,11 @@ import { gridContainer } from 'pss'
 | `gridTemplateRows`    | `grid-template-rows`    | —              | ✓     | —                            |
 | `gridTemplateAreas`   | `grid-template-areas`   | —              | ✓     | —                            |
 
-Related: [gap][71], [flex][57], [rule][166]
+Related: [gap][65], [flex][51], [rule][160]
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1376,7 +1301,7 @@ import { gridItem } from 'pss'
 | `gridRow`    | `grid-row`    | —     | ✓     | —       |
 | `gridArea`   | `grod-area`   | —     | ✓     | —       |
 
-Related: [rule][166], [sizeValue][172].
+Related: [rule][160], [sizeValue][166].
 
 #### Examples
 
@@ -1403,11 +1328,11 @@ import { hide } from 'pss'
 | :----- | :-------------- | :------ | :--------------------- | :---------- |
 | `hide` | `display: none` | `media` | key from `theme.media` | apply style |
 
-Related: [display][54], [mediaStyle][186].
+Related: [display][48], [mediaStyle][180].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1441,11 +1366,11 @@ import { letterSpacing } from 'pss'
 | :-------------- | :--------------- | :---- | :---- | :------ |
 | `letterSpacing` | `letter-spacing` | —     | ✓     | —       |
 
-Related: [text][17], [ellipsis][203], [rule][166].
+Related: [text][17], [ellipsis][197], [rule][160].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1471,11 +1396,11 @@ import { lineHeight } from 'pss'
 | :----------- | :------------ | :---- | :---- | :------ |
 | `lineHeight` | `line-height` | —     | ✓     | —       |
 
-Related: [text][17], [ellipsis][203], [rule][166].
+Related: [text][17], [ellipsis][197], [rule][160].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1501,7 +1426,7 @@ Same as [space][2] but for full margin css props.
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1531,11 +1456,11 @@ import { opacity } from 'pss'
 | :-------- | :-------- | :---- | :------ | :------ |
 | `opacity` | `opacity` | —     | `0...1` | —       |
 
-Related: [rule][166].
+Related: [rule][160].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1562,11 +1487,11 @@ import { order } from 'pss'
 | :------ | :------ | :---- | :---- | :------ |
 | `order` | `order` | —     | ✓     | —       |
 
-Related: [rule][166], [sizeValue][172].
+Related: [rule][160], [sizeValue][166].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1595,11 +1520,11 @@ import { outline } from 'pss'
 
 \* Random hex color, useful for debugging layout
 
-Related: [rule][166].
+Related: [rule][160].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1623,11 +1548,11 @@ import { overflow } from 'pss'
 
 Shorthand for `overflow-x`, `overflow-y` and `-webkit-overflow-scrolling`.
 
-Related: [style][195].
+Related: [style][189].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1655,7 +1580,7 @@ Same as [space][2] but for full padding css props.
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1685,11 +1610,11 @@ import { position } from 'pss'
 | :--------- | :------- | :---- | :---- | :------ |
 | `position` | position | —     | ✓     | —       |
 
-Related: [rule][166], [positionOffsets][109].
+Related: [rule][160], [positionOffsets][103].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1719,11 +1644,11 @@ import { positionOffsets } from 'pss'
 | `top`    | `top`    | `size` | ✓     | —       |
 | `bottom` | `bottom` | `size` | ✓     | —       |
 
-Related: [position][106], [rule][166], [sizeValue][172].
+Related: [position][100], [rule][160], [sizeValue][166].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1746,12 +1671,12 @@ const Box = styled.div`
 import { ratio } from 'pss'
 ```
 
-[Aspect Ratio Box][206] prop style
+[Aspect Ratio Box][200] prop style
 with pseudo elements.
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1792,11 +1717,11 @@ import { textAlign } from 'pss'
 | :---------- | :----------- | :---- | :---- | :------ |
 | `textAlign` | `text-align` | —     | ✓     | —       |
 
-Related: [text][17], [ellipsis][203], [rule][166].
+Related: [text][17], [ellipsis][197], [rule][160].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1822,7 +1747,7 @@ import { textColor } from 'pss'
 | :------ | :------ | :---------------------- | :---- | :------------------------- |
 | `color` | `color` | `color`, `palette.*.fg` | ✓     | `theme.palette.default.fg` |
 
-Related: [backgroundColor][27], [colors][8], [style][195], [colorValue][180].
+Related: [backgroundColor][24], [colors][8], [style][189], [colorValue][174].
 
 Examples use this `theme`:
 
@@ -1851,7 +1776,7 @@ const theme = {
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1884,13 +1809,13 @@ const Box = styled.div`
 import { ellipsis } from 'pss'
 ```
 
-Info: [text-overflow][207].
+Info: [text-overflow][201].
 
-Related: [rule][166].
+Related: [rule][160].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1916,11 +1841,11 @@ import { transform } from 'pss'
 | :---------- | :---------- | :---- | :---- | :------ |
 | `transform` | `transform` | —     | ✓     | —       |
 
-Related: [rule][166].
+Related: [rule][160].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1946,11 +1871,11 @@ import { transition } from 'pss'
 | :----------- | :----------- | :---- | :---- | :------ |
 | `transition` | `transition` | —     | ✓     | —       |
 
-Related: [rule][166].
+Related: [rule][160].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -1976,11 +1901,11 @@ import { whiteSpace } from 'pss'
 | :----------- | :------------ | :---- | :---- | :------ |
 | `whiteSpace` | `white-space` | —     | ✓     | —       |
 
-Related: [text][17], [ellipsis][203], [style][195].
+Related: [text][17], [ellipsis][197], [style][189].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -2006,11 +1931,11 @@ import { zIndex } from 'pss'
 | :------- | :-------- | :------- | :---- | :------ |
 | `zIndex` | `z-index` | `zIndex` | ✓     | —       |
 
-Related: [position][106], [rule][166], [style][195].
+Related: [position][100], [rule][160], [style][189].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -2061,13 +1986,13 @@ But sometimes it can be useful to have short variants and can speed-up developme
 | `minh` | `min-height`         | `sizes`  | ✓                      | `100%`     |
 | `maxw` | `max-width`          | `sizes`  | ✓                      | `100%`     |
 | `maxh` | `max-height`         | `sizes`  | ✓                      | `100%`     |
-| `ov`   | [overflow][100]      | —        | ✓                      | `auto`     |
+| `ov`   | [overflow][94]       | —        | ✓                      | `auto`     |
 
-Related [space][2], [colors][8], [hide][79].
+Related [space][2], [colors][8], [hide][73].
 
 #### Parameters
 
--   `props` **[Object][199]** 
+-   `props` **[Object][193]** 
 
 #### Examples
 
@@ -2237,8 +2162,8 @@ Convert number to rem
 
 #### Parameters
 
--   `base` **[number][208]** root font size (optional, default `16`)
--   `input` **[number][208]** value for convertion (optional, default `base`)
+-   `base` **[number][202]** root font size (optional, default `16`)
+-   `input` **[number][202]** value for convertion (optional, default `base`)
 
 #### Examples
 
@@ -2298,7 +2223,7 @@ import pss from 'pss'
 import { createStyles } from 'pss'
 ```
 
-Create styles from [Object][209] with keys that represents component `prop` and
+Create styles from [Object][203] with keys that represents component `prop` and
 the value is a `style` that will be applied.
 
 ```js
@@ -2306,12 +2231,12 @@ the value is a `style` that will be applied.
 ```
 
 -   `input` - prop value
--   `props` [Object][209] - component props, including `theme`
--   `mediaKey` [Object][209] - key in `theme.media`
+-   `props` [Object][203] - component props, including `theme`
+-   `mediaKey` [Object][203] - key in `theme.media`
 
 In component prop accepts values:
 
--   [Boolean][210] — enable / disable simple styles or default [variant][192]
+-   [Boolean][204] — enable / disable simple styles or default [variant][186]
 
     ```js
     const Comp = styled.div(createStyles({ red: { color: 'red' } }))
@@ -2320,7 +2245,7 @@ In component prop accepts values:
     <Comp red={false} /> // → 🤷‍♂️
     ```
 
--   [Boolean][210], [String][211], [Number][212] — handled in functional styles
+-   [Boolean][204], [String][205], [Number][206] — handled in functional styles
 
     ```js
     const Comp = styled.div(createStyles({ width: (input) => ({ width: input } })))
@@ -2328,7 +2253,7 @@ In component prop accepts values:
     <Comp width='100px' /> // → width: 100px
     ```
 
--   [Object][209] with keys defined in `theme.media` to define values for different screen sizes
+-   [Object][203] with keys defined in `theme.media` to define values for different screen sizes
 
     ```js
     <Comp width={{ all: '100px', sm: '50px' }} /> // → width: 100px; @media (max-width: 600px) { width: 50px }
@@ -2336,7 +2261,7 @@ In component prop accepts values:
 
 #### Parameters
 
--   `stylesMap` **[Object][199]** 
+-   `stylesMap` **[Object][193]** 
 
 #### Examples
 
@@ -2376,7 +2301,7 @@ const theme = {
 </ThemeProvider>
 ```
 
-Returns **[Function][213]** `(props) => styles`
+Returns **[Function][207]** `(props) => styles`
 
 ### rule
 
@@ -2384,13 +2309,13 @@ Returns **[Function][213]** `(props) => styles`
 import { rule } from 'pss'
 ```
 
-Create style rule. Must be used with [createStyles][163].
+Create style rule. Must be used with [createStyles][157].
 
 #### Parameters
 
--   `cssProp` **[string][214]** 
+-   `cssProp` **[string][208]** 
 -   `getValue`  
--   `value` **[Function][213]**  (optional, default `identity`)
+-   `value` **[Function][207]**  (optional, default `identity`)
 
 #### Examples
 
@@ -2409,7 +2334,7 @@ const Box = styled.div(pss({
 </ThemeProvider>
 ```
 
-Returns **[Function][213]** 
+Returns **[Function][207]** 
 
 ### boolValue
 
@@ -2418,7 +2343,7 @@ import { boolValue } from 'pss'
 ```
 
 Get value for rule based boolean condition, other values passed without modification.
-Must be used with [rule][166].
+Must be used with [rule][160].
 
 #### Parameters
 
@@ -2449,9 +2374,9 @@ import { sizeValue } from 'pss'
 ```
 
 Sizes system for any css prop. Default behaviour described in [sizes][5].
-Must be used with [rule][166].
+Must be used with [rule][160].
 
-Created with [themeValue][183]:
+Created with [themeValue][177]:
 
 ```js
 const sizeValue = themeValue({
@@ -2461,11 +2386,11 @@ const sizeValue = themeValue({
 })
 ```
 
-Related: [sizes][5], [rule][166], [spaceValue][177], [px][156].
+Related: [sizes][5], [rule][160], [spaceValue][171], [px][150].
 
 #### Parameters
 
--   `defaultValue` **[Function][213]?** 
+-   `defaultValue` **[Function][207]?** 
 
 #### Examples
 
@@ -2492,7 +2417,7 @@ const Box = styled.div`
 <Box l r /> // → left: 0; right: 0
 ```
 
-Returns **[Function][213]** that must be used in [rule][166]
+Returns **[Function][207]** that must be used in [rule][160]
 
 ### percentageValue
 
@@ -2500,7 +2425,7 @@ Returns **[Function][213]** that must be used in [rule][166]
 import { percentageValue } from 'pss'
 ```
 
-Related: [sizes][5], [rule][166], [sizeValue][172].
+Related: [sizes][5], [rule][160], [sizeValue][166].
 
 #### Examples
 
@@ -2523,7 +2448,7 @@ const Box = styled.div`
 <Box w={100} /> // → width: 100px
 ```
 
-Returns **[Function][213]** that must be used in [rule][166]
+Returns **[Function][207]** that must be used in [rule][160]
 
 ### spaceValue
 
@@ -2532,13 +2457,13 @@ import { spaceValue } from 'pss'
 ```
 
 Spacing system for `margin`, `padding`. Default behaviour described in [space][2].
-Must be used with [rule][166].
+Must be used with [rule][160].
 
-Related: [space][2], [sizes][5], [rule][166], [sizeValue][172].
+Related: [space][2], [sizes][5], [rule][160], [sizeValue][166].
 
 #### Parameters
 
--   `defaultValue`  — Fallback value used when prop value is [String][211] or nothing returned. (optional, default `sizeValue(identity)`)
+-   `defaultValue`  — Fallback value used when prop value is [String][205] or nothing returned. (optional, default `sizeValue(identity)`)
 
 #### Examples
 
@@ -2595,7 +2520,7 @@ const theme = {
 </ThemeProvider>
 ```
 
-Returns **[Function][213]** that must be used in [rule][166]
+Returns **[Function][207]** that must be used in [rule][160]
 
 ### colorValue
 
@@ -2603,12 +2528,12 @@ Returns **[Function][213]** that must be used in [rule][166]
 import { colorValue } from 'pss'
 ```
 
-Get color from theme and apply it to css prop. Must be used with [rule][166].
+Get color from theme and apply it to css prop. Must be used with [rule][160].
 
 #### Parameters
 
--   `key` **[string][214]** — Key in `theme.color` or in `theme.palette[theme.default.palette]`
--   `transformValue` **[Function][213]** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default `identity`)
+-   `key` **[string][208]** — Key in `theme.color` or in `theme.palette[theme.default.palette]`
+-   `transformValue` **[Function][207]** — Return customized CSS prop value (i.e. `box-shadow`, gradients) (optional, default `identity`)
 
 #### Examples
 
@@ -2650,7 +2575,7 @@ const Box = styled.div`
 <Box tm='default' /> // color: #222222; background-color: #ffffff
 ```
 
-Returns **[Function][213]** 
+Returns **[Function][207]** 
 
 ### themeValue
 
@@ -2660,11 +2585,11 @@ import { themeValue } from 'pss'
 
 Use values defined in `theme[themeKey]`.
 
-See [fontFamily][62], [radius][215].
+See [fontFamily][56], [radius][209].
 
 #### Parameters
 
--   `options` **[Object][199]**  (optional, default `{}`)
+-   `options` **[Object][193]**  (optional, default `{}`)
     -   `options.themeKey`  
     -   `options.transformValue`   (optional, default `identity`)
     -   `options.fallback`  
@@ -2696,7 +2621,7 @@ const Text = styled.div(pss({
 </ThemeProvider>
 ```
 
-Returns **[Function][213]** 
+Returns **[Function][207]** 
 
 ### mediaStyle
 
@@ -2706,7 +2631,7 @@ import { mediaStyle } from 'pss'
 
 Create style wrapped in `theme.media`.
 
-Related: [display][54].
+Related: [display][48].
 
 #### Parameters
 
@@ -2741,13 +2666,13 @@ const theme = {
 import { createRule } from 'pss'
 ```
 
-Create style from value. Must be used with [createStyles][163].
+Create style from value. Must be used with [createStyles][157].
 
-Related: [rule][166].
+Related: [rule][160].
 
 #### Parameters
 
--   `options` **[Object][199]** 
+-   `options` **[Object][193]** 
     -   `options.cssProp`  
     -   `options.getStyle`   (optional, default `wrap(cssProp)`)
     -   `options.getValue`   (optional, default `identity`)
@@ -2775,14 +2700,14 @@ const Box = styled.div(pss({
 ### variant
 
 Create `variant` from styles defined directly in `theme`.
-Inspired by [`styled-system`][216].
+Inspired by [`styled-system`][210].
 
-Related: [textStyle][20], [boxStyle][14], [rule][166], [themeValue][183].
+Related: [textStyle][20], [boxStyle][14], [rule][160], [themeValue][177].
 
 #### Parameters
 
--   `options` **[Object][199]** 
-    -   `options.prop` **[String][214]**  (optional, default `'variant'`)
+-   `options` **[Object][193]** 
+    -   `options.prop` **[String][208]**  (optional, default `'variant'`)
     -   `options.keyword`  
     -   `options.themeKey`  
     -   `options.transformValue`  
@@ -2844,12 +2769,12 @@ import { style } from 'pss'
 ```
 
 Create style for single prop.
-Combines [createStyles][163] and [createRule][189] in single function.
-Inspired by [`styled-system`][216].
+Combines [createStyles][157] and [createRule][183] in single function.
+Inspired by [`styled-system`][210].
 
 #### Parameters
 
--   `options` **[Object][199]** 
+-   `options` **[Object][193]** 
     -   `options.cssProp`  
     -   `options.themeKey`  
     -   `options.transformValue`  
@@ -2922,388 +2847,376 @@ const Box = styled.div`
 
 [23]: #styles
 
-[24]: #background
+[24]: #backgroundcolor
 
 [25]: #parameters-7
 
 [26]: #examples-7
 
-[27]: #backgroundcolor
+[27]: #border
 
 [28]: #parameters-8
 
 [29]: #examples-8
 
-[30]: #border
+[30]: #bordercolor
 
 [31]: #parameters-9
 
 [32]: #examples-9
 
-[33]: #bordercolor
+[33]: #borderradius
 
 [34]: #parameters-10
 
 [35]: #examples-10
 
-[36]: #borderradius
+[36]: #boxcontentalignment
 
 [37]: #parameters-11
 
 [38]: #examples-11
 
-[39]: #boxcontentalignment
+[39]: #boxitemsalignment
 
 [40]: #parameters-12
 
 [41]: #examples-12
 
-[42]: #boxitemsalignment
+[42]: #boxselfalignment
 
 [43]: #parameters-13
 
 [44]: #examples-13
 
-[45]: #boxselfalignment
+[45]: #boxshadow
 
 [46]: #parameters-14
 
 [47]: #examples-14
 
-[48]: #boxshadow
+[48]: #display
 
 [49]: #parameters-15
 
 [50]: #examples-15
 
-[51]: #cursor
+[51]: #flex
 
-[52]: #parameters-16
+[52]: #examples-16
 
-[53]: #examples-16
+[53]: #flexcontainer
 
-[54]: #display
+[54]: #parameters-16
 
-[55]: #parameters-17
+[55]: #examples-17
 
-[56]: #examples-17
+[56]: #fontfamily
 
-[57]: #flex
+[57]: #parameters-17
 
 [58]: #examples-18
 
-[59]: #flexcontainer
+[59]: #fontsize
 
 [60]: #parameters-18
 
 [61]: #examples-19
 
-[62]: #fontfamily
+[62]: #fontweight
 
 [63]: #parameters-19
 
 [64]: #examples-20
 
-[65]: #fontsize
+[65]: #gap
 
 [66]: #parameters-20
 
 [67]: #examples-21
 
-[68]: #fontweight
+[68]: #gridcontainer
 
 [69]: #parameters-21
 
 [70]: #examples-22
 
-[71]: #gap
+[71]: #griditem
 
-[72]: #parameters-22
+[72]: #examples-23
 
-[73]: #examples-23
+[73]: #hide
 
-[74]: #gridcontainer
+[74]: #parameters-22
 
-[75]: #parameters-23
+[75]: #examples-24
 
-[76]: #examples-24
+[76]: #letterspacing
 
-[77]: #griditem
+[77]: #parameters-23
 
 [78]: #examples-25
 
-[79]: #hide
+[79]: #lineheight
 
 [80]: #parameters-24
 
 [81]: #examples-26
 
-[82]: #letterspacing
+[82]: #margin
 
 [83]: #parameters-25
 
 [84]: #examples-27
 
-[85]: #lineheight
+[85]: #opacity
 
 [86]: #parameters-26
 
 [87]: #examples-28
 
-[88]: #margin
+[88]: #order
 
 [89]: #parameters-27
 
 [90]: #examples-29
 
-[91]: #opacity
+[91]: #outline
 
 [92]: #parameters-28
 
 [93]: #examples-30
 
-[94]: #order
+[94]: #overflow
 
 [95]: #parameters-29
 
 [96]: #examples-31
 
-[97]: #outline
+[97]: #padding
 
 [98]: #parameters-30
 
 [99]: #examples-32
 
-[100]: #overflow
+[100]: #position
 
 [101]: #parameters-31
 
 [102]: #examples-33
 
-[103]: #padding
+[103]: #positionoffsets
 
 [104]: #parameters-32
 
 [105]: #examples-34
 
-[106]: #position
+[106]: #ratio
 
 [107]: #parameters-33
 
 [108]: #examples-35
 
-[109]: #positionoffsets
+[109]: #textalign
 
 [110]: #parameters-34
 
 [111]: #examples-36
 
-[112]: #ratio
+[112]: #textcolor
 
 [113]: #parameters-35
 
 [114]: #examples-37
 
-[115]: #textalign
+[115]: #textoverflow
 
 [116]: #parameters-36
 
 [117]: #examples-38
 
-[118]: #textcolor
+[118]: #transform
 
 [119]: #parameters-37
 
 [120]: #examples-39
 
-[121]: #textoverflow
+[121]: #transition
 
 [122]: #parameters-38
 
 [123]: #examples-40
 
-[124]: #transform
+[124]: #whitespace
 
 [125]: #parameters-39
 
 [126]: #examples-41
 
-[127]: #transition
+[127]: #zindex
 
 [128]: #parameters-40
 
 [129]: #examples-42
 
-[130]: #whitespace
+[130]: #atomic
 
 [131]: #parameters-41
 
 [132]: #examples-43
 
-[133]: #zindex
+[133]: #mixins
 
-[134]: #parameters-42
+[134]: #themepath
 
-[135]: #examples-44
+[135]: #parameters-42
 
-[136]: #atomic
+[136]: #examples-44
 
-[137]: #parameters-43
+[137]: #mq
 
-[138]: #examples-45
+[138]: #parameters-43
 
-[139]: #mixins
+[139]: #examples-45
 
-[140]: #themepath
+[140]: #prop
 
 [141]: #parameters-44
 
 [142]: #examples-46
 
-[143]: #mq
+[143]: #utils
 
-[144]: #parameters-45
+[144]: #combinestyles
 
-[145]: #examples-47
+[145]: #parameters-45
 
-[146]: #prop
+[146]: #examples-47
 
-[147]: #parameters-46
+[147]: #rem
 
-[148]: #examples-48
+[148]: #parameters-46
 
-[149]: #utils
+[149]: #examples-48
 
-[150]: #combinestyles
+[150]: #px
 
 [151]: #parameters-47
 
 [152]: #examples-49
 
-[153]: #rem
+[153]: #splitunit
 
 [154]: #parameters-48
 
 [155]: #examples-50
 
-[156]: #px
+[156]: #custom-styles
 
-[157]: #parameters-49
+[157]: #createstyles
 
-[158]: #examples-51
+[158]: #parameters-49
 
-[159]: #splitunit
+[159]: #examples-51
 
-[160]: #parameters-50
+[160]: #rule
 
-[161]: #examples-52
+[161]: #parameters-50
 
-[162]: #custom-styles
+[162]: #examples-52
 
-[163]: #createstyles
+[163]: #boolvalue
 
 [164]: #parameters-51
 
 [165]: #examples-53
 
-[166]: #rule
+[166]: #sizevalue
 
 [167]: #parameters-52
 
 [168]: #examples-54
 
-[169]: #boolvalue
+[169]: #percentagevalue
 
-[170]: #parameters-53
+[170]: #examples-55
 
-[171]: #examples-55
+[171]: #spacevalue
 
-[172]: #sizevalue
+[172]: #parameters-53
 
-[173]: #parameters-54
+[173]: #examples-56
 
-[174]: #examples-56
+[174]: #colorvalue
 
-[175]: #percentagevalue
+[175]: #parameters-54
 
 [176]: #examples-57
 
-[177]: #spacevalue
+[177]: #themevalue
 
 [178]: #parameters-55
 
 [179]: #examples-58
 
-[180]: #colorvalue
+[180]: #mediastyle
 
 [181]: #parameters-56
 
 [182]: #examples-59
 
-[183]: #themevalue
+[183]: #createrule
 
 [184]: #parameters-57
 
 [185]: #examples-60
 
-[186]: #mediastyle
+[186]: #variant
 
 [187]: #parameters-58
 
 [188]: #examples-61
 
-[189]: #createrule
+[189]: #style
 
 [190]: #parameters-59
 
 [191]: #examples-62
 
-[192]: #variant
+[192]: size
 
-[193]: #parameters-60
+[193]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[194]: #examples-63
+[194]: https://sketchapp.com/docs/styling/shared-styles/
 
-[195]: #style
+[195]: https://sketchapp.com/docs/text/text-styles
 
-[196]: #parameters-61
+[196]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container
 
-[197]: #examples-64
+[197]: ellipsis
 
-[198]: size
+[198]: grid
 
-[199]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[199]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
 
-[200]: https://sketchapp.com/docs/styling/shared-styles/
+[200]: https://css-tricks.com/aspect-ratio-boxes/
 
-[201]: https://sketchapp.com/docs/text/text-styles
+[201]: https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
 
-[202]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox#The_flex_container
+[202]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
 
-[203]: ellipsis
+[203]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
 
-[204]: grid
+[204]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 
-[205]: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout
+[205]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[206]: https://css-tricks.com/aspect-ratio-boxes/
+[206]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
 
-[207]: https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow
+[207]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
 
-[208]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[208]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
 
-[209]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object
+[209]: radius
 
-[210]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-
-[211]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
-[212]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
-
-[213]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function
-
-[214]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
-
-[215]: radius
-
-[216]: https://github.com/jxnblk/styled-system
+[210]: https://github.com/jxnblk/styled-system
