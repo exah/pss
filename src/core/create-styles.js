@@ -9,7 +9,6 @@ import {
 } from '@exah/utils'
 
 import { wrapIfMedia, wrap, getThemeMedia, isMediaKey } from '../utils'
-import { propType } from '../prop-type'
 
 /**
  * ```js
@@ -74,10 +73,6 @@ import { propType } from '../prop-type'
  *   ${styles}
  * `
  *
- * Box.propTypes = {
- *   ...styles.propTypes
- * }
- *
  * @example
  * <Box display='inline-flex' /> // → display: inline-flex
  * <Box hide /> // → display: none
@@ -140,7 +135,7 @@ export function createStyles (stylesMap) {
   }
 
   return Object.assign(getStyles, {
-    propTypes: mapObj((key) => ({ [key]: propType }), stylesMap),
+    props: Object.keys(stylesMap),
     styles: stylesMap
   })
 }

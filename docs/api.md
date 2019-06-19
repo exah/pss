@@ -2229,10 +2229,6 @@ const space = combineStyles(
 const Space = styled.div`
   ${space}
 `
-
-Space.propTypes = {
-  ...space.propTypes
-}
 ```
 
 ### rem
@@ -2358,10 +2354,6 @@ const styles = createStyles({
 const Box = styled.div`
   ${styles}
 `
-
-Box.propTypes = {
-  ...styles.propTypes
-}
 ```
 
 ```js

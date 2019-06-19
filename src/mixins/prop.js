@@ -1,5 +1,4 @@
 import { isFn, path, isNum, isStr } from '@exah/utils'
-import { valuePropType } from '../prop-type'
 
 /**
  * ```js
@@ -24,7 +23,7 @@ import { valuePropType } from '../prop-type'
  * <Box color='blue' /> // → color: blue; border-color: black;
  */
 
-export const prop = (key, fallback) => {
+export const prop = (key, fallback) =>
   function style (props) {
     const input = path(key)(props)
 
@@ -34,10 +33,3 @@ export const prop = (key, fallback) => {
 
     return isFn(fallback) ? fallback(props) : fallback
   }
-
-  style.propTypes = {
-    [key]: valuePropType
-  }
-
-  return style
-}

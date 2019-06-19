@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-export const valuePropType = PropTypes.oneOfType([
+const valuePropType = PropTypes.oneOfType([
   PropTypes.bool,
   PropTypes.string,
   PropTypes.number

@@ -10,7 +10,8 @@
   "module": "esm/index.js",
   "files": [
     "./esm",
-    "./cjs"
+    "./cjs",
+    "./prop-type.mjs"
   ],
   "tags": [
     "css-in-js",
