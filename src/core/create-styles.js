@@ -9,6 +9,7 @@ import {
 } from '@exah/utils'
 
 import { wrapIfMedia, wrap, getThemeMedia, isMediaKey } from '../utils'
+import { rule } from './rule'
 
 /**
  * ```js
@@ -97,15 +98,15 @@ export function createStyles (stylesMap) {
   function getStyles (props) {
     const themeMedia = getThemeMedia(props)
 
-    function mapStyles ({ input, rule, selector, mediaKey }) {
+    function mapStyles ({ input, style, selector, mediaKey }) {
       // value with `theme.media` keys: { all: 0, M: 1 }
       // or selector { '&:first-child': 1 }
       if (isObj(input)) {
         return mapObj(
           (key, value) => (
             isMediaKey(key, themeMedia)
-              ? mapStyles({ input: value, rule, selector, mediaKey: key })
-              : mapStyles({ input: value, rule, selector: key, mediaKey })
+              ? mapStyles({ input: value, style, selector, mediaKey: key })
+              : mapStyles({ input: value, style, selector: key, mediaKey })
           ),
           input
         )
@@ -116,18 +117,21 @@ export function createStyles (stylesMap) {
         wrap(selector)
       )
 
-      if (isFn(rule)) {
-        return wrapper(rule(input, props, mediaKey))
+      if (isFn(style)) {
+        return wrapper(style(input, props, mediaKey))
       }
 
       if (input != null && input !== false) {
-        return wrapper(rule)
+        return wrapper(style)
       }
     }
 
     return reduceObj(
       (acc, name, input) => acc.concat(
-        toArr(stylesMap[name]).map((rule) => mapStyles({ input, rule }))
+        toArr(stylesMap[name]).map((style) => mapStyles({
+          input,
+          style: style === true ? rule(name) : style
+        }))
       ),
       [],
       props

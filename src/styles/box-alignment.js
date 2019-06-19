@@ -1,4 +1,4 @@
-import { createStyles, rule } from '../core'
+import { createStyles } from '../core'
 
 /**
  * ```js
@@ -30,8 +30,8 @@ import { createStyles, rule } from '../core'
  */
 
 export const boxContentAlignment = createStyles({
-  alignContent: rule('alignContent'),
-  justifyContent: rule('justifyContent')
+  alignContent: true,
+  justifyContent: true
 })
 
 /**
@@ -64,8 +64,8 @@ export const boxContentAlignment = createStyles({
  */
 
 export const boxItemsAlignment = createStyles({
-  alignItems: rule('alignItems'),
-  justifyItems: rule('justifyItems')
+  alignItems: true,
+  justifyItems: true
 })
 
 /**
@@ -96,6 +96,6 @@ export const boxItemsAlignment = createStyles({
  */
 
 export const boxSelfAlignment = createStyles({
-  justifySelf: rule('justifySelf'),
-  alignSelf: rule('alignSelf')
+  justifySelf: true,
+  alignSelf: true
 })
