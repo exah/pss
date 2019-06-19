@@ -4,25 +4,34 @@ import { addPrefix } from '../utils'
 
 export const directionStyles = ({
   cssProp,
-  rule
-}) => createStyles({
-  ...cssProp && { [cssProp]: rule(cssProp) },
-  [addPrefix(cssProp, 'left')]: rule(addPrefix(cssProp, 'left')),
-  [addPrefix(cssProp, 'right')]: rule(addPrefix(cssProp, 'right')),
-  [addPrefix(cssProp, 'top')]: rule(addPrefix(cssProp, 'top')),
-  [addPrefix(cssProp, 'bottom')]: rule(addPrefix(cssProp, 'bottom'))
-})
+  rule,
+  alias
+}) => {
+  const config = {
+    l: rule(addPrefix(cssProp, 'left')),
+    r: rule(addPrefix(cssProp, 'right')),
+    t: rule(addPrefix(cssProp, 'top')),
+    b: rule(addPrefix(cssProp, 'bottom')),
+    x: [ rule(addPrefix(cssProp, 'left')), rule(addPrefix(cssProp, 'right')) ],
+    y: [ rule(addPrefix(cssProp, 'top')), rule(addPrefix(cssProp, 'bottom')) ]
+  }
 
-export const directionAliasStyles = ({
-  prop,
-  cssProp,
-  rule
-}) => createStyles({
-  ...cssProp && { [prop]: rule(cssProp) },
-  [prop + 'l']: rule(addPrefix(cssProp, 'left')),
-  [prop + 'r']: rule(addPrefix(cssProp, 'right')),
-  [prop + 't']: rule(addPrefix(cssProp, 'top')),
-  [prop + 'b']: rule(addPrefix(cssProp, 'bottom')),
-  [prop + 'x']: [ rule(addPrefix(cssProp, 'left')), rule(addPrefix(cssProp, 'right')) ],
-  [prop + 'y']: [ rule(addPrefix(cssProp, 'top')), rule(addPrefix(cssProp, 'bottom')) ]
-})
+  return createStyles({
+    ...cssProp && { [cssProp]: rule(cssProp) },
+    [addPrefix(cssProp, 'left')]: config.l,
+    [addPrefix(cssProp, 'right')]: config.r,
+    [addPrefix(cssProp, 'top')]: config.t,
+    [addPrefix(cssProp, 'bottom')]: config.b,
+    [addPrefix(cssProp, 'x')]: config.x,
+    [addPrefix(cssProp, 'y')]: config.y,
+    ...alias && {
+      ...cssProp && { [alias]: rule(cssProp) },
+      [alias + 'l']: config.l,
+      [alias + 'r']: config.r,
+      [alias + 't']: config.t,
+      [alias + 'b']: config.b,
+      [alias + 'x']: config.x,
+      [alias + 'y']: config.y
+    }
+  })
+}

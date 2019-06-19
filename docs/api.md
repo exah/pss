@@ -202,7 +202,7 @@
 import { space } from 'pss'
 ```
 
-Consistent `space` system for setting `margin`, or `padding`. Created with [spaceValue][168].
+Spacing system for [margin][79] and [padding][94]. Created with [spaceValue][168].
 
 **Component props:**
 
@@ -1350,7 +1350,7 @@ const Text = styled.p`
 import { margin } from 'pss'
 ```
 
-Same as [space][2] but for full margin css props.
+Margin [space][2] system.
 
 #### Parameters
 
@@ -1504,7 +1504,7 @@ const Box = styled.div`
 import { padding } from 'pss'
 ```
 
-Same as [space][2] but for full padding css props.
+Padding [space][2] space system.
 
 #### Parameters
 

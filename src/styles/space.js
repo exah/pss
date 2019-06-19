@@ -1,17 +1,12 @@
 import { combineStyles } from '../core'
-
-import {
-  spaceRule,
-  directionStyles,
-  directionAliasStyles
-} from '../.internal'
+import { spaceRule, directionStyles } from '../.internal'
 
 /**
  * ```js
  * import { margin } from 'pss'
  * ```
  *
- * Same as {@link space} but for full margin css props.
+ * Margin {@link space} system.
  *
  * @param {Object} props
  *
@@ -31,6 +26,7 @@ import {
  */
 
 export const margin = directionStyles({
+  alias: 'm',
   cssProp: 'margin',
   rule: spaceRule
 })
@@ -40,7 +36,7 @@ export const margin = directionStyles({
  * import { padding } from 'pss'
  * ```
  *
- * Same as {@link space} but for full padding css props.
+ * Padding {@link space} space system.
  *
  * @param {Object} props
  *
@@ -60,6 +56,7 @@ export const margin = directionStyles({
  */
 
 export const padding = directionStyles({
+  alias: 'p',
   cssProp: 'padding',
   rule: spaceRule
 })
@@ -69,8 +66,7 @@ export const padding = directionStyles({
  * import { space } from 'pss'
  * ```
  *
- * Consistent `space` system for setting `margin`, or `padding`. Created with {@link spaceValue}.
- *
+ * Spacing system for {@link margin} and {@link padding}. Created with {@link spaceValue}.
  *
  * **Component props:**
  *
@@ -166,14 +162,6 @@ export const padding = directionStyles({
  */
 
 export const space = combineStyles(
-  directionAliasStyles({
-    prop: 'm',
-    cssProp: 'margin',
-    rule: spaceRule
-  }),
-  directionAliasStyles({
-    prop: 'p',
-    cssProp: 'padding',
-    rule: spaceRule
-  })
+  margin,
+  padding
 )
