@@ -1,5 +1,4 @@
-import PropTypes from 'prop-types'
-import { isArr } from '@exah/utils'
+const PropTypes = require('prop-types')
 
 var valuePropType = PropTypes.oneOfType([
   PropTypes.bool,
@@ -32,7 +31,7 @@ var propType = PropTypes.oneOfType([
  */
 
 function getPropTypes (input) {
-  if (!isArr(input.props)) {
+  if (!Array.isArray(input.props)) {
     console.warn('First argument must be function with `.props` static property')
     return
   }
@@ -45,7 +44,7 @@ function getPropTypes (input) {
   )
 }
 
-export {
+module.exports = {
   propType,
   getPropTypes
 }
