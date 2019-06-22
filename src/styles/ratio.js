@@ -47,15 +47,13 @@ const ratio = createStyles({
       return {
         '&::before': {
           content: `''`,
-          width: 1,
-          marginLeft: -1,
+          width: 0,
           float: 'left',
-          height: 0,
           paddingBottom: size
         },
         '&::after': { // clearfix
           content: `''`,
-          display: 'table',
+          display: 'block',
           clear: 'both'
         }
       }
