@@ -1,6 +1,6 @@
 {
   "name": "pss",
-  "version": "5.0.0-7",
+  "version": "5.0.0-8",
   "description": "Prop styles system for styled components",
   "author": "John Grishin <hi@johngrish.in>",
   "license": "MIT",
