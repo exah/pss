@@ -27,6 +27,7 @@ import { spaceRule, directionStyles } from '../.internal'
 
 export const margin = directionStyles({
   alias: 'm',
+  axes: true,
   cssProp: 'margin',
   rule: spaceRule
 })
@@ -57,6 +58,7 @@ export const margin = directionStyles({
 
 export const padding = directionStyles({
   alias: 'p',
+  axes: true,
   cssProp: 'padding',
   rule: spaceRule
 })

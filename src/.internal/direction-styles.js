@@ -5,15 +5,14 @@ import { addPrefix } from '../utils'
 export const directionStyles = ({
   cssProp,
   rule,
-  alias
+  alias,
+  axes
 }) => {
   const config = {
     l: rule(addPrefix(cssProp, 'left')),
     r: rule(addPrefix(cssProp, 'right')),
     t: rule(addPrefix(cssProp, 'top')),
     b: rule(addPrefix(cssProp, 'bottom')),
-    x: [ rule(addPrefix(cssProp, 'left')), rule(addPrefix(cssProp, 'right')) ],
-    y: [ rule(addPrefix(cssProp, 'top')), rule(addPrefix(cssProp, 'bottom')) ]
   }
 
   return createStyles({
@@ -22,16 +21,20 @@ export const directionStyles = ({
     [addPrefix(cssProp, 'right')]: config.r,
     [addPrefix(cssProp, 'top')]: config.t,
     [addPrefix(cssProp, 'bottom')]: config.b,
-    [addPrefix(cssProp, 'x')]: config.x,
-    [addPrefix(cssProp, 'y')]: config.y,
+    ...axes && {
+      [addPrefix(cssProp, 'x')]: [ config.l, config.r ],
+      [addPrefix(cssProp, 'y')]: [ config.t, config.b ],
+    },
     ...alias && {
       ...cssProp && { [alias]: rule(cssProp) },
       [alias + 'l']: config.l,
       [alias + 'r']: config.r,
       [alias + 't']: config.t,
       [alias + 'b']: config.b,
-      [alias + 'x']: config.x,
-      [alias + 'y']: config.y
+      ...axes && {
+        [alias + 'x']: [ config.l, config.r ],
+        [alias + 'y']: [ config.t, config.b ]
+      }
     }
   })
 }
