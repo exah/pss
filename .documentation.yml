@@ -66,6 +66,7 @@ toc:
       - rem
       - px
       - splitUnit
+      - getPropTypes
 
   - name: Custom Styles
     children:
