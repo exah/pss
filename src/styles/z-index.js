@@ -1,17 +1,16 @@
-import { createStyles, rule } from '../core'
-import { boolValue } from '../values'
+import { style } from '../core'
 
 /**
  * ```js
  * import { zIndex } from 'pss'
  * ```
  *
- * prop       | css       | type                          | value | true   | false
- * :----------|:----------|:------------------------------|:------|:-------|:--------
- * `zIndex`   | `z-index` | `String`, `Number`, `Boolean` | ✓     | `1`    | `auto`
+ * prop       | css       | theme    | value | default
+ * :----------|:----------|:---------|:------|:------
+ * `zIndex`   | `z-index` | `zIndex` | ✓     | —
  *
  *
- * Related: {@link position}, {@link rule}, {@link boolValue}, {@link sizeValue}.
+ * Related: {@link position}, {@link rule}, {@link style}.
  *
  * @param {Object} props
  *
@@ -25,10 +24,12 @@ import { boolValue } from '../values'
  *
  * @example
  * <Box zIndex={10} /> // position: relative; z-index: 10;
+ * <Box zIndex='modal' /> // position: relative; z-index: 100;
  */
 
-const zIndex = createStyles({
-  zIndex: rule('zIndex', boolValue(1, 'auto'))
+const zIndex = style({
+  cssProp: 'zIndex',
+  themeKey: 'zIndex'
 })
 
 export {

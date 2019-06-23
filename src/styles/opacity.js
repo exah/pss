@@ -1,18 +1,15 @@
-import { createStyles, rule } from '../core'
-import { boolValue } from '../values'
+import { style } from '../core'
 
 /**
  * ```js
  * import { opacity } from 'pss'
  * ```
  *
- * prop         | css             | type                 | value | true       | false
- * :------------|:----------------|:---------------------|:------|:-----------|:--------
- * `opacity`    | `opacity`       | `0...1`, `Boolean`   | ✓     | `1`        | `0`
+ * prop         | css        | theme   | value   | default
+ * :------------|:-----------|:------- |:--------|:---------
+ * `opacity`    | `opacity`  | —       | `0...1` | —
  *
- * ⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
- *
- * Related: {@link rule}, {@link boolValue}.
+ * Related: {@link rule}.
  *
  * @param {Object} props
  *
@@ -26,10 +23,8 @@ import { boolValue } from '../values'
  * @example
  * <Box opacity='1' /> // → opacity: 1
  * <Box opacity={0.5} /> // → opacity: 0.5
- * <Box opacity={true} /> // → opacity: 1
- * <Box opacity={false} /> // → opacity: 0
  */
 
-export const opacity = createStyles({
-  opacity: rule('opacity', boolValue(1, 0))
+export const opacity = style({
+  cssProp: 'opacity'
 })

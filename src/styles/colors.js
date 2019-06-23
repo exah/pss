@@ -23,9 +23,9 @@ import { colorValue } from '../values'
  *   + `black` → `theme.color.black`
  *   + `accent` → `theme.palette.default.accent`
  *
- * **`Boolean` values:**
+ * **Default value with `auto` or `true`:**
  *
- * - `true` is different in each prop (takes specified value in `theme.palette[theme.default.palette]`)
+ * - Different in each prop (take value from `theme.palette[theme.default.palette]`)
  *   - `bg` → `theme.palette.default.bg`
  *   - `fg` → `theme.palette.default.fg`
  *   - `tm` → `theme.palette.default.fg`, `theme.palette.default.bg`
@@ -71,6 +71,7 @@ import { colorValue } from '../values'
  * @example
  * // theme.palette.default.bg
  * <Box bg /> // background-color: #ffffff
+ * <Box bg='auto' /> // background-color: #ffffff
  *
  * // theme.colors.black
  * <Box fg='black' /> // color: #222222
@@ -80,6 +81,7 @@ import { colorValue } from '../values'
  *
  * // theme.palette.default.bg, theme.palette.default.fg
  * <Box tm /> // background-color: #ffffff; color: #222222
+ * <Box tm='auto' /> // background-color: #ffffff; color: #222222
  *
  * // theme.palette.inverted.bg, theme.palette.inverted.fg
  * <Box tm='inverted' /> // background-color: #222222; color: #fffffff
@@ -93,8 +95,8 @@ const colors = createStyles({
     rule('backgroundColor', colorValue('bg')),
     rule('color', colorValue('fg'))
   ],
-  fg: rule('color', colorValue('fg')),
-  bg: rule('backgroundColor', colorValue('bg'))
+  bg: rule('backgroundColor', colorValue('bg')),
+  fg: rule('color', colorValue('fg'))
 })
 
 export {

@@ -1,5 +1,4 @@
-import { BOX_STYLE_KEY } from '../constants'
-import { createVariant } from '../core'
+import { variant } from '../core'
 
 /**
  * ```js
@@ -8,7 +7,7 @@ import { createVariant } from '../core'
  *
  * Global box styles system, like in [Sketch](https://sketchapp.com/docs/styling/shared-styles/).
  *
- * Related: {@link createVariant}.
+ * Related: {@link variant}.
  *
  * Add `boxStyle` to `theme`:
  *
@@ -37,11 +36,19 @@ import { createVariant } from '../core'
  *
  * @example
  * <Box boxStyle='red' /> // → background-color: red; color: white;
- * <Box boxStyle={[ 'red', 'shadow' ]} /> // → background-color: red; color: white; box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
+ * <Box boxStyle='shadow' /> // → box-shadow: 0 0 20px 0 rgba(0, 0, 0, .3);
+ *
+ * @example
+ * const Box = styled.div`
+ *   ${boxStyle.variant}
+ * `
+ *
+ * <Box variant='red' /> // → background-color: red; color: white;
+ * <Box variant='shadow'  /> // → box-shadow: 0 0 20px 0 rgba(0, 0,
  */
 
-const boxStyle = createVariant({
-  themeKey: BOX_STYLE_KEY,
+const boxStyle = variant({
+  themeKey: 'boxStyle',
   prop: 'boxStyle'
 })
 

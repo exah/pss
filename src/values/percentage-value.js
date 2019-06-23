@@ -3,8 +3,8 @@ import { px } from '../utils'
 
 const percentage = (n) => (n > 0 && n <= 1) ? `${n * 100}%` : n
 
-export function createPercentageValue ({ transformValue = identity } = {}) {
-  return (defaultValue) => (input) =>
+export function createPercentageValue ({ transformValue = identity }) {
+  return (defaultValue = transformValue) => (input) =>
     isNum(input) ? transformValue(percentage(input)) : defaultValue
 }
 

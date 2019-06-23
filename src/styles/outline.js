@@ -8,13 +8,11 @@ const randomHexColor = () =>
  * import { outline } from 'pss'
  * ```
  *
- * prop         | css             | type                 | value | true       | false
- * :------------|:----------------|:---------------------|:------|:-----------|:--------
- * `outline`    | `outline`       | `String`, `'debug'`* | ✓     | —         | —
+ * prop         | css        | theme | value | default
+ * :------------|:-----------|:------|:------|:----------
+ * `outline`    | `outline`  | —     | ✓     | —
  *
  * \* Random hex color, useful for debugging layout
- *
- * ⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
  *
  * Related: {@link rule}.
  *

@@ -1,25 +1,38 @@
-import { createStyles, rule } from '../core'
-import { boolValue } from '../values'
+import { isStr } from '@exah/utils'
+import { style } from '../core'
+
+const touchStyle = { WebkitOverflowScrolling: 'touch' }
+const notTouch = (item) => item !== 'touch'
+
+export function overflowValue (input) {
+  if (isStr(input)) {
+    const parsed = input.split(/\s+/)
+    const values = parsed.filter(notTouch)
+    const isTouch = parsed.length !== values.length
+
+    if (values.length === 1) {
+      return {
+        overflow: values[0],
+        ...isTouch && touchStyle
+      }
+    }
+
+    return {
+      overflowX: values[0],
+      overflowY: values[1],
+      ...isTouch && touchStyle
+    }
+  }
+}
 
 /**
- * @private DEPRECATED
- *
  * ```js
  * import { overflow } from 'pss'
  * ```
  *
- * prop      | css                              | type                | value | true                   | false
- * :---------|:---------------------------------|:--------------------|:------|:-----------------------|:--------
- * `ov`      | `overflow`                       | `String`, `Boolean` | ✓     | `auto`                 | `visible`
- * `ovx`     | `overflow-x`                     | `String`, `Boolean` | ✓     | `auto`                 | `visible`
- * `ovy`     | `overflow-y`                     | `String`, `Boolean` | ✓     | `auto`                 | `visible`
- * `ovh`     | `overflow`                       | `true`              | —     | `hidden`               | —
- * `ovsx`    | `overflow-x` <br /> `overflow-y` | `true`              | —     | `auto` <br /> `hidden` | —
- * `ovsy`    | `overflow-x` <br /> `overflow-y` | `true`              | —     | `hidden` <br /> `auto` | —
- * `ovtouch` | `-webkit-overflow-scrolling`     | `true`              | —     | `touch`                | —
+ * Shorthand for `overflow-x`, `overflow-y` and `-webkit-overflow-scrolling`.
  *
- *
- * Related: {@link rule}, {@link boolValue}.
+ * Related: {@link style}.
  *
  * @param {Object} props
  *
@@ -31,19 +44,12 @@ import { boolValue } from '../values'
  * `
  *
  * @example
- * <Box ovh /> // overflow: hidden
+ * <Box overflow='hidden' /> // overflow: hidden
+ * <Box overflow='hidden auto' /> // overflow-x: hidden; overflow-y: auto
+ * <Box overflow='auto touch' /> // overflow: auto; -webkit-overflow-scrolling: touch
  */
 
-const overflow = createStyles({
-  ov: rule('overflow', boolValue('auto', 'visible')),
-  ovx: rule('overflowX', boolValue('auto', 'visible')),
-  ovy: rule('overflowY', boolValue('auto', 'visible')),
-  ovh: { overflow: 'hidden' },
-  ovsx: { overflowX: 'auto', overflowY: 'hidden' },
-  ovsy: { overflowX: 'hidden', overflowY: 'auto' },
-  ovtouch: { 'WebkitOverflowScrolling': 'touch' }
+export const overflow = style({
+  prop: 'overflow',
+  getValue: overflowValue
 })
-
-export {
-  overflow
-}

@@ -1,61 +1,41 @@
-import { isBool, isNum, isFn, identity, isStr } from '@exah/utils'
-import { everyMedia } from '../core/every-media'
-import { wrap } from '../utils'
+import { themeValue } from '../values/theme-value'
+import { createStyles } from './create-styles'
+import { createRule } from './create-rule'
 
 /**
  * ```js
  * import { style } from 'pss'
  * ```
  *
- * Create style from value. Must be used with {@link createStyles}.
- *
- * Related: {@link rule}.
+ * Create style for single prop.
+ * Combines {@link createStyles} and {@link createRule} in single function.
+ * Inspired by [`styled-system`](https://github.com/jxnblk/styled-system).
  *
  * @param {Object} options
  *
  * @example
- * import pss, { style, spaceValue } from 'pss'
+ * import pss, { style } from 'pss'
  *
- * const Box = styled.div(pss({
- *   gap: style({
- *     getStyle: (val) => ({ margin: val, padding: val }),
- *     getValue: spaceValue()
- *   })
- * }))
+ * const opacity = style({
+ *   cssProp: 'opacity'
+ * })
+ *
+ * const Box = styled.div`
+ *   ${opacity}
+ * `
  *
  * @example
- * // Add theme to ThemeProvider
- * <ThemeProvider theme={theme}>
- *   <Box gap={1} /> // → margin: 8px; padding: 8px;
- * </ThemeProvider>
+ * <Box opacity={0.5} /> // → opacity: 0.5
  */
 
-function style ({
+export const style = ({
   cssProp,
-  getStyle = wrap(cssProp),
-  getValue = identity
-}) {
-  function getValues (get, input, props, mediaKey) {
-    const result = get(input, props, mediaKey)
-
-    if (isBool(result)) {
-      return null
-    }
-
-    if (result === undefined && (isStr(input) || isNum(input))) {
-      return input
-    }
-
-    return isFn(result) ? getValues(result, input, props, mediaKey) : result
-  }
-
-  return (input, props, mediaKey) => everyMedia(
-    props,
-    getValues(getValue, input, props, mediaKey),
-    (result) => getStyle(result, input, props, mediaKey)
-  )
-}
-
-export {
-  style
-}
+  themeKey,
+  transformValue,
+  scale,
+  getter,
+  prop = cssProp,
+  getValue = themeKey ? themeValue({ themeKey, transformValue, scale, getter }) : undefined
+}) => createStyles({
+  [prop]: createRule({ cssProp, getValue })
+})

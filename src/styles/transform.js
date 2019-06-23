@@ -1,15 +1,13 @@
-import { createStyles, rule } from '../core'
+import { style } from '../core'
 
 /**
  * ```js
  * import { transform } from 'pss'
  * ```
  *
- * prop         | css             | type                 | value | true       | false
- * :------------|:----------------|:---------------------|:------|:-----------|:--------
- * `transform` | `transform`      | `String`             | ✓     | —         | —
- *
- * ⚠️ This prop may not be filtered by CSS-in-JS libraries, so you may need to provide custom prop filtering.
+ * prop        | css         | theme | value | default
+ * :-----------|:------------|:------|:------|:----------
+ * `transform` | `transform` | —     | ✓     | —
  *
  * Related: {@link rule}.
  *
@@ -26,6 +24,6 @@ import { createStyles, rule } from '../core'
  * <Box transform='rotate(90deg)' /> // → transform: rotate(90deg)
  */
 
-export const transform = createStyles({
-  transform: rule('transform')
+export const transform = style({
+  cssProp: 'transform'
 })

@@ -1,17 +1,16 @@
-import { createStyles, rule } from '../core'
-import { boolValue } from '../values'
+import { createStyles } from '../core'
 
 /**
  * ```js
  * import { boxContentAlignment } from 'pss'
  * ```
  *
- * prop             | css               | type                | value | true            | false
- * :----------------|:------------------|:--------------------|:------|:----------------|:--------
- * `alignContent`   | `align-content`   | `String`            | ✓     | —               | —
- * `justifyContent` | `justify-content` | `String`, `Boolean` | ✓     | `space-between` | `normal`
+ * prop             | css               | theme   | value | default
+ * :----------------|:------------------|:--------|:------|:--------
+ * `alignContent`   | `align-content`   | —       | ✓     | —
+ * `justifyContent` | `justify-content` | —       | ✓     | —
  *
- * Related: {@link rule}, {@link boolValue}.
+ * Related: {@link rule}
  *
  * @param {Object} props
  *
@@ -31,8 +30,8 @@ import { boolValue } from '../values'
  */
 
 export const boxContentAlignment = createStyles({
-  alignContent: rule('alignContent'),
-  justifyContent: rule('justifyContent', boolValue('space-between', 'normal')) // COMPAT
+  alignContent: true,
+  justifyContent: true
 })
 
 /**
@@ -40,10 +39,10 @@ export const boxContentAlignment = createStyles({
  * import { boxItemsAlignment } from 'pss'
  * ```
  *
- * prop             | css               | type      | value | true  | false
- * :----------------|:------------------|:----------|:------|:------|:--------
- * `alignItems`     | `align-items`     | `String`  | ✓     | —     | —
- * `justifyItems`   | `justify-items`   | `String`  | ✓     | —     | —
+ * prop             | css               | theme | value | default
+ * :----------------|:------------------|:------|:------|:------
+ * `alignItems`     | `align-items`     | —     | ✓     | —
+ * `justifyItems`   | `justify-items`   | —     | ✓     | —
  *
  * Related: {@link rule}
  *
@@ -65,8 +64,8 @@ export const boxContentAlignment = createStyles({
  */
 
 export const boxItemsAlignment = createStyles({
-  alignItems: rule('alignItems'),
-  justifyItems: rule('justifyItems')
+  alignItems: true,
+  justifyItems: true
 })
 
 /**
@@ -74,10 +73,10 @@ export const boxItemsAlignment = createStyles({
  * import { boxSelfAlignment } from 'pss'
  * ```
  *
- * prop          | css            | type      | value | true    | false
- * :-------------|:---------------|:----------|:------|:--------|:--------
- * `alignSelf`   | `align-self`   | `String`  | ✓     | —       | —
- * `justifySelf` | `justify-self` | `String`  | ✓     | —       | —
+ * prop          | css            | theme     | value | default
+ * :-------------|:---------------|:----------|:------|:--------
+ * `alignSelf`   | `align-self`   | —         | ✓     | —
+ * `justifySelf` | `justify-self` | —         | ✓     | —
  *
  * Related: {@link rule}
  *
@@ -97,6 +96,6 @@ export const boxItemsAlignment = createStyles({
  */
 
 export const boxSelfAlignment = createStyles({
-  justifySelf: rule('justifySelf'),
-  alignSelf: rule('alignSelf')
+  justifySelf: true,
+  alignSelf: true
 })

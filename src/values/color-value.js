@@ -1,14 +1,16 @@
-import { identity, fallbackTo, isStr, isArr, path } from '@exah/utils'
-import { PALETTE_KEY, COLORS_KEY } from '../constants'
-import { themePath, getDefault } from '../getters'
+import { identity, fallbackTo, isStr, path } from '@exah/utils'
+import { themePath, getDefault, getFirst } from '../utils'
 
 export function createColorValue ({
-  themeColorKey = COLORS_KEY,
-  themePaletteKey = PALETTE_KEY,
-  colorsGetter = themePath(themeColorKey, {}),
-  paletteGetter = themePath(themePaletteKey, {})
+  themeColorKey = 'color',
+  themePaletteKey = 'palette',
+  colorsScale = {},
+  paletteScale = {},
+  colorsGetter = themePath(themeColorKey, colorsScale),
+  paletteGetter = themePath(themePaletteKey, paletteScale),
+  defaultKeyword = 'auto'
 } = {}) {
-  const getColor = (defaultColorName) => (colorName) => (props) => {
+  const getColor = (defaultColorName) => (colorName, props) => {
     const colors = colorsGetter(props)
     const palettes = paletteGetter(props)
     const defaultPaletteName = getDefault(themePaletteKey)(props)
@@ -18,11 +20,13 @@ export function createColorValue ({
       ...colors
     }
 
-    const color = colorName === true
+    const color = colorName === true || colorName === defaultKeyword
       ? path(defaultColorName)(activeColors)
       : isStr(colorName) ? path(colorName)(activeColors) : null
 
-    if (!colorName) return color
+    if (colorName == null) {
+      return color
+    }
 
     return fallbackTo(
       color,
@@ -33,14 +37,8 @@ export function createColorValue ({
   return (key, transformValue = identity, defaultValue) => {
     const getValue = getColor(key)
 
-    return (input = true, props) => {
-      let color = getValue(input)(props)
-
-      if (isArr(color)) {
-        color = color[0]
-      } else if (color != null && color.default != null) {
-        color = color.default
-      }
+    return (input, props) => {
+      const color = getFirst(getValue(input, props))
 
       return fallbackTo(
         isStr(color) ? transformValue(color, props) : color,
@@ -82,7 +80,8 @@ export function createColorValue ({
  *
  * @example
  * // theme.palette.default.fg
- * <Box fg={true} /> // background-color: #222222
+ * <Box fg='auto' /> // background-color: #222222
+ * <Box fg /> // background-color: #222222
  *
  * // theme.colors.black
  * <Box fg='black' /> // color: #222222
@@ -91,7 +90,8 @@ export function createColorValue ({
  * <Box fg='accent' /> // color: #ff0000
  *
  * // theme.palette.default.shadow
- * <Box shadow={true} /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
+ * <Box shadow='auto' /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
+ * <Box shadow /> // box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2)
  *
  * // theme.palette.default.fg, theme.palette.default.bg
  * <Box tm='default' /> // color: #222222; background-color: #ffffff

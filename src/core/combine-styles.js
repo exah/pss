@@ -17,10 +17,6 @@ import { createStyles } from './create-styles'
  * const Space = styled.div`
  *   ${space}
  * `
- *
- * Space.propTypes = {
- *   ...space.propTypes
- * }
  */
 
 export const combineStyles = (...fns) => createStyles(fns.reduce((acc, fn) => ({

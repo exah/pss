@@ -1,21 +1,29 @@
-import { createStyles, rule } from '../core'
-import { boolValue } from '../values'
+import { combineStyles } from '../core'
+import { fontFamily } from './font-family'
+import { fontSize } from './font-size'
+import { fontWeight } from './font-weight'
+import { letterSpacing } from './letter-spacing'
+import { lineHeight } from './line-height'
+import { textColor } from './text-color'
+import { textAlign } from './text-align'
+import { whiteSpace } from './white-space'
 
 /**
  * ```js
  * import { text } from 'pss'
  * ```
  *
- * prop           | css              | type               | value | true               | false
- * :--------------|:-----------------|:-------------------|:------|:-------------------|:--------
- * `fontSize`     | `font-size`      | `String`, `Number` | ✓     | `1rem`             | `medium`
- * `fontWeight`   | `font-weight`    | `String`           | ✓     | —                  | —
- * `lineHeight`   | `line-height`    | `String`, `Number` | ✓     | `normal`           | —
- * `letterSpacing`| `letter-spacing` | `String`, `Number` | ✓     | `normal`           | —
- * `textAlign`    | `text-align`     | `String`           | ✓     | —                  | —
- * `whiteSpace`   | `white-space`    | `String`           | ✓     | —                  | —
+ * Combination of
+ *   - {@link fontFamily}
+ *   - {@link fontSize}
+ *   - {@link fontWeight}
+ *   - {@link letterSpacing}
+ *   - {@link lineHeight}
+ *   - {@link textAlign}
+ *   - {@link textColor}
+ *   - {@link whiteSpace}
  *
- * Related: {@link fontFamily}, {@link ellipsis}, {@link rule}, {@link boolValue}.
+ * Related: {@link textStyle}, {@link combineStyles}.
  *
  * @param {Object} props
  *
@@ -28,14 +36,16 @@ import { boolValue } from '../values'
  *
  * @example
  * <Text textAlign='center' /> // text-align: center
- * <Text lineHeight /> // line-height: normal
+ * <Text lineHeight='normal' /> // line-height: normal
  */
 
-export const text = createStyles({
-  fontSize: rule('fontSize', boolValue('1rem')),
-  fontWeight: rule('fontWeight'),
-  lineHeight: rule('lineHeight', boolValue('normal')),
-  letterSpacing: rule('letterSpacing', boolValue('normal')),
-  textAlign: rule('textAlign'),
-  whiteSpace: rule('whiteSpace')
-})
+export const text = combineStyles(
+  fontFamily,
+  fontSize,
+  fontWeight,
+  letterSpacing,
+  lineHeight,
+  textAlign,
+  textColor,
+  whiteSpace
+)

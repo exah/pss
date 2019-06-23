@@ -1,19 +1,15 @@
-import { createStyles, rule, mediaStyle } from '../core'
-import { boolValue } from '../values'
+import { style } from '../core'
 
 /**
  * ```js
  * import { display } from 'pss'
  * ```
  *
- * prop       | css                      | type                 | value    | true      | false
- * :----------|:-------------------------|:---------------------|:---------|:--------- |:--------
- * `display`  | [`display`][display-url] | `String`, `Boolean`  | ✓        | `initial` | `none`
- * `hideOn`   | `display: none`          | key in `theme.media` | mediaKey | —         | —
+ * prop       | css       | theme    | value    | default
+ * :----------|:----------|:---------|:---------|:---------
+ * `display`  | `display` | —        | ✓        | —
  *
- * [display-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/display
- *
- * Related: {@link boolValue}, {@link rule}, {@link mediaStyle}.
+ * Related: {@link hide}, {@link rule}.
  *
  * @param {Object} props
  *
@@ -25,13 +21,11 @@ import { boolValue } from '../values'
  * `
  *
  * @example
- * <Box display='inline-block' hideOn='sm' />
- * // display: inline-block; @media (max-width: 600px) { display: none }
+ * <Box display='inline-block' /> // display: inline-block;
  */
 
-const display = createStyles({
-  display: rule('display', boolValue('initial', 'none')),
-  hideOn: mediaStyle({ display: 'none' }) // COMPAT
+const display = style({
+  cssProp: 'display'
 })
 
 export {

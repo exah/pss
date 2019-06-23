@@ -10,65 +10,49 @@ toc:
       - space
       - sizes
       - colors
+      - box
       - boxStyle
+      - text
       - textStyle
 
   - name: Styles
     children:
       - border
+      - borderColor
+      - borderRadius
       - boxContentAlignment
       - boxItemsAlignment
       - boxSelfAlignment
-      - cursor
-      - direction
+      - boxShadow
       - display
-      - ellipsis
       - flex
-      - flexItem
-      - float
+      - flexContainer
       - fontFamily
+      - fontSize
+      - fontWeight
       - gap
-      - grid
+      - gridContainer
       - gridItem
+      - hide
+      - letterSpacing
+      - lineHeight
+      - margin
       - opacity
+      - order
       - outline
+      - overflow
+      - padding
       - position
-      - radius
+      - positionOffsets
       - ratio
-      - text
+      - textAlign
+      - textColor
+      - textOverflow
       - transform
       - transition
+      - whiteSpace
       - zIndex
-
-  - name: Atomic Styles
-    children:
       - atomic
-      - atomicDirection
-      - atomicDisplay
-      - atomicFlexItem
-      - atomicPosition
-      - atomicSizes
-
-  - name: Custom Styles
-    children:
-      - createStyles
-      - rule
-      - boolValue
-      - sizeValue
-      - percentageValue
-      - spaceValue
-      - colorValue
-      - themeValue
-      - style
-      - mediaStyle
-      - themeStyle
-      - createVariant
-
-  - name: Selectors
-    children:
-      - propSelector
-      - themeSelector
-      - combineSelectors
 
   - name: Mixins
     children:
@@ -82,3 +66,19 @@ toc:
       - rem
       - px
       - splitUnit
+      - getPropTypes
+
+  - name: Custom Styles
+    children:
+      - createStyles
+      - rule
+      - boolValue
+      - sizeValue
+      - percentageValue
+      - spaceValue
+      - colorValue
+      - themeValue
+      - mediaStyle
+      - createRule
+      - variant
+      - style

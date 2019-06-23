@@ -1,13 +1,13 @@
-import { createStyles, rule } from '../core'
+import { style } from '../core'
 
 /**
  * ```js
  * import { transition } from 'pss'
  * ```
  *
- * prop         | css             | type                 | value | true       | false
- * :------------|:----------------|:---------------------|:------|:-----------|:--------
- * `transition` | `transition`    | `String`             | ✓     | —         | —
+ * prop         | css          | theme  | value | default
+ * :------------|:-------------|:-------|:------|:--------
+ * `transition` | `transition` | —      | ✓     | —
  *
  *
  * Related: {@link rule}.
@@ -25,6 +25,6 @@ import { createStyles, rule } from '../core'
  * <Box transition='all .3s' /> // → transition: all .3s
  */
 
-export const transition = createStyles({
-  transition: rule('transition')
+export const transition = style({
+  cssProp: 'transition'
 })

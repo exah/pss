@@ -1,6 +1,5 @@
 import { DEFAULT_MEDIA_KEY } from '../constants'
-import { getMedia } from '../getters'
-import { wrapIfMedia } from '../utils'
+import { wrapIfMedia, getMedia } from '../utils'
 
 /**
  * ```js
@@ -15,7 +14,7 @@ import { wrapIfMedia } from '../utils'
  * import pss, { mediaStyle } from 'pss'
  *
  * const Box = styled.div(pss({
- *   hideOn: mediaStyle({ display: 'none' })
+ *   hide: mediaStyle({ display: 'none' })
  * }))
  *
  * @example
@@ -27,7 +26,7 @@ import { wrapIfMedia } from '../utils'
  * }
  *
  * <ThemeProvider theme={theme}>
- *   <Box hideOn='sm' /> // @media (max-width: 600px) { display: 'none' }
+ *   <Box hide='sm' /> // @media (max-width: 600px) { display: 'none' }
  * </ThemeProvider>
  */
 

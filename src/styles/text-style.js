@@ -1,5 +1,4 @@
-import { TEXT_STYLE_KEY } from '../constants'
-import { createVariant } from '../core'
+import { variant } from '../core'
 
 /**
  * ```js
@@ -8,7 +7,7 @@ import { createVariant } from '../core'
  *
  * Global text styles system, like in [Sketch](https://sketchapp.com/docs/text/text-styles).
  *
- * Related: {@link createVariant}, {@link typography}.
+ * Related: {@link variant}, {@link text}.
  *
  * Add `textStyle` to `theme`:
  *
@@ -18,7 +17,7 @@ import { createVariant } from '../core'
  *     default: {
  *       fontSize: '16px',
  *       lineHeight: 1.2,
- *       fontWeight: normal,
+ *       fontWeight: 'normal',
  *       fontFamily: 'system-ui'
  *     },
  *     heading: {
@@ -41,12 +40,20 @@ import { createVariant } from '../core'
  * `
  *
  * @example
- * <Box textStyle={true} /> // → `theme.textStyle.default`
+ * <Box textStyle='auto' /> // → `theme.textStyle.default`
  * <Box textStyle='heading' /> // → `theme.textStyle.heading`
+ *
+ * @example
+ * const Text = styled.div`
+ *   ${textStyle.variant}
+ * `
+ *
+ * <Text variant='auto' /> // → `theme.textStyle.default`
+ * <Text variant='heading' /> // → `theme.textStyle.heading`
  */
 
-const textStyle = createVariant({
-  themeKey: TEXT_STYLE_KEY,
+const textStyle = variant({
+  themeKey: 'textStyle',
   prop: 'textStyle'
 })
 

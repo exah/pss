@@ -1,17 +1,21 @@
-import { FONT_KEY } from '../constants'
-import { createVariant } from '../core'
+import { style } from '../core'
 
 /**
  * ```js
  * import { fontFamily } from 'pss'
  * ```
+ * prop         | css           | theme        | value | default
+ * :------------|:--------------|:-------------|:------|:----------------------
+ * `fontFamily` | `font-family` | `fontFamily` | ✓     | `theme.fontFamily.default`
  *
- * Set `fontFamly` from `theme`:
+ * Related: {@link text}, {@link ellipsis}, {@link rule}, {@link themeValue}.
+ *
+ * Set `font-family` from `theme`:
  *
  * ```js
  * const theme = {
  *   default: {
- *     fontFamily: 'ui'
+ *     fontFamily: 'ui' // this can be changed in runtime, default to `default`
  *   },
  *   fontFamily: {
  *     heading: 'Times',
@@ -20,7 +24,7 @@ import { createVariant } from '../core'
  * }
  * ```
  *
- * Related: {@link createVariant}.
+ * Related: {@link style}.
  *
  * @param {Object} props
  *
@@ -32,15 +36,15 @@ import { createVariant } from '../core'
  * `
  *
  * @example
- * <Text fontFamily={true} /> // → font-family: Helvetica
+ * <Text fontFamily /> // → font-family: Helvetica
+ * <Text fontFamily='auto' /> // → font-family: Helvetica
  * <Text fontFamily='ui' /> // → font-family: Helvetica
  * <Text fontFamily='heading' /> // → font-family: Times
  * <Text fontFamily='Comic Sans' /> // → font-family: Comic Sans
  */
 
-const fontFamily = createVariant({
-  themeKey: FONT_KEY,
-  prop: 'fontFamily',
+const fontFamily = style({
+  themeKey: 'fontFamily',
   cssProp: 'fontFamily'
 })
 

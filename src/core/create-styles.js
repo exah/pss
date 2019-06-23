@@ -1,41 +1,15 @@
 import {
   isFn,
-  isPlainObj,
+  path,
+  compose,
+  isObj,
   toArr,
   reduceObj,
   mapObj
 } from '@exah/utils'
 
-import {
-  MEDIA_KEY
-} from '../constants'
-
-import {
-  getMedia,
-  getDefault,
-  getThemeMedia
-} from '../getters'
-
-import {
-  wrapIfMedia
-} from '../utils'
-
-import {
-  propType
-} from '../prop-type'
-
-function handleStyle (style, input, props, mediaKey) {
-  // selector
-  if (isFn(input)) {
-    return input(props, (value) => handleStyle(style, value, props, mediaKey))
-  }
-
-  if (isFn(style)) {
-    return style(input, props, mediaKey)
-  }
-
-  return input === true ? style : null
-}
+import { wrapIfMedia, wrap, getThemeMedia, isMediaKey } from '../utils'
+import { rule } from './rule'
 
 /**
  * ```js
@@ -57,16 +31,16 @@ function handleStyle (style, input, props, mediaKey) {
  *
  * In component prop accepts values:
  *
- * - {@link Boolean} — enable / disable default style value
+ * - {@link Boolean} — enable / disable simple styles or default {@link variant}
  *
  *    ```js
  *    const Comp = styled.div(createStyles({ red: { color: 'red' } }))
  *
- *    <Comp red={true} /> // → color: red
+ *    <Comp red /> // → color: red
  *    <Comp red={false} /> // → 🤷‍♂️
  *    ```
  *
- * - {@link String}, {@link Number} or {@link Array} — handled in functional styles
+ * - {@link Boolean}, {@link String}, {@link Number} — handled in functional styles
  *
  *    ```js
  *    const Comp = styled.div(createStyles({ width: (input) => ({ width: input } })))
@@ -82,7 +56,7 @@ function handleStyle (style, input, props, mediaKey) {
  *
  *
  *
- * @param {Object} [styles = {}]
+ * @param {Object} stylesMap
  * @return {Function} `(props) => styles`
  *
  * @example
@@ -99,10 +73,6 @@ function handleStyle (style, input, props, mediaKey) {
  * const Box = styled.div`
  *   ${styles}
  * `
- *
- * Box.propTypes = {
- *   ...styles.propTypes
- * }
  *
  * @example
  * <Box display='inline-flex' /> // → display: inline-flex
@@ -124,28 +94,44 @@ function handleStyle (style, input, props, mediaKey) {
  * </ThemeProvider>
  */
 
-export function createStyles (styles) {
+export function createStyles (stylesMap) {
   function getStyles (props) {
-    const media = getThemeMedia(props)
-    const defaultMediaKey = getDefault(MEDIA_KEY)(props)
+    const themeMedia = getThemeMedia(props)
 
-    function mapStyles (input, mediaKey, style) {
+    function mapStyles ({ input, style, selector, mediaKey }) {
       // value with `theme.media` keys: { all: 0, M: 1 }
-      if (isPlainObj(input)) {
-        return mapObj((key, value) => mapStyles(value, key, style), input)
+      // or selector { '&:first-child': 1 }
+      if (isObj(input)) {
+        return mapObj(
+          (key, value) => (
+            isMediaKey(key, themeMedia)
+              ? mapStyles({ input: value, style, selector, mediaKey: key })
+              : mapStyles({ input: value, style, selector: key, mediaKey })
+          ),
+          input
+        )
       }
 
-      // general prop style
-      return wrapIfMedia(
-        getMedia(mediaKey === undefined ? defaultMediaKey : mediaKey, media),
-        handleStyle(style, input, props, mediaKey)
+      const wrapper = compose(
+        wrapIfMedia(path([ mediaKey ])(themeMedia)),
+        wrap(selector)
       )
+
+      if (isFn(style)) {
+        return wrapper(style(input, props, mediaKey))
+      }
+
+      if (input != null && input !== false) {
+        return wrapper(style)
+      }
     }
 
     return reduceObj(
-      (acc, propName, propValue) => acc.concat(
-        toArr(styles[propName])
-          .map((style) => mapStyles(propValue, undefined, style) || [])
+      (acc, name, input) => acc.concat(
+        toArr(stylesMap[name]).map((style) => mapStyles({
+          input,
+          style: style === true ? rule(name) : style
+        }))
       ),
       [],
       props
@@ -153,7 +139,7 @@ export function createStyles (styles) {
   }
 
   return Object.assign(getStyles, {
-    propTypes: mapObj((key) => ({ [key]: propType }), styles),
-    styles
+    props: Object.keys(stylesMap),
+    styles: stylesMap
   })
 }

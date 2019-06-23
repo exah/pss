@@ -1,4 +1,5 @@
-import { getThemeValue } from '../getters'
+import { path, identity, isObj, mapObj } from '@exah/utils'
+import { getDefault, themePath } from '../utils'
 
 /**
  * ```js
@@ -10,9 +11,6 @@ import { getThemeValue } from '../getters'
  * See {@link fontFamily}, {@link radius}.
  *
  * @param {Object} [options = {}]
- * @param {String} options.themeKey
- * @param {Function} [options.transformValue = identity]
- * @param {Function} [options.themeGetter = getThemeValue(themeKey, transformValue)]
  * @return {Function}
  *
  * @example
@@ -31,25 +29,42 @@ import { getThemeValue } from '../getters'
  * }))
  *
  * <ThemeProvider theme={theme}>
- *   <Text fontFamily='ui'>
+ *   <Text fontFamily='ui'> // → font-family: system-ui, Helvetica, sans-serif
  *     Hello World!
  *   </Text>
  * </ThemeProvider>
- *
- * @example
- * .css {
- *   font-family: system-ui, Helvetica, sans-serif;
- * }
  */
 
-function themeValue ({
+export function themeValue ({
   themeKey,
-  transformValue,
-  themeGetter = getThemeValue(themeKey, transformValue)
+  transformValue = identity,
+  fallback,
+  scale = {},
+  defaultKeyword = 'auto'
 } = {}) {
-  return (input, props, mediaKey) => themeGetter(input, input, mediaKey)(props)
-}
+  const getThemeScale = themePath(themeKey, scale)
 
-export {
-  themeValue
+  return (defaultValue = fallback) => (input, props, mediaKey) => {
+    const isDefaultValue = input === true || (defaultKeyword != null && input === defaultKeyword)
+
+    const valueKey = isDefaultValue
+      ? getDefault(themeKey)(props)
+      : input
+
+    const themeScale = getThemeScale(props)
+    const result = path(valueKey, defaultValue)(themeScale)
+
+    if (isObj(result)) {
+      if (result.hasOwnProperty(mediaKey)) {
+        return transformValue(result[mediaKey])
+      }
+
+      return mapObj(
+        (key, val) => ({ [key]: transformValue(val) }),
+        result
+      )
+    }
+
+    return transformValue(result)
+  }
 }

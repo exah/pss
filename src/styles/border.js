@@ -1,10 +1,10 @@
-import { createStyles, rule } from '../core'
-import { BORDER_KEY } from '../constants'
-import { themeValue, colorValue } from '../values'
+import { rule } from '../core'
+import { themeValue } from '../values'
+import { directionStyles } from '../.internal'
 import { px } from '../utils'
 
 const borderRule = (name) => rule(name, themeValue({
-  themeKey: BORDER_KEY,
+  themeKey: 'border',
   transformValue: px
 }))
 
@@ -13,23 +13,18 @@ const borderRule = (name) => rule(name, themeValue({
  * import { border } from 'pss'
  * ```
  *
- * Set border with values from theme, created with {@link themeValue} and {@link colorValue}.
+ * Set border with values from theme.
  *
- * prop       | css            | type                | value | true                   | false
- * :----------|:---------------|:--------------------|:------|:-----------------------|:--------
- * `bdc`      | `border-color` | `String`, `Boolean` | ✓     | `theme.palette.default.border` | —
- * `bd{dir}`* | `border-{dir}` | `String`            | ✓     | `theme.border.default` | —
+ * prop           | css            | theme    | value | default
+ * :--------------|:---------------|:---------|:------|:----------------------
+ * `border`       | `border`       | `border` | ✓     | `theme.border.default`
+ * `borderLeft`   | `border-left`  | `border` | ✓     | `theme.border.default`
+ * `borderRight`  | `border-right` | `border` | ✓     | `theme.border.default`
+ * `borderTop`    | `border-top`   | `border` | ✓     | `theme.border.default`
+ * `borderBottom` | `border-bottom`| `border` | ✓     | `theme.border.default`
  *
- * \* Directions:
  *
- * - `l` → `left`
- * - `r` → `right`
- * - `t` → `top`
- * - `b` → `bottom`
- * - `x` → `left`, `right`
- * - `y` → `top`, `bottom`
- *
- * Related: {@link colorValue}, {@link themeValue}, {@link rule},
+ * Related: {@link themeValue}, {@link rule},
  *
  * @param {Object} props
  *
@@ -41,19 +36,13 @@ const borderRule = (name) => rule(name, themeValue({
  * `
  *
  * @example
- * // border-left: 1px dotted; border-color: red
- * <Box bdl='1px dotted' bdc='red' />
+ * <Box border='1px dotted red' /> // → border: 1px dotted red
+ * <Box borderBottom='divider' /> // → theme.border.divider // → border-bottom: 1px dotted #f5f5f5
  */
 
-const border = createStyles({
-  bd: borderRule('border'),
-  bdl: borderRule('borderLeft'),
-  bdr: borderRule('borderRight'),
-  bdt: borderRule('borderTop'),
-  bdb: borderRule('borderBottom'),
-  bdx: [ borderRule('borderLeft'), borderRule('borderRight') ],
-  bdy: [ borderRule('borderTop'), borderRule('borderBottom') ],
-  bdc: rule('borderColor', colorValue('border'))
+const border = directionStyles({
+  cssProp: 'border',
+  rule: borderRule
 })
 
 export {
