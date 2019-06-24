@@ -25,8 +25,6 @@ Because css-in-js and design systems are all the hype right now! But seriously, 
 - Style our components using concise and easy-to-memorize props
 - Have a convenient way to define alternative styles for different screen sizes
 
-## 🏃‍♂️ [Getting Started](./docs/getting-started.md)
-
 ## 🌍 [Demo](http://johngrish.in/components/#/box)
 
 ## 📖 [API](./docs/api.md)
