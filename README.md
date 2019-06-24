@@ -25,9 +25,10 @@ Because css-in-js and design systems are all the hype right now! But seriously, 
 - Style our components using concise and easy-to-memorize props
 - Have a convenient way to define alternative styles for different screen sizes
 
-## 🌍 [Demo](http://johngrish.in/components/#/box)
 
 ## 📖 [API](./docs/api.md)
+
+## 🌍 [Components & Demo](http://pss-components.surge.sh/)
 
 ## 🔗 Links
 
@@ -41,7 +42,6 @@ Because css-in-js and design systems are all the hype right now! But seriously, 
 ### Packages
 
 - [`pss-components`](https://github.com/exah/components) — Components created with `pss`
-- [`react-styled-base`](https://github.com/exah/react-base-component) – Base component that prevents rendering unknown props in DOM
 - [`polished`](https://github.com/styled-components/polished) — "A lightweight toolset for writing styles in JavaScript"
 
 
