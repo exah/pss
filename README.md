@@ -8,6 +8,7 @@
 - [x] Support [`emotion`](https://emotion.sh), [`styled-components`](https://www.styled-components.com) and [`glamorous`](https://glamorous.rocks)
 - [x] Responsive by default
 - [x] Dynamic
+- [x] Only 4.41 KB gziped for all styles
 
 
 ## 📦 Install
