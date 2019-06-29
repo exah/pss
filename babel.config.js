@@ -7,11 +7,10 @@ module.exports = {
     [
       '@babel/preset-env', {
         modules: IS_ESM ? false : 'commonjs',
-        loose: true
+        loose: true,
+        useBuiltIns: 'entry',
+        corejs: 3
       }
     ]
-  ],
-  'plugins': [
-    [ '@babel/plugin-proposal-object-rest-spread', { useBuiltIns: true, loose: true } ]
   ]
 }
