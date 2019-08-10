@@ -1,0 +1,85 @@
+---
+name: Box
+route: /box
+menu: Primitives
+---
+
+import { Playground } from 'docz'
+import { PropsTable } from '../.internal/props-table'
+import { Box } from '../src'
+
+# Box
+
+Core layout component, that render `<div>` by default and used inside all components. See [box](https://github.com/exah/pss/blob/master/docs/api.md#box) in `pss` docs.
+
+## Usage
+
+```js
+import { Box } from 'pss-components'
+```
+
+<Playground>
+  <Box>
+    Box
+  </Box>
+</Playground>
+
+
+## Examples
+
+<Playground>
+  <Box fg='white'>
+    <Box bg='hotpink' p={1} mb={1}>
+      Box
+    </Box>
+    <Box bg='coral' p={1}>
+      Box
+    </Box>
+  </Box>
+</Playground>
+
+### Set aspect-ratio
+
+<Playground>
+  <Box bg='royalblue' ratio={{ all: 16 / 9, sm: 1 /* will be applied on small screen */ }} />
+</Playground>
+
+### Change component inside
+
+<Playground>
+  <Box as='section' bg='tomato'>
+    Section
+  </Box>
+</Playground>
+
+### Reset styles
+
+By default it applies this reset styles:
+
+```css
+font: inherit;
+color: inherit;
+background: transparent;
+border: 0;
+margin: 0;
+padding: 0;
+```
+
+You can override it in `theme.Box`:
+
+```js
+import { css } from '@emotion/core'
+
+// only reset margin and padding, everything else is untouched
+const myTheme = {
+  Box: css`
+    margin: 0;
+    padding: 0;
+  `
+}
+```
+
+
+## Props
+
+<PropsTable of={Box} />

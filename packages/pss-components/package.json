@@ -1,0 +1,102 @@
+{
+  "name": "pss-components",
+  "version": "5.0.0",
+  "description": "",
+  "author": "John Grishin <hi@johngrish.in>",
+  "license": "MIT",
+  "repository": "exah/components",
+  "sideEffects": false,
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "files": [
+    "./esm",
+    "./cjs"
+  ],
+  "tags": [
+    "css-in-js",
+    "components",
+    "react",
+    "emotion",
+    "prop-styles"
+  ],
+  "scripts": {
+    "dev": "docz dev",
+    "docs": "docz build",
+    "build": "run-s build:*",
+    "build:esm": "cross-env NODE_ENV=production babel src -d esm",
+    "build:cjs": "cross-env NODE_ENV=production MODULES=cjs babel src -d cjs",
+    "prebuild": "npm run cleanup",
+    "watch": "run-p \"build:* -- -w\" \"test:unit -- --watchAll\"",
+    "prewatch": "npm run cleanup",
+    "test": "run-s test:*",
+    "test:unit": "jest",
+    "test:lint": "eslint src test",
+    "test:size": "npm run build:esm && size-limit",
+    "release": "np --no-cleanup",
+    "postrelease": "npm run deploy",
+    "deploy": "npm run docs && cp dist/index.html dist/200.html && surge dist pss-components.surge.sh",
+    "cleanup": "rimraf cjs esm dist",
+    "version": "auto-changelog -p && git add CHANGELOG.md",
+    "preversion": "npm run build",
+    "precommit": "lint-staged",
+    "prepush": "npm test"
+  },
+  "size-limit": [
+    {
+      "limit": "10.5 KB",
+      "path": "./esm/index.js"
+    }
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "lint-staged": {
+    "./src/**/*.js": "eslint",
+    "./test/**/*.js": "eslint"
+  },
+  "browserslist": [
+    "> 1%"
+  ],
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": [
+      "standard",
+      "standard-react"
+    ],
+    "rules": {
+      "no-shadow": 2,
+      "react/prop-types": [
+        2,
+        {
+          "ignore": [
+            "children"
+          ]
+        }
+      ]
+    }
+  },
+  "auto-changelog": {
+    "commitLimit": false,
+    "template": ".changelog.hbs"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "jest-emotion/serializer"
+    ],
+    "testMatch": [
+      "**/test/*.js"
+    ]
+  },
+  "peerDependencies": {
+    "@emotion/core": "^10.0.0",
+    "@emotion/styled": "^10.0.0",
+    "prop-types": "^15.0.0",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "dependencies": {
+    "@emotion/is-prop-valid": "^0.8.2",
+    "@exah/utils": "^2.0.0",
+    "pss": "file:../pss"
+  }
+}

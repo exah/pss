@@ -1,0 +1,249 @@
+---
+name: FlexGrid
+route: /flex-grid
+menu: Containers
+---
+
+import { Playground } from 'docz'
+import { PropsTable } from '../.internal/props-table'
+import { Box, FlexGrid } from '../src'
+
+
+# FlexGrid
+
+Grid component based on [Flex](/flex) and [Box](/box). 
+
+Useful if you need to support old browsers without `display: grid`, 
+if don't: use [Grid](/grid) instead.
+
+
+### Components:
+
+#### `FlexGrid` — Container component:
+
+- `columns` - Number of columns in grid, default to `12`
+- `space` — horizontal and vertical space
+- `spacex` — horizontal space
+- `spacey` — vertical space
+
+For possible values for spacing see [space docs](https://github.com/exah/pss/blob/master/docs/api.md#space).
+
+
+#### `FlexGrid.Item` — Item / column component, size can be set with props:
+
+- `column` — Number in range `1...columns`
+- `offset` — Number in range `1...columns` — move item by number of columns
+
+
+## Usage
+
+```js
+import { FlexGrid } from 'pss-components'
+```
+
+```js
+<FlexGrid columns={12}>
+  <FlexGrid.Item column={6}>
+    <Box>
+      Content
+    </Box>
+  </FlexGrid.Item>
+  <FlexGrid.Item column={4}>
+    <Box>
+      Content
+    </Box>
+  </FlexGrid.Item>
+  <FlexGrid.Item column={2}>
+    <Box>
+      Content
+    </Box>
+  </FlexGrid.Item>
+</FlexGrid>
+```
+
+
+## Examples
+
+### Basic
+
+<Playground>
+  <FlexGrid columns={12} spacex={1}>
+    <FlexGrid.Item column={2}>
+      <Box outline='1px solid' p={1}>
+        2
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item column={2}>
+      <Box outline='1px solid' p={1}>
+        2
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item column={2}>
+      <Box outline='1px solid' p={1}>
+        2
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item column={2}>
+      <Box outline='1px solid' p={1}>
+        2
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item column={2}>
+      <Box outline='1px solid' p={1}>
+        2
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item column={2}>
+      <Box outline='1px solid' p={1}>
+        2
+      </Box>
+    </FlexGrid.Item>
+  </FlexGrid>
+</Playground>
+
+### Vertical and horizontal space between items
+
+<Playground>
+  <FlexGrid columns={12} space={1}>
+    <FlexGrid.Item column={1}>
+      <Box outline='1px solid' p={1}>
+        1
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item column={2}>
+      <Box outline='1px solid' p={1}>
+        2
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item column={3}>
+      <Box outline='1px solid' p={1}>
+        3
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item column={6}>
+      <Box outline='1px solid' p={1}>
+        6
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item column={12}>
+      <Box outline='1px solid' p={1}>
+        12
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item column={4}>
+      <Box outline='1px solid' p={1}>
+        4
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item column={4}>
+      <Box outline='1px solid' p={1}>
+        4
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item column={4}>
+      <Box outline='1px solid' p={1}>
+        4
+      </Box>
+    </FlexGrid.Item>
+  </FlexGrid>
+</Playground>
+
+### Offset items
+
+<Playground>
+  <FlexGrid columns={12} space={1}>
+    <FlexGrid.Item
+      column={3}
+      mr='75%' // force next item to be on next line
+    >
+      <Box outline='1px solid' p={1}>
+        3
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item column={3} offset={3}>
+      <Box outline='1px solid' p={1}>
+        3
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item column={3} offset={6}>
+      <Box outline='1px solid' p={1}>
+        3
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item column={3} offset={9}>
+      <Box outline='1px solid' p={1}>
+        3
+      </Box>
+    </FlexGrid.Item>
+  </FlexGrid>
+</Playground>
+
+### Dynamic size
+
+<Playground>
+  <FlexGrid space={1}>
+    <FlexGrid.Item width={1 / 12}>
+      <Box outline='1px solid' p={1}>
+        1
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item width={2 / 12}>
+      <Box outline='1px solid' p={1}>
+        2
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item width={3 / 12}>
+      <Box outline='1px solid' p={1}>
+        3
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item width={6 / 12}>
+      <Box outline='1px solid' p={1}>
+        6
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item width={12 / 12}>
+      <Box outline='1px solid' p={1}>
+        12
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item width={4 / 12}>
+      <Box outline='1px solid' p={1}>
+        4
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item width={4 / 12}>
+      <Box outline='1px solid' p={1}>
+        4
+      </Box>
+    </FlexGrid.Item>
+    <FlexGrid.Item width={4 / 12}>
+      <Box outline='1px solid' p={1}>
+        4
+      </Box>
+    </FlexGrid.Item>
+  </FlexGrid>
+</Playground>
+
+### Create your own grid
+
+```js
+const MyGrid = (props) => (
+  <FlexGrid
+    columns={16}
+    space={1}
+    {...props}
+  />
+)
+```
+
+
+## Props
+
+### FlexGrid
+
+<PropsTable of={FlexGrid} />
+
+### FlexGrid.Item
+
+<PropsTable of={FlexGrid.Item} />

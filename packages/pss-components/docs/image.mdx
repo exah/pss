@@ -1,0 +1,67 @@
+---
+name: Image
+route: /image
+menu: Primitives
+---
+
+import { Playground } from 'docz'
+import { PropsTable } from '../.internal/props-table'
+import { Image } from '../src'
+
+# Image
+
+Based on [Box](/box) with `display: block` and `max-width: 100%`.
+
+
+## Usage
+
+```js
+import { Image } from 'pss-components'
+```
+
+<Playground>
+  <Image 
+    src='http://placekitten.com/500'
+    alt='Kitten looking down'
+    maxWidth={1 / 2}
+  />
+</Playground>
+
+
+## Examples
+
+### Avatar
+
+<Playground>
+  <Image 
+    src='http://placekitten.com/64'
+    alt='Kitten looking down'
+    mx='auto'
+    height={64}
+    width={64}
+    borderRadius={64}
+  />
+</Playground>
+
+### Inside `<picture />`
+
+<Playground>
+  <picture>
+    <source 
+      srcSet="http://placekitten.com/1024/768" 
+      media="(min-width: 1024px)" 
+    />
+    <Image 
+      src='http://placekitten.com/500/375' 
+      alt='Cute Kitten' 
+      maxWidth={1 / 2} 
+      mx='auto' 
+    />
+  </picture>
+</Playground>
+
+
+
+## Props Table
+
+<PropsTable of={Image} />

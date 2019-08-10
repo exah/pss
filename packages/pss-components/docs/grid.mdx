@@ -1,0 +1,263 @@
+---
+name: Grid
+route: /grid
+menu: Primitives
+---
+
+import { Playground } from 'docz'
+import { PropsTable } from '../.internal/props-table'
+import { Box, Grid } from '../src'
+
+
+# Grid
+
+[Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout) component, based on [Box](/box) with `display: grid`.
+
+- Item conrolled with `column`, `row` prop in `Grid.Item` component
+- [Space](https://github.com/exah/pss/blob/master/docs/api.md#space) between items conrolled with `gap`, `columnGap` and `rowGap` props
+- [Box alignment](https://rachelandrew.co.uk/css/cheatsheets/box-alignment) styles
+
+
+### Components props:
+
+#### `Grid`
+
+- `gap` — `grid-gap`
+- `columnGap` — `grid-column-gap`
+- `rowGap` — `grid-row-gap`
+- `autoFlow` — `grid-auto-flow`
+- `autoColumns` — `grid-auto-columns`
+- `autoRows` — `grid-auto-rows`
+- `templateColumns` — `grid-template-columns`
+- `templateRows` — `grid-template-rows`
+- `templateAreas` — `grid-template-areas`
+- `alignItems` — `align-items`
+- `justifyItems` — `justify-items`
+- `alignContent` — `align-content`
+- `justifyContent` — `justify-content`
+
+
+#### `Grid.Item`
+
+- `column` — `grid-column`
+- `row` — `grid-row`
+- `area` — `grod-area`
+- `justifySelf` — `justify-self`
+- `alignSelf` — `align-self`
+- `order` — `order`
+
+
+## Usage
+
+```js
+import { Grid } from 'pss-components'
+```
+
+<Playground>
+<Grid gap={2}>
+  <Grid.Item column='span 6' outline="1px solid">
+    Content
+  </Grid.Item>
+  <Grid.Item column='span 4' outline="1px solid">
+    Content
+  </Grid.Item>
+  <Grid.Item column='span 2' outline="1px solid">
+    Content
+  </Grid.Item>
+</Grid>
+</Playground>
+
+
+## Examples
+
+### Basic
+
+<Playground>
+  <Grid templateColumns='repeat(12, 1fr)' columnGap={1}>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+        2
+    </Grid.Item>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+        2
+    </Grid.Item>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+        2
+    </Grid.Item>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+        2
+    </Grid.Item>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+        2
+    </Grid.Item>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+        2
+    </Grid.Item>
+  </Grid>
+</Playground>
+
+### Space between items
+
+<Playground>
+  <Grid templateColumns='repeat(12, 1fr)' gap={1}>
+    <Grid.Item column='span 1' p={1} outline='1px solid'>
+        1
+    </Grid.Item>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+        2
+    </Grid.Item>
+    <Grid.Item column='span 3' p={1} outline='1px solid'>
+        3
+    </Grid.Item>
+    <Grid.Item column='span 6' p={1} outline='1px solid'>
+        6
+    </Grid.Item>
+    <Grid.Item column='span 12' p={1} outline='1px solid'>
+        12
+    </Grid.Item>
+    <Grid.Item column='span 4' p={1} outline='1px solid'>
+        4
+    </Grid.Item>
+    <Grid.Item column='span 4' p={1} outline='1px solid'>
+        4
+    </Grid.Item>
+    <Grid.Item column='span 4' p={1} outline='1px solid'>
+        4
+    </Grid.Item>
+  </Grid>
+</Playground>
+
+### Control each item `column` and `row` props
+
+<Playground>
+  <Grid templateColumns='repeat(12, 1fr)' gap={1}>
+    <Grid.Item row='1' column='1 / span 3' p={1} outline='1px solid'>
+        1
+    </Grid.Item>
+    <Grid.Item row='2' column='4 / span 3' p={1} outline='1px solid'>
+        2
+    </Grid.Item>
+    <Grid.Item row='3' column='7 / span 3' p={1} outline='1px solid'>
+        3
+    </Grid.Item>
+    <Grid.Item row='4' column='10 / span 3' p={1} outline='1px solid'>
+        4
+    </Grid.Item>
+  </Grid>
+</Playground>
+
+
+### Create your own grid
+
+```js
+const MyGrid = (props) => (
+  <Grid
+    templateColumns='repeat(12, 1fr)'
+    gap={1}
+    {...props}
+  />
+)
+```
+
+
+### Variants
+
+Specify pre-defined variants in your theme:
+
+```js
+const myTheme = {
+  gridStyle: {
+    'default': {
+      gridTemplateColumns: 'repeat(12, 1fr)',
+      gridGap: '1rem'
+    },
+    '16cols': {
+      gridTemplateColumns: 'repeat(16, 1fr)',
+      gridGap: '0.5rem'
+    }
+  }
+}
+```
+
+<Playground>
+  <Grid variant='default'>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+      2
+    </Grid.Item>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+      2
+    </Grid.Item>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+      2
+    </Grid.Item>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+      2
+    </Grid.Item>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+      2
+    </Grid.Item>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+      2
+    </Grid.Item>
+  </Grid>
+  <Grid variant='16cols' mt={2}>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+      2
+    </Grid.Item>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+      2
+    </Grid.Item>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+      2
+    </Grid.Item>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+      2
+    </Grid.Item>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+      2
+    </Grid.Item>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+      2
+    </Grid.Item>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+      2
+    </Grid.Item>
+    <Grid.Item column='span 2' p={1} outline='1px solid'>
+      2
+    </Grid.Item>
+  </Grid>
+</Playground>
+
+Or areas for really complex layouts:
+
+```js
+const myTheme = {
+  gridStyle: {
+    'page-layout': {
+      gridTemplate: `
+       "head head" 30px
+       "nav  main" 1fr
+       "nav  foot" 30px / 120px 1fr
+     `
+    }
+  }
+}
+```
+
+<Playground>
+  <Grid as='section' variant='page-layout' gap={1} minHeight='300px'>
+    <Grid.Item as='header' area='head' outline='debug'>Header</Grid.Item>
+    <Grid.Item as='nav' area='nav' outline='debug'>Navigation</Grid.Item>
+    <Grid.Item as='main' area='main' outline='debug'>Main</Grid.Item>
+    <Grid.Item as='footer' area='foot' outline='debug'>Footer</Grid.Item>
+  </Grid>
+</Playground>
+
+## Props
+
+### Grid
+
+<PropsTable of={Grid} />
+
+### Grid.Item
+
+<PropsTable of={Grid.Item} />

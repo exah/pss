@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text empty 1`] = `
+.emotion-1 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+<div
+  className="emotion-0 emotion-1 emotion-2"
+/>
+`;
+
+exports[`Text with text 1`] = `
+.emotion-1 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+<div
+  className="emotion-0 emotion-1 emotion-2"
+>
+  Hello
+</div>
+`;
+
+exports[`Text with theme 1`] = `
+.emotion-1 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica,system-ui,sans-serif;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+<div
+  className="emotion-0 emotion-1 emotion-2"
+>
+  Hello
+</div>
+`;

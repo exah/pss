@@ -1,0 +1,80 @@
+---
+name: Feed
+route: /feed
+menu: Containers
+---
+
+import { Playground } from 'docz'
+import { PropsTable } from '../.internal/props-table'
+import { MatchMediaProvider, Box, Feed } from '../src'
+
+# Feed
+
+Masonry-like grid component, created with [FlexGrid](/flex-grid) and requires [MatchMediaProvider](/match-media).
+
+## Usage
+
+```js
+import { Feed } from 'pss-components'
+```
+
+```js
+<MatchMediaProvider>
+  <Feed space={2} grid={12} column={{ all: 3, md: 6, sm: 12 }}>
+    <Feed.Item>
+      Item
+    </Feed.Item>
+  </Feed>
+</MatchMediaProvider>
+```
+
+## Examples
+
+<Playground>
+  <MatchMediaProvider>
+    <Feed space={2} grid={12} column={{ all: 3, md: 6, sm: 12 }}>
+      <Feed.Item>
+        <Box outline='1px solid' p={1} minHeight={200}>1</Box>
+      </Feed.Item>
+      <Feed.Item>
+        <Box outline='1px solid' p={1} minHeight={150}>2</Box>
+      </Feed.Item>
+      <Feed.Item>
+        <Box outline='1px solid' p={1} minHeight={300}>3</Box>
+      </Feed.Item>
+      <Feed.Item>
+        <Box outline='1px solid' p={1} minHeight={500}>4</Box>
+      </Feed.Item>
+      <Feed.Item>
+        <Box outline='1px solid' p={1} minHeight={200}>5</Box>
+      </Feed.Item>
+      <Feed.Item>
+        <Box outline='1px solid' p={1} minHeight={300}>6</Box>
+      </Feed.Item>
+      <Feed.Item>
+        <Box outline='1px solid' p={1} minHeight={200}>7</Box>
+      </Feed.Item>
+      <Feed.Item>
+        <Box outline='1px solid' p={1} minHeight={150}>8</Box>
+      </Feed.Item>
+      <Feed.Item>
+        <Box outline='1px solid' p={1} minHeight={300}>9</Box>
+      </Feed.Item>
+      <Feed.Item>
+        <Box outline='1px solid' p={1} minHeight={500}>10</Box>
+      </Feed.Item>
+      <Feed.Item>
+        <Box outline='1px solid' p={1} minHeight={200}>11</Box>
+      </Feed.Item>
+      <Feed.Item>
+        <Box outline='1px solid' p={1} minHeight={300}>12</Box>
+      </Feed.Item>
+    </Feed>
+  </MatchMediaProvider>
+</Playground>
+
+## Props
+
+### Feed
+
+<PropsTable of={Feed} />

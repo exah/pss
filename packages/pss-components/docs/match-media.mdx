@@ -1,0 +1,90 @@
+---
+name: MatchMedia
+route: /match-media
+menu: Helpers
+---
+
+import { Playground } from 'docz'
+import { MatchMediaProvider, MatchMediaConsumer, Box } from '../src'
+
+# MatchMedia
+
+Detect media query changes from `theme.media` and provide matches through context.
+
+
+## Usage
+
+```js
+import {
+  MatchMediaProvider,
+  MatchMediaConsumer,
+  ThemeProvider
+} from 'pss-components'
+```
+
+```js
+<ThemeProvider theme={{ media: { sm: '(max-width: 600px)' } }}>
+  <MatchMediaProvider>
+    {/* components */}
+  </MatchMediaProvider>
+</ThemeProvider>
+```
+
+## Examples
+
+With values from `media` prop:
+
+<Playground>
+  <MatchMediaProvider
+    media={{
+      // definition order matter
+      mobile: '(min-width: 0px)',
+      tablet: '(min-width: 600px)',
+      desktop: '(min-width: 1024px)'
+    }}
+  >
+    <MatchMediaConsumer>
+      {(value) => (
+        <Box>
+          Current media: {value.matches.join(', ')}
+        </Box>
+      )}
+    </MatchMediaConsumer>
+  </MatchMediaProvider>
+</Playground>
+
+Mobile-first with array:
+
+<Playground>
+  <MatchMediaProvider
+    media={[
+      '(min-width: 0px)',
+      '(min-width: 600px)',
+      '(min-width: 1024px)'
+    ]}
+  >
+    <MatchMediaConsumer>
+      {(value) => (
+        <Box>
+          Current media: {value.matches.join(', ')}
+        </Box>
+      )}
+    </MatchMediaConsumer>
+  </MatchMediaProvider>
+</Playground>
+
+
+Using `theme.media`:
+
+<Playground>
+  <MatchMediaProvider>
+    <MatchMediaConsumer>
+      {(value) => (
+        <Box>
+          Current media: {value.matches.join(', ')}
+        </Box>
+      )}
+    </MatchMediaConsumer>
+  </MatchMediaProvider>
+</Playground>
+

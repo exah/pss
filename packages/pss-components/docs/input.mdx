@@ -1,0 +1,115 @@
+---
+name: Input
+route: /input
+menu: Primitives
+---
+
+import { Playground } from 'docz'
+import { PropsTable } from '../.internal/props-table'
+import { Input, Link, ThemeDefaults } from '../src'
+
+# Input
+
+Based on [Box](/box). Renders `<input>` or `<textarea>` element.
+
+
+## Usage
+
+```js
+import { Input } from 'pss-components'
+```
+
+<Playground>
+  <Input defaultValue='Input' />
+  <Input defaultValue='Input' variant='auto' mt={1} />
+  <Input defaultValue='Input' bg='red' mt={1} />
+</Playground>
+
+## Examples
+
+### Change element
+
+<Playground>
+  <Input as='textarea' defaultValue='TextArea' variant='auto' rows={3} />
+</Playground>
+
+### Default styles
+
+You can't change reset styles in `Input`, as in [Box](/box), but you can provide additional default styles for all inputs:
+
+```js
+import { css } from '@emotion/core'
+
+const myTheme = {
+  // All Inputs will have padding
+  Input: css`
+    padding: 10px 20px;
+  `
+}
+```
+
+
+Please note that if you provide default style, you will not be able to change it with props, so I will recommend to create your own input instead:
+
+```js
+// /my/components/input.js
+import { Input as InputBase } from 'pss-components'
+
+const Input = (props) => (
+  <InputBase 
+    px='10px'
+    py='20px'
+    borderRadius={5}
+    {...props}
+  />
+)
+``` 
+
+### Variants
+
+You can add `Input` variants to theme for consistent usage:
+
+```js
+const myTheme = {
+  inputStyle: {
+    default: {
+      color: 'white',
+      background: '#2e3440',
+      border: '1px solid rgba(255, 255, 255, 0.3)',
+    },
+    underline: {
+      color: 'white',
+      padding: '10px 0',
+      borderBottom: '1px solid rgba(255, 255, 255, 0.3)',
+    },
+    inverted: {
+      color: 'black',
+      background: 'white',
+      border: '1px solid lime',
+    },
+  }
+}
+```
+
+<Playground>
+  <Input variant='default' defaultValue='Default' />
+</Playground>
+
+<Playground>
+  <Input variant='underline' defaultValue='Underlined' />
+</Playground>
+
+Variant `'auto'` is dynamic, by default same as `'default'` (see [ThemeDefaults](/theme-defaults))
+
+<Playground>
+  <Input variant='auto' mb={1} defaultValue='Auto' />
+  
+  <ThemeDefaults inputStyle='inverted'>
+    <Input variant='auto' defaultValue='Auto' />
+  </ThemeDefaults>
+</Playground>
+
+
+## Props
+
+<PropsTable of={Input} />

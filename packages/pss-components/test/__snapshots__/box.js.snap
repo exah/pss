@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Box snapshot 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #000;
+  color: #fff;
+}
+
+<div
+  className="emotion-0 emotion-1"
+>
+  Box
+</div>
+`;

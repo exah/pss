@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid snapshot 1`] = `
+.emotion-63 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+}
+
+.emotion-1 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  grid-column: span 1;
+  grid-row: 1;
+}
+
+.emotion-37 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  grid-column: span 2;
+  grid-row: 2;
+}
+
+.emotion-55 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  grid-column: span 4;
+  grid-row: 3;
+}
+
+<div
+  className="emotion-63 emotion-64"
+>
+  <div
+    className="emotion-0 emotion-1 emotion-2"
+  >
+    span 1
+  </div>
+  <div
+    className="emotion-0 emotion-1 emotion-2"
+  >
+    span 1
+  </div>
+  <div
+    className="emotion-0 emotion-1 emotion-2"
+  >
+    span 1
+  </div>
+  <div
+    className="emotion-0 emotion-1 emotion-2"
+  >
+    span 1
+  </div>
+  <div
+    className="emotion-0 emotion-1 emotion-2"
+  >
+    span 1
+  </div>
+  <div
+    className="emotion-0 emotion-1 emotion-2"
+  >
+    span 1
+  </div>
+  <div
+    className="emotion-0 emotion-1 emotion-2"
+  >
+    span 1
+  </div>
+  <div
+    className="emotion-0 emotion-1 emotion-2"
+  >
+    span 1
+  </div>
+  <div
+    className="emotion-0 emotion-1 emotion-2"
+  >
+    span 1
+  </div>
+  <div
+    className="emotion-0 emotion-1 emotion-2"
+  >
+    span 1
+  </div>
+  <div
+    className="emotion-0 emotion-1 emotion-2"
+  >
+    span 1
+  </div>
+  <div
+    className="emotion-0 emotion-1 emotion-2"
+  >
+    span 1
+  </div>
+  <div
+    className="emotion-0 emotion-37 emotion-2"
+  >
+    span 2
+  </div>
+  <div
+    className="emotion-0 emotion-37 emotion-2"
+  >
+    span 2
+  </div>
+  <div
+    className="emotion-0 emotion-37 emotion-2"
+  >
+    span 2
+  </div>
+  <div
+    className="emotion-0 emotion-37 emotion-2"
+  >
+    span 2
+  </div>
+  <div
+    className="emotion-0 emotion-37 emotion-2"
+  >
+    span 2
+  </div>
+  <div
+    className="emotion-0 emotion-37 emotion-2"
+  >
+    span 2
+  </div>
+  <div
+    className="emotion-0 emotion-55 emotion-2"
+  >
+    span 4
+  </div>
+  <div
+    className="emotion-0 emotion-55 emotion-2"
+  >
+    span 4
+  </div>
+  <div
+    className="emotion-0 emotion-55 emotion-2"
+  >
+    span 4
+  </div>
+</div>
+`;

@@ -1,0 +1,136 @@
+---
+name: Layout
+route: /layout
+menu: Containers
+---
+
+import { Playground } from 'docz'
+import { Info as InfoIcon } from 'react-feather'
+import { PropsTable } from '../.internal/props-table'
+import { Image, Layout, Box } from '../src'
+
+# Layout
+
+Implements [Media Object](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code) with [Flex](/flex) - one of most useful layout components.
+
+Components:
+
+- `Layout` — Container
+- `Layout.Content` — Expands to take available space
+- `Layout.Side` — Can be placed on left or right and take content size
+
+
+## Usage
+
+```js
+import { Layout } from 'pss-components'
+```
+
+```js
+<Layout>
+  <Layout.Side>
+    Side
+  </Layout.Side>
+  <Layout.Content>
+    Content
+  </Layout.Content>
+</Layout>
+```
+
+## Examples
+
+### Basic
+
+<Playground>
+  <Layout outline='debug' p={1}>
+    <Layout.Side outline='debug' p={1} mr={1}>
+      Side
+    </Layout.Side>
+    <Layout.Content outline='debug' p={1}>
+      Content
+    </Layout.Content>
+  </Layout>
+</Playground>
+
+### Vertical centering
+
+<Playground>
+  <Layout alignItems='center'>
+    <InfoIcon />
+    <Layout.Content ml={1}>
+      Centered icon and content
+    </Layout.Content>
+  </Layout>
+</Playground>
+
+### Comment box
+
+<Playground>
+  <Layout outline='1px solid' p={2}>
+    <Layout.Side mr={2}>
+      <Image src='http://placekitten.com/80' alt='' />
+    </Layout.Side>
+    <Layout.Content>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu libero libero, sit amet commodo sem. Proin a quam vulputate enim consequat sollicitudin. Etiam vitae nunc augue. Sed ac arcu nibh. Suspendisse a lobortis nulla. Maecenas nunc erat, consectetur quis sagittis et, sodales ac nisl. Proin vitae nibh sed massa blandit commodo. Sed ornare tincidunt nibh, vel malesuada orci pellentesque sit amet. Pellentesque velit urna, porttitor a eleifend sit amet, feugiat ac velit. Nulla ut nunc sit amet lorem dictum suscipit. Maecenas ullamcorper feugiat erat nec ornare.
+    </Layout.Content>
+  </Layout>
+</Playground>
+
+
+### [Holy Grail](https://en.wikipedia.org/wiki/Holy_grail_(web_design)) Layout
+
+<Playground style={{ height: '500px', overflow: 'auto' }}>
+  <Layout flexDirection='column' minHeight='100%'>
+    <Box as='header'>
+      Header
+    </Box>
+    <Layout.Content as='main'>
+      Main
+    </Layout.Content>
+    <Box as='footer'>
+      Footer
+    </Box>
+  </Layout>
+</Playground>
+
+<Playground style={{ height: '500px', overflow: 'auto' }}>
+  <Layout flexDirection='column' minHeight='100%' outline='1px solid' p={1}>
+    <Box outline='debug' p={1} mb={1}>
+      Header
+    </Box>
+    <Box outline='debug' p={1} mb={1}>
+      Some / Breadcrumbs / Path
+    </Box>
+    <Layout outline='debug' p={1} mb={1}>
+      <Layout.Content outline='debug' p={1} mx={1}>
+        Content
+      </Layout.Content>
+      <Layout.Side outline='debug' p={1} width={( 1 / 6 )} order={-1}>
+        Left Nav
+      </Layout.Side>
+      <Layout.Side outline='debug' p={1} width={( 1 / 6 )}>
+        Right Nav
+      </Layout.Side>
+    </Layout>
+    <Box outline='debug' p={1}>
+      Footer
+    </Box>
+  </Layout>
+</Playground>
+
+
+## Props
+
+### Layout ([Flex](/flex))
+
+<PropsTable of={Layout} />
+
+
+### Layout.Side ([Box](/box))
+
+<PropsTable of={Layout.Side} />
+
+
+### Layout.Content ([Box](/box))
+
+<PropsTable of={Layout.Content} />

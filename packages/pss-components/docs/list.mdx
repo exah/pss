@@ -1,0 +1,94 @@
+---
+name: List
+route: /list
+menu: Primitives
+---
+
+import { Playground } from 'docz'
+import { PropsTable } from '../.internal/props-table'
+import { List, Flex } from '../src'
+
+# List
+
+Based on [Box](/box) with reset styles for `ul`, `ol`. By default renders `<ul>`.
+
+
+## Usage
+
+```js
+import { List } from 'pss-components'
+```
+
+```js
+<List>
+  <List.Item>Item</List.Item>
+</List>
+```
+
+## Example
+
+### Basic
+
+<Playground>
+  <List>
+    <List.Item>1</List.Item>
+    <List.Item>2</List.Item>
+    <List.Item>3</List.Item>
+    <List.Item>4</List.Item>
+    <List.Item>5</List.Item>
+    <List.Item>6</List.Item>
+  </List>
+</Playground>
+
+
+### Change `list-style`
+
+<Playground>
+  <List listStyle='square inside'>
+    <List.Item>1</List.Item>
+    <List.Item>2</List.Item>
+    <List.Item>3</List.Item>
+    <List.Item>4</List.Item>
+    <List.Item>5</List.Item>
+    <List.Item>6</List.Item>
+  </List>
+</Playground>
+
+
+### Ordered list
+
+<Playground>
+  <List as='ol' listStyle='decimal' pl='1em'>
+    <List.Item>First</List.Item>
+    <List.Item>Second</List.Item>
+    <List.Item>Third</List.Item>
+    <List.Item>Fourth</List.Item>
+    <List.Item>Fifth</List.Item>
+    <List.Item>Sixth</List.Item>
+  </List>
+</Playground>
+
+
+### Replace [Box](/box) inside with [Flex](/flex)
+
+<Playground>
+  <List as='ol' base={Flex} justifyContent='space-between'>
+    <List.Item>1</List.Item>
+    <List.Item>2</List.Item>
+    <List.Item>3</List.Item>
+    <List.Item>4</List.Item>
+    <List.Item>5</List.Item>
+    <List.Item>6</List.Item>
+  </List>
+</Playground>
+
+
+## Props
+
+### List ([Box](/box))
+
+<PropsTable of={List} />
+
+### List.Item ([Box](/box))
+
+<PropsTable of={List.Item} />

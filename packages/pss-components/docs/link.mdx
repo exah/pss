@@ -1,0 +1,67 @@
+---
+name: Link
+route: /link
+menu: Primitives
+---
+
+import { Playground } from 'docz'
+import { PropsTable } from '../.internal/props-table'
+import { Link, Box } from '../src'
+
+# Link
+
+Based on [Text](/text). Renders `<a>` element.
+
+
+## Usage
+
+```js
+import { Link } from 'pss-components'
+```
+
+<Playground>
+  <Link href='http://example.com' target='_blank'>
+    Link
+  </Link>
+</Playground>
+
+### Default styles
+
+You can provide additional default styles for all links:
+
+```js
+import { css } from '@emotion/core'
+
+const myTheme = {
+  // All Links will have text-decoration rule
+  Link: css`
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  `
+}
+```
+
+Also you can create own `Link`:
+
+```js
+import styled from '@emotion/styled'
+import { Link as LinkBase } from 'pss-components'
+
+const Link = styled(LinkBase)`
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`
+
+Link.defaultProps = {
+  ...LinkBase.defaultProps, // preserve original defaultProps
+  color: 'white',
+}
+```
+
+## Props
+
+<PropsTable of={Link} />

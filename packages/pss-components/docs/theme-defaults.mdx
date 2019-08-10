@@ -1,0 +1,34 @@
+---
+name: ThemeDefaults
+route: /theme-defaults
+menu: Helpers
+---
+
+import { Playground } from 'docz'
+import { ThemeDefaults, Box } from '../src'
+
+# ThemeDefaults
+
+Change `theme.default` with props.
+
+
+## Usage
+
+```js
+import { ThemeDefaults } from 'pss-components'
+```
+
+## Examples
+
+<Playground>
+  <Box>
+    <Box tm='auto' ratio={16 / 9} p={1} mb={1}>
+      Content
+    </Box>
+    <ThemeDefaults palette='inverted'>
+      <Box tm='auto' ratio={16 / 9} p={1}>
+        Content
+      </Box>
+    </ThemeDefaults>
+  </Box>
+</Playground>

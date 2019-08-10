@@ -1,0 +1,69 @@
+---
+name: Flex
+route: /flex
+menu: Primitives
+---
+
+import { Playground } from 'docz'
+import { PropsTable } from '../.internal/props-table'
+import { Box, Flex } from '../src'
+
+# Flex
+
+[Box](/box) with `display: flex` and additional `pss` styles:
+
+- [flexContainer](https://github.com/exah/pss/blob/master/docs/api.md#flexcontainer) - `flexWrap`, `flexDirection`
+- [boxContentAlignment](https://github.com/exah/pss/blob/master/docs/api.md#boxcontentalignment) - `justifyContent`, `alignContent`
+- [boxItemsAlignment](https://github.com/exah/pss/blob/master/docs/api.md#boxitemsalignment) - `alignItems`, `justifyItems`
+- [gap](https://github.com/exah/pss/blob/master/docs/api.md#gap) - `gap`, `rowGap`, `columnGap`
+
+
+## Usage
+
+```js
+import { Flex, Box } from 'pss-components'
+```
+
+<Playground>
+  <Flex>
+    <Box>Item</Box>
+    <Box>Item</Box>
+  </Flex>
+</Playground>
+
+
+## Examples
+
+<Playground>
+  <Flex>
+    <Box outline='debug' order={0}>
+      Item
+    </Box>
+    <Box outline='debug' order={1} flex='1'>
+      Item
+    </Box>
+    <Box outline='debug' order={2}>
+      Item
+    </Box>
+  </Flex>
+</Playground>
+
+<Playground>
+  <Flex justifyContent='space-between'>
+    <Box outline='debug' order={0}>
+      Item
+    </Box>
+    <Box outline='debug' order={1}>
+      Item
+    </Box>
+    <Box outline='debug' order={2}>
+      Item
+    </Box>
+  </Flex>
+</Playground>
+
+## Props
+
+### Flex
+
+<PropsTable of={Flex} />

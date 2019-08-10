@@ -1,0 +1,577 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FlexGrid basic 1`] = `
+.emotion-61 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.emotion-3 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  min-width: 0;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  width: 8.333333333333332%;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+<div
+  className="emotion-60 emotion-61 emotion-62"
+>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FlexGrid vertical and horizontal space 1`] = `
+.emotion-3 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  min-width: 0;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  width: 8.333333333333332%;
+}
+
+.emotion-0 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.emotion-141 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-left: -8px;
+  margin-right: -8px;
+  margin-top: -8px;
+  margin-bottom: -8px;
+}
+
+.emotion-141 + .emotion-140 {
+  margin-top: 8px;
+}
+
+.emotion-141 > .emotion-2 {
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.emotion-63 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  min-width: 0;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  width: 16.666666666666664%;
+}
+
+.emotion-93 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  min-width: 0;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  width: 25%;
+}
+
+.emotion-113 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  min-width: 0;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  width: 33.33333333333333%;
+}
+
+.emotion-128 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  min-width: 0;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  width: 50%;
+}
+
+.emotion-138 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  min-width: 0;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  width: 100%;
+}
+
+<div
+  className="emotion-140 emotion-141 emotion-142"
+>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-3 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      1
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-63 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      2
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-63 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      2
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-63 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      2
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-63 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      2
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-63 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      2
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-63 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      2
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-93 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      3
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-93 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      3
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-93 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      3
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-93 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      3
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-113 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      4
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-113 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      4
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-113 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      4
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-128 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      6
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-128 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      6
+    </div>
+  </div>
+  <div
+    className="emotion-2 emotion-138 emotion-1"
+  >
+    <div
+      className="emotion-0 emotion-1"
+    >
+      12
+    </div>
+  </div>
+</div>
+`;

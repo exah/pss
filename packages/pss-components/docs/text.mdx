@@ -1,0 +1,117 @@
+---
+name: Text
+route: /text
+menu: Primitives
+---
+
+import { Playground } from 'docz'
+import { PropsTable } from '../.internal/props-table'
+import { theme } from '../.internal/demo-theme'
+import { Text, Box, ThemeProvider } from '../src'
+
+# Text
+
+Based on [Box](/box) with [text system](https://github.com/exah/pss/blob/master/docs/api.md#text). Element inside can be changed with `as` prop, default to `<div>`,
+
+## Usage
+
+```js
+import { Text } from 'pss-components'
+```
+
+<Playground>
+  <Text>Text</Text>
+</Playground>
+
+
+## Examples
+
+### Change style with [text](https://github.com/exah/pss/blob/master/docs/api.md#text) props
+
+<Playground>
+  <Text
+    as='p'
+    textAlign='center'
+    fontFamily='system-ui'
+    fontSize={24}
+    lineHeight={2}
+    fontWeight={300}
+    letterSpacing='0.2px'
+    color='tomato'
+  >
+    Text
+  </Text>
+</Playground>
+
+
+## Variants
+
+See [textStyle docs](https://github.com/exah/pss/blob/master/docs/api.md#textstyle).
+
+```js
+const theme = {
+  textStyle: {
+    default: {
+      fontFamily: 'system-ui, sans-serif',
+      fontSize: '1rem',
+      fontWeight: 'normal'
+    },
+    heading: {
+      fontFamily: 'athelas, georgia, times, serif',
+      fontSize: '2rem',
+      fontWeight: 'bold'
+    }
+  }
+}
+```
+
+<Playground>
+  <ThemeProvider theme={theme}>
+    <Text as='h2' variant='heading'>
+      Heading
+    </Text>
+    <Text as='p' variant='auto'>
+      Description
+    </Text>
+  </ThemeProvider>
+</Playground>
+
+
+### Responsive
+
+```js
+const theme = {
+  media: {
+    md: '(min-width: 601px) and (max-width: 1024px)',
+    lg: '(min-width: 1025px)'
+  },
+  textStyle: {
+    responsive: {
+      all: {
+        fontSize: '1rem'
+      },
+      lg: {
+        fontSize: '2rem'
+      },
+      md: {
+        fontSize: '1.5rem'
+      }
+    }
+  }
+}
+```
+
+<Playground>
+  <ThemeProvider theme={theme}>
+    <Text as='p' variant='responsive'>
+      Description
+    </Text>
+    <Text as='p' variant={{ all: 'heading', lg: 'responsive' }}>
+      Description
+    </Text>
+  </ThemeProvider>
+</Playground>
+
+## Props
+
+<PropsTable of={Text} />

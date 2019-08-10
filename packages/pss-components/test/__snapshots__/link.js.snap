@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link empty 1`] = `
+.emotion-1 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+<a
+  className="emotion-0 emotion-1 emotion-2"
+/>
+`;
+
+exports[`Link with text 1`] = `
+.emotion-1 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+<a
+  className="emotion-0 emotion-1 emotion-2"
+>
+  Hello
+</a>
+`;
+
+exports[`Link with theme 1`] = `
+.emotion-1 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica,system-ui,sans-serif;
+  font-size: 1rem;
+  line-height: 1.2;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-1:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+<a
+  className="emotion-0 emotion-1 emotion-2"
+>
+  Hello
+</a>
+`;

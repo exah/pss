@@ -1,0 +1,139 @@
+---
+name: Button
+route: /button
+menu: Primitives
+---
+
+import { Playground } from 'docz'
+import { PropsTable } from '../.internal/props-table'
+import { Button, ThemeDefaults, Link } from '../src'
+
+# Button
+
+Based on [Box](/box). Renders `<button>` element with reset styles:
+
+```css
+appearance: none;
+textAlign: center;
+textDecoration: none;
+cursor: pointer;
+[disabled] {
+  cursor: auto;
+  pointerEvents: none;
+}
+```
+
+
+## Usage
+
+```js
+import { Button } from 'pss-components'
+```
+
+<Playground>
+  <Button mr={1}>Button</Button>
+  <Button variant='auto'>Button</Button>
+  <Button bg='red' ml={1}>Button</Button>
+</Playground>
+
+## Examples
+
+### Change element
+
+<Playground>
+  <Button variant='auto' as='a' href='http://example.com' target='_blank' role='button'>
+    Button
+  </Button>
+</Playground>
+
+
+### Default styles
+
+You can't change reset styles in `Button`, as in [Box](/box), but you can provide additional default styles for all buttons:
+
+```js
+import { css } from '@emotion/core'
+
+const myTheme = {
+  // All Buttons will have border-radius and padding
+  Button: css`
+    border-radius: 5px;
+    padding: 10px 20px;
+  `
+}
+```
+
+Please note that if you provide default style, you will not be able to change it with props, so I will recommend to create your own button instead:
+
+```js
+// /my/components/button.js
+import { Button as ButtonBase } from 'pss-components'
+
+const Button = (props) => (
+  <ButtonBase 
+    px='10px'
+    py='20px'
+    borderRadius={5}
+    {...props}
+  />
+)
+``` 
+
+### Variants
+
+You can add `Button` variants to theme for consistent usage:
+
+```js
+const myTheme = {
+  buttonStyle: {
+    default: {
+      background: 'royalblue',
+      color: 'white'
+    },
+    danger: {
+      background: 'red',
+      color: 'white'
+    },
+    success: {
+      background: 'lime',
+      color: 'white'
+    }
+  }
+}
+```
+
+<Playground>
+  <Button variant='default'>
+    Default
+  </Button>
+</Playground>
+
+<Playground>
+  <Button variant='danger'>
+    Danger
+  </Button>
+</Playground>
+
+<Playground>
+  <Button variant='success'>
+    Success
+  </Button>
+</Playground>
+
+Variant `'auto'` is dynamic, by default same as `'default'` (see [ThemeDefaults](/theme-defaults))
+
+<Playground>
+  <Button variant='auto' mr={1}>
+    Auto
+  </Button>
+  
+  <ThemeDefaults buttonStyle='inverted'>
+    <Button variant='auto'>
+      Auto
+    </Button>
+  </ThemeDefaults>
+</Playground>
+
+## Props
+
+<PropsTable of={Button} />

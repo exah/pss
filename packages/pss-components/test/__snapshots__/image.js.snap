@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image snapshot 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+<img
+  className="emotion-0 emotion-1"
+/>
+`;
+
+exports[`Image with image 1`] = `
+.emotion-0 {
+  box-sizing: border-box;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 50%;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+<img
+  alt=""
+  className="emotion-0 emotion-1"
+  src="http://placekitten.com/500"
+/>
+`;
