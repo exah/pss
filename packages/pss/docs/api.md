@@ -818,10 +818,12 @@ const Grid = styled.div`
 `
 ```
 
-    <Grid alignContent='center'>
-      <div>1</div>
-      <div>2</div>
-    </Grid>
+```js
+<Grid alignContent='center'>
+  <div>1</div>
+  <div>2</div>
+</Grid>
+```
 
 ### boxItemsAlignment
 
@@ -851,10 +853,12 @@ const Grid = styled.div`
 `
 ```
 
-    <Grid alignItems='center'>
-      <div>1</div>
-      <div>2</div>
-    </Grid>
+```js
+<Grid alignItems='center'>
+  <div>1</div>
+  <div>2</div>
+</Grid>
+```
 
 ### boxSelfAlignment
 
@@ -974,9 +978,11 @@ const Box = styled.div`
 `
 ```
 
-    <FlexBox> // display: flex
-      <Box flex='1 1 auto'>2</Box> // flex: 1 1 auto
-    </FlexBox>
+```js
+<FlexBox> // display: flex
+  <Box flex='1 1 auto'>2</Box> // flex: 1 1 auto
+</FlexBox>
+```
 
 ### flexContainer
 
@@ -1008,10 +1014,12 @@ const Flex = styled.div`
 `
 ```
 
-    <Flex flexDirection='column' flexWrap='wrap'> // display: flex; flex-direction: column; flex-wrap: wrap;
-      <div>1</div>
-      <div>2</div>
-    </Flex>
+```js
+<Flex flexDirection='column' flexWrap='wrap'> // display: flex; flex-direction: column; flex-wrap: wrap;
+  <div>1</div>
+  <div>2</div>
+</Flex>
+```
 
 ### fontFamily
 
@@ -1174,10 +1182,12 @@ const Grid = styled.div`
 `
 ```
 
-    <Grid gap={1}> // grid-gap: 4px; gap: 4px
-     <div>1</div>
-     <div>2</div>
-    </Grid>
+```js
+<Grid gap={1}> // grid-gap: 4px; gap: 4px
+ <div>1</div>
+ <div>2</div>
+</Grid>
+```
 
 ### gridContainer
 
@@ -1215,10 +1225,12 @@ const Grid = styled.div`
 `
 ```
 
-    <Grid gridTemplateColumns='repeat(12, 1fr)'> // display: grid; grid-template-columns: repeat(12, 1fr)
-      <div>1</div>
-      <div>2</div>
-    </Grid>
+```js
+<Grid gridTemplateColumns='repeat(12, 1fr)'> // display: grid; grid-template-columns: repeat(12, 1fr)
+  <div>1</div>
+  <div>2</div>
+</Grid>
+```
 
 ### gridItem
 
@@ -1244,10 +1256,12 @@ const GridItem = styled.div`
 `
 ```
 
-    <Grid> // display: grid
-      <GridItem gridRow='1' girdColumn='2'>1</GridItem>
-      <GridItem gridRow='2' gridColumn='1'>2</GridItem>
-    </Grid>
+```js
+<Grid> // display: grid
+  <GridItem gridRow='1' girdColumn='2'>1</GridItem>
+  <GridItem gridRow='2' gridColumn='1'>2</GridItem>
+</Grid>
+```
 
 ### hide
 
@@ -1434,10 +1448,12 @@ const Box = styled.div`
 `
 ```
 
-    <FlexBox> // display: flex
-      <Box>2</Box>
-      <Box order={1}>1</Box>
-    </FlexBox>
+```js
+<FlexBox> // display: flex
+  <Box>2</Box>
+  <Box order={1}>1</Box>
+</FlexBox>
+```
 
 ### outline
 
@@ -1939,14 +1955,16 @@ const Box = styled.div`
 <Box d='inline-block' /> // → display: inline-block;
 ```
 
-    <Box d='flex'> // → display: inline-block;
-      <Box f='1' o='1'> // → flex: 1; order: 1
-         Second
-      </Box>
-      <Box>
-       First
-      </Box>
-    </Box>
+```js
+<Box d='flex'> // → display: inline-block;
+  <Box f='1' o='1'> // → flex: 1; order: 1
+     Second
+  </Box>
+  <Box>
+   First
+  </Box>
+</Box>
+```
 
 ```js
 <Box w h /> // → width: 100%; height: 100%;

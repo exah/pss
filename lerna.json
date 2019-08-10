@@ -1,5 +1,5 @@
 {
-  "version": "0.0.0",
+  "version": "5.0.0",
   "npmClient": "yarn",
   "packages": [
     "packages/*"
@@ -7,6 +7,10 @@
   "command": {
     "publish": {
       "message": "🔖 %v"
+    },
+    "version": {
+      "allowBranch": ["master", "release/*"],
+      "ignoreChanges": ["**/__tests__/**", "**/test/**", "**/*.mdx", "**/*.md"]
     }
   }
 }

@@ -1,6 +1,12 @@
 {
-  "name": "root",
+  "name": "pss-root",
   "private": true,
+  "scripts": {
+    "build": "lerna run build",
+    "test": "lerna run test",
+    "release": "npm test && lerna version",
+    "prerelease": "npm run build"
+  },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
