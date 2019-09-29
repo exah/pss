@@ -19,6 +19,7 @@ import { sizes } from './sizes'
 import { space } from './space'
 import { transform } from './transform'
 import { transition } from './transition'
+import { zIndex } from './z-index'
 
 /**
  * ```js
@@ -84,5 +85,6 @@ export const box = combineStyles(
   sizes,
   space,
   transform,
-  transition
+  transition,
+  zIndex
 )
