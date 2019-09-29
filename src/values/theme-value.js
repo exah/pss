@@ -55,7 +55,7 @@ export function themeValue ({
     const result = path(valueKey, defaultValue)(themeScale)
 
     if (isObj(result)) {
-      if (result.hasOwnProperty(mediaKey)) {
+      if (Object.prototype.hasOwnProperty.call(result, mediaKey)) {
         return transformValue(result[mediaKey])
       }
 

@@ -46,13 +46,13 @@ const ratio = createStyles({
 
       return {
         '&::before': {
-          content: `''`,
+          content: "''",
           width: 0,
           float: 'left',
           paddingBottom: size
         },
         '&::after': { // clearfix
-          content: `''`,
+          content: "''",
           display: 'block',
           clear: 'both'
         }

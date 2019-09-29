@@ -102,7 +102,7 @@ export const getFirstKey = (input) => Object.keys(Object(input))[0]
 
 export const getFirst = (input) => {
   if (isObj(input)) {
-    if (input.hasOwnProperty(DEFAULT_KEY)) {
+    if (Object.prototype.hasOwnProperty.call(input, DEFAULT_KEY)) {
       return input.default
     }
 
