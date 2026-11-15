@@ -1,5 +1,5 @@
 import * as CSS from 'csstype'
-import SCALES from './scales'
+import SCALES from './scales.js'
 
 type Length = (string & {}) | number
 

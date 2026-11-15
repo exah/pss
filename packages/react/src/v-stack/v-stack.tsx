@@ -1,11 +1,12 @@
 import styled from '@emotion/styled'
-import { Stack, StackComponent, StackProps } from '../stack'
+import { Stack, StackComponent, StackProps } from '../stack/stack.js'
 
 export interface VStackProps<E extends string = 'div'> extends StackProps<E> {}
 
 /** @private */
-export interface VStackComponent<E extends string = 'div'>
-  extends StackComponent<E> {}
+export interface VStackComponent<
+  E extends string = 'div',
+> extends StackComponent<E> {}
 
 export const VStack: VStackComponent = styled<any>(Stack)({
   flexDirection: 'column',

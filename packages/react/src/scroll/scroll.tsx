@@ -1,18 +1,18 @@
 import styled from '@emotion/styled'
-import { Box, BoxComponent, BoxProps } from '../box'
+import { Box, BoxComponent, BoxProps } from '../box/box.js'
 
 export interface ScrollProps<
   E extends string = 'div',
-  V extends string = 'scrolls'
-> extends BoxProps<E, V>,
-    ScrollInnerProps {}
+  V extends string = 'scrolls',
+>
+  extends BoxProps<E, V>, ScrollInnerProps {}
 
 export interface ScrollInnerProps {}
 
 /** @private */
 export interface ScrollComponent<
   E extends string = 'div',
-  V extends string = 'scrolls'
+  V extends string = 'scrolls',
 > extends BoxComponent<E, V, ScrollInnerProps> {}
 
 export const Scroll: ScrollComponent = styled<any>(Box)({

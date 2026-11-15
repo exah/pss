@@ -1,11 +1,11 @@
 import styled from '@emotion/styled'
-import { Text, TextComponent, TextProps } from '../text'
+import { Text, TextComponent, TextProps } from '../text/text.js'
 
 export interface InputProps<
   E extends string = 'input',
-  V extends string = 'inputs'
-> extends TextProps<E, V>,
-    InputInnerProps {}
+  V extends string = 'inputs',
+>
+  extends TextProps<E, V>, InputInnerProps {}
 
 export interface InputInnerProps {}
 
@@ -13,7 +13,7 @@ export interface InputInnerProps {}
 export interface InputComponent<
   E extends string = 'input',
   V extends string = 'inputs',
-  P extends {} = {}
+  P extends {} = {},
 > extends TextComponent<E, V, InputInnerProps & P> {}
 
 export const Input: InputComponent = styled<any>(Text)()

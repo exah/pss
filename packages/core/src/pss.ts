@@ -1,4 +1,4 @@
-import SCALES from './scales'
+import SCALES from './scales.js'
 import {
   Responsive,
   StyleValue,
@@ -9,7 +9,7 @@ import {
   ColorSchemesValue,
   CSSObject,
   CSSInterpolation,
-} from './types'
+} from './types.js'
 import {
   get,
   isObject,
@@ -18,7 +18,7 @@ import {
   isPropertyKey,
   isString,
   toArray,
-} from './helpers'
+} from './helpers.js'
 
 const AXIS = /^(\w+)(X|Y)$/
 
@@ -152,7 +152,7 @@ interface CreateStyleOptions<Prop extends string, Alias extends string> {
   getScale?: GetScale
 }
 
-export type StyleProps<Prop extends string, Alias extends string> = {
+export type StyleProps<Prop extends string, Alias extends string = Prop> = {
   theme?: SystemTheme
 } & {
   [P in Alias]?: Responsive<StyleValue<Prop>>

@@ -1,9 +1,9 @@
 import styled from '@emotion/styled'
-import { Box, BoxComponent, BoxProps } from '../box'
+import { Box, BoxComponent, BoxProps } from '../box/box.js'
 
 export interface ImageProps<
   E extends string = 'img',
-  V extends string = 'images'
+  V extends string = 'images',
 > extends BoxProps<E, V> {}
 
 export interface ImageInnerProps {}
@@ -11,7 +11,7 @@ export interface ImageInnerProps {}
 /** @private */
 export interface ImageComponent<
   E extends string = 'img',
-  V extends string = 'images'
+  V extends string = 'images',
 > extends BoxComponent<E, V, ImageInnerProps> {}
 
 export const Image: ImageComponent = styled<any>(Box)()

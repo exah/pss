@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { Box } from './box'
+import { Box } from './box.js'
 
 import type { EmotionMatchers } from '@emotion/jest'
 

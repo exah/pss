@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { Base } from './base'
+import { Base } from './base.js'
 
 test('get correct element inside a "ref"', () => {
   const ref = jest.fn()

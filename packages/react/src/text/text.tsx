@@ -1,16 +1,17 @@
 import styled from '@emotion/styled'
 import { style, StyleProps } from 'pss'
 
-import { Box, BoxComponent, BoxProps } from '../box'
+import { Box, BoxComponent, BoxProps } from '../box/box.js'
 
 export interface TextProps<
   E extends string = 'span',
-  V extends string = 'texts'
-> extends Omit<BoxProps<E, V>, keyof TextInnerProps>,
-    TextInnerProps {}
+  V extends string = 'texts',
+>
+  extends Omit<BoxProps<E, V>, keyof TextInnerProps>, TextInnerProps {}
 
 export interface TextInnerProps
-  extends StyleProps<'fontFamily'>,
+  extends
+    StyleProps<'fontFamily'>,
     StyleProps<'fontSize'>,
     StyleProps<'fontWeight'>,
     StyleProps<'letterSpacing'>,
@@ -25,7 +26,7 @@ export interface TextInnerProps
 export interface TextComponent<
   E extends string = 'span',
   V extends string = 'texts',
-  P extends {} = {}
+  P extends {} = {},
 > extends BoxComponent<E, V, TextInnerProps & P> {}
 
 export const Text: TextComponent = styled<any>(Box)(

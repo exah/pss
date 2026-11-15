@@ -1,18 +1,18 @@
 import styled from '@emotion/styled'
-import { Text, TextComponent, TextProps } from '../text'
+import { Text, TextComponent, TextProps } from '../text/text.js'
 
 export interface LabelProps<
   E extends string = 'label',
-  V extends string = 'labels'
-> extends TextProps<E, V>,
-    LabelInnerProps {}
+  V extends string = 'labels',
+>
+  extends TextProps<E, V>, LabelInnerProps {}
 
 export interface LabelInnerProps {}
 
 /** @private */
 export interface LabelComponent<
   E extends string = 'label',
-  V extends string = 'labels'
+  V extends string = 'labels',
 > extends TextComponent<E, V, LabelInnerProps> {}
 
 export const Label: LabelComponent = styled<any>(Text)()

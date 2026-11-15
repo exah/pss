@@ -1,6 +1,9 @@
 {
   "name": "pss-react",
   "version": "0.0.0",
+  "engines": {
+    "node": ">=24"
+  },
   "description": "PSS primitives for React",
   "main": "out/index.js",
   "type": "module",

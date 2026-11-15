@@ -1,16 +1,15 @@
 import styled from '@emotion/styled'
-import { Text, TextComponent, TextProps } from '../text'
+import { Text, TextComponent, TextProps } from '../text/text.js'
 
 export interface ListProps<E extends string = 'ul', V extends string = 'lists'>
-  extends TextProps<E, V>,
-    ListInnerProps {}
+  extends TextProps<E, V>, ListInnerProps {}
 
 export interface ListInnerProps {}
 
 /** @private */
 export interface ListComponent<
   E extends string = 'ul',
-  V extends string = 'lists'
+  V extends string = 'lists',
 > extends TextComponent<E, V, ListInnerProps> {}
 
 export const List: ListComponent = styled<any>(Text)()
@@ -20,16 +19,16 @@ List.defaultProps = { as: 'ul', $key: 'lists' }
 
 export interface ListItemProps<
   E extends string = 'li',
-  V extends string = 'listItems'
-> extends TextProps<E, V>,
-    ListItemInnerProps {}
+  V extends string = 'listItems',
+>
+  extends TextProps<E, V>, ListItemInnerProps {}
 
 export interface ListItemInnerProps {}
 
 /** @private */
 export interface ListItemComponent<
   E extends string = 'li',
-  V extends string = 'listItems'
+  V extends string = 'listItems',
 > extends TextComponent<E, V, ListItemInnerProps> {}
 
 export const ListItem: ListItemComponent =

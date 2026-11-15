@@ -1,13 +1,13 @@
 import styled from '@emotion/styled'
 import { style, StyleProps } from 'pss'
-import { Box, BoxComponent, BoxProps } from '../box'
+import { Box, BoxComponent, BoxProps } from '../box/box.js'
 
 export interface GridProps<E extends string = 'div', V extends string = 'grids'>
-  extends Omit<BoxProps<E, V>, keyof GridInnerProps>,
-    GridInnerProps {}
+  extends Omit<BoxProps<E, V>, keyof GridInnerProps>, GridInnerProps {}
 
 export interface GridInnerProps
-  extends StyleProps<'gap'>,
+  extends
+    StyleProps<'gap'>,
     StyleProps<'rowGap'>,
     StyleProps<'columnGap'>,
     StyleProps<'gridTemplate', 'template'>,
@@ -19,7 +19,7 @@ export interface GridInnerProps
 export interface GridComponent<
   E extends string = 'div',
   V extends string = 'grids',
-  P extends {} = {}
+  P extends {} = {},
 > extends BoxComponent<E, V, GridInnerProps & P> {}
 
 export const Grid: GridComponent = styled<any>(Box)(

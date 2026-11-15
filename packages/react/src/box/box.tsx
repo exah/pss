@@ -1,13 +1,13 @@
 import styled from '@emotion/styled'
 import { spaceStyle, SpaceStyleProps, style, StyleProps } from 'pss'
-import { Base, BaseComponent, BaseProps } from '../base'
+import { Base, BaseComponent, BaseProps } from '../base/base.js'
 
 export interface BoxProps<E extends string = 'div', V extends string = 'boxes'>
-  extends Omit<BaseProps<E, V>, keyof BoxInnerProps>,
-    BoxInnerProps {}
+  extends Omit<BaseProps<E, V>, keyof BoxInnerProps>, BoxInnerProps {}
 
 export interface BoxInnerProps
-  extends SpaceStyleProps<'margin', 'm'>,
+  extends
+    SpaceStyleProps<'margin', 'm'>,
     SpaceStyleProps<'padding', 'p'>,
     StyleProps<'size', 's'>,
     StyleProps<'width', 'w'>,
@@ -19,7 +19,7 @@ export interface BoxInnerProps
 export interface BoxComponent<
   E extends string = 'div',
   V extends string = 'boxes',
-  Props extends {} = {}
+  Props extends {} = {},
 > extends BaseComponent<E, V, BoxInnerProps & Props> {}
 
 export const Box: BoxComponent = styled<any>(Base)(

@@ -1,10 +1,19 @@
 {
   "name": "pss-project",
   "private": true,
+  "type": "module",
+  "packageManager": "npm@11.20.0",
+  "engines": {
+    "node": ">=24",
+    "npm": ">=11"
+  },
   "workspaces": [
     "packages/core",
     "packages/react"
   ],
+  "scripts": {
+    "typecheck": "npm run build --workspace=pss && tsc --noEmit -p packages/react/tsconfig.json"
+  },
   "prettier": {
     "arrowParens": "always",
     "singleQuote": true,
@@ -23,7 +32,7 @@
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "size-limit": "^5.0.1",
-    "typescript": "^4.6.3",
+    "typescript": "^6.0.0",
     "vite": "^2.9.6",
     "vitest": "^0.9.4"
   }

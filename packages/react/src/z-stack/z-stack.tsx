@@ -1,12 +1,12 @@
 import styled from '@emotion/styled'
 import { style, StyleProps } from 'pss'
-import { Box, BoxComponent, BoxProps } from '../box'
+import { Box, BoxComponent, BoxProps } from '../box/box.js'
 
 export interface ZStackProps<
   E extends string = 'div',
-  V extends string = 'zStacks'
-> extends Omit<BoxProps<E, V>, keyof ZStackInnerProps>,
-    ZStackInnerProps {}
+  V extends string = 'zStacks',
+>
+  extends Omit<BoxProps<E, V>, keyof ZStackInnerProps>, ZStackInnerProps {}
 
 /** @private */
 export interface ZStackInnerProps extends StyleProps<'placeItems', 'align'> {}
@@ -14,7 +14,7 @@ export interface ZStackInnerProps extends StyleProps<'placeItems', 'align'> {}
 /** @private */
 export interface ZStackComponent<
   E extends string = 'div',
-  V extends string = 'zStacks'
+  V extends string = 'zStacks',
 > extends BoxComponent<E, V, ZStackInnerProps> {}
 
 export const ZStack: ZStackComponent = styled<any>(Box)(

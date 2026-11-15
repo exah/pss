@@ -1,6 +1,9 @@
 {
   "name": "pss",
   "version": "6.0.0",
+  "engines": {
+    "node": ">=24"
+  },
   "description": "Prop Styles System",
   "main": "out/index.js",
   "type": "module",

@@ -1,4 +1,4 @@
-import type { Get } from './types'
+import type { Get } from './types.js'
 
 export const get = <Path extends string | number, Input>(
   path?: Path,

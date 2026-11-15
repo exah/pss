@@ -1,18 +1,19 @@
 import styled from '@emotion/styled'
 import { style, StyleProps } from 'pss'
-import { Box, BoxComponent, BoxProps } from '../box'
+import { Box, BoxComponent, BoxProps } from '../box/box.js'
 
 export interface StackProps<E extends string = 'div'>
-  extends Omit<BoxProps<E, 'stacks'>, keyof StackInnerProps>,
-    StackInnerProps {}
+  extends Omit<BoxProps<E, 'stacks'>, keyof StackInnerProps>, StackInnerProps {}
 
 export interface StackInnerProps
-  extends StyleProps<'gap', 'space'>,
-    StyleProps<'alignItems', 'align'> {}
+  extends StyleProps<'gap', 'space'>, StyleProps<'alignItems', 'align'> {}
 
 /** @private */
-export interface StackComponent<E extends string = 'div'>
-  extends BoxComponent<E, 'stacks', StackInnerProps> {}
+export interface StackComponent<E extends string = 'div'> extends BoxComponent<
+  E,
+  'stacks',
+  StackInnerProps
+> {}
 
 /** @private Use `VStack` or `HStack` */
 export const Stack: StackComponent = styled<any>(Box)(
