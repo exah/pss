@@ -1,0 +1,49 @@
+export const title = 'Text'
+
+# Text
+
+```js
+import { Text } from 'pss-react'
+```
+
+```jsx live
+<Text
+  as="p"
+  fontSize="1.5rem"
+  lineHeight={1.1}
+  fontFamily="sans-serif"
+  textAlign="center"
+  variant="primary"
+  theme={{
+    breakpoints: {
+      $: null,
+      $md: '(min-width: 600px)',
+    },
+    space: [0, 8, 16, 32],
+    colors: {
+      primary: 'blue',
+    },
+    texts: {
+      primary: {
+        color: 'primary',
+        textDecoration: 'underline',
+        $md: {
+          color: 'orange',
+        },
+      },
+    },
+  }}
+  pss={{
+    color: 'black',
+    ':hover': {
+      textDecoration: 'none',
+    },
+  }}
+  fg={{
+    ':hover': 'magenta',
+  }}
+  p={3}
+>
+  Hello World
+</Text>
+```

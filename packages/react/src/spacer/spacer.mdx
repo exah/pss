@@ -1,0 +1,41 @@
+export const title = 'Spacer'
+
+# Spacer
+
+Insert space between [VStack](#vstack), [HStack](#hstack), or [Flex](#flex) items.
+
+```jsx live
+<HStack space="s.16" align="end" h={1}>
+  <Box s={40} bg="red" />
+  <Spacer />
+  <Box s={40} bg="orange" />
+  <Spacer />
+  <Box s={40} bg="yellow" />
+  <Spacer />
+  <Box s={40} bg="green" />
+</HStack>
+```
+
+```jsx live
+<VStack space="s.16" h={300}>
+  <Box s={40} bg="red" />
+  <Spacer />
+  <Box s={40} bg="orange" />
+  <Spacer />
+  <Box s={40} bg="yellow" />
+  <Spacer />
+  <Box s={40} bg="green" />
+</VStack>
+```
+
+```jsx live
+<Flex>
+  <Box s={40} bg="red" />
+  <Spacer />
+  <Box s={40} bg="orange" />
+  <Spacer />
+  <Box s={40} bg="yellow" />
+  <Spacer />
+  <Box s={40} bg="green" />
+</Flex>
+```

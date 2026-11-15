@@ -1,0 +1,38 @@
+{
+  "name": "pss-react",
+  "version": "0.0.0",
+  "description": "PSS primitives for React",
+  "main": "out/index.js",
+  "type": "module",
+  "files": [
+    "out",
+    "ref"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc && babel --extensions .ts,.tsx src --out-dir out",
+    "test": "vitest",
+    "size": "size-limit",
+    "release": "np",
+    "preversion": "npm run build",
+    "prebuild": "rm -rf out"
+  },
+  "keywords": [],
+  "author": "John Grishin <hi@johngrish.in>",
+  "license": "MIT",
+  "size-limit": [
+    {
+      "path": "./out/index.js",
+      "limit": "6 KB"
+    }
+  ],
+  "dependencies": {
+    "pss": "^6.0.0"
+  },
+  "peerDependencies": {
+    "@emotion/react": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
+  }
+}

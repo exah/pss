@@ -1,0 +1,31 @@
+{
+  "name": "pss",
+  "version": "6.0.0",
+  "description": "Prop Styles System",
+  "main": "out/index.js",
+  "type": "module",
+  "files": [
+    "out",
+    "ref"
+  ],
+  "sideEffects": false,
+  "keywords": [],
+  "author": "John Grishin <hi@johngrish.in>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rm -rf out && tsc --outDir out",
+    "test": "jest",
+    "size": "size-limit",
+    "release": "np",
+    "preversion": "npm run build"
+  },
+  "size-limit": [
+    {
+      "path": "./out/index.js",
+      "limit": "1.6 KB"
+    }
+  ],
+  "peerDependencies": {
+    "csstype": "^3.0.0"
+  }
+}

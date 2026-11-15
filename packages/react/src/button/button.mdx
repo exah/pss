@@ -1,0 +1,45 @@
+export const title = 'Button'
+
+# Button
+
+```js
+import { Button } from 'pss-react'
+```
+
+```jsx live
+<Provider
+  theme={{
+    buttons: {
+      primary: {
+        backgroundColor: 'blue',
+        color: 'white',
+        paddingX: 's.8',
+        paddingY: 's.4',
+        borderRadius: 4,
+      },
+    },
+  }}
+>
+  <Button variant="primary" onClick={() => alert('Hello')}>
+    Say hello
+  </Button>
+</Provider>
+```
+
+```jsx live
+<Button type="submit" variant="contrast">
+  Next
+</Button>
+```
+
+```jsx live
+<Button variant="round" aria-label="Add link">
+  <PlusIcon />
+</Button>
+```
+
+```jsx live
+<Button variant="round">
+  <GearIcon /> <Text>Settings</Text>
+</Button>
+```
