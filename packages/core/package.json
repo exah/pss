@@ -17,7 +17,7 @@
   "license": "MIT",
   "scripts": {
     "build": "rm -rf out && tsc --outDir out",
-    "test": "jest",
+    "test": "vitest run --config ../../vite.config.ts --root src --passWithNoTests",
     "size": "size-limit",
     "release": "np",
     "preversion": "npm run build"

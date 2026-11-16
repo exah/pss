@@ -12,7 +12,8 @@
     "packages/react"
   ],
   "scripts": {
-    "typecheck": "npm run build --workspace=pss && tsc --noEmit -p packages/react/tsconfig.json"
+    "test": "vitest run",
+    "typecheck": "npm run build --workspace=pss && tsc --noEmit -p packages/react/tsconfig.json && tsc --noEmit -p packages/react/tsconfig.test.json"
   },
   "prettier": {
     "arrowParens": "always",
@@ -27,16 +28,17 @@
     "@emotion/styled": "^11.14.1",
     "@size-limit/preset-small-lib": "^5.0.1",
     "@testing-library/dom": "^10.4.1",
-    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.3",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "@vitejs/plugin-react": "^1.3.1",
+    "@vitejs/plugin-react": "^6.3.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "size-limit": "^5.0.1",
     "typescript": "^6.0.0",
-    "vite": "^2.9.6",
-    "vitest": "^0.9.4"
+    "happy-dom": "^20.8.4",
+    "vite": "^8.3.0",
+    "vitest": "^5.1.0"
   }
 }

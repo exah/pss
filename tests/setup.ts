@@ -1,7 +1,10 @@
-import '@testing-library/jest-dom/extend-expect'
-import * as emotion from '@emotion/jest'
-import { expect } from 'vitest'
+import '@testing-library/jest-dom/vitest'
+import {matchers} from '@emotion/jest'
+import { cleanup } from '@testing-library/react'
+import { afterEach, expect } from 'vitest'
+
+afterEach(() => cleanup())
 
 expect.extend({
-  toHaveStyleRule: emotion.matchers.toHaveStyleRule,
+  toHaveStyleRule: matchers.toHaveStyleRule,
 })

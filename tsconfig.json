@@ -9,9 +9,9 @@
     "esModuleInterop": true,
     "noUnusedLocals": true,
     "declaration": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
   },
-  "include": ["./tests"],
+  "include": [],
   "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

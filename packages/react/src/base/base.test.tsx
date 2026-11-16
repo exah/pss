@@ -1,8 +1,9 @@
+import { expect, test, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { Base } from './base.js'
 
 test('get correct element inside a "ref"', () => {
-  const ref = jest.fn()
+  const ref = vi.fn()
 
   render(<Base ref={(element) => ref(element)}>Base</Base>)
 
@@ -11,7 +12,7 @@ test('get correct element inside a "ref"', () => {
 })
 
 test('change element with "as" prop', () => {
-  const ref = jest.fn()
+  const ref = vi.fn()
 
   render(<Base as="button" ref={(element) => ref(element)} />)
 
@@ -21,17 +22,17 @@ test('change element with "as" prop', () => {
 test('using correct default styles', () => {
   render(<Base>Base</Base>)
 
-  expect(screen.getByText('Base')).toHaveStyle({
-    margin: 0,
-    padding: 0,
-    border: 0,
-    borderRadius: 0,
-    background: 'none',
-    font: 'inherit',
-    color: 'inherit',
-    textAlign: 'inherit',
-    textDecoration: 'none',
-  })
+  const base = screen.getByText('Base')
+
+  expect(base).toHaveStyleRule('margin', '0')
+  expect(base).toHaveStyleRule('padding', '0')
+  expect(base).toHaveStyleRule('border', '0')
+  expect(base).toHaveStyleRule('border-radius', '0')
+  expect(base).toHaveStyleRule('background', 'none')
+  expect(base).toHaveStyleRule('font', 'inherit')
+  expect(base).toHaveStyleRule('color', 'inherit')
+  expect(base).toHaveStyleRule('text-align', 'inherit')
+  expect(base).toHaveStyleRule('text-decoration', 'none')
 })
 
 test('using correct default styles for a link', () => {
@@ -41,7 +42,5 @@ test('using correct default styles for a link', () => {
     </Base>
   )
 
-  expect(screen.getByText('Base')).toHaveStyle({
-    textDecoration: 'none',
-  })
+  expect(screen.getByText('Base')).toHaveStyleRule('text-decoration', 'none')
 })

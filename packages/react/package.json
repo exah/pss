@@ -13,8 +13,8 @@
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "tsc && babel --extensions .ts,.tsx src --out-dir out",
-    "test": "vitest",
+    "build": "tsc -p tsconfig.build.json && babel --extensions .ts,.tsx src --out-dir out",
+    "test": "vitest run --config ../../vite.config.ts --root src",
     "size": "size-limit",
     "release": "np",
     "preversion": "npm run build",

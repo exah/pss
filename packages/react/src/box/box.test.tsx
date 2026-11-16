@@ -2,14 +2,6 @@ import { expect, test } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { Box } from './box.js'
 
-import type { EmotionMatchers } from '@emotion/jest'
-
-declare global {
-  namespace jest {
-    interface Matchers<R = void, T = {}> extends EmotionMatchers {}
-  }
-}
-
 test('using border box model', () => {
   render(<Box>Box</Box>)
 
