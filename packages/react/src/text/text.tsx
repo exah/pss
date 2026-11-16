@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { style, StyleProps } from 'pss'
 
 import { Box, BoxComponent, BoxProps } from '../box/box.js'
+import { withDefaults } from '../internal/with-defaults.js'
 
 export interface TextProps<
   E extends string = 'span',
@@ -29,18 +30,20 @@ export interface TextComponent<
   P extends {} = {},
 > extends BoxComponent<E, V, TextInnerProps & P> {}
 
-export const Text: TextComponent = styled<any>(Box)(
-  style('fontFamily'),
-  style('fontSize'),
-  style('fontWeight'),
-  style('letterSpacing'),
-  style('lineHeight'),
-  style('textAlign'),
-  style('textDecoration'),
-  style('textOverflow'),
-  style('textTransform'),
-  style('whiteSpace')
+export const Text: TextComponent = withDefaults(
+  styled<any>(Box)(
+    style('fontFamily'),
+    style('fontSize'),
+    style('fontWeight'),
+    style('letterSpacing'),
+    style('lineHeight'),
+    style('textAlign'),
+    style('textDecoration'),
+    style('textOverflow'),
+    style('textTransform'),
+    style('whiteSpace')
+  ),
+  { as: 'span', $key: 'texts' }
 )
 
 Text.displayName = 'Text'
-Text.defaultProps = { as: 'span', $key: 'texts' }

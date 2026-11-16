@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { Input, InputComponent, InputProps } from '../input/input.js'
+import { withDefaults } from '../internal/with-defaults.js'
 
 export interface SelectProps<
   E extends string = 'select',
@@ -15,7 +16,9 @@ export interface SelectComponent<
   V extends string = 'selects',
 > extends InputComponent<E, V> {}
 
-export const Select: SelectComponent = styled<any>(Input)()
+export const Select: SelectComponent = withDefaults(styled<any>(Input)(), {
+  as: 'select',
+  $key: 'selects',
+})
 
 Select.displayName = 'Select'
-Select.defaultProps = { as: 'select', $key: 'selects' }

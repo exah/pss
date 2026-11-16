@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { Input, InputComponent, InputProps } from '../input/input.js'
+import { withDefaults } from '../internal/with-defaults.js'
 
 export interface ButtonProps<
   E extends string = 'button',
@@ -15,7 +16,10 @@ export interface ButtonComponent<
   V extends string = 'buttons',
 > extends InputComponent<E, V, ButtonInnerProps> {}
 
-export const Button: ButtonComponent = styled<any>(Input)()
+export const Button: ButtonComponent = withDefaults(styled<any>(Input)(), {
+  as: 'button',
+  type: 'button',
+  $key: 'buttons',
+})
 
 Button.displayName = 'Button'
-Button.defaultProps = { as: 'button', type: 'button', $key: 'buttons' }

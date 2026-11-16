@@ -27,20 +27,17 @@ function internalPSS({ $$, ...rest }: InternalPSS) {
   return pss({ ...rest, pss: $$ })
 }
 
-type Cast<A, B> = A extends B ? A : B
+type IntrinsicElementName = Extract<keyof React.JSX.IntrinsicElements, string>
 
-export type ElementType<E extends string> = E extends keyof React.ReactHTML
-  ? React.ReactHTML[E] extends React.DetailedHTMLFactory<any, infer T>
-    ? Cast<T, HTMLElement>
-    : HTMLElement
-  : unknown
+export type ElementType<E extends string> = E extends IntrinsicElementName
+  ? React.ComponentRef<E>
+  : HTMLElement
 
 export interface HTMLProps<E extends string>
   extends Omit<React.AllHTMLAttributes<ElementType<E>>, 'as' | 'ref'> {}
 
 export interface BaseProps<E extends string, V extends string>
-  extends HTMLProps<E>,
-    BaseInnerProps<E, V> {}
+  extends HTMLProps<E>, BaseInnerProps<E, V> {}
 
 export interface BaseInnerProps<E extends string, V extends string>
   extends VariantKeyProps<V>,
@@ -48,7 +45,7 @@ export interface BaseInnerProps<E extends string, V extends string>
     ColorSchemeProps,
     InternalPSS,
     PSS {
-  as?: E | React.ComponentType<any>
+  as?: E | React.ElementType
   ref?: React.Ref<ElementType<E>>
 }
 
@@ -57,10 +54,12 @@ export interface BaseComponent<
   Element extends string = 'div',
   Variant extends string = never,
   Props extends {} = {}
-> extends React.VFC<BaseProps<keyof React.ReactHTML, Variant> & Props> {
+> extends React.FunctionComponent<
+    BaseProps<IntrinsicElementName, Variant> & Props
+  > {
   <T extends string = Element, V extends string = Variant>(
     props: BaseProps<T, V> & Props
-  ): React.ReactElement | null
+  ): React.ReactNode | Promise<React.ReactNode>
 }
 
 export const Base: BaseComponent = styled<any>('div')(

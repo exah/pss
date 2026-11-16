@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { Box, BoxComponent, BoxProps } from '../box/box.js'
+import { withDefaults } from '../internal/with-defaults.js'
 
 export interface ImageProps<
   E extends string = 'img',
@@ -14,7 +15,9 @@ export interface ImageComponent<
   V extends string = 'images',
 > extends BoxComponent<E, V, ImageInnerProps> {}
 
-export const Image: ImageComponent = styled<any>(Box)()
+export const Image: ImageComponent = withDefaults(styled<any>(Box)(), {
+  as: 'img',
+  $key: 'images',
+})
 
 Image.displayName = 'Image'
-Image.defaultProps = { as: 'img', $key: 'images' }

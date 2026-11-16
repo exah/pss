@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { Text, TextComponent, TextProps } from '../text/text.js'
+import { withDefaults } from '../internal/with-defaults.js'
 
 export interface InputProps<
   E extends string = 'input',
@@ -16,7 +17,9 @@ export interface InputComponent<
   P extends {} = {},
 > extends TextComponent<E, V, InputInnerProps & P> {}
 
-export const Input: InputComponent = styled<any>(Text)()
+export const Input: InputComponent = withDefaults(styled<any>(Text)(), {
+  as: 'input',
+  $key: 'inputs',
+})
 
 Input.displayName = 'Input'
-Input.defaultProps = { as: 'input', $key: 'inputs' }

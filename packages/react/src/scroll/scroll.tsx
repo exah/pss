@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { Box, BoxComponent, BoxProps } from '../box/box.js'
+import { withDefaults } from '../internal/with-defaults.js'
 
 export interface ScrollProps<
   E extends string = 'div',
@@ -15,9 +16,9 @@ export interface ScrollComponent<
   V extends string = 'scrolls',
 > extends BoxComponent<E, V, ScrollInnerProps> {}
 
-export const Scroll: ScrollComponent = styled<any>(Box)({
-  overflow: 'auto',
-})
+export const Scroll: ScrollComponent = withDefaults(
+  styled<any>(Box)({ overflow: 'auto' }),
+  { as: 'div', $key: 'scrolls' }
+)
 
 Scroll.displayName = 'Scroll'
-Scroll.defaultProps = { as: 'div', $key: 'scrolls' }
