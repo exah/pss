@@ -2,8 +2,11 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "noEmit": false,
+    "declaration": false,
     "rootDir": "./src",
-    "outDir": "./out"
+    "outDir": "./esm",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
   },
   "include": ["./src"],
   "exclude": ["./src/**/*.test.ts", "./src/**/*.test.tsx"]

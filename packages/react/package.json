@@ -5,27 +5,41 @@
     "node": ">=24"
   },
   "description": "PSS primitives for React",
-  "main": "out/index.js",
+  "author": "John Grishin <hi@johngrish.in>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/exah/pss.git",
+    "directory": "packages/react"
+  },
+  "license": "MIT",
+  "main": "./esm/index.js",
   "type": "module",
-  "files": [
-    "out",
-    "ref"
-  ],
+  "module": "./esm/index.js",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./esm/index.js"
+    }
+  },
+  "files": ["esm", "types", "README.md", "LICENSE"],
   "sideEffects": false,
   "scripts": {
-    "build": "tsc -p tsconfig.build.json && babel --extensions .ts,.tsx src --out-dir out",
+    "clean": "node -e \"for (const dir of ['out', 'esm', 'types']) require('node:fs').rmSync(dir, { recursive: true, force: true })\"",
+    "prebuild": "npm run build --workspace=pss",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build": "npm run clean && npm run build:esm && npm run build:types",
     "test": "vitest run --config ../../vite.config.ts --root src",
     "size": "size-limit",
     "release": "np",
     "preversion": "npm run build",
-    "prebuild": "rm -rf out"
+    "prepack": "npm run build"
   },
-  "keywords": [],
-  "author": "John Grishin <hi@johngrish.in>",
-  "license": "MIT",
+  "keywords": ["react", "components", "design-system", "emotion", "pss"],
   "size-limit": [
     {
-      "path": "./out/index.js",
+      "path": "./esm/index.js",
       "limit": "6 KB"
     }
   ],
@@ -36,6 +50,12 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "react": "^19.3.1",
-    "react-dom": "^19.3.1"
+    "react-dom": "^19.3.1",
+    "@types/react": "^19.3.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
   }
 }

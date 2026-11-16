@@ -2,10 +2,10 @@
 
 import { expect, test } from 'vitest'
 import { renderToString } from 'react-dom/server'
-import { Base } from './base/base.js'
-import { Box } from './box/box.js'
-import { Provider } from './provider/provider.js'
-import { Root } from './root/root.js'
+import { Base } from '../base/base.js'
+import { Box } from '../box/box.js'
+import { Provider } from '../provider/provider.js'
+import { Root } from '../root/root.js'
 
 const theme = {
   colors: {

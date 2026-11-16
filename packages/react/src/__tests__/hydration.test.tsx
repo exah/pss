@@ -2,9 +2,9 @@ import { act } from 'react'
 import { hydrateRoot } from 'react-dom/client'
 import { renderToString } from 'react-dom/server'
 import { expect, test, vi } from 'vitest'
-import { Base } from './base/base.js'
-import { Box } from './box/box.js'
-import { Provider } from './provider/provider.js'
+import { Base } from '../base/base.js'
+import { Box } from '../box/box.js'
+import { Provider } from '../provider/provider.js'
 
 const theme = {
   colors: {

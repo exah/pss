@@ -12,8 +12,11 @@
     "packages/react"
   ],
   "scripts": {
+    "build": "npm run build --workspace=pss-react",
     "test": "vitest run",
-    "typecheck": "npm run build --workspace=pss && tsc --noEmit -p packages/react/tsconfig.json && tsc --noEmit -p packages/react/tsconfig.test.json"
+    "typecheck": "npm run build && tsc --noEmit -p packages/react/tsconfig.json && tsc --noEmit -p packages/react/tsconfig.test.json",
+    "pack:dry-run": "npm pack --dry-run --workspace=pss && npm pack --dry-run --workspace=pss-react",
+    "test:consumer": "node tests/consumer/verify.mjs"
   },
   "prettier": {
     "arrowParens": "always",
