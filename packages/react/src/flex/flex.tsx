@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { style } from 'pss'
+import { StyleProps, style } from 'pss'
 import { Box, BoxComponent, BoxProps } from '../box/box.js'
 import { withDefaults } from '../internal/with-defaults.js'
 
@@ -9,7 +9,8 @@ export interface FlexProps<
 >
   extends Omit<BoxProps<E, V>, keyof FlexInnerProps>, FlexInnerProps {}
 
-export interface FlexInnerProps {}
+export interface FlexInnerProps
+  extends StyleProps<'gap'>, StyleProps<'alignItems', 'align'> {}
 
 /** @private */
 export interface FlexComponent<

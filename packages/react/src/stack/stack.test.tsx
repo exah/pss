@@ -7,12 +7,16 @@ test('renders as a flex container by default', () => {
 
   const stack = screen.getByText('Stack')
 
-  expect(stack.tagName).toBe('DIV')
+  expect(stack).instanceOf(HTMLDivElement)
   expect(stack).toHaveStyleRule('display', 'flex')
 })
 
-test('sets gap and alignment from props', () => {
-  render(<Stack gap={8} align="center">Stack</Stack>)
+test('applies gap and alignment styles', () => {
+  render(
+    <Stack gap={8} align="center">
+      Stack
+    </Stack>
+  )
 
   const stack = screen.getByText('Stack')
 
