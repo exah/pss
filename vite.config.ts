@@ -11,5 +11,9 @@ export default defineConfig({
     environment: 'happy-dom',
     globals: false,
     setupFiles: [setupFile],
+    typecheck: {
+      include: ['packages/react/src/__tests__/**/*.test-d.tsx'],
+      tsconfig: './packages/react/tsconfig.test-types.json',
+    },
   },
 })

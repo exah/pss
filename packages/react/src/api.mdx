@@ -59,6 +59,59 @@ export const title = 'API'
 | `durations`      | durations for animation and transition         |
 | `timings`        | timing functions for animation and transition  |
 
+## Extending the theme
+
+Declare your theme shape once, then augment both PSS and Emotion so theme keys
+are available to style helpers, CSS properties, and the `Provider`.
+
+```ts
+export const theme = {
+  breakpoints: { $: null, $md: '(min-width: 600px)' },
+  colors: {
+    primary: 'var(--c-primary, #1769aa)',
+    foreground: 'var(--c-foreground, #ffffff)',
+  },
+  colorSchemes: {
+    light: { '--c-primary': '#1769aa', '--c-foreground': '#ffffff' },
+    dark: { '--c-primary': '#8ab4ff', '--c-foreground': '#171717' },
+  },
+  space: { small: 8, medium: 16 },
+} as const
+
+type AppTheme = typeof theme
+
+declare module 'pss' {
+  interface SystemTheme extends AppTheme {}
+}
+
+declare module '@emotion/react' {
+  interface Theme extends AppTheme {}
+}
+```
+
+With the augmentation in place, CSS properties suggest keys from their matching
+theme scale. For example, `color` suggests `primary` and `foreground`, while
+`padding` suggests `small` and `medium`. Standard CSS values remain valid.
+
+```tsx
+<Provider theme={theme}>
+  <Root colorScheme="light" />
+  <Box
+    pss={{
+      color: 'foreground',
+      padding: 'medium',
+      $md: { color: 'primary' },
+    }}
+  >
+    Theme-aware styles
+  </Box>
+</Provider>
+```
+
+Theme values can use CSS variable references with fallbacks. `Root` and
+`colorSchemes` set the variables; PSS resolves the named token to its variable
+reference. No additional theme helper is required.
+
 ## Examples
 
 ### Change HTML element

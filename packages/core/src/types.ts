@@ -12,7 +12,27 @@ export type CSSInterpolation =
   | CSSObject
   | CSSInterpolation[]
 
-export interface CSSObject extends CSSProperties {
+type ThemeValueForProperty<Property extends string> =
+  Property extends keyof typeof SCALES
+    ? ThemeValue<`${(typeof SCALES)[Property]}`>
+    : never
+
+type CSSPropertyValue<Property extends string> =
+  Property extends keyof CSSProperties
+    ? CSSProperties[Property]
+    : Property extends 'marginX' | 'marginY'
+      ? CSSProperties['margin']
+      : Property extends 'paddingX' | 'paddingY'
+        ? CSSProperties['padding']
+        : never
+
+type CSSObjectProperties = {
+  [Property in keyof CSSProperties | keyof typeof SCALES]?:
+    | CSSPropertyValue<Property & string>
+    | ThemeValueForProperty<Property & string>
+}
+
+export interface CSSObject extends CSSObjectProperties {
   /** custom property or selector */
   [propertiesName: string]: CSSInterpolation
 }
@@ -37,7 +57,7 @@ export type ThemeValue<Key extends string> = Key extends keyof SystemTheme
 
 export type StyleValue<Prop extends string> =
   | (Prop extends keyof CSSProperties ? CSSProperties[Prop] : never)
-  | ThemeValue<Prop extends keyof SCALES ? SCALES[Prop] : never>
+  | ThemeValueForProperty<Prop>
 
 export type VariantValue<Key extends string> = Key extends keyof SystemTheme
   ? keyof SystemTheme[Key]
