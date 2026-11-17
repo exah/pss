@@ -1,0 +1,54 @@
+export const title = 'ZStack'
+
+# ZStack
+
+```js
+import { ZStack } from 'pss-react'
+```
+
+Based on [Grid](#grid). Items placed one after another.
+[Idea from Swift UI.](https://developer.apple.com/documentation/swiftui/zstack)
+
+```jsx live
+<ZStack>
+  {['red', 'orange', 'yellow', 'green', 'blue'].map((color, index) => (
+    <Box
+      key={color}
+      pss={{
+        size: 100,
+        backgroundColor: color,
+        transform: `translate(${index}rem, ${index}rem)`,
+      }}
+    />
+  ))}
+</ZStack>
+```
+
+```jsx live
+<ZStack s={100}>
+  <Box bg="red" />
+  <Box bg="yellow" s={50} pss={{ placeSelf: 'start end' }} />
+  <Box bg="blue" s={50} pss={{ placeSelf: 'end end' }} />
+</ZStack>
+```
+
+```jsx live
+<ZStack align="center" fg="white" bg="lime">
+  <Image
+    src="https://placekitten.com/1600/800"
+    width={800}
+    height={400}
+    alt="Cute kitten"
+    pss={{ height: 'auto', maxWidth: '100%' }}
+  />
+  <Box bg="red" s={100} />
+  <Box
+    bg="yellow"
+    pss={{
+      placeSelf: 'end start',
+      margin: 's.24',
+      size: 40,
+    }}
+  />
+</ZStack>
+```

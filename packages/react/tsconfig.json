@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": "../..",
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "Bundler"
+  },
+  "include": ["../../tests/types.d.ts", "../../tests/setup.ts", "./src"],
+  "exclude": ["src/__tests__/theme.test-d.tsx"]
+}

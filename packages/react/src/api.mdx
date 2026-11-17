@@ -1,0 +1,338 @@
+export const title = 'API'
+
+# API
+
+## Reference
+
+### Core props
+
+| Prop          | Description                                                            |
+| ------------- | ---------------------------------------------------------------------- |
+| `as`          | [Changes HTML element](#change-html-element)                           |
+| `pss`         | [Apply theme-aware styles](#theme-aware-styles)                        |
+| `variant`     | [Set component style variant](#variants) (see docs for each component) |
+| `colorScheme` | [Set color scheme](#color-scheme)                                      |
+
+### Style props
+
+| Prop | Description             |
+| ---- | ----------------------- |
+| `fg` | Text color (foreground) |
+| `bg` | Background color        |
+| `w`  | Width                   |
+| `h`  | Height                  |
+| `s`  | Width & height          |
+| `m`  | Margin                  |
+| `ml` | Left margin             |
+| `mr` | Right margin            |
+| `mt` | Top margin              |
+| `mb` | Bottom margin           |
+| `mx` | Left & right margin     |
+| `my` | Top & bottom margin     |
+| `p`  | Padding                 |
+| `pl` | Left padding            |
+| `pr` | Right padding           |
+| `pt` | Top padding             |
+| `pb` | Bottom padding          |
+| `px` | Left & right padding    |
+| `py` | Top & bottom padding    |
+
+### Theme
+
+| Key              | Description                                    |
+| ---------------- | ---------------------------------------------- |
+| `colors`         | text, background, caret, border, outline color |
+| `sizes`          | width & height (including min/max), flex-basis |
+| `space`          | margin, padding, gap, left, right, top, bottom |
+| `borders`        | shorthand borders for each direction           |
+| `borderWidths`   | border widths for each direction               |
+| `borderStyles`   | border styles for each direction               |
+| `fonts`          | custom font families                           |
+| `fontSizes`      | custom font sizes                              |
+| `fontWeights`    | custom font wights                             |
+| `lineHeights`    | custom line heights                            |
+| `letterSpacings` | custom letter spacings                         |
+| `radii`          | border radii for each direction                |
+| `shadows`        | box and text shadows                           |
+| `transitions`    | shorthand transitions                          |
+| `animations`     | shorthand animations                           |
+| `durations`      | durations for animation and transition         |
+| `timings`        | timing functions for animation and transition  |
+
+## Extending the theme
+
+Declare your theme shape once, then augment both PSS and Emotion so theme keys
+are available to style helpers, CSS properties, and the `Provider`.
+
+```ts
+export const theme = {
+  breakpoints: { $: null, $md: '(min-width: 600px)' },
+  colors: {
+    primary: 'var(--c-primary, #1769aa)',
+    foreground: 'var(--c-foreground, #ffffff)',
+  },
+  colorSchemes: {
+    light: { '--c-primary': '#1769aa', '--c-foreground': '#ffffff' },
+    dark: { '--c-primary': '#8ab4ff', '--c-foreground': '#171717' },
+  },
+  space: { small: 8, medium: 16 },
+} as const
+
+type AppTheme = typeof theme
+
+declare module 'pss' {
+  interface SystemTheme extends AppTheme {}
+}
+
+declare module '@emotion/react' {
+  interface Theme extends AppTheme {}
+}
+```
+
+With the augmentation in place, CSS properties suggest keys from their matching
+theme scale. For example, `color` suggests `primary` and `foreground`, while
+`padding` suggests `small` and `medium`. Standard CSS values remain valid.
+
+```tsx
+<Provider theme={theme}>
+  <Root colorScheme="light" />
+  <Box
+    pss={{
+      color: 'foreground',
+      padding: 'medium',
+      $md: { color: 'primary' },
+    }}
+  >
+    Theme-aware styles
+  </Box>
+</Provider>
+```
+
+Theme values can use CSS variable references with fallbacks. `Root` and
+`colorSchemes` set the variables; PSS resolves the named token to its variable
+reference. No additional theme helper is required.
+
+## Examples
+
+### Change HTML element
+
+```jsx live
+<Box as="a" href="https://google.com" target="_blank">
+  Link
+</Box>
+```
+
+### Theme-aware styles
+
+Use `pss` prop to add styles using values defined in your [theme](#theme).
+
+```jsx live
+<Provider
+  theme={{
+    breakpoints: { $: null, $md: '(min-width: 600px)' },
+    space: [0, 4, 8, 16, 32],
+    colors: { primary: 'blue', foreground: 'white' },
+    fonts: { primary: 'sans-serif' },
+  }}
+>
+  <Box
+    pss={{
+      color: 'foreground',
+      backgroundColor: 'primary',
+      fontFamily: 'primary',
+      width: 128,
+      height: 64,
+      padding: 2,
+      marginX: 'auto',
+      $md: {
+        width: 256,
+        height: 78,
+      },
+    }}
+  >
+    Box
+  </Box>
+</Provider>
+```
+
+### Variants
+
+Use `variant` prop to set styles using values from your [theme](#theme).
+
+```jsx live
+<Provider
+  theme={{
+    boxes: {
+      circle: {
+        display: 'grid',
+        placeItems: 'center',
+        color: 'white',
+        backgroundColor: 'red',
+        borderRadius: 64,
+        size: 128,
+        fontFamily: 'sans-serif',
+      },
+    },
+  }}
+>
+  <Box variant="circle">Box</Box>
+</Provider>
+```
+
+### Color Scheme
+
+Use `colorScheme` prop to choose different set of colors (powered by CSS variables). All elements inside will use these variables, following regular CSS inheritance rules.
+
+```jsx live
+<Provider
+  theme={{
+    colorSchemes: {
+      light: {
+        '--c-fg': '#222222',
+        '--c-bg': '#eeeeee',
+      },
+      dark: {
+        '--c-fg': '#eeeeee',
+        '--c-bg': '#222222',
+      },
+    },
+  }}
+>
+  <Box bg="bg" fg="fg" s={128} colorScheme="dark">
+    Box
+  </Box>
+  <Box bg="bg" fg="fg" s={128} colorScheme="light">
+    Box
+  </Box>
+</Provider>
+```
+
+### Responsive styles
+
+```jsx live
+<Provider
+  theme={{
+    breakpoints: {
+      $: null,
+      $md: '(min-width: 900px)',
+    },
+  }}
+>
+  <Box
+    pss={{
+      size: 64,
+      backgroundColor: 'blue',
+      $md: {
+        size: 128,
+        backgroundColor: 'pink',
+      },
+      ':hover': {
+        backgroundColor: 'lime',
+      },
+    }}
+  />
+</Provider>
+```
+
+```jsx live
+<Provider
+  theme={{
+    breakpoints: {
+      $: null,
+      $md: '(min-width: 900px)',
+    },
+  }}
+>
+  <Box
+    s={{ $: 64, $md: 128 }}
+    bg={{ $: 'blue', $md: 'pink', ':hover': 'lime' }}
+  />
+</Provider>
+```
+
+### Colors
+
+```jsx live
+<Box bg="blue" fg="white">
+  Hello
+</Box>
+```
+
+```jsx live
+<Box
+  pss={{
+    backgroundColor: 'blue',
+    color: 'white',
+  }}
+>
+  Hello
+</Box>
+```
+
+### Spacing
+
+```jsx live
+<Box
+  p="s.16"
+  mx="s.8"
+  pss={{
+    outline: '1px solid',
+    display: 'inline-block',
+  }}
+>
+  Hello
+</Box>
+```
+
+```jsx live
+<Box
+  pss={{
+    padding: 's.16',
+    marginX: 's.8',
+    outline: '1px solid',
+    display: 'inline-block',
+  }}
+>
+  Hello
+</Box>
+```
+
+## Sizing
+
+```jsx live
+<Box w={64} h={28} bg="fg" />
+```
+
+```jsx live
+<Box s={32} bg="fg" />
+```
+
+```jsx live
+<Provider
+  theme={{
+    sizes: {
+      foo: 64,
+      bar: 128,
+    },
+  }}
+>
+  <Box w="foo" h="bar" bg="fg" />
+</Provider>
+```
+
+```jsx live
+<Provider
+  theme={{
+    sizes: {
+      bar: 128,
+    },
+  }}
+>
+  <Box
+    pss={{
+      size: 'bar',
+      backgroundColor: 'fg',
+    }}
+  />
+</Provider>
+```

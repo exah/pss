@@ -1,0 +1,48 @@
+{
+  "name": "pss",
+  "version": "6.0.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "description": "Theme-aware prop-based style utilities for CSS-in-JS design systems",
+  "author": "John Grishin <hi@johngrish.in>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/exah/pss.git",
+    "directory": "packages/core"
+  },
+  "license": "MIT",
+  "type": "module",
+  "main": "./esm/index.js",
+  "module": "./esm/index.js",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./esm/index.js"
+    }
+  },
+  "files": ["esm", "types", "README.md", "LICENSE"],
+  "sideEffects": false,
+  "keywords": ["css-in-js", "styles", "theme", "prop-styles"],
+  "scripts": {
+    "clean": "node -e \"for (const dir of ['out', 'esm', 'types']) require('node:fs').rmSync(dir, { recursive: true, force: true })\"",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build": "npm run clean && npm run build:esm && npm run build:types",
+    "test": "vitest run --config ../../vite.config.ts --root src --passWithNoTests",
+    "size": "size-limit",
+    "release": "np",
+    "preversion": "npm run build",
+    "prepack": "npm run build"
+  },
+  "size-limit": [
+    {
+      "path": "./esm/index.js",
+      "limit": "1.6 KB"
+    }
+  ],
+  "peerDependencies": {
+    "csstype": "^3.0.0"
+  }
+}

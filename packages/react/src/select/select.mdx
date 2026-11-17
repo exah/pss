@@ -1,0 +1,39 @@
+export const title = 'Select'
+
+# Select
+
+```js
+import { Select } from 'pss-react'
+```
+
+```jsx live
+<Label>
+  Reply:
+  <Select defaultValue="main">
+    <option value="main">Hello World</option>
+    <option value="other">Bye, cruel world</option>
+  </Select>
+</Label>
+```
+
+```jsx live
+<Provider
+  theme={{
+    selects: {
+      default: {
+        width: '100%',
+        border: '1px solid #aaa',
+        borderRadius: 4,
+      },
+    },
+  }}
+>
+  <Label>
+    Reply:
+    <Select defaultValue="main">
+      <option value="main">Hello World</option>
+      <option value="other">Bye, cruel world</option>
+    </Select>
+  </Label>
+</Provider>
+```
