@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { style } from 'pss'
 import { Box, BoxComponent, BoxProps } from '../box/box.js'
 import { withDefaults } from '../internal/with-defaults.js'
 
@@ -18,7 +19,11 @@ export interface FlexComponent<
 > extends BoxComponent<E, V, FlexInnerProps & P> {}
 
 export const Flex: FlexComponent = withDefaults(
-  styled<any>(Box)({ display: 'flex' }),
+  styled<any>(Box)(
+    { display: 'flex' },
+    style('gap'),
+    style('alignItems', 'align')
+  ),
   { as: 'div', $key: 'flexes' }
 )
 
