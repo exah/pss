@@ -5,7 +5,7 @@ on:
   pull_request:
 
 jobs:
-  typecheck:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,4 +14,7 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - run: npm -w pss run build
+      - run: npm -w pss-react run build
       - run: npm run typecheck
+      - run: npm t
